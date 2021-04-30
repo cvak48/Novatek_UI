@@ -4,9 +4,10 @@ div#myNavbar {
     position: fixed;
     bottom: 0px;
     width: 100%;
-    background: #ddd;
+    background: #f1f1f1;
     padding: 15px;
     margin-bottom: 0;
+    border: 1px solid #ddd;
     .list-inlin li {
         display: inline-block;
         margin-bottom: 0 !important;

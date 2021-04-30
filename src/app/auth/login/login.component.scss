@@ -1,0 +1,67 @@
+.right-section {
+    height: 100vh;
+    background-image: linear-gradient(160deg, #1f78b4, #004463);
+}
+
+.novatek-logo-center {
+    margin: 0 auto;
+}
+
+::ng-deep .mat-card-header-text {
+    margin: 0px !important;
+}
+
+::ng-deep .mat-card:not([class*=mat-elevation-z]) {
+    box-shadow: 0px 6px 5px 1px rgb(0 0 0 / 20%), 25px 6px 21px 0px rgb(1 0 0 / 14%), 5px 6px 3px 1px rgb(0 0 0 / 12%);
+}
+
+.user-txt {
+    margin-top: 7% !important;
+}
+
+.nxt-btn {
+    margin: 10px 0 10px 0 !important;
+}
+
+.login-card {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+::ng-deep .mat-card {
+    width: 75%;
+    /* height: 400px; */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: middle;
+}
+
+.forgot-user {
+    float: right;
+    text-decoration: underline;
+    color: blue;
+}
+
+.login-txt {
+    margin-left: 10%;
+    top: 40%;
+    position: absolute;
+}
+
+.organization-txt {
+    font-size: 100px;
+    line-height: 1;
+    color: #ffffff;
+    font-weight: bold;
+    font-family: inherit;
+}
+
+.organiztion-intro {
+    font-family: inherit;
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 50px;
+}

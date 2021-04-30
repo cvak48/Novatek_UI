@@ -10,6 +10,9 @@ import { NovaFooterComponent } from './nova-footer/nova-footer.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    NovaFooterComponent
   ]
 })
-export class LayoutModule { }
+export class LayoutComponentModule { }

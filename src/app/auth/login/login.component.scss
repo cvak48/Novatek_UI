@@ -1,3 +1,5 @@
+@import "./../../reusable/theme/base.scss";
+
 .right-section {
     height: 100vh;
     background-image: linear-gradient(160deg, #1f78b4, #004463);
@@ -5,6 +7,7 @@
 
 .novatek-logo-center {
     margin: 0 auto;
+    margin-top: 25px !important;
 }
 
 ::ng-deep .mat-card-header-text {
@@ -59,7 +62,6 @@ button {
 
 ::ng-deep .mat-card {
     width: 75%;
-    /* height: 400px; */
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -79,9 +81,9 @@ button {
 }
 
 .organization-txt {
-    font-size: 100px;
+    font-size: $font-size-XXlarge;
     line-height: 1;
-    color: #ffffff;
+    color: $primary-0-000;
     font-weight: bold;
     font-family: inherit;
 }
@@ -89,10 +91,24 @@ button {
 .organiztion-intro {
     font-family: inherit;
     font-weight: bold;
-    color: #ffffff;
-    font-size: 50px;
+    color: $primary-0-000;
+    font-size: $font-size-Xlarge;
 }
 
 .label-weight {
-    font-weight: 500;
+    font-weight: $font-weight-medium;
+}
+
+.header-divider {
+    margin-top: 25%;
+    border-top-color: rgba(11, 10, 11, 0.40);
+}
+
+.user-txt-name {
+    font-weight: $font-weight-medium;
+    margin-left: 16px;
+}
+
+.body-divider {
+    box-shadow: 0px 1px 2px;
 }

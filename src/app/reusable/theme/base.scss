@@ -1,26 +1,32 @@
-/* The Global or Design System's styles can be added here */
+/* The Design System's styles can be added here */
 /// Color
-// Primary
-$primary-0-000: #FFFFFF;
-$primary-0-100: #EFEFF2;
-$primary-1-900: #264653;
-$primary-2-900: #7DC636;
-// secondary
-$accent-1-900:  #4361EE;
-$accent-2-900 : #E2A200;
-//  Alerts
-$stress-1-900: #61B652;
-$stress-2-900: #DE020D;
-$stress-3-900: #FFC107;
-// Neutrals
-$neutral-1-100: #757575;
-$neutral-1-200: #C0BFCC;
-$neutral-2-400: #aeaeb1;
-$neutral-2-500: #c2c2c5;
-$neutral-2-600: #E0DFE5;
+
+$color-brown: #946A12;
+$color-orange: #FCB520;
+$color-yellow: #FBD890;
+$color-light-yellow: #FFF5E1;
+$color-green: #198515;
+$color-light-green: #C1E9C1;
+$color-red: #DB2828;
+$color-light-red: #FFD7D7;
+$color-dark-blue: #004463;
+$color-dark-blue-10: #1F78B4;
+$color-dark-blue-20: #81BDED;
+$color-light-blue-10: #C9E2F5;
+$color-light-blue-20: #F6FCFE;
+$color-black: #1B1C1D;
+$color-black-10: #333333;
+$color-dark-gray: #5D5D5D;
+$color-dark-gray-10: #5D5D5D99;
+$color-dark-gray-20: #999C9E;
+$color-light-gray: #F9F9F9;
+$color-white: #FFFFFF;
+$text-color-10: $color-black;
+$text-color-20: $color-dark-gray;
+$text-color-30: $color-white;
+
 /// font
-$nv-font:
-"Helvetica Neue",
+$nv-font: "Lato",
 "Segoe UI",
 "Segoe UI Web (West European)",
 "Segoe UI",
@@ -29,68 +35,91 @@ BlinkMacSystemFont,
 Roboto,
 sans-serif;
 
-$font-color-900: #31303C;
-$font-color-800: #58566B;
-$font-color-700:  #72708B;
-$font-color-400: #A19FB2;
-$font-color-200: #C0BFCC;
-
-$font-size-small: 14px;
+$font-size-x-small: 14px;
+$font-size-small: 16px;
 $font-size-medium: 18px;
 $font-size-large: 24px;
-$font-size-Xlarge: 50px;
-$font-size-XXlarge: 100px;
-$font-header-size-small: 28px;
-$font-header-size-medium: 32px;
-$font-header-size-large: 36px;
-$font-header-size-x-large: 40px;
+$font-size-x-large: 28px;
 
-$line-height-small: 17px;
-$line-height-medium: 21px;
-$line-height-large: 29px;
-
-$font-weight-ultralight: 100;
-$font-weight-thin: 200;
-$font-weight-light: 300;
-$font-weight-regular: 400;
-$font-weight-medium:  500;
-$font-weight-semibold: 600;
+$font-weight-normal: 500;
 $font-weight-bold: 700;
 $font-weight-heavy: 800;
-$font-weight-black: 900;
 
-$text-color-100:  rgb(0, 0, 0);
-$text-color-200: rgb(23, 43, 77);
-$text-color-300: rgb(66, 82, 110);
-$text-color-400: rgb(244, 245, 247);
+$font-style-normal: normal;
+
+$line-height-x-small: 18px;
+$line-height-small: 19px;
+$line-height-medium: 23px;
+$line-height-large: 30px;
+$line-height-x-large: 36px;
 
 /// Background
-$background-color-100: rgb(80, 95, 121);
-$background-color-200: #E8E8E8;
-$background-color-400: rgb(0, 82, 204);
-$background-color-300: rgb(222, 235, 255);
-$background-color-200: rgb(223, 225, 230);
-$background-color-500: rgb(244, 245, 247);
+$background-color-100: $color-black;
+$background-color-500: $color-white;
 /// Border
-$border-color-100: rgb(0, 0, 0);
-$border-color-200: rgb(76, 154, 230);
-$border-color-300: #F8F8F9;
-
-
+$border-color-100: $color-black;
+$border-color-200: $color-dark-blue-10;
+$border-color-500: $color-white;
 
 .h1 {
-    font-size: $font-header-size-x-large;
-    font-family: $nv-font;
-    font-weight: $font-weight-bold;
+  font-style: $font-style-normal;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-x-large;
+  font-family: $nv-font;
+  color: $color-black-10;
 }
 
 .h2 {
-    font-size: $font-header-size-large;
-    font-family: $nv-font;
+  font-style: $font-style-normal;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-large;
+  font-family: $nv-font;
+  line-height: $line-height-large;
+  color: $color-black-10;
 }
 
+.h3 {
+  font-style: $font-style-normal;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-medium;
+  font-family: $nv-font;
+  line-height: $line-height-medium;
+  color: $color-black-10;
+}
+
+.h4 {
+  font-style: $font-style-normal;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-small;
+  font-family: $nv-font;
+  line-height: $line-height-small;
+  color: $color-black-10;
+}
+
+.h5 {
+  font-style: $font-style-normal;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-x-small;
+  font-family: $nv-font;
+  line-height: $line-height-x-small;
+  color: $color-black-10;
+}
+
+.sub-h2 {
+  font-style: $font-style-normal;
+  font-weight: $font-weight-normal;
+  font-size: $font-size-small;
+  font-family: $nv-font;
+  line-height: $line-height-medium;
+  color: $color-dark-gray-10;
+}
+
+
 .body {
-    font-size: $font-size-medium;
-    font-family: $nv-font;
-    font-weight: $font-weight-medium;
+  font-style: $font-style-normal;
+  font-weight: $font-weight-normal;
+  font-size: $font-size-x-small;
+  font-family: $nv-font;
+  line-height: $line-height-medium;
+  color: $color-black-10;
 }

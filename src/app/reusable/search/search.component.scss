@@ -1,17 +1,18 @@
 @import './../theme/base.scss';
 .dropdown {
-    
+    .form-outline {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-self: center;
 .form-control {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-self: center;
+
     &:focus {
         border-color: transparent;
         box-shadow: none;
     }
 }
-
+}
 .dropdown-menu {
     .dropdown-item {
         &:hover {

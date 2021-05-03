@@ -10,20 +10,20 @@ $color-light-green: #C1E9C1;
 $color-red: #DB2828;
 $color-light-red: #FFD7D7;
 $color-dark-blue: #004463;
-$color-dark-blue01: #1F78B4;
-$color-dark-blue02: #81BDED;
-$color-light-blue01: #C9E2F5;
-$color-light-blue02: #F6FCFE;
+$color-dark-blue-10: #1F78B4;
+$color-dark-blue-20: #81BDED;
+$color-light-blue-10: #C9E2F5;
+$color-light-blue-20: #F6FCFE;
 $color-black: #1B1C1D;
-$color-black01: #333333;
+$color-black-10: #333333;
 $color-dark-gray: #5D5D5D;
-$color-dark-gray01: #5D5D5D99;
-$color-dark-gray02: #999C9E;
+$color-dark-gray-10: #5D5D5D99;
+$color-dark-gray-20: #999C9E;
 $color-light-gray: #F9F9F9;
 $color-white: #FFFFFF;
-$text-color01: $color-black;
-$text-color02: $color-dark-gray;
-$text-color03: $color-white;
+$text-color-10: $color-black;
+$text-color-20: $color-dark-gray;
+$text-color-30: $color-white;
 
 /// font
 $nv-font: "Lato",
@@ -58,7 +58,7 @@ $background-color-100: $color-black;
 $background-color-500: $color-white;
 /// Border
 $border-color-100: $color-black;
-$border-color-200: $color-dark-blue01;
+$border-color-200: $color-dark-blue-10;
 $border-color-500: $color-white;
 
 .h1 {
@@ -66,7 +66,7 @@ $border-color-500: $color-white;
   font-weight: $font-weight-bold;
   font-size: $font-size-x-large;
   font-family: $nv-font;
-  color: $color-black01;
+  color: $color-black-10;
 }
 
 .h2 {
@@ -75,7 +75,7 @@ $border-color-500: $color-white;
   font-size: $font-size-large;
   font-family: $nv-font;
   line-height: $line-height-large;
-  color: $color-black01;
+  color: $color-black-10;
 }
 
 .h3 {
@@ -84,7 +84,7 @@ $border-color-500: $color-white;
   font-size: $font-size-medium;
   font-family: $nv-font;
   line-height: $line-height-medium;
-  color: $color-black01;
+  color: $color-black-10;
 }
 
 .h4 {
@@ -93,7 +93,7 @@ $border-color-500: $color-white;
   font-size: $font-size-small;
   font-family: $nv-font;
   line-height: $line-height-small;
-  color: $color-black01;
+  color: $color-black-10;
 }
 
 .h5 {
@@ -102,7 +102,7 @@ $border-color-500: $color-white;
   font-size: $font-size-x-small;
   font-family: $nv-font;
   line-height: $line-height-x-small;
-  color: $color-black01;
+  color: $color-black-10;
 }
 
 .sub-h2 {
@@ -111,7 +111,7 @@ $border-color-500: $color-white;
   font-size: $font-size-small;
   font-family: $nv-font;
   line-height: $line-height-medium;
-  color: $color-dark-gray01;
+  color: $color-dark-gray-10;
 }
 
 
@@ -121,5 +121,5 @@ $border-color-500: $color-white;
   font-size: $font-size-x-small;
   font-family: $nv-font;
   line-height: $line-height-medium;
-  color: $color-black01;
+  color: $color-black-10;
 }

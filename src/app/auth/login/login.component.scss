@@ -7,7 +7,7 @@
 
 .novatek-logo-center {
     margin: 0 auto;
-    margin-top: 25px !important;
+    margin-top: $margin-25 !important;
 }
 
 ::ng-deep .mat-card-header-text {
@@ -19,7 +19,7 @@
 }
 
 ::ng-deep .mat-card:not([class*=mat-elevation-z]) {
-    box-shadow: 0px 6px 5px 1px rgb(0 0 0 / 20%), 25px 6px 21px 0px rgb(1 0 0 / 14%), 5px 6px 3px 1px rgb(0 0 0 / 12%);
+    box-shadow: 0px 6px 5px 1px rgb(0 0 0 / 20%), $margin-25 6px 21px 0px rgb(1 0 0 / 14%), 5px 6px 3px 1px rgb(0 0 0 / 12%);
 }
 
 .user-txt {
@@ -31,7 +31,7 @@
 }
 
 .login-items {
-    padding: 16px;
+    padding: $padding-16;
     background-color: #F0F0F0;
 }
 
@@ -42,7 +42,7 @@
 }
 
 ::ng-deep .mat-card>.mat-card-actions:last-child {
-    padding: 16px;
+    padding: $padding-16;
     margin-bottom: 0px !important;
     background: #F7F7F7;
     margin-right: 0px !important;
@@ -85,9 +85,9 @@ button {
 }
 
 .organization-txt {
-    font-size: $font-size-XXlarge;
+    font-size: $font-size-xxx-large;
     line-height: 1;
-    color: $primary-0-000;
+    color: $color-white;
     font-weight: bold;
     font-family: inherit;
 }
@@ -95,12 +95,12 @@ button {
 .organiztion-intro {
     font-family: inherit;
     font-weight: bold;
-    color: $primary-0-000;
-    font-size: $font-size-Xlarge;
+    color: $color-white;
+    font-size: $font-size-xx-large;
 }
 
 .label-weight {
-    font-weight: $font-weight-medium;
+    font-weight: $font-weight-normal;
 }
 
 .header-divider {
@@ -109,8 +109,8 @@ button {
 }
 
 .user-txt-name {
-    font-weight: $font-weight-medium;
-    margin-left: 16px;
+    font-weight: $font-weight-normal;
+    margin-left: $padding-16;
 }
 
 .body-divider {

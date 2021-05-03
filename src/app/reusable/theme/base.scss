@@ -40,6 +40,8 @@ $font-size-small: 16px;
 $font-size-medium: 18px;
 $font-size-large: 24px;
 $font-size-x-large: 28px;
+$font-size-xx-large: 50px;
+$font-size-xxx-large: 100px;
 
 $font-weight-normal: 500;
 $font-weight-bold: 700;
@@ -52,6 +54,13 @@ $line-height-small: 19px;
 $line-height-medium: 23px;
 $line-height-large: 30px;
 $line-height-x-large: 36px;
+
+//margin
+$margin-25: 25px;
+$no-margin: 0px;
+
+//padding
+$padding-16: 16px;
 
 /// Background
 $background-color-100: $color-black;

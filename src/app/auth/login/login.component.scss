@@ -11,6 +11,10 @@
     margin: 0px !important;
 }
 
+::ng-deep .mat-card {
+    padding: 0px !important;
+}
+
 ::ng-deep .mat-card:not([class*=mat-elevation-z]) {
     box-shadow: 0px 6px 5px 1px rgb(0 0 0 / 20%), 25px 6px 21px 0px rgb(1 0 0 / 14%), 5px 6px 3px 1px rgb(0 0 0 / 12%);
 }
@@ -23,11 +27,34 @@
     margin: 10px 0 10px 0 !important;
 }
 
+.login-items {
+    padding: 16px;
+    background-color: #F0F0F0;
+}
+
+::ng-deep .mat-card-actions,
+.mat-card-subtitle,
+.mat-card-content {
+    margin-bottom: 0px;
+}
+
+::ng-deep .mat-card>.mat-card-actions:last-child {
+    padding: 16px;
+    margin-bottom: 0px !important;
+    background: #F7F7F7;
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+}
+
 .login-card {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+button {
+    background-color: #F0F0F0;
 }
 
 ::ng-deep .mat-card {
@@ -42,7 +69,7 @@
 .forgot-user {
     float: right;
     text-decoration: underline;
-    color: blue;
+    color: #1791F1;
 }
 
 .login-txt {
@@ -64,4 +91,8 @@
     font-weight: bold;
     color: #ffffff;
     font-size: 50px;
+}
+
+.label-weight {
+    font-weight: 500;
 }

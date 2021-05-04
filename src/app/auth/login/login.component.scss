@@ -1,0 +1,118 @@
+@import "./../../reusable/theme/base.scss";
+
+.right-section {
+    height: 100vh;
+    background-image: linear-gradient(160deg, #1f78b4, #004463);
+}
+
+.novatek-logo-center {
+    margin: 0 auto;
+    margin-top: $margin-25 !important;
+}
+
+::ng-deep .mat-card-header-text {
+    margin: 0px !important;
+}
+
+::ng-deep .mat-card {
+    padding: 0px !important;
+}
+
+::ng-deep .mat-card:not([class*=mat-elevation-z]) {
+    box-shadow: 0px 6px 5px 1px rgb(0 0 0 / 20%), $margin-25 6px 21px 0px rgb(1 0 0 / 14%), 5px 6px 3px 1px rgb(0 0 0 / 12%);
+}
+
+.user-txt {
+    margin-top: 7% !important;
+}
+
+.nxt-btn {
+    margin: 10px 0 10px 0 !important;
+}
+
+.login-items {
+    padding: $padding-16;
+    background-color: #F0F0F0;
+}
+
+::ng-deep .mat-card-actions,
+.mat-card-subtitle,
+.mat-card-content {
+    margin-bottom: 0px;
+}
+
+::ng-deep .mat-card>.mat-card-actions:last-child {
+    padding: $padding-16;
+    margin-bottom: 0px !important;
+    background: #F7F7F7;
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+    border-radius: 10px;
+    border-bottom: 1px solid #b6b6b6;
+}
+
+.login-card {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    background-color: #F0F0F0;
+}
+
+::ng-deep .mat-card {
+    width: 75%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: middle;
+    border-radius: 10px !important;
+    border: 1px solid #b6b6b6;
+}
+
+.forgot-user {
+    float: right;
+    text-decoration: underline;
+    color: #1791F1;
+}
+
+.login-txt {
+    margin-left: 10%;
+    top: 40%;
+    position: absolute;
+}
+
+.organization-txt {
+    font-size: $font-size-xxx-large;
+    line-height: 1;
+    color: $color-white;
+    font-weight: bold;
+    font-family: inherit;
+}
+
+.organiztion-intro {
+    font-family: inherit;
+    font-weight: bold;
+    color: $color-white;
+    font-size: $font-size-xx-large;
+}
+
+.label-weight {
+    font-weight: $font-weight-normal;
+}
+
+.header-divider {
+    margin-top: 25%;
+    border-top-color: rgba(11, 10, 11, 0.40);
+}
+
+.user-txt-name {
+    font-weight: $font-weight-normal;
+    margin-left: $padding-16;
+}
+
+.body-divider {
+    box-shadow: 0px 1px 2px;
+}

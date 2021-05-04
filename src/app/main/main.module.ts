@@ -4,6 +4,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ReusableModule } from '../reusable/reusable.module';
 import { MaterialModule } from '../material.module';
 import { MainRoutingModule } from './main-routing.module';
+import { LayoutComponentModule } from '../layout';
 
 
 
@@ -15,7 +16,8 @@ import { MainRoutingModule } from './main-routing.module';
     CommonModule,
     ReusableModule,
     MaterialModule,
-    MainRoutingModule
+    MainRoutingModule,
+    LayoutComponentModule
   ]
 })
 export class MainModule { }

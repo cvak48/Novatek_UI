@@ -3,16 +3,13 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
-import { PanelComponent } from './panel/panel.component';
-
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
-    SideNavComponent,
-    PanelComponent,
+    SideNavComponent
 
   ],
   imports: [
@@ -21,8 +18,7 @@ import { PanelComponent } from './panel/panel.component';
   exports: [
     HeaderComponent,
     FooterComponent,
-    SideNavComponent,
-    PanelComponent
+    SideNavComponent
   ]
 })
 export class ReusableModule { }

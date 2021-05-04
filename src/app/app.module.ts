@@ -19,9 +19,6 @@ import { ReusableModule } from './reusable/reusable.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MainModule,
-    ReusableModule,
-    AuthModule,
     BrowserAnimationsModule,
     MaterialModule,
     LayoutComponentModule

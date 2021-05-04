@@ -1,5 +1,5 @@
 /* The Design System's styles can be added here */
-/// Color
+// Color
 
 $color-brown: #946A12;
 $color-orange: #FCB520;
@@ -20,12 +20,14 @@ $color-dark-gray: #5D5D5D;
 $color-dark-gray-10: #5D5D5D99;
 $color-dark-gray-20: #999C9E;
 $color-light-gray: #F9F9F9;
+$colo-light1-gray: #dddddd;
+
 $color-white: #FFFFFF;
 $text-color-10: $color-black;
 $text-color-20: $color-dark-gray;
 $text-color-30: $color-white;
 
-/// font
+ // Font
 $nv-font: "Lato",
 "Segoe UI",
 "Segoe UI Web (West European)",
@@ -35,6 +37,7 @@ BlinkMacSystemFont,
 Roboto,
 sans-serif;
 
+$font-size-xx-small: 12px;
 $font-size-x-small: 14px;
 $font-size-small: 16px;
 $font-size-medium: 18px;
@@ -53,10 +56,10 @@ $line-height-medium: 23px;
 $line-height-large: 30px;
 $line-height-x-large: 36px;
 
-/// Background
+//Background
 $background-color-100: $color-black;
 $background-color-500: $color-white;
-/// Border
+//Border
 $border-color-100: $color-black;
 $border-color-200: $color-dark-blue-10;
 $border-color-500: $color-white;

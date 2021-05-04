@@ -19,12 +19,10 @@ import { ReusableModule } from './reusable/reusable.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MainModule,
-    ReusableModule,
-    AuthModule,
     BrowserAnimationsModule,
     MaterialModule,
-    LayoutComponentModule
+    LayoutComponentModule,
+    ReusableModule
     // StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [],

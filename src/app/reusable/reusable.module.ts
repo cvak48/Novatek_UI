@@ -3,26 +3,22 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
+import { NovatekLogoComponent } from './novatek-logo/novatek-logo.component';
 import { PanelComponent } from './panel/panel.component';
 
-
+var sharedSomponents = [
+  HeaderComponent,
+  FooterComponent,
+  SideNavComponent,
+  NovatekLogoComponent,
+  PanelComponent
+]
 
 @NgModule({
-  declarations: [
-    HeaderComponent,
-    FooterComponent,
-    SideNavComponent,
-    PanelComponent,
-
-  ],
+  declarations: sharedSomponents,
   imports: [
     CommonModule
   ],
-  exports: [
-    HeaderComponent,
-    FooterComponent,
-    SideNavComponent,
-    PanelComponent
-  ]
+  exports: sharedSomponents
 })
 export class ReusableModule { }

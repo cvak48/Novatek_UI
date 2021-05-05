@@ -11,6 +11,7 @@ $color-red: #DB2828;
 $color-light-red: #FFD7D7;
 $color-dark-blue: #004463;
 $color-dark-blue-10: #1F78B4;
+$color-dark-blue-12: #1791F1;
 $color-dark-blue-20: #81BDED;
 $color-light-blue-10: #C9E2F5;
 $color-light-blue-20: #F6FCFE;
@@ -19,23 +20,22 @@ $color-black-10: #333333;
 $color-dark-gray: #5D5D5D;
 $color-dark-gray-10: #5D5D5D99;
 $color-dark-gray-20: #999C9E;
+$color-dark-gray-30: #B5B5B5;
 $color-light-gray: #F9F9F9;
 $colo-light1-gray: #dddddd;
 
 $color-white: #FFFFFF;
+
+
+// font
+$nv-font: "Lato",
+"Roboto",
+"sans-serif";
+
+$disabled-text-color: $color-dark-gray-30;
 $text-color-10: $color-black;
 $text-color-20: $color-dark-gray;
 $text-color-30: $color-white;
-
- // Font
-$nv-font: "Lato",
-"Segoe UI",
-"Segoe UI Web (West European)",
-"Segoe UI",
--apple-system,
-BlinkMacSystemFont,
-Roboto,
-sans-serif;
 
 $font-size-xx-small: 12px;
 $font-size-x-small: 14px;
@@ -52,6 +52,8 @@ $font-weight-heavy: 800;
 
 $font-style-normal: normal;
 
+$line-height-xxx-small: 12px;
+$line-height-xx-small: 15px;
 $line-height-x-small: 18px;
 $line-height-small: 19px;
 $line-height-medium: 23px;
@@ -68,16 +70,19 @@ $padding-16: 16px;
 /// Background
 $background-color-100: $color-black;
 $background-color-500: $color-white;
-//Border
+// Border
 $border-color-100: $color-black;
 $border-color-200: $color-dark-blue-10;
 $border-color-500: $color-white;
+
+
 
 .h1 {
   font-style: $font-style-normal;
   font-weight: $font-weight-bold;
   font-size: $font-size-x-large;
   font-family: $nv-font;
+  line-height: $line-height-x-large;
   color: $color-black-10;
 }
 
@@ -126,6 +131,31 @@ $border-color-500: $color-white;
   color: $color-dark-gray-10;
 }
 
+.f1 {
+  font-style: $font-style-normal;
+  font-weight: $font-weight-normal;
+  font-size: $font-size-x-small;
+  font-family: $nv-font;
+  line-height: $line-height-xxx-small;
+  color: $color-dark-gray-10;
+
+  &:link {
+    line-height: $line-height-x-small;
+    color: $color-dark-gray;
+  }
+
+  &:visited {
+    line-height: $line-height-x-small;
+    color: $color-dark-blue;
+  }
+
+  &:hover {
+    line-height: $line-height-x-small;
+    color: $color-black;
+  }
+
+}
+
 
 .body {
   font-style: $font-style-normal;
@@ -133,5 +163,21 @@ $border-color-500: $color-white;
   font-size: $font-size-x-small;
   font-family: $nv-font;
   line-height: $line-height-medium;
-  color: $color-black-10;
+  color: $color-dark-gray;
+
+  &:link {
+    line-height: $line-height-x-small;
+    color: $color-dark-blue-12;
+  }
+
+  &:visited {
+    line-height: $line-height-x-small;
+    color: $color-dark-blue;
+  }
+
+  &:hover {
+    line-height: $line-height-x-small;
+    color: $color-dark-blue-20;
+  }
+
 }

@@ -13,7 +13,7 @@ $margin-left: -8px;
   
   width: 100%;
   height: calc(100vh - 20px);
-  background-color: $primary-0-000;
+  background-color: #FFFFFF;
   background-color: #fafafa;
   //   display: flex;
   //   flex-direction: column;
@@ -24,7 +24,7 @@ $margin-left: -8px;
     left: 0;
     right: 0;
     height: 70px;
-    background-color: $accent-1-900;
+    background-color:#4361EE;
     color: white;
     font-weight: $font-weight-heavy;
 
@@ -45,14 +45,14 @@ $margin-left: -8px;
       margin-left: -32px;
       font-size: $font-size-large;
       font-weight: $font-weight-heavy;
-      color: $accent-2-900;
+      color: #E2A200;
     }
 
     .demo-label {
       padding-left: 25px;
       font-size: $font-size-large;
-      font-weight: $font-weight-medium;
-      color: $primary-0-100 ;
+      // font-weight: $font-weight-medium;
+      color: #EFEFF2 ;
 
     }
 

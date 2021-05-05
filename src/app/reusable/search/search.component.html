@@ -1,7 +1,7 @@
 <div class="container">
   <div class="dropdown">
     <div class="form-outline" data-toggle="dropdown">
-      <textarea class="form-control label" type="search" id="form1" rows="1" placeholder="Search..." 
+      <textarea class="form-control h50 label" type="search" id="form1" rows="1" placeholder="Search..." 
       [formControl]="selectedItemFormControl"(input)="onInput($event)" (keydown)=" onKeyDown($event)"> </textarea>
       <svg *ngIf="searchIcon" xmlns="http://www.w3.org/2000/svg" class="bi bi-search icon" viewBox="0 0 16 16">
         <path
@@ -10,7 +10,7 @@
       <mat-icon *ngIf="!searchIcon" class="icon" (click)="onCancelClick($event)">cancel</mat-icon>
     </div>
     <div class="dropdown-menu" [ngClass]="{'display': !showMenu}">
-      <div class="dropdown-item label" *ngFor="let item of items; let i = index" (click)="onItemSelect(i)"
+      <div class="dropdown-item h50 label" *ngFor="let item of items; let i = index" (click)="onItemSelect(i)"
         [ngClass]="{'active': i==selectedIndex}"> {{item}}</div>
     </div>
 

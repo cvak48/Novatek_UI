@@ -8,51 +8,45 @@
 
     .form-outline {
       position: relative;
-      background: #FFFFFF 0% 0% no-repeat padding-box;
-      border: 1px solid #DEDEDF;
+      background: $color-white-20 0% 0% no-repeat padding-box;
       border-radius: 8px;
       opacity: 1;
 
       .form-control {
             position: relative;
             background-color: transparent;
+            transition: none;
             border: none;
             resize: none;
-            color: $font-color-200;
             overflow: hidden;
 
-
             &.label {
-            font: normal normal bold 14px/16px Lato;
             letter-spacing: 0px;
-            color: #000000;
             opacity: 1;
-            padding-left: 17px;
+            padding-left: $padding-16;
              line-height: 1.5;
             }
 
-
             &:focus {
             outline: none;
+            border: 1px solid $color-dark-blue-12;
             box-shadow: none;
-            border: none;
-            border: 1px solid #4361EE;
             border-radius: 8px;
             box-sizing: border-box;
             }
-               &::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+               &::-webkit-input-placeholder {
               font: normal normal medium 14px/16px Lato;
-              color: #00000066;
+              color: $color-black-12;
               opacity: 1;
               }
-              &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-                font: normal normal medium 14px/16px Lato;
-              color: #00000066;
+              &:-moz-placeholder { 
+              font: normal normal medium 14px/16px Lato;
+              color: $color-black-12;
               opacity: 1;
               }
-              &::-moz-placeholder { /* Mozilla Firefox 19+ */
+              &::-moz-placeholder {
                 font: normal normal medium 14px/16px Lato;
-              color: #00000066;
+              color: $color-black-12;
               opacity: 1;
               }
 
@@ -81,9 +75,9 @@
       position: absolute;
       width: 100%;
       top: 8px;
-      background: #FFFFFF 0% 0% no-repeat padding-box;
-      box-shadow: 0px 3px 6px #00000029;
-      border: 1px solid #D9D9DA;
+      background: $color-white-20 0% 0% no-repeat padding-box;
+      box-shadow: 0px 3px 6px $color-black-10;
+      border: 1px solid $color-white;
       border-radius: 4px;
       opacity: 1;
       &.display {
@@ -92,20 +86,18 @@
       .dropdown-item {
 
         &.label {
-          font: normal normal bold 14px/16px Lato;
           letter-spacing: 0px;
-          color: #000000;
           opacity: 1;
-          padding-left: 17px;
+          padding-left: $padding-16;
            line-height: 1.5;
           }
         &:hover {
-          background: #acacac;
+          background: $color-dark-gray-20;
         }
       }
 
       .active {
-        background: #c3c3c3;
+        background: $color-dark-gray-30;
 
       }
 

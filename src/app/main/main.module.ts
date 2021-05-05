@@ -17,7 +17,7 @@ import { LayoutComponentModule } from '../layout';
     ReusableModule,
     MaterialModule,
     MainRoutingModule,
-    LayoutComponentModule
+    LayoutComponentModule   
   ]
 })
 export class MainModule { }

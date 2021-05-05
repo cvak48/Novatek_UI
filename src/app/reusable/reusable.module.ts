@@ -1,4 +1,3 @@
-import { DemoPageComponent } from './demo-page/demo-page.component';
 import { SearchComponent } from './search/search.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './../material.module';
@@ -15,7 +14,6 @@ const sharedComponents = [
   SideNavComponent,
   NovatekLogoComponent,
   SearchComponent,
-  DemoPageComponent
 ];
 
 @NgModule({

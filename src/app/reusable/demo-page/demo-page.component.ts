@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 export enum NvComponent {
   // First: Add the name of your reusable component to this enum
   Search,
-  NovaLogo
+  NovaLogo,
+  Footer
 
 }
 

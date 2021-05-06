@@ -1,3 +1,4 @@
+import { LayoutComponentModule } from './../layout/layout.module';
 import { DemoPageComponent } from './demo-page/demo-page.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -17,7 +18,8 @@ var sharedSomponents = [
 @NgModule({
   declarations: sharedSomponents,
   imports: [
-    CommonModule
+    CommonModule,
+    LayoutComponentModule
   ],
   exports: sharedSomponents
 })

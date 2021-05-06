@@ -1,10 +1,10 @@
-
 @import './../theme/base.scss';
 
 * {
   box-sizing: border-box;
   // makes sure that the padding and border are included in the total width and height of the elements.
 }
+
 $margin-left: -8px;
 
 .demo-page-container {
@@ -23,7 +23,7 @@ $margin-left: -8px;
     left: 0;
     right: 0;
     height: 70px;
-    background-color:#4361EE;
+    background-color: #4361EE;
     color: white;
     font-weight: $font-weight-heavy;
 
@@ -51,7 +51,7 @@ $margin-left: -8px;
       padding-left: 25px;
       font-size: $font-size-large;
       // font-weight: $font-weight-medium;
-      color: #EFEFF2 ;
+      color: #EFEFF2;
 
     }
 
@@ -76,12 +76,12 @@ $margin-left: -8px;
       position: relative;
       display: flex;
       flex-direction: column;
-      border-right: 1px solid rgba(0,0,0,.12);
+      border-right: 1px solid rgba(0, 0, 0, .12);
       padding-left: 4px;
 
       .menu-header {
         text-align: center;
-        color: rgba(0,0,0,.65);
+        color: rgba(0, 0, 0, .65);
         font-size: large;
         font-weight: 700;
         padding-top: 8px;
@@ -94,50 +94,44 @@ $margin-left: -8px;
         font-size: medium;
         font-weight: bold;
         vertical-align: middle;
-        color: rgba(0,0,0,.65);
+        color: rgba(0, 0, 0, .65);
         height: 50px;
-        line-height:50px;
+        line-height: 50px;
         margin: 0 5px;
+
         &:hover {
           cursor: pointer;
-          background: rgba(63,81,181,.15);
+          background: rgba(63, 81, 181, .15);
           color: #3f51b5;
         }
       }
     }
 
     .preview-panel {
+      position: absolute;
+      left: 300px;
+      top: 100px;
       padding-left: 100px;
       padding-top: 50px;
       display: flex;
       flex-direction: column;
+      border: 1px solid black;
 
-      .panel-header {
-
-        padding-top: 8px;
-        padding-bottom: 8px;
-        .header-title {
-          color: rgba(0,0,0,.65);
-          font-size: larger;
-          font-weight: 700;
-        }
-        .header-description {
-          color: rgba(54, 54, 54, 0.65);
-          font-size: large;
-          font-weight: 500;
-        }
-
-      }
       .panel-body {
-      display: flex;
-      flex-direction: row;
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        border: 1px solid purple;
 
         .body-item {
+          position: relative;
           padding-right: 10px;
-        }
-        .item-container {
-          width: 20%;
-          height: 40px;
+
+          .body-item-container {
+            width: 20%;
+            height: 40px;
+          }
+
         }
       }
     }
@@ -146,4 +140,3 @@ $margin-left: -8px;
   }
 
 }
-

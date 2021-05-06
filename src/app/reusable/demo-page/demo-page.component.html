@@ -34,9 +34,12 @@
       <div class="preview-panel" [ngSwitch]="selectedItem">
         <div class="panel-body">
           <!-- Forth: Call your reusable component here and pass input data if needed  -->
-          <div class="item-container">
+          
+          <div class="body-item-container">
             <!-- <app-search class="body-item" *ngSwitchCase="nvComponentType.Search"></app-search> -->
+            <app-nova-footer class="body-item" *ngSwitchCase="nvComponentType.Footer"></app-nova-footer>
           </div>
+
         </div>
       </div>
     </div>

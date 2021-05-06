@@ -40,7 +40,7 @@ export class SearchComponent implements OnInit {
     this.searchIcon = true;
     event.preventDefault();
   }
-  onKeyDown(event: any): void {
+  onKeyUp(event: any): void {
     this.searchIcon = false;
     if (event.key === 'Escape') {
     } else if (event.key === 'Enter') {

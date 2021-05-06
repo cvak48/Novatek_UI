@@ -1,3 +1,6 @@
+import { SearchComponent } from './search/search.component';
+import { MaterialModule } from './../material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LayoutComponentModule } from './../layout/layout.module';
 import { DemoPageComponent } from './demo-page/demo-page.component';
 import { NgModule } from '@angular/core';
@@ -7,20 +10,23 @@ import { FooterComponent } from './footer/footer.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { NovatekLogoComponent } from './novatek-logo/novatek-logo.component';
 
-var sharedSomponents = [
+const sharedComponents = [
   HeaderComponent,
   FooterComponent,
   SideNavComponent,
   NovatekLogoComponent,
-  DemoPageComponent
+  DemoPageComponent,
+  SearchComponent
 ]
 
 @NgModule({
-  declarations: sharedSomponents,
+  declarations: sharedComponents,
   imports: [
     CommonModule,
-    LayoutComponentModule
+    FormsModule,
+    ReactiveFormsModule,
+    MaterialModule,
   ],
-  exports: sharedSomponents
+  exports: sharedComponents
 })
 export class ReusableModule { }

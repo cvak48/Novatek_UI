@@ -20,15 +20,15 @@
     <!-- body -->
     <div class="body">
       <div class="side-menu">
-        <div class="menu-header">
+        <div class="menu-header h20">
           Components
         </div>
         <!-- Third: Add the name of your reusable component to the left side bar here  -->
-        <div class="menu-item" (click)="onItemClick(nvComponentType.Search)">
+        <div class="menu-item h40" (click)="onItemClick(nvComponentType.Search)">
           {{nvComponentType[nvComponentType.Search]}}
         </div>
-        <div class="menu-item" (click)="onItemClick(nvComponentType.Footer)">
-          {{nvComponentType[nvComponentType.Footer]}}
+        <div class="menu-item h40" (click)="onItemClick(nvComponentType.NovaLogo)">
+          {{nvComponentType[nvComponentType.NovaLogo]}}
         </div>
       </div>
       <div class="preview-panel" [ngSwitch]="selectedItem">
@@ -36,9 +36,10 @@
           <!-- Forth: Call your reusable component here and pass input data if needed  -->
           
           <div class="body-item-container">
-            <!-- <app-search class="body-item" *ngSwitchCase="nvComponentType.Search"></app-search> -->
-            <app-nova-footer class="body-item" *ngSwitchCase="nvComponentType.Footer"></app-nova-footer>
+            <app-search class="body-item" *ngSwitchCase="nvComponentType.Search"></app-search>
+            <!-- <app-nova-footer class="body-item" *ngSwitchCase="nvComponentType.Footer"></app-nova-footer> -->
           </div>
+          <app-novatek-logo class="body-item" *ngSwitchCase="nvComponentType.NovaLogo"></app-novatek-logo>
 
         </div>
       </div>

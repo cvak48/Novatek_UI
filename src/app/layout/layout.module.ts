@@ -4,9 +4,10 @@ import { NovaFooterComponent } from './nova-footer/nova-footer.component';
 
 
 
+
 @NgModule({
   declarations: [
-    NovaFooterComponent
+    NovaFooterComponent,
   ],
   imports: [
     CommonModule

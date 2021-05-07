@@ -1,10 +1,10 @@
+import { MainModule } from './main/main.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
-// import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { LayoutComponentModule } from './layout/layout.module';
 
 @NgModule({
@@ -16,8 +16,8 @@ import { LayoutComponentModule } from './layout/layout.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    LayoutComponentModule
-    // StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+    LayoutComponentModule,
+    MainModule
   ],
   providers: [],
   bootstrap: [AppComponent]

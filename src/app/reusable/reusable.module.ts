@@ -16,7 +16,6 @@ const sharedComponents = [
   FooterComponent,
   SideNavComponent,
   NovatekLogoComponent,
-  DemoPageComponent,
   SearchComponent
 ]
 
@@ -28,9 +27,6 @@ const sharedComponents = [
     ReactiveFormsModule,
     MaterialModule,
     LayoutComponentModule,
-    RouterModule.forChild([
-      { path: 'demo', component: DemoPageComponent}
-    ])
   ],
   exports: sharedComponents
 })

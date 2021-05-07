@@ -33,6 +33,9 @@
         <div class="menu-item h40" (click)="onItemClick(nvComponentType.Footer)">
           {{nvComponentType[nvComponentType.Footer]}}
         </div>
+        <div class="menu-item h40" (click)="onItemClick(nvComponentType.Avatar)">
+          {{nvComponentType[nvComponentType.Avatar]}}
+        </div>
       </div>
       <div class="preview-panel" [ngSwitch]="selectedItem">
         <div class="panel-body">
@@ -43,6 +46,7 @@
             <!-- <app-nova-footer class="body-item" *ngSwitchCase="nvComponentType.Footer"></app-nova-footer> -->
           </div>
           <app-novatek-logo class="body-item" *ngSwitchCase="nvComponentType.NovaLogo"></app-novatek-logo>
+          <app-novatek-logo class="body-item" *ngSwitchCase="nvComponentType.Avatar"></app-novatek-logo>
 
           <app-nova-footer class="body-item" *ngSwitchCase="nvComponentType.Footer"></app-nova-footer>
 

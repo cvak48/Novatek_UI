@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { SearchComponent } from './search/search.component';
 import { MaterialModule } from './../material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -26,7 +27,10 @@ const sharedComponents = [
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    LayoutComponentModule
+    LayoutComponentModule,
+    RouterModule.forChild([
+      { path: 'demo', component: DemoPageComponent}
+    ])
   ],
   exports: sharedComponents
 })

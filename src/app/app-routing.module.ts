@@ -1,4 +1,3 @@
-import { DemoPageComponent } from './reusable/demo-page/demo-page.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -14,9 +13,7 @@ const routes: Routes = [
     loadChildren: () => import('./main/main.module')
     .then(m => m.MainModule)
   },
-  {
-    path: 'demo', component: DemoPageComponent
-  }
+
 ];
 
 @NgModule({

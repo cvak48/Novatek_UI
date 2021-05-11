@@ -1,0 +1,141 @@
+@import './../theme/base.scss';
+
+* {
+  box-sizing: border-box;
+}
+
+.demo-page-container {
+  display: grid;
+  grid-template-rows: 70px 1fr;
+  width: 100%;
+  height: calc(100vh);
+  background-color: #FFFFFF;
+  background-color: #fafafa;
+
+  .toolbar {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    background-color: #4361EE;
+    color: white;
+    font-weight: $font-weight-heavy;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    .novatek-logo {
+      width: 110px;
+      height: 60px;
+      margin-top: -16px;
+      margin-left: -21px;
+      background-color: transparent;
+    }
+
+    .novatek-label {
+      margin-left: -32px;
+      font-size: $font-size-large;
+      font-weight: $font-weight-heavy;
+      color: #E2A200;
+    }
+
+    .demo-label {
+      padding-left: 25px;
+      font-size: $font-size-large;
+      // font-weight: $font-weight-medium;
+      color: #EFEFF2;
+    }
+
+    .spacer {
+      flex: 1;
+    }
+
+    .twitter-logo {
+      padding-right: 20px;
+    }
+
+  }
+
+  .body {
+    position: relative;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    font-family: Roboto, Helvetica Neue, sans-serif;
+    background-color: rgb(228, 224, 224);
+
+    .side-menu {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid rgba(0, 0, 0, .12);
+
+      .menu-header {
+        text-align: center;
+        color: rgba(0, 0, 0, .65);
+        padding-top: 8px;
+        padding-bottom: 8px;
+      }
+
+      .menu-item {
+        position: relative;
+        color: rgba(0, 0, 0, .65);
+        vertical-align: middle;
+        height: 50px;
+        line-height: 50px;
+        padding-left: 5px;
+
+        &:hover {
+          cursor: pointer;
+          background: rgba(63, 81, 181, .15);
+          color: #3f51b5;
+        }
+      }
+    }
+
+    .preview-panel {
+      padding-left: 100px;
+      padding-top: 50px;
+      display: flex;
+      flex-direction: column;
+
+      .panel-header {
+
+        padding-top: 8px;
+        padding-bottom: 8px;
+
+        .header-title {
+          color: rgba(0, 0, 0, .65);
+          font-size: larger;
+          font-weight: 700;
+        }
+
+        .header-description {
+          color: rgba(54, 54, 54, 0.65);
+          font-size: large;
+          font-weight: 500;
+        }
+      }
+
+      .panel-body {
+        display: flex;
+        flex-direction: row;
+
+        .body-item {
+          padding-right: 10px;
+        }
+
+        .body-item-container {
+          width: 15%;
+          height: 40px;
+        }
+        .body-header-container {
+          width: 50%;
+          height: 64px;
+        }
+      }
+    }
+
+  }
+
+}

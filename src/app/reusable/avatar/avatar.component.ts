@@ -8,11 +8,14 @@ import { Person } from '../demo-page/demo-page.component';
 })
 export class AvatarComponent implements OnInit {
   @Input() set person(value: Person) {
-    this.person.id = value?.id;
-    this.person.name = value?.name;
-    this.person.imageUrl = value?.imageUrl;
-    this.person.notification = value?.notification;
+    if (value) {
+      this._person = value;
+    }
   }
+  get person(): Person {
+    return this._person;
+  }
+  private _person!: Person;
   
   constructor() { }
 

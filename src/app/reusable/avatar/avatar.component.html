@@ -1,22 +1,24 @@
-<div class="avatart-container">
+<div class="avatar-container">
     <div class="image-container">
-        <img *ngIf="person?.imageUrl"  class="image" [src]="person?.imageUrl" [alt]="person.name" />
-        <div *ngIf="!person?.imageUrl && person?.name" class="label"> {{person?.name!  | nvInitials}} </div>
+        <img class="image" *ngIf="person?.imageUrl" [src]="person.imageUrl" />
+        <div *ngIf="!person?.imageUrl && person?.name" class="label"> {{person.name!  | nvInitials}} </div>
     </div>
     <div class="avatar-menu">
-        <div class="notification">
+        <div class="notification" *ngIf="person?.notification?.number">
             <svg id="notification.badge" xmlns="http://www.w3.org/2000/svg" width="32" height="21" viewBox="0 0 32 21">
                 <g id="notification-background" fill="#fcb520" stroke="#946a12" stroke-width="2">
                   <rect width="32" height="21" rx="10" stroke="none"/>
                   <rect x="1" y="1" width="30" height="19" rx="9" fill="none"/>
                 </g>
-                <text id="notification-number" transform="translate(16 16)" fill="#946a12" font-size="14" font-family="Lato-Bold, Lato" font-weight="700"><tspan x="-8.12" y="0">15</tspan></text>
+                <text id="notification-number" transform="translate(16 16)" fill="#946a12"
+                 font-size="14" font-family="Lato-Bold, Lato" font-weight="700">
+                 <tspan x="-8.12" y="0">{{person.notification.number}}</tspan></text>
               </svg>           
         </div>
-        <div class="dropdown-container">
-            <svg class="chevron" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 0H14L7 8L0 0Z" />
+        <div class="spacer"></div>
+              <svg id="ico.arrow.down" class="chevron" xmlns="http://www.w3.org/2000/svg"
+               width="16.964" height="10.056" viewBox="0 0 16.964 10.056">
+                <path id="ico.arrow.down-2" data-name="ico.arrow.down" d="M12.369,192H26.185a1.072,1.072,0,0,1,.757,1.831l-6.905,6.91a1.076,1.076,0,0,1-1.52,0l-6.905-6.91A1.072,1.072,0,0,1,12.369,192Z" transform="translate(-11.295 -192)" fill="#666"/>
               </svg>
-        </div>
     </div>
 </div>

@@ -21,7 +21,8 @@ import { ReusableModule } from './reusable/reusable.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    LayoutComponentModule
+    LayoutComponentModule,
+    MainModule
     // StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [],

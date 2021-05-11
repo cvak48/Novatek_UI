@@ -9,6 +9,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { DataTableComponent } from './data-table/data-table.component';
+import { NovaDataTableComponent } from './nova-data-table/nova-data-table.component';
 
 
 var sharedSomponents = [
@@ -16,7 +17,8 @@ var sharedSomponents = [
   FooterComponent,
   SideNavComponent,
   NovatekLogoComponent,
-  DataTableComponent
+  DataTableComponent,
+  NovaDataTableComponent
 ]
 
 @NgModule({

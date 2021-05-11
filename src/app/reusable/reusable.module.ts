@@ -1,9 +1,9 @@
-import { RouterModule } from '@angular/router';
+import { NvInitialsPipe } from './pipes/nv-initials.pipe';
+import { AvatarComponent } from './avatar/avatar.component';
 import { SearchComponent } from './search/search.component';
 import { MaterialModule } from './../material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LayoutComponentModule } from './../layout/layout.module';
-import { DemoPageComponent } from './demo-page/demo-page.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
@@ -16,7 +16,9 @@ const sharedComponents = [
   FooterComponent,
   SideNavComponent,
   NovatekLogoComponent,
-  SearchComponent
+  SearchComponent,
+  AvatarComponent,
+  NvInitialsPipe
 ]
 
 @NgModule({

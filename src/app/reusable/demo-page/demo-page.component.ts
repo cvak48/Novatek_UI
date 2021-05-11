@@ -1,13 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 
+export interface Person {
+id: number;
+name: string;
+imageUrl: string;
+notification: Notification;
+}
+export interface Notification {
+  number: number;
+  content: string;
+  hasAttachment: boolean;
+}
 export enum NvComponent {
   // First: Add the name of your reusable component to this enum
   Search,
   NovaLogo,
   Avatar,
   Footer,
-
-
 }
 
 @Component({
@@ -22,6 +31,8 @@ export class DemoPageComponent implements OnInit {
    // Search
    items: string[] = ['Tablet', 'Phone', 'Laptop', 'Keyboard'];
    // footer
+   // Avatar
+   person: Person = mockAvatar();
   constructor() { }
 
   ngOnInit(): void {
@@ -29,4 +40,18 @@ export class DemoPageComponent implements OnInit {
   public onItemClick(selectedItem: NvComponent): void {
     this.selectedItem = selectedItem;
   }
+}
+
+function mockAvatar(): Person {
+  const avatarProps = {
+    id: 1,
+    name: 'Alex Green',
+    imageUrl: 'https://tse1.mm.bing.net/th?id=OIP.E45HCyveqDL44p8lmvQL9AAAAA&pid=Api&P=0&w=300&h=300',
+    notification: {
+      number: 15,
+      content: '',
+      hasAttachment: false,
+    } as Notification,
+  } as Person;
+  return avatarProps;
 }

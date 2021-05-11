@@ -10,14 +10,16 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { NovatekLogoComponent } from './novatek-logo/novatek-logo.component';
+import { TextAreaComponent } from './text-area/text-area.component';
 
 const sharedComponents = [
   HeaderComponent,
   FooterComponent,
   SideNavComponent,
   NovatekLogoComponent,
-  SearchComponent
-]
+  TextAreaComponent,
+  SearchComponent,
+];
 
 @NgModule({
   declarations: sharedComponents,

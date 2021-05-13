@@ -8,6 +8,7 @@ import { FormControl } from '@angular/forms';
 })
 export class SearchComponent implements OnInit {
   @Input() items: string[] = [];
+  filteredItems: string[] = [];
   selectedItem!: string;
   selectedIndex!: number;
   arrowUpEventCounter = 0;
@@ -21,28 +22,30 @@ export class SearchComponent implements OnInit {
   }
   onItemSelect(index: number): void {
     this.selectedIndex = index;
-    this.selectedItem = this.items[this.selectedIndex];
+    this.selectedItem = this.filteredItems[this.selectedIndex];
     this.selectedItemFormControl.setValue(this.selectedItem);
     this.searchIcon = false;
   }
   onInput(event: any): void {
     const search = event?.target?.value;
-    this.items = this.filterList(mockItems(), search);
-    this.showMenu = this.items?.length ? true : false;
+    this.filteredItems = this.filterList(mockItems(), search);
+    this.showMenu = this.filteredItems?.length ? true : false;
     // TODO: hide cross-icon by pressing BackSpace.
     this.searchIcon = !search ? true : false;
   }
   onCancelClick(event: any): void {
     this.selectedItemFormControl.setValue('');
-    event.preventDefault();
+    this.filteredItems.length = 0;
+    this.showMenu = false;
     this.searchIcon = true;
+    event.preventDefault();
   }
-  onKeyDown(event: any): void {
+  onKeyUp(event: any): void {
     this.searchIcon = false;
     if (event.key === 'Escape') {
     } else if (event.key === 'Enter') {
-      this.onItemSelect(this.selectedIndex);
-      event.preventDefault();
+       this.onItemSelect(this.selectedIndex);
+      event.target.value = event.target.value.replace(/\n/g,'');
     } else if (event.key === 'Tab') {
       this.onItemSelect(0);
     } else if (event.key === 'ArrowDown') {
@@ -51,13 +54,13 @@ export class SearchComponent implements OnInit {
         this.selectedIndex = 0;
       } else {
         this.selectedIndex =
-          (this.selectedIndex + 1) % this.items.length;
+          (this.selectedIndex + 1) % this.filteredItems.length;
       }
     } else if (event.key === 'ArrowUp') {
       if (this.selectedIndex <= 0) {
-        this.selectedIndex = this.items.length;
+        this.selectedIndex = this.filteredItems.length;
       }
-      this.selectedIndex = (this.selectedIndex - 1) % this.items.length;
+      this.selectedIndex = (this.selectedIndex - 1) % this.filteredItems.length;
     }
 
   }

@@ -6,10 +6,16 @@ import { SideNavComponent } from './side-nav/side-nav.component';
 import { NovatekLogoComponent } from './novatek-logo/novatek-logo.component';
 
 import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort';
-import { DataTableComponent } from './data-table/data-table.component';
-import { NovaDataTableComponent } from './nova-data-table/nova-data-table.component';
+import { CustomDatatableComponent } from './custom-datatable/custom-datatable.component';
+
+
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatSortModule} from "@angular/material/sort";
+import {MatIconModule} from "@angular/material/icon";
+import {MatButtonModule} from "@angular/material/button";
+import { DataPropertyGetterPipe } from './custom-datatable/data-property-getter-pipe/data-property-getter.pipe';
 
 
 var sharedSomponents = [
@@ -17,8 +23,8 @@ var sharedSomponents = [
   FooterComponent,
   SideNavComponent,
   NovatekLogoComponent,
-  DataTableComponent,
-  NovaDataTableComponent
+  CustomDatatableComponent,
+  DataPropertyGetterPipe
 ]
 
 @NgModule({
@@ -26,8 +32,13 @@ var sharedSomponents = [
   imports: [
     CommonModule,
     MatTableModule,
+    
+    MatFormFieldModule,
+    MatInputModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatIconModule,
+    MatButtonModule
   ],
   exports: sharedSomponents
 })

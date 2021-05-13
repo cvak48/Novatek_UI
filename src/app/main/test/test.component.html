@@ -1,0 +1,18 @@
+<p>test works!</p>
+<!-- <custom-table
+  [tableData]="customers"
+  [tableColumns]="customersTableColumns">
+</custom-table> -->
+<app-custom-datatable
+[tableData]="orders"
+              [tableColumns]="ordersTableColumns"
+              [isFilterable]="true"
+              [isPageable]="true"
+              [paginationSizes]="[2,4,6]"
+              [defaultPageSize]="4"
+              (sort)="sortData($event)"
+              [rowActionIcon]="'remove_shopping_cart'"
+              (rowAction)="removeOrder($event)"
+              >
+
+</app-custom-datatable>

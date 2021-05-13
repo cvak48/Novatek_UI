@@ -4,3 +4,25 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: "Lato", Roboto, "Helvetica Neue", sans-serif; }
+thead {
+    background: #F8F8F9 !important;
+}
+tr.mat-header-row {
+    height: 40px !important;
+}
+.mat-header-cell {
+    text-transform: capitalize !important;
+    color: rgba(0,0,0,.54);
+}
+.mat-cell, .mat-footer-cell {
+    font-size: 12px;
+    text-transform: capitalize !important;
+}
+tr.mat-row, tr.mat-footer-row {
+    height: 40px !important;
+}
+
+.mat-table {
+    background: #fff;
+    width: 100%;
+}

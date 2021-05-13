@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NovaDataTableComponent } from './nova-data-table.component';
+import { CustomDatatableComponent } from './custom-datatable.component';
 
-describe('NovaDataTableComponent', () => {
-  let component: NovaDataTableComponent;
-  let fixture: ComponentFixture<NovaDataTableComponent>;
+describe('CustomDatatableComponent', () => {
+  let component: CustomDatatableComponent;
+  let fixture: ComponentFixture<CustomDatatableComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NovaDataTableComponent ]
+      declarations: [ CustomDatatableComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NovaDataTableComponent);
+    fixture = TestBed.createComponent(CustomDatatableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

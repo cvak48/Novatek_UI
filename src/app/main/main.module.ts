@@ -5,12 +5,14 @@ import { ReusableModule } from '../reusable/reusable.module';
 import { MaterialModule } from '../material.module';
 import { MainRoutingModule } from './main-routing.module';
 import { LayoutComponentModule } from '../layout';
+import { TestComponent } from './test/test.component';
 
 
 
 @NgModule({
   declarations: [
-    DashboardComponent
+    DashboardComponent,
+    TestComponent
   ],
   imports: [
     CommonModule,

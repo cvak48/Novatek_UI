@@ -3,6 +3,7 @@ import { TableColumn } from 'src/app/reusable/custom-datatable/table-column.mode
 import {CurrencyPipe, DecimalPipe, PercentPipe} from "@angular/common";
 import {Sort} from "@angular/material/sort";
 import { Order } from './order';
+import * as moment from 'moment';
 
 
 @Component({
@@ -44,28 +45,28 @@ export class TestComponent implements OnInit {
   initializeColumns(): void {
     this.ordersTableColumns = [
       {
-        name: 'book name',
-        dataKey: 'description',
+        name: 'Name',
+        dataKey: 'name',
         position: 'left',
         isSortable: true
       },
       {
-        name: 'ordered amount',
-        dataKey: 'amount',
-        position: 'right',
-        isSortable: false
-      },
-      {
-        name: 'book price',
-        dataKey: 'price',
-        position: 'right',
+        name: 'Date',
+        dataKey: 'date',
+        position: 'left',
         isSortable: true
       },
       {
-        name: 'book discount',
-        dataKey: 'discount',
-        position: 'right',
-        isSortable: false
+        name: 'Email',
+        dataKey: 'email',
+        position: 'left',
+        isSortable: true
+      },
+      {
+        name: 'Status',
+        dataKey: 'status',
+        position: 'left',
+        isSortable: true
       },
     ];
   }
@@ -74,38 +75,38 @@ export class TestComponent implements OnInit {
     return [
       {
         id: 1,
-        description: 'first book',
-        amount: this.decimalPipe.transform(2),
-        price: this.currencyPipe.transform(15),
-        discount: this.percentPipe.transform(0)
+        name: 'John Liiki',
+        date: moment("12-25-1995", "MM-DD-YYYY"),
+        email: 'john@yahoo.com',
+        status: 'No'
       },
       {
         id: 2,
-        description: 'second book',
-        amount: this.decimalPipe.transform(1),
-        price: this.currencyPipe.transform(42),
-        discount: this.percentPipe.transform(1)
+        name: 'Rock',
+        date: moment("06-13-1999", "MM-DD-YYYY"),
+        email: 'rock@gmail.com',
+        status: 'Past Due'
       },
       {
         id: 3,
-        description: 'third book',
-        amount: this.decimalPipe.transform(4),
-        price: this.currencyPipe.transform(12),
-        discount: this.percentPipe.transform(2)
+        name: 'Tom Cruise',
+        date: moment("04-27-2001", "MM-DD-YYYY"),
+        email: 'tomcruise@yahoo.com',
+        status: 'Pending'
       },
       {
         id: 4,
-        description: 'fourth book',
-        amount: this.decimalPipe.transform(1),
-        price: this.currencyPipe.transform(19),
-        discount: this.percentPipe.transform(7)
+        name: 'Sumit Gupta',
+        date: moment("03-30-2005", "MM-DD-YYYY"),
+        email: 'sumit@gmail.com',
+        status: 'Completed'
       },
       {
         id: 5,
-        description: 'fifth book',
-        amount: this.decimalPipe.transform(8),
-        price: this.currencyPipe.transform(10),
-        discount: this.percentPipe.transform(2)
+        name: 'Nicole Kidman',
+        date: moment("02-22-2007", "MM-DD-YYYY"),
+        email: 'nicole@redifmail.com',
+        status: 'Yes'
       }
     ];
   }

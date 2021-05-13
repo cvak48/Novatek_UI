@@ -75,7 +75,7 @@ export class CustomDatatableComponent implements OnInit, AfterViewInit {
     } );
     sortParameters.active = abc?.dataKey ?  abc?.dataKey : 'amount'
 
-    console.log(abc )
+    // console.log("abc >> ",abc )
     // sortParameters.active = "amount";
 
     this.sort.emit(sortParameters);

@@ -26,3 +26,7 @@ tr.mat-row, tr.mat-footer-row {
     background: #fff;
     width: 100%;
 }
+
+tr.mat-row.cdk-row:nth-child(odd) {
+    background: #C1E9C1;
+}

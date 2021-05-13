@@ -1,7 +1,7 @@
 export interface Order {
   id: number;
-  description: string;
-  amount: number;
-  price: number;
-  discount: number;
+  name: string;
+  date: Date;
+  email: string;
+  status: string;
 }

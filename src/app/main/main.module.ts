@@ -1,3 +1,4 @@
+import { DemoPageComponent } from './../reusable/demo-page/demo-page.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -8,18 +9,19 @@ import { LayoutComponentModule } from '../layout';
 import { TestComponent } from './test/test.component';
 
 
-
 @NgModule({
   declarations: [
     DashboardComponent,
-    TestComponent
+    TestComponent,
+    DemoPageComponent
   ],
   imports: [
     CommonModule,
     ReusableModule,
     MaterialModule,
     MainRoutingModule,
-    LayoutComponentModule   
+    LayoutComponentModule,
+
   ]
 })
 export class MainModule { }

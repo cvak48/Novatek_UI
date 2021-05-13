@@ -30,15 +30,22 @@
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.NovaLogo)">
         {{nvComponentType[nvComponentType.NovaLogo]}}
       </div>
-      <div class="menu-item h40" (click)="onItemClick(nvComponentType.Header)">
-        {{nvComponentType[nvComponentType.Header]}}
-      </div>
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.Avatar)">
         {{nvComponentType[nvComponentType.Avatar]}}
+      </div>
+      <div class="menu-item h40" (click)="onItemClick(nvComponentType.Notification)">
+        {{nvComponentType[nvComponentType.Notification]}}
+      </div>
+      <div class="menu-item h40" (click)="onItemClick(nvComponentType.ProfileMenu)">
+        {{nvComponentType[nvComponentType.ProfileMenu]}}
+      </div>
+      <div class="menu-item h40" (click)="onItemClick(nvComponentType.Header)">
+        {{nvComponentType[nvComponentType.Header]}}
       </div>
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.Footer)">
         {{nvComponentType[nvComponentType.Footer]}}
       </div>
+      
     </div>
     <div class="preview-panel" [ngSwitch]="selectedItem">
       <div class="panel-body">
@@ -50,9 +57,13 @@
         </div>
         <app-novatek-logo class="body-item" *ngSwitchCase="nvComponentType.NovaLogo"></app-novatek-logo>
         <div class="body-header-container" *ngSwitchCase="nvComponentType.Header">
-          <app-header ></app-header>
+          <app-header *ngIf="person" [person]="person"></app-header>
         </div>
-        <app-avatar class="body-item" [person]="person" *ngSwitchCase="nvComponentType.Avatar"></app-avatar>
+        <app-notification class="body-item"  *ngSwitchCase="nvComponentType.Notification"></app-notification>
+        <ng-container *ngSwitchCase="nvComponentType.Avatar">
+        <app-avatar class="body-item" *ngIf="person?.imageUrl && person?.name" [avatarUrl]="person.imageUrl!" [name]="person.name!" ></app-avatar>
+      </ng-container>
+        <app-user-profile-menu class="body-item" [person]="person" *ngSwitchCase="nvComponentType.ProfileMenu"></app-user-profile-menu>
         <app-nova-footer class="body-item" *ngSwitchCase="nvComponentType.Footer"></app-nova-footer>
 
       </div>

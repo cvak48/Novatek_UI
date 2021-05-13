@@ -7,16 +7,21 @@ import { Person } from '../demo-page/demo-page.component';
   styleUrls: ['./avatar.component.scss']
 })
 export class AvatarComponent implements OnInit {
-  @Input() set person(value: Person) {
-    if (value) {
-      this._person = value;
-    }
+  @Input() set avatarUrl(value: string) {
+    this._avatarUrl = value ? value : '';
   }
-  get person(): Person {
-    return this._person;
+  @Input() set name(value: string) {
+    this._name = value ? value : '';
   }
-  private _person!: Person;
-  
+
+  get avatarUrl(): string {
+    return this._avatarUrl;
+  }
+  get name(): string {
+    return this._name; 
+  }
+  private _avatarUrl!: string;
+  private _name!: string;
   constructor() { }
 
   ngOnInit(): void {

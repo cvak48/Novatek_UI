@@ -1,3 +1,5 @@
+import { UserProfileMenuComponent } from './user-profile-menu/user-profile-menu.component';
+import { NotificationComponent } from './notification/notification.component';
 import { NvInitialsPipe } from './pipes/nv-initials.pipe';
 import { AvatarComponent } from './avatar/avatar.component';
 import { SearchComponent } from './search/search.component';
@@ -18,8 +20,10 @@ const sharedComponents = [
   NovatekLogoComponent,
   SearchComponent,
   AvatarComponent,
+  NotificationComponent,
+  UserProfileMenuComponent,
   NvInitialsPipe
-]
+];
 
 @NgModule({
   declarations: sharedComponents,

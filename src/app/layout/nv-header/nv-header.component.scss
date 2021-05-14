@@ -5,6 +5,12 @@
   margin: 0;
   border-bottom: 4px solid $color-dark-gray;
 
+  .nova-icon {
+    padding-left: $padding-16;
+    width: 160px;
+    height: 40px;
+  }
+
   .search-container {
     width: 40%;
 
@@ -16,6 +22,7 @@
   .avatar-container {
     padding-right: 16px;
     padding-left: 24px;
+    border: 4px solid transparent;
   }
 
 }

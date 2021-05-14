@@ -33,9 +33,10 @@
         <div class="menu-item h40" (click)="onItemClick(nvComponentType.Header)">
           {{nvComponentType[nvComponentType.Header]}}
         </div>
-        <div class="menu-item h40" (click)="onItemClick(nvComponentType.Footer)">
-          {{nvComponentType[nvComponentType.Footer]}}
+        <div class="menu-item h40" (click)="onItemClick(nvComponentType.Dropdown)">
+          {{nvComponentType[nvComponentType.Dropdown]}}
         </div>
+
       </div>
       <div class="preview-panel" [ngSwitch]="selectedItem">
         <div class="panel-body">
@@ -50,7 +51,7 @@
             <app-header *ngSwitchCase="nvComponentType.Header"></app-header>
 
           </div>
-          <app-nova-footer class="body-item" *ngSwitchCase="nvComponentType.Footer"></app-nova-footer>
+          <app-nv-dropdown class="body-item" *ngSwitchCase="nvComponentType.Dropdown"></app-nv-dropdown>
 
         </div>
       </div>

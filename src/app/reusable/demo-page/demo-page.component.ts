@@ -5,6 +5,7 @@ export enum NvComponent {
   Search,
   NovaLogo,
   Header,
+  Dropdown,
   Footer
 
 }

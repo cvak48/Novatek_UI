@@ -1,3 +1,4 @@
+import { NvDropdownComponent } from './nv-dropdown/nv-dropdown.component';
 import { RouterModule } from '@angular/router';
 import { SearchComponent } from './search/search.component';
 import { MaterialModule } from './../material.module';
@@ -19,6 +20,7 @@ const sharedComponents = [
   NovatekLogoComponent,
   TextAreaComponent,
   SearchComponent,
+  NvDropdownComponent
 ];
 
 @NgModule({

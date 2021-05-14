@@ -1,4 +1,4 @@
-import { Person } from './../demo-page/demo-page.component';
+import { Person } from '../../main/components/demo-page/demo-page.component';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({

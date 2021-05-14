@@ -1,4 +1,4 @@
-@import './../theme/base.scss';
+@import './../../reusable/theme/base.scss';
 
 .container-fluid {
   padding: 0;
@@ -18,10 +18,4 @@
     padding-left: 24px;
   }
 
-}
-
-@media (max-width: 576px) {
-  .search {
-    display: none;
-   }
 }

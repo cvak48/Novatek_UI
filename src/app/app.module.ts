@@ -16,7 +16,6 @@ import { ReusableModule } from './reusable/reusable.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    ReusableModule,
     MainModule
   ],
   providers: [],

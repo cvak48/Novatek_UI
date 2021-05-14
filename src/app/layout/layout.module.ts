@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NovaFooterComponent } from './nova-footer/nova-footer.component';
+import { ReusableModule } from '../reusable/reusable.module';
 
 
 
@@ -10,7 +11,8 @@ import { NovaFooterComponent } from './nova-footer/nova-footer.component';
     NovaFooterComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ReusableModule
   ],
   exports: [
     NovaFooterComponent

@@ -57,7 +57,7 @@
         </div>
         <app-novatek-logo class="body-item" *ngSwitchCase="nvComponentType.NovaLogo"></app-novatek-logo>
         <div class="body-header-container" *ngSwitchCase="nvComponentType.Header">
-          <app-header *ngIf="person" [person]="person"></app-header>
+          <app-nv-header *ngIf="person" [person]="person"></app-nv-header>
         </div>
         <app-notification class="body-item"  *ngSwitchCase="nvComponentType.Notification"></app-notification>
         <ng-container *ngSwitchCase="nvComponentType.Avatar">

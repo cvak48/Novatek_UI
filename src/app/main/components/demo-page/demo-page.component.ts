@@ -36,7 +36,7 @@ export class DemoPageComponent implements OnInit {
    items: string[] = ['Tablet', 'Phone', 'Laptop', 'Keyboard'];
    // footer
    // Avatar
-   person: Person = mockAvatar();
+   person: Person = mockProfileMenu();
   constructor() { }
 
   ngOnInit(): void {
@@ -46,7 +46,7 @@ export class DemoPageComponent implements OnInit {
   }
 }
 
-function mockAvatar(): Person {
+function mockProfileMenu(): Person {
   const avatarProps = {
     id: 1,
     name: 'Alex Green',

@@ -20,7 +20,7 @@ export enum NvComponent {
   ProfileMenu,
   Header,
   Dropdown,
-  Footer
+
 
 }
 

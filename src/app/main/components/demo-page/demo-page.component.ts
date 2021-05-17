@@ -19,7 +19,8 @@ export enum NvComponent {
   Avatar,
   ProfileMenu,
   Header,
-  Footer
+  Dropdown,
+
 
 }
 

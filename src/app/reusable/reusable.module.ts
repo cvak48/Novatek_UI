@@ -1,3 +1,4 @@
+import { NvDropdownComponent } from './nv-dropdown/nv-dropdown.component';
 import { UserProfileMenuComponent } from './user-profile-menu/user-profile-menu.component';
 import { NotificationComponent } from './notification/notification.component';
 import { NvInitialsPipe } from './pipes/nv-initials.pipe';
@@ -24,6 +25,7 @@ const sharedComponents = [
   PanelComponent,
   SearchComponent,
   TextAreaComponent,
+  NvDropdownComponent
 ];
 
 @NgModule({

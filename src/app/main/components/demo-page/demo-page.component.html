@@ -42,8 +42,8 @@
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.Header)">
         {{nvComponentType[nvComponentType.Header]}}
       </div>
-      <div class="menu-item h40" (click)="onItemClick(nvComponentType.Footer)">
-        {{nvComponentType[nvComponentType.Footer]}}
+      <div class="menu-item h40" (click)="onItemClick(nvComponentType.Dropdown)">
+        {{nvComponentType[nvComponentType.Dropdown]}}
       </div>
       
     </div>
@@ -64,7 +64,8 @@
         <app-avatar class="body-item" *ngIf="person?.imageUrl && person?.name" [avatarUrl]="person.imageUrl!" [name]="person.name!" ></app-avatar>
       </ng-container>
         <app-user-profile-menu class="body-item" [person]="person" *ngSwitchCase="nvComponentType.ProfileMenu"></app-user-profile-menu>
-        <app-nova-footer class="body-item" *ngSwitchCase="nvComponentType.Footer"></app-nova-footer>
+       
+        <app-nv-dropdown class="body-item" *ngSwitchCase="nvComponentType.Dropdown"></app-nv-dropdown>
 
       </div>
     </div>

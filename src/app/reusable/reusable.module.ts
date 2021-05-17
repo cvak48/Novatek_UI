@@ -10,16 +10,20 @@ import { CommonModule } from '@angular/common';
 import { FooterComponent } from './footer/footer.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { NovatekLogoComponent } from './novatek-logo/novatek-logo.component';
+import { PanelComponent } from './panel/panel.component';
+import { TextAreaComponent } from './text-area/text-area.component';
 
 const sharedComponents = [
   FooterComponent,
   SideNavComponent,
   NovatekLogoComponent,
-  SearchComponent,
   AvatarComponent,
   NotificationComponent,
   UserProfileMenuComponent,
-  NvInitialsPipe
+  NvInitialsPipe,
+  PanelComponent,
+  SearchComponent,
+  TextAreaComponent,
 ];
 
 @NgModule({
@@ -28,7 +32,7 @@ const sharedComponents = [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
   ],
   exports: sharedComponents
 })

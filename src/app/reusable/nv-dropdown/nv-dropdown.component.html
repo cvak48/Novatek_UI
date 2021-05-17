@@ -1,66 +1,15 @@
 <div class="container">
-       <div class="dropdown">
-      <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
-        {{selectedItem}}
-      </button>
-      <div class="dropdown-menu" >
-        <div class="dropdown-item h50 label" *ngFor="let item of items; let i = index" (click)="onItemSelect(i)"
-        > {{item}}</div>
-
-      </div>
-    </div>
-  </div>
-
-
-
-
-<!-- <div class="container-fluid" [ngClass]="{'active': i==selectedIndex}">
   <div class="dropdown">
-
-    <div class="form-outline" data-toggle="dropdown">
-      <button class="form-control h50 label" type="text" name="fname" placeholder="Select dropdown item"
-        (click)="onInputClick()"></button>
-
-      <svg id="ico.arrow.down" class="arrow-down" xmlns="http://www.w3.org/2000/svg" width="16.964" height="10.056"
-        viewBox="0 0 16.964 10.056">
-        <path id="ico.arrow.down-2" data-name="ico.arrow.down"
-          d="M12.369,192H26.185a1.072,1.072,0,0,1,.757,1.831l-6.905,6.91a1.076,1.076,0,0,1-1.52,0l-6.905-6.91A1.072,1.072,0,0,1,12.369,192Z"
-          transform="translate(-11.295 -192)" fill="#666" />
-      </svg>
+    <button type="button" class="btn dropdown-toggle body20" data-toggle="dropdown"
+    [ngClass]="{'default': isFirst}">
+      {{selectedItem}}
+    </button>
+    <div class="dropdown-menu">
+      <div class="dropdown-item body20" *ngFor="let item of items; let i = index" (click)="onItemSelect(i)"
+        [ngClass]="{'selected-item': i==selectedIndex}"> {{item}}</div>
 
     </div>
-
-    <div class="dropdown-menu" [ngClass]="{'display': !showMenu}">
-      <div class="dropdown-item h50 label" *ngFor="let item of items; let i = index"> {{item}}</div>
-    </div>
-
-  </div>
-</div> -->
-
-<!-- <div class="profile-container" [matMenuTriggerFor]="beforeMenu"         (click)="onItemSelect(i)"
-          [ngClass]="{'active': i==selectedIndex}">
-    <app-avatar class="avatar" *ngIf="person?.imageUrl && person?.name" [avatarUrl]="person.imageUrl!" [name]="person.name!"></app-avatar>
-  <div class="profile-stats">
-    <div class="notification-container" *ngIf="person?.notification?.number">
-        <app-notification [number]="person.notification.number"></app-notification>
-    </div>
-    <div class="spacer"></div>
-    <svg id="ico.arrow.down" class="arrow-down" xmlns="http://www.w3.org/2000/svg" width="16.964" height="10.056"
-      viewBox="0 0 16.964 10.056">
-      <path id="ico.arrow.down-2" data-name="ico.arrow.down"
-        d="M12.369,192H26.185a1.072,1.072,0,0,1,.757,1.831l-6.905,6.91a1.076,1.076,0,0,1-1.52,0l-6.905-6.91A1.072,1.072,0,0,1,12.369,192Z"
-        transform="translate(-11.295 -192)" fill="#666" />
-    </svg>
   </div>
 </div>
 
-  
-<mat-menu class="mat-menu" #beforeMenu="matMenu" xPosition="before">
-    <div class="d-flex flex-direction-row justify-content-between label"  mat-menu-item>
-      <div>Notifications</div>
-      <app-notification class="d-flex align-content-center align-items-center mr-0" [number]="person.notification.number"></app-notification>
-    </div>
-    <div  mat-menu-item>User Profile</div>
-    <div  mat-menu-item>Account Settings</div>
-    <div  mat-menu-item>Logout</div>
-</mat-menu> -->
+

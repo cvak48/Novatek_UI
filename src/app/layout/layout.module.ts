@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NovaFooterComponent } from './nova-footer/nova-footer.component';
-import { ReusableModule } from '../reusable/reusable.module';
+import { NovaSidenavComponent } from './nova-sidenav/nova-sidenav.component';
+import { MaterialModule } from '../material.module';
 
 
 
@@ -9,13 +10,15 @@ import { ReusableModule } from '../reusable/reusable.module';
 @NgModule({
   declarations: [
     NovaFooterComponent,
+    NovaSidenavComponent,
   ],
   imports: [
     CommonModule,
-    ReusableModule
+    MaterialModule
   ],
   exports: [
-    NovaFooterComponent
+    NovaFooterComponent,
+    NovaSidenavComponent
   ]
 })
 export class LayoutComponentModule { }

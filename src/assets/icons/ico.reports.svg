@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="19.2" height="24" viewBox="0 0 19.2 24">
+  <g id="ico.reports" transform="translate(-540 -435.25)">
+    <path id="Path_435" data-name="Path 435" d="M554.581,435.25H541.323A1.406,1.406,0,0,0,540,436.727v21.047a1.406,1.406,0,0,0,1.323,1.477h16.554a1.406,1.406,0,0,0,1.323-1.477V440.406Zm-.342,2.229,2.964,3.31h-2.964Zm3.307,19.925H541.653V437.1h10.932v5.538h4.961Z" fill="#5d5d5d"/>
+    <rect id="Rectangle_992" data-name="Rectangle 992" width="5.218" height="1.739" rx="0.87" transform="translate(542.609 438.555)" fill="#5d5d5d"/>
+    <path id="Path_436" data-name="Path 436" d="M551.577,446.739a.87.87,0,0,0,0-1.739H544.62a.87.87,0,0,0,0,1.739Z" transform="translate(-1.141 -3.02)" fill="#5d5d5d"/>
+    <rect id="Rectangle_993" data-name="Rectangle 993" width="1.739" height="5.218" rx="0.87" transform="translate(543.492 451.423)" fill="#5d5d5d"/>
+    <rect id="Rectangle_994" data-name="Rectangle 994" width="1.739" height="6.957" rx="0.87" transform="translate(546.984 449.684)" fill="#5d5d5d"/>
+    <path id="Path_437" data-name="Path 437" d="M555.87,450a.872.872,0,0,0-.87.87v9.566a.87.87,0,1,0,1.739,0V450.87A.873.873,0,0,0,555.87,450Z" transform="translate(-4.524 -4.665)" fill="#5d5d5d"/>
+    <path id="Path_438" data-name="Path 438" d="M560.87,462.447a.872.872,0,0,0,.87-.87V454.62a.87.87,0,1,0-1.739,0v6.957A.872.872,0,0,0,560.87,462.447Z" transform="translate(-6.031 -5.806)" fill="#5d5d5d"/>
+  </g>
+</svg>

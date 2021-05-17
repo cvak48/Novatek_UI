@@ -17,6 +17,7 @@ const sharedComponents = [
   declarations: sharedComponents,
   imports: [
     CommonModule,
+    MaterialModule,
     ReusableModule
 
   ],

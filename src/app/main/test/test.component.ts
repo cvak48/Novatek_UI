@@ -44,6 +44,7 @@ export class TestComponent implements OnInit {
 
   initializeColumns(): void {
     this.ordersTableColumns = [
+      
       {
         name: 'Name',
         dataKey: 'name',

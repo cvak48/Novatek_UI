@@ -4,6 +4,7 @@ import {MatSort, Sort} from "@angular/material/sort";
 import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
 import { TableColumn } from './table-column.model';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-custom-datatable',
@@ -35,6 +36,7 @@ export class CustomDatatableComponent implements OnInit, AfterViewInit {
     this.setTableDataSource(data);
   }
 
+  apiData: any[] = [];
   constructor() {
   }
 
@@ -54,6 +56,7 @@ export class CustomDatatableComponent implements OnInit, AfterViewInit {
 
 
   setTableDataSource(data: any) {
+    this.apiData = [...data];
     this.tableDataSource = new MatTableDataSource(data);
     this.tableDataSource.paginator = this.matPaginator;
     this.tableDataSource.sort = this.matSort;
@@ -83,6 +86,22 @@ export class CustomDatatableComponent implements OnInit, AfterViewInit {
 
   emitRowAction(row: any) {
     this.rowAction.emit(row);
+  }
+
+  onPageFired(event: any) {
+    console.log(event);
+   if ((5 % event.pageIndex) !== 0) {
+     console.log('make api call');
+     this.apiData.push({
+      id: 8,
+      name: 'Vikash Gupta',
+      date: "03-30-2005",
+      email: 'cikash@gmail.com',
+      status: 'Completed'
+    },
+   )
+   this.setTableDataSource(this.apiData);
+   }
   }
 
 }

@@ -23,6 +23,7 @@ import {MatSortModule} from "@angular/material/sort";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import { DataPropertyGetterPipe } from './custom-datatable/data-property-getter-pipe/data-property-getter.pipe';
+import { PlaceholdersComponent } from './placeholders/placeholders.component';
 
 
 const sharedComponents = [
@@ -34,7 +35,8 @@ const sharedComponents = [
   DataPropertyGetterPipe,
   PanelComponent,
   SearchComponent,
-  TextAreaComponent
+  TextAreaComponent,
+  PlaceholdersComponent
 ];
 
 @NgModule({

@@ -1,3 +1,5 @@
+import { UploadComponent } from './upload/upload.component';
+import { NvFileUploadDirective } from './directives/file-upload/nv-file-upload.directive';
 import { NvDropdownComponent } from './nv-dropdown/nv-dropdown.component';
 import { UserProfileMenuComponent } from './user-profile-menu/user-profile-menu.component';
 import { NotificationComponent } from './notification/notification.component';
@@ -15,17 +17,19 @@ import { PanelComponent } from './panel/panel.component';
 import { TextAreaComponent } from './text-area/text-area.component';
 
 const sharedComponents = [
+  NvInitialsPipe,
+  NvFileUploadDirective,
   FooterComponent,
   SideNavComponent,
   NovatekLogoComponent,
   AvatarComponent,
   NotificationComponent,
   UserProfileMenuComponent,
-  NvInitialsPipe,
   PanelComponent,
   SearchComponent,
   TextAreaComponent,
-  NvDropdownComponent
+  NvDropdownComponent,
+  UploadComponent
 ];
 
 @NgModule({

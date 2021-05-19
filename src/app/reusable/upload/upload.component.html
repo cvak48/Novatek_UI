@@ -1,0 +1,14 @@
+<div class="container" appNvFileUpload (fileDropped)="onFileDropped($event)">
+  <div class="d-flex flex-column  align-items-center">
+    <input type="file" #fileDropRef id="fileDropRef" multiple (change)="fileBrowseHandler($event)" />
+    <svg class="align-self-center mt-5" id="ico.laboperations" xmlns="http://www.w3.org/2000/svg" width="36" height="32" viewBox="0 0 36 32">
+      <path id="Path_429" data-name="Path 429"
+        d="M501.75,540H486.982L480,546.875v23.156A1.984,1.984,0,0,0,482,572h19.75a1.984,1.984,0,0,0,2-1.969V541.969A1.984,1.984,0,0,0,501.75,540Zm-14.25,2.972v4.413h-4.482Zm13.75,26.567H482.5V549.846H490v-7.385h11.25Z"
+        transform="translate(-480 -540)" fill="#5d5d5d" />
+    </svg>
+    <div class="content-label h30 align-self-center mt-3 mb-3">Drag and drop file here</div>
+    <label for="fileDropRef h50 d-flex justify-content-center"> 
+      <span class="d-flex align-self-center">Upload</span></label>
+
+  </div>
+</div>

@@ -18,7 +18,7 @@ export class DashboardComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.comments =  [new CommentNode("Hello", "https://i.imgur.com/RpzrMR2.jpg")]
+    this.comments =  [new CommentNode("Hello", "https://tse1.mm.bing.net/th?id=OIP.E45HCyveqDL44p8lmvQL9AAAAA&pid=Api&P=0")]
   }
 
 }

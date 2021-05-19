@@ -94,7 +94,7 @@
     }
 
     .preview-panel {
-      padding-left: 100px;
+      padding-left: 40px;
       padding-top: 50px;
       display: flex;
       flex-direction: column;
@@ -122,7 +122,8 @@
         flex-direction: row;
 
         .body-item {
-          padding-right: 10px;
+          // padding-right: 10px;
+          padding-left: 100px;
         }
 
         .body-item-container {
@@ -136,6 +137,11 @@
         .dropdown-container {
           width: 40%;
           min-width: 30%;
+        }
+        .widget-container {
+          width: 90%;
+          height: 600px;
+          border: 1px solid $color-dark-gray-02;
         }
       }
     }

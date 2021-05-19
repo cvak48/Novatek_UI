@@ -45,28 +45,35 @@
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.Dropdown)">
         {{nvComponentType[nvComponentType.Dropdown]}}
       </div>
-      
+      <div class="menu-item h40" (click)="onItemClick(nvComponentType.DragDrop)">
+        {{nvComponentType[nvComponentType.DragDrop]}}
+      </div>
+
     </div>
     <div class="preview-panel" [ngSwitch]="selectedItem">
       <div class="panel-body">
         <!-- Forth: Call your reusable component here and pass input data if needed  -->
 
-        <div class="body-item-container">
-          <app-search class="body-item" *ngSwitchCase="nvComponentType.Search"></app-search>
+        <div class="body-item-container" *ngSwitchCase="nvComponentType.Search">
+          <app-search class="body-item" ></app-search>
           <!-- <app-nova-footer class="body-item" *ngSwitchCase="nvComponentType.Footer"></app-nova-footer> -->
         </div>
         <app-novatek-logo class="body-item" *ngSwitchCase="nvComponentType.NovaLogo"></app-novatek-logo>
         <div class="body-header-container" *ngSwitchCase="nvComponentType.Header">
           <app-nv-header *ngIf="person" [person]="person"></app-nv-header>
         </div>
-        <app-notification class="body-item"  *ngSwitchCase="nvComponentType.Notification"></app-notification>
+        <app-notification class="body-item" *ngSwitchCase="nvComponentType.Notification"></app-notification>
         <ng-container *ngSwitchCase="nvComponentType.Avatar">
-        <app-avatar class="body-item" *ngIf="person?.imageUrl && person?.name" [avatarUrl]="person.imageUrl!" [name]="person.name!" ></app-avatar>
-      </ng-container>
-        <app-user-profile-menu class="body-item" [person]="person" *ngSwitchCase="nvComponentType.ProfileMenu"></app-user-profile-menu>
-       
-        <app-nv-dropdown class="body-item" *ngSwitchCase="nvComponentType.Dropdown"></app-nv-dropdown>
+          <app-avatar class="body-item" *ngIf="person?.imageUrl && person?.name" [avatarUrl]="person.imageUrl!"
+            [name]="person.name!"></app-avatar>
+        </ng-container>
+        <app-user-profile-menu class="body-item" [person]="person" *ngSwitchCase="nvComponentType.ProfileMenu">
+        </app-user-profile-menu>
 
+        <app-nv-dropdown class="body-item" *ngSwitchCase="nvComponentType.Dropdown"></app-nv-dropdown>
+        <div class="widget-container" *ngSwitchCase="nvComponentType.DragDrop">
+          <app-drag-and-drop ></app-drag-and-drop>
+        </div>
       </div>
     </div>
   </div>

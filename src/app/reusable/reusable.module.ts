@@ -1,3 +1,4 @@
+import { DragAndDropComponent } from './drag-and-drop/drag-and-drop.component';
 import { NvDropdownComponent } from './nv-dropdown/nv-dropdown.component';
 import { UserProfileMenuComponent } from './user-profile-menu/user-profile-menu.component';
 import { NotificationComponent } from './notification/notification.component';
@@ -25,7 +26,8 @@ const sharedComponents = [
   PanelComponent,
   SearchComponent,
   TextAreaComponent,
-  NvDropdownComponent
+  NvDropdownComponent,
+  DragAndDropComponent,
 ];
 
 @NgModule({

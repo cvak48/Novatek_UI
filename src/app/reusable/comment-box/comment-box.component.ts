@@ -11,8 +11,6 @@ export class CommentNode {
   constructor(text:string, imgUrl : string){
     this.text = text;
     this.imgUrl = imgUrl
-
-    // console.log(this.person);
   }
 
   addAnwser(newComment:CommentNode){
@@ -53,12 +51,10 @@ export class CommentBoxComponent implements OnInit {
   addComment(comment:CommentNode){
     comment.addAnwser(new CommentNode(this.text, this.comments[0].imgUrl));      
     comment.isOpen = false;
-    this.text="";    
-    console.log(this.comments);
+    this.text="";
   }
 
   openCommentText(comment:any){
-    console.log(comment)
     comment.isOpen = !comment.isOpen;
   }
 

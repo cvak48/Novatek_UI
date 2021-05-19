@@ -1,8 +1,9 @@
 
 
 <div id="mainDiv" *ngFor="let comment of comments.reverse()">
-  <div  class="d-flex flex-row user-info"><img class="square" [src]="comment.imgUrl"
-      width="40">
+  <div  class="d-flex flex-row user-info">
+    <!-- <img class="square" [src]="comment.imgUrl" width="20" height='20'> -->
+    <app-avatar class="body-item" *ngIf="person?.imageUrl && person?.name" [avatarUrl]="person.imageUrl!" [name]="person.name!" ></app-avatar>
       <!-- <app-avatar src="comment.imgUrl" text="Avatar Andrews"> -->
     <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name">Marry
         Andrews</span><span class="date text-black-50">{{comment.text}}</span>

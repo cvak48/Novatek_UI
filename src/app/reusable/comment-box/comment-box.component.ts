@@ -5,9 +5,14 @@ export class CommentNode {
   imgUrl:string ='';
   anwsers:CommentNode[] = [];
   isOpen:boolean =false;
+
+  
+  
   constructor(text:string, imgUrl : string){
     this.text = text;
     this.imgUrl = imgUrl
+
+    // console.log(this.person);
   }
 
   addAnwser(newComment:CommentNode){
@@ -33,6 +38,11 @@ export class CommentBoxComponent implements OnInit {
   @Input()
   comments:CommentNode[] = [];
   text:string = '';
+  public person = {
+    id: 1,
+    name: 'Alex Green',
+    imageUrl: 'https://tse1.mm.bing.net/th?id=OIP.E45HCyveqDL44p8lmvQL9AAAAA&pid=Api&P=0',
+  } 
 
   constructor(){}
 

@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="dropdown">
+    <button type="button" class="btn dropdown-toggle body20" data-toggle="dropdown"
+    [ngClass]="{'default': isFirst}">
+      {{selectedItem}}
+    </button>
+    <div class="dropdown-menu">
+      <div class="dropdown-item body20" *ngFor="let item of items; let i = index" (click)="onItemSelect(i)"
+        [ngClass]="{'selected-item': i==selectedIndex}"> {{item}}</div>
+
+    </div>
+  </div>
+</div>
+
+

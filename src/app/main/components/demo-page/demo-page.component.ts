@@ -4,12 +4,12 @@ export interface Person {
 id: number;
 name: string;
 imageUrl: string;
-notification: Notification;
+notification?: Notification;
 }
 export interface Notification {
-  number: number;
-  content: string;
-  hasAttachment: boolean;
+  number?: number | any;
+  content?: string;
+  hasAttachment?: boolean;
 }
 export enum NvComponent {
   // First: Add the name of your reusable component to this enum

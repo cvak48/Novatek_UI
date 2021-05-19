@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Person } from 'src/app/main/components/demo-page/demo-page.component';
 
 export class CommentNode {
   text:string ='';
@@ -36,7 +37,7 @@ export class CommentBoxComponent implements OnInit {
   @Input()
   comments:CommentNode[] = [];
   text:string = '';
-  public person = {
+  public person : Person = {
     id: 1,
     name: 'Alex Green',
     imageUrl: 'https://tse1.mm.bing.net/th?id=OIP.E45HCyveqDL44p8lmvQL9AAAAA&pid=Api&P=0',

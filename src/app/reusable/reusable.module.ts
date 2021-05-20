@@ -44,7 +44,8 @@ const sharedComponents = [
   PanelComponent,
   SearchComponent,
   TextAreaComponent,
-  NvDropdownComponent
+  NvDropdownComponent,
+  AvatarComponent
 ];
 
 @NgModule({

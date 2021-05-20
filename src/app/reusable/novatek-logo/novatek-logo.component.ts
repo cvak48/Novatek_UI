@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-novatek-logo',
@@ -7,7 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NovatekLogoComponent implements OnInit {
 
-  constructor() { }
+  @Input() logosize = {
+    width:'', height:''
+  }
+
+  constructor() {
+   }
 
   ngOnInit(): void {
   }

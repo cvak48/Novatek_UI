@@ -1,0 +1,5 @@
+<mat-tab-group mat-align-tabs="start">
+    <mat-tab *ngFor='let tab of tabs' label="{{tab.name}}">
+        <tab-wrapper [type]="tab.component"></tab-wrapper>
+    </mat-tab>
+</mat-tab-group>

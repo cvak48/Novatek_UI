@@ -14,6 +14,8 @@ import { NovatekLogoComponent } from './novatek-logo/novatek-logo.component';
 import { PanelComponent } from './panel/panel.component';
 import { TextAreaComponent } from './text-area/text-area.component';
 import { CommentBoxComponent } from './comment-box/comment-box.component';
+import { TabsComponent } from './tabs/tabs.component';
+import { TabWrapper } from './tabs/tabs-wrapper.component';
 
 const sharedComponents = [
   FooterComponent,
@@ -27,7 +29,9 @@ const sharedComponents = [
   SearchComponent,
   CommentBoxComponent,
   TextAreaComponent,
-  NvDropdownComponent
+  NvDropdownComponent,
+  TabsComponent,
+  TabWrapper
 ];
 
 @NgModule({

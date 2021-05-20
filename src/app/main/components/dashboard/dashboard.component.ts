@@ -2,6 +2,8 @@ import { CommentNode } from 'src/app/reusable/comment-box/comment-box.component'
 import { CommonHttpService } from 'src/app/services/common-http.service';
 import { Person, Notification } from './../demo-page/demo-page.component';
 import { Component, Input, OnInit } from '@angular/core';
+import { TextAreaComponent } from 'src/app/reusable/text-area/text-area.component';
+import { NovatekLogoComponent } from 'src/app/reusable/novatek-logo/novatek-logo.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,6 +13,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class DashboardComponent implements OnInit {
 
   comments:Array<CommentNode> = [];
+  types = [{component:TextAreaComponent, name:'Tab 1'}, {component:NovatekLogoComponent, name:'Tab 2'}, {component:TextAreaComponent, name:'Tab 3'}];
 
   // mockData for header
   @Input() person: Person = mockProfileMenu();

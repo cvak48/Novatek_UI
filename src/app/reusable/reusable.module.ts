@@ -13,6 +13,7 @@ import { SideNavComponent } from './side-nav/side-nav.component';
 import { NovatekLogoComponent } from './novatek-logo/novatek-logo.component';
 import { PanelComponent } from './panel/panel.component';
 import { TextAreaComponent } from './text-area/text-area.component';
+import { CommentBoxComponent } from './comment-box/comment-box.component';
 
 import { MatTableModule } from '@angular/material/table';
 import { CustomDatatableComponent } from './custom-datatable/custom-datatable.component';
@@ -43,6 +44,7 @@ const sharedComponents = [
   NvInitialsPipe,
   PanelComponent,
   SearchComponent,
+  CommentBoxComponent,
   TextAreaComponent,
   NvDropdownComponent,
   AvatarComponent

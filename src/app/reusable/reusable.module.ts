@@ -10,7 +10,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from './footer/footer.component';
-import { SideNavComponent } from './side-nav/side-nav.component';
 import { NovatekLogoComponent } from './novatek-logo/novatek-logo.component';
 import { PanelComponent } from './panel/panel.component';
 import { TextAreaComponent } from './text-area/text-area.component';
@@ -18,7 +17,6 @@ import { CommentBoxComponent } from './comment-box/comment-box.component';
 
 const sharedComponents = [
   FooterComponent,
-  SideNavComponent,
   NovatekLogoComponent,
   AvatarComponent,
   NotificationComponent,

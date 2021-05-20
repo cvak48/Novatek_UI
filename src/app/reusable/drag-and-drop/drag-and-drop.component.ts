@@ -12,17 +12,34 @@ export class DragAndDropComponent  {
     'Get to work',
     'Pick up groceries',
     'Go home',
-    'Fall asleep'
+    'Fall asleep1',
+    'Fall asleep2',
+    'Fall asleep3',
+    'Fall asleep4',
+    'Fall asleep5',
+    'Fall asleep6',
+    'Fall asleep7',
+    'Fall asleep8',
+    'Fall asleep9',
   ];
 
+  InProgress = [
+    'Get up',
+    'Brush teeth',
+    'Take a shower',
+    // 'Check e-mail',
+    // 'Walk dog'
+  ];
   done = [
     'Get up',
     'Brush teeth',
     'Take a shower',
-    'Check e-mail',
-    'Walk dog'
+    // 'Check e-mail',
+    // 'Walk dog'
   ];
-
+  onAddClick() {
+    this.done.push('New One');
+  }
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);

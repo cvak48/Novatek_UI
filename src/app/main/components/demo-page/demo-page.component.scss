@@ -141,7 +141,12 @@
         .widget-container {
           width: 90%;
           height: 600px;
-          border: 1px solid $color-dark-gray-02;
+          // border: 1px solid black;
+        }
+
+        .panel-container {
+          width: 30%;
+          height: 500px;
         }
       }
     }

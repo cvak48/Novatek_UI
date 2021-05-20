@@ -48,6 +48,9 @@
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.DragDrop)">
         {{nvComponentType[nvComponentType.DragDrop]}}
       </div>
+      <div class="menu-item h40" (click)="onItemClick(nvComponentType.Panel)">
+        {{nvComponentType[nvComponentType.Panel]}}
+      </div>
 
     </div>
     <div class="preview-panel" [ngSwitch]="selectedItem">
@@ -55,7 +58,7 @@
         <!-- Forth: Call your reusable component here and pass input data if needed  -->
 
         <div class="body-item-container" *ngSwitchCase="nvComponentType.Search">
-          <app-search class="body-item" ></app-search>
+          <app-search class="body-item"></app-search>
           <!-- <app-nova-footer class="body-item" *ngSwitchCase="nvComponentType.Footer"></app-nova-footer> -->
         </div>
         <app-novatek-logo class="body-item" *ngSwitchCase="nvComponentType.NovaLogo"></app-novatek-logo>
@@ -74,6 +77,9 @@
         <div class="widget-container" *ngSwitchCase="nvComponentType.DragDrop">
           <app-drag-and-drop ></app-drag-and-drop>
         </div>
+        <div class="panel-container" *ngSwitchCase="nvComponentType.Panel">
+        <app-nova-panel class="body-item" *ngSwitchCase="nvComponentType.Panel"></app-nova-panel>
+      </div>
       </div>
     </div>
   </div>

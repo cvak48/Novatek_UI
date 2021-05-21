@@ -1,5 +1,8 @@
+
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
+import { NovaCard } from '../local-data/data-models';
+
 
 @Component({
   selector: 'app-drag-and-drop',
@@ -7,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./drag-and-drop.component.scss']
 })
 export class DragAndDropComponent  {
-
+  
   todo = [
     'Get to work',
     'Pick up groceries',
@@ -37,6 +40,10 @@ export class DragAndDropComponent  {
     // 'Check e-mail',
     // 'Walk dog'
   ];
+  onDragGenerate(): void {
+
+    this.generateLists();
+  }
   onAddClick() {
     this.done.push('New One');
   }
@@ -51,4 +58,13 @@ export class DragAndDropComponent  {
     }
   }
 
+  generateLists(): void {
+
+  }
+
 }
+
+// https://timdeschryver.dev/blog/exploring-drag-and-drop-with-the-new-angular-material-cdk
+
+//  When the container is the same, it re-orders the items as before. If the container is different,
+//  it moves the dragged item to the list where the item is being dropped in

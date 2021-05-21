@@ -20,7 +20,7 @@
          cdkDropListOrientation="horizontal"
         (cdkDropListDropped)="drop($event)">
         <div class="example-box-drop" *ngFor="let item of InProgress" cdkDrag>
-          <div class="example-custom-placeholder" *cdkDragPlaceholder>Drop Here</div>
+          <div class="example-custom-placeholder pl-4 pt-4" *cdkDragPlaceholder>Drop Here</div>
           {{item}}
         </div>
       </div>
@@ -31,7 +31,7 @@
         cdkDropListOrientation="horizontal"
       (cdkDropListDropped)="drop($event)">
       <div class="example-box-drop" *ngFor="let item of done" cdkDrag>
-        <div class="example-custom-placeholder" *cdkDragPlaceholder>Drop Here</div>
+        <div class="example-custom-placeholder pl-4 pt-4" *cdkDragPlaceholder>Drop Here</div>
         {{item}}
       </div>
     </div>
@@ -39,6 +39,9 @@
     </div>
   </div>
 </div>
+
+
+<!-- moveItemInArray. This function is used to calculate the new index of the dropped item inside the array, rad! -->
 
 
 <!-- https://kipalog.com/posts/Angular-7-Drag-and-Drop-example---Angular-Material-CDK -->

@@ -10,8 +10,8 @@
 
 <div class="sidebar" >
     <h4>Approvals</h4>
-    <ul  *ngFor="let data of obj">
-       <li>
+    <ul  >
+       <li *ngFor="let data of listToShow">
            <a href="#">{{data.element}}</a>  
        </li>
    </ul>

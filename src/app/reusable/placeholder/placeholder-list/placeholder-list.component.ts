@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-placeholder-list',
@@ -6,23 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./placeholder-list.component.scss']
 })
 export class PlaceholderListComponent implements OnInit {
-
+@Input() listToShow: any;
   constructor() { }
   obj: any;
-
   ngOnInit(): void {
-  this.obj  = [
-      {
-        "element" : "Timesheet"
-      },
-      {
-        "element" : "Timesheet"
-      }
-  ];
-
-  console.log("Obj", this.obj);
-  
-   
+ 
   }
+
 
 }

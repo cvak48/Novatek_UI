@@ -1,12 +1,10 @@
-<p>placeholder1 works!</p>
-
  <!--first placeholder-->
  <div class="row">
     <div class="col-12">
       <div class="row">
         <div class="col-1">
           <img
-            src="https://via.placeholder.com/100x100"
+            src={{smallCardData.img}}
             alt="#"
             class="mr-3 rounded small-round"
             style="width: 100px"
@@ -15,10 +13,10 @@
         <div class="col-11">
           <div class="media-body align-self-center">
             <h4>
-              My Name <small><i>Posted on May 20, 2018</i></small>
+              My Name <small><i>{{smallCardData.text1}}</i></small>
             </h4>
             <p>
-              <small><i>My Name Posted on May 20, 2018</i></small>
+              My Name <small><i>{{smallCardData.text2}}</i></small>
             </p>
 
           </div>
@@ -28,13 +26,7 @@
         <div class="col-12">
           <div class="flex-column flex-md-row">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel
-              ipsum aliquam metus facilisis scelerisque. Quisque vitae
-              condimentum nulla. Vestibulum lobortis ullamcorper augue id
-              consequat. Orci varius natoque penatibus et magnis dis
-              parturient montes, nascetur ridiculus mus. Phasellus at aliquet
-              dui. Mauris dapibus lectus id laoreet iaculis. Duis auctor augue
-              augue, eget lobortis quam auctor at.
+              {{smallCardData.description}}
             </p>
           </div>
         </div>

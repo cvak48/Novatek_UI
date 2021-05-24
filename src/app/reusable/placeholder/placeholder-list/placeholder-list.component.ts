@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class PlaceholderListComponent implements OnInit {
 @Input() listToShow: any;
   constructor() { }
-  obj: any;
+  
   ngOnInit(): void {
  
   }

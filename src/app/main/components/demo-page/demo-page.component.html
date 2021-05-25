@@ -45,6 +45,9 @@
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.Dropdown)">
         {{nvComponentType[nvComponentType.Dropdown]}}
       </div>
+      <div class="menu-item h40" (click)="onItemClick(nvComponentType.DropToUpload)">
+        {{nvComponentType[nvComponentType.DropToUpload]}}
+      </div>
       
     </div>
     <div class="preview-panel" [ngSwitch]="selectedItem">
@@ -66,7 +69,9 @@
         <app-user-profile-menu class="body-item" [person]="person" *ngSwitchCase="nvComponentType.ProfileMenu"></app-user-profile-menu>
        
         <app-nv-dropdown class="body-item" *ngSwitchCase="nvComponentType.Dropdown"></app-nv-dropdown>
-
+        <div class="upload-file-container">
+        <app-upload class="body-item" *ngSwitchCase="nvComponentType.DropToUpload"></app-upload>
+      </div>
       </div>
     </div>
   </div>

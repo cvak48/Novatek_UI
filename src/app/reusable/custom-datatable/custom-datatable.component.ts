@@ -4,6 +4,7 @@ import {MatSort, Sort} from "@angular/material/sort";
 import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
 import { TableColumn } from './table-column.model';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-custom-datatable',
@@ -18,7 +19,8 @@ export class CustomDatatableComponent implements OnInit, AfterViewInit {
   matPaginator!: MatPaginator;
   @ViewChild(MatSort, { static: true })
   matSort!: MatSort;
-
+  totalRec = 26;
+  currentRec = 5;
   @Input() isPageable = false;
   @Input() isSortable = false;
   @Input() isFilterable = false;
@@ -35,6 +37,7 @@ export class CustomDatatableComponent implements OnInit, AfterViewInit {
     this.setTableDataSource(data);
   }
 
+  apiData: any[] = [];
   constructor() {
   }
 
@@ -54,6 +57,7 @@ export class CustomDatatableComponent implements OnInit, AfterViewInit {
 
 
   setTableDataSource(data: any) {
+    this.apiData = [...data];
     this.tableDataSource = new MatTableDataSource(data);
     this.tableDataSource.paginator = this.matPaginator;
     this.tableDataSource.sort = this.matSort;
@@ -83,6 +87,24 @@ export class CustomDatatableComponent implements OnInit, AfterViewInit {
 
   emitRowAction(row: any) {
     this.rowAction.emit(row);
+  }
+
+  onPageFired(event: any) {
+   if ((this.currentRec <= ((event.pageIndex+1) * event.pageSize)) && this.currentRec <= this.totalRec) {
+     for(let i=0; i<5 ; i++) {
+      this.currentRec +=1;
+      this.apiData.push({
+        id: i+5,
+        name: 'Vikash Gupta'+i,
+        date: "03-30-2005",
+        email: 'cikash@gmail.com',
+        status: 'Completed'
+      },
+     )
+     }
+     
+   this.setTableDataSource(this.apiData);
+   }
   }
 
 }

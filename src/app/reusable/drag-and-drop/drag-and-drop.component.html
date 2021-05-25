@@ -1,14 +1,16 @@
 <div class="container-fluid">
   <div class="row border border-secondary" cdkDropListGroup>
     <div class="col-2 border border-secondary side-nav">
+
       <div class="example-container">
+
         <div cdkDropList 
-        [cdkDropListData]="todo"
+        [cdkDropListData]="sourceList"
+        (cdkDropListExited)="exited($event)"
          class="example-list">
-          <div class="example-box" cdkDrag>
-            <div class="example-custom-placeholder pl-4 pt-4" *cdkDragPlaceholder> Drag To Generate</div>{{todo[0]}}</div>
+          <div class="example-box" cdkDrag [cdkDragData]="sourceList">{{sourceList}}</div>
         </div>
-        <div class="add d-flex align-self-center pl-3 pt-1 mt-2" (click)="onAddClick()">Add</div>
+        <div class="add d-flex align-self-center pl-3 pt-1 mt-2" >Add</div>
       </div>
 
     </div>
@@ -18,7 +20,9 @@
        [cdkDropListData]="InProgress"
         class="example-list-drop border border-danger"
          cdkDropListOrientation="horizontal"
-        (cdkDropListDropped)="drop($event)">
+         [cdkDropListEnterPredicate]="specialUseCase"
+        (cdkDropListDropped)="drop($event)"
+    >
         <div class="example-box-drop" *ngFor="let item of InProgress" cdkDrag>
           <div class="example-custom-placeholder pl-4 pt-4" *cdkDragPlaceholder>Drop Here</div>
           {{item}}
@@ -29,6 +33,7 @@
        [cdkDropListData]="done"
         class="example-list-drop border border-danger"
         cdkDropListOrientation="horizontal"
+        [cdkDropListEnterPredicate]="specialUseCase"
       (cdkDropListDropped)="drop($event)">
       <div class="example-box-drop" *ngFor="let item of done" cdkDrag>
         <div class="example-custom-placeholder pl-4 pt-4" *cdkDragPlaceholder>Drop Here</div>
@@ -39,6 +44,8 @@
     </div>
   </div>
 </div>
+
+<!-- <div class="example-custom-placeholder pl-4 pt-4" *cdkDragPlaceholder> Drag To Generate</div> -->
 
 
 <!-- moveItemInArray. This function is used to calculate the new index of the dropped item inside the array, rad! -->

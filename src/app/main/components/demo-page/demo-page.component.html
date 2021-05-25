@@ -52,6 +52,10 @@
         {{nvComponentType[nvComponentType.Panel]}}
       </div>
 
+      <div class="menu-item h40" (click)="onItemClick(nvComponentType.DropToUpload)">
+        {{nvComponentType[nvComponentType.DropToUpload]}}
+      </div>
+
     </div>
     <div class="preview-panel" [ngSwitch]="selectedItem">
       <div class="panel-body">
@@ -70,17 +74,23 @@
           <app-avatar class="body-item" *ngIf="person?.imageUrl && person?.name" [avatarUrl]="person.imageUrl!"
             [name]="person.name!"></app-avatar>
         </ng-container>
+
+        <app-nv-dropdown class="body-item" *ngSwitchCase="nvComponentType.Dropdown"></app-nv-dropdown>
+        <div class="widget-container" *ngSwitchCase="nvComponentType.DragDrop">
+          <app-drag-and-drop></app-drag-and-drop>
+        </div>
+        <div class="panel-container" *ngSwitchCase="nvComponentType.Panel">
+          <app-nova-panel class="body-item" *ngSwitchCase="nvComponentType.Panel"></app-nova-panel>
+        </div>
+
         <app-user-profile-menu class="body-item" [person]="person" *ngSwitchCase="nvComponentType.ProfileMenu">
         </app-user-profile-menu>
 
         <app-nv-dropdown class="body-item" *ngSwitchCase="nvComponentType.Dropdown"></app-nv-dropdown>
-        <div class="widget-container" *ngSwitchCase="nvComponentType.DragDrop">
-          <app-drag-and-drop ></app-drag-and-drop>
+        <div class="upload-file-container">
+          <app-upload class="body-item" *ngSwitchCase="nvComponentType.DropToUpload"></app-upload>
         </div>
-        <div class="panel-container" *ngSwitchCase="nvComponentType.Panel">
-        <app-nova-panel class="body-item" *ngSwitchCase="nvComponentType.Panel"></app-nova-panel>
-      </div>
+
       </div>
     </div>
   </div>
-</div>

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatTabHeaderPosition } from '@angular/material/tabs';
 
 @Component({
   selector: 'app-tabs',
@@ -8,6 +9,8 @@ import { Component, Input, OnInit } from '@angular/core';
 export class TabsComponent implements OnInit {
 
   @Input() tabs:any;
+
+  @Input() headerPositionInput: MatTabHeaderPosition = 'above';
 
   constructor() { }
 

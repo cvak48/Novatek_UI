@@ -4,6 +4,7 @@ import { Person, Notification } from './../demo-page/demo-page.component';
 import { Component, Input, OnInit } from '@angular/core';
 import { TextAreaComponent } from 'src/app/reusable/text-area/text-area.component';
 import { NovatekLogoComponent } from 'src/app/reusable/novatek-logo/novatek-logo.component';
+import { MatTabHeaderPosition } from '@angular/material/tabs';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,6 +14,7 @@ import { NovatekLogoComponent } from 'src/app/reusable/novatek-logo/novatek-logo
 export class DashboardComponent implements OnInit {
 
   comments:Array<CommentNode> = [];
+  position: MatTabHeaderPosition = 'below';
   types = [{component:TextAreaComponent, name:'Tab 1'}, {component:NovatekLogoComponent, name:'Tab 2'}, {component:TextAreaComponent, name:'Tab 3'}];
 
   // mockData for header

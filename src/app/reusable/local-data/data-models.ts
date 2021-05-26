@@ -1,10 +1,10 @@
 
-export class NovaCard<T> {
+export class NovaCard {
     id: number;
     title: string;
     type: CardType;
-    fields: CardFields<T>;
-    constructor(id: number, title: string, type?: CardType, fields?: CardFields<T>) {
+    fields: CardFields;
+    constructor(id: number, title: string, type?: CardType, fields?: CardFields) {
         this.id = id;
         this.title = title;
         this.type = type!;
@@ -17,17 +17,17 @@ enum CardType {
 }
 
 
-interface CardFields<T> {
+interface CardFields {
     id: number;
     title: string;
-    links: CardLink<T>[];
+    links: CardLink[];
     iconUrl: string;
     description: string;
     attachment: CardAttachment[];
-    data?: T;
+
 }
 
-interface TaskFields extends CardFields<any> {
+interface TaskFields extends CardFields {
     taskId: number;
     type: CardType;
     assignees: Person[];
@@ -37,7 +37,7 @@ interface TaskFields extends CardFields<any> {
     progress: TaskProgress;
 }
 
-interface ReportFields extends CardFields<any> {
+interface ReportFields extends CardFields {
     reportId: number;
     type: CardType;
 }
@@ -48,9 +48,9 @@ interface TaskPriority {
     iconUrl: string;
 }
 
-interface CardLink<T> {
+interface CardLink {
     id: number;
-    card: NovaCard<T>;
+    card: NovaCard;
 }
 
 export interface Person {

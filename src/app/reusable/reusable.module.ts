@@ -17,7 +17,7 @@ import { CommentBoxComponent } from './comment-box/comment-box.component';
 import { PlaceholderCardComponent } from './placeholder/placeholder-card/placeholder-card.component';
 import { PlaceholderListComponent } from './placeholder/placeholder-list/placeholder-list.component';
 import { PlaceholderBannerComponent } from './placeholder/placeholder-banner/placeholder-banner.component';
-import { Placeholder1Component } from './placeholder/placeholder1/placeholder1.component';
+import { PlaceholderBigCardComponent } from './placeholder/placeholderBigCard/placeholderBigCard.component';
 
 const sharedComponents = [
   FooterComponent,
@@ -35,7 +35,7 @@ const sharedComponents = [
   PlaceholderCardComponent,
   PlaceholderListComponent,
   PlaceholderBannerComponent,
-  Placeholder1Component
+  PlaceholderBigCardComponent
 ];
 
 @NgModule({

@@ -1,19 +1,25 @@
+@import "./../../theme/base.scss";
+
+.small-card {
+  width: 18rem; padding: 15px;
+}
+
 .small-round {
     width: 60px !important;
     height: 60px;
-    background: #e6e6e6 0% 0% no-repeat padding-box;
+    background: $color-light-gray-20 0% 0% no-repeat padding-box;
     opacity: 1;
   }
   .xs-small-round {
     width: 40px !important;
     height: 40px;
-    background: #e6e6e6 0% 0% no-repeat padding-box;
+    background: $color-light-gray-20 0% 0% no-repeat padding-box;
     opacity: 1;
   }
   .large-round {
       width: 150px !important;
       height: 150px;
-      background: #e6e6e6 0% 0% no-repeat padding-box;
+      background: $color-light-gray-20 0% 0% no-repeat padding-box;
       border-radius: 50%;
       opacity: 1;
     }

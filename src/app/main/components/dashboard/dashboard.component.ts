@@ -4,7 +4,7 @@ import { Person, Notification } from './../demo-page/demo-page.component';
 import { Component, Input, OnInit } from '@angular/core';
 import { PlaceHolderCard } from 'src/app/model/placeHolderCard';
 import { PlaceHolderBanner } from 'src/app/model/placeHolderBanner';
-import { PlaceHolder1 } from 'src/app/model/placeHolder1';
+import { PlaceholderBigCard } from 'src/app/model/PlaceholderBigCard';
 
 
 
@@ -35,7 +35,7 @@ export class DashboardComponent implements OnInit {
   }
 
   setPlaceHolderCarddata(): void {
-    this.cardData = {'img':'https://via.placeholder.com/100x100',
+    this.cardData = {'img':'https://tse1.mm.bing.net/th?id=OIP.E45HCyveqDL44p8lmvQL9AAAAA&pid=Api&P=0',
     'text1':'Posted on May 20, 2018',
     'text2':'Posted on May 20, 2018',
     'description':`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel
@@ -48,7 +48,7 @@ export class DashboardComponent implements OnInit {
   }
 
   setPlaceHolder1(): void {
-    this.smallCardData = {'img':'https://via.placeholder.com/100x100',
+    this.smallCardData = {'img':'https://tse1.mm.bing.net/th?id=OIP.E45HCyveqDL44p8lmvQL9AAAAA&pid=Api&P=0',
     'text1':'Posted on May 20, 2018',
     'text2':'Posted on May 20, 2018',
     'description':`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel
@@ -57,10 +57,10 @@ export class DashboardComponent implements OnInit {
     consequat. Orci varius natoque penatibus et magnis dis
     parturient montes, nascetur ridiculus mus. Phasellus at aliquet
     dui. Mauris dapibus lectus id laoreet iaculis. Duis auctor augue
-    augue, eget lobortis quam auctor at.`} as PlaceHolder1;
+    augue, eget lobortis quam auctor at.`} as PlaceholderBigCard;
   }
   setPlaceHolderBannerdata(): void {
-    this.bannerData = {'img':'https://via.placeholder.com/100x100',
+    this.bannerData = {'img':'https://tse1.mm.bing.net/th?id=OIP.E45HCyveqDL44p8lmvQL9AAAAA&pid=Api&P=0',
     'description':`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel
     ipsum aliquam metus facilisis scelerisque. Quisque vitae
     condimentum nulla. Vestibulum lobortis ullamcorper augue id

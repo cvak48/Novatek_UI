@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Placeholder1Component } from './placeholder1.component';
+import { PlaceholderBigCardComponent } from './placeholderBigCard.component';
 
-describe('Placeholder1Component', () => {
-  let component: Placeholder1Component;
-  let fixture: ComponentFixture<Placeholder1Component>;
+describe('PlaceholderBigCardComponent', () => {
+  let component: PlaceholderBigCardComponent;
+  let fixture: ComponentFixture<PlaceholderBigCardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ Placeholder1Component ]
+      declarations: [ PlaceholderBigCardComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(Placeholder1Component);
+    fixture = TestBed.createComponent(PlaceholderBigCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

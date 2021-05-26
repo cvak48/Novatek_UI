@@ -1,3 +1,5 @@
+import { UploadComponent } from './upload/upload.component';
+import { NvFileUploadDirective } from './directives/file-upload/nv-file-upload.directive';
 import { NvDropdownComponent } from './nv-dropdown/nv-dropdown.component';
 import { UserProfileMenuComponent } from './user-profile-menu/user-profile-menu.component';
 import { NotificationComponent } from './notification/notification.component';
@@ -20,13 +22,14 @@ import { PlaceholderBannerComponent } from './placeholder/placeholder-banner/pla
 import { PlaceholderBigCardComponent } from './placeholder/placeholderBigCard/placeholderBigCard.component';
 
 const sharedComponents = [
+  NvInitialsPipe,
+  NvFileUploadDirective,
   FooterComponent,
   SideNavComponent,
   NovatekLogoComponent,
   AvatarComponent,
   NotificationComponent,
   UserProfileMenuComponent,
-  NvInitialsPipe,
   PanelComponent,
   SearchComponent,
   CommentBoxComponent,
@@ -35,7 +38,8 @@ const sharedComponents = [
   PlaceholderCardComponent,
   PlaceholderListComponent,
   PlaceholderBannerComponent,
-  PlaceholderBigCardComponent
+  PlaceholderBigCardComponent,
+  UploadComponent
 ];
 
 @NgModule({

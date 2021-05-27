@@ -5,25 +5,28 @@
       <div class="example-container">
 
         <div cdkDropList 
-        [cdkDropListData]="sourceList"
+        [cdkDropListData]="sourceCardList"
         (cdkDropListExited)="exited($event)"
          class="example-list">
-          <div class="example-box" cdkDrag [cdkDragData]="sourceList[0]">{{sourceList[0].title}}</div>
+          <div class="example-box" cdkDrag [cdkDragData]="sourceCardList[0]"
+            (cdkDragStarted)="onDragStarted($event)">
+            <div class="example-custom-drag-placeholder pl-4 pt-4" *cdkDragPlaceholder>Drag to Generate New Card</div>
+            {{sourceCardList[0].title}}</div>
         </div>
-        <div class="add d-flex align-self-center pl-3 pt-1 mt-2" >Add</div>
+        <!-- <div class="add d-flex align-self-center pl-3 pt-1 mt-2" >Add</div> -->
       </div>
 
     </div>
     <div class="col-10 border border-danger preview-panel d-flex flex-column">
-     <div class="example-container" *ngFor="let list of widgetCards">
+     <div class="example-container" *ngFor="let row of widgetCardLists; index">
       <div cdkDropList
-       [cdkDropListData]="list"
-        class="example-list-drop border border-danger"
+       [cdkDropListData]="row.list"
+        class="example-list-drop "
          cdkDropListOrientation="horizontal"
          [cdkDropListEnterPredicate]="specialUseCase"
         (cdkDropListDropped)="drop($event)">
-        <div class="example-box-drop" *ngFor="let item of list" cdkDrag>
-          <div class="example-custom-placeholder pl-4 pt-4" *cdkDragPlaceholder>Drop Here</div>
+        <div class="example-box-drop" *ngFor="let item of row.list" cdkDrag>
+          <div class="example-custom-drop-placeholder pl-4 pt-4" *cdkDragPlaceholder>Drop Here</div>
           {{item.title}}
         </div>
       </div>
@@ -35,6 +38,20 @@
 </div>
 
 <!-- <div cdkDropList
+
+dropContainer: CdkDropList
+
+Droppable container that the draggable is a part of.
+
+(cdkDropListEntered)="entered($event)"
+(cdkDragMoved)="entered($event)"
+(cdkDragReleased)="entered($event)"
+(cdkDragReleased)="entered($event)"
+
+(cdkDragStarted)="entered($event)"
+(cdkDropListSorted)="entered($event)"
+(cdkDropListSorted)="entered($event)"
+
 [cdkDropListData]="widgetCards[1]"
  class="example-list-drop border border-danger"
  cdkDropListOrientation="horizontal"

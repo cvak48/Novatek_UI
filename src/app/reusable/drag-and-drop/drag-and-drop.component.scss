@@ -25,7 +25,12 @@ html {
     .col-10 {
       &.preview-panel {
         height: 100%;
-        overflow: auto ;
+        overflow-y: scroll ;
+        -ms-overflow-style: none; 
+        scrollbar-width: none;  
+        &::-webkit-scrollbar {
+          display: none;
+        }
       }
     }
 
@@ -41,7 +46,7 @@ html {
 
 .example-container {
   width: 100%;
-  height: 100%;
+  // height: 100%;
   max-width: 100%;
   max-height: 100%;
   display: inline-block;
@@ -53,14 +58,14 @@ html {
   border: solid 1px #ccc;
   min-height: 60px;
   background: white;
-  border-radius: 4px;
+  // border-radius: 4px;
   overflow: hidden ;
   display: block;
 }
 
 .example-box {
   padding: 20px 10px;
-  border-bottom: solid 1px #ccc;
+  // border-bottom: solid 1px #ccc;
   color: rgba(0, 0, 0, 0.87);
   display: flex;
   flex-direction: row;
@@ -74,19 +79,16 @@ html {
 
 .example-list-drop {
   width: 100%;
-
   max-width: 100%;
   border: solid 1px #ccc;
-  min-height: 100px;
+  min-height: 200px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   background: white;
-  border-radius: 4px;
+  // border-radius: 4px;
   overflow-y: hidden;
 }
-
-
 
 .example-box-drop {
   width: 200px;
@@ -246,10 +248,19 @@ html {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
 
-.example-custom-placeholder {
+.example-custom-drop-placeholder {
   background: #ccc;
   border: dotted 3px #999;
   width: 200px;
   height: 200px;
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.example-custom-drag-placeholder {
+  background: #ccc;
+  border: dotted 3px #999;
+  padding: 20px 10px;
+  // width: 100px;
+  // height: 100px;
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }

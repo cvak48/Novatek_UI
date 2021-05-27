@@ -1,0 +1,23 @@
+<b>Feeds</b>
+<div style="background-color:bisque; width:50%">
+    <div style="min-height:60px" *ngFor="let data of feedData">
+        <div class="feed-usr-icon">
+            <img class="novatek-logo" alt="Novatek Logo" style="height:40px; width:40px"
+             src="https://tse1.mm.bing.net/th?id=OIP.E45HCyveqDL44p8lmvQL9AAAAA&pid=Api&P=0" />
+         </div>
+         <div class="feed-details">
+             <div><a href="">{{data.authorName}}</a>&nbsp;<b>{{data.action}}</b></div>
+             <div *ngIf="data.message">Someone added you as a friend Someone added you as a friend Someone added you as a friend Someone added you as a friendSomeone added you as a friend Someone added you as a friend Someone added you as a friendSomeone added you as a friendSomeone added you as a friend Someone added you as a friend </div>
+             <div *ngIf="data.attachments.length">
+                 <span *ngFor="let img of data.attachments">
+                 <img class="novatek-logo" alt="Novatek Logo" style="height:150px; width:150px"
+             src="{{img.url}}" />
+            </span>
+             
+             </div>
+             <div style="padding-top: 5px;">{{data.likes}} Likes</div>
+         </div>
+        
+    </div>
+    
+</div>

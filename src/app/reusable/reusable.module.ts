@@ -16,6 +16,7 @@ import { NovatekLogoComponent } from './novatek-logo/novatek-logo.component';
 import { PanelComponent } from './panel/panel.component';
 import { TextAreaComponent } from './text-area/text-area.component';
 import { CommentBoxComponent } from './comment-box/comment-box.component';
+import { FeedComponent } from './feed/feed.component';
 
 const sharedComponents = [
   NvInitialsPipe,
@@ -31,7 +32,8 @@ const sharedComponents = [
   CommentBoxComponent,
   TextAreaComponent,
   NvDropdownComponent,
-  UploadComponent
+  UploadComponent,
+  FeedComponent
 ];
 
 @NgModule({

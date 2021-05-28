@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Feed } from 'src/app/model/feed';
 
 @Component({
   selector: 'app-feed',
@@ -6,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./feed.component.scss']
 })
 export class FeedComponent implements OnInit {
- feedData = [{
+  commentText: any;
+  feedData: Feed[] = [{
           'authorName': 'User1',
           'authorLink': '',
           'action': 'added you as friend',
@@ -40,6 +42,22 @@ export class FeedComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  addComment():void{
+    if (this.commentText) {
+      const commentObj: Feed = {
+        'authorName': 'User5',
+        'authorLink': '',
+        'action': 'posted on page',
+        'message': this.commentText,
+        'attachments': [],
+        'likes': 0
+      }
+      this.feedData.push(commentObj);
+      this.commentText ='';
+    }
+    
   }
 
 }

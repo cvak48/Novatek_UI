@@ -19,6 +19,7 @@ export class DashboardComponent implements OnInit {
 
   // mockData for header
   @Input() person: Person = mockProfileMenu();
+  avtar = '../../../../assets/images/avtar.jpg';
   cardData = {};
   bannerData = {};
   smallCardData = {};
@@ -35,7 +36,7 @@ export class DashboardComponent implements OnInit {
   }
 
   setPlaceHolderCarddata(): void {
-    this.cardData = {'img':'https://tse1.mm.bing.net/th?id=OIP.E45HCyveqDL44p8lmvQL9AAAAA&pid=Api&P=0',
+    this.cardData = {'img': this.avtar,
     'text1':'Posted on May 20, 2018',
     'text2':'Posted on May 20, 2018',
     'description':`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel
@@ -48,7 +49,7 @@ export class DashboardComponent implements OnInit {
   }
 
   setPlaceHolder1(): void {
-    this.smallCardData = {'img':'https://tse1.mm.bing.net/th?id=OIP.E45HCyveqDL44p8lmvQL9AAAAA&pid=Api&P=0',
+    this.smallCardData = {'img': this.avtar,
     'text1':'Posted on May 20, 2018',
     'text2':'Posted on May 20, 2018',
     'description':`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel
@@ -60,7 +61,7 @@ export class DashboardComponent implements OnInit {
     augue, eget lobortis quam auctor at.`} as PlaceholderBigCard;
   }
   setPlaceHolderBannerdata(): void {
-    this.bannerData = {'img':'https://tse1.mm.bing.net/th?id=OIP.E45HCyveqDL44p8lmvQL9AAAAA&pid=Api&P=0',
+    this.bannerData = {'img': this.avtar,
     'description':`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel
     ipsum aliquam metus facilisis scelerisque. Quisque vitae
     condimentum nulla. Vestibulum lobortis ullamcorper augue id

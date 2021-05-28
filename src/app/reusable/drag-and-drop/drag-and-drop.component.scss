@@ -236,16 +236,16 @@ html {
 
 
 .cdk-drag-animating {
-  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  transition: transform 500ms cubic-bezier(0, 0, 0.2, 1);
 }
 
 
 .cdk-drop-list-dragging .cdk-drag {
-  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  transition: transform 500ms cubic-bezier(0, 0, 0.2, 1);
 }
 
 .example-list-drop.cdk-drop-list-dragging .example-box-drop:not(.cdk-drag-placeholder) {
-  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  transition: transform 500ms cubic-bezier(0, 0, 0.2, 1);
 }
 
 .example-custom-drop-placeholder {
@@ -253,7 +253,7 @@ html {
   border: dotted 3px #999;
   width: 200px;
   height: 200px;
-  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  transition: transform 500ms cubic-bezier(0, 0, 0.2, 1);
 }
 
 .example-custom-drag-placeholder {
@@ -262,5 +262,5 @@ html {
   padding: 20px 10px;
   // width: 100px;
   // height: 100px;
-  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  transition: transform 500ms cubic-bezier(0, 0, 0.2, 1);
 }

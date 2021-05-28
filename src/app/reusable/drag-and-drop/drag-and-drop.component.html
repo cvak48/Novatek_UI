@@ -21,7 +21,7 @@
      <div class="example-container" *ngFor="let row of widgetCardLists; index">
       <div cdkDropList
        [cdkDropListData]="row.list"
-        class="example-list-drop "
+        class="example-list-drop"
          cdkDropListOrientation="horizontal"
          [cdkDropListEnterPredicate]="specialUseCase"
         (cdkDropListDropped)="drop($event)">

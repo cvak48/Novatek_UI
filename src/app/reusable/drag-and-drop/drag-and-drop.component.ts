@@ -2,6 +2,8 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem, CdkDragExit, CdkDropLi
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NovaCard } from '../local-data/data-models';
 
+// populate cards using dictionary and observables
+
 class NovaCardsRow {
   id: string;
   list: NovaCard[];
@@ -20,88 +22,127 @@ export class DragAndDropComponent {
   widgetRow: (NovaCard | number)[][] = [];
   // widgetCardLists: NovaCard[][] = [];
   widgetCardLists: NovaCardsRow[] = [new NovaCardsRow('cdk-drop-list-1', [])];
+  novaCardsId: number[] = [];
   readonly sourceCardListId = 'cdk-drop-list-0';
   private readonly maxRowCards = 3;
   // new NovaCard to generate
   sourceCardList = [new NovaCard(0, 'Drag New Card')];
 
-
-  constructor() {
-
-  }
-
+  constructor() { }
+  // enumerate rows and cards as dragging new card
+  // fires when card reach other containers
   exited(event: CdkDragExit<NovaCard[]>): void {
     console.log('Exited', event.item.data);
+    // sourceList should not be empty
     this.generateNovaCard();
-    this.manageWidgetCardLists();
-    // this.generateWidgetRow();
+    // manage widget board to see if new row is needed
+    this.manageWidgetCardLists(this.widgetCardLists);
   }
   onDragStarted(event: any): void {
     console.log('Started', event.source.data);
     // check if need new row : 1- all rows of populated
   }
   generateNovaCard(): void {
+    const id = this.manageNovaCards();
     this.sourceCardList.push(new NovaCard(0, 'Drag New Card'));
+  }
+  manageNovaCards(): string {
+    // 
+    return '';
   }
 
   drop(event: CdkDragDrop<NovaCard[]>): void {
+    // check the new NovaCard dropped (id)
+    // modify its id
+    if (event.previousContainer.id === 'cdk-drop-list-0') {
+    const listLength = this.novaCardsId.length;
+    const newId = listLength;
+    event.item.data.id = newId;
+    this.novaCardsId.push(event.item.data.id);
+    }
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+
     } else {
       transferArrayItem(event.previousContainer.data,
         event.container.data,
         event.previousIndex,
         event.currentIndex);
+
     }
-    console.log(event.previousContainer.element.nativeElement.id);
-    console.log(event.container.element.nativeElement.id);
+    // console.log(event.previousContainer.element.nativeElement.id);
+    // console.log(event.container.element.nativeElement.id);
+
+    // console.log(event.item.data.id);
+
+    // this.novaCardsId.push();
 
   }
 
+  manageWidgetCardLists(widgetList: NovaCardsRow[]): void {
+    let { rowsNumber, rowCardsNumber, CardsNumber, maxCardsNumber } = this.enumerateWidgetAssets(widgetList);
 
-  manageWidgetCardLists(): boolean {
-    const rowsNumber = this.widgetCardLists.length;
-    const rowCardsNumber = [];
-    let CardsNumber = 0;
-    let maxCards = 0;
     if (rowsNumber > 0) {
-      for (let i = 0; i <= rowsNumber - 1; i++) {
-        rowCardsNumber[i] = this.widgetCardLists[i].list.length;
-        CardsNumber += rowCardsNumber[i];
-      }
       // isRowNeeded
-      // maximun capacity of cards within all rows
-      maxCards = rowsNumber * this.maxRowCards;
-      if (CardsNumber >= maxCards - 1) {
+      // maximum capacity of cards within all rows
+      if (CardsNumber >= maxCardsNumber - 1) {
         // new extra row
-        // ask for new id for new row
-        let newId = '';
-        newId = this.generateNewRowId(rowsNumber);
-        this.generateWidgetRow(newId);
-      } else {
-
+        this.generateWidgetRow(rowsNumber);
       }
-
-
     } else {
-      return false;
+      rowsNumber = 0;
+      this.generateWidgetRow(rowsNumber);
     }
 
-    return true;
   }
-  generateNewRowId( rowsNumber: number): string {
-    return `cdk-drop-list-${rowsNumber + 1} `;
-  }
-  generateWidgetRow(currentId?: string, previousId?: string): void {
+
+  generateWidgetRow(rowsNumber: number, currentId?: string, previousId?: string): void {
     // generate rows and widgetMatrix
     // need id and NovaCard to generate rows
-    if (currentId) {
-    this.widgetCardLists.push(new NovaCardsRow( currentId, []));
+    // ask for new id for new row TODO: otherwise use inlet id
+    let newId = '';
+    newId = this.generateNewRowId(rowsNumber);
+    const id = currentId ? currentId : newId;
+    if (id) {
+      this.widgetCardLists.push(new NovaCardsRow(id, []));
     }
   }
-
+  generateNewRowId(rowsNumber: number): string {
+    return `cdk-drop-list-${rowsNumber + 1} `;
+  }
+  enumerateWidgetAssets(widgetList: NovaCardsRow[], maxRowCards: number = 3): { rowsNumber: number, rowCardsNumber: number[], CardsNumber: number, maxCardsNumber: number } {
+    let rowsNumb = widgetList.length;
+    const rowCardsNumb = [];
+    let CardsNumb = 0;
+    let maxCardsNumb = 0;
+    if (rowsNumb > 0) {
+      for (let i = 0; i <= rowsNumb - 1; i++) {
+        rowCardsNumb[i] = this.widgetCardLists[i].list.length;
+        CardsNumb += rowCardsNumb[i];
+      }
+      maxCardsNumb = rowsNumb * maxRowCards;
+    } else {
+      rowsNumb = 0;
+    }
+    const assets = {
+      rowsNumber: rowsNumb,
+      rowCardsNumber: rowCardsNumb,
+      CardsNumber: CardsNumb,
+      maxCardsNumber: maxCardsNumb,
+    };
+    return assets;
+  }
 
   specialUseCase(drag?: CdkDrag, drop?: CdkDropList): boolean {
+     if (drop?.data.length === 3 && drag?.dropContainer.id !== 'cdk-drop-list-0') {
+      console.log('im not reference');
+
+      // const splicedCurrentCard = drop?.data.splice(2, 1);
+     // const splicedPreviousCard = drag?.dropContainer.data.splice(0, 1);
+
+     //console.log(drag?.data.push(drag?.dropContainer.data[0]));
+      
+    }
     if (drop?.data.length >= 3) {
       console.log('Cannot drop you');
       return false;
@@ -113,23 +154,3 @@ export class DragAndDropComponent {
 
 }
 
-function mockWidgetMatrix(): NovaCard[][] {
-  const novaCard_0: NovaCard = new NovaCard(0, 'Nova Card 0');
-  const novaCard_1: NovaCard = new NovaCard(1, 'Nova Card 1');
-  const novaCard_2: NovaCard = new NovaCard(2, 'Nova Card 2');
-  const novaCard_3: NovaCard = new NovaCard(3, 'Nova Card 3');
-  const novaCard_4: NovaCard = new NovaCard(4, 'Nova Card 4');
-  const novaCard_5: NovaCard = new NovaCard(5, 'Nova Card 5');
-
-  const novaCardLists: NovaCard[][] = [
-    // [novaCard_0, novaCard_1],
-    [novaCard_3, novaCard_4],
-    [],
-  ];
-  return novaCardLists;
-}
-
-// https://timdeschryver.dev/blog/exploring-drag-and-drop-with-the-new-angular-material-cdk
-
-//  When the container is the same, it re-orders the items as before. If the container is different,
-//  it moves the dragged item to the list where the item is being dropped

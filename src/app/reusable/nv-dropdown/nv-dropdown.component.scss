@@ -1,0 +1,38 @@
+@import './../theme/base.scss';
+
+.container {
+    .dropdown {
+        .dropdown-toggle {
+            &.btn {
+                text-align: left;
+            }
+            &.body20 {
+                
+            }
+            &.default {
+                color:$color-dark-gray-30;
+            }
+            &:focus {
+                box-shadow: none;
+            }
+            &::after {
+                margin-left: 10px;
+
+            }
+
+        }
+
+        .dropdown-menu {
+            .dropdown-item {
+                &.selected-item {
+                    font-style: $font-style-normal;
+                    font-weight: $font-weight-bold;
+                    font-size: $font-size-small;
+                    font-family: $nv-font;
+                    line-height: $line-height-small;
+                    color: $color-black-10;
+                }
+            }
+        }
+    }
+}

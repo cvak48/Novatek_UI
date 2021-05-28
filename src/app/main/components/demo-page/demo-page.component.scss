@@ -1,4 +1,4 @@
-@import './../theme/base.scss';
+@import '../../../reusable/theme/base.scss';
 
 * {
   box-sizing: border-box;
@@ -132,6 +132,15 @@
         .body-header-container {
           width: 50%;
           height: 64px;
+        }
+        .dropdown-container {
+          width: 40%;
+          min-width: 30%;
+        }
+
+        .upload-file-container {
+          width: 30%;
+          height: 100%;
         }
       }
     }

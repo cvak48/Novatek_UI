@@ -1,16 +1,21 @@
-import { RouterModule } from '@angular/router';
+import { UploadComponent } from './upload/upload.component';
+import { NvFileUploadDirective } from './directives/file-upload/nv-file-upload.directive';
+import { NvDropdownComponent } from './nv-dropdown/nv-dropdown.component';
+import { UserProfileMenuComponent } from './user-profile-menu/user-profile-menu.component';
+import { NotificationComponent } from './notification/notification.component';
+import { NvInitialsPipe } from './pipes/nv-initials.pipe';
+import { AvatarComponent } from './avatar/avatar.component';
 import { SearchComponent } from './search/search.component';
 import { MaterialModule } from './../material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DemoPageComponent } from './demo-page/demo-page.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { NovatekLogoComponent } from './novatek-logo/novatek-logo.component';
 import { PanelComponent } from './panel/panel.component';
 import { TextAreaComponent } from './text-area/text-area.component';
+import { CommentBoxComponent } from './comment-box/comment-box.component';
 
 import { MatTableModule } from '@angular/material/table';
 import { CustomDatatableComponent } from './custom-datatable/custom-datatable.component';
@@ -26,7 +31,8 @@ import { DataPropertyGetterPipe } from './custom-datatable/data-property-getter-
 
 
 const sharedComponents = [
-  HeaderComponent,
+  NvInitialsPipe,
+  NvFileUploadDirective,
   FooterComponent,
   SideNavComponent,
   NovatekLogoComponent,
@@ -34,7 +40,16 @@ const sharedComponents = [
   DataPropertyGetterPipe,
   PanelComponent,
   SearchComponent,
-  TextAreaComponent
+  TextAreaComponent,
+  AvatarComponent,
+  NotificationComponent,
+  UserProfileMenuComponent,
+  PanelComponent,
+  SearchComponent,
+  CommentBoxComponent,
+  TextAreaComponent,
+  NvDropdownComponent,
+  UploadComponent
 ];
 
 @NgModule({

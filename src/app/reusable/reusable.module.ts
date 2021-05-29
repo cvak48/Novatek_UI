@@ -16,6 +16,10 @@ import { NovatekLogoComponent } from './novatek-logo/novatek-logo.component';
 import { PanelComponent } from './panel/panel.component';
 import { TextAreaComponent } from './text-area/text-area.component';
 import { CommentBoxComponent } from './comment-box/comment-box.component';
+import { PlaceholderCardComponent } from './placeholder/placeholder-card/placeholder-card.component';
+import { PlaceholderListComponent } from './placeholder/placeholder-list/placeholder-list.component';
+import { PlaceholderBannerComponent } from './placeholder/placeholder-banner/placeholder-banner.component';
+import { PlaceholderBigCardComponent } from './placeholder/placeholderBigCard/placeholderBigCard.component';
 
 const sharedComponents = [
   NvInitialsPipe,
@@ -31,6 +35,10 @@ const sharedComponents = [
   CommentBoxComponent,
   TextAreaComponent,
   NvDropdownComponent,
+  PlaceholderCardComponent,
+  PlaceholderListComponent,
+  PlaceholderBannerComponent,
+  PlaceholderBigCardComponent,
   UploadComponent
 ];
 

@@ -8,6 +8,7 @@ import { Feed } from 'src/app/model/feed';
 })
 export class FeedComponent implements OnInit {
   commentText: any;
+  imageURL = 'https://tse1.mm.bing.net/th?id=OIP.E45HCyveqDL44p8lmvQL9AAAAA&pid=Api&P=0';
   feedData: Feed[] = [{
           'authorName': 'User1',
           'authorLink': '',

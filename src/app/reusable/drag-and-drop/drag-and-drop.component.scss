@@ -1,15 +1,9 @@
 @import './../theme/base.scss';
-html {
-  box-sizing: border-box;
-}
-*, *:before, *:after {
-  box-sizing: inherit;
-}
 
+$animationSpeed: 500ms;
 
 .container-fluid {
   height: 100%;
-
 
   .row {
     height: 100%;
@@ -33,7 +27,6 @@ html {
         }
       }
     }
-
   }
 }
 .add {
@@ -46,7 +39,6 @@ html {
 
 .example-container {
   width: 100%;
-  // height: 100%;
   max-width: 100%;
   max-height: 100%;
   display: inline-block;
@@ -58,14 +50,12 @@ html {
   border: solid 1px #ccc;
   min-height: 60px;
   background: white;
-  // border-radius: 4px;
   overflow: hidden ;
   display: block;
 }
 
 .example-box {
   padding: 20px 10px;
-  // border-bottom: solid 1px #ccc;
   color: rgba(0, 0, 0, 0.87);
   display: flex;
   flex-direction: row;
@@ -86,7 +76,6 @@ html {
   flex-direction: row;
   flex-wrap: wrap;
   background: white;
-  // border-radius: 4px;
   overflow-y: hidden;
 }
 
@@ -105,126 +94,7 @@ html {
   margin: 4px;
   border: solid 2px purple;
   padding: 20px 10px;
-  // flex-grow: 1;
-  // flex-basis: 0;
 }
-
-// .cdk-drag-preview {
-//   box-sizing: border-box;
-//   border-radius: 4px;
-//   box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
-//               0 8px 10px 1px rgba(0, 0, 0, 0.14),
-//               0 3px 14px 2px rgba(0, 0, 0, 0.12);
-// }
-
-// .cdk-drag-placeholder {
-//   opacity: 0;
-// }
-
-// .cdk-drag-animating {
-//   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
-// }
-
-// .example-box:last-child {
-//   border: none;
-// }
-
-// .example-list-drop.cdk-drop-list-dragging .example-box-drop:not(.cdk-drag-placeholder) {
-//   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
-// }
-
-
-
-
-// .example-container {
-//   width: 100%;
-//   height: 100%;
-//   max-width: 100%;
-//   max-height: 100%;
-//   display: inline-block;
-//   vertical-align: top;
-// }
-
-// .example-list-drag {
-//   border: solid 1px #ccc;
-//   min-height: 60px;
-//   background: white;
-//   border-radius: 4px;
-//   overflow: hidden;
-//   display: block;
-// }
-
-// .example-box-drag {
-//   padding: 20px 10px;
-//   border-bottom: solid 1px #ccc;
-//   color: rgba(0, 0, 0, 0.87);
-//   display: flex;
-//   flex-direction: row;
-//   align-items: center;
-//   justify-content: space-between;
-//   box-sizing: border-box;
-//   cursor: move;
-//   background: white;
-//   font-size: 14px;
-// }
-
-// .example-list-drop {
-//   width: 100%;
-//   height: 100%;
-//   max-width: 100%;
-//   max-height: 100%;
-//   border: solid 1px #ccc;
-//   min-height: 100px;
-//   display: flex;
-//   flex-direction: row;
-//   flex-wrap: wrap;
-//   background: white;
-//   border-radius: 4px;
-//   overflow-y: hidden;
-// }
-
-
-
-// .example-box-drop {
-//   width: 200px;
-//   height: 200px;
-//   color: rgba(0, 0, 0, 0.87);
-//   display: flex;
-//   flex-direction: row;
-//   align-items: center;
-//   justify-content: space-between;
-//   box-sizing: border-box;
-//   cursor: move;
-//   background: white;
-//   font-size: 14px;
-//   margin: 4px;
-//   border: solid 2px purple;
-//   padding: 20px 10px;
-//   // flex-grow: 1;
-//   // flex-basis: 0;
-// }
-// .example-list {
-//   border: solid 1px #ccc;
-//   min-height: 60px;
-//   background: white;
-//   border-radius: 4px;
-//   overflow: hidden;
-//   display: block;
-// }
-
-// .example-box {
-//   padding: 20px 10px;
-//   border-bottom: solid 1px #ccc;
-//   color: rgba(0, 0, 0, 0.87);
-//   display: flex;
-//   flex-direction: row;
-//   align-items: center;
-//   justify-content: space-between;
-//   box-sizing: border-box;
-//   cursor: move;
-//   background: white;
-//   font-size: 14px;
-// }
 
 .cdk-drag-preview {
   box-sizing: border-box;
@@ -236,16 +106,16 @@ html {
 
 
 .cdk-drag-animating {
-  transition: transform 500ms cubic-bezier(0, 0, 0.2, 1);
+  transition: transform $animationSpeed cubic-bezier(0, 0, 0.2, 1);
 }
 
 
 .cdk-drop-list-dragging .cdk-drag {
-  transition: transform 500ms cubic-bezier(0, 0, 0.2, 1);
+  transition: transform $animationSpeed cubic-bezier(0, 0, 0.2, 1);
 }
 
 .example-list-drop.cdk-drop-list-dragging .example-box-drop:not(.cdk-drag-placeholder) {
-  transition: transform 500ms cubic-bezier(0, 0, 0.2, 1);
+  transition: transform $animationSpeed cubic-bezier(0, 0, 0.2, 1);
 }
 
 .example-custom-drop-placeholder {
@@ -253,14 +123,12 @@ html {
   border: dotted 3px #999;
   width: 200px;
   height: 200px;
-  transition: transform 500ms cubic-bezier(0, 0, 0.2, 1);
+  transition: transform $animationSpeed cubic-bezier(0, 0, 0.2, 1);
 }
 
 .example-custom-drag-placeholder {
   background: #ccc;
   border: dotted 3px #999;
   padding: 20px 10px;
-  // width: 100px;
-  // height: 100px;
-  transition: transform 500ms cubic-bezier(0, 0, 0.2, 1);
+  transition: transform $animationSpeed cubic-bezier(0, 0, 0.2, 1);
 }

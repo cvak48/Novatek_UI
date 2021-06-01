@@ -1,8 +1,9 @@
+import { CardType, CardFields } from './../local-data/data-models';
 import { CdkDragDrop, moveItemInArray, transferArrayItem, CdkDragExit, CdkDropList, CdkDrag, CdkDragStart } from '@angular/cdk/drag-drop';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { NovaCard } from '../local-data/data-models';
 
-// populate cards using dictionary and observables
+
+// TODO: populate cards using dictionary and observables
 
 class NovaCardsRow {
   id: string;
@@ -13,6 +14,19 @@ class NovaCardsRow {
   }
 }
 
+class NovaCard {
+  id: number;
+  title: string;
+  type?: CardType;
+  fields?: CardFields;
+  constructor(id: number, title: string, type?: CardType, fields?: CardFields) {
+      this.id = id;
+      this.title = title;
+      this.type = type!;
+      this.fields = fields!;
+  }
+}
+
 @Component({
   selector: 'app-drag-and-drop',
   templateUrl: './drag-and-drop.component.html',
@@ -20,12 +34,13 @@ class NovaCardsRow {
 })
 export class DragAndDropComponent {
   widgetRow: (NovaCard | number)[][] = [];
-  // widgetCardLists: NovaCard[][] = [];
   widgetCardLists: NovaCardsRow[] = [new NovaCardsRow('cdk-drop-list-1', [])];
   novaCardsId: number[] = [];
+  isCardGenerated = true;
   readonly sourceCardListId = 'cdk-drop-list-0';
   private readonly maxRowCards = 3;
   // new NovaCard to generate
+  // TODO: need a function to generate New Card
   sourceCardList = [new NovaCard(0, 'Drag New Card')];
 
   constructor() { }
@@ -47,35 +62,43 @@ export class DragAndDropComponent {
     this.sourceCardList.push(new NovaCard(0, 'Drag New Card'));
   }
   manageNovaCards(): string {
-    // 
+    // TODO:
     return '';
   }
 
   drop(event: CdkDragDrop<NovaCard[]>): void {
+
     // check the new NovaCard dropped (id)
     // modify its id
-    if (event.previousContainer.id === 'cdk-drop-list-0') {
-    const listLength = this.novaCardsId.length;
-    const newId = listLength;
-    event.item.data.id = newId;
-    this.novaCardsId.push(event.item.data.id);
+    if (event.previousContainer.id === 'cdk-drop-list-0' && this.isCardGenerated) {
+      const listLength = this.novaCardsId.length;
+      const newId = listLength;
+      event.item.data.id = newId;
+      event.item.data.title = 'Drag New Card' + newId;
+      this.novaCardsId.push(event.item.data.id);
     }
+    if (event?.container.data.length === 3 && event?.previousContainer.id !== 'cdk-drop-list-0') {
+      console.log('im not reference');
+      const splicedLastCard = event?.container.data.splice(2, 1);
+      event?.previousContainer.data.push(splicedLastCard[0]);
+    }
+    if (event?.previousContainer.id === 'cdk-drop-list-0') {
+      this.isCardGenerated = true;
+    }
+    if (event?.container.data.length === 3 && event?.previousContainer.id === 'cdk-drop-list-0') {
+      this.isCardGenerated = false;
+    }
+
+
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
 
-    } else {
+    } else if (event.container.data.length < 3) {
       transferArrayItem(event.previousContainer.data,
         event.container.data,
         event.previousIndex,
         event.currentIndex);
-
     }
-    // console.log(event.previousContainer.element.nativeElement.id);
-    // console.log(event.container.element.nativeElement.id);
-
-    // console.log(event.item.data.id);
-
-    // this.novaCardsId.push();
 
   }
 
@@ -110,7 +133,8 @@ export class DragAndDropComponent {
   generateNewRowId(rowsNumber: number): string {
     return `cdk-drop-list-${rowsNumber + 1} `;
   }
-  enumerateWidgetAssets(widgetList: NovaCardsRow[], maxRowCards: number = 3): { rowsNumber: number, rowCardsNumber: number[], CardsNumber: number, maxCardsNumber: number } {
+  enumerateWidgetAssets(widgetList: NovaCardsRow[], maxRowCards: number = 3):
+   { rowsNumber: number, rowCardsNumber: number[], CardsNumber: number, maxCardsNumber: number } {
     let rowsNumb = widgetList.length;
     const rowCardsNumb = [];
     let CardsNumb = 0;
@@ -133,24 +157,15 @@ export class DragAndDropComponent {
     return assets;
   }
 
+
   specialUseCase(drag?: CdkDrag, drop?: CdkDropList): boolean {
-     if (drop?.data.length === 3 && drag?.dropContainer.id !== 'cdk-drop-list-0') {
-      console.log('im not reference');
-
-      // const splicedCurrentCard = drop?.data.splice(2, 1);
-     // const splicedPreviousCard = drag?.dropContainer.data.splice(0, 1);
-
-     //console.log(drag?.data.push(drag?.dropContainer.data[0]));
-      
-    }
-    if (drop?.data.length >= 3) {
+    if (drop?.data.length > 3) {
       console.log('Cannot drop you');
+
       return false;
     }
     return true;
   }
-
-
 
 }
 

@@ -1,9 +1,7 @@
 <div class="container-fluid">
   <div class="row border border-secondary" cdkDropListGroup>
     <div class="col-2 border border-secondary side-nav">
-
       <div class="example-container">
-
         <div cdkDropList 
         [cdkDropListData]="sourceCardList"
         (cdkDropListExited)="exited($event)"
@@ -13,7 +11,6 @@
             <div class="example-custom-drag-placeholder pl-4 pt-4" *cdkDragPlaceholder>Drag to Generate New Card</div>
             {{sourceCardList[0].title}}</div>
         </div>
-        <!-- <div class="add d-flex align-self-center pl-3 pt-1 mt-2" >Add</div> -->
       </div>
 
     </div>
@@ -26,7 +23,8 @@
          [cdkDropListEnterPredicate]="specialUseCase"
         (cdkDropListDropped)="drop($event)">
         <div class="example-box-drop" *ngFor="let item of row.list" cdkDrag>
-          <div class="example-custom-drop-placeholder pl-4 pt-4" *cdkDragPlaceholder>Drop Here</div>
+          <div class="example-custom-drop-placeholder pl-4 pt-4" 
+          *cdkDragPlaceholder>Drop Here</div>
           {{item.title}}
         </div>
       </div>
@@ -37,76 +35,4 @@
   </div>
 </div>
 
-<!-- <div cdkDropList
 
-dropContainer: CdkDropList
-
-Droppable container that the draggable is a part of.
-
-(cdkDropListEntered)="entered($event)"
-(cdkDragMoved)="entered($event)"
-(cdkDragReleased)="entered($event)"
-(cdkDragReleased)="entered($event)"
-
-(cdkDragStarted)="entered($event)"
-(cdkDropListSorted)="entered($event)"
-(cdkDropListSorted)="entered($event)"
-
-[cdkDropListData]="widgetCards[1]"
- class="example-list-drop border border-danger"
- cdkDropListOrientation="horizontal"
- [cdkDropListEnterPredicate]="specialUseCase"
-(cdkDropListDropped)="drop($event)">
-<div class="example-box-drop" *ngFor="let item of widgetCards[1]" cdkDrag>
- <div class="example-custom-placeholder pl-4 pt-4" *cdkDragPlaceholder>Drop Here</div>
- {{item.title}}
-</div>
-</div> -->
-
-
-
-<!-- <div class="example-custom-placeholder pl-4 pt-4" *cdkDragPlaceholder> Drag To Generate</div> -->
-
-
-<!-- moveItemInArray. This function is used to calculate the new index of the dropped item inside the array, rad! -->
-
-
-<!-- https://kipalog.com/posts/Angular-7-Drag-and-Drop-example---Angular-Material-CDK -->
-
-
-
-<!-- cdkDropListSortingDisabled -->
-<!-- you can listen to the cdkDropListDropped event to update the data model once the user finishes dragging. -->
-
-<!--  https://stackoverflow.com/questions/63169673/cdkdroplist-enter-deprecated-not-exists-in-cdkdroplist
-  https://github.com/angular/components/issues/19059
-  this.placeholder._dropListRef.enter(drag._dragRef, 
-  drag.element.nativeElement.offsetLeft, drag.element.nativeElement.offsetTop); -->
-
-
-
-
-<!-- <div
-          cdkDropList
-          [cdkDropListData]="todo"
-          #todoList="cdkDropList"
-          class="example-list-drag ">
-          <div class="example-box-drag" *ngFor="let item of todo" cdkDrag>{{item}}</div>
-          
-        </div>
-        
-      </div>
-
-
-<div
-cdkDropList
-cdkDropListOrientation="horizontal"
-#doneList="cdkDropList"
-[cdkDropListData]="done"
-class="example-list"
-(cdkDropListDropped)="drop($event)">
-<div class="example-box" *ngFor="let item of done" cdkDrag  >
-   <div class="example-custom-placeholder" *cdkDragPlaceholder></div> 
-             
-  {{item}}</div>
-</div> -->

@@ -1,33 +1,23 @@
+import { NvCardComponent } from './../nv-card/nv-card.component';
+import { NvUserColor } from './view-model';
 
-export class NovaCard {
-    id: number;
-    title: string;
-    type: CardType;
-    fields: CardFields;
-    constructor(id: number, title: string, type?: CardType, fields?: CardFields) {
-        this.id = id;
-        this.title = title;
-        this.type = type!;
-        this.fields = fields!; 
-    }
-}
-enum CardType {
+
+export enum CardType {
     Task,
     Report
 }
 
-
-interface CardFields {
+export interface CardFields {
     id: number;
     title: string;
     links: CardLink[];
     iconUrl: string;
+    color: NvUserColor;
     description: string;
     attachment: CardAttachment[];
-
 }
 
-interface TaskFields extends CardFields {
+export interface TaskFields extends CardFields {
     taskId: number;
     type: CardType;
     assignees: Person[];
@@ -37,20 +27,20 @@ interface TaskFields extends CardFields {
     progress: TaskProgress;
 }
 
-interface ReportFields extends CardFields {
+export interface ReportFields extends CardFields {
     reportId: number;
     type: CardType;
 }
 
-interface TaskPriority {
+export interface TaskPriority {
     id: number;
     name: string;
     iconUrl: string;
 }
 
-interface CardLink {
+export interface CardLink {
     id: number;
-    card: NovaCard;
+    card: NvCardComponent;
 }
 
 export interface Person {
@@ -65,7 +55,7 @@ export interface Notification {
     hasAttachment?: boolean;
 }
 
-interface TaskStatus {
+export interface TaskStatus {
     id: number;
     name: string;
     iconUrl: string;
@@ -73,7 +63,7 @@ interface TaskStatus {
     description: string;
 }
 
-interface TaskProgress {
+export interface TaskProgress {
     progress: number;
     total: number;
 }

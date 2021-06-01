@@ -1,3 +1,5 @@
+import { NvCardComponent } from './nv-card/nv-card.component';
+import { BackgroundColorDirective } from './directives/background-color/background-color.directive';
 import { DragAndDropComponent } from './drag-and-drop/drag-and-drop.component';
 import { UploadComponent } from './upload/upload.component';
 import { NvFileUploadDirective } from './directives/file-upload/nv-file-upload.directive';
@@ -20,6 +22,7 @@ import { CommentBoxComponent } from './comment-box/comment-box.component';
 const sharedComponents = [
   NvInitialsPipe,
   NvFileUploadDirective,
+  BackgroundColorDirective,
   FooterComponent,
   NovatekLogoComponent,
   AvatarComponent,
@@ -31,7 +34,11 @@ const sharedComponents = [
   TextAreaComponent,
   NvDropdownComponent,
   DragAndDropComponent,
-  UploadComponent
+  UploadComponent,
+  NvCardComponent,
+
+
+
 ];
 
 @NgModule({

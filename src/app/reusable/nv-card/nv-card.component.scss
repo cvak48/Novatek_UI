@@ -1,0 +1,47 @@
+
+.card-container {
+    border: 1px solid black;
+    min-width: 100%;
+    min-height: 100%;
+    border-radius: 3px;
+    background-color: #FAFBFC;
+
+    .card-left-section {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid red;
+        
+        .left-content {
+
+        }
+        .left-footer {
+            border: 1px solid black;
+            margin-top: auto;
+            .footer-avatar {
+            }
+        }
+    }
+    .card-right-section {}
+
+}
+
+
+
+
+svg {
+    max-height: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    vertical-align: bottom;
+}
+
+svg {
+    height: 24px;
+    width: 24px;
+    max-height: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    vertical-align: bottom;
+}

@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nova-login-footer.component.scss']
 })
 export class NovaLoginFooterComponent implements OnInit {
-
+  flagIcon = '../../../assets/icons/ico.flag.svg';
   constructor() { }
 
   ngOnInit(): void {

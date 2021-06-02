@@ -2,6 +2,21 @@
     min-height:60px;
 }
 
+.feed-text{
+    font-size: 0.75rem;
+    margin-top: 3%;
+}
+.font-grey{
+    color:grey;
+}
+
+.feed-title{
+    padding-left: 2.5%;
+}
+.font-darkgrey{
+    color:darkgrey;
+}
+
 .img-style{
     height:40px;
     width:40px;
@@ -34,15 +49,23 @@
 }
 
 .feed-details{
-    margin: 1% 0 2% 0;
+    margin: 3% 0 2% 0;
     display:inline-block;
     position: relative;
-    width:80%;
-    left:12%;
+    width:85%;
+    left:10%;
     white-space: pre-line;
 }
 
 .feed-main{
-    border:1px solid;
-    width:50%
+    border:1px solid darkgrey;
+    width:40%
+}
+
+.btn{
+    background: #FFC300;
+    border-radius: 5px;
+    font-weight: bold;
+    border: 1px solid;
+    margin-bottom: 2%;
 }

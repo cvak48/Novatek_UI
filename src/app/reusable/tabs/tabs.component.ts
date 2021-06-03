@@ -10,7 +10,7 @@ export class TabsComponent implements OnInit {
 
   @Input() tabs:any;
 
-  @Input() headerPositionInput: MatTabHeaderPosition = 'above';
+  @Input() headerPositionInput: MatTabHeaderPosition = 'below';
 
   constructor() { }
 

@@ -16,9 +16,9 @@ export class NovaSidenavComponent implements OnInit {
     {icon:'../../../assets/icons/ico.workload.svg', name:'Workload'},
     {icon:'../../../assets/icons/ico.testmethodmanagement.svg', name:'Test Method Management'},
     {icon:'../../../assets/icons/ico.inventory.svg', name:'Inventory'},
-    {icon:'../../../assets/icons/ico.statisticalanalysis.svg', name:'Statistical Analysis'},
-    {icon:'../../../assets/icons/ico.reports.svg', name:'Reports'},
-    {icon:'../../../assets/icons/ico.sysadminadministration.svg', name:'System Administration'}
+    {icon:'../../../assets/icons/ico.statisticalanalysis.svg', name:'Statistical Analysis'}
+    
+    
 
   ];
 

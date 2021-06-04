@@ -1,9 +1,5 @@
 @import '../../../reusable/theme/base.scss';
 
-* {
-  box-sizing: border-box;
-}
-
 .demo-page-container {
   display: grid;
   grid-template-rows: 70px 1fr;
@@ -61,7 +57,7 @@
     position: relative;
     display: grid;
     grid-template-columns: 200px 1fr;
-    font-family: Roboto, Helvetica Neue, sans-serif;
+    font-family: sans-serif;
     background-color: rgb(228, 224, 224);
 
     .side-menu {
@@ -82,7 +78,6 @@
         color: rgba(0, 0, 0, .65);
         vertical-align: middle;
         height: 50px;
-        line-height: 50px;
         padding-left: 5px;
 
         &:hover {
@@ -155,6 +150,10 @@
         .card-container {
           width: 300px;
           height: 140px;
+        }
+        .pickers-container {
+          width: 130px;
+          height: 38px;
         }
       
     }

@@ -58,6 +58,15 @@
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.Card)">
         {{nvComponentType[nvComponentType.Card]}}
       </div>
+      <div class="menu-item h40" (click)="onItemClick(nvComponentType.ItemPickerDemo)">
+        {{nvComponentType[nvComponentType.ItemPickerDemo]}}
+      </div>
+      <div class="menu-item h40" (click)="onItemClick(nvComponentType.ColorPickerDemo)">
+        {{nvComponentType[nvComponentType.ColorPickerDemo]}}
+      </div>
+      <div class="menu-item h40" (click)="onItemClick(nvComponentType.IconPickerDemo)">
+        {{nvComponentType[nvComponentType.IconPickerDemo]}}
+      </div>
 
     </div>
     <div class="preview-panel" [ngSwitch]="selectedItem">
@@ -78,7 +87,6 @@
             [name]="person.name!"></app-avatar>
         </ng-container>
 
-        <app-nv-dropdown class="body-item" *ngSwitchCase="nvComponentType.Dropdown"></app-nv-dropdown>
         <div class="widget-container" *ngSwitchCase="nvComponentType.DragDrop">
           <app-drag-and-drop></app-drag-and-drop>
         </div>
@@ -90,15 +98,26 @@
         </app-user-profile-menu>
 
         <app-nv-dropdown class="body-item" *ngSwitchCase="nvComponentType.Dropdown"></app-nv-dropdown>
+
         <div class="upload-file-container" *ngSwitchCase="nvComponentType.DropToUpload">
-          <app-upload class="body-item" ></app-upload>
+          <app-upload class="body-item"></app-upload>
         </div>
 
         <div class="card-container" *ngSwitchCase="nvComponentType.Card">
-          <app-nv-card class="body-item" ></app-nv-card>
+          <app-nv-card class="body-item"></app-nv-card>
         </div>
-
-
+        <div class="pickers-container" *ngSwitchCase="nvComponentType.ItemPickerDemo">
+          <app-nv-item-picker-demo [items]="items01" [showImage]="showImage" [showTitle]="showTitle"
+            [compactedView]="compactedView" [size]="'medium'"></app-nv-item-picker-demo>
+        </div>
+        <div class="pickers-container" *ngSwitchCase="nvComponentType.IconPickerDemo">
+          <app-nv-icon-picker-demo [items]="iconItems" [showTitle]="iconShowTitle" [compactedView]="iconCompactedView" [size]="'large'">
+          </app-nv-icon-picker-demo>
+        </div>
+        <div class="pickers-container" *ngSwitchCase="nvComponentType.ColorPickerDemo">
+          <app-nv-color-picker-demo [items]="colorItems" [compactedView]="colorCompactedView" [size]="'large'">
+          </app-nv-color-picker-demo>
+        </div>
       </div>
     </div>
   </div>

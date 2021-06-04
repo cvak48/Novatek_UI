@@ -38,17 +38,17 @@
             box-sizing: border-box;
             }
                &::-webkit-input-placeholder {
-              font: normal normal medium 14px/16px Lato;
+              font: normal normal medium 14px/16px 'Lato';
               color: $color-black-12;
               opacity: 1;
               }
               &:-moz-placeholder { 
-              font: normal normal medium 14px/16px Lato;
+              font: normal normal medium 14px/16px 'Lato';
               color: $color-black-12;
               opacity: 1;
               }
               &::-moz-placeholder {
-                font: normal normal medium 14px/16px Lato;
+                font: normal normal medium 14px/16px 'Lato';
               color: $color-black-12;
               opacity: 1;
               }
@@ -68,8 +68,12 @@
             bottom: 0px;
             width: 14px;
             height: 14px;
-            fill:currentColor;
             opacity: 1;
+            &.search-icon {
+              color: #9A9A9A;
+            }
+            &.cancel-icon {
+             }
 
                   }
     }

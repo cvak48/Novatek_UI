@@ -1,3 +1,6 @@
+import { NvColorPickerDemoComponent } from './nv-color-picker-demo/nv-color-picker-demo.component';
+import { NvItemPickerDemoComponent } from './nv-item-picker-demo/nv-item-picker-demo.component';
+import { NvIconPickerDemoComponent } from './nv-icon-picker-demo/nv-icon-picker-demo.component';
 import { NvCardComponent } from './nv-card/nv-card.component';
 import { BackgroundColorDirective } from './directives/background-color/background-color.directive';
 import { DragAndDropComponent } from './drag-and-drop/drag-and-drop.component';
@@ -36,6 +39,9 @@ const sharedComponents = [
   DragAndDropComponent,
   UploadComponent,
   NvCardComponent,
+  NvIconPickerDemoComponent,
+  NvItemPickerDemoComponent,
+  NvColorPickerDemoComponent
 
 
 

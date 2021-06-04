@@ -1,46 +1,22 @@
 <div class="card-container">
   <div class=" card-left-section">
     <div class=" left-content">
-
+      <app-nv-color-picker-demo class="left-color-picker" [items]="colorItems" [compactedView]="colorCompactedView" [size]="'large'">
+      </app-nv-color-picker-demo>
+      <app-nv-icon-picker-demo class="left-icon-picker" [items]="IconItems" [showTitle]="IconShowTitle" [compactedView]="IconCompactedView" [size]="'large'">
+      </app-nv-icon-picker-demo>
     </div>
     <div class=" left-footer d-flex">
       <app-avatar class="footer-avatar" *ngIf="person?.imageUrl && person?.name" [avatarUrl]="person.imageUrl!"
       [name]="person.name!"></app-avatar>
     </div>
   </div>
-  <div class="card-right-section border border-success">
-    <div class=" right-status"></div>
+  <div class="card-right-section ">
+    <div class=" right-status">
+      <app-nv-item-picker-demo [items]="items01" [showImage]="showImage" [showTitle]="showTitle"
+      [compactedView]="compactedView" [size]="'medium'"></app-nv-item-picker-demo>
+    </div>
     <div class=" right-data"></div>
     <div class=" right-footer"></div>
   </div>
 </div>
-
-<!-- <ng-container></ng-container>
-
-<ng-template #task>
-
-</ng-template>
-
-<ng-template #report>
-
-</ng-template> -->
-
-<!-- <mat-card class="example-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Shiba Inu</mat-card-title>
-      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-    <mat-card-content>
-      <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-        bred for hunting.
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions>
-  </mat-card> -->

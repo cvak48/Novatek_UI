@@ -6,9 +6,10 @@
         <input matInput (keyup)="applyFilter($event)" placeholder="filter">
       </mat-form-field>
     </ng-container>-->
+   
     <div *ngIf="isFilterable" class="search-box">
       <mat-form-field floatLabel="never" class="search-field">
-        <input matInput  placeholder="Search Title...">
+        <input matInput (keyup)="applyFilter($event)"  placeholder="Search Title...">
         
        
       </mat-form-field>

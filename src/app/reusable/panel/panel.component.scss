@@ -1,3 +1,5 @@
+@import "../../reusable/theme/base.scss";
+
 .custom-card  {
     .card-header {
         font-size: 12px;
@@ -11,5 +13,11 @@
         width: 100%;
         border: 1px solid #eee;
         min-height: 145px;    
+    }
+    .panel-titleTxt {
+        color: $color-light-gray-40;
+        font-weight: 500;
+        font-size: 16px;
+        margin-left: 10px;
     }
 }

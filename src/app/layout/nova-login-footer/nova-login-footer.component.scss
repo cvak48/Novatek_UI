@@ -1,11 +1,24 @@
+@import "../../reusable/theme/base.scss";
+
 ul.list-inlin.login-txt {
-    font-size: 0.7rem;
-    list-style: none;
+  font-size: 0.7rem;
+  list-style: none;
+  color: $color-light-gray-40;
+  font-weight: 400;
+  & a {
+    color: $color-light-gray-40;
+    font-weight: 400;
+  }
+  & .link-txt {
+    color: $color-light-blue-40;
+    font-weight: 400;
+    margin-left: 5px;
+  }
 }
 
 .pad-0 {
-    padding-left: 0;
+  padding-left: 0;
 }
 .footer-pad {
-    padding: 0px 0px 0px 11px;
-} 
+  padding: 0px 0px 0px 11px;
+}

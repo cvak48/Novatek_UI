@@ -1,3 +1,53 @@
 mat-paginator {
     margin-bottom: 47px !important;
 }
+
+.search-box{
+    border: 1px solid darkgrey;
+    margin: 1%;
+    height: 40px;
+  }
+
+  .search-field{
+      width: 97%;
+      padding-left: 1%;
+  }
+
+  .data-table{
+    border: 1px solid darkgrey;
+    margin: 1%;
+    width: 98%;
+  }
+
+  ::ng-deep .search-placeholder-align .mat-form-field-infix{
+    position: relative;
+    top: -6px;
+  }
+  
+  ::ng-deep .search-placeholder-align .mat-form-field-label-wrapper {
+    margin-top: 4px;
+  }
+  
+  .padding-3{
+    padding:4px;
+  }
+
+  .status-gr{
+      background-color: darkseagreen;
+  }
+
+  .status-rd{
+      background-color: lightcoral;
+  }
+
+  .status-yl{
+      background-color: lightgoldenrodyellow;
+  }
+
+  th{
+      font-weight: bold;
+  }
+
+  ::ng-deep .mat-form-field-underline {
+    display: none;
+}

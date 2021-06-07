@@ -28,6 +28,7 @@ import {MatSortModule} from "@angular/material/sort";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import { DataPropertyGetterPipe } from './custom-datatable/data-property-getter-pipe/data-property-getter.pipe';
+import { TestComponent } from '../main/test/test.component';
 
 
 const sharedComponents = [
@@ -49,7 +50,8 @@ const sharedComponents = [
   CommentBoxComponent,
   TextAreaComponent,
   NvDropdownComponent,
-  UploadComponent
+  UploadComponent,
+  TestComponent
 ];
 
 @NgModule({
@@ -57,7 +59,6 @@ const sharedComponents = [
   imports: [
     CommonModule,
     MatTableModule,
-    
     MatFormFieldModule,
     MatInputModule,
     MatPaginatorModule,

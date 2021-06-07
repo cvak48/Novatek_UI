@@ -1,15 +1,22 @@
 <ng-container>
 
     <!-- Filter -->
-    <ng-container *ngIf="isFilterable" [matColumnDef]="this.rowActionIcon">
+    <!--<ng-container *ngIf="isFilterable" [matColumnDef]="this.rowActionIcon">
       <mat-form-field>
-        <mat-label>Filter</mat-label>
         <input matInput (keyup)="applyFilter($event)" placeholder="filter">
       </mat-form-field>
-    </ng-container>
+    </ng-container>-->
+    <div *ngIf="isFilterable" class="search-box">
+      <mat-form-field floatLabel="never" class="search-field">
+        <input matInput  placeholder="Search Title...">
+        
+       
+      </mat-form-field>
+      <mat-icon matPrefix >search</mat-icon>
+    </div>
   
     <!-- Table -->
-    <table mat-table [dataSource]="tableDataSource" matSort (matSortChange)="sortTable($event)">
+    <table mat-table class="data-table" [dataSource]="tableDataSource" matSort (matSortChange)="sortTable($event)">
   
       <!-- action column -->
       <!-- <ng-container *ngIf="rowActionIcon?.length" [matColumnDef]="rowActionIcon">
@@ -37,7 +44,7 @@
         </ng-template>
   
         <!-- column data -->
-        <td mat-cell *matCellDef="let element" [class.text-right]="tableColumn.position == 'right'">
+        <td [ngClass]="{'status-gr': element.status === 'Completed', 'status-rd' : element.status === 'No', 'status-yl': element.status === 'Pending' }" mat-cell *matCellDef="let element" [class.text-right]="tableColumn.position == 'right'">
           {{element | dataPropertyGetter: tableColumn.dataKey}}
         </td>
       </ng-container>

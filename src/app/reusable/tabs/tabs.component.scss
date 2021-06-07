@@ -22,9 +22,9 @@ a {
   }
 
   .tab-content>.active {
-    border-left: 1px solid #D9D9DA;
-    border-right: 1px solid #D9D9DA;
-    border-bottom: 1px solid #D9D9DA;
+    border-left: 1px solid $color-white;
+    border-right: 1px solid $color-white;
+    border-bottom: 1px solid $color-white;
   }
 
   #myTabContent {

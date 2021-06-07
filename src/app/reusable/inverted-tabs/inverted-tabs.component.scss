@@ -1,3 +1,5 @@
+@import "./../theme/base.scss";
+
 .tabs-below {
     border-bottom-width: 0px;
     border-top: 1px solid #dee2e6;
@@ -31,7 +33,7 @@
   }
   
   a {
-    color: #5D5D5D
+    color: $color-dark-gray;
   }
   
   

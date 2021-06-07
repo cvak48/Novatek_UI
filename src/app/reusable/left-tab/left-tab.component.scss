@@ -1,3 +1,5 @@
+@import "./../theme/base.scss";
+
 .nav.nav-tabs {
   float: left;
   display: block;
@@ -11,7 +13,7 @@
 .nav-tabs .nav-link.active {
   border: 1px solid #D9D9DA !important;
   border-right: 0px !important;
-  background: #fafafa !important;
+  background: $color-white-fa !important;
 }
 .nav-tabs .nav-link {
   border: 1px solid transparent;
@@ -39,7 +41,7 @@
 }
 
 a {
-  color: #5D5D5D
+  color: $color-dark-gray;
 }
 
 .nav-tabs {
@@ -47,5 +49,5 @@ a {
 }
 
 .tabs-below .nav-link {
-  background-color: #fafafa !important;
+  background-color: $color-white-fa !important;
 }

@@ -1,3 +1,5 @@
+@import "./../theme/base.scss";
+
 .custom-card {
     border-top: 0 !important;
     border: none !important;
@@ -12,7 +14,7 @@
 }
 
 a {
-    color: #5D5D5D
+    color: $color-dark-gray;
   }
 
   .card-header-tabs {
@@ -26,5 +28,5 @@ a {
   }
 
   #myTabContent {
-    background-color: #fafafa;
+    background-color: $color-white-fa;
   }

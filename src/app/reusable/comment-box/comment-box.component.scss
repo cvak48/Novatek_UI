@@ -9,3 +9,28 @@
     font-size: 11px;
     cursor: pointer;
   }
+
+  .reply-txtbox{
+    border: 1px solid #DEDEDF;
+  }
+
+  textarea:focus {
+    border: 1px solid #DEDEDF;
+    outline: 0 none;
+  }
+
+  .btn-content {
+    background: #207FC7;
+    padding: 0.5rem !important;
+    margin-left: -13px;
+    margin-right: 15px;
+  }
+
+  .btn-color {
+    background-color: #1F78B4 !important;
+    font-size: 12px;
+  }
+
+  .name-color {
+    color: $color-dark-gray;
+  }

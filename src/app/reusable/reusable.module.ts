@@ -1,3 +1,5 @@
+import { UploadComponent } from './upload/upload.component';
+import { NvFileUploadDirective } from './directives/file-upload/nv-file-upload.directive';
 import { NvDropdownComponent } from './nv-dropdown/nv-dropdown.component';
 import { UserProfileMenuComponent } from './user-profile-menu/user-profile-menu.component';
 import { NotificationComponent } from './notification/notification.component';
@@ -19,15 +21,21 @@ import { TabWrapper } from './tabs/tabs-wrapper.component';
 import { InvertedTabsComponent } from './inverted-tabs/inverted-tabs.component';
 import { LeftTabComponent } from './left-tab/left-tab.component';
 import { RightTabComponent } from './right-tab/right-tab.component';
+import { FeedComponent } from './feed/feed.component';
+import { PlaceholderCardComponent } from './placeholder/placeholder-card/placeholder-card.component';
+import { PlaceholderListComponent } from './placeholder/placeholder-list/placeholder-list.component';
+import { PlaceholderBannerComponent } from './placeholder/placeholder-banner/placeholder-banner.component';
+import { PlaceholderBigCardComponent } from './placeholder/placeholderBigCard/placeholderBigCard.component';
 
 const sharedComponents = [
+  NvInitialsPipe,
+  NvFileUploadDirective,
   FooterComponent,
   SideNavComponent,
   NovatekLogoComponent,
   AvatarComponent,
   NotificationComponent,
   UserProfileMenuComponent,
-  NvInitialsPipe,
   PanelComponent,
   SearchComponent,
   CommentBoxComponent,
@@ -37,7 +45,13 @@ const sharedComponents = [
   TabWrapper,
   InvertedTabsComponent,
   LeftTabComponent,
-  RightTabComponent
+  RightTabComponent,
+  FeedComponent,
+  PlaceholderCardComponent,
+  PlaceholderListComponent,
+  PlaceholderBannerComponent,
+  PlaceholderBigCardComponent,
+  UploadComponent
 ];
 
 @NgModule({

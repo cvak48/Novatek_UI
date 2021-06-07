@@ -15,16 +15,27 @@ export class SearchComponent implements OnInit {
   searchIcon = true;
   showMenu = false;
   filteredList!: string[];
+  isFocus = false;
   selectedItemFormControl = new FormControl('');
+  // TODO: Need to bring click event from parents to make isFocus false and delete blur event
   constructor() { }
 
   ngOnInit(): void {
+  }
+  onSearchFocus() {
+    this.isFocus = true;
+    }
+  onSearchBlur(event: any) {
+    this.isFocus = false;
+    event.preventDefault();
+    event.stopPropagation();
   }
   onItemSelect(index: number): void {
     this.selectedIndex = index;
     this.selectedItem = this.filteredItems[this.selectedIndex];
     this.selectedItemFormControl.setValue(this.selectedItem);
     this.searchIcon = false;
+    this.isFocus = true;
   }
   onInput(event: any): void {
     const search = event?.target?.value;
@@ -40,12 +51,21 @@ export class SearchComponent implements OnInit {
     this.searchIcon = true;
     event.preventDefault();
   }
+  onKeyDown(event: any): void {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+    }
+  }
+
   onKeyUp(event: any): void {
     this.searchIcon = false;
-    if (event.key === 'Escape') {
+    if (event.key === 'Backspace') {
+      if(this.selectedItemFormControl.value === ''){
+        this.searchIcon =true;
+         }
+    } else if (event.key === 'Escape') {
     } else if (event.key === 'Enter') {
        this.onItemSelect(this.selectedIndex);
-      event.target.value = event.target.value.replace(/\n/g,'');
     } else if (event.key === 'Tab') {
       this.onItemSelect(0);
     } else if (event.key === 'ArrowDown') {

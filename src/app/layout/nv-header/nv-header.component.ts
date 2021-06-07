@@ -8,6 +8,9 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class NvHeaderComponent implements OnInit {
   @Input() person!: Person;
+  logoSize = {
+    width:'160', height:'40'
+  };
   constructor() { }
 
   ngOnInit(): void {

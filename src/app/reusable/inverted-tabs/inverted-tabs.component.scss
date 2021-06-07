@@ -1,0 +1,38 @@
+.tabs-below {
+    border-bottom-width: 0px;
+    border-top: 1px solid #dee2e6;
+  }
+  
+  .tabs-below .nav-link {
+      border: 1px solid transparent;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      border-bottom-left-radius: .25rem;
+      border-bottom-right-radius: .25rem;
+  }
+  
+  .tabs-below .nav-item {
+    margin-bottom: 0px;
+    margin-top: -1px;
+  }
+  
+  .tabs-below .nav-item.show .nav-link, .tabs-below .nav-link.active {
+    border-color: #fff #dee2e6 #dee2e6  #dee2e6;
+  }
+
+  #myTabContent {
+    border-top: 1px solid #D9D9DA;
+    border-left: 1px solid #D9D9DA;
+    border-right: 1px solid #D9D9DA;
+  }
+  
+  p {
+    margin: 0 0 0px;
+  }
+  
+  a {
+    color: #5D5D5D
+  }
+  
+  
+  

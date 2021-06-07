@@ -1,0 +1,30 @@
+.custom-card {
+    border-top: 0 !important;
+    border: none !important;
+}
+
+.custom-header {
+    background-color: transparent !important;
+}
+
+.custom-container {
+    max-width: 100%;
+}
+
+a {
+    color: #5D5D5D
+  }
+
+  .card-header-tabs {
+      margin-left: -20px !important;
+  }
+
+  .tab-content>.active {
+    border-left: 1px solid #D9D9DA;
+    border-right: 1px solid #D9D9DA;
+    border-bottom: 1px solid #D9D9DA;
+  }
+
+  #myTabContent {
+    background-color: #fafafa;
+  }

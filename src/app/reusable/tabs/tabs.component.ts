@@ -15,6 +15,7 @@ export class TabsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.tabs);
   }
 
 }

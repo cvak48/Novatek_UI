@@ -10,8 +10,7 @@ import { LayoutComponentModule } from '../layout';
 @NgModule({
   declarations: [
     DashboardComponent,
-   
-    DemoPageComponent
+    DemoPageComponent,
   ],
   imports: [
     CommonModule,

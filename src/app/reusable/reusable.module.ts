@@ -16,6 +16,11 @@ import { NovatekLogoComponent } from './novatek-logo/novatek-logo.component';
 import { PanelComponent } from './panel/panel.component';
 import { TextAreaComponent } from './text-area/text-area.component';
 import { CommentBoxComponent } from './comment-box/comment-box.component';
+import { FeedComponent } from './feed/feed.component';
+import { PlaceholderCardComponent } from './placeholder/placeholder-card/placeholder-card.component';
+import { PlaceholderListComponent } from './placeholder/placeholder-list/placeholder-list.component';
+import { PlaceholderBannerComponent } from './placeholder/placeholder-banner/placeholder-banner.component';
+import { PlaceholderBigCardComponent } from './placeholder/placeholderBigCard/placeholderBigCard.component';
 
 import { MatTableModule } from '@angular/material/table';
 import { CustomDatatableComponent } from './custom-datatable/custom-datatable.component';
@@ -51,7 +56,13 @@ const sharedComponents = [
   TextAreaComponent,
   NvDropdownComponent,
   UploadComponent,
-  TestComponent
+  TestComponent,
+  FeedComponent,
+  PlaceholderCardComponent,
+  PlaceholderListComponent,
+  PlaceholderBannerComponent,
+  PlaceholderBigCardComponent,
+  UploadComponent
 ];
 
 @NgModule({

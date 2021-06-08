@@ -1,3 +1,4 @@
+import { NvCustomComponentComponent } from './nv-custom-component/nv-custom-component.component';
 import { UploadComponent } from './upload/upload.component';
 import { NvFileUploadDirective } from './directives/file-upload/nv-file-upload.directive';
 import { NvDropdownComponent } from './nv-dropdown/nv-dropdown.component';
@@ -51,6 +52,7 @@ const sharedComponents = [
   PlaceholderListComponent,
   PlaceholderBannerComponent,
   PlaceholderBigCardComponent,
+  NvCustomComponentComponent,
   UploadComponent
 ];
 

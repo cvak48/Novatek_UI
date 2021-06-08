@@ -16,6 +16,11 @@ import { NovatekLogoComponent } from './novatek-logo/novatek-logo.component';
 import { PanelComponent } from './panel/panel.component';
 import { TextAreaComponent } from './text-area/text-area.component';
 import { CommentBoxComponent } from './comment-box/comment-box.component';
+import { TabsComponent } from './tabs/tabs.component';
+import { TabWrapper } from './tabs/tabs-wrapper.component';
+import { InvertedTabsComponent } from './inverted-tabs/inverted-tabs.component';
+import { LeftTabComponent } from './left-tab/left-tab.component';
+import { RightTabComponent } from './right-tab/right-tab.component';
 import { FeedComponent } from './feed/feed.component';
 import { PlaceholderCardComponent } from './placeholder/placeholder-card/placeholder-card.component';
 import { PlaceholderListComponent } from './placeholder/placeholder-list/placeholder-list.component';
@@ -36,7 +41,11 @@ const sharedComponents = [
   CommentBoxComponent,
   TextAreaComponent,
   NvDropdownComponent,
-  UploadComponent,
+  TabsComponent,
+  TabWrapper,
+  InvertedTabsComponent,
+  LeftTabComponent,
+  RightTabComponent,
   FeedComponent,
   PlaceholderCardComponent,
   PlaceholderListComponent,

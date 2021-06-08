@@ -37,7 +37,7 @@ mat-paginator {
   }
 
   .status-rd{
-      background-color: lightcoral;
+      background-color: #FFD7D7;
   }
 
   .status-yl{
@@ -52,6 +52,9 @@ mat-paginator {
     display: none;
 }
 
+.mat-cell, .mat-footer-cell {
+  color: gray !important;
+}
 ::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background {
     background-color: black !important;
   }

@@ -2,8 +2,12 @@
     <div class="card custom-card" *ngIf="!showPanel">
         <div class="card-header">
           <span class="panel-titleTxt">Panel</span>  
-          <button type="button" (click)="showPanel=!showPanel" class="close" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+          
+          <button type="button" (click)="showPanel=!showPanel" class="close mg-15" aria-label="Close">
+            <span aria-hidden="true"><img src="../../../assets/icons/ico.close.svg" /></span>
+          </button>
+          <button type="button"  class="close" aria-label="drop">
+            <span aria-hidden="true"><img src="../../../assets/icons/ico.paneldropdown.svg" /></span>
           </button>
         </div>
         <div class="card-body ">

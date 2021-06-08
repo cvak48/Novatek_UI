@@ -26,6 +26,8 @@ import { PlaceholderCardComponent } from './placeholder/placeholder-card/placeho
 import { PlaceholderListComponent } from './placeholder/placeholder-list/placeholder-list.component';
 import { PlaceholderBannerComponent } from './placeholder/placeholder-banner/placeholder-banner.component';
 import { PlaceholderBigCardComponent } from './placeholder/placeholderBigCard/placeholderBigCard.component';
+import { HttpClientModule } from '@angular/common/http';
+import { DownloadComponent } from './download/download.component';
 
 const sharedComponents = [
   NvInitialsPipe,
@@ -51,7 +53,8 @@ const sharedComponents = [
   PlaceholderListComponent,
   PlaceholderBannerComponent,
   PlaceholderBigCardComponent,
-  UploadComponent
+  UploadComponent,
+  DownloadComponent,
 ];
 
 @NgModule({
@@ -61,6 +64,7 @@ const sharedComponents = [
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
+    HttpClientModule,
   ],
   exports: sharedComponents
 })

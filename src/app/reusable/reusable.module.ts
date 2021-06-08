@@ -24,7 +24,7 @@ import { PlaceholderBigCardComponent } from './placeholder/placeholderBigCard/pl
 
 import { MatTableModule } from '@angular/material/table';
 import { CustomDatatableComponent } from './custom-datatable/custom-datatable.component';
-
+import { MatCheckboxModule } from '@angular/Material/checkbox';
 
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
@@ -79,6 +79,7 @@ const sharedComponents = [
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
+    MatCheckboxModule
   ],
   exports: sharedComponents
 })

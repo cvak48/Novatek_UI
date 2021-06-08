@@ -5,6 +5,7 @@ import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
 import { TableColumn } from './table-column.model';
 import { ThrowStmt } from '@angular/compiler';
+import { SelectionModel } from '@angular/cdk/collections';
 
 @Component({
   selector: 'app-custom-datatable',
@@ -38,6 +39,7 @@ export class CustomDatatableComponent implements OnInit, AfterViewInit {
   }
 
   apiData: any[] = [];
+  selection = new SelectionModel<any>(true, []);
   constructor() {
   }
 
@@ -48,6 +50,7 @@ export class CustomDatatableComponent implements OnInit, AfterViewInit {
     } else {
       this.displayedColumns = columnNames;
     }
+    
   }
 
   // we need this, in order to make pagination work with *ngIf
@@ -107,4 +110,21 @@ export class CustomDatatableComponent implements OnInit, AfterViewInit {
    }
   }
 
+  isAllSelected() {
+    const numSelected = this.selection.selected.length;
+    const numRows = this.tableDataSource.data.length;
+    return numSelected === numRows;
+  }
+  masterToggle() {
+    this.isAllSelected() ?
+        this.selection.clear() :
+        this.tableDataSource.data.forEach(row => this.selection.select(row));
+  }
+   
+
+  logSelection(row: any) {
+   console.log(row)
+   console.log(!this.selection.isSelected(row))
+    //this.selection.selected.forEach(s => console.log(s.name));
+  }
 }

@@ -31,6 +31,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
+import { MatCheckboxModule } from '@angular/Material/checkbox';
 
 var materialModulesList = [
     CommonModule,
@@ -62,7 +63,8 @@ var materialModulesList = [
     MatSnackBarModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatCheckboxModule
 ]
 
 @NgModule({

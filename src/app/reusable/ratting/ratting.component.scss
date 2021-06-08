@@ -1,0 +1,35 @@
+@import './../theme/base.scss';
+
+.rating-list li {
+    float: right;
+    color: $color-grey-star;
+    padding: 10px 5px;
+  
+  }
+
+  .heart-list li {
+    float: right;
+    color: $color-grey-star;
+    padding: 10px 5px;
+  
+  }
+  
+  .rating-list li:hover,
+  .rating-list li:hover ~ li, .rating-list li.selected {
+    color: $color-gold-star;
+  }
+
+  .heart-list li:hover,
+  .heart-list li:hover ~ li, .heart-list li.selected {
+    color: $color-red-heart;
+  }
+  
+  .rating-list {
+    display: inline-block;
+    list-style: none;
+  }
+
+  .heart-list {
+    display: inline-block;
+    list-style: none;
+  }

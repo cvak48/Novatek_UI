@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-sm-12">
+        <div *ngIf="type!=='heart'">
+            <ul class="list-inline rating-list" 
+            *ngFor="let star of stars" style="display: inline-block" >
+              <li (click)="countStar(star)"
+                  [ngClass]="{'selected': (star <= selectedValue)}">
+                <i *ngIf="type!=='heart'" class="fa fa-star"></i>
+              </li> 
+        </ul>
+        </div>
+        <div *ngIf="type=='heart'">
+            <ul class="list-inline heart-list" 
+            *ngFor="let star of stars" style="display: inline-block" >
+              <li (click)="countStar(star)"
+                  [ngClass]="{'selected': (star <= selectedValue)}">
+                <i class="fa fa-heart"></i>
+              </li> 
+        </ul>
+        </div>
+    </div>
+  </div>

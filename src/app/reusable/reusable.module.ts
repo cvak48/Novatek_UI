@@ -26,6 +26,7 @@ import { PlaceholderCardComponent } from './placeholder/placeholder-card/placeho
 import { PlaceholderListComponent } from './placeholder/placeholder-list/placeholder-list.component';
 import { PlaceholderBannerComponent } from './placeholder/placeholder-banner/placeholder-banner.component';
 import { PlaceholderBigCardComponent } from './placeholder/placeholderBigCard/placeholderBigCard.component';
+import { RattingComponent } from './ratting/ratting.component';
 
 const sharedComponents = [
   NvInitialsPipe,
@@ -51,7 +52,8 @@ const sharedComponents = [
   PlaceholderListComponent,
   PlaceholderBannerComponent,
   PlaceholderBigCardComponent,
-  UploadComponent
+  UploadComponent,
+  RattingComponent
 ];
 
 @NgModule({

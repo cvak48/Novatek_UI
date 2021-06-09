@@ -10,13 +10,17 @@
   }
   .card-body {
     padding: 0px;
+    padding: 10px;
+    background: $color-light-gray;
+    border-bottom-left-radius: 15px !important;
+    border-bottom-right-radius: 15px !important;
   }
   .shadow-sm {
     // box-shadow: 0 0 0.5rem rgb(17 17 17 / 70%) !important;
     width: 100%;
-    border: 1px solid #eee;
+    border: 1px solid $color-light-gray-80;
     min-height: 145px;
-    background-color: $color-light-gray;
+    background-color: $color-white-20;
     border-bottom-left-radius: 15px !important;
     border-bottom-right-radius: 15px !important;
   }

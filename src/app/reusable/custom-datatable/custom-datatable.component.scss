@@ -16,7 +16,7 @@ mat-paginator {
 .data-table{
   border: 1px solid darkgrey;
   margin: 1%;
-  width: 98%;
+  width: 98% !important;
 }
 
 ::ng-deep .search-placeholder-align .mat-form-field-infix{

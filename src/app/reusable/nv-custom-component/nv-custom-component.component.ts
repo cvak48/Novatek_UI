@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-nv-custom-component',
@@ -36,5 +36,7 @@ tickInterval = 1;
 
     return 0;
   }
+
+
 
 }

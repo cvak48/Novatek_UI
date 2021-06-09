@@ -27,12 +27,31 @@ import { PlaceholderListComponent } from './placeholder/placeholder-list/placeho
 import { PlaceholderBannerComponent } from './placeholder/placeholder-banner/placeholder-banner.component';
 import { PlaceholderBigCardComponent } from './placeholder/placeholderBigCard/placeholderBigCard.component';
 
+import { MatTableModule } from '@angular/material/table';
+import { CustomDatatableComponent } from './custom-datatable/custom-datatable.component';
+import { MatCheckboxModule } from '@angular/Material/checkbox';
+
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatSortModule} from "@angular/material/sort";
+import {MatIconModule} from "@angular/material/icon";
+import {MatButtonModule} from "@angular/material/button";
+import { DataPropertyGetterPipe } from './custom-datatable/data-property-getter-pipe/data-property-getter.pipe';
+import { TestComponent } from '../main/test/test.component';
+
+
 const sharedComponents = [
   NvInitialsPipe,
   NvFileUploadDirective,
   FooterComponent,
   SideNavComponent,
   NovatekLogoComponent,
+  CustomDatatableComponent,
+  DataPropertyGetterPipe,
+  PanelComponent,
+  SearchComponent,
+  TextAreaComponent,
   AvatarComponent,
   NotificationComponent,
   UserProfileMenuComponent,
@@ -41,6 +60,8 @@ const sharedComponents = [
   CommentBoxComponent,
   TextAreaComponent,
   NvDropdownComponent,
+  UploadComponent,
+  TestComponent,
   TabsComponent,
   TabWrapper,
   InvertedTabsComponent,
@@ -58,9 +79,17 @@ const sharedComponents = [
   declarations: sharedComponents,
   imports: [
     CommonModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatIconModule,
+    MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
+    MatCheckboxModule
   ],
   exports: sharedComponents
 })

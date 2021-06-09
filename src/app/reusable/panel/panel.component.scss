@@ -1,23 +1,36 @@
 @import "../../reusable/theme/base.scss";
 
-.custom-card  {
-    .card-header {
-        font-size: 12px;
-        padding: 5px;
-    }
-    .card-body {
-        padding: 0.50rem;
-    }
-    .shadow-sm {
-        box-shadow: 0 0 0.5rem rgb(17 17 17 / 70%) !important;
-        width: 100%;
-        border: 1px solid #eee;
-        min-height: 145px;    
-    }
-    .panel-titleTxt {
-        color: $color-light-gray-40;
-        font-weight: 500;
-        font-size: 16px;
-        margin-left: 10px;
-    }
+.custom-card {
+    border-radius: 15px !important;
+  .card-header {
+    font-size: 12px;
+    padding: 8px 12px 5px 10px;
+    border-top-left-radius: 15px !important;
+    border-top-right-radius: 15px !important;
+  }
+  .card-body {
+    padding: 0px;
+    padding: 10px;
+    background: $color-light-gray;
+    border-bottom-left-radius: 15px !important;
+    border-bottom-right-radius: 15px !important;
+  }
+  .shadow-sm {
+    // box-shadow: 0 0 0.5rem rgb(17 17 17 / 70%) !important;
+    width: 100%;
+    border: 1px solid $color-light-gray-80;
+    min-height: 145px;
+    background-color: $color-white-20;
+    border-bottom-left-radius: 15px !important;
+    border-bottom-right-radius: 15px !important;
+  }
+  .panel-titleTxt {
+    color: $color-light-gray-40;
+    font-weight: 500;
+    font-size: 18px;
+    margin-left: 10px;
+  }
+  .mg-15 {
+    margin-left: 8px;
+  }
 }

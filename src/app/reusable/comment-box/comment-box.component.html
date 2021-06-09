@@ -2,17 +2,17 @@
   <div class="d-flex flex-row user-info">
     <app-avatar class="body-item" *ngIf="person?.imageUrl && person?.name" [avatarUrl]="person.imageUrl!"
       [name]="person.name!"></app-avatar>
-    <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name">Marry
-        Andrews</span><span class="date text-black-50">{{comment.text}}</span>
+    <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name name-color">Marry
+        Andrews  <span class="dateTimeTxt">Today at 5:42 PM</span></span><span class="date text-black-50 name-color">{{comment.text}}</span>
       <span (click)="openCommentText(comment)" class="reply date text-grey-50">Reply</span>
     </div>
   </div>
   <br>
   <div *ngIf="comment.isOpen">
-    <textarea [(ngModel)]="text" cols="80" rows="7"></textarea>
+    <textarea class="reply-txtbox" [(ngModel)]="text" cols="80" rows="7"></textarea>
     <br>
-    <button (click)="addComment(comment)" type="button" class="btn btn-labeled btn-primary">
-      <span class="btn-label"><i class="fa fa-edit"></i></span>Add reply</button>
+    <button (click)="addComment(comment)" type="button" class="btn btn-labeled btn-primary btn-color">
+      <span class="btn-label btn-content"><i class="fa fa-edit"></i></span>Add reply</button>
   </div>
   <app-comment-box [comments]="comment.anwsers">
   </app-comment-box>

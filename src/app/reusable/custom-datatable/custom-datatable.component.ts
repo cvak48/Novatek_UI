@@ -60,10 +60,12 @@ export class CustomDatatableComponent implements OnInit, AfterViewInit {
 
 
   setTableDataSource(data: any) {
+    if(data) {
     this.apiData = [...data];
     this.tableDataSource = new MatTableDataSource(data);
     this.tableDataSource.paginator = this.matPaginator;
     this.tableDataSource.sort = this.matSort;
+    }
   }
 
   applyFilter(event: Event) {

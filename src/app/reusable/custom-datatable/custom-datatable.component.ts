@@ -71,16 +71,24 @@ export class CustomDatatableComponent implements OnInit, AfterViewInit {
     this.tableDataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  sortTable(sortParameters: Sort) {
+  sortTable(sortParameters: Sort): any {
     console.log("sort para > ", sortParameters);
-    
+    let abc;
+    for(let i =0; i< this.tableColumns.length; i++) {
+      if (this.tableColumns[i].name === sortParameters.active) {
+        abc = this.tableColumns[i];
+      }
+      break;
+    }
     // defining name of data property, to sort by, instead of column name
     //  sortParameters.active = this.tableColumns.find((column) =>  column.name === sortParameters.active).dataKey;
-    const abc = this.tableColumns.find((column) => {
-      
-      return (column.name === sortParameters.active) ? column.dataKey.toString() : 'amount'
-    } );
-    sortParameters.active = abc?.dataKey ?  abc?.dataKey : 'amount'
+    /*const abc1 = this.tableColumns.find((column) => { 
+      console.log('in column find', column.name , sortParameters.active)
+      console.log("in find", column.name === sortParameters.active)
+      return (column.name === sortParameters.active) ? column.dataKey.toString() : 'name'
+    } );*/
+    console.log('column find',abc)
+    sortParameters.active = abc?.dataKey ?  abc?.dataKey : 'name'
 
     // console.log("abc >> ",abc )
     // sortParameters.active = "amount";

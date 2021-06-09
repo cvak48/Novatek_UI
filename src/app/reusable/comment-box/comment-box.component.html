@@ -3,7 +3,7 @@
     <app-avatar class="body-item" *ngIf="person?.imageUrl && person?.name" [avatarUrl]="person.imageUrl!"
       [name]="person.name!"></app-avatar>
     <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name name-color">Marry
-        Andrews</span><span class="date text-black-50 name-color">{{comment.text}}</span>
+        Andrews  <span class="dateTimeTxt">Today at 5:42 PM</span></span><span class="date text-black-50 name-color">{{comment.text}}</span>
       <span (click)="openCommentText(comment)" class="reply date text-grey-50">Reply</span>
     </div>
   </div>

@@ -1,9 +1,30 @@
-<app-nova-sidenav>
-   <h1 class="comments-header"><strong >Comments</strong></h1>
-   <app-comment-box [comments]="comments"></app-comment-box>
-</app-nova-sidenav>
 <app-nv-header *ngIf="person" [person]="person" ></app-nv-header>
-
-<app-nova-panel></app-nova-panel>
+<app-nova-sidenav>
+   <h1 class="comments-header"><strong>Comments</strong></h1>
+   <app-comment-box [comments]="comments"></app-comment-box>
+   <app-tabs [tabs]="types"></app-tabs>
+   <app-inverted-tabs [tabs]="invertedTypes"></app-inverted-tabs>
+   <app-left-tab [tabs]="leftTypes"></app-left-tab>
+   <br>
+   <app-right-tab [tabs]="rightTypes"></app-right-tab>
+   <app-feed></app-feed>
+   <app-nova-panel></app-nova-panel>
+   <div>
+      <app-placeholder-list [listToShow]="listData"></app-placeholder-list>
+   </div>
+   <div>
+      <app-placeholder-card [textToShow]="cardData"></app-placeholder-card>
+   </div>
+   <div>
+      <placeholder-banner [bannerTextData]="bannerData"></placeholder-banner>
+   </div>
+   <div>
+      <placeholder-Bigcard [smallCardData]="smallCardData"></placeholder-Bigcard>
+   </div>
+   
 <app-nova-footer></app-nova-footer>
+</app-nova-sidenav>
+
+
+
 

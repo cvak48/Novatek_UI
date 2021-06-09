@@ -1,3 +1,5 @@
+@import '../../reusable/theme/base.scss';
+
 ::ng-deep .mat-drawer.mat-drawer-side {
     background-color: #F0F0F0;
 }
@@ -14,6 +16,10 @@
     }
 }
 
+.color-main {
+    color: $color-dark-gray;
+}
+
 ::ng-deep .mat-list-base .mat-list-item.mat-list-item-with-avatar,
 .mat-list-base .mat-list-option.mat-list-item-with-avatar {
     height: 41px !important;
@@ -25,7 +31,7 @@
 }
 
 ::ng-deep .mat-drawer-inner-container {
-    overflow: hidden !important;
+    overflow: ex_hidden !important;
 }
 
 .sidenav-icon {

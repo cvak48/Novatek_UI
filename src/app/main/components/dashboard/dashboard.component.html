@@ -1,7 +1,12 @@
 <app-nv-header *ngIf="person" [person]="person" ></app-nv-header>
 <app-nova-sidenav>
-   <h1 class="comments-header"><strong >Comments</strong></h1>
+   <h1 class="comments-header"><strong>Comments</strong></h1>
    <app-comment-box [comments]="comments"></app-comment-box>
+   <app-tabs [tabs]="types"></app-tabs>
+   <app-inverted-tabs [tabs]="invertedTypes"></app-inverted-tabs>
+   <app-left-tab [tabs]="leftTypes"></app-left-tab>
+   <br>
+   <app-right-tab [tabs]="rightTypes"></app-right-tab>
    <app-feed></app-feed>
    <app-nova-panel>
       <app-test></app-test>

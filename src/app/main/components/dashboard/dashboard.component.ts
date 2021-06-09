@@ -1,7 +1,10 @@
 import { CommentNode } from 'src/app/reusable/comment-box/comment-box.component';
-import { CommonHttpService } from 'src/app/services/common-http.service';
 import { Person, Notification } from './../demo-page/demo-page.component';
 import { Component, Input, OnInit } from '@angular/core';
+import { TextAreaComponent } from 'src/app/reusable/text-area/text-area.component';
+import { NovatekLogoComponent } from 'src/app/reusable/novatek-logo/novatek-logo.component';
+import { MatTabHeaderPosition } from '@angular/material/tabs';
+import { SearchComponent } from 'src/app/reusable/search/search.component';
 import { PlaceHolderCard } from 'src/app/model/placeHolderCard';
 import { PlaceHolderBanner } from 'src/app/model/placeHolderBanner';
 import { PlaceholderBigCard } from 'src/app/model/PlaceholderBigCard';
@@ -16,6 +19,11 @@ import { PlaceholderBigCard } from 'src/app/model/PlaceholderBigCard';
 export class DashboardComponent implements OnInit {
 
   comments:Array<CommentNode> = [];
+  position: MatTabHeaderPosition = 'below';
+  types = [{component:TextAreaComponent, name:'TabOne'}, {component:NovatekLogoComponent, name:'TabTwo'}, {component:TextAreaComponent, name:'TabThree'}];
+  invertedTypes = [{component:SearchComponent, name:'ITabOne'}, {component:NovatekLogoComponent, name:'ITabTwo'}, {component:TextAreaComponent, name:'ITabThree'}, {component:SearchComponent, name:'ITabFour'}];
+  leftTypes = [{component:SearchComponent, name:'lTabOne'}, {component:NovatekLogoComponent, name:'lTabTwo'}, {component:TextAreaComponent, name:'lTabThree'}];
+  rightTypes = [{component:NovatekLogoComponent, name:'RTabOne'}, {component:SearchComponent, name:'RTabTwo'}, {component:TextAreaComponent, name:'RTabThree'}, {component:SearchComponent, name:'RTabFour'}];
 
   // mockData for header
   @Input() person: Person = mockProfileMenu();

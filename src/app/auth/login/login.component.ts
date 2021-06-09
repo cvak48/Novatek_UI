@@ -16,6 +16,11 @@ export class LoginComponent implements OnInit {
     { value: 'Saskatchewan' }
   ]
 
+  public customLogoSize = {
+    width:'250',
+    height: '50'
+  }
+
   public Domain = [
     { value: 'Doctor' },
     { value: 'Pharma' },

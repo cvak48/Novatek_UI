@@ -1,4 +1,10 @@
-import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+export enum NvCustomComponent {
+  CheckBox,
+  SliderBar,
+  SlidToggle,
+  RadioButton,
+  }
 
 @Component({
   selector: 'app-nv-custom-component',
@@ -6,6 +12,8 @@ import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/co
   styleUrls: ['./nv-custom-component.component.scss']
 })
 export class NvCustomComponentComponent implements OnInit {
+  @Input() component!: NvCustomComponent;
+  nvCustomComponent = NvCustomComponent;
 // checkBox
 checked = false;
 indeterminate = false;

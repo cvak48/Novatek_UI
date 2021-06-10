@@ -48,10 +48,19 @@
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.DropToUpload)">
         {{nvComponentType[nvComponentType.DropToUpload]}}
       </div>
-      <div class="menu-item h40" (click)="onItemClick(nvComponentType.NvCustomTools)">
-        {{nvComponentType[nvComponentType.NvCustomTools]}}
+      <div class="menu-item h40" (click)="onItemClick(nvComponentType.NvCheckBox)">
+        {{nvComponentType[nvComponentType.NvCheckBox]}}
       </div>
-      
+      <div class="menu-item h40" (click)="onItemClick(nvComponentType.NvSliderBar)">
+        {{nvComponentType[nvComponentType.NvSliderBar]}}
+      </div>
+      <div class="menu-item h40" (click)="onItemClick(nvComponentType.NvSliderToggle)">
+        {{nvComponentType[nvComponentType.NvSliderToggle]}}
+      </div>
+      <div class="menu-item h40" (click)="onItemClick(nvComponentType.NvRadioBut)">
+        {{nvComponentType[nvComponentType.NvRadioBut]}}
+      </div>
+
     </div>
     <div class="preview-panel" [ngSwitch]="selectedItem">
       <div class="panel-body">
@@ -75,8 +84,17 @@
         <div class="upload-file-container" *ngSwitchCase="nvComponentType.DropToUpload">
         <app-upload class="body-item" ></app-upload>
       </div>
-        <div class="custom-component-container" *ngSwitchCase="nvComponentType.NvCustomTools">
-        <app-nv-custom-component class="body-item" ></app-nv-custom-component>
+        <div class="custom-component-container" *ngSwitchCase="nvComponentType.NvCheckBox">
+        <app-nv-custom-component class="body-item"  [component]="nvCheckBox"></app-nv-custom-component>
+      </div>
+        <div class="custom-component-container" *ngSwitchCase="nvComponentType.NvSliderBar">
+        <app-nv-custom-component class="body-item" [component]="nvSliderBar"></app-nv-custom-component>
+      </div>
+        <div class="custom-component-container" *ngSwitchCase="nvComponentType.NvSliderToggle">
+        <app-nv-custom-component class="body-item" [component]="nvSliderToggle"></app-nv-custom-component>
+      </div>
+        <div class="custom-component-container" *ngSwitchCase="nvComponentType.NvRadioBut">
+        <app-nv-custom-component class="body-item" [component]="nvRadioBut"></app-nv-custom-component>
       </div>
       </div>
     </div>

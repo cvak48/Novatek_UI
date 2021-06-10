@@ -7,7 +7,6 @@ import { MaterialModule } from '../material.module';
 import { MainRoutingModule } from './main-routing.module';
 import { LayoutComponentModule } from '../layout';
 
-
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -20,6 +19,7 @@ import { LayoutComponentModule } from '../layout';
     MainRoutingModule,
     LayoutComponentModule,
 
-  ]
+  ],
+  exports:[]
 })
 export class MainModule { }

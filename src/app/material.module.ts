@@ -61,8 +61,8 @@ var materialModulesList = [
     MatSnackBarModule,
     MatTableModule,
     MatSortModule,
-    MatCheckboxModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatCheckboxModule
 ]
 
 @NgModule({

@@ -3,10 +3,13 @@
 .container {
   padding: 0px;
   margin: 0px;
-
+  width: 100%;
+  &.container-width {
+    width: 200%;
+   margin-left: -100%;
+  }
 
   .dropdown {
-
     .form-outline {
       position: relative;
       background: $color-white-20 0% 0% no-repeat padding-box;
@@ -27,7 +30,8 @@
             letter-spacing: 0px;
             opacity: 1;
             padding-left: $padding-16;
-             line-height: 1.5;
+             font-weight: $font-weight-normal;
+             line-height: $line-height-xx-small;
             }
 
             &:focus {
@@ -38,18 +42,21 @@
             box-sizing: border-box;
             }
                &::-webkit-input-placeholder {
-              font: normal normal medium 14px/16px Lato;
-              color: $color-black-12;
+              font-family: $nv-font;
+              font: normal normal medium 14px/17px;
+              color: $color-dark-gray-30;
               opacity: 1;
               }
               &:-moz-placeholder { 
-              font: normal normal medium 14px/16px Lato;
-              color: $color-black-12;
+              font-family: $nv-font;
+              font: normal normal medium 14px/17px;
+              color: $color-dark-gray-30;
               opacity: 1;
               }
               &::-moz-placeholder {
-                font: normal normal medium 14px/16px Lato;
-              color: $color-black-12;
+              font-family: $nv-font;
+              font: normal normal medium 14px/17px;
+              color: $color-dark-gray-30;
               opacity: 1;
               }
 
@@ -68,9 +75,14 @@
             bottom: 0px;
             width: 14px;
             height: 14px;
-            fill:currentColor;
+            fill: $color-dark-gray-20;
+            color: $color-dark-gray-20;
             opacity: 1;
-
+                  }
+                  .material-icons {
+                    font-size: 17px;
+                    opacity: 1;   
+                    color: $color-dark-gray-20;  
                   }
     }
 
@@ -92,7 +104,9 @@
           letter-spacing: 0px;
           opacity: 1;
           padding-left: $padding-16;
-           line-height: 1.5;
+          // line-height: 1.5;
+          font-weight: $font-weight-bold;
+          line-height: $line-height-xx-small;
           }
         &:hover {
           background: $color-dark-gray-20;

@@ -66,9 +66,8 @@
       <div class="panel-body">
         <!-- Forth: Call your reusable component here and pass input data if needed  -->
 
-        <div class="body-item-container">
-          <app-search class="body-item" *ngSwitchCase="nvComponentType.Search"></app-search>
-          <!-- <app-nova-footer class="body-item" *ngSwitchCase="nvComponentType.Footer"></app-nova-footer> -->
+        <div class="search-item-container">
+          <app-search class="body-item" *ngSwitchCase="nvComponentType.Search" ></app-search>
         </div>
         <app-novatek-logo class="body-item" *ngSwitchCase="nvComponentType.NovaLogo"></app-novatek-logo>
         <div class="body-header-container" *ngSwitchCase="nvComponentType.Header">

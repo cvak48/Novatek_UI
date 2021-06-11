@@ -32,6 +32,7 @@ value = 0;
 vertical = false;
 tickInterval = 1;
 
+
   constructor() { }
 
   ngOnInit(): void {

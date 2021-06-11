@@ -19,8 +19,21 @@
     color: $color-dark-gray-10;
     opacity: 1;
 }
+::ng-deep .mat-checkbox-checkmark-path {
+    stroke-width: 3.3333333333px !important;
+}
+
+::ng-deep .mat-checkbox-checkmark-path {
+    stroke: $color-black !important;
+}
 ::ng-deep .mat-checkbox-layout .mat-checkbox-label {
     line-height:  $line-height-medium;
+}
+::ng-deep .mat-checkbox-checked, ::ng-deep .mat-checkbox-anim-unchecked-checked {
+
+}
+::ng-deep .mat-checkbox-checked {
+    
 }
 
 ::ng-deep  .mat-checkbox-frame {
@@ -31,12 +44,16 @@
 }
 
 ::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
-    background-color: $color-dark-gray !important;
+    background-color: transparent !important;
 }
 
 ::ng-deep .mat-radio-button ~ .mat-radio-button {
     margin-left: 16px;
   }
+
+::ng-deep .mat-ripple-element {
+    display: none !important;
+}
 
   ::ng-deep .mat-slider-thumb {
     position: absolute;
@@ -45,9 +62,21 @@
     box-sizing: border-box;
     width: 22px !important;
     height: 22px !important;
-    border: 1px solid #DEDFDF;
+    border: 0px solid #DEDFDF !important;
     border-radius: 50%;
     transform: scale(1) !important;
+}
+::ng-deep .mat-slider-horizontal {
+    height: 48px;
+    min-width: 178px !important;
+}
+::ng-deep .mat-slider-horizontal .mat-slider-ticks-container {
+    height: 2px !important;
+    width: 100% !important;
+}
+::ng-deep .mat-slider-horizontal .mat-slider-ticks {
+    height: 2px !important;
+    width: 100% !important;
 }
 ::ng-deep .mat-accent .mat-slider-thumb, ::ng-deep .mat-accent .mat-slider-thumb-label {
     background: transparent radial-gradient(closest-side at 50% 50%, #FFFFFF 0%, #FCFCFC 100%) 0% 0% no-repeat padding-box;
@@ -55,15 +84,13 @@
 }
 
 ::ng-deep .mat-accent .mat-slider-track-fill {
-    background: $color-dark-gray-10;
+    background: $color-dark-gray-10 !important;
 }
 
 ::ng-deep .mat-slider-horizontal .mat-slider-ticks-container {
-    background: $color-white-10;
+    background: $color-white-10 !important;
 }
-::ng-deep .mat-checkbox-checked, ::ng-deep .mat-checkbox-anim-unchecked-checked {
 
-}
  ::ng-deep .mat-slide-toggle-thumb {
     height: 20px !important;
     width: 20px !important;
@@ -87,7 +114,7 @@ border: 1px solid $color-white-10 !important;;
 ::ng-deep  .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple),
 ::ng-deep  .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple,
 ::ng-deep  .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
-    background-color: $color-black-12 ;
+    background-color: $color-black-10 ;
 }
 
 ::ng-deep .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {

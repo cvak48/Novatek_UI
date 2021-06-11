@@ -14,6 +14,12 @@
     background: $color-light-gray;
     border-bottom-left-radius: 15px !important;
     border-bottom-right-radius: 15px !important;
+    // height: 304px;
+    // min-height: 304px;
+    overflow-y: scroll;
+    box-shadow: 6px 5px 17px -4px rgb(87 75 75 / 49%) inset;
+    -webkit-box-shadow: 6px 5px 17px -4px rgb(87 75 75 / 49%) inset;
+    -moz-box-shadow: 6px 5px 17px -4px rgba(87,75,75,0.49) inset;
   }
   .shadow-sm {
     // box-shadow: 0 0 0.5rem rgb(17 17 17 / 70%) !important;

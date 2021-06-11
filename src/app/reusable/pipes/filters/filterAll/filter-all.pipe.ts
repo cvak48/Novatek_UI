@@ -11,8 +11,14 @@ export class FilterAllPipe implements PipeTransform {
 
       args = args.toLowerCase();
 
-      return value.filter(function (item: any) {
-          return JSON.stringify(item).toLowerCase().includes(args);
-      });
+      
+      const suggestedList = value.filter(function (item: any) {
+        console.log('item>>' + item);
+        console.log('>>' + JSON.stringify(item));
+        return JSON.stringify(item).toLowerCase().includes(args);
+    });
+    console.log('result>>>', suggestedList);
+    
+      return suggestedList;
   }
 }

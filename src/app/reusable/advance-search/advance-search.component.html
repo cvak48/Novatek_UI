@@ -1,0 +1,17 @@
+<input type="text" [(ngModel)]="queryString"  id="search" placeholder="Search to type">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+  <ul>
+    <li *ngFor="let n of list | filterAll: queryString">
+      {{n.name}} ({{n.age}})
+    </li>
+  </ul>
+
+
+  <!-- <li *ngFor="let n of list | advanceFilter: queryString : searchableList "> -->

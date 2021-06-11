@@ -1,9 +1,12 @@
+import { FilterAllPipe } from './pipes/filters/filterAll/filter-all.pipe';
+import { AdvanceFilterPipe } from './pipes/filters/advance-filter.pipe';
+import { AdvanceSearchComponent } from './advance-search/advance-search.component';
+import { NvInitialsPipe } from './pipes/text-initials/nv-initials.pipe';
 import { UploadComponent } from './upload/upload.component';
 import { NvFileUploadDirective } from './directives/file-upload/nv-file-upload.directive';
 import { NvDropdownComponent } from './nv-dropdown/nv-dropdown.component';
 import { UserProfileMenuComponent } from './user-profile-menu/user-profile-menu.component';
 import { NotificationComponent } from './notification/notification.component';
-import { NvInitialsPipe } from './pipes/nv-initials.pipe';
 import { AvatarComponent } from './avatar/avatar.component';
 import { SearchComponent } from './search/search.component';
 import { MaterialModule } from './../material.module';
@@ -27,11 +30,9 @@ import { PlaceholderListComponent } from './placeholder/placeholder-list/placeho
 import { PlaceholderBannerComponent } from './placeholder/placeholder-banner/placeholder-banner.component';
 import { PlaceholderBigCardComponent } from './placeholder/placeholderBigCard/placeholderBigCard.component';
 import { RattingComponent } from './ratting/ratting.component';
-
 import { MatTableModule } from '@angular/material/table';
 import { CustomDatatableComponent } from './custom-datatable/custom-datatable.component';
 import { MatCheckboxModule } from '@angular/Material/checkbox';
-
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatPaginatorModule} from "@angular/material/paginator";
@@ -44,6 +45,8 @@ import { TestComponent } from '../main/test/test.component';
 
 const sharedComponents = [
   NvInitialsPipe,
+  AdvanceFilterPipe,
+  FilterAllPipe,
   NvFileUploadDirective,
   FooterComponent,
   SideNavComponent,
@@ -74,7 +77,8 @@ const sharedComponents = [
   PlaceholderBannerComponent,
   PlaceholderBigCardComponent,
   UploadComponent,
-  RattingComponent
+  RattingComponent,
+  AdvanceSearchComponent
 ];
 
 @NgModule({
@@ -91,7 +95,7 @@ const sharedComponents = [
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    MatCheckboxModule
+    MatCheckboxModule,
   ],
   exports: sharedComponents
 })

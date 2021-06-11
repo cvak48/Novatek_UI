@@ -27,6 +27,9 @@
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.Search)">
         {{nvComponentType[nvComponentType.Search]}}
       </div>
+      <div class="menu-item h40" (click)="onItemClick(nvComponentType.AdvancedSearch)">
+        {{nvComponentType[nvComponentType.AdvancedSearch]}}
+      </div>
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.NovaLogo)">
         {{nvComponentType[nvComponentType.NovaLogo]}}
       </div>
@@ -54,8 +57,12 @@
       <div class="panel-body">
         <!-- Forth: Call your reusable component here and pass input data if needed  -->
 
-        <div class="search-item-container">
-          <app-search class="body-item" *ngSwitchCase="nvComponentType.Search" ></app-search>
+        <div class="search-item-container" *ngSwitchCase="nvComponentType.Search">
+          <app-search class="body-item" ></app-search>
+        </div>
+
+        <div class="search-item-container" *ngSwitchCase="nvComponentType.AdvancedSearch">
+          <app-advance-search class="body-item"  ></app-advance-search>
         </div>
         <app-novatek-logo class="body-item" *ngSwitchCase="nvComponentType.NovaLogo"></app-novatek-logo>
         <div class="body-header-container" *ngSwitchCase="nvComponentType.Header">

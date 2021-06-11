@@ -18,6 +18,8 @@
     .notification-container {
       position: relative;
       margin-left: -8px;
+      margin-top: -6px;
+
     }
 
     .spacer {
@@ -42,12 +44,13 @@
 
 
 ::ng-deep .mat-menu {
-   width: 200px !important;
+   width: 211px !important;
+   background: $color-white-20 0% 0% no-repeat padding-box;
 
   .label{
     width: 100%;
-    background: $color-light-gray 0% 0% no-repeat padding-box;
   }
+
 }
 @media (max-width: 576px) {
   ::ng-deep .mat-menu {
@@ -69,11 +72,15 @@
 }
 ::ng-deep .mat-menu-item {
   font-style: $font-style-normal;
-  font-weight: $font-weight-normal;
+  font-weight: $font-weight-bold;
   font-size: $font-size-x-small;
   font-family: $nv-font;
   line-height: $line-height-xx-small;
   color: $color-black-20;
   border: 1px solid $color-white-10;
+
+  &.first-item {
+    background: $color-light-gray 0% 0% no-repeat padding-box;
+  }
 }
 

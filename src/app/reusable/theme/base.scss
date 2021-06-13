@@ -20,6 +20,7 @@ $color-black: #1B1C1D;
 $color-black-12: #00000066;
 $color-black-20: #333333;
 $color-dark-gray: #5D5D5D;
+$color-dark-gray-02: #4D4D4D;
 $color-dark-gray-10: #5D5D5D99;
 $color-dark-gray-20: #999C9E;
 $color-dark-gray-30: #B5B5B5;
@@ -184,4 +185,13 @@ $border-color-500: $color-white;
     color: $color-dark-blue-20;
   }
 
+}
+
+.body20 {
+  font-style: $font-style-normal;
+  font-weight: $font-weight-normal;
+  font-size: $font-size-x-small;
+  font-family: $nv-font;
+  line-height: $line-height-x-small;
+  color: $color-black-20;
 }

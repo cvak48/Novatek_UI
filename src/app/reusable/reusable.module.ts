@@ -1,26 +1,31 @@
 import { NvDropdownComponent } from './nv-dropdown/nv-dropdown.component';
-
-import { RouterModule } from '@angular/router';
+import { UserProfileMenuComponent } from './user-profile-menu/user-profile-menu.component';
+import { NotificationComponent } from './notification/notification.component';
+import { NvInitialsPipe } from './pipes/nv-initials.pipe';
+import { AvatarComponent } from './avatar/avatar.component';
 import { SearchComponent } from './search/search.component';
 import { MaterialModule } from './../material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LayoutComponentModule } from './../layout/layout.module';
-
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { FooterComponent } from './footer/footer.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { NovatekLogoComponent } from './novatek-logo/novatek-logo.component';
-
+import { PanelComponent } from './panel/panel.component';
+import { TextAreaComponent } from './text-area/text-area.component';
 
 const sharedComponents = [
   FooterComponent,
   SideNavComponent,
   NovatekLogoComponent,
+  AvatarComponent,
+  NotificationComponent,
+  UserProfileMenuComponent,
+  NvInitialsPipe,
+  PanelComponent,
   SearchComponent,
-  NvDropdownComponent,
-  
+  TextAreaComponent,
+  NvDropdownComponent
 ];
 
 @NgModule({
@@ -30,7 +35,6 @@ const sharedComponents = [
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    LayoutComponentModule,
   ],
   exports: sharedComponents
 })

@@ -1,4 +1,4 @@
-import { DemoPageComponent } from './../reusable/demo-page/demo-page.component';
+import { DemoPageComponent } from './components/demo-page/demo-page.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './components/dashboard/dashboard.component';

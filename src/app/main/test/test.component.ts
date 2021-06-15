@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { TableColumn } from 'src/app/reusable/custom-datatable/table-column.model';
 import {CurrencyPipe, DecimalPipe, PercentPipe} from "@angular/common";
 import {Sort} from "@angular/material/sort";
 import { Order } from './order';
 import * as moment from 'moment';
+import { DataService } from 'src/app/services/data.service';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -12,19 +14,27 @@ import * as moment from 'moment';
   styleUrls: ['./test.component.scss'],
   providers: [CurrencyPipe, DecimalPipe, PercentPipe]
 })
-export class TestComponent implements OnInit {
+export class TestComponent implements OnInit,OnDestroy {
 
   orders: Order[] = [];
   ordersTableColumns: TableColumn[] = [];
-
+  dataSub: Subscription = new Subscription;
   constructor(private currencyPipe: CurrencyPipe,
               private decimalPipe: DecimalPipe,
-              private percentPipe: PercentPipe) {
+              private percentPipe: PercentPipe,
+              private dataService: DataService) {
   }
 
   ngOnInit(): void {
     this.initializeColumns();
-    this.orders = this.getOrders();
+    this.dataSub = this.dataService.getTableData()
+      .subscribe(data => {
+        this.orders = data;
+      }); 
+  }
+
+  ngOnDestroy() {
+    this.dataSub.unsubscribe();
   }
 
   sortData(sortParameters: Sort) {

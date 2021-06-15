@@ -1,0 +1,45 @@
+<div class="border small-card">
+    <div class="row row-style">
+      <div class="col-12 card-style">
+        <div class="row ">
+            <div class="col-4 section-style" *ngFor="let cardData of textToShow">
+                <div class="card-border">
+                    <div class="row">
+                        <div class="col-1">
+                            <img
+                              src="{{cardData.img}}"
+                              alt="#"
+                              class="mr-3 rounded xs-small-round"
+                              style="width: 40px"
+                            />
+                          </div>
+                          <div class="col-10 pd-lt-5">
+                            <div class="media-body align-self-center">
+                              <h6 class="mg-3">
+                                My Name <small><i>{{cardData.text1}}</i></small>
+                              </h6>
+                              <h6>
+                                My Name <small><i>{{cardData.text2}}</i></small>
+                              </h6>
+                            </div>
+                    </div>
+                   
+                      </div>
+                      <div class="row">
+                        <div class="col-12">
+                          <div class="flex-column flex-md-row">
+                            <p>
+                              {{cardData.description}}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+                
+            </div>
+          
+        </div>
+        
+      </div>
+    </div>
+    </div>

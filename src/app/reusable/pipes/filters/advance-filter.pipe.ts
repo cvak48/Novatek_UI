@@ -11,6 +11,7 @@ export class AdvanceFilterPipe implements PipeTransform {
                 let isTrue = false;
                 for (let k in searchableList) {
                     if (item[searchableList[k]].toLowerCase().indexOf(input) > -1) {
+           
                         isTrue = true;
                     }
                     if (isTrue) {
@@ -23,4 +24,6 @@ export class AdvanceFilterPipe implements PipeTransform {
         }
         return value;
     }
+
+
 }

@@ -40,6 +40,8 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import { DataPropertyGetterPipe } from './custom-datatable/data-property-getter-pipe/data-property-getter.pipe';
 import { TestComponent } from '../main/test/test.component';
+import { PlaceholderTextCardComponent } from './placeholder/placeholder-text-card/placeholder-text-card.component';
+import { PlaceholderSmallCardComponent } from './placeholder/placeholder-small-card/placeholder-small-card.component';
 
 
 const sharedComponents = [
@@ -74,7 +76,9 @@ const sharedComponents = [
   PlaceholderBannerComponent,
   PlaceholderBigCardComponent,
   UploadComponent,
-  RattingComponent
+  RattingComponent,
+  PlaceholderTextCardComponent,
+  PlaceholderSmallCardComponent
 ];
 
 @NgModule({

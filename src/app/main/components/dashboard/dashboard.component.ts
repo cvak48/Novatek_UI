@@ -32,6 +32,8 @@ export class DashboardComponent implements OnInit {
   bannerData = {};
   smallCardData = {};
   listData: any[] = [];
+  cardSmallData = {};
+  textCardData= {};
   constructor() {
    }
 
@@ -41,6 +43,8 @@ export class DashboardComponent implements OnInit {
     this.setPlaceHolderBannerdata();
     this.setPlaceHolder1();
     this.setListData();
+    this.setPlaceHolderSmallCardData();
+    this.setPlaceHolderTextData();
   }
 
   setPlaceHolderCarddata(): void {
@@ -55,6 +59,49 @@ export class DashboardComponent implements OnInit {
     dui. Mauris dapibus lectus id laoreet iaculis. Duis auctor augue
     augue, eget lobortis quam auctor at.`}as PlaceHolderCard;
   }
+
+  setPlaceHolderTextData(): void {
+    this.textCardData = [
+      {'text': `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel
+      ipsum aliquam metus facilisis scelerisque. Quisque vitae
+      condimentum nulla. Vestibulum lobortis ullamcorper augue id
+      consequat.`},
+      {'text': `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel
+      ipsum aliquam metus facilisis scelerisque. Quisque vitae
+      condimentum nulla. Vestibulum lobortis ullamcorper augue id
+      consequat.`},
+      {'text': `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel
+      ipsum aliquam metus facilisis scelerisque. Quisque vitae
+      condimentum nulla. Vestibulum lobortis ullamcorper augue id
+      consequat.`}
+    ];
+  }
+
+  setPlaceHolderSmallCardData(): void {
+    this.cardSmallData = [{'img': this.avtar,
+    'text1':'Posted on May 20, 2018',
+    'text2':'Posted on May 20, 2018',
+    'description':`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel
+    ipsum aliquam metus facilisis scelerisque. Quisque vitae
+    condimentum nulla. Vestibulum lobortis ullamcorper augue id
+    consequat.`},
+    {'img': this.avtar,
+    'text1':'Posted on May 20, 2018',
+    'text2':'Posted on May 20, 2018',
+    'description':`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel
+    ipsum aliquam metus facilisis scelerisque. Quisque vitae
+    condimentum nulla. Vestibulum lobortis ullamcorper augue id
+    consequat.`},
+    {'img': this.avtar,
+    'text1':'Posted on May 20, 2018',
+    'text2':'Posted on May 20, 2018',
+    'description':`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel
+    ipsum aliquam metus facilisis scelerisque. Quisque vitae
+    condimentum nulla. Vestibulum lobortis ullamcorper augue id
+    consequat.`}
+  ];
+}
+
 
   setPlaceHolder1(): void {
     this.smallCardData = {'img': this.avtar,

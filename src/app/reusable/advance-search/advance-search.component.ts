@@ -14,6 +14,7 @@ export class AdvanceSearchComponent implements OnInit {
   queryString!: string;
   queryFormControl = new FormControl('');
   searchableList: string[] = [];
+  inputKeywordLabel: string = '';
   constructor() {
     console.log('constructor');
     this.title = "Angular advanced search";
@@ -34,14 +35,20 @@ export class AdvanceSearchComponent implements OnInit {
       let trimmedInput: string = '';
       console.log('ngOnInit value changed');
       this.searchableList = [];
-      if(selectedValue && selectedValue.includes(':')) {
+      if( selectedValue.includes(':')) {
       this.searchableList = this.modifySearchableList(selectedValue, this.searchableRefList);
       }
       if( this.searchableList.length === 0 || !this.searchableList ) {
         this.searchableList = this.searchableRefList;
       }
-      trimmedInput = trimInputKeyWord(selectedValue, this.searchableList);
-       this.queryFormControl.setValue();
+      // trim keyWord from input
+      if( this.searchableList && selectedValue.includes(':')) {
+        trimmedInput = this.trimInputKeyWord(selectedValue, this.searchableList);
+      }
+
+      if(trimmedInput) {
+       this.queryFormControl.setValue(trimmedInput);
+      }
     });
 
   }
@@ -59,6 +66,7 @@ export class AdvanceSearchComponent implements OnInit {
     for(let item of list) {
         newItem = item + ':';
         if(input === newItem) {
+          this.inputKeywordLabel = input.split(':')[0] + ':';
         newInput = ' ';
         }
     }

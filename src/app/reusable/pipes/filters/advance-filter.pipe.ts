@@ -6,7 +6,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class AdvanceFilterPipe implements PipeTransform {
     transform(value: any, input: string, searchableList: any) {
         if (input) {
-            input = input.toLowerCase();
+            console.log(input + ';;;;' + searchableList);
+            
+            input = input.trim().toLowerCase();
             const suggestedList = value.filter((item: any) => {
                 let isTrue = false;
                 for (let k in searchableList) {
@@ -15,7 +17,7 @@ export class AdvanceFilterPipe implements PipeTransform {
                         isTrue = true;
                     }
                     if (isTrue) {
-                        return item
+                        return item;
                     }
                 }
             });

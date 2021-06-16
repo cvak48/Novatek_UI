@@ -14,7 +14,7 @@ export class AdvanceSearchComponent implements OnInit {
   queryString!: string;
   queryFormControl = new FormControl('');
   searchableList: string[] = [];
-  inputKeywordLabel: string = '';
+  inputKeywordLabel: string = 'All field';
   constructor() {
     console.log('constructor');
     this.title = "Angular advanced search";
@@ -31,22 +31,37 @@ export class AdvanceSearchComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.searchableList = [];
+    let isQueryKeyword: boolean = false;
     this.queryFormControl.valueChanges.subscribe( selectedValue => {
-      let trimmedInput: string = '';
+      let trimmedInput: string = '  ';
       console.log('ngOnInit value changed');
-      this.searchableList = [];
+      if(this.queryFormControl.value === '') {
+        isQueryKeyword = false;
+      }
+      if(!isQueryKeyword) {
+        this.searchableList = [];
+        this.inputKeywordLabel = 'All field';
+      }
+      // modify searchableList; specific search item
       if( selectedValue.includes(':')) {
       this.searchableList = this.modifySearchableList(selectedValue, this.searchableRefList);
+      if (this.searchableList && this.searchableList.length > 0) {
+        isQueryKeyword = true;
       }
+      }
+      // make searchableList as default; search all area
       if( this.searchableList.length === 0 || !this.searchableList ) {
         this.searchableList = this.searchableRefList;
+        isQueryKeyword = false;
+
       }
-      // trim keyWord from input
+      // trim keyWord from input; specific area
       if( this.searchableList && selectedValue.includes(':')) {
         trimmedInput = this.trimInputKeyWord(selectedValue, this.searchableList);
       }
 
-      if(trimmedInput) {
+      if(trimmedInput === ' ') {
        this.queryFormControl.setValue(trimmedInput);
       }
     });
@@ -66,8 +81,8 @@ export class AdvanceSearchComponent implements OnInit {
     for(let item of list) {
         newItem = item + ':';
         if(input === newItem) {
-          this.inputKeywordLabel = input.split(':')[0] + ':';
-        newInput = '';
+
+        newInput = ' ';
         } else {
           // not found
           newInput = input;
@@ -90,6 +105,7 @@ export class AdvanceSearchComponent implements OnInit {
           if (keyWordQuery === item) {
             list = [];
             list.push(keyWordQuery);
+            this.inputKeywordLabel = query.split(':')[0] + ':';
             console.log('list modified');
           } else {
             // not known keyWordQuery

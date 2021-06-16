@@ -53,10 +53,10 @@ export class AdvanceSearchComponent implements OnInit {
 
   }
   
-  onKeyUp(event: any): void {  }
-  onKeyDown(event: any): void {  }
-  onSearchBlur(event: any): void {  }
-  onSearchFocus() {}
+  onKeyUp(event: any): void { }
+  onKeyDown(event: any): void { }
+  onSearchBlur(event: any): void { }
+  onSearchFocus(): void {}
   onInput(event: any): void { }
 
   trimInputKeyWord(input: string, list: string[]): string {
@@ -67,7 +67,10 @@ export class AdvanceSearchComponent implements OnInit {
         newItem = item + ':';
         if(input === newItem) {
           this.inputKeywordLabel = input.split(':')[0] + ':';
-        newInput = ' ';
+        newInput = '';
+        } else {
+          // not found
+          newInput = input;
         }
     }
     return newInput;

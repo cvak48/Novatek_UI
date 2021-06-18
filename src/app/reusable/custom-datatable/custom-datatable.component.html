@@ -59,8 +59,17 @@
   
         <!-- column data -->
         <td [ngClass]="{'status-gr': element.status === 'Completed', 'status-rd' : element.status === 'No', 'status-yl': element.status === 'Pending' }" mat-cell *matCellDef="let element" [class.text-right]="tableColumn.position == 'right'">
-          {{element | dataPropertyGetter: tableColumn.dataKey}}
+          <ng-container *ngIf="tableColumn.dataKey!= 'attachments'" >{{element | dataPropertyGetter: tableColumn.dataKey}}</ng-container>
+          <ng-container *ngIf="tableColumn.dataKey== 'attachments'" >
+            <div>
+              <mat-chip-list >
+                <mat-chip *ngFor="let attachment of element.attachments">{{attachment.name}} <img src="./assets/images/dots.png" class="more-opt-icon" /></mat-chip>
+              </mat-chip-list>
+            </div>
+           
+          </ng-container>
         </td>
+       
       </ng-container>
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

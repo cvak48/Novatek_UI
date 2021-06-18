@@ -50,17 +50,19 @@ export class CustomDatatableComponent implements OnInit, AfterViewInit {
     } else {
       this.displayedColumns = columnNames;
     }
-    
+   
   }
 
   // we need this, in order to make pagination work with *ngIf
   ngAfterViewInit(): void {
     this.tableDataSource.paginator = this.matPaginator;
+     
   }
 
 
   setTableDataSource(data: any) {
     if(data) {
+      console.log(data)
     this.apiData = [...data];
     this.tableDataSource = new MatTableDataSource(data);
     this.tableDataSource.paginator = this.matPaginator;

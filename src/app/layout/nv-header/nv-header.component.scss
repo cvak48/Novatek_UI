@@ -2,11 +2,13 @@
 
 .container-fluid {
   padding: 0;
+  padding-top: 6px;
   margin: 0;
   border-bottom: 4px solid $color-dark-gray;
 
   .nova-icon {
-    padding-left: $padding-16;
+    margin-left: $padding-16;
+    margin-top: 9px;
     width: 160px;
     height: 40px;
   }
@@ -14,9 +16,6 @@
   .search-container {
     width: 40%;
 
-    .search {
-      width: 50%;
-    }
   }
 
   .avatar-container {
@@ -27,8 +26,15 @@
 
 }
 
+
 @media (max-width: 576px) {
   .search {
+    display: none;
+   }
+}
+
+@media (max-width: 300px) {
+  .icon {
     display: none;
    }
 }

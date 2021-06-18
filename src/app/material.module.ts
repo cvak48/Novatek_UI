@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-
-//Angular Material Components
 import { MatInputModule } from '@angular/material/input';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -30,8 +28,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 import { CommonModule } from '@angular/common';
-import { MatCheckboxModule } from '@angular/Material/checkbox';
 
 var materialModulesList = [
     CommonModule,

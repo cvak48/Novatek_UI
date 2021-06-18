@@ -48,15 +48,26 @@
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.DropToUpload)">
         {{nvComponentType[nvComponentType.DropToUpload]}}
       </div>
-      
+      <div class="menu-item h40" (click)="onItemClick(nvComponentType.NvCheckBox)">
+        {{nvComponentType[nvComponentType.NvCheckBox]}}
+      </div>
+      <div class="menu-item h40" (click)="onItemClick(nvComponentType.NvSliderBar)">
+        {{nvComponentType[nvComponentType.NvSliderBar]}}
+      </div>
+      <div class="menu-item h40" (click)="onItemClick(nvComponentType.NvSliderToggle)">
+        {{nvComponentType[nvComponentType.NvSliderToggle]}}
+      </div>
+      <div class="menu-item h40" (click)="onItemClick(nvComponentType.NvRadioBut)">
+        {{nvComponentType[nvComponentType.NvRadioBut]}}
+      </div>
+
     </div>
     <div class="preview-panel" [ngSwitch]="selectedItem">
       <div class="panel-body">
         <!-- Forth: Call your reusable component here and pass input data if needed  -->
 
-        <div class="body-item-container">
-          <app-search class="body-item" *ngSwitchCase="nvComponentType.Search"></app-search>
-          <!-- <app-nova-footer class="body-item" *ngSwitchCase="nvComponentType.Footer"></app-nova-footer> -->
+        <div class="search-item-container" *ngSwitchCase="nvComponentType.Search">
+          <app-search class="body-item"  ></app-search>
         </div>
         <app-novatek-logo class="body-item" *ngSwitchCase="nvComponentType.NovaLogo"></app-novatek-logo>
         <div class="body-header-container" *ngSwitchCase="nvComponentType.Header">
@@ -69,8 +80,20 @@
         <app-user-profile-menu class="body-item" [person]="person" *ngSwitchCase="nvComponentType.ProfileMenu"></app-user-profile-menu>
        
         <app-nv-dropdown class="body-item" *ngSwitchCase="nvComponentType.Dropdown"></app-nv-dropdown>
-        <div class="upload-file-container">
-        <app-upload class="body-item" *ngSwitchCase="nvComponentType.DropToUpload"></app-upload>
+        <div class="upload-file-container" *ngSwitchCase="nvComponentType.DropToUpload">
+        <app-upload class="body-item" ></app-upload>
+      </div>
+        <div class="custom-component-container" *ngSwitchCase="nvComponentType.NvCheckBox">
+        <app-nv-custom-component class="body-item"  [component]="nvCheckBox"></app-nv-custom-component>
+      </div>
+        <div class="custom-component-container" *ngSwitchCase="nvComponentType.NvSliderBar">
+        <app-nv-custom-component class="body-item" [component]="nvSliderBar"></app-nv-custom-component>
+      </div>
+        <div class="custom-component-container" *ngSwitchCase="nvComponentType.NvSliderToggle">
+        <app-nv-custom-component class="body-item" [component]="nvSliderToggle"></app-nv-custom-component>
+      </div>
+        <div class="custom-component-container" *ngSwitchCase="nvComponentType.NvRadioBut">
+        <app-nv-custom-component class="body-item" [component]="nvRadioBut"></app-nv-custom-component>
       </div>
       </div>
     </div>

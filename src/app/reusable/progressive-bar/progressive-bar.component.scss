@@ -1,3 +1,5 @@
+@import "../theme/base.scss";
+
 .progressTxt {
     text-align: end;
     margin-right: 2%;
@@ -5,9 +7,9 @@
 }
 
 .firstBlock {
-    background-color: #ADADAD !important;
+    background-color: $color-progressive-first-block !important;
 }
 
 .secondBlock {
-    background-color: #888888 !important;
+    background-color: $color-progressive-second-block !important;
 }

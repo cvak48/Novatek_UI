@@ -5,9 +5,12 @@ mat-paginator {
 }
 
 .search-box{
-  border: 1px solid $color-white;
+  border: 1px solid #DEDEDF;
   margin: 1%;
+  border-radius: 4px;
   height: 40px;
+  background: #fff;
+  color: #9A9A9A;
 }
 
 .search-field{
@@ -79,7 +82,7 @@ thead {
 }
 tr.mat-header-row {
     height: 40px !important;
-    background-color: #f0f0f0 !important;
+    background-color: #fff !important;
     height: 50px !important;
 }
 .mat-header-cell {

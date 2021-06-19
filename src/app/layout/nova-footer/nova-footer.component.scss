@@ -9,22 +9,30 @@ div#myNavbar {
   padding: 15px;
   margin-bottom: 0;
   border: 1px solid $color-light-gray-80;
+  font: normal normal normal 14px/17px Lato;
   .list-inlin li {
     display: inline-block;
     margin-bottom: 0 !important;
     font-size: $font-size-xx-small;
     font-weight: 400;
+    color: $color-light-gray-40;
     a {
       padding: 0 5px;
       color: $color-light-gray-40;
       font-size: $font-size-xx-small;
       font-weight: 500;
+      text-decoration: underline;
     }
     & .link-txt {
       color: $color-light-blue-40;
       margin-left: 5px;
     }
   }
+}
+
+.lang-style {
+  margin-left: 86px;
+  font-weight: bold !important;
 }
 
 .mg_0 {

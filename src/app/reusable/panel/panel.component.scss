@@ -1,39 +1,45 @@
 @import "../../reusable/theme/base.scss";
 
 .custom-card {
-    border-radius: 15px !important;
+    border-radius: 8px !important;
   .card-header {
     font-size: 12px;
     padding: 8px 12px 5px 10px;
-    border-top-left-radius: 15px !important;
-    border-top-right-radius: 15px !important;
+    border-top-left-radius: 8px !important;
+    border-top-right-radius: 8px !important;
+    font: normal normal bold 18px/23px Lato;
   }
   .card-body {
     padding: 0px;
     padding: 10px;
     background: $color-light-gray;
-    border-bottom-left-radius: 15px !important;
-    border-bottom-right-radius: 15px !important;
+    border-bottom-left-radius: 8px !important;
+    border-bottom-right-radius: 8px !important;
     // height: 304px;
     // min-height: 304px;
     overflow-y: scroll;
-    box-shadow: 6px 5px 17px -4px rgb(87 75 75 / 49%) inset;
-    -webkit-box-shadow: 6px 5px 17px -4px rgb(87 75 75 / 49%) inset;
-    -moz-box-shadow: 6px 5px 17px -4px rgba(87,75,75,0.49) inset;
+    box-shadow: 4px 4px 8px #0000001a inset;
+    // -webkit-box-shadow: 6px 5px 17px -4px rgb(87 75 75 / 49%) inset;
+    // -moz-box-shadow: 6px 5px 17px -4px rgba(87,75,75,0.49) inset;
   }
-  .shadow-sm {
+    .shadow-sm {
     // box-shadow: 0 0 0.5rem rgb(17 17 17 / 70%) !important;
     width: 100%;
-    border: 1px solid $color-light-gray-80;
+    border: 1px solid $color-light-gray-90;
     min-height: 145px;
     background-color: $color-white-20;
-    border-bottom-left-radius: 15px !important;
-    border-bottom-right-radius: 15px !important;
+    border-bottom-left-radius: 8px !important;
+    border-bottom-right-radius: 8px !important;
+  }
+
+  .shadow-sm-dark {
+    width: 100%;
+    min-height: 145px;
+    border-bottom-left-radius: 8px !important;
+    border-bottom-right-radius: 8px !important;
   }
   .panel-titleTxt {
-    color: $color-light-gray-40;
-    font-weight: 500;
-    font-size: 18px;
+    color: $color-light-gray-60;
     margin-left: 10px;
   }
   .mg-15 {

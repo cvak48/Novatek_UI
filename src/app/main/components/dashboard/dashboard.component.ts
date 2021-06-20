@@ -79,26 +79,23 @@ export class DashboardComponent implements OnInit {
 
   setPlaceHolderSmallCardData(): void {
     this.cardSmallData = [{'img': this.avtar,
-    'text1':'Posted on May 20, 2018',
+    'text1':'Tom Cruise',
     'text2':'Posted on May 20, 2018',
     'description':`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel
     ipsum aliquam metus facilisis scelerisque. Quisque vitae
-    condimentum nulla. Vestibulum lobortis ullamcorper augue id
-    consequat.`},
+    condimentum nulla.`},
     {'img': this.avtar,
-    'text1':'Posted on May 20, 2018',
+    'text1':'Tom Cruise',
     'text2':'Posted on May 20, 2018',
     'description':`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel
     ipsum aliquam metus facilisis scelerisque. Quisque vitae
-    condimentum nulla. Vestibulum lobortis ullamcorper augue id
-    consequat.`},
+    condimentum nulla.`},
     {'img': this.avtar,
-    'text1':'Posted on May 20, 2018',
+    'text1':'Tom Cruise',
     'text2':'Posted on May 20, 2018',
     'description':`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel
     ipsum aliquam metus facilisis scelerisque. Quisque vitae
-    condimentum nulla. Vestibulum lobortis ullamcorper augue id
-    consequat.`}
+    condimentum nulla.`}
   ];
 }
 

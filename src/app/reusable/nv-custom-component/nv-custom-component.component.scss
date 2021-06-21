@@ -32,10 +32,6 @@
   line-height: $line-height-medium;
 }
 
-::ng-deep .mat-checkbox-checked,
-::ng-deep .mat-checkbox-anim-unchecked-checked {}
-
-::ng-deep .mat-checkbox-checked {}
 
 ::ng-deep .mat-checkbox-frame {
   background: $color-white 0% 0% no-repeat padding-box;

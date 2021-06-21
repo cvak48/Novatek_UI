@@ -1,3 +1,4 @@
+import { NvTrimPipe } from './pipes/nv-trim/nv-trim.pipe';
 import { RattingComponent } from './ratting/ratting.component';
 import { NvCustomComponentComponent } from './nv-custom-component/nv-custom-component.component';
 import { UploadComponent } from './upload/upload.component';
@@ -5,7 +6,7 @@ import { NvFileUploadDirective } from './directives/file-upload/nv-file-upload.d
 import { NvDropdownComponent } from './nv-dropdown/nv-dropdown.component';
 import { UserProfileMenuComponent } from './user-profile-menu/user-profile-menu.component';
 import { NotificationComponent } from './notification/notification.component';
-import { NvInitialsPipe } from './pipes/nv-initials.pipe';
+import { NvInitialsPipe } from './pipes/nv-initials/nv-initials.pipe';
 import { AvatarComponent } from './avatar/avatar.component';
 import { SearchComponent } from './search/search.component';
 import { MaterialModule } from './../material.module';
@@ -42,6 +43,7 @@ import { TestComponent } from '../main/test/test.component';
 
 const sharedComponents = [
   NvInitialsPipe,
+  NvTrimPipe,
   NvFileUploadDirective,
   FooterComponent,
   SideNavComponent,

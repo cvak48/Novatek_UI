@@ -2,6 +2,7 @@
 
 .small-card {
   width: 18rem; padding: 15px; margin: 15px 10px;
+  border-radius: 4px;
 }
 
 .small-round {
@@ -32,3 +33,6 @@
   .banner-text {
       padding: 3% 4% 0 2%;
   } 
+  h6, p {
+    color: $color-dark-gray-70;
+  }

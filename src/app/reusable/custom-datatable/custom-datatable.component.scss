@@ -62,7 +62,7 @@ th{
 }
 
 .mat-cell, .mat-footer-cell {
-color: $color-dark-gray-30 !important;
+color: $color-dark-gray-70 !important;
 }
 ::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background {
   background-color: $color-black-10 !important;
@@ -87,7 +87,7 @@ tr.mat-header-row {
 }
 .mat-header-cell {
     text-transform: capitalize !important;
-    color: rgba(0,0,0,.54);
+    color: $color-dark-gray-70;
 }
 .mat-cell, .mat-footer-cell {
     font-size: 12px;

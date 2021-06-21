@@ -1,13 +1,16 @@
+@import "../../../reusable/theme/base.scss";
+
 .card-style{
     border: 3px solid lightgray;
     margin: 1%;
     border-radius: 5px;
+    border-radius: 4px;
 }
 
 .section-style{
     padding-top: 1%;
     border-right: 1px solid lightgray;
-    color:lightgray;
+    color:$color-dark-gray-70;
 }
 
 .row-style{
@@ -16,6 +19,10 @@
     display: inline-block !important;
 }
 
+p {
+    color: $color-dark-gray-70;
+}
+
 p{
-    color: darkgrey;
+    color: $color-dark-gray-70;
 }

@@ -2,6 +2,8 @@
 
 .mg-15 {
   margin: 15px 10px;
+  border-radius: 4px;
+
 }
 .small-round {
     width: 60px !important;
@@ -31,3 +33,6 @@
   .banner-text {
       padding: 3% 4% 0 2%;
   } 
+  p {
+    color: $color-dark-gray-70;
+  }

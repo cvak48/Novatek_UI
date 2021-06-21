@@ -1,11 +1,14 @@
+@import "../../../reusable/theme/base.scss";
+
 .card-style{
     margin: 1%;
     border-radius: 5px;
+    border-radius: 4px;
 }
 
 .section-style{
     padding-top: 1%;
-    color:lightgray;
+    color:rgb(206, 180, 180);
     border-radius:5px;
 }
 
@@ -26,7 +29,7 @@
     margin-top: -1%;
 }
 .mg_0_10 {
-    margin: 0px 10px !important;
+    margin: 5px 20px !important;
 }
 
 .mr-tp-3{
@@ -35,9 +38,9 @@
 
 h5{
     font-size: 14px !important;
-    color:darkgrey;
+    color:$color-dark-gray-70;
 }
 
 p{
-    color: darkgrey;
+    color: $color-dark-gray-70;
 }

@@ -64,9 +64,9 @@
         <app-avatar class="body-item" *ngIf="person?.imageUrl && person?.name" [avatarUrl]="person.imageUrl!" [name]="person.name!" ></app-avatar>
       </ng-container>
         <app-user-profile-menu class="body-item" [person]="person" *ngSwitchCase="nvComponentType.ProfileMenu"></app-user-profile-menu>
-       
-        <app-nv-dropdown class="body-item" *ngSwitchCase="nvComponentType.Dropdown"></app-nv-dropdown>
-
+       <div class="dropdown-container" *ngSwitchCase="nvComponentType.Dropdown">
+        <app-nv-dropdown class="body-item" ></app-nv-dropdown>
+      </div>
       </div>
     </div>
   </div>

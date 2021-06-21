@@ -39,7 +39,7 @@
 ::ng-deep  .mat-checkbox-frame {
     background: $color-white 0% 0% no-repeat padding-box;
     border: 1px solid $color-white !important;
-    border-radius: 1px !important;
+    border-radius: 2px !important;
     opacity: 1;
 }
 
@@ -70,10 +70,12 @@
     height: 48px;
     min-width: 178px !important;
 }
+
 ::ng-deep .mat-slider-horizontal .mat-slider-ticks-container {
     height: 2px !important;
     width: 100% !important;
 }
+
 ::ng-deep .mat-slider-horizontal .mat-slider-ticks {
     height: 2px !important;
     width: 100% !important;
@@ -84,11 +86,14 @@
 }
 
 ::ng-deep .mat-accent .mat-slider-track-fill {
-    background: $color-dark-gray-10 !important;
+    background: $color-black !important;
 }
 
 ::ng-deep .mat-slider-horizontal .mat-slider-ticks-container {
     background: $color-white-10 !important;
+}
+::ng-deep .mat-slider-horizontal .mat-slider-ticks-container {
+    background: transparent !important;
 }
 
  ::ng-deep .mat-slide-toggle-thumb {

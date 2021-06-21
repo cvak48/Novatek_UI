@@ -1,0 +1,42 @@
+@import "../theme/base.scss";
+
+#mainDiv{
+    padding-left: 25px;
+  }
+
+  .reply{
+    color:$color-dark-gray-20;
+    font-size: 11px;
+    cursor: pointer;
+  }
+
+  .reply-txtbox{
+    border: 1px solid $color-white-10;
+  }
+
+  textarea:focus {
+    border: 1px solid $color-white-10;
+    outline: 0 none;
+  }
+
+  .btn-content {
+    background: $btn-color;
+    padding: 0.5rem !important;
+    margin-left: -13px;
+    margin-right: 15px;
+  }
+
+  .btn-color {
+    background-color: $color-dark-blue-10 !important;
+    font-size: 12px;
+  }
+
+  .name-color {
+    color: $color-dark-gray;
+  }
+
+  .dateTimeTxt {
+    color: $color-black-12 !important;
+    font-size: smaller !important;
+    font-weight: 500 !important;
+  }

@@ -1,5 +1,61 @@
-<app-nv-header *ngIf="person" [person]="person" ></app-nv-header>
-<app-nova-sidenav></app-nova-sidenav>
-<app-nova-panel></app-nova-panel>
-<app-nova-footer></app-nova-footer>
+<app-nv-header *ngIf="person" [person]="person"></app-nv-header>
+<app-nova-sidenav>
 
+   <h1 class="comments-header"><strong>Comments</strong></h1>
+   <app-comment-box [comments]="comments"></app-comment-box>
+   <br>
+   <hr>
+   <h1 class="comments-header"><strong>Star Rating</strong></h1>
+   <app-ratting [type]="'star'"></app-ratting>
+   <br>
+   <hr>
+   <h1 class="comments-header"><strong>Heart Rating</strong></h1>
+   <app-ratting [type]="'heart'"></app-ratting>
+   <br>
+   <hr>
+   <h1 class="comments-header"><strong>Regular Tabs</strong></h1>
+   <app-tabs [tabs]="types"></app-tabs>
+   <br>
+   <hr>
+   <h1 class="comments-header"><strong>Inverted Tabs</strong></h1>
+   <app-inverted-tabs [tabs]="invertedTypes"></app-inverted-tabs>
+   <br>
+   <hr>
+   <h1 class="comments-header"><strong>Left Aligned Tabs</strong></h1>
+   <app-left-tab [tabs]="leftTypes"></app-left-tab>
+   <br>
+   <hr>
+   <h1 class="comments-header"><strong>Right Aligned Tabs</strong></h1>
+   <app-right-tab [tabs]="rightTypes"></app-right-tab>
+   <br>
+   <hr>
+   <h1 class="comments-header"><strong>Feeds</strong></h1>
+   <app-feed></app-feed>
+   <br>
+   <hr>
+   <h1 class="comments-header"><strong>Custom Panel</strong></h1>
+   <app-nova-panel>
+      <app-test></app-test>
+   </app-nova-panel>
+   <br>
+   <hr>
+   <div>
+      <app-placeholder-list [listToShow]="listData"></app-placeholder-list>
+   </div>
+   <br>
+   <hr>
+   <div>
+      <app-placeholder-card [textToShow]="cardData"></app-placeholder-card>
+   </div>
+   <br>
+   <hr>
+   <div>
+      <placeholder-banner [bannerTextData]="bannerData"></placeholder-banner>
+   </div>
+   <br>
+   <hr>
+   <div>
+      <placeholder-Bigcard [smallCardData]="smallCardData"></placeholder-Bigcard>
+   </div>
+   <app-nova-footer></app-nova-footer>
+</app-nova-sidenav>

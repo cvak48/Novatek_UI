@@ -28,8 +28,8 @@ I'm a checkbox
 <mat-slide-toggle *ngSwitchCase="nvCustomComponent.SlidToggle"  class="mat-label"
 [checked]="checked"
  (change)="checked=!checked" >
- <p *ngIf="checked">     On   </p>
- <p *ngIf="!checked">    Off    </p></mat-slide-toggle>
+ <span *ngIf="checked">     On   </span>
+ <span *ngIf="!checked">    Off    </span></mat-slide-toggle>
 
 <br>
 <br>

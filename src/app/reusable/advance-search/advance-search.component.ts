@@ -81,7 +81,6 @@ export class AdvanceSearchComponent implements OnInit {
     for(let item of list) {
         newItem = item + ':';
         if(input === newItem) {
-
         newInput = ' ';
         } else {
           // not found
@@ -89,12 +88,10 @@ export class AdvanceSearchComponent implements OnInit {
         }
     }
     return newInput;
-
 }
 
   modifySearchableList(query: string, list: string[]): string[] {
     let keyWordQuery: string = '';
-
     if (list) {
       // find keyWords like subject
       // check query
@@ -111,7 +108,6 @@ export class AdvanceSearchComponent implements OnInit {
             // not known keyWordQuery
           }
         }
-
       } else {
         // no keywordQuery
       }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -6,7 +6,7 @@ import { FormControl } from '@angular/forms';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent  {
   @Input() items: string[] = [];
   filteredItems: string[] = [];
   selectedItem!: string;
@@ -20,10 +20,9 @@ export class SearchComponent implements OnInit {
   // TODO: Need to bring click event from parents to make isFocus false and delete blur event
   constructor() { }
 
-  ngOnInit(): void {
-  }
   onSearchFocus() {
     this.isFocus = true;
+
     }
   onSearchBlur(event: any) {
     this.isFocus = false;
@@ -40,6 +39,7 @@ export class SearchComponent implements OnInit {
   onInput(event: any): void {
     const search = event?.target?.value;
     this.filteredItems = this.filterList(mockItems(), search);
+    // TODO:We need change detector tu update html as fast as the variable changes
     this.showMenu = this.filteredItems?.length ? true : false;
     // TODO: hide cross-icon by pressing BackSpace.
     this.searchIcon = !search ? true : false;
@@ -64,6 +64,8 @@ export class SearchComponent implements OnInit {
         this.searchIcon =true;
          }
     } else if (event.key === 'Escape') {
+      this.selectedItemFormControl.setValue('');
+      this.searchIcon = true;
     } else if (event.key === 'Enter') {
        this.onItemSelect(this.selectedIndex);
     } else if (event.key === 'Tab') {

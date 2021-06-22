@@ -1,6 +1,7 @@
 @import './../../reusable/theme/base.scss';
 
 .container-fluid {
+  width: 100%;
   padding: 0;
   padding-top: 6px;
   margin: 0;
@@ -14,7 +15,12 @@
   }
 
   .search-container {
-    width: 40%;
+    position: relative;
+    width: 60%;
+    padding-left: 300px;
+    .search {
+      width: 100%;
+    }
 
   }
 

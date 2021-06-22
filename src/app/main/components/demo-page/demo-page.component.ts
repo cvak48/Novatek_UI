@@ -1,4 +1,5 @@
 import { NvCustomComponent } from './../../../reusable/nv-custom-component/nv-custom-component.component';
+
 import { Component, OnInit } from '@angular/core';
 
 export interface Person {

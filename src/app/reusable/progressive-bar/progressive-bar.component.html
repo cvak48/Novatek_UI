@@ -1,0 +1,10 @@
+<div class="progress" *ngIf='secondarySize.length==1'>
+    <div class="progress-bar" [style.background-color]='color' [style.width]='size' role="progressbar"><span
+            class="progressTxt">{{size}}</span></div>
+</div>
+<br>
+<div class="progress progressTxt" *ngIf='secondarySize.length>1'>
+    <div class="progress-bar" class='firstBlock' role="progressbar" [style.width]='size'></div>
+    <div class="progress-bar" class='secondBlock' role="progressbar" [style.width]='secondarySize'><span
+            class="">{{totalSize}}%</span></div>
+</div>

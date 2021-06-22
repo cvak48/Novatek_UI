@@ -39,6 +39,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import { DataPropertyGetterPipe } from './custom-datatable/data-property-getter-pipe/data-property-getter.pipe';
 import { TestComponent } from '../main/test/test.component';
+import { ProgressiveBarComponent } from './progressive-bar/progressive-bar.component';
 
 
 const sharedComponents = [
@@ -75,7 +76,8 @@ const sharedComponents = [
   PlaceholderBigCardComponent,
   NvCustomComponentComponent,
   UploadComponent,
-  RattingComponent
+  RattingComponent,
+  ProgressiveBarComponent
 ];
 
 @NgModule({

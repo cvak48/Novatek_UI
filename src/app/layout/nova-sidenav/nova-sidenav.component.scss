@@ -11,7 +11,7 @@
         height: 42px;
         float: left;
         position: fixed;
-        margin-left: -15px;
+        margin-left: -8px;
         margin-top: 0px;
     }
 }
@@ -35,7 +35,7 @@
 }
 
 .sidenav-icon {
-    margin-left: 12%;
+    margin-left: 10%;
     margin-top: 5px;
 }
 
@@ -44,7 +44,7 @@
 }
 
 .sidenav-txt {
-    margin-left: 33px;
+    margin-left: 19px;
 }
 
 .sidenav-content {
@@ -68,4 +68,13 @@
     left: 60px !important;
     width: 74% !important;
     margin: 0;
+}
+
+
+::ng-deep .mat-list-base .mat-list-item .mat-list-item-content, .mat-list-base .mat-list-option .mat-list-item-content {
+    padding:  0 8px !important;
+}
+
+.custom-height {
+    height: 20px;
 }

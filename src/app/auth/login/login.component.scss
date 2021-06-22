@@ -32,6 +32,23 @@
     border: 1px solid #5D5D5D;
 }
 
+.nxt-btn:hover {
+    color: #00000099;
+    background-color: #c7c7c7 !important;
+}
+
+button:focus {
+    outline: none !important;
+}
+.nxt-btn:active {
+    color: #00000099;
+    background-color: #f6f7f8 !important;
+    border: #5D5D5D
+}
+
+
+
+
 .login-items {
     padding: $padding-16;
     background-color: #F0F0F0;

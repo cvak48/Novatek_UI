@@ -1,3 +1,4 @@
+import { NvCustomComponent } from './../../../reusable/nv-custom-component/nv-custom-component.component';
 import { Component, OnInit } from '@angular/core';
 
 export interface Person {
@@ -21,8 +22,11 @@ export enum NvComponent {
   ProfileMenu,
   Header,
   Dropdown,
-  DropToUpload
-
+  DropToUpload,
+  NvCheckBox,
+  NvSliderBar,
+  NvSliderToggle,
+  NvRadioBut,
 }
 
 @Component({
@@ -39,6 +43,11 @@ export class DemoPageComponent implements OnInit {
    // footer
    // Avatar
    person: Person = mockProfileMenu();
+   //CustomComponent
+   nvCheckBox = NvCustomComponent.CheckBox;
+   nvSliderBar = NvCustomComponent.SliderBar;
+   nvSliderToggle = NvCustomComponent.SlidToggle;
+   nvRadioBut = NvCustomComponent.RadioButton;
   constructor() { }
 
   ngOnInit(): void {

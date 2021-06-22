@@ -1,12 +1,15 @@
 import { FilterAllPipe } from './pipes/filters/filterAll/filter-all.pipe';
 import { AdvanceFilterPipe } from './pipes/filters/advance-filter.pipe';
 import { AdvanceSearchComponent } from './advance-search/advance-search.component';
-import { NvInitialsPipe } from './pipes/text-initials/nv-initials.pipe';
+import { NvTrimPipe } from './pipes/nv-trim/nv-trim.pipe';
+import { RattingComponent } from './ratting/ratting.component';
+import { NvCustomComponentComponent } from './nv-custom-component/nv-custom-component.component';
 import { UploadComponent } from './upload/upload.component';
 import { NvFileUploadDirective } from './directives/file-upload/nv-file-upload.directive';
 import { NvDropdownComponent } from './nv-dropdown/nv-dropdown.component';
 import { UserProfileMenuComponent } from './user-profile-menu/user-profile-menu.component';
 import { NotificationComponent } from './notification/notification.component';
+import { NvInitialsPipe } from './pipes/nv-initials/nv-initials.pipe';
 import { AvatarComponent } from './avatar/avatar.component';
 import { SearchComponent } from './search/search.component';
 import { MaterialModule } from './../material.module';
@@ -29,10 +32,8 @@ import { PlaceholderCardComponent } from './placeholder/placeholder-card/placeho
 import { PlaceholderListComponent } from './placeholder/placeholder-list/placeholder-list.component';
 import { PlaceholderBannerComponent } from './placeholder/placeholder-banner/placeholder-banner.component';
 import { PlaceholderBigCardComponent } from './placeholder/placeholderBigCard/placeholderBigCard.component';
-import { RattingComponent } from './ratting/ratting.component';
 import { MatTableModule } from '@angular/material/table';
 import { CustomDatatableComponent } from './custom-datatable/custom-datatable.component';
-import { MatCheckboxModule } from '@angular/Material/checkbox';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatPaginatorModule} from "@angular/material/paginator";
@@ -41,12 +42,14 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import { DataPropertyGetterPipe } from './custom-datatable/data-property-getter-pipe/data-property-getter.pipe';
 import { TestComponent } from '../main/test/test.component';
+import { ProgressiveBarComponent } from './progressive-bar/progressive-bar.component';
 
 
 const sharedComponents = [
   NvInitialsPipe,
   AdvanceFilterPipe,
   FilterAllPipe,
+  NvTrimPipe,
   NvFileUploadDirective,
   FooterComponent,
   SideNavComponent,
@@ -76,9 +79,11 @@ const sharedComponents = [
   PlaceholderListComponent,
   PlaceholderBannerComponent,
   PlaceholderBigCardComponent,
+  NvCustomComponentComponent,
   UploadComponent,
   RattingComponent,
-  AdvanceSearchComponent
+  AdvanceSearchComponent,
+  ProgressiveBarComponent
 ];
 
 @NgModule({
@@ -95,7 +100,6 @@ const sharedComponents = [
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    MatCheckboxModule,
   ],
   exports: sharedComponents
 })

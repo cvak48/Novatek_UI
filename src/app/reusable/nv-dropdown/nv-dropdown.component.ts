@@ -6,11 +6,12 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./nv-dropdown.component.scss']
 })
 export class NvDropdownComponent implements OnInit {
-  @Input() items: string[] = ['item1', 'item2 which is longer', 'item3', 'item4'];
+  @Input() items: string[] = ['item1', 'item2 which is longer', 'item3 item2 which is longer and longer', 'item4', 'item5', 'item6', 'item7'];
   showMenu!: boolean;
-  selectedItem = 'Select item';
+  selectedItem: string = 'Select item';
   selectedIndex!: number;
-  isFirst = true;
+  isFirst: boolean = true;
+  isArrowDown: boolean = true;
   constructor() { }
 
   ngOnInit(): void {

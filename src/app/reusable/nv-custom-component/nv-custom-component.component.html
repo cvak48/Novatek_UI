@@ -19,12 +19,17 @@ I'm a checkbox
         [tickInterval]="getSliderTickInterval()"
         [(ngModel)]="value"
         [vertical]="vertical"
+
         aria-labelledby="example-name-label">
     </mat-slider>
     <label class=" mat-label mb-1"> Maximum</label>
   </mat-card-content>
 
-<mat-slide-toggle *ngSwitchCase="nvCustomComponent.SlidToggle" class="mat-label">Off</mat-slide-toggle>
+<mat-slide-toggle *ngSwitchCase="nvCustomComponent.SlidToggle"  class="mat-label"
+[checked]="checked"
+ (change)="checked=!checked" >
+ <span *ngIf="checked">     On   </span>
+ <span *ngIf="!checked">    Off    </span></mat-slide-toggle>
 
 <br>
 <br>

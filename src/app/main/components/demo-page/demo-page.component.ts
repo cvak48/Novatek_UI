@@ -34,7 +34,7 @@ export enum NvComponent {
   styleUrls: ['./demo-page.component.scss']
 })
 export class DemoPageComponent implements OnInit {
-  public selectedItem: NvComponent = NvComponent.Search;
+  public selectedItem: NvComponent = NvComponent.Dropdown;
   public nvComponentType = NvComponent;
    // Second: Provide input data for your reusable component here if needed
    // Search

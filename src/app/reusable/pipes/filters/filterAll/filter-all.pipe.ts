@@ -9,15 +9,15 @@ export class FilterAllPipe implements PipeTransform {
       if (!value) return null;
       if (!args) return value;
 
-      args = args.toLowerCase();
+      args = args.trim().toLowerCase();
 
 
       const suggestedList = value.filter(function (item: any) {
         // console.log('item>>' + item);
         // console.log('>>' + JSON.stringify(item));
         // console.log(item.name.toLowerCase().indexOf(args));
-        const hasItem01 = JSON.stringify(item).toLowerCase().includes(args);
-        return 
+        const hasItem = JSON.stringify(item).toLowerCase().includes(args);
+        return hasItem;
     });
     console.log('result>>>', suggestedList);
     

@@ -1,7 +1,6 @@
-<!-- <input type="text" [(ngModel)]="queryString"  id="search" placeholder="Search to type"> -->
 <div class="input-keyword-label">{{inputKeywordLabel}}</div>
 <textarea class="form-control h50 label" type="search" id="form1" rows="1" placeholder="Search..." 
-[formControl]="queryFormControl"(input)="onInput($event)" (keyup)="onKeyUp($event)"
+[formControl]="queryFormControl" (input)="onInput($event)" (keyup)="onKeyUp($event)"
 (keydown)="onKeyDown($event)" (focus)="onSearchFocus()" (blur)="onSearchBlur($event)"> </textarea>
 <br>
 <br>
@@ -12,10 +11,17 @@
 <br>
 <br>
   <ul>
-    <li *ngFor="let n of list | advanceFilter: queryFormControl.value: searchableList">
-      {{n.name}} ({{n.age}})
-    </li>
+    <ng-container *ngIf="isAdvance">
+      <li *ngFor="let n of list | advanceFilter: queryFormControl.value: searchableList">
+        {{n.name}} ({{n.age}})
+      </li>
+    </ng-container>
+    <ng-container *ngIf="!isAdvance">
+      <li *ngFor="let n of list | filterAll: queryFormControl.value">
+        {{n.name}} ({{n.age}})
+      </li>
+    </ng-container>
+
   </ul>
 
 
-  <!-- <li *ngFor="let n of list | advanceFilter: queryString : searchableList "> -->

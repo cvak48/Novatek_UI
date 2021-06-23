@@ -1,5 +1,5 @@
 import { FormControl } from '@angular/forms';
-import { Component, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
@@ -8,29 +8,17 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
   styleUrls: ['./advance-search.component.scss']
 })
 export class AdvanceSearchComponent implements OnInit {
-  title: String;
-  list: any;
-  searchableRefList: string[];
-  queryString!: string;
+  @Input() isAdvance: boolean = false;
+  @Input() list: any = mockAdvanceSearchInput().list;
+  @Input() searchableRefList: string[] = mockAdvanceSearchInput().searchableRefList;
+
   queryFormControl = new FormControl('');
   searchableList: string[] = [];
   inputKeywordLabel: string = 'All field';
-  constructor() {
-    console.log('constructor');
-    this.title = "Angular advanced search";
-    this.list = [
-      { name: 'prashobh', age: '25' },
-      { name: 'Abraham', age: '35' },
-      { name: 'Sam', age: '45' },
-      { name: 'Anil', age: '15' },
-      { name: 'Mariya', age: '24' },
-      { name: 'Crock', age: '28' },
-      { name: 'Ram', age: '21' },
-    ];
-    this.searchableRefList = ['name', 'age'];
-  }
+  constructor() { }
 
   ngOnInit(): void {
+    if(this.isAdvance) {
     this.searchableList = [];
     let isQueryKeyword: boolean = false;
     this.queryFormControl.valueChanges.subscribe( selectedValue => {
@@ -65,7 +53,7 @@ export class AdvanceSearchComponent implements OnInit {
        this.queryFormControl.setValue(trimmedInput);
       }
     });
-
+  }
   }
   
   onKeyUp(event: any): void { }
@@ -118,4 +106,20 @@ export class AdvanceSearchComponent implements OnInit {
     }
   }
 
+}
+
+function mockAdvanceSearchInput(): any {
+  const searchInput = {
+    list: [
+      { name: 'prashobh', age: '25' },
+      { name: 'Abraham', age: '35' },
+      { name: 'Sam', age: '45' },
+      { name: 'Anil', age: '15' },
+      { name: 'Mariya', age: '24' },
+      { name: 'Crock', age: '28' },
+      { name: 'Ram', age: '21' },
+    ],
+    searchableRefList : ['name', 'age']
+  }
+  return searchInput;
 }

@@ -6,7 +6,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class AdvanceFilterPipe implements PipeTransform {
     transform(value: any, input: string, searchableList: any) {
         if (input) {
-            console.log(input + ';;;;' + searchableList);
             
             input = input.trim().toLowerCase();
             const suggestedList = value.filter((item: any) => {

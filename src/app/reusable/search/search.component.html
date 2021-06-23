@@ -1,17 +1,24 @@
-
+<div class="input-keyword-label">{{inputKeywordLabel}}</div>
   <div class="dropdown" [class.container-width]="isFocus">
     <div class="form-outline" data-toggle="dropdown">
       <textarea class="form-control h50 label" type="search" id="form1" rows="1" placeholder="Search..." 
-      [formControl]="selectedItemFormControl"(input)="onInput($event)" (keyup)="onKeyUp($event)"
+      [formControl]="queryFormControl"(input)="onInput($event)" (keyup)="onKeyUp($event)"
       (keydown)="onKeyDown($event)" (focus)="onSearchFocus()" (blur)="onSearchBlur($event)"> </textarea>
       <img class="icon" *ngIf="searchIcon"  src="../../../assets/icons/search.icon.svg">
       <img class="icon" *ngIf="!searchIcon" src="../../../assets/icons/circular-cancel.icon.svg" (click)="onCancelClick($event)">
     </div>
     <div class="dropdown-menu" [ngClass]="{'display': !showMenu}">
-      <div class="dropdown-item h50 label" *ngFor="let item of filteredItems; let i = index" (click)="onItemSelect(i)"
-        [ngClass]="{'active': i==selectedIndex}"> {{item}}</div>
+      <ng-container *ngIf="isAdvance">
+      <div class="dropdown-item h50 label" *ngFor="let item of list | advanceFilter: queryFormControl.value:searchableList;
+       let i = index" (click)="onItemSelect(i)" [ngClass]="{'active': i==selectedIndex}"> 
+       {{item.name}} ({{item.age}}) ({{item.email}})  ({{item.date}})</div>
+      </ng-container>
+        <ng-container *ngIf="!isAdvance">
+        <div class="dropdown-item h50 label" *ngFor="let item of list | filterAll: queryFormControl.value;
+         let i = index" (click)="onItemSelect(i)" [ngClass]="{'active': i==selectedIndex}">
+         {{item.name}} ({{item.age}}) ({{item.email}})  ({{item.date}})</div>
+      </ng-container>
     </div>
-
   </div>
 
 

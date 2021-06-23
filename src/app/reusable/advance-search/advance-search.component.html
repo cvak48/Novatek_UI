@@ -13,12 +13,12 @@
   <ul>
     <ng-container *ngIf="isAdvance">
       <li *ngFor="let n of list | advanceFilter: queryFormControl.value: searchableList">
-        {{n.name}} ({{n.age}})
+        {{n.name}} ({{n.age}}) ({{n.email}})  ({{n.date}}) 
       </li>
     </ng-container>
     <ng-container *ngIf="!isAdvance">
       <li *ngFor="let n of list | filterAll: queryFormControl.value">
-        {{n.name}} ({{n.age}})
+        {{n.name}} ({{n.age}}) ({{n.email}})  ({{n.date}}) 
       </li>
     </ng-container>
 

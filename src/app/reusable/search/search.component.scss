@@ -1,133 +1,159 @@
 @import './../theme/base.scss';
 
 $height: 40px;
-  .dropdown {
-    padding: 0px;
-    margin: 0px;
+$border-thikness: 1px;
+
+.dropdown {
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+  height: 40px;
+
+  .form-outline {
+    position: relative;
+    height: 100%;
     width: 100%;
-    height: 40px;
-    // &.container-width {
-    // width: 400%;
-    // }
-    .form-outline {
+    display: flex;
+    flex-direction: row;
+    background: $color-white-20;
+    border-radius: 4px;
+
+    &.label {
+      font-size: $font-size-x-small;
+      font-weight: $font-weight-normal;
+      line-height: $line-height-xx-small;
+    }
+
+    .input-keyword-label {
+      position: relative;
+      // left: 0px;
+      // top: 0px;
+      height: 100%;
+      width: fit-content;
+      padding-left: 12px;
+      background-color: transparent;
+      vertical-align: middle;
+      display: flex;
+      align-items: center;
+    }
+
+    .form-control {
       position: relative;
       height: 100%;
       width: 100%;
-      background: $color-white-20;
+      background-color: transparent;
+      transition: none;
+      border: 1px solid $color-white-10;
+      border: none;
       border-radius: 4px;
-      opacity: 1;
+      resize: none;
+      overflow: hidden;
+      padding-top: 7.5px;
 
-      .form-control {
-            position: relative;
-            height: 100%;
-            width: 100%;
-            background-color: transparent;
-            transition: none;
-            border: 1px solid $color-white-10;
-            border-radius: 4px;
-            resize: none;
-            overflow: hidden;
-            padding-top: $height/2 - $line-height-xx-small/2;
+      &:focus {
+        outline: none;
+        border: 1px solid $color-light-gray-30;
+        box-shadow: none;
+        border-radius: 4px;
+        box-sizing: border-box;
+        padding-top: 7.5px;
+        border: none;
 
-            &.label {
-            letter-spacing: 0px;
-            opacity: 1;
-            padding-left: 12px;
-            font-size: $font-size-x-small;
-            font-weight: $font-weight-normal;
-            line-height: $line-height-xx-small;
-            }
-            &:focus {
-            outline: none;
-            border: 1px solid $color-light-gray-30;
-            box-shadow: none;
-            border-radius: 4px;
-            box-sizing: border-box;
-            }
-               &::-webkit-input-placeholder {
-              font-family: $nv-font;
-              font-size: $font-size-x-small;
-              font-weight: $font-weight-normal;
-              line-height: $line-height-x-small;
-              color: $color-dark-gray-30;
-              opacity: 1;
-              }
-              &:-moz-placeholder { 
-              font-family: $nv-font;
-              font-size: $font-size-x-small;
-              font-weight: $font-weight-normal;
-              line-height: $line-height-x-small;
-              color: $color-dark-gray-30;
-              opacity: 1;
-              }
-              &::-moz-placeholder {
-              font-family: $nv-font;
-              font-size: $font-size-x-small;
-              font-weight: $font-weight-normal;
-              line-height: $line-height-x-small;
-              color: $color-dark-gray-30;
-              opacity: 1;
-              }
+      }
 
-        }
-        .icon {
-            position: absolute;
-            display: flex;
-            align-items: center;
-            align-self: center;
-            justify-content: center;
-            margin-top: auto;
-            margin-bottom: auto;
-            cursor: pointer;
-            right: 12px;
-            top: 0px;
-            bottom: 0px;
-            width: 16px;
-            height: 16px;
-            fill: $color-dark-gray-20;
-            color: $color-dark-gray-20;
-            opacity: 1;
-                  }
-                  .material-icons {
-                    font-size: 17px;
-                    opacity: 1;   
-                    color: $color-dark-gray-20;  
-                  }
+      &::-webkit-input-placeholder {
+        font-family: $nv-font;
+        font-size: $font-size-x-small;
+        font-weight: $font-weight-normal;
+        line-height: $line-height-x-small;
+        color: $color-dark-gray-30;
+        padding-top: 4.5px;
+        opacity: 1;
+      }
+
+      &:-moz-placeholder {
+        font-family: $nv-font;
+        font-size: $font-size-x-small;
+        font-weight: $font-weight-normal;
+        line-height: $line-height-x-small;
+        color: $color-dark-gray-30;
+        padding-top: 4.5px;
+        opacity: 1;
+      }
+
+      &::-moz-placeholder {
+        font-family: $nv-font;
+        font-size: $font-size-x-small;
+        font-weight: $font-weight-normal;
+        line-height: $line-height-x-small;
+        color: $color-dark-gray-30;
+        padding-top: 4.5px;
+        opacity: 1;
+      }
+
     }
 
-    .dropdown-menu {
+    .icon {
       position: absolute;
-      width: 100%;
-      top: 8px;
-      background: $color-white-20;
-      box-shadow: 0px 3px 6px $color-black-10;
-      border: 1px solid $color-white;
-      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      align-self: center;
+      justify-content: center;
+      margin-top: auto;
+      margin-bottom: auto;
+      cursor: pointer;
+      right: 12px;
+      top: 0px;
+      bottom: 0px;
+      width: 16px;
+      height: 16px;
+      fill: $color-dark-gray-20;
+      color: $color-dark-gray-20;
       opacity: 1;
-      &.display {
-        display: none;
-      }
-      .dropdown-item {
+    }
 
-        &.label {
-          letter-spacing: 0px;
-          opacity: 1;
-          padding-left: 12px;
-          font-size: $font-size-x-small;
-          font-weight: $font-weight-bold;
-          line-height: $line-height-xx-small;
-          }
-        &:hover {
-          background: $color-dark-gray-20;
-        }
+    // .material-icons {
+    //   font-size: 17px;
+    //   opacity: 1;
+    //   color: $color-dark-gray-20;
+    // }
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    width: 100%;
+    top: 8px;
+    background: $color-white-20;
+    box-shadow: 0px 3px 6px $color-black-10;
+    border: 1px solid $color-white;
+    border-radius: 4px;
+    opacity: 1;
+
+    &.display {
+      display: none;
+    }
+
+    .dropdown-item {
+
+      &.label {
+        letter-spacing: 0px;
+        opacity: 1;
+        padding-left: 12px;
+        font-size: $font-size-x-small;
+        font-weight: $font-weight-bold;
+        line-height: $line-height-xx-small;
       }
 
-      .active {
-        background: $color-dark-gray-30;
-
+      &:hover {
+        background: $color-dark-gray-20;
       }
+    }
+
+    .active {
+      background: $color-dark-gray-30;
 
     }
 
   }
 
+}

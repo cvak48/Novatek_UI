@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, AfterViewInit, SimpleChanges, OnChanges, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -6,38 +6,49 @@ import { FormControl } from '@angular/forms';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
 })
-export class SearchComponent  {
+export class SearchComponent implements OnInit, AfterViewInit , OnChanges {
   @Input() isAdvance: boolean = true;
   @Input() list: any = mockAdvanceSearchInput().list;
   @Input() searchableRefList: string[] = mockAdvanceSearchInput().searchableRefList;
   queryFormControl = new FormControl('');
   searchableList: string[] = [];
-  inputKeywordLabel: string = 'All field';
+  inputKeywordLabel: string = '';
 
-  // @Input() items: string[] = [];
-  // filteredItems: string[] = [];
   selectedItem!: any;
   selectedIndex!: number;
   arrowUpEventCounter = 0;
   searchIcon = true;
   showMenu = false;
   isFocus = false;
-  // selectedItemFormControl = new FormControl('');
   // TODO: Need to bring click event from parents to make isFocus false and delete blur event
-  constructor() { }
+  constructor() {
+    console.log('constructor');
+   }
+   ngOnChanges(changes: SimpleChanges): void {
+     //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
+     //Add '${implements OnChanges}' to the class.
+     
+   }
+  ngAfterViewInit(): void {
+    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+    //Add 'implements AfterViewInit' to the class.
+    console.log('ngAfterViewInit');
+  }
 
   ngOnInit(): void {
+    
     if(this.isAdvance) {
     this.searchableList = [];
     let isQueryKeyword: boolean = false;
     this.queryFormControl.valueChanges.subscribe( selectedValue => {
+      console.log('ngOnInit' + this.list);
       let trimmedInput: string = '  ';
       if(this.queryFormControl.value === '') {
         isQueryKeyword = false;
       }
       if(!isQueryKeyword) {
         this.searchableList = [];
-        this.inputKeywordLabel = 'All field';
+        this.inputKeywordLabel = '';
       }
       // modify searchableList; specific search item
       if( selectedValue.includes(':')) {
@@ -79,6 +90,8 @@ export class SearchComponent  {
     this.isFocus = true;
   }
   onInput(event: any): void {
+    console.log('onInput');
+    
     const search = event?.target?.value;
     // this.filteredItems = this.filterList(mockItems(), search);
     // TODO:We need change detector tu update html as fast as the variable changes
@@ -178,7 +191,6 @@ export class SearchComponent  {
 //   const items = ['Tablet', 'Desktop', 'Mouse', 'Alex', 'Sarah', 'Slack'];
 //   return items;
 // }
-
 
 
 function mockAdvanceSearchInput(): any {

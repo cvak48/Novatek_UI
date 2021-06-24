@@ -10,63 +10,68 @@ export class DataService {
     getTableData(): Observable<any> {
         const data = [
           {
-            id: 1,
-            name: 'John Liiki',
-            date: moment("12-25-1995", "MM-DD-YYYY"),
-            email: 'john@yahoo.com',
-            status: 'No',
-            attachments: [{
-              name: 'file1'
+            'id': 1,
+            'name': 'John Liiki',
+            'date': "12-25-1995",
+            'email': 'john@yahoo.com',
+            'status': 'No',
+            'checked': false,
+            'attachments': [{
+              'name': 'file1'
             }]
           },
           {
-            id: 2,
-            name: 'Rock',
-            date: moment("06-13-1999", "MM-DD-YYYY"),
-            email: 'rock@gmail.com',
-            status: 'Past Due',
-            attachments: [{
-              name: 'file1'
+            'id': 2,
+            'name': 'Rock',
+            'date': "06-13-1999",
+            'email': 'rock@gmail.com',
+            'status': 'Past Due',
+            'checked': false,
+            'attachments': [{
+              'name': 'file1'
             },
             {
-              name: 'file2'
+              'name': 'file2'
             }]
           },
           {
-            id: 3,
-            name: 'Tom Cruise',
-            date: moment("04-27-2001", "MM-DD-YYYY"),
-            email: 'tomcruise@yahoo.com',
-            status: 'Pending',
-            attachments: [{
-              name: 'file1'
+            'id': 3,
+            'name': 'Tom Cruise',
+            'date': "04-27-2001",
+            'email': 'tomcruise@yahoo.com',
+            'status': 'Pending',
+            'checked': false,
+            'attachments': [{
+              'name': 'file1'
             },
            ]
           },
           {
-            id: 4,
-            name: 'Sumit Gupta',
-            date: moment("03-30-2005", "MM-DD-YYYY"),
-            email: 'sumit@gmail.com',
-            status: 'Completed',
-            attachments: [{
-              name: 'file1'
+            'id': 4,
+            'name': 'Sumit Gupta',
+            'date': "03-30-2005",
+            'email': 'sumit@gmail.com',
+            'status': 'Completed',
+            'checked': false,
+            'attachments': [{
+              'name': 'file1'
             },
             {
-              name: 'file2'
+              'name': 'file2'
             }]
           },
           {
-            id: 5,
-            name: 'Nicole Kidman',
-            date: moment("02-22-2007", "MM-DD-YYYY"),
-            email: 'nicole@redifmail.com',
-            status: 'Yes',
-            attachments: [{
-              name: 'file1'
+            'id': 5,
+            'name': 'Nicole Kidman',
+            'date': "02-22-2007",
+            'email': 'nicole@redifmail.com',
+            'status': 'Yes',
+            'checked': false,
+            'attachments': [{
+              'name': 'file1'
             },
             {
-              name: 'file2'
+              'name': 'file2'
             }]
           }
         ];

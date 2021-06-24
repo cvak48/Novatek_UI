@@ -1,7 +1,9 @@
 export interface Order {
-  id: number;
+  id: string;
   name: string;
-  date: Date;
+  date: string;
   email: string;
   status: string;
+  checked: boolean;
+  attachments: any;
 }

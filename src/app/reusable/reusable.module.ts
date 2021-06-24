@@ -42,7 +42,9 @@ import { DataPropertyGetterPipe } from './custom-datatable/data-property-getter-
 import { TestComponent } from '../main/test/test.component';
 import { PlaceholderTextCardComponent } from './placeholder/placeholder-text-card/placeholder-text-card.component';
 import { PlaceholderSmallCardComponent } from './placeholder/placeholder-small-card/placeholder-small-card.component';
-
+import { NgxPaginationModule } from 'ngx-pagination';
+import { CustomTableComponent } from './custom-table/custom-table.component';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 const sharedComponents = [
   NvInitialsPipe,
@@ -78,7 +80,8 @@ const sharedComponents = [
   UploadComponent,
   RattingComponent,
   PlaceholderTextCardComponent,
-  PlaceholderSmallCardComponent
+  PlaceholderSmallCardComponent,
+  CustomTableComponent
 ];
 
 @NgModule({
@@ -95,7 +98,9 @@ const sharedComponents = [
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    NgxPaginationModule,
+    MDBBootstrapModule.forRoot()
   ],
   exports: sharedComponents
 })

@@ -11,8 +11,12 @@ var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
 var SearchComponent = /** @class */ (function () {
     // TODO: Need to bring click event from parents to make isFocus false and delete blur event
-    function SearchComponent() {
+    function SearchComponent(filter, advanceFilter) {
+        this.filter = filter;
+        this.advanceFilter = advanceFilter;
+        this.search = new core_1.EventEmitter();
         this.isAdvance = true;
+        this.showMenu = true;
         this.list = mockAdvanceSearchInput().list;
         this.searchableRefList = mockAdvanceSearchInput().searchableRefList;
         this.queryFormControl = new forms_1.FormControl('');
@@ -20,26 +24,15 @@ var SearchComponent = /** @class */ (function () {
         this.inputKeywordLabel = '';
         this.arrowUpEventCounter = 0;
         this.searchIcon = true;
-        this.showMenu = false;
+        this.showMenuToggle = false;
         this.isFocus = false;
-        console.log('constructor');
     }
-    SearchComponent.prototype.ngOnChanges = function (changes) {
-        //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
-        //Add '${implements OnChanges}' to the class.
-    };
-    SearchComponent.prototype.ngAfterViewInit = function () {
-        //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
-        //Add 'implements AfterViewInit' to the class.
-        console.log('ngAfterViewInit');
-    };
     SearchComponent.prototype.ngOnInit = function () {
         var _this = this;
         if (this.isAdvance) {
             this.searchableList = [];
             var isQueryKeyword_1 = false;
             this.queryFormControl.valueChanges.subscribe(function (selectedValue) {
-                console.log('ngOnInit' + _this.list);
                 var trimmedInput = '  ';
                 if (_this.queryFormControl.value === '') {
                     isQueryKeyword_1 = false;
@@ -67,7 +60,31 @@ var SearchComponent = /** @class */ (function () {
                 if (trimmedInput === ' ') {
                     _this.queryFormControl.setValue(trimmedInput);
                 }
+                // choose filter
+                _this.filteredList = _this.chooseFilter(_this.isAdvance, _this.list, _this.searchableList, _this.queryFormControl.value);
+                if (_this.filteredList) {
+                    _this.search.emit(_this.filteredList);
+                    _this.search.asObservable().subscribe(function (list) {
+                        return console.log('outPut' + JSON.stringify(list));
+                    });
+                }
+                else {
+                    _this.search.emit(_this.list);
+                }
             });
+        }
+    };
+    SearchComponent.prototype.chooseFilter = function (isAdvance, list, searchableList, inputQuery) {
+        // TODO: the list become zero ! 
+        list = mockAdvanceSearchInput().list;
+        var filteredList;
+        if (isAdvance) {
+            filteredList = this.advanceFilter.transform(list, inputQuery, searchableList);
+            return filteredList;
+        }
+        else {
+            filteredList = this.filter.transform(list, inputQuery);
+            return filteredList;
         }
     };
     SearchComponent.prototype.onSearchFocus = function () {
@@ -80,29 +97,30 @@ var SearchComponent = /** @class */ (function () {
     };
     SearchComponent.prototype.onItemSelect = function (index) {
         this.selectedIndex = index;
-        this.selectedItem = this.list[this.selectedIndex];
+        this.selectedItem = this.filteredList[this.selectedIndex];
         this.queryFormControl.setValue(this.selectedItem.name);
         this.searchIcon = false;
         this.isFocus = true;
     };
     SearchComponent.prototype.onInput = function (event) {
         var _a, _b;
-        console.log('onInput');
         var search = (_a = event === null || event === void 0 ? void 0 : event.target) === null || _a === void 0 ? void 0 : _a.value;
         // this.filteredItems = this.filterList(mockItems(), search);
         // TODO:We need change detector tu update html as fast as the variable changes
-        this.showMenu = ((_b = this.list) === null || _b === void 0 ? void 0 : _b.length) ? true : false;
+        this.showMenuToggle = ((_b = this.filteredList) === null || _b === void 0 ? void 0 : _b.length) ? true : false;
         // TODO: hide cross-icon by pressing BackSpace.
         this.searchIcon = !search ? true : false;
     };
     SearchComponent.prototype.onCancelClick = function (event) {
         this.queryFormControl.setValue('');
-        this.list.length = 0;
-        this.showMenu = false;
+        this.filteredList.length = 0;
+        this.showMenuToggle = false;
         this.searchIcon = true;
         event.preventDefault();
     };
     SearchComponent.prototype.onKeyDown = function (event) {
+        // this.showMenuToggle = this.filteredList?.length ? true : false;
+        console.log(this.showMenuToggle);
         if (event.key === 'Enter') {
             event.preventDefault();
         }
@@ -111,6 +129,8 @@ var SearchComponent = /** @class */ (function () {
         this.searchIcon = false;
         if (event.key === 'Backspace') {
             if (this.queryFormControl.value === '') {
+                this.filteredList.length = 0;
+                this.showMenuToggle = false;
                 this.searchIcon = true;
             }
         }
@@ -131,14 +151,14 @@ var SearchComponent = /** @class */ (function () {
             }
             else {
                 this.selectedIndex =
-                    (this.selectedIndex + 1) % this.list.length;
+                    (this.selectedIndex + 1) % this.filteredList.length;
             }
         }
         else if (event.key === 'ArrowUp') {
             if (this.selectedIndex <= 0) {
-                this.selectedIndex = this.list.length;
+                this.selectedIndex = this.filteredList.length;
             }
-            this.selectedIndex = (this.selectedIndex - 1) % this.list.length;
+            this.selectedIndex = (this.selectedIndex - 1) % this.filteredList.length;
         }
     };
     SearchComponent.prototype.trimInputKeyWord = function (input, list) {
@@ -188,8 +208,14 @@ var SearchComponent = /** @class */ (function () {
         }
     };
     __decorate([
+        core_1.Output()
+    ], SearchComponent.prototype, "search");
+    __decorate([
         core_1.Input()
     ], SearchComponent.prototype, "isAdvance");
+    __decorate([
+        core_1.Input()
+    ], SearchComponent.prototype, "showMenu");
     __decorate([
         core_1.Input()
     ], SearchComponent.prototype, "list");
@@ -206,10 +232,6 @@ var SearchComponent = /** @class */ (function () {
     return SearchComponent;
 }());
 exports.SearchComponent = SearchComponent;
-// function mockItems(): string[] {
-//   const items = ['Tablet', 'Desktop', 'Mouse', 'Alex', 'Sarah', 'Slack'];
-//   return items;
-// }
 function mockAdvanceSearchInput() {
     var searchInput = {
         list: [

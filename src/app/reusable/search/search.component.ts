@@ -1,4 +1,6 @@
-import { Component, Input, AfterViewInit, SimpleChanges, OnChanges, OnInit } from '@angular/core';
+import { AdvanceFilterPipe } from './../pipes/filters/advance-filter/advance-filter.pipe';
+import { FilterAllPipe } from './../pipes/filters/filterAll/filter-all.pipe';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -6,42 +8,32 @@ import { FormControl } from '@angular/forms';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
 })
-export class SearchComponent implements OnInit, AfterViewInit , OnChanges {
+export class SearchComponent implements OnInit {
+  @Output() search = new EventEmitter<any[]>();
   @Input() isAdvance: boolean = true;
-  @Input() list: any = mockAdvanceSearchInput().list;
+  @Input() showMenu: boolean = true;
+  @Input() readonly list: any = mockAdvanceSearchInput().list;
   @Input() searchableRefList: string[] = mockAdvanceSearchInput().searchableRefList;
   queryFormControl = new FormControl('');
   searchableList: string[] = [];
   inputKeywordLabel: string = '';
+  filteredList: any;
 
   selectedItem!: any;
   selectedIndex!: number;
   arrowUpEventCounter = 0;
   searchIcon = true;
-  showMenu = false;
+  showMenuToggle = false;
   isFocus = false;
   // TODO: Need to bring click event from parents to make isFocus false and delete blur event
-  constructor() {
-    console.log('constructor');
-   }
-   ngOnChanges(changes: SimpleChanges): void {
-     //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
-     //Add '${implements OnChanges}' to the class.
-     
-   }
-  ngAfterViewInit(): void {
-    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
-    //Add 'implements AfterViewInit' to the class.
-    console.log('ngAfterViewInit');
-  }
+  constructor(private filter: FilterAllPipe, private advanceFilter: AdvanceFilterPipe) {   }
+
 
   ngOnInit(): void {
-    
     if(this.isAdvance) {
     this.searchableList = [];
     let isQueryKeyword: boolean = false;
     this.queryFormControl.valueChanges.subscribe( selectedValue => {
-      console.log('ngOnInit' + this.list);
       let trimmedInput: string = '  ';
       if(this.queryFormControl.value === '') {
         isQueryKeyword = false;
@@ -71,8 +63,31 @@ export class SearchComponent implements OnInit, AfterViewInit , OnChanges {
       if(trimmedInput === ' ') {
        this.queryFormControl.setValue(trimmedInput);
       }
+      // choose filter
+     this.filteredList = this.chooseFilter(this.isAdvance, this.list, this.searchableList, this.queryFormControl.value );
+     if(this.filteredList) {
+     this.search.emit(this.filteredList);
+      this.search.asObservable().subscribe(list =>
+        console.log('outPut' + JSON.stringify(list))
+      );
+     } else {
+       this.search.emit(this.list);
+     }
     });
   }
+  }
+  
+  chooseFilter(isAdvance: boolean, list: any, searchableList: any, inputQuery: string ): any {
+    // TODO: the list become zero ! 
+    list = mockAdvanceSearchInput().list;
+    let filteredList: any;
+    if(isAdvance) {
+      filteredList = this.advanceFilter.transform(list, inputQuery, searchableList);
+     return filteredList;
+    } else {
+      filteredList =  this.filter.transform(list, inputQuery);
+      return filteredList;
+    }
   }
   onSearchFocus() {
     this.isFocus = true;
@@ -84,30 +99,30 @@ export class SearchComponent implements OnInit, AfterViewInit , OnChanges {
   }
   onItemSelect(index: number): void {
     this.selectedIndex = index;
-    this.selectedItem = this.list[this.selectedIndex];
+    this.selectedItem = this.filteredList[this.selectedIndex];
     this.queryFormControl.setValue(this.selectedItem.name);
     this.searchIcon = false;
     this.isFocus = true;
   }
   onInput(event: any): void {
-    console.log('onInput');
-    
     const search = event?.target?.value;
     // this.filteredItems = this.filterList(mockItems(), search);
     // TODO:We need change detector tu update html as fast as the variable changes
-    this.showMenu = this.list?.length ? true : false;
+    this.showMenuToggle = this.filteredList?.length ? true : false;
     // TODO: hide cross-icon by pressing BackSpace.
     this.searchIcon = !search ? true : false;
   }
   onCancelClick(event: any): void {
     this.queryFormControl.setValue('');
-    this.list.length = 0;
-    this.showMenu = false;
+    this.filteredList.length = 0;
+    this.showMenuToggle = false;
     this.searchIcon = true;
     event.preventDefault();
   }
   onKeyDown(event: any): void {
-    if (event.key === 'Enter') {
+   // this.showMenuToggle = this.filteredList?.length ? true : false;
+    console.log(this.showMenuToggle );
+        if (event.key === 'Enter') {
       event.preventDefault();
     }
   }
@@ -116,6 +131,8 @@ export class SearchComponent implements OnInit, AfterViewInit , OnChanges {
     this.searchIcon = false;
     if (event.key === 'Backspace') {
       if(this.queryFormControl.value === ''){
+         this.filteredList.length = 0;
+        this.showMenuToggle = false;
         this.searchIcon =true;
          }
     } else if (event.key === 'Escape') {
@@ -131,17 +148,15 @@ export class SearchComponent implements OnInit, AfterViewInit , OnChanges {
         this.selectedIndex = 0;
       } else {
         this.selectedIndex =
-          (this.selectedIndex + 1) % this.list.length;
+          (this.selectedIndex + 1) % this.filteredList.length;
       }
     } else if (event.key === 'ArrowUp') {
       if (this.selectedIndex <= 0) {
-        this.selectedIndex = this.list.length;
+        this.selectedIndex = this.filteredList.length;
       }
-      this.selectedIndex = (this.selectedIndex - 1) % this.list.length;
+      this.selectedIndex = (this.selectedIndex - 1) % this.filteredList.length;
     }
-
   }
-
  
   trimInputKeyWord(input: string, list: string[]): string {
     let newItem: string = '';
@@ -186,12 +201,6 @@ export class SearchComponent implements OnInit, AfterViewInit , OnChanges {
     }
   }
 }
-
-// function mockItems(): string[] {
-//   const items = ['Tablet', 'Desktop', 'Mouse', 'Alex', 'Sarah', 'Slack'];
-//   return items;
-// }
-
 
 function mockAdvanceSearchInput(): any {
   const searchInput = {

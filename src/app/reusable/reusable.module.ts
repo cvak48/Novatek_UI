@@ -101,6 +101,7 @@ const sharedComponents = [
     ReactiveFormsModule,
     MaterialModule,
   ],
-  exports: sharedComponents
+  exports: sharedComponents,
+  providers: [FilterAllPipe, AdvanceFilterPipe ]
 })
 export class ReusableModule { }

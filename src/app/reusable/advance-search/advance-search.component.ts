@@ -1,6 +1,6 @@
 import { FormControl } from '@angular/forms';
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
-import * as moment from 'moment';
+import { Component, Input, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-advance-search',
@@ -23,6 +23,7 @@ export class AdvanceSearchComponent implements OnInit {
     let isQueryKeyword: boolean = false;
     this.queryFormControl.valueChanges.subscribe( selectedValue => {
       let trimmedInput: string = '  ';
+      console.log('ngOnInit' + this.list);
       if(this.queryFormControl.value === '') {
         isQueryKeyword = false;
       }

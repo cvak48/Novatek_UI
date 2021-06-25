@@ -8,7 +8,7 @@
     .hoverColor {
         background: #fab31c;
         width: 5px;
-        height: 42px;
+        height: 32px;
         float: left;
         position: fixed;
         margin-left: -8px;
@@ -22,7 +22,7 @@
 
 ::ng-deep .mat-list-base .mat-list-item.mat-list-item-with-avatar,
 .mat-list-base .mat-list-option.mat-list-item-with-avatar {
-    height: 41px !important;
+    height: 35px !important;
 }
 
 ::ng-deep .mat-list-base .mat-list-item .mat-list-text>*,
@@ -40,11 +40,11 @@
 }
 
 .sidenav-closeicon {
-    margin-left: 40%;
+    margin-left: 38%;
 }
 
 .sidenav-txt {
-    margin-left: 19px;
+    margin-left: 11px;
 }
 
 .sidenav-content {
@@ -53,7 +53,7 @@
 }
 
 .sidenav-menuicon {
-    width: 20px;
+    width: 18px;
 }
 
 .sidenav-height {
@@ -65,9 +65,11 @@
     position: absolute;
     bottom: 0;
     right: 0 !important;
-    left: 60px !important;
-    width: 74% !important;
+    left: 45px !important;
+    width: 75% !important;
     margin: 0;
+    top: 35px !important;
+    border: 1px solid #dfdfdf;
 }
 
 
@@ -77,4 +79,16 @@
 
 .custom-height {
     height: 20px;
+}
+
+.notificationBar {
+    position: absolute;
+    float: right;
+    right: 0px;
+    top: -25px;
+    margin-right: 10px;
+}
+
+::ng-deep .mat-list-base .mat-list-item.mat-list-item-with-avatar .mat-list-item-content .mat-list-text, .mat-list-base .mat-list-item.mat-list-option .mat-list-item-content .mat-list-text, .mat-list-base .mat-list-option.mat-list-item-with-avatar .mat-list-item-content .mat-list-text, .mat-list-base .mat-list-option.mat-list-option .mat-list-item-content .mat-list-text {
+    padding-left: 5px !important;
 }

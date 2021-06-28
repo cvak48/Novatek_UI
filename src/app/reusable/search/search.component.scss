@@ -1,14 +1,18 @@
 @import './../theme/base.scss';
 
 $height: 40px;
-$border-thikness: 1px;
+$border-thickness: 1px;
+$icon-width: 16px;
+$padding: 12px;
+$icons-distance: 8px;
 
 .dropdown {
+  position: relative;
   padding: 0px;
   margin: 0px;
   width: 100%;
   min-width: 100%;
-  height: 40px;
+  height: $height;
 
   .form-outline {
     position: relative;
@@ -18,22 +22,43 @@ $border-thikness: 1px;
     flex-direction: row;
     background: $color-white-20;
     border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 
     &.label {
       font-size: $font-size-x-small;
       font-weight: $font-weight-normal;
       line-height: $line-height-xx-small;
     }
+    .icon-search {
+
+        position: relative;
+        display: flex;
+        align-items: center;
+        align-self: center;
+        justify-content: center;
+        margin-top: auto;
+        margin-bottom: auto;
+        cursor: pointer;
+        width: $icon-width;
+        height: $icon-width;
+        fill: $color-dark-gray-20;
+        color: $color-dark-gray-20;
+        // padding-left: 12px;
+    }
 
     .input-keyword-label {
       position: relative;
+      min-width: 4px;
       height: 100%;
-      width: fit-content;
-      padding-left: 12px;
+      width: min-content;
+    //  padding-left: $padding + $icon-width + $icons-distance;
       background-color: transparent;
       vertical-align: middle;
       display: flex;
       align-items: center;
+      border: 1px solid black;
     }
 
     .form-control {
@@ -43,11 +68,13 @@ $border-thikness: 1px;
       background-color: transparent;
       transition: none;
       border: 1px solid $color-white-10;
-      border: none;
+      // border: none;
       border-radius: 4px;
       resize: none;
       overflow: hidden;
       padding-top: 7.5px;
+      padding-left: $padding + $icon-width + $icons-distance;
+      border: 1px solid black;
 
       &:focus {
         outline: none;
@@ -56,8 +83,9 @@ $border-thikness: 1px;
         border-radius: 4px;
         box-sizing: border-box;
         padding-top: 7.5px;
-        border: none;
-
+        padding-left: $padding + $icon-width + $icons-distance;
+        // border: none;
+        border: 1px solid black;
       }
 
       &::-webkit-input-placeholder {
@@ -67,6 +95,7 @@ $border-thikness: 1px;
         line-height: $line-height-x-small;
         color: $color-dark-gray-30;
         padding-top: 4.5px;
+        padding-left: 0px;
         opacity: 1;
       }
 
@@ -77,6 +106,7 @@ $border-thikness: 1px;
         line-height: $line-height-x-small;
         color: $color-dark-gray-30;
         padding-top: 4.5px;
+        padding-left: 0px;
         opacity: 1;
       }
 
@@ -87,6 +117,7 @@ $border-thikness: 1px;
         line-height: $line-height-x-small;
         color: $color-dark-gray-30;
         padding-top: 4.5px;
+        padding-left: 0px;
         opacity: 1;
       }
 
@@ -94,6 +125,8 @@ $border-thikness: 1px;
 
     .icon {
       position: absolute;
+      top: 0px;
+      bottom: 0px;
       display: flex;
       align-items: center;
       align-self: center;
@@ -101,54 +134,74 @@ $border-thikness: 1px;
       margin-top: auto;
       margin-bottom: auto;
       cursor: pointer;
-      right: 12px;
-      top: 0px;
-      bottom: 0px;
-      width: 16px;
-      height: 16px;
+      width: $icon-width;
+      height: $icon-width;
       fill: $color-dark-gray-20;
       color: $color-dark-gray-20;
       opacity: 1;
+
+      &.search {
+        left: $padding;
+      }
+      &.cancel {
+        right: $icon-width + $padding + $icons-distance;
+      }
+      &.setting {
+        right: $padding;
+      }
     }
 
   }
 
   .dropdown-menu {
-    position: absolute;
+    position: relative;
     width: fit-content;
-    min-width:  100%;;
-    top: 8px;
+    max-height: 320px;
+    min-width:  100%;
+    padding-top: 0px;
+    padding-bottom: 0px;
     background: $color-white-20;
-    box-shadow: 0px 3px 6px $color-black-10;
+    box-shadow: 0px 1px 4px $color-black-14;
     border: 1px solid $color-white;
     border-radius: 4px;
-    opacity: 1;
 
     &.display {
       display: none;
     }
 
     .dropdown-item {
+      display: flex;
+      align-items: center;
+      padding-left: 12px;
+      padding-right: 12px;
+      height: $height;
 
       &.label {
         letter-spacing: 0px;
         opacity: 1;
-        padding-left: 12px;
+        font-style: normal;
         font-size: $font-size-x-small;
-        font-weight: $font-weight-bold;
+        font-weight: $font-weight-normal;
         line-height: $line-height-xx-small;
       }
 
-      &:hover {
-        background: $color-dark-gray-20;
+      &.selected-item {
+        font-style: normal;
+        font-weight: $font-weight-bold;
+        font-size: $font-size-x-small;
+        font-family: $nv-font;
+        line-height: $line-height-x-small;
+        color: $color-black-20;
       }
-    }
 
-    .active {
-      background: $color-dark-gray-30;
-
+      &:hover {
+        background: $color-light-gray;
+      }
     }
 
   }
 
 }
+
+
+

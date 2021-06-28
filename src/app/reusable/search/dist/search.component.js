@@ -44,7 +44,7 @@ var SearchComponent = /** @class */ (function () {
                 // modify searchableList; specific search item
                 if (selectedValue.includes(':')) {
                     _this.searchableList = _this.modifySearchableList(selectedValue, _this.searchableRefList);
-                    if (_this.searchableList && _this.searchableList.length > 0) {
+                    if (_this.searchableList.length > 0) {
                         isQueryKeyword_1 = true;
                     }
                 }
@@ -53,7 +53,7 @@ var SearchComponent = /** @class */ (function () {
                     _this.searchableList = _this.searchableRefList;
                     isQueryKeyword_1 = false;
                 }
-                // trim keyWord from input; specific area
+                // trim keyWord from input; specific area like name:
                 if (_this.searchableList && selectedValue.includes(':')) {
                     trimmedInput = _this.trimInputKeyWord(selectedValue, _this.searchableList);
                 }
@@ -75,7 +75,7 @@ var SearchComponent = /** @class */ (function () {
         }
     };
     SearchComponent.prototype.chooseFilter = function (isAdvance, list, searchableList, inputQuery) {
-        // TODO: the list become zero ! 
+        // TODO: the list become zero !
         list = mockAdvanceSearchInput().list;
         var filteredList;
         if (isAdvance) {
@@ -103,11 +103,16 @@ var SearchComponent = /** @class */ (function () {
         this.isFocus = true;
     };
     SearchComponent.prototype.onInput = function (event) {
-        var _a, _b;
+        var _a;
         var search = (_a = event === null || event === void 0 ? void 0 : event.target) === null || _a === void 0 ? void 0 : _a.value;
         // this.filteredItems = this.filterList(mockItems(), search);
         // TODO:We need change detector tu update html as fast as the variable changes
-        this.showMenuToggle = ((_b = this.filteredList) === null || _b === void 0 ? void 0 : _b.length) ? true : false;
+        if (this.filteredList.length && this.filteredList.length !== 0) {
+            this.showMenuToggle = true;
+        }
+        else {
+            this.showMenuToggle = false;
+        }
         // TODO: hide cross-icon by pressing BackSpace.
         this.searchIcon = !search ? true : false;
     };
@@ -117,6 +122,8 @@ var SearchComponent = /** @class */ (function () {
         this.showMenuToggle = false;
         this.searchIcon = true;
         event.preventDefault();
+    };
+    SearchComponent.prototype.onSettingClick = function () {
     };
     SearchComponent.prototype.onKeyDown = function (event) {
         // this.showMenuToggle = this.filteredList?.length ? true : false;

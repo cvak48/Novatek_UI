@@ -45,7 +45,7 @@ $icons-distance: 8px;
         height: $icon-width;
         fill: $color-dark-gray-20;
         color: $color-dark-gray-20;
-        // padding-left: 12px;
+        margin-left: 12px;
     }
 
     .input-keyword-label {
@@ -53,12 +53,12 @@ $icons-distance: 8px;
       min-width: 4px;
       height: 100%;
       width: min-content;
-    //  padding-left: $padding + $icon-width + $icons-distance;
+      padding-left: $icons-distance;
       background-color: transparent;
       vertical-align: middle;
       display: flex;
       align-items: center;
-      border: 1px solid black;
+
     }
 
     .form-control {
@@ -68,13 +68,12 @@ $icons-distance: 8px;
       background-color: transparent;
       transition: none;
       border: 1px solid $color-white-10;
-      // border: none;
+      border: none;
       border-radius: 4px;
       resize: none;
       overflow: hidden;
       padding-top: 7.5px;
-      padding-left: $padding + $icon-width + $icons-distance;
-      border: 1px solid black;
+      padding-left: $icons-distance;
 
       &:focus {
         outline: none;
@@ -83,9 +82,8 @@ $icons-distance: 8px;
         border-radius: 4px;
         box-sizing: border-box;
         padding-top: 7.5px;
-        padding-left: $padding + $icon-width + $icons-distance;
-        // border: none;
-        border: 1px solid black;
+        padding-left:  $icons-distance;
+        border: none;
       }
 
       &::-webkit-input-placeholder {

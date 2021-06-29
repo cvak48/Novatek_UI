@@ -20,8 +20,8 @@ export class CustomTableComponent implements OnInit {
   responsive: boolean = true;
   maxSize: number = 7;
   public labels: any = {
-    previousLabel: 'Prev',
-    nextLabel: 'Next',
+    previousLabel: '❮',
+    nextLabel: '❯',
     screenReaderPaginationLabel: 'Pagination',
     screenReaderPageLabel: 'page',
     screenReaderCurrentLabel: `You're on page`

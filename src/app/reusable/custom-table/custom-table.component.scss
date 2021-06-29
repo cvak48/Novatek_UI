@@ -151,3 +151,12 @@ tr.mat-row.cdk-row:nth-child(odd) {
   width: 16px;
   flex-shrink: 0;
 }
+
+.table th, .table td{
+  vertical-align: middle !important;
+}
+
+table.table td, table.table th {
+  padding: 0rem 16px 0rem !important;
+}
+

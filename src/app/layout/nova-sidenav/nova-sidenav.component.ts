@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+// import styles from '../../reusable/theme/base.scss';
 
 @Component({
   selector: 'app-nova-sidenav',
@@ -8,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class NovaSidenavComponent implements OnInit {
 
   public isExpanded:boolean = false;
+  public totalNotifications: number = 4;
   public sidenavItems = [
     {icon:'../../../assets/icons/ico.dashboard.svg', name:'Dashboard'},
     {icon:'../../../assets/icons/ico.register.svg', name:'New'},
@@ -16,7 +18,9 @@ export class NovaSidenavComponent implements OnInit {
     {icon:'../../../assets/icons/ico.workload.svg', name:'Workload'},
     {icon:'../../../assets/icons/ico.testmethodmanagement.svg', name:'Test Method Management'},
     {icon:'../../../assets/icons/ico.inventory.svg', name:'Inventory'},
-    {icon:'../../../assets/icons/ico.statisticalanalysis.svg', name:'Statistical Analysis'}
+    {icon:'../../../assets/icons/ico.statisticalanalysis.svg', name:'Statistical Analysis'},
+    {icon:'../../../assets/icons/ico.reports.svg', name:'Reports'},
+    {icon:'../../../assets/icons/ico.sysadminadministration.svg', name:'System Administration'}
     
     
 

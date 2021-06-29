@@ -1,14 +1,11 @@
-<div class="container" [class.container-width]="isFocus" >
-  <div class="dropdown">
+
+  <div class="dropdown" [class.container-width]="isFocus">
     <div class="form-outline" data-toggle="dropdown">
       <textarea class="form-control h50 label" type="search" id="form1" rows="1" placeholder="Search..." 
       [formControl]="selectedItemFormControl"(input)="onInput($event)" (keyup)="onKeyUp($event)"
       (keydown)="onKeyDown($event)" (focus)="onSearchFocus()" (blur)="onSearchBlur($event)"> </textarea>
-      <svg *ngIf="searchIcon" xmlns="http://www.w3.org/2000/svg" class="bi bi-search icon" viewBox="0 0 16 16">
-        <path
-          d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-      </svg>
-      <mat-icon *ngIf="!searchIcon" class="icon" (click)="onCancelClick($event)">cancel</mat-icon>
+      <img class="icon" *ngIf="searchIcon"  src="../../../assets/icons/search.icon.svg">
+      <img class="icon" *ngIf="!searchIcon" src="../../../assets/icons/circular-cancel.icon.svg" (click)="onCancelClick($event)">
     </div>
     <div class="dropdown-menu" [ngClass]="{'display': !showMenu}">
       <div class="dropdown-item h50 label" *ngFor="let item of filteredItems; let i = index" (click)="onItemSelect(i)"
@@ -17,6 +14,4 @@
 
   </div>
 
-</div>
 
-<!-- (focus)="onSearchFocus()" (blur)="onSearchBlur()" -->

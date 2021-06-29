@@ -1,0 +1,15 @@
+@import "../theme/base.scss";
+
+.progressTxt {
+    text-align: end;
+    margin-right: 2%;
+    color: #ffffff;
+}
+
+.firstBlock {
+    background-color: $color-progressive-first-block !important;
+}
+
+.secondBlock {
+    background-color: $color-progressive-second-block !important;
+}

@@ -1,9 +1,12 @@
+import { NvTrimPipe } from './pipes/nv-trim/nv-trim.pipe';
+import { RattingComponent } from './ratting/ratting.component';
+import { NvCustomComponentComponent } from './nv-custom-component/nv-custom-component.component';
 import { UploadComponent } from './upload/upload.component';
 import { NvFileUploadDirective } from './directives/file-upload/nv-file-upload.directive';
 import { NvDropdownComponent } from './nv-dropdown/nv-dropdown.component';
 import { UserProfileMenuComponent } from './user-profile-menu/user-profile-menu.component';
 import { NotificationComponent } from './notification/notification.component';
-import { NvInitialsPipe } from './pipes/nv-initials.pipe';
+import { NvInitialsPipe } from './pipes/nv-initials/nv-initials.pipe';
 import { AvatarComponent } from './avatar/avatar.component';
 import { SearchComponent } from './search/search.component';
 import { MaterialModule } from './../material.module';
@@ -26,12 +29,8 @@ import { PlaceholderCardComponent } from './placeholder/placeholder-card/placeho
 import { PlaceholderListComponent } from './placeholder/placeholder-list/placeholder-list.component';
 import { PlaceholderBannerComponent } from './placeholder/placeholder-banner/placeholder-banner.component';
 import { PlaceholderBigCardComponent } from './placeholder/placeholderBigCard/placeholderBigCard.component';
-import { RattingComponent } from './ratting/ratting.component';
-
 import { MatTableModule } from '@angular/material/table';
 import { CustomDatatableComponent } from './custom-datatable/custom-datatable.component';
-import { MatCheckboxModule } from '@angular/Material/checkbox';
-
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatPaginatorModule} from "@angular/material/paginator";
@@ -45,9 +44,13 @@ import { PlaceholderSmallCardComponent } from './placeholder/placeholder-small-c
 import { NgxPaginationModule } from 'ngx-pagination';
 import { CustomTableComponent } from './custom-table/custom-table.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { ProgressiveBarComponent } from './progressive-bar/progressive-bar.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
 
 const sharedComponents = [
   NvInitialsPipe,
+  NvTrimPipe,
   NvFileUploadDirective,
   FooterComponent,
   SideNavComponent,
@@ -77,11 +80,13 @@ const sharedComponents = [
   PlaceholderListComponent,
   PlaceholderBannerComponent,
   PlaceholderBigCardComponent,
+  NvCustomComponentComponent,
   UploadComponent,
   RattingComponent,
   PlaceholderTextCardComponent,
   PlaceholderSmallCardComponent,
-  CustomTableComponent
+  CustomTableComponent,
+  ProgressiveBarComponent
 ];
 
 @NgModule({

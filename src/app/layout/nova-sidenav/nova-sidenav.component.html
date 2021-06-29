@@ -1,22 +1,23 @@
 <mat-drawer-container class="example-container mat-typography" autosize class='sidenav-height'>
     <mat-drawer #drawer mode="side" disableClose="true" opened="true">
-        <div class="row">
-            <mat-icon *ngIf="isExpanded" class="sidenav-icon" aria-label="Menu">menu</mat-icon>
-            <mat-icon *ngIf="!isExpanded" class="sidenav-closeicon" mat-list-icon><img (mouseenter)="checkExpand()"
+        <div class="row custom-height">
+            <mat-icon *ngIf="isExpanded" class="sidenav-icon" aria-label="Menu" (click)="closeSideNav()">menu</mat-icon>
+            <mat-icon *ngIf="!isExpanded" class="sidenav-closeicon" mat-list-icon><img (click)="checkExpand()"
                     src="../../../assets/icons/ico.hamburger.svg"></mat-icon>
-            <h2 *ngIf="isExpanded" class="sidenav-txt color-main">Main Menu</h2>
+            <h2 *ngIf="isExpanded" class="sidenav-txt color-main">MAIN MENU</h2>
         </div>
         <mat-nav-list>
-            <mat-list-item *ngFor='let item of sidenavItems'>
+            <mat-list-item *ngFor='let item of sidenavItems; let i = index'>
                 <div class="hoverColor"></div>
                 <mat-icon mat-list-icon><img class="sidenav-menuicon" src="{{item.icon}}"></mat-icon>
                 <h4 class="sidenav-content color-main" mat-line *ngIf="isExpanded">{{item.name}}</h4>
+                <app-notification class="notificationBar" *ngIf='i==1 && isExpanded' [number]="totalNotifications"></app-notification>
                 <mat-divider *ngIf="isExpanded"></mat-divider>
             </mat-list-item>
         </mat-nav-list>
     </mat-drawer>
 
-    <div class="example-sidenav-content" (mouseenter)="closeSideNav()">
+    <div class="example-sidenav-content">
         <ng-content>
 
         </ng-content>

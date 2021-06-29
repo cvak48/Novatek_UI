@@ -24,7 +24,8 @@ export class DashboardComponent implements OnInit {
   invertedTypes = [{component:SearchComponent, name:'ITabOne'}, {component:NovatekLogoComponent, name:'ITabTwo'}, {component:TextAreaComponent, name:'ITabThree'}, {component:SearchComponent, name:'ITabFour'}];
   leftTypes = [{component:SearchComponent, name:'lTabOne'}, {component:NovatekLogoComponent, name:'lTabTwo'}, {component:TextAreaComponent, name:'lTabThree'}];
   rightTypes = [{component:NovatekLogoComponent, name:'RTabOne'}, {component:SearchComponent, name:'RTabTwo'}, {component:TextAreaComponent, name:'RTabThree'}, {component:SearchComponent, name:'RTabFour'}];
-
+  progressiveColor: string = '#198515';
+  progressiveStatus:string = '50%'; 
   // mockData for header
   @Input() person: Person = mockProfileMenu();
   avtar = '../../../../assets/images/avtar.jpg';

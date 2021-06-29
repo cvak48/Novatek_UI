@@ -12,7 +12,7 @@ export class SearchComponent implements OnInit {
   @Output() search = new EventEmitter<any[]>();
   @Input() isAdvance = true;
   @Input() showMenu = true;
-  @Input() readonly list: any = mockAdvanceSearchInput().list;
+  @Input() list: any = mockAdvanceSearchInput().list;
   @Input() searchableRefList: string[] = mockAdvanceSearchInput().searchableRefList;
   queryFormControl = new FormControl('');
   searchableList: string[] = [];

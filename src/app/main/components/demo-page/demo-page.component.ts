@@ -50,13 +50,20 @@ export class DemoPageComponent implements OnInit {
    nvSliderToggle = NvCustomComponent.SlidToggle;
    nvRadioBut = NvCustomComponent.RadioButton;
    // search
-   
+   isAdvance =  mockAdvanceSearchInput().isAdvance;
+   showMenu =  mockAdvanceSearchInput().showMenu;
+   list: any = mockAdvanceSearchInput().list;
+   searchableRefList =  mockAdvanceSearchInput().searchableRefList;
+
   constructor() { }
 
   ngOnInit(): void {
   }
   public onItemClick(selectedItem: NvComponent): void {
     this.selectedItem = selectedItem;
+  }
+  onItemsFilter(list: any): void {
+    console.log(list);
   }
 }
 
@@ -85,7 +92,9 @@ function mockAdvanceSearchInput(): any {
       { id: 6, name: 'Crock',    age: '28', date: 'Mon Dec 200000005 1995 00:00:00 GMT-0500', email: 'eohn@yahoo.com' },
       { id: 7, name: 'Ram',      age: '21', date: 'Mon Dec 29995 1995 00:00:00 GMT-0500', email: 'fohn@yahoo.com' },
     ],
-    searchableRefList: ['name', 'age', 'date', 'email']
-  }
+    searchableRefList: ['name', 'age', 'date'],
+    isAdvance: true,
+    showMenu: true,
+  };
   return searchInput;
 }

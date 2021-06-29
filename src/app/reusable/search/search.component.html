@@ -11,11 +11,10 @@
     <img class="icon setting"  src="../../../assets/icons/search-setting.icon.svg"
       (click)="onSettingClick()">
   </div>
-  <div *ngIf="showMenu " class="dropdown-menu" [ngClass]="{'display': !showMenuToggle}">
+  <div *ngIf="showMenu" class="dropdown-menu" [ngClass]="{'display': !showMenuToggle}">
       <div class="dropdown-item h50 label" *ngFor="let item of filteredList;
        let i = index" (click)="onItemSelect(i)" [ngClass]="{'selected-item': i==selectedIndex}">
         {{item.name}} ({{item.age}}) ({{item.email}}) ({{item.date}})</div>
   </div>
 </div>
 
-<!-- [ngClass]="{'display': !showMenuToggle}" -->

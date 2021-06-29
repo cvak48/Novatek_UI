@@ -4,15 +4,14 @@ import { Pipe, PipeTransform } from '@angular/core';
     name: 'advanceFilter',
 })
 export class AdvanceFilterPipe implements PipeTransform {
-    transform(value: any, input: string, searchableList: any) {
+    transform(value: any, input: string, searchableList: any): any {
         if (input) {
-            
             input = input.trim().toLowerCase();
             const suggestedList = value.filter((item: any) => {
                 let isTrue = false;
-                for (let k in searchableList) {
+                // tslint:disable-next-line: forin
+                for (const k in searchableList) {
                     if (item[searchableList[k]].toLowerCase().indexOf(input) > -1) {
-           
                         isTrue = true;
                     }
                     if (isTrue) {
@@ -20,9 +19,10 @@ export class AdvanceFilterPipe implements PipeTransform {
                     }
                 }
             });
-            
+
             return suggestedList;
         }
+        // TODO: either value or [] not sure about functionality
         return value;
     }
 

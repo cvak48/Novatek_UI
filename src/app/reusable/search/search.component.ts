@@ -9,16 +9,29 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-  @Output() search = new EventEmitter<any[]>();
+  @Output() filteredItems = new EventEmitter<any[]>();
   @Input() isAdvance = true;
   @Input() showMenu = true;
-  @Input() list: any = mockAdvanceSearchInput().list;
-  @Input() searchableRefList: string[] = mockAdvanceSearchInput().searchableRefList;
+  @Input() set list(list: any) {
+    if (list && list.length > 0) {
+      this._list = list;
+    } else {
+      this._list = [];
+    }
+  }
+  private _list: any;
+  @Input() set searchableRefList(list: string[]) {
+    if (list && list.length > 0) {
+      this._searchableRefList = list;
+    } else {
+      this._searchableRefList = [];
+    }
+  }
+  private _searchableRefList: any;
   queryFormControl = new FormControl('');
   searchableList: string[] = [];
   inputKeywordLabel: string = '';
   filteredList: any;
-
   selectedItem!: any;
   selectedIndex!: number;
   arrowUpEventCounter = 0;
@@ -31,11 +44,12 @@ export class SearchComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.isAdvance) {
-      this.searchableList = [];
+      // this.searchableList = [];
       let isQueryKeyword: boolean = false;
       this.queryFormControl.valueChanges.subscribe(selectedValue => {
         let trimmedInput: string = '  ';
         if (this.queryFormControl.value === '') {
+          this.filteredList.length = 0;
           isQueryKeyword = false;
         }
         if (!isQueryKeyword) {
@@ -44,14 +58,14 @@ export class SearchComponent implements OnInit {
         }
         // modify searchableList; specific search item
         if (selectedValue.includes(':')) {
-          this.searchableList = this.modifySearchableList(selectedValue, this.searchableRefList);
+          this.searchableList = this.modifySearchableList(selectedValue, this._searchableRefList);
           if (this.searchableList.length > 0) {
             isQueryKeyword = true;
           }
         }
         // make searchableList as default; search all area
         if (this.searchableList.length === 0 || !this.searchableList) {
-          this.searchableList = this.searchableRefList;
+          this.searchableList = this._searchableRefList;
           isQueryKeyword = false;
 
         }
@@ -64,14 +78,14 @@ export class SearchComponent implements OnInit {
           this.queryFormControl.setValue(trimmedInput);
         }
         // choose filter
-        this.filteredList = this.chooseFilter(this.isAdvance, this.list, this.searchableList, this.queryFormControl.value);
+        this.filteredList = this.chooseFilter(this.isAdvance, this._list, this.searchableList, this.queryFormControl.value);
         if (this.filteredList) {
-          this.search.emit(this.filteredList);
-          this.search.asObservable().subscribe(list =>
+          this.filteredItems.emit(this.filteredList);
+          this.filteredItems.asObservable().subscribe(list =>
             console.log('outPut' + JSON.stringify(list))
           );
         } else {
-          this.search.emit(this.list);
+          this.filteredItems.emit(this.list);
         }
       });
     }
@@ -79,13 +93,13 @@ export class SearchComponent implements OnInit {
 
   chooseFilter(isAdvance: boolean, list: any, searchableList: any, inputQuery: string): any {
     // TODO: the list become zero !
-    list = mockAdvanceSearchInput().list;
+    // list = mockAdvanceSearchInput().list;
     let filteredList: any;
     if (isAdvance) {
-      filteredList = this.advanceFilter.transform(list, inputQuery, searchableList);
+      filteredList = this.advanceFilter.transform(list, inputQuery, searchableList).map((item: any) => item);
       return filteredList;
     } else {
-      filteredList = this.filter.transform(list, inputQuery);
+      filteredList = this.filter.transform(list, inputQuery).map((item: any) => item);
       return filteredList;
     }
   }
@@ -109,7 +123,7 @@ export class SearchComponent implements OnInit {
     // this.filteredItems = this.filterList(mockItems(), search);
     // TODO:We need change detector tu update html as fast as the variable changes
     if (this.filteredList.length && this.filteredList.length !== 0) {
-      this.showMenuToggle =  true;
+      this.showMenuToggle = true;
     } else {
       this.showMenuToggle = false;
     }
@@ -131,6 +145,12 @@ export class SearchComponent implements OnInit {
     console.log(this.showMenuToggle);
     if (event.key === 'Enter') {
       event.preventDefault();
+    }
+    if (event.key === 'Backspace') {
+      if (this.queryFormControl.value === '') {
+        this.filteredList.length = 0;
+        this.showMenuToggle = false;
+      }
     }
   }
 
@@ -189,7 +209,7 @@ export class SearchComponent implements OnInit {
       keyWordQuery = query.split(":")[0];
       if (keyWordQuery) {
         // modify searchableList
-        for (let item of list) {
+        for (const item of list) {
           if (keyWordQuery === item) {
             list = [];
             list.push(keyWordQuery);

@@ -1,6 +1,5 @@
 import { FilterAllPipe } from './pipes/filters/filterAll/filter-all.pipe';
 import { AdvanceFilterPipe } from './pipes/filters/advance-filter/advance-filter.pipe';
-import { AdvanceSearchComponent } from './advance-search/advance-search.component';
 import { NvTrimPipe } from './pipes/nv-trim/nv-trim.pipe';
 import { RattingComponent } from './ratting/ratting.component';
 import { NvCustomComponentComponent } from './nv-custom-component/nv-custom-component.component';
@@ -82,7 +81,6 @@ const sharedComponents = [
   NvCustomComponentComponent,
   UploadComponent,
   RattingComponent,
-  AdvanceSearchComponent,
   ProgressiveBarComponent
 ];
 

@@ -63,16 +63,13 @@
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.NvRadioBut)">
         {{nvComponentType[nvComponentType.NvRadioBut]}}
       </div>
-
     </div>
     <div class="preview-panel" [ngSwitch]="selectedItem">
       <div class="panel-body">
         <!-- Forth: Call your reusable component here and pass input data if needed  -->
-
         <div class="search-item-container" *ngSwitchCase="nvComponentType.Search">
           <app-search class="body-item"   ></app-search>
         </div>
-
         <app-novatek-logo class="body-item" *ngSwitchCase="nvComponentType.NovaLogo"></app-novatek-logo>
         <div class="body-header-container" *ngSwitchCase="nvComponentType.Header">
           <app-nv-header *ngIf="person" [person]="person"></app-nv-header>
@@ -84,7 +81,7 @@
         <app-user-profile-menu class="body-item" [person]="person" *ngSwitchCase="nvComponentType.ProfileMenu"></app-user-profile-menu>
        <div class="dropdown-container" *ngSwitchCase="nvComponentType.Dropdown">
         <app-nv-dropdown class="body-item" ></app-nv-dropdown>
-       
+    
         <div class="upload-file-container" *ngSwitchCase="nvComponentType.DropToUpload">
         <app-upload class="body-item" ></app-upload>
       </div>

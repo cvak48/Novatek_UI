@@ -33,6 +33,10 @@ export class DashboardComponent implements OnInit {
   bannerData = {};
   smallCardData = {};
   listData: any[] = [];
+  sucessTxt: string = 'Everything worked, your file is all ready';
+  warningTxt: string = "Your file don't meet the minimum resolution";
+  errorTxt: string= "Tere was an error"
+  textColor: string = 'red'
   constructor() {
    }
 

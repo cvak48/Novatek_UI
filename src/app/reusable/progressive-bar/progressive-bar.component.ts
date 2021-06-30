@@ -10,6 +10,8 @@ export class ProgressiveBarComponent implements OnInit {
   @Input() color: string = '';
   @Input() size: string = '';
   @Input() secondarySize: string = '';
+  @Input() progressiveTxt: string = '';
+  @Input() statusText: string = '';
   public totalSize: number = 0;
 
   public progressiveStatus: any = [

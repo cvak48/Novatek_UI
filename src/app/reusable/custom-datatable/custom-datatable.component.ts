@@ -16,20 +16,24 @@ export class CustomDatatableComponent implements OnInit, AfterViewInit {
 
   public tableDataSource = new MatTableDataSource([]);
   public displayedColumns: string[] = [];
+  
   @ViewChild(MatPaginator, { static: false })
   matPaginator!: MatPaginator;
   @ViewChild(MatSort, { static: true })
   matSort!: MatSort;
   totalRec = 26;
   currentRec = 5;
+  tabletestData: any[]= [];
   @Input() isPageable = false;
   @Input() isSortable = false;
   @Input() isFilterable = false;
   @Input() tableColumns: TableColumn[] = [];
+  searchableRefList: any[] = [ 'id' , 'name', 'data', 'email', 'status', 'checked', 'attachment'];
+  
   @Input() rowActionIcon: string = '';
   @Input() paginationSizes: number[] = [5, 10, 15];
   @Input() defaultPageSize = this.paginationSizes[1];
-
+  
   @Output() sort: EventEmitter<Sort> = new EventEmitter();
   @Output() rowAction: EventEmitter<any> = new EventEmitter<any>();
 
@@ -61,8 +65,10 @@ export class CustomDatatableComponent implements OnInit, AfterViewInit {
 
 
   setTableDataSource(data: any) {
+  
     if(data) {
-      console.log(data)
+      console.log("Service data >> ",data);
+      this.tabletestData = data;
     this.apiData = [...data];
     this.tableDataSource = new MatTableDataSource(data);
     this.tableDataSource.paginator = this.matPaginator;
@@ -71,6 +77,11 @@ export class CustomDatatableComponent implements OnInit, AfterViewInit {
   }
 
   applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.tableDataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  onItemsFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.tableDataSource.filter = filterValue.trim().toLowerCase();
   }

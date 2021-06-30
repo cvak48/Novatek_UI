@@ -7,15 +7,18 @@
       </mat-form-field>
     </ng-container>-->
    
-    <div *ngIf="isFilterable" class="search-box">
+    <!-- <div *ngIf="isFilterable" class="search-box">
       <mat-form-field floatLabel="never" class="search-field">
         <input matInput (keyup)="applyFilter($event)"  placeholder="Search...">
         
        
       </mat-form-field>
       <mat-icon matPrefix >search </mat-icon>
-    </div>
-  
+    </div> -->
+
+    <!-- <app-search [isAdvance]="true" [showMenu]="false" [list]="tabletestData"
+          [searchableRefList]="searchableRefList" (filteredItems)="onItemsFilter($event)" class="body-item"   ></app-search>
+   -->
     <!-- Table -->
     <table mat-table class="data-table" [dataSource]="tableDataSource" matSort (matSortChange)="sortTable($event)">
   

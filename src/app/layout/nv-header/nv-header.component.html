@@ -4,7 +4,8 @@
             <app-novatek-logo class="icon" [logosize]="logoSize"></app-novatek-logo>
         </div>
         <div class="d-flex align-items-center search-container">
-            <app-search class="search"></app-search>
+            <app-search class="search" [isAdvance]="isAdvance" [hideMenu]="hideMenu" [list]="list"
+          [searchableRefList]="searchableRefList" (filteredItems)="onItemsFilter($event)"></app-search>
         </div>
         <div class="float-right ml-auto d-flex align-items-center avatar-container">
             <app-user-profile-menu *ngIf="person" [person]="person" ></app-user-profile-menu>

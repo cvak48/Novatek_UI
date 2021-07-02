@@ -11,20 +11,20 @@ import { FormControl } from '@angular/forms';
 export class SearchComponent implements OnInit {
   @Output() filteredItems = new EventEmitter<any[]>();
   @Input() isAdvance = true;
-  @Input() showMenu = true;
+  @Input() hideMenu = false;
   @Input() set list(list: any) {
-    if (list && list.length > 0) {
+    if (list && list?.length > 0) {
       this._list = list;
     } else {
-      this._list = [];
+      this._list = mockAdvanceSearchInput().list;
     }
   }
   private _list: any;
   @Input() set searchableRefList(list: string[]) {
-    if (list && list.length > 0) {
+    if (list && list?.length > 0) {
       this._searchableRefList = list;
     } else {
-      this._searchableRefList = [];
+      this._searchableRefList = mockAdvanceSearchInput().searchableRefList;
     }
   }
   private _searchableRefList: any;
@@ -38,20 +38,25 @@ export class SearchComponent implements OnInit {
   searchIcon = true;
   showMenuToggle = false;
   isFocus = false;
+
   // TODO: Need to bring click event from parents to make isFocus false and delete blur event
   constructor(private filter: FilterAllPipe, private advanceFilter: AdvanceFilterPipe) { }
 
-
   ngOnInit(): void {
-    if (this.isAdvance) {
-      // this.searchableList = [];
-      let isQueryKeyword: boolean = false;
-      this.queryFormControl.valueChanges.subscribe(selectedValue => {
-        let trimmedInput: string = '  ';
-        if (this.queryFormControl.value === '') {
+
+    let isQueryKeyword: boolean = false;
+    let trimmedInput: string
+    this.queryFormControl.valueChanges.subscribe(selectedValue => {
+       
+      if (this.queryFormControl.value === '') {
+        if (this.filteredList) {
           this.filteredList.length = 0;
-          isQueryKeyword = false;
         }
+        isQueryKeyword = false;
+      }
+      if (this.isAdvance) {
+        trimmedInput = '  ';
+
         if (!isQueryKeyword) {
           this.searchableList = [];
           this.inputKeywordLabel = '';
@@ -77,34 +82,32 @@ export class SearchComponent implements OnInit {
         if (trimmedInput === ' ') {
           this.queryFormControl.setValue(trimmedInput);
         }
-        // choose filter
-        this.filteredList = this.chooseFilter(this.isAdvance, this._list, this.searchableList, this.queryFormControl.value);
-        if (this.filteredList) {
-          this.filteredItems.emit(this.filteredList);
-          this.filteredItems.asObservable().subscribe(list =>
-            console.log('outPut' + JSON.stringify(list))
-          );
-        } else {
-          this.filteredItems.emit(this.list);
-        }
-      });
-    }
+
+        this.filteredList = this.advanceFilter?.transform(this._list, this.queryFormControl.value, this.searchableList)?.map((item: any) => item);
+      } else {
+      // simple filter
+      this.filteredList = this.filter?.transform(this._list, this.queryFormControl.value)?.map((item: any) => item);
+      }
+      if (this.filteredList) {
+        this.showMenuToggle = true;
+        this.filteredItems.emit(this.filteredList);
+        this.filteredItems.asObservable().subscribe(list =>
+          console.log('outPut' + JSON.stringify(list))
+        );
+      } else {
+        this.showMenuToggle = false;
+        this.filteredItems.emit(this.list);
+      }
+    });
+
+
   }
 
-  chooseFilter(isAdvance: boolean, list: any, searchableList: any, inputQuery: string): any {
-    // TODO: the list become zero !
-    // list = mockAdvanceSearchInput().list;
-    let filteredList: any;
-    if (isAdvance) {
-      filteredList = this.advanceFilter.transform(list, inputQuery, searchableList).map((item: any) => item);
-      return filteredList;
-    } else {
-      filteredList = this.filter.transform(list, inputQuery).map((item: any) => item);
-      return filteredList;
-    }
-  }
-  onSearchFocus() {
+
+  onSearchFocus(event: any) {
     this.isFocus = true;
+    event.preventDefault();
+    event.stopPropagation();
   }
   onSearchBlur(event: any) {
     this.isFocus = false;
@@ -112,17 +115,19 @@ export class SearchComponent implements OnInit {
     event.stopPropagation();
   }
   onItemSelect(index: number): void {
-    this.selectedIndex = index;
-    this.selectedItem = this.filteredList[this.selectedIndex];
-    this.queryFormControl.setValue(this.selectedItem.name);
+    if (this.filteredList) {
+      this.selectedIndex = index;
+      this.selectedItem = this.filteredList[this.selectedIndex];
+      this.queryFormControl.setValue(this.selectedItem?.name);
+    }
+    this.showMenuToggle = false;
     this.searchIcon = false;
     this.isFocus = true;
   }
   onInput(event: any): void {
     const search = event?.target?.value;
-    // this.filteredItems = this.filterList(mockItems(), search);
     // TODO:We need change detector tu update html as fast as the variable changes
-    if (this.filteredList.length && this.filteredList.length !== 0) {
+    if (this.filteredList?.length !== 0) {
       this.showMenuToggle = true;
     } else {
       this.showMenuToggle = false;
@@ -132,23 +137,24 @@ export class SearchComponent implements OnInit {
   }
   onCancelClick(event: any): void {
     this.queryFormControl.setValue('');
-    this.filteredList.length = 0;
+    if (this.filteredList) {
+      this.filteredList.length = 0;
+    }
     this.showMenuToggle = false;
     this.searchIcon = true;
     event.preventDefault();
   }
   onSettingClick(): void {
-
   }
   onKeyDown(event: any): void {
-    // this.showMenuToggle = this.filteredList?.length ? true : false;
-    console.log(this.showMenuToggle);
     if (event.key === 'Enter') {
       event.preventDefault();
     }
     if (event.key === 'Backspace') {
       if (this.queryFormControl.value === '') {
-        this.filteredList.length = 0;
+        if (this.filteredList) {
+          this.filteredList.length = 0;
+        }
         this.showMenuToggle = false;
       }
     }
@@ -158,7 +164,9 @@ export class SearchComponent implements OnInit {
     this.searchIcon = false;
     if (event.key === 'Backspace') {
       if (this.queryFormControl.value === '') {
-        this.filteredList.length = 0;
+        if (this.filteredList) {
+          this.filteredList.length = 0;
+        }
         this.showMenuToggle = false;
         this.searchIcon = true;
       }

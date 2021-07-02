@@ -15,11 +15,14 @@
       </mat-form-field>
       <mat-icon matPrefix >search </mat-icon>
     </div> -->
+<div class="search-container">
+  <app-search class="search" [isAdvance]="isAdvance" [hideMenu]="hideMenu" [list]="tableTestData"
+  [searchableRefList]="searchableRefList" (filteredItems)="onItemsFilter($event)"></app-search> 
 
-    <!-- <app-search [isAdvance]="true" [showMenu]="false" [list]="tabletestData"
-          [searchableRefList]="searchableRefList" (filteredItems)="onItemsFilter($event)" class="body-item"   ></app-search>
-   -->
+</div>
+
     <!-- Table -->
+    
     <table mat-table class="data-table" [dataSource]="tableDataSource" matSort (matSortChange)="sortTable($event)">
   
       <!-- action column -->

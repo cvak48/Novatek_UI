@@ -17,6 +17,16 @@ mat-paginator {
     width: 97%;
     padding-left: 1%;
 }
+.search-container {
+  position: relative;
+  width: 100%;
+  padding-left: 1%;
+  padding-right: 1%;
+  .search {
+    width: 100%;
+  }
+}
+
 
 ::ng-deep .mat-icon {
   fill: $color-white !important;

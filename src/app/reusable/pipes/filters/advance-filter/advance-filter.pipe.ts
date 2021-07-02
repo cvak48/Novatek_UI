@@ -7,11 +7,10 @@ export class AdvanceFilterPipe implements PipeTransform {
     transform(value: any, input: string, searchableList: any): any {
         if (input) {
             input = input.trim().toLowerCase();
-            const suggestedList = value.filter((item: any) => {
+            const suggestedList = value?.filter((item: any) => {
                 let isTrue = false;
-                // tslint:disable-next-line: forin
                 for (const k in searchableList) {
-                    if (item[searchableList[k]].toLowerCase().indexOf(input) > -1) {
+                    if (JSON.stringify(item[searchableList[k]]).toLowerCase().indexOf(input) > -1) {
                         isTrue = true;
                     }
                     if (isTrue) {

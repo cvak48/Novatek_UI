@@ -60,6 +60,9 @@
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.NvRadioBut)">
         {{nvComponentType[nvComponentType.NvRadioBut]}}
       </div>
+      <div class="menu-item h40" (click)="onItemClick(nvComponentType.NvDatePicker)">
+        {{nvComponentType[nvComponentType.NvDatePicker]}}
+      </div>
 
     </div>
     <div class="preview-panel" [ngSwitch]="selectedItem">
@@ -95,6 +98,9 @@
       </div>
         <div class="custom-component-container" *ngSwitchCase="nvComponentType.NvRadioBut">
         <app-nv-custom-component class="body-item" [component]="nvRadioBut"></app-nv-custom-component>
+      </div>
+        <div  *ngSwitchCase="nvComponentType.NvDatePicker">
+        <app-nv-date-picker class="body-item"></app-nv-date-picker>
       </div>
       </div>
     </div>

@@ -1,4 +1,6 @@
 import { NvDatePickerComponent } from './nv-date-picker/nv-date-picker.component';
+import { FilterAllPipe } from './pipes/filters/filterAll/filter-all.pipe';
+import { AdvanceFilterPipe } from './pipes/filters/advance-filter/advance-filter.pipe';
 import { NvTrimPipe } from './pipes/nv-trim/nv-trim.pipe';
 import { RattingComponent } from './ratting/ratting.component';
 import { NvCustomComponentComponent } from './nv-custom-component/nv-custom-component.component';
@@ -45,6 +47,8 @@ import { ProgressiveBarComponent } from './progressive-bar/progressive-bar.compo
 
 const sharedComponents = [
   NvInitialsPipe,
+  AdvanceFilterPipe,
+  FilterAllPipe,
   NvTrimPipe,
   NvFileUploadDirective,
   FooterComponent,
@@ -97,6 +101,7 @@ const sharedComponents = [
     ReactiveFormsModule,
     MaterialModule,
   ],
-  exports: sharedComponents
+  exports: sharedComponents,
+  providers: [FilterAllPipe, AdvanceFilterPipe ]
 })
 export class ReusableModule { }

@@ -16,6 +16,5 @@ export class NvTrimPipe implements PipeTransform {
         return text;
     }
   }
-  
 
 }

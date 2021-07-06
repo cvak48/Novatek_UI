@@ -63,7 +63,6 @@ export class DemoPageComponent implements OnInit {
     this.selectedItem = selectedItem;
   }
   onItemsFilter(list: any): void {
-    console.log(list);
   }
 }
 

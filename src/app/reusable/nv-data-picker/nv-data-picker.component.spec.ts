@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NvDatePickerComponent } from './nv-date-picker.component';
+import { NvDataPickerComponent } from './nv-data-picker.component';
 
-describe('NvDatePickerComponent', () => {
-  let component: NvDatePickerComponent;
-  let fixture: ComponentFixture<NvDatePickerComponent>;
+describe('NvDataPickerComponent', () => {
+  let component: NvDataPickerComponent;
+  let fixture: ComponentFixture<NvDataPickerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NvDatePickerComponent ]
+      declarations: [ NvDataPickerComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NvDatePickerComponent);
+    fixture = TestBed.createComponent(NvDataPickerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

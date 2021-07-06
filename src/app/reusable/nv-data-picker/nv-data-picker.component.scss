@@ -1,0 +1,132 @@
+@import './../theme/base.scss';
+
+
+.date-picker-container {
+  display: flex;
+  flex-direction: row;
+  width: 160px;
+  height: $form-height-medium;
+  background: $color-white-20;
+  border: 1px solid $color-white-10;
+  border-radius: 4px;
+
+
+  input {
+    width: 110px;
+    height: 100%;
+    box-sizing: border-box;
+    background: transparent;
+    border: none;
+    padding-left: $padding-small;
+
+    &.label {
+      font-family: $nv-font;
+      font-size: $font-size-x-small;
+      font-weight: $font-weight-normal;
+      line-height: $line-height-medium;
+      color: $color-dark-gray-12;
+    }
+
+    &:focus {
+      outline: none;
+      border: none;
+      box-shadow: none;
+      box-sizing: border-box;
+    }
+
+      &::-webkit-input-placeholder {
+        font-family: $nv-font;
+        font-size: $font-size-x-small;
+        font-weight: $font-weight-normal;
+        line-height: $line-height-x-small;
+        color: $color-dark-gray-30;
+      }
+
+      &:-moz-placeholder {
+        font-family: $nv-font;
+        font-size: $font-size-x-small;
+        font-weight: $font-weight-normal;
+        line-height: $line-height-x-small;
+        color: $color-dark-gray-30;
+      }
+
+      &::-moz-placeholder {
+        font-family: $nv-font;
+        font-size: $font-size-x-small;
+        font-weight: $font-weight-normal;
+        line-height: $line-height-x-small;
+        color: $color-dark-gray-30;
+      }
+  }
+
+  .date-toggle-icon {
+    width:14px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    color: #00000099;
+    margin-left: 12px;
+  }
+}
+
+::ng-deep .mat-calendar-header {
+    // background-color: #F3F3F3;
+}
+
+::ng-deep button:focus {
+  outline: none !important;
+  }
+
+  ::ng-deep .mat-calendar-body-cell-content {
+
+    // border: 1px solid  #1F78B4;
+     border-radius: 4px !important;
+    
+   }
+   ::ng-deep .mat-datepicker-popup {
+      top: 162.139px !important;
+   }
+   // ripple
+   ::ng-deep .mat-ripple {
+    display: none !important;
+   }
+   ::ng-deep .mat-button-ripple.mat-ripple, ::ng-deep .mat-button-focus-overlay { 
+     display: none !important;
+   }
+   ::ng-deep .mat-button-ripple-round { 
+     display: none !important;
+   }
+
+
+
+
+:ng-deep .mat-calendar-body-selected {
+  background-color: red !important;
+  background: red !important;
+  // border: 1px solid  black !important;
+  // color: none !important;
+  // border: none;
+}
+::ng-deep .mat-calendar-body-today.mat-calendar-body-selected {
+  box-shadow: none !important;
+  background-color: red !important;
+  background: red !important;
+  border: 1px solid #1F78B4 !important;
+  border-radius: 3px !important;
+}
+
+::ng-deep .mat-icon-button {
+     background-color: transparent !important;
+     border: none !important;
+}
+
+::ng-deep .mat-datepicker-toggle-active {
+  color: gray;
+}
+
+
+

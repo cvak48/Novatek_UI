@@ -1,0 +1,10 @@
+<div class="date-picker-container">
+  <input class="label" matInput [matDatepicker]="picker" placeholder="Choose a Date">
+  <mat-datepicker-toggle matSuffix [for]="picker">
+    <mat-icon matDatepickerToggleIcon>
+      <img class="date-toggle-icon" src="./../../../assets/icons/date-picker.icon.svg">
+    </mat-icon>
+  </mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</div>
+

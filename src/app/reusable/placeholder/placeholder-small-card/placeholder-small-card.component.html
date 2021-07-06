@@ -5,33 +5,22 @@
             <div class="col-4 section-style" *ngFor="let cardData of textToShow">
                 <div class="card-border">
                     <div class="row">
-                        <div class="col-1">
-                            <img
-                              src="{{cardData.img}}"
-                              alt="#"
-                              class="mr-3 rounded xs-small-round"
-                              style="width: 40px"
-                            />
-                          </div>
-                          <div class="col-10 pd-lt-5">
+                        <span class="user-img"></span>
+                          <span class=" pd-lt-5">
                             <div class="media-body align-self-center">
-                              <h5 class="mg-3 mg_0_10">
-                                My Name: <i>{{cardData.text1}}</i>
-                              </h5>
-                              <h5 class="mg_0_10">
-                               Posted On: <i>{{cardData.text2}}</i>
-                              </h5>
+                              <div class="card-text"></div>
+                              <div class="card-text-1"></div>
+                             
                             </div>
-                    </div>
+                          </span>
                    
                       </div>
                       <div class="row mr-tp-3">
                         <div class="col-12">
-                          <div class="flex-column flex-md-row">
-                            <p>
-                              {{cardData.description}}
-                            </p>
-                          </div>
+                          
+                            <div class="card-text-2"></div>
+                            <div class="card-text-3"></div>
+                          
                         </div>
                       </div>
                 </div>

@@ -126,6 +126,15 @@ tr.mat-row.cdk-row:nth-child(odd) {
     display: inline-block;
 }
 
+.page-size-title{
+  font-weight: bold;
+}
+
+.page-size{
+  padding-left:5px;
+  border-color:lightgray;
+}
+
 .ft-rt{
   background: white;
   width: 100%;
@@ -158,5 +167,20 @@ tr.mat-row.cdk-row:nth-child(odd) {
 
 table.table td, table.table th {
   padding: 0rem 16px 0rem !important;
+}
+
+.mail-link{
+  text-decoration: underline !important;
+  color:#7badd4 !important;
+}
+
+::ng-deep .ngx-pagination .current {
+  background: #1d75b8 !important;
+  font-size: 12px;
+}
+
+::ng-deep .ngx-pagination a, .ngx-pagination button {
+  color: lightgray !important;
+  font-size: 12px;
 }
 

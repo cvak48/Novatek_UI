@@ -28,7 +28,7 @@
             </td>
            <td>{{order.name}}</td>
             <td>{{order.date}}</td>
-            <td>{{order.email}}</td>
+            <td class="mail-link">{{order.email}}</td>
             <td>{{order.status}}</td>
             <td>
                 <div>
@@ -42,8 +42,8 @@
     </table>
     <div class="ft-rt">
         <div class="paging-space">
-            Items per Page:
-            <select (change)="handlePageSizeChange($event)">
+            <span class="page-size-title">Items Per Page:&nbsp;&nbsp;</span>
+            <select (change)="handlePageSizeChange($event)" class="page-size">
               <option *ngFor="let size of pageSizes" [ngValue]="size">
                 {{ size }}
               </option>

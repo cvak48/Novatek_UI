@@ -60,7 +60,7 @@ select {
 
 .login-items {
     padding: $padding-16;
-    background-color: $color-login-card;
+    background-color: $color-white-f3;
 }
 
 ::ng-deep .mat-card-actions,
@@ -72,7 +72,7 @@ select {
 ::ng-deep .mat-card>.mat-card-actions:last-child {
     padding: $padding-16;
     margin-bottom: 0px !important;
-    background: $color-login-card;
+    background: $color-white-f3;
     margin-right: 0px !important;
     margin-left: 0px !important;
     border-radius: 10px;
@@ -151,7 +151,7 @@ button {
 }
 
 ::ng-deep .mat-card {
-    background-color: $color-login-card;
+    background-color: $color-white-f3;
 }
 
 ::ng-deep .form-control {

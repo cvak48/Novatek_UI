@@ -35,6 +35,14 @@ export class DashboardComponent implements OnInit {
   listData: any[] = [];
   cardSmallData = {};
   textCardData= {};
+  SucessprogressiveBarValue:string = '90';
+  warningProgressivebarValue:string = '70';
+  dualwarningProgressivebarValue:string = '5';
+
+  sucessTxt: string = 'Everything worked, your file is all ready';
+  warningTxt: string = "Your file don't meet the minimum resolution";
+  errorTxt: string= "Tere was an error"
+  textColor: string = 'red'
   constructor() {
    }
 

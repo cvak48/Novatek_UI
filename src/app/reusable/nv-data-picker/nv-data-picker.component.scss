@@ -102,19 +102,21 @@
    }
 
 
+   ::ng-deep .mat-calendar-body-cell-content, ::ng-deep .mat-date-range-input-separator {
+    color: #5D5D5DDE !important;
 
+}
 
-:ng-deep .mat-calendar-body-selected {
-  background-color: red !important;
-  background: red !important;
-  // border: 1px solid  black !important;
+::ng-deep .mat-calendar-body-selected {
+  background-color: #F6FCFE !important;
+  border: 1px solid  #1F78B4 !important;
   // color: none !important;
   // border: none;
 }
 ::ng-deep .mat-calendar-body-today.mat-calendar-body-selected {
   box-shadow: none !important;
-  background-color: red !important;
-  background: red !important;
+  background-color: #F6FCFE !important;
+  color: #5D5D5DDE;
   border: 1px solid #1F78B4 !important;
   border-radius: 3px !important;
 }

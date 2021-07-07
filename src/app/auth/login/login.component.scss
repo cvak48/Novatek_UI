@@ -2,7 +2,7 @@
 
 .right-section {
     height: 100vh;
-    background-image: linear-gradient(160deg, #1f78b4, #004463);
+    background-image: linear-gradient(160deg, $color-dark-blue-10, $color-dark-blue);
 }
 
 .novatek-logo-center {
@@ -19,7 +19,7 @@
 }
 
 ::ng-deep .mat-card:not([class*=mat-elevation-z]) {
-    box-shadow: -11px -9px 12px white, 10px 6px 21px 0px rgb(1 0 0 / 14%), -2px 3px 15px -6px white
+    box-shadow: -11px -9px 12px $color-white-20, 10px 6px 21px 0px rgb(1 0 0 / 14%), -2px 3px 15px -6px $color-white-20
 }
 
 .user-txt {
@@ -29,12 +29,12 @@
 .nxt-btn {
     margin: 10px 0 10px 0 !important;
     box-shadow: none !important;
-    border: 1px solid #5D5D5D;
+    border: 1px solid $color-dark-gray;
 }
 
 .nxt-btn:hover {
-    color: #00000099;
-    background-color: #c7c7c7 !important;
+    color: $color-black-09;
+    background-color: $color-grey-c7 !important;
 }
 
 button:focus {
@@ -42,13 +42,13 @@ button:focus {
 }
 
 .nxt-btn:active {
-    color: #00000099;
-    background-color: #f6f7f8 !important;
-    border: #5D5D5D
+    color:$color-black-09;
+    background-color: $color-white-f6 !important;
+    border: $color-dark-gray
 }
 
 select {
-    background-image: linear-gradient(45deg, transparent 50%, #272626 60%), linear-gradient(135deg, #1f1d1d 40%, transparent 50%) !important;
+    background-image: linear-gradient(45deg, transparent 50%, $color-black-27 60%), linear-gradient(135deg, $color-black-1f 40%, transparent 50%) !important;
     background-position: calc(100% - 30px) 14px, calc(100% - 25px) 14px, 100% 0;
     background-size: 6px 6px, 6px 6px;
     background-repeat: no-repeat;
@@ -76,7 +76,7 @@ select {
     margin-right: 0px !important;
     margin-left: 0px !important;
     border-radius: 10px;
-    border-bottom: 1px solid #b6b6b6;
+    border-bottom: 1px solid $color-grey-b6;
 }
 
 .login-card {
@@ -87,7 +87,7 @@ select {
 }
 
 button {
-    background-color: #F0F0F0;
+    background-color: $color-light-gray;
 }
 
 ::ng-deep .mat-card {
@@ -97,13 +97,13 @@ button {
     margin-right: auto;
     vertical-align: middle;
     border-radius: 10px !important;
-    border: 1px solid #b6b6b6;
+    border: 1px solid $color-grey-b6;
 }
 
 .forgot-user {
     float: right;
     text-decoration: underline;
-    color: #1791F1;
+    color: $color-dark-blue-12;
 }
 
 .login-txt {
@@ -133,7 +133,7 @@ button {
 
 .header-divider {
     margin-top: 25%;
-    border-top-color: rgba(11, 10, 11, 0.40);
+    border-top-color:$color-black-rgba;
 }
 
 .user-txt-name {
@@ -147,7 +147,7 @@ button {
 }
 
 .background-liner {
-    background: transparent linear-gradient(180deg, $color-white-20 0%, #D5D5D5 32%, #FFFCFC 63%, #EAEAEA 69%, #E6E6E6 100%) 0% 0% no-repeat padding-box
+    background: transparent linear-gradient(180deg, $color-white-20 0%, $color-grey-d5 32%, $color-grey-ff 63%, $color-grey-ea 69%, $color-light-gray-20 100%) 0% 0% no-repeat padding-box
 }
 
 ::ng-deep .mat-card {

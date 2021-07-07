@@ -27,3 +27,30 @@ p {
 p{
     color: $color-dark-gray-70;
 }
+
+.card-text-2{
+    position: absolute;
+    background-color:#e6e6e6;
+    height:12px;
+    width:80%;
+}
+
+.card-text-3{
+    position: absolute;
+    background-color:#e6e6e6;
+    height:12px;
+    width:80%;
+    margin-top:5%;
+}
+
+.card-text-4{
+    position: absolute;
+    background-color:#e6e6e6;
+    height:12px;
+    width:50%;
+    margin-top:10%;
+}
+
+.mn-hgt-95{
+    min-height: 95px;
+}

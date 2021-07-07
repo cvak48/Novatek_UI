@@ -1,27 +1,40 @@
-<!-- <div class="date-picker-container">
-  <input class="label" matInput [matDatepicker]="picker" placeholder="Choose a Date">
-  <mat-datepicker-toggle matSuffix [for]="picker">
-    <mat-icon matDatepickerToggleIcon>
-      <img class="date-toggle-icon" src="./../../../assets/icons/date-picker.icon.svg">
-    </mat-icon>
-  </mat-datepicker-toggle>
-  <mat-datepicker #picker></mat-datepicker>
-</div> -->
-
 <div class="date-picker-container">
-  <mat-date-range-input [rangePicker]="picker">
-    <input class="label" matStartDate matInput placeholder="Start date">
-    <input class="label" matEndDate matInput placeholder="End date">
-  </mat-date-range-input>
+  <ng-container [ngTemplateOutlet]=" isDateRangePicker ? dateRangeInputTemplate : singleDateInputTemplate"></ng-container>
+
   <mat-datepicker-toggle matSuffix [for]="picker">
     <mat-icon matDatepickerToggleIcon>
       <img class="date-toggle-icon" src="./../../../assets/icons/date-picker.icon.svg">
     </mat-icon>
   </mat-datepicker-toggle>
-  <mat-date-range-picker #picker></mat-date-range-picker>
+  <ng-container #picker [ngTemplateOutlet]=" isDateRangePicker ? dateRangePickerTemplate : singleDatePickerTemplate" ></ng-container>
+
 </div>
 
+<ng-template #dateRangeInputTemplate>
+  <mat-date-range-input class="picker-range-input" [rangePicker]="picker">
+    <input class="input-start" matStartDate matInput placeholder="Start date">
+    <input class="input-end" matEndDate matInput placeholder="End date">
+  </mat-date-range-input>
+</ng-template>
+<ng-template #dateRangePickerTemplate>
+  <mat-date-range-picker #picker></mat-date-range-picker>
+</ng-template>
 
+<ng-template #singleDateInputTemplate>
+  <input class="label" matInput [matDatepicker]="picker" placeholder="Choose a Date">
+</ng-template>
 
+<ng-template #singleDatePickerTemplate>
+  <mat-datepicker #picker></mat-datepicker>
+</ng-template>
 
-
+ <!-- <mat-date-range-input class="picker-range-input" [rangePicker]="picker">
+  <input class="input-start" matStartDate matInput placeholder="Start date">
+  <input class="input-end" matEndDate matInput placeholder="End date">
+</mat-date-range-input>
+<mat-datepicker-toggle matSuffix [for]="picker">
+  <mat-icon matDatepickerToggleIcon>
+    <img class="date-toggle-icon" src="./../../../assets/icons/date-picker.icon.svg">
+  </mat-icon>
+</mat-datepicker-toggle>
+<mat-date-range-picker #picker></mat-date-range-picker>  -->

@@ -1,15 +1,33 @@
 @import './../theme/base.scss';
 
-
 .date-picker-container {
+
+  position: relative;
   display: flex;
   flex-direction: row;
-  width: 160px;
+  // width: 160px;
+  width: 220px;
   height: $form-height-medium;
   background: $color-white-20;
   border: 1px solid $color-white-10;
   border-radius: 4px;
+.picker-range-input {
+  position: relative;
+  border: 1px solid black;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
 
+  .input-start {
+
+   border: 1px solid black;
+  }
+  .input-end {
+   border: 1px solid black;
+  }
 
   input {
     width: 110px;
@@ -17,7 +35,7 @@
     box-sizing: border-box;
     background: transparent;
     border: none;
-    padding-left: $padding-small;
+    // padding-left: $padding-small;
 
     &.label {
       font-family: $nv-font;
@@ -34,33 +52,33 @@
       box-sizing: border-box;
     }
 
-      &::-webkit-input-placeholder {
-        font-family: $nv-font;
-        font-size: $font-size-x-small;
-        font-weight: $font-weight-normal;
-        line-height: $line-height-x-small;
-        color: $color-dark-gray-30;
-      }
+    &::-webkit-input-placeholder {
+      font-family: $nv-font;
+      font-size: $font-size-x-small;
+      font-weight: $font-weight-normal;
+      line-height: $line-height-x-small;
+      color: $color-dark-gray-30;
+    }
 
-      &:-moz-placeholder {
-        font-family: $nv-font;
-        font-size: $font-size-x-small;
-        font-weight: $font-weight-normal;
-        line-height: $line-height-x-small;
-        color: $color-dark-gray-30;
-      }
+    &:-moz-placeholder {
+      font-family: $nv-font;
+      font-size: $font-size-x-small;
+      font-weight: $font-weight-normal;
+      line-height: $line-height-x-small;
+      color: $color-dark-gray-30;
+    }
 
-      &::-moz-placeholder {
-        font-family: $nv-font;
-        font-size: $font-size-x-small;
-        font-weight: $font-weight-normal;
-        line-height: $line-height-x-small;
-        color: $color-dark-gray-30;
-      }
+    &::-moz-placeholder {
+      font-family: $nv-font;
+      font-size: $font-size-x-small;
+      font-weight: $font-weight-normal;
+      line-height: $line-height-x-small;
+      color: $color-dark-gray-30;
+    }
   }
-
+}
   .date-toggle-icon {
-    width:14px;
+    width: 14px;
     height: 16px;
     display: flex;
     align-items: center;
@@ -71,64 +89,61 @@
     color: #00000099;
     margin-left: 12px;
   }
-}
 
-::ng-deep .mat-calendar-header {
-    // background-color: #F3F3F3;
-}
 
+}
 ::ng-deep button:focus {
   outline: none !important;
-  }
+}
 
-  ::ng-deep .mat-calendar-body-cell-content {
+::ng-deep .mat-calendar-body-cell-content {
 
-    // border: 1px solid  #1F78B4;
-     border-radius: 4px !important;
-    
-   }
-   ::ng-deep .mat-datepicker-popup {
-      top: 162.139px !important;
-   }
-   // ripple
-   ::ng-deep .mat-ripple {
-    display: none !important;
-   }
-   ::ng-deep .mat-button-ripple.mat-ripple, ::ng-deep .mat-button-focus-overlay { 
-     display: none !important;
-   }
-  //  ::ng-deep .mat-button-ripple-round { 
-  //    display: none !important;
-  //  }
+  // border: 1px solid  #1F78B4;
+  // *
+ border-radius: 4px !important;
 
+}
 
-   ::ng-deep .mat-calendar-body-cell-content, ::ng-deep .mat-date-range-input-separator {
-    color: #5D5D5DDE !important;
+::ng-deep .mat-datepicker-popup {
+  top: 162.139px !important;
+}
+
+// ripple
+::ng-deep .mat-ripple {
+  display: none !important;
+}
+
+::ng-deep .mat-button-ripple.mat-ripple,
+::ng-deep .mat-button-focus-overlay {
+  display: none !important;
+}
+
+::ng-deep .mat-calendar-body-cell-content,
+::ng-deep .mat-date-range-input-separator {
+  color: #5D5D5DDE !important;
 
 }
 
 ::ng-deep .mat-calendar-body-selected {
   background-color: #F6FCFE !important;
-  border: 1px solid  #1F78B4 !important;
+  border: 1px solid #1F78B4 !important;
   // color: none !important;
   // border: none;
 }
+
 ::ng-deep .mat-calendar-body-today.mat-calendar-body-selected {
   box-shadow: none !important;
   background-color: #F6FCFE !important;
   color: #5D5D5DDE;
   border: 1px solid #1F78B4 !important;
-  border-radius: 3px !important;
+  border-radius: 4px !important;
 }
 
 ::ng-deep .mat-icon-button {
-     background-color: transparent !important;
-     border: none !important;
+  background-color: transparent !important;
+  border: none !important;
 }
 
 ::ng-deep .mat-datepicker-toggle-active {
   color: gray;
 }
-
-
-

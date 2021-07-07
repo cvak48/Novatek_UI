@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-nv-data-picker',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nv-data-picker.component.scss']
 })
 export class NvDataPickerComponent implements OnInit {
+  @Input() isDateRangePicker = true;
 
   constructor() { }
 

@@ -16,8 +16,7 @@ export interface Notification {
 export enum NvComponent {
   // First: Add the name of your reusable component to this enum
   Search,
-  AdvancedSearch,
-  NovaLogo,
+  NvLogo,
   Notification,
   Avatar,
   ProfileMenu,
@@ -28,6 +27,7 @@ export enum NvComponent {
   NvSliderBar,
   NvSliderToggle,
   NvRadioBut,
+  NvButton
 }
 
 @Component({

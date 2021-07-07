@@ -27,11 +27,8 @@
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.Search)">
         {{nvComponentType[nvComponentType.Search]}}
       </div>
-      <div class="menu-item h40" (click)="onItemClick(nvComponentType.AdvancedSearch)">
-        {{nvComponentType[nvComponentType.AdvancedSearch]}}
-      </div>
-      <div class="menu-item h40" (click)="onItemClick(nvComponentType.NovaLogo)">
-        {{nvComponentType[nvComponentType.NovaLogo]}}
+      <div class="menu-item h40" (click)="onItemClick(nvComponentType.NvLogo)">
+        {{nvComponentType[nvComponentType.NvLogo]}}
       </div>
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.Avatar)">
         {{nvComponentType[nvComponentType.Avatar]}}
@@ -63,6 +60,9 @@
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.NvRadioBut)">
         {{nvComponentType[nvComponentType.NvRadioBut]}}
       </div>
+      <div class="menu-item h40" (click)="onItemClick(nvComponentType.NvButton)">
+        {{nvComponentType[nvComponentType.NvButton]}}
+      </div>
     </div>
     <div class="preview-panel" [ngSwitch]="selectedItem">
       <div class="panel-body">
@@ -72,7 +72,7 @@
           [searchableRefList]="searchableRefList" (filteredItems)="onItemsFilter($event)" class="body-item"   ></app-search>
         </div>
 
-        <app-novatek-logo class="body-item" *ngSwitchCase="nvComponentType.NovaLogo"></app-novatek-logo>
+        <app-novatek-logo class="body-item" *ngSwitchCase="nvComponentType.NvLogo"></app-novatek-logo>
         <div class="body-header-container" *ngSwitchCase="nvComponentType.Header">
           <app-nv-header *ngIf="person" [person]="person"></app-nv-header>
         </div>
@@ -98,6 +98,9 @@
       </div>
         <div class="custom-component-container" *ngSwitchCase="nvComponentType.NvRadioBut">
         <app-nv-custom-component class="body-item" [component]="nvRadioBut"></app-nv-custom-component>
+      </div>
+        <div class="custom-component-container" *ngSwitchCase="nvComponentType.NvButton">
+        <app-nv-button class="body-item"></app-nv-button>
       </div>
       </div>
     </div>

@@ -13,7 +13,7 @@
                 <input class="table-check" type="checkbox" [checked]="isAllCheckBoxChecked()" (change)="checkAllCheckBox($event)">
             </th>
             <th *ngFor="let column of columns ; let i = index"  scope="col" [mdbTableSort]="orders" [sortBy]="columns[i]" class="mat-header-cell">
-                {{column}} <span><mat-icon class="img">arrow_drop_up</mat-icon><mat-icon class="img">arrow_drop_down</mat-icon></span>
+                {{column}} <span><mat-icon class="img"><img src="../../../assets/icons/table-shorting.icon.svg" /></mat-icon></span>
             </th>
             
         </tr>

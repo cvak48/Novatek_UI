@@ -34,3 +34,46 @@
   .banner-text {
       padding: 3% 4% 0 2%;
   } 
+
+  .user-img{
+    background-color:#e6e6e6;
+    height: 60px;
+    width:60px;
+    margin-left: 1%;
+}
+
+.card-text{
+  position: absolute;
+  background-color:#e6e6e6;
+  height:12px;
+  width:40%;
+  margin-left: 1%;
+}
+.card-text-1{
+  position: absolute;
+  background-color:#e6e6e6;
+  height:12px;
+  width:30%;
+  margin-top: 1.5%;
+  margin-left: 1%;
+}
+
+.card-text-2{
+  position: absolute;
+  background-color:#e6e6e6;
+  height:12px;
+  width:70%;
+  margin-top:1.5%
+}
+
+.card-text-3{
+  position: absolute;
+  background-color:#e6e6e6;
+  height:12px;
+  width:50%;
+  margin-top:3%;
+}
+
+.mn-ht-120{
+  min-height: 120px;
+}

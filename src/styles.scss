@@ -3,5 +3,18 @@
 @import "./../src/app/reusable/theme/base.scss";
 
 html, body { height: 100%; }
-body { margin: 0; font-family: "Lato", Roboto, "Helvetica Neue", sans-serif;  overflow-y: hidden;}
+body { margin: 0; font-family: "Lato", Roboto, "Helvetica Neue", sans-serif;  overflow-y: scroll;}
 
+.ngx-pagination .pagination-previous a::before, .ngx-pagination .pagination-previous.disabled::before {
+    content: '«';
+    font-size: 25px !important;
+    position: relative;
+    top: 3px;
+  }
+  
+  .ngx-pagination .pagination-next a::after, .ngx-pagination .pagination-next.disabled::after {
+    content: '»';
+    font-size: 25px !important;
+    position: relative;
+    top: 3px;
+}

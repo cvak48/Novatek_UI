@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class NvDataPickerComponent implements OnInit {
   @Input() isDateRangePicker = true;
+  @Input() size: 'single' | 'range' = 'range';
 
   constructor() { }
 

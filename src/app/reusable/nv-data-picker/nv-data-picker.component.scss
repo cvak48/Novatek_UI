@@ -1,81 +1,92 @@
 @import './../theme/base.scss';
 
+@mixin inputLabel {
+
+  &.label {
+    font-family: $nv-font;
+    font-size: $font-size-x-small;
+    font-weight: $font-weight-normal;
+    line-height: $line-height-medium;
+    color: $color-dark-gray-12;
+  }
+
+  &:focus {
+    outline: none;
+    border: none;
+    box-shadow: none;
+    box-sizing: border-box;
+  }
+
+  &::-webkit-input-placeholder {
+    font-family: $nv-font;
+    font-size: $font-size-x-small;
+    font-weight: $font-weight-normal;
+    line-height: $line-height-x-small;
+    color: $color-dark-gray-30;
+  }
+
+  &:-moz-placeholder {
+    font-family: $nv-font;
+    font-size: $font-size-x-small;
+    font-weight: $font-weight-normal;
+    line-height: $line-height-x-small;
+    color: $color-dark-gray-30;
+  }
+
+  &::-moz-placeholder {
+    font-family: $nv-font;
+    font-size: $font-size-x-small;
+    font-weight: $font-weight-normal;
+    line-height: $line-height-x-small;
+    color: $color-dark-gray-30;
+  }
+}
+
+
 .date-picker-container {
 
   position: relative;
   display: flex;
   flex-direction: row;
-  // width: 160px;
-  width: 220px;
   height: $form-height-medium;
   background: $color-white-20;
   border: 1px solid $color-white-10;
   border-radius: 4px;
+
+  &.single {
+  width: 160px;
+  }
+  &.range {
+  width: 230px;
+  }
 .picker-range-input {
   position: relative;
-  border: 1px solid black;
+  //border: 1px solid black;
   height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   align-content: center;
   justify-content: center;
+  padding-left: $padding-small;
 
   .input-start {
-
-   border: 1px solid black;
+   @include inputLabel;
   }
   .input-end {
-   border: 1px solid black;
+   @include inputLabel;
   }
+}
+.input-single {
+  width: 110px;
+  height: 100%;
+  box-sizing: border-box;
+  background: transparent;
+  border: none;
+  padding-left: $padding-small;
 
-  input {
-    width: 110px;
-    height: 100%;
-    box-sizing: border-box;
-    background: transparent;
-    border: none;
-    // padding-left: $padding-small;
-
-    &.label {
-      font-family: $nv-font;
-      font-size: $font-size-x-small;
-      font-weight: $font-weight-normal;
-      line-height: $line-height-medium;
-      color: $color-dark-gray-12;
-    }
-
-    &:focus {
-      outline: none;
-      border: none;
-      box-shadow: none;
-      box-sizing: border-box;
-    }
-
-    &::-webkit-input-placeholder {
-      font-family: $nv-font;
-      font-size: $font-size-x-small;
-      font-weight: $font-weight-normal;
-      line-height: $line-height-x-small;
-      color: $color-dark-gray-30;
-    }
-
-    &:-moz-placeholder {
-      font-family: $nv-font;
-      font-size: $font-size-x-small;
-      font-weight: $font-weight-normal;
-      line-height: $line-height-x-small;
-      color: $color-dark-gray-30;
-    }
-
-    &::-moz-placeholder {
-      font-family: $nv-font;
-      font-size: $font-size-x-small;
-      font-weight: $font-weight-normal;
-      line-height: $line-height-x-small;
-      color: $color-dark-gray-30;
-    }
-  }
+  @include inputLabel;
 }
   .date-toggle-icon {
     width: 14px;
@@ -87,7 +98,7 @@
     margin-top: auto;
     margin-bottom: auto;
     color: #00000099;
-    margin-left: 12px;
+    margin-left: $padding-small;
   }
 
 
@@ -146,4 +157,8 @@
 
 ::ng-deep .mat-datepicker-toggle-active {
   color: gray;
+}
+
+::ng-deep .mat-icon {
+
 }

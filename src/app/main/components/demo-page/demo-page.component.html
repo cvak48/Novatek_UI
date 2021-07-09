@@ -113,9 +113,13 @@
         <div class="custom-component-container" *ngSwitchCase="nvComponentType.NvRadioBut">
           <app-nv-custom-component class="body-item" [component]="nvRadioBut"></app-nv-custom-component>
         </div>
-        <div class="custom-component-container" *ngSwitchCase="nvComponentType.NvDatePicker">
-        <app-nv-data-picker class="body-item"></app-nv-data-picker>
+        <div class="date-single-picker-container" *ngSwitchCase="nvComponentType.NvDatePicker">
+        <app-nv-data-picker [isDateRangePicker]="false" [size]="'single'" class="body-item"></app-nv-data-picker>
         </div>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <!-- <div class="date-range-picker-container" *ngSwitchCase="nvComponentType.NvDatePicker">
+        <app-nv-data-picker [isDateRangePicker]="true" [size]="'range'" class="body-item"></app-nv-data-picker>
+        </div> -->
       </div>
 
 

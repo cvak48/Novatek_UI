@@ -27,7 +27,7 @@ export enum NvComponent {
   NvSliderBar,
   NvSliderToggle,
   NvRadioBut,
-  NvDatePicker
+  NvDatePicker,
 }
 
 @Component({

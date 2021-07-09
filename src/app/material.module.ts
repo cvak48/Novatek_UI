@@ -32,7 +32,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { CommonModule } from '@angular/common';
 import { MatNativeDateModule } from '@angular/material/core';
 
-var materialModulesList = [
+const materialModulesList = [
     CommonModule,
     MatButtonModule,
     MatInputModule,

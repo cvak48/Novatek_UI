@@ -1,7 +1,7 @@
-<!--  
-  <button mat-button (click)="german()">  switch to German </button>
+ 
+  <!-- <button mat-button (click)="german()">  switch to German </button>
   <button mat-button (click)="spanish()"> switch to Spanish </button> -->
- <div class="{{'date-picker-container ' + size}}">
+ <div class="date-picker-container">
    <mat-date-range-picker #rangePicker></mat-date-range-picker>
    <mat-datepicker #singlePicker></mat-datepicker>
    <ng-container [ngTemplateOutlet]=" isDateRangePicker ? rangeDateInputTemplate : singleDateInputTemplate">
@@ -21,7 +21,7 @@
  </ng-template>
 
  <ng-template #singleDateInputTemplate>
-   <input class="input-single label" matInput [matDatepicker]="singlePicker" placeholder="Choose a Date">
+   <input class="input-single " matInput [matDatepicker]="singlePicker" placeholder="Choose a Date">
  </ng-template>
 
 

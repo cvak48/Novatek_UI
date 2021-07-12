@@ -22,11 +22,11 @@ export const MY_FORMATS = {
     {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
     // {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS},
     {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS},
+    {provide:  MAT_DATE_LOCALE, useValue: 'es-AR'},
   ]
 })
 export class NvDataPickerComponent implements OnInit {
   @Input() isDateRangePicker = true;
-  @Input() size: 'single' | 'range' = 'range';
 
   constructor(private adapter: DateAdapter<any>) { }
 

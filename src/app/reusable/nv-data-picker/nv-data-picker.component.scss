@@ -2,14 +2,10 @@
 
 @mixin inputLabel {
 
-  &.label {
-    overflow: scroll;
     font-family: $nv-font;
     font-size: $font-size-x-small;
     font-weight: $font-weight-normal;
-    line-height: $line-height-medium;
     color: $color-dark-gray-12;
-  }
 
   &:focus {
     outline: none;
@@ -43,61 +39,42 @@
   }
 }
 
-
 .date-picker-container {
   position: relative;
   display: flex;
   flex-direction: row;
   height: $form-height-medium;
+  width: 100%;
   background-color: $color-white-20;
   border-radius: 4px;
-  width: 100%;
 
-  // &.single {
-  // width: 160px;
-  // }
-  // &.range {
-  // width: 260px;
-  // }
-.picker-range-input {
-  position: relative;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  padding-left: $padding-small;
+  .picker-range-input {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding-left: $padding-small;
 
-  .input-start {
-   @include inputLabel;
-   font-family: $nv-font;
-   font-size: $font-size-x-small;
-   font-weight: $font-weight-normal;
-   color: $color-dark-gray-12;
-   //border: 1px solid black;
+    .input-start {
+      @include inputLabel;
+    }
+
+    .input-end {
+      @include inputLabel;
+    }
   }
-  .input-end {
-   @include inputLabel;
-   font-family: $nv-font;
-   font-size: $font-size-x-small;
-   font-weight: $font-weight-normal;
-   color: $color-dark-gray-12;
-  //border: 1px solid black;
-  }
-}
-.input-single {
-  position: relative;
 
-  overflow: visible;
-  white-space: normal;
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-  background: transparent;
-  border: none;
-  padding-left: $padding-small;
- 
-  @include inputLabel;
-}
+  .input-single {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    padding-left: $padding-small;
+    @include inputLabel;
+  }
+
   .date-toggle-icon {
     width: 14px;
     height: 16px;
@@ -105,11 +82,12 @@
     align-items: center;
     align-self: center;
     justify-content: center;
-    margin-top: 4px;
-    color: #00000099;
+    margin-top: 2px;
+    color: $color-black-13;
   }
 
 }
+
 ::ng-deep input.mat-input-element {
   margin-top: 0px !important;
 }
@@ -119,15 +97,14 @@
 }
 
 ::ng-deep .mat-datepicker-toggle {
-margin-left: auto !important;
-margin-right: -2px !important;
-
+  margin-left: auto !important;
+  margin-right: -2px !important;
 }
 
 ::ng-deep .mat-icon-button {}
 
 ::ng-deep .mat-calendar-body-cell-content {
- border-radius: 4px !important;
+  border-radius: 4px !important;
 }
 
 ::ng-deep .mat-datepicker-popup {
@@ -146,20 +123,28 @@ margin-right: -2px !important;
 
 ::ng-deep .mat-calendar-body-cell-content,
 ::ng-deep .mat-date-range-input-separator {
-  color: #5D5D5DDE !important;
+  color: $color-dark-gray-13 !important;
+
+  &:hover {
+    background: $color-dark-blue-20 !important;
+  }
 
 }
 
+::ng-deep .datepicker-calendar-days-container {
+  background-color: transparent !important;
+}
+
 ::ng-deep .mat-calendar-body-selected {
-  background-color: #F6FCFE !important;
-  border: 1px solid #81BDED !important;
+  background-color: $color-light-blue-20 !important;
+  border: 1px solid $color-dark-blue-20 !important;
 }
 
 ::ng-deep .mat-calendar-body-today.mat-calendar-body-selected {
   box-shadow: none !important;
-  background-color: #F6FCFE !important;
-  color: #5D5D5DDE;
-  border: 1px solid #81BDED !important;
+  background-color: $color-light-blue-20 !important;
+  color: $color-dark-gray-13;
+  border: 1px solid $color-dark-blue-20 !important;
   border-radius: 4px !important;
 }
 
@@ -169,9 +154,15 @@ margin-right: -2px !important;
 }
 
 ::ng-deep .mat-datepicker-toggle-active {
-  color: gray;
+  color: $color-light-gray-80;
 }
 
-::ng-deep .mat-icon { }
+::ng-deep .mat-icon {}
 
+::ng-deep .mat-calendar-body-today:not(.mat-calendar-body-selected) {
+  background-color: transparent !important;
+}
 
+::ng-deep .mat-calendar-body-cell.mat-calendar-body-in-range:after {
+  background-color: $color-light-blue-10 !important;
+} 

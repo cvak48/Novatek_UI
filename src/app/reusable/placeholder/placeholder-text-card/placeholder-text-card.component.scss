@@ -1,7 +1,7 @@
 @import "../../../reusable/theme/base.scss";
 
 .card-style{
-    border: 3px solid lightgray;
+    border: 3px solid $color-light-gray-30;
     margin: 1%;
     border-radius: 5px;
     border-radius: 4px;
@@ -10,7 +10,7 @@
 
 .section-style{
     padding-top: 1%;
-    border-right: 1px solid lightgray;
+    border-right: 1px solid $color-light-gray-30;
     color:$color-dark-gray-70;
 }
 
@@ -30,14 +30,14 @@ p{
 
 .card-text-2{
     position: absolute;
-    background-color:#e6e6e6;
+    background-color:$color-light-gray-20;
     height:12px;
     width:80%;
 }
 
 .card-text-3{
     position: absolute;
-    background-color:#e6e6e6;
+    background-color:$color-light-gray-20;
     height:12px;
     width:80%;
     margin-top:5%;
@@ -45,7 +45,7 @@ p{
 
 .card-text-4{
     position: absolute;
-    background-color:#e6e6e6;
+    background-color:$color-light-gray-20;
     height:12px;
     width:50%;
     margin-top:10%;

@@ -73,6 +73,7 @@
    font-size: $font-size-x-small;
    font-weight: $font-weight-normal;
    color: $color-dark-gray-12;
+   //border: 1px solid black;
   }
   .input-end {
    @include inputLabel;
@@ -80,6 +81,7 @@
    font-size: $font-size-x-small;
    font-weight: $font-weight-normal;
    color: $color-dark-gray-12;
+  //border: 1px solid black;
   }
 }
 .input-single {
@@ -118,16 +120,11 @@
 
 ::ng-deep .mat-datepicker-toggle {
 margin-left: auto !important;
-//padding-right: 2px !important;
 margin-right: -2px !important;
 
 }
 
-::ng-deep .mat-icon-button {
- //width: 20px !important;
-// margin-left: auto !important;
-// padding-right: 8px !important;
-}
+::ng-deep .mat-icon-button {}
 
 ::ng-deep .mat-calendar-body-cell-content {
  border-radius: 4px !important;

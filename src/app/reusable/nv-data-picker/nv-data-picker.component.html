@@ -1,12 +1,12 @@
- 
+<!--  
   <button mat-button (click)="german()">  switch to German </button>
-  <button mat-button (click)="spanish()"> switch to Spanish </button>
+  <button mat-button (click)="spanish()"> switch to Spanish </button> -->
  <div class="{{'date-picker-container ' + size}}">
    <mat-date-range-picker #rangePicker></mat-date-range-picker>
    <mat-datepicker #singlePicker></mat-datepicker>
    <ng-container [ngTemplateOutlet]=" isDateRangePicker ? rangeDateInputTemplate : singleDateInputTemplate">
    </ng-container>
-   <mat-datepicker-toggle class="ml-auto border border-success" matSuffix [for]="isDateRangePicker ? rangePicker : singlePicker">
+   <mat-datepicker-toggle matSuffix [for]="isDateRangePicker ? rangePicker : singlePicker">
      <mat-icon matDatepickerToggleIcon>
        <img class="date-toggle-icon" src="./../../../assets/icons/date-picker.icon.svg">
      </mat-icon>

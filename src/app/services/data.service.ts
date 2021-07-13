@@ -8,7 +8,7 @@ export class DataService {
     constructor() {}
 
     getTableData(): Observable<any> {
-        const data = [
+        const data = [ 
           {
             'id': 1,
             'name': 'John Liiki',

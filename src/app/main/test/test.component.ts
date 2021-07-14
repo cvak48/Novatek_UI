@@ -6,6 +6,7 @@ import { Order } from './order';
 import * as moment from 'moment';
 import { DataService } from 'src/app/services/data.service';
 import { Subscription } from 'rxjs';
+import * as tableColumns from 'src/app/dataFiles/tableColumns.json';
 
 
 @Component({

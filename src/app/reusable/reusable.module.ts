@@ -47,7 +47,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { CustomTableComponent } from './custom-table/custom-table.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ProgressiveBarComponent } from './progressive-bar/progressive-bar.component';
-import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 const sharedComponents = [
@@ -107,7 +106,6 @@ const sharedComponents = [
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    MatCheckboxModule,
     NgxPaginationModule,
     MDBBootstrapModule.forRoot()
   ],

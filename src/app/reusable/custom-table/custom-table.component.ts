@@ -71,19 +71,6 @@ export class CustomTableComponent implements OnInit {
   }
 
   retrieveTutorials(): void {
-    /*const params = this.getRequestParams(this.title, this.page, this.pageSize);
-
-    this.tutorialService.getAll(params)
-      .subscribe(
-        response => {
-          const { tutorials, totalItems } = response;
-          this.tutorials = tutorials;
-          this.count = totalItems;
-          console.log(response);
-        },
-        error => {
-          console.log(error);
-        });*/
   }
 
   handlePageChange(event: any): void {

@@ -1,6 +1,6 @@
 export interface TableColumn {
   name: string;
   dataKey: string;
-  position?: 'right' | 'left';
+  position?: string;
   isSortable?: boolean;
 }

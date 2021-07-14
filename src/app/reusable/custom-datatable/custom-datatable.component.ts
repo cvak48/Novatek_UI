@@ -74,7 +74,6 @@ export class CustomDatatableComponent implements OnInit, AfterViewInit {
 
   setTableDataSource(data: any) {
     if (data) {
-      console.log("Service data >> ", data);
       this.apiData = [...data];
       this.tableDataSource = new MatTableDataSource(data);
       this.tableDataSource.paginator = this.matPaginator;
@@ -83,7 +82,6 @@ export class CustomDatatableComponent implements OnInit, AfterViewInit {
   }
   onItemsFilter(data: any): any {
       if (data) {
-      console.log('onFilter >>'  + JSON.stringify(data));
       this.setTableDataSource(data);
     }
   }
@@ -94,7 +92,6 @@ export class CustomDatatableComponent implements OnInit, AfterViewInit {
   }
 
   sortTable(sortParameters: Sort): any {
-    console.log("sort para > ", sortParameters);
     let abc;
     for (let i = 0; i < this.tableColumns.length; i++) {
       if (this.tableColumns[i].name === sortParameters.active) {
@@ -105,16 +102,9 @@ export class CustomDatatableComponent implements OnInit, AfterViewInit {
     // defining name of data property, to sort by, instead of column name
     //  sortParameters.active = this.tableColumns.find((column) =>  column.name === sortParameters.active).dataKey;
     /*const abc1 = this.tableColumns.find((column) => { 
-      console.log('in column find', column.name , sortParameters.active)
-      console.log("in find", column.name === sortParameters.active)
       return (column.name === sortParameters.active) ? column.dataKey.toString() : 'name'
     } );*/
-    console.log('column find', abc)
     sortParameters.active = abc?.dataKey ? abc?.dataKey : 'name'
-
-    // console.log("abc >> ",abc )
-    // sortParameters.active = "amount";
-
     this.sort.emit(sortParameters);
   }
 
@@ -153,9 +143,6 @@ export class CustomDatatableComponent implements OnInit, AfterViewInit {
 
 
   logSelection(row: any) {
-    console.log(row)
-    console.log(!this.selection.isSelected(row))
-    //this.selection.selected.forEach(s => console.log(s.name));
   }
 }
 

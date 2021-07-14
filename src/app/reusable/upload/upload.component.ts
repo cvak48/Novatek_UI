@@ -23,7 +23,6 @@ export class UploadComponent implements OnInit {
     const files = value;
     const file = files[0];
      // TODO: Need to be uploaded by doing an http post with the payload instead of log in console
-    console.log(file.name);
     const payload = new FormData();
     payload.append('data', file);
   }

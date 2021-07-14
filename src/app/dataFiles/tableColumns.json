@@ -1,0 +1,38 @@
+[
+    {
+      "name": "Select",
+      "dataKey": "select",
+      "position": "left",
+      "isSortable": false
+    },
+    {
+      "name": "Name",
+      "dataKey": "name",
+      "position": "left",
+      "isSortable": true
+    },
+    {
+      "name": "Date",
+      "dataKey": "date",
+      "position": "left",
+      "isSortable": true
+    },
+    {
+      "name": "Email",
+      "dataKey": "email",
+      "position": "left",
+      "isSortable": true
+    },
+    {
+      "name": "Status",
+      "dataKey": "status",
+      "position": "left",
+      "isSortable": true
+    },
+    {
+      "name": "Attachments",
+      "dataKey": "attachments",
+      "position": "left",
+      "isSortable": true
+    }
+  ]

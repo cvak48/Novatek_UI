@@ -3,7 +3,7 @@
 @import "./../src/app/reusable/theme/base.scss";
 
 html, body { height: 100%; }
-body { margin: 0; font-family: "Lato", Roboto, "Helvetica Neue", sans-serif;  overflow-y: scroll;}
+body { margin: 0; font-family: "Lato", Roboto, "Helvetica Neue", sans-serif;  overflow-y: hidden;}
 
 .ngx-pagination .pagination-previous a::before, .ngx-pagination .pagination-previous.disabled::before {
     content: '«';

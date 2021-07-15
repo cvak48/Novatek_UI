@@ -5,6 +5,7 @@ $border-thickness: 1px;
 $icon-width: 16px;
 $padding: 12px;
 $icons-distance: 8px;
+$icons-distance-large: 18px;
 
 .dropdown {
   position: relative;
@@ -149,7 +150,7 @@ $icons-distance: 8px;
         left: $padding;
       }
       &.cancel {
-        right: $icon-width + $padding + $icons-distance;
+        right: $icon-width + $padding + $icons-distance-large;
       }
       &.setting {
         right: $padding;

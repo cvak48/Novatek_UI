@@ -76,13 +76,17 @@
 import { RouterModule, Routes } from &#x27;@angular/router&#x27;;
 
 const routes: Routes &#x3D; [
-  // On application load it will navigate to the Auth module
+  /**
+  * On application load it will navigate to the Auth module
+  */
   {
     path: &#x27;&#x27;,
     loadChildren: () &#x3D;&gt; &quot;import(&#x27;./auth/auth.module&#x27;)\
     .then(m &#x3D;&gt; m.AuthModule)&quot;
   },
-  // When user directly pointing out the dashboard or some other pages it will navigate to main module
+  /**
+  * When user directly pointing out the dashboard or some other pages it will navigate to main module
+  */
   {
     path: &#x27;main&#x27;,
     loadChildren: () &#x3D;&gt; &quot;import(&#x27;./main/main.module&#x27;)\

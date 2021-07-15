@@ -10,6 +10,9 @@ export class NovaSidenavComponent implements OnInit {
 
   public isExpanded:boolean = false;
   public totalNotifications: number = 4;
+  /**
+  * Side Menu list items
+  */
   public sidenavItems = [
     {icon:'../../../assets/icons/ico.dashboard.svg', name:'Dashboard'},
     {icon:'../../../assets/icons/ico.register.svg', name:'New'},
@@ -31,10 +34,16 @@ export class NovaSidenavComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+  * Expands the side menu, if it is closed
+  */
   public checkExpand() {
     this.isExpanded = !this.isExpanded;
   }
 
+  /**
+  * Closes the side menu, if it is open
+  */
   public closeSideNav() {
     this.isExpanded = false;
   }

@@ -1,3 +1,4 @@
+<!-- List of previous comments are itterated from the comments variable -->
 <div id="mainDiv" *ngFor="let comment of comments.reverse()">
   <div class="d-flex flex-row user-info">
     <app-avatar class="body-item" *ngIf="person?.imageUrl && person?.name" [avatarUrl]="person.imageUrl!"
@@ -14,6 +15,7 @@
     <button (click)="addComment(comment)" type="button" class="btn btn-labeled btn-primary btn-color">
       <span class="btn-label btn-content"><i class="fa fa-edit"></i></span>Add reply</button>
   </div>
+  <!-- comment box will only appear when user clicks on the reply button -->
   <app-comment-box [comments]="comment.anwsers">
   </app-comment-box>
 </div>

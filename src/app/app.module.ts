@@ -15,6 +15,9 @@ import { ReusableModule } from './reusable/reusable.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+      /**
+      * In Material Module we will include every module of the angular material
+      */
     MaterialModule,
     MainModule
   ],

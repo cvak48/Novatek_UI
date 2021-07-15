@@ -46,15 +46,6 @@
             <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
         </li>
         <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
-        </li>
-        <li >
-            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
-        </li>
-        <li >
-            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
-        </li>
-        <li >
             <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
         </li>
 </ul>
@@ -186,11 +177,6 @@
 <code>constructor()</code>
                     </td>
                 </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/reusable/inverted-tabs/inverted-tabs.component.ts:10</a></div>
-                            </td>
-                        </tr>
 
             </tbody>
         </table>
@@ -212,11 +198,6 @@
 
                     </td>
                 </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/reusable/inverted-tabs/inverted-tabs.component.ts:10</a></div>
-                            </td>
-                        </tr>
             </tbody>
         </table>
 </section>
@@ -246,12 +227,6 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="14"
-                            class="link-to-prism">src/app/reusable/inverted-tabs/inverted-tabs.component.ts:14</a></div>
-                </td>
-            </tr>
 
 
             <tr>
@@ -297,11 +272,6 @@
                         </code>
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/reusable/inverted-tabs/inverted-tabs.component.ts:10</a></div>
-                        </td>
-                    </tr>
 
 
         </tbody>
@@ -311,88 +281,8 @@
 </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, OnInit } from &#x27;@angular/core&#x27;;
 
-@Component({
-  selector: &#x27;app-inverted-tabs&#x27;,
-  templateUrl: &#x27;./inverted-tabs.component.html&#x27;,
-  styleUrls: [&#x27;./inverted-tabs.component.scss&#x27;]
-})
-export class InvertedTabsComponent implements OnInit {
 
-  @Input() tabs:any;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
-</code></pre>
-    </div>
-
-    <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div style&#x3D;&quot;margin:20px&quot;&gt;
-  &lt;div class&#x3D;&quot;tab-content&quot; id&#x3D;&quot;myTabContent&quot;&gt;
-    &lt;div class&#x3D;&quot;tab-pane fade&quot; [class.active]&#x3D;&quot;index &#x3D;&#x3D; 0&quot; [class.show]&#x3D;&quot;index &#x3D;&#x3D; 0&quot;  *ngFor&#x3D;&quot;let item of tabs;  let index &#x3D; index&quot; id&#x3D;&quot;{{item.name}}&quot; role&#x3D;&quot;tabpanel&quot; aria-labelledby&#x3D;&quot;home-tab&quot;&gt;
-      &lt;tab-wrapper [type]&#x3D;&quot;item.component&quot;&gt;&lt;/tab-wrapper&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;ul class&#x3D;&quot;nav nav-tabs tabs-below&quot; id&#x3D;&quot;myTab&quot; role&#x3D;&quot;tablist&quot;&gt;
-    &lt;li class&#x3D;&quot;nav-item&quot; *ngFor&#x3D;&quot;let item of tabs;  let index &#x3D; index&quot;&gt;
-      &lt;a class&#x3D;&quot;nav-link&quot; [class.active]&#x3D;&quot;index &#x3D;&#x3D; 0&quot; id&#x3D;&quot;home-tab&quot; data-toggle&#x3D;&quot;tab&quot; href&#x3D;&quot;#{{item.name}}&quot; role&#x3D;&quot;tab&quot; aria-controls&#x3D;&quot;home&quot;
-        aria-selected&#x3D;&quot;true&quot;&gt;{{item.name}}&lt;/a&gt;
-    &lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/div&gt;</code></pre>
-    </div>
-
-    <div class="tab-pane fade " id="c-styleData">
-                <p class="comment">
-                    <code>./inverted-tabs.component.scss</code>
-                </p>
-                <pre class="line-numbers"><code class="language-scss">@import &quot;./../theme/base.scss&quot;;
-
-.tabs-below {
-    border-bottom-width: 0px;
-    border-top: 1px solid $color-grey-de;
-  }
-  
-  .tabs-below .nav-link {
-      border: 1px solid transparent;
-      border-top-left-radius: 0px;
-      border-top-right-radius: 0px;
-      border-bottom-left-radius: .25rem;
-      border-bottom-right-radius: .25rem;
-  }
-  
-  .tabs-below .nav-item {
-    margin-bottom: 0px;
-    margin-top: -1px;
-  }
-  
-  .tabs-below .nav-item.show .nav-link, .tabs-below .nav-link.active {
-    border-color: #fff $color-grey-de $color-grey-de  $color-grey-de;
-  }
-
-  #myTabContent {
-    border-top: 1px solid $color-white;
-    border-left: 1px solid $color-white;
-    border-right: 1px solid $color-white;
-  }
-  
-  p {
-    margin: 0 0 0px;
-  }
-  
-  a {
-    color: $color-dark-gray;
-  }
-  
-  
-  </code></pre>
-    </div>
 
     <div class="tab-pane fade " id="c-tree">
         <div id="tree-container"></div>

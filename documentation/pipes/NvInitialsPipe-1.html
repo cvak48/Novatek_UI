@@ -49,9 +49,6 @@
         <li class="active">
             <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
         </li>
-        <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
-        </li>
 </ul>
 
 <div class="tab-content">
@@ -102,12 +99,6 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="8"
-                            class="link-to-prism">src/app/reusable/pipes/text-initials/nv-initials.pipe.ts:8</a></div>
-                </td>
-            </tr>
 
 
             <tr>
@@ -157,24 +148,6 @@
     </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Pipe, PipeTransform } from &#x27;@angular/core&#x27;;
-
-@Pipe({
-  name: &#x27;nvInitials&#x27;
-})
-export class NvInitialsPipe implements PipeTransform {
-
-  transform(name: string): string {
-    const splitNames &#x3D; name?.trim().split(&#x27; &#x27;);
-    const firstLetter &#x3D; splitNames?.length &gt; 0 ? splitNames[0].trim().substring(0, 1).toUpperCase() : &#x27;&#x27;;
-    const secondLetter &#x3D; splitNames?.length &gt; 1 ? splitNames[1].trim().substring(0, 1).toUpperCase() : &#x27;&#x27;;
-    return (firstLetter + secondLetter);
-  }
-
-}
-</code></pre>
-    </div>
 
 </div>
 

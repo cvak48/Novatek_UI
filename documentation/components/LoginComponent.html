@@ -46,15 +46,6 @@
             <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
         </li>
         <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
-        </li>
-        <li >
-            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
-        </li>
-        <li >
-            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
-        </li>
-        <li >
             <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
         </li>
 </ul>
@@ -191,11 +182,6 @@
 <code>constructor()</code>
                     </td>
                 </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/auth/login/login.component.ts:28</a></div>
-                            </td>
-                        </tr>
 
             </tbody>
         </table>
@@ -228,12 +214,6 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">src/app/auth/login/login.component.ts:40</a></div>
-                </td>
-            </tr>
 
 
             <tr>
@@ -267,12 +247,6 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="45"
-                            class="link-to-prism">src/app/auth/login/login.component.ts:45</a></div>
-                </td>
-            </tr>
 
 
             <tr>
@@ -304,12 +278,6 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">src/app/auth/login/login.component.ts:34</a></div>
-                </td>
-            </tr>
 
 
             <tr>
@@ -357,11 +325,6 @@
   }</code>
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/auth/login/login.component.ts:19</a></div>
-                        </td>
-                    </tr>
 
 
         </tbody>
@@ -393,11 +356,6 @@
   ]</code>
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/auth/login/login.component.ts:24</a></div>
-                        </td>
-                    </tr>
 
 
         </tbody>
@@ -425,11 +383,6 @@
                         <i>Default value : </i><code>false</code>
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/auth/login/login.component.ts:9</a></div>
-                        </td>
-                    </tr>
 
 
         </tbody>
@@ -464,11 +417,6 @@
   ]</code>
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/auth/login/login.component.ts:10</a></div>
-                        </td>
-                    </tr>
 
 
         </tbody>
@@ -478,296 +426,8 @@
 </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
-
-@Component({
-  selector: &#x27;app-login&#x27;,
-  templateUrl: &#x27;./login.component.html&#x27;,
-  styleUrls: [&#x27;./login.component.scss&#x27;]
-})
-export class LoginComponent implements OnInit {
-  public showPassword: boolean &#x3D; false;
-  public states &#x3D; [
-    { value: &#x27;Alberta&#x27; },
-    { value: &#x27;Manitoba&#x27; },
-    { value: &#x27;Nunavut&#x27; },
-    { value: &#x27;Ontario&#x27; },
-    { value: &#x27;Quebec&#x27; },
-    { value: &#x27;Saskatchewan&#x27; }
-  ]
-
-  public customLogoSize &#x3D; {
-    width:&#x27;200&#x27;,
-    height: &#x27;50&#x27;
-  }
-
-  public Domain &#x3D; [
-    { value: &#x27;Doctor&#x27; },
-    { value: &#x27;Pharma&#x27; },
-    { value: &#x27;Nurse&#x27; }
-  ]
-  constructor() { }
-
-  /**
-  * Life cycle hook of Angular
-  */
-  ngOnInit(): void {
-  }
-
-  /**
-  * showPassword vairable state to shows the password feild
-  */
-  askPassword() {
-    this.showPassword &#x3D; true;
-  }
-
-  // Auth the user
-  authenticateuser() {
-    
-  }
-
-}
-</code></pre>
-    </div>
-
-    <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container-fluid&quot;&gt;
-  &lt;div class&#x3D;&quot;row&quot;&gt;
-    &lt;!-- Right Section --&gt;
-    &lt;div class&#x3D;&quot;col-md-8 right-section&quot;&gt;
-      &lt;div class&#x3D;&quot;login-txt&quot;&gt;
-        &lt;h1 class&#x3D;&quot;organiztion-intro&quot;&gt;Welcome to the&lt;/h1&gt;
-        &lt;h1 class&#x3D;&quot;organization-txt&quot;&gt;NOVATEK CLOUD SOLUTION&lt;/h1&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;!-- Left Section --&gt;
-    &lt;div class&#x3D;&quot;col-md-4 background-liner&quot;&gt;
-      &lt;div class&#x3D;&quot;login-card&quot;&gt;
-        &lt;mat-card class&#x3D;&quot;example-card&quot;&gt;
-          &lt;mat-card-header&gt;
-            &lt;app-novatek-logo [logosize]&#x3D;&#x27;customLogoSize&#x27; class&#x3D;&quot;novatek-logo-center&quot;&gt;&lt;/app-novatek-logo&gt;
-            &lt;mat-divider class&#x3D;&quot;header-divider&quot;&gt;&lt;/mat-divider&gt;
-          &lt;/mat-card-header&gt;
-          &lt;mat-card-content&gt;
-            &lt;div class&#x3D;&quot;user-txt&quot;&gt;
-              &lt;h1 class&#x3D;&quot;user-txt-name&quot;&gt; User Login&lt;/h1&gt;
-            &lt;/div&gt;
-            &lt;mat-divider class&#x3D;&quot;body-divider&quot;&gt;&lt;/mat-divider&gt;
-            &lt;div class&#x3D;&quot;login-items&quot;&gt;
-              &lt;!-- User Name --&gt;
-              &lt;div class&#x3D;&quot;form-group&quot;&gt;
-                &lt;label for&#x3D;&quot;name&quot; class&#x3D;&quot;control-label label-weight&quot;&gt;User Name&lt;/label&gt;
-                &lt;label for&#x3D;&quot;forgotuser&quot; class&#x3D;&quot;control-label forgot-user&quot;&gt;Forgot User Name&lt;/label&gt;
-                &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; placeholder&#x3D;&quot;Username&quot; aria-label&#x3D;&quot;Username&quot;&gt;
-              &lt;/div&gt;
-              &lt;!-- Site --&gt;
-              &lt;div class&#x3D;&quot;form-group&quot;&gt;
-                &lt;label for&#x3D;&quot;name&quot; class&#x3D;&quot;control-label label-weight&quot;&gt;Site&lt;/label&gt;
-                &lt;select class&#x3D;&quot;form-control&quot; id&#x3D;&quot;exampleFormControlSelect1&quot; placeholder&#x3D;&quot;Username&quot;&gt;
-                  &lt;option&gt;Select Site&lt;/option&gt;
-                  &lt;option *ngFor&#x3D;&#x27;let state of states&#x27;&gt;{{state.value}}&lt;/option&gt;
-                &lt;/select&gt;
-              &lt;/div&gt;
-              &lt;!-- Domain --&gt;
-              &lt;div class&#x3D;&quot;form-group&quot;&gt;
-                &lt;label for&#x3D;&quot;name&quot; class&#x3D;&quot;control-label label-weight&quot;&gt;Domain&lt;/label&gt;
-                &lt;select class&#x3D;&quot;form-control&quot; id&#x3D;&quot;exampleFormControlSelect1&quot;&gt;
-                  &lt;option&gt;Select Domain&lt;/option&gt;
-                  &lt;option *ngFor&#x3D;&#x27;let user of Domain&#x27;&gt;{{user.value}}&lt;/option&gt;
-                &lt;/select&gt;
-              &lt;/div&gt;
-              &lt;!-- Password --&gt;
-              &lt;!-- Password is only visible when showpassword value is true --&gt;
-              &lt;div class&#x3D;&quot;form-group&quot; *ngIf&#x3D;&#x27;showPassword&#x27;&gt;
-                &lt;label for&#x3D;&quot;name&quot; class&#x3D;&quot;control-label label-weight&quot;&gt;Password&lt;/label&gt;
-                &lt;label for&#x3D;&quot;forgotuser&quot; class&#x3D;&quot;control-label forgot-user&quot;&gt;Forgot Password&lt;/label&gt;
-                &lt;input type&#x3D;&quot;password&quot; class&#x3D;&quot;form-control&quot; placeholder&#x3D;&quot;Password&quot; aria-label&#x3D;&quot;Password&quot;&gt;
-              &lt;/div&gt;
-            &lt;/div&gt;
-          &lt;/mat-card-content&gt;
-          &lt;mat-divider&gt;&lt;/mat-divider&gt;
-          &lt;mat-card-actions align&#x3D;&quot;end&quot;&gt;
-            &lt;!-- Next button --&gt;
-            &lt;button *ngIf&#x3D;&#x27;!showPassword&#x27; class&#x3D;&quot;nxt-btn&quot; mat-raised-button (click)&#x3D;&#x27;askPassword()&#x27;&gt;Next&lt;/button&gt;
-            &lt;!-- Login Button is only visible when showpassword value is true --&gt;
-            &lt;button *ngIf&#x3D;&#x27;showPassword&#x27; class&#x3D;&quot;nxt-btn&quot; mat-raised-button (click)&#x3D;&#x27;authenticateuser()&#x27;&gt;Login&lt;/button&gt;
-          &lt;/mat-card-actions&gt;
-        &lt;/mat-card&gt;
-      &lt;/div&gt;
-      &lt;!-- Login Footer --&gt;
-      &lt;nova-login-footer&gt;&lt;/nova-login-footer&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-    </div>
-
-    <div class="tab-pane fade " id="c-styleData">
-                <p class="comment">
-                    <code>./login.component.scss</code>
-                </p>
-                <pre class="line-numbers"><code class="language-scss">@import &quot;./../../reusable/theme/base.scss&quot;;
-
-.right-section {
-    height: 100vh;
-    background-image: linear-gradient(160deg, $color-dark-blue-10, $color-dark-blue);
-}
-
-.novatek-logo-center {
-    margin: 0 auto;
-    margin-top: $margin-25 !important;
-}
-
-::ng-deep .mat-card-header-text {
-    margin: 0px !important;
-}
-
-::ng-deep .mat-card {
-    padding: 0px !important;
-}
-
-::ng-deep .mat-card:not([class*&#x3D;mat-elevation-z]) {
-    box-shadow: -11px -9px 12px $color-white-20, 10px 6px 21px 0px rgb(1 0 0 / 14%), -2px 3px 15px -6px $color-white-20
-}
-
-.user-txt {
-    margin-top: 8% !important;
-}
-
-.nxt-btn {
-    margin: 10px 0 10px 0 !important;
-    box-shadow: none !important;
-    border: 1px solid $color-dark-gray;
-}
-
-.nxt-btn:hover {
-    color: $color-black-09;
-    background-color: $color-grey-c7 !important;
-}
-
-button:focus {
-    outline: none !important;
-}
-
-.nxt-btn:active {
-    color:$color-black-09;
-    background-color: $color-white-f6 !important;
-    border: $color-dark-gray
-}
-
-select {
-    background-image: linear-gradient(45deg, transparent 50%, $color-black-27 60%), linear-gradient(135deg, $color-black-1f 40%, transparent 50%) !important;
-    background-position: calc(100% - 30px) 14px, calc(100% - 25px) 14px, 100% 0;
-    background-size: 6px 6px, 6px 6px;
-    background-repeat: no-repeat;
-    -webkit-appearance: none;
-}
 
 
-
-
-.login-items {
-    padding: $padding-16;
-    background-color: $color-white-f3;
-}
-
-::ng-deep .mat-card-actions,
-.mat-card-subtitle,
-.mat-card-content {
-    margin-bottom: 0px;
-}
-
-::ng-deep .mat-card&gt;.mat-card-actions:last-child {
-    padding: $padding-16;
-    margin-bottom: 0px !important;
-    background: $color-white-f3;
-    margin-right: 0px !important;
-    margin-left: 0px !important;
-    border-radius: 10px;
-    border-bottom: 1px solid $color-grey-b6;
-}
-
-.login-card {
-    height: 94vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-button {
-    background-color: $color-light-gray;
-}
-
-::ng-deep .mat-card {
-    width: 75%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    vertical-align: middle;
-    border-radius: 10px !important;
-    border: 1px solid $color-grey-b6;
-}
-
-.forgot-user {
-    float: right;
-    text-decoration: underline;
-    color: $color-dark-blue-12;
-}
-
-.login-txt {
-    margin-left: 10%;
-    top: 40%;
-    position: absolute;
-}
-
-.organization-txt {
-    font-size: $font-size-xxx-large;
-    line-height: 1;
-    color: $color-white;
-    font-weight: bold;
-    font-family: Lato;
-}
-
-.organiztion-intro {
-    font-family: Lato;
-    font-weight: bold;
-    color: $color-white;
-    font-size: $font-size-xx-large;
-}
-
-.label-weight {
-    font-weight: $font-weight-normal;
-}
-
-.header-divider {
-    margin-top: 28%;
-    border-top-color:$color-black-rgba;
-}
-
-.user-txt-name {
-    font-weight: $font-weight-semi-bold;
-    margin-left: $padding-16;
-    font-family: Lato;
-    margin-bottom: 2%;
-}
-
-.body-divider {
-    box-shadow: 0px 1px 2px;
-}
-
-.background-liner {
-    background: transparent linear-gradient(180deg, $color-white-20 0%, $color-grey-d5 32%, $color-grey-ff 63%, $color-grey-ea 69%, $color-light-gray-20 100%) 0% 0% no-repeat padding-box
-}
-
-::ng-deep .mat-card {
-    background-color: $color-white-f3;
-}
-
-::ng-deep .form-control {
-    font-family: Lato;
-}</code></pre>
-    </div>
 
     <div class="tab-pane fade " id="c-tree">
         <div id="tree-container"></div>

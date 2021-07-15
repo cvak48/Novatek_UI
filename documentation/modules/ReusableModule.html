@@ -200,9 +200,6 @@
     <li  class="active" >
         <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
     </li>
-    <li >
-        <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
-    </li>
 </ul>
 
 <div class="tab-content">
@@ -273,114 +270,6 @@
     </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { FilterAllPipe } from &#x27;./pipes/filters/filterAll/filter-all.pipe&#x27;;
-import { AdvanceFilterPipe } from &#x27;./pipes/filters/advance-filter/advance-filter.pipe&#x27;;
-import { NvTrimPipe } from &#x27;./pipes/nv-trim/nv-trim.pipe&#x27;;
-import { RattingComponent } from &#x27;./ratting/ratting.component&#x27;;
-import { NvCustomComponentComponent } from &#x27;./nv-custom-component/nv-custom-component.component&#x27;;
-import { UploadComponent } from &#x27;./upload/upload.component&#x27;;
-import { NvFileUploadDirective } from &#x27;./directives/file-upload/nv-file-upload.directive&#x27;;
-import { NvDropdownComponent } from &#x27;./nv-dropdown/nv-dropdown.component&#x27;;
-import { UserProfileMenuComponent } from &#x27;./user-profile-menu/user-profile-menu.component&#x27;;
-import { NotificationComponent } from &#x27;./notification/notification.component&#x27;;
-import { NvInitialsPipe } from &#x27;./pipes/nv-initials/nv-initials.pipe&#x27;;
-import { AvatarComponent } from &#x27;./avatar/avatar.component&#x27;;
-import { SearchComponent } from &#x27;./search/search.component&#x27;;
-import { MaterialModule } from &#x27;./../material.module&#x27;;
-import { FormsModule, ReactiveFormsModule } from &#x27;@angular/forms&#x27;;
-import { NgModule } from &#x27;@angular/core&#x27;;
-import { CommonModule } from &#x27;@angular/common&#x27;;
-import { FooterComponent } from &#x27;./footer/footer.component&#x27;;
-import { SideNavComponent } from &#x27;./side-nav/side-nav.component&#x27;;
-import { NovatekLogoComponent } from &#x27;./novatek-logo/novatek-logo.component&#x27;;
-import { PanelComponent } from &#x27;./panel/panel.component&#x27;;
-import { TextAreaComponent } from &#x27;./text-area/text-area.component&#x27;;
-import { CommentBoxComponent } from &#x27;./comment-box/comment-box.component&#x27;;
-import { TabsComponent } from &#x27;./tabs/tabs.component&#x27;;
-import { TabWrapper } from &#x27;./tabs/tabs-wrapper.component&#x27;;
-import { InvertedTabsComponent } from &#x27;./inverted-tabs/inverted-tabs.component&#x27;;
-import { LeftTabComponent } from &#x27;./left-tab/left-tab.component&#x27;;
-import { RightTabComponent } from &#x27;./right-tab/right-tab.component&#x27;;
-import { FeedComponent } from &#x27;./feed/feed.component&#x27;;
-import { PlaceholderCardComponent } from &#x27;./placeholder/placeholder-card/placeholder-card.component&#x27;;
-import { PlaceholderListComponent } from &#x27;./placeholder/placeholder-list/placeholder-list.component&#x27;;
-import { PlaceholderBannerComponent } from &#x27;./placeholder/placeholder-banner/placeholder-banner.component&#x27;;
-import { PlaceholderBigCardComponent } from &#x27;./placeholder/placeholderBigCard/placeholderBigCard.component&#x27;;
-import { MatTableModule } from &#x27;@angular/material/table&#x27;;
-import { CustomDatatableComponent } from &#x27;./custom-datatable/custom-datatable.component&#x27;;
-import {MatFormFieldModule} from &quot;@angular/material/form-field&quot;;
-import {MatInputModule} from &quot;@angular/material/input&quot;;
-import {MatPaginatorModule} from &quot;@angular/material/paginator&quot;;
-import {MatSortModule} from &quot;@angular/material/sort&quot;;
-import {MatIconModule} from &quot;@angular/material/icon&quot;;
-import {MatButtonModule} from &quot;@angular/material/button&quot;;
-import { DataPropertyGetterPipe } from &#x27;./custom-datatable/data-property-getter-pipe/data-property-getter.pipe&#x27;;
-import { TestComponent } from &#x27;../main/test/test.component&#x27;;
-import { ProgressiveBarComponent } from &#x27;./progressive-bar/progressive-bar.component&#x27;;
-
-
-const sharedComponents &#x3D; [
-  NvInitialsPipe,
-  AdvanceFilterPipe,
-  FilterAllPipe,
-  NvTrimPipe,
-  NvFileUploadDirective,
-  FooterComponent,
-  SideNavComponent,
-  NovatekLogoComponent,
-  CustomDatatableComponent,
-  DataPropertyGetterPipe,
-  PanelComponent,
-  SearchComponent,
-  TextAreaComponent,
-  AvatarComponent,
-  NotificationComponent,
-  UserProfileMenuComponent,
-  PanelComponent,
-  SearchComponent,
-  CommentBoxComponent,
-  TextAreaComponent,
-  NvDropdownComponent,
-  UploadComponent,
-  TestComponent,
-  TabsComponent,
-  TabWrapper,
-  InvertedTabsComponent,
-  LeftTabComponent,
-  RightTabComponent,
-  FeedComponent,
-  PlaceholderCardComponent,
-  PlaceholderListComponent,
-  PlaceholderBannerComponent,
-  PlaceholderBigCardComponent,
-  NvCustomComponentComponent,
-  UploadComponent,
-  RattingComponent,
-  ProgressiveBarComponent
-];
-
-@NgModule({
-  declarations: sharedComponents,
-  imports: [
-    CommonModule,
-    MatTableModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatIconModule,
-    MatButtonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MaterialModule,
-  ],
-  exports: sharedComponents,
-  providers: [FilterAllPipe, AdvanceFilterPipe ]
-})
-export class ReusableModule { }
-</code></pre>
-    </div>
 </div>
 
 

@@ -46,15 +46,6 @@
             <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
         </li>
         <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
-        </li>
-        <li >
-            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
-        </li>
-        <li >
-            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
-        </li>
-        <li >
             <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
         </li>
 </ul>
@@ -172,11 +163,6 @@
 <code>constructor()</code>
                     </td>
                 </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/reusable/panel/panel.component.ts:10</a></div>
-                            </td>
-                        </tr>
 
             </tbody>
         </table>
@@ -209,12 +195,6 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="13"
-                            class="link-to-prism">src/app/reusable/panel/panel.component.ts:13</a></div>
-                </td>
-            </tr>
 
 
             <tr>
@@ -256,11 +236,6 @@
                         <i>Default value : </i><code>false</code>
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/reusable/panel/panel.component.ts:10</a></div>
-                        </td>
-                    </tr>
 
 
         </tbody>
@@ -270,91 +245,8 @@
 </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
 
-@Component({
-  selector: &#x27;app-nova-panel&#x27;,
-  templateUrl: &#x27;./panel.component.html&#x27;,
-  styleUrls: [&#x27;./panel.component.scss&#x27;]
-})
-export class PanelComponent implements OnInit {
 
-  showPanel: boolean &#x3D; false;
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
-</code></pre>
-    </div>
-
-    <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container&quot;&gt;
-  &lt;div class&#x3D;&quot;card custom-card&quot; *ngIf&#x3D;&quot;!showPanel&quot;&gt;
-      &lt;div class&#x3D;&quot;card-header&quot;&gt;
-        &lt;span class&#x3D;&quot;panel-titleTxt&quot;&gt;Panel&lt;/span&gt;  
-        
-        &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;showPanel&#x3D;!showPanel&quot; class&#x3D;&quot;close mg-15&quot; aria-label&#x3D;&quot;Close&quot;&gt;
-          &lt;span aria-hidden&#x3D;&quot;true&quot;&gt;&lt;img src&#x3D;&quot;../../../assets/icons/ico.close.svg&quot; /&gt;&lt;/span&gt;
-        &lt;/button&gt;
-        &lt;button type&#x3D;&quot;button&quot;  class&#x3D;&quot;close&quot; aria-label&#x3D;&quot;drop&quot;&gt;
-          &lt;span aria-hidden&#x3D;&quot;true&quot;&gt;&lt;img src&#x3D;&quot;../../../assets/icons/ico.paneldropdown.svg&quot; /&gt;&lt;/span&gt;
-        &lt;/button&gt;
-      &lt;/div&gt;
-      &lt;div class&#x3D;&quot;card-body &quot;&gt;
-          &lt;div class&#x3D;&quot;shadow-div shadow-sm&quot;&gt;
-            &lt;ng-content&gt;&lt;/ng-content&gt;
-          &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-    </div>
-
-    <div class="tab-pane fade " id="c-styleData">
-                <p class="comment">
-                    <code>./panel.component.scss</code>
-                </p>
-                <pre class="line-numbers"><code class="language-scss">@import &quot;../../reusable/theme/base.scss&quot;;
-
-.custom-card {
-    border-radius: 15px !important;
-  .card-header {
-    font-size: 12px;
-    padding: 8px 12px 5px 10px;
-    border-top-left-radius: 15px !important;
-    border-top-right-radius: 15px !important;
-  }
-  .card-body {
-    padding: 0px;
-    padding: 10px;
-    background: $color-light-gray;
-    border-bottom-left-radius: 15px !important;
-    border-bottom-right-radius: 15px !important;
-  }
-  .shadow-sm {
-    // box-shadow: 0 0 0.5rem rgb(17 17 17 / 70%) !important;
-    width: 100%;
-    border: 1px solid $color-light-gray-80;
-    min-height: 145px;
-    background-color: $color-white-20;
-    border-bottom-left-radius: 15px !important;
-    border-bottom-right-radius: 15px !important;
-  }
-  .panel-titleTxt {
-    color: $color-light-gray-40;
-    font-weight: 500;
-    font-size: 18px;
-    margin-left: 10px;
-  }
-  .mg-15 {
-    margin-left: 8px;
-  }
-}
-</code></pre>
-    </div>
 
     <div class="tab-pane fade " id="c-tree">
         <div id="tree-container"></div>

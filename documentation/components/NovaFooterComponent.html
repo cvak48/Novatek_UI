@@ -46,15 +46,6 @@
             <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
         </li>
         <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
-        </li>
-        <li >
-            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
-        </li>
-        <li >
-            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
-        </li>
-        <li >
             <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
         </li>
 </ul>
@@ -172,11 +163,6 @@
 <code>constructor()</code>
                     </td>
                 </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/layout/nova-footer/nova-footer.component.ts:9</a></div>
-                            </td>
-                        </tr>
 
             </tbody>
         </table>
@@ -209,12 +195,6 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="12"
-                            class="link-to-prism">src/app/layout/nova-footer/nova-footer.component.ts:12</a></div>
-                </td>
-            </tr>
 
 
             <tr>
@@ -256,11 +236,6 @@
                         <i>Default value : </i><code>&quot;../../../assets/icons/ico.flag.svg&quot;</code>
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/layout/nova-footer/nova-footer.component.ts:9</a></div>
-                        </td>
-                    </tr>
 
 
         </tbody>
@@ -270,92 +245,8 @@
 </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
 
-@Component({
-  selector: &#x27;app-nova-footer&#x27;,
-  templateUrl: &#x27;./nova-footer.component.html&#x27;,
-  styleUrls: [&#x27;./nova-footer.component.scss&#x27;]
-})
-export class NovaFooterComponent implements OnInit {
-  flagIcon &#x3D; &quot;../../../assets/icons/ico.flag.svg&quot;;
-  constructor() { }
 
-  ngOnInit(): void {
-  }
-
-}
-</code></pre>
-    </div>
-
-    <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container-fluid&quot; id&#x3D;&quot;myNavbar&quot;&gt;
-  &lt;div class&#x3D;&quot;row&quot;&gt;
-    &lt;div class&#x3D;&quot;col-6&quot;&gt;
-      &lt;ul class&#x3D;&quot;list-inlin&quot;&gt;
-        &lt;li&gt;@2021 All Rights Reserved &lt;a href&#x3D;&quot;#&quot;&gt;ntint@com&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;
-          Language:
-          &lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;language&quot;
-            &gt;&lt;img src&#x3D;&quot;{{ flagIcon }}&quot; /&gt;
-            &lt;span class&#x3D;&quot;link-txt&quot;&gt;English&lt;/span&gt;&lt;/a
-          &gt;
-        &lt;/li&gt;
-      &lt;/ul&gt;
-    &lt;/div&gt;
-    &lt;div class&#x3D;&quot;col-6&quot;&gt;
-      &lt;ul class&#x3D;&quot;list-inlin&quot; style&#x3D;&quot;float: right&quot;&gt;
-        &lt;li&gt;User:&lt;a href&#x3D;&quot;#&quot;&gt;John Smith &lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;| Site: &lt;a href&#x3D;&quot;#&quot;&gt;New Jersey&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;
-          Database:
-          &lt;a href&#x3D;&quot;#&quot;&gt;Production | Feburary 22, 2021 - 4:20 PM EST &lt;/a&gt;
-        &lt;/li&gt;
-      &lt;/ul&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-    </div>
-
-    <div class="tab-pane fade " id="c-styleData">
-                <p class="comment">
-                    <code>./nova-footer.component.scss</code>
-                </p>
-                <pre class="line-numbers"><code class="language-scss">@import &quot;../../reusable/theme/base.scss&quot;;
-
-div#myNavbar {
-  position: fixed;
-  bottom: 0px;
-  width: 94%;
-  background: $color-light-gray;
-  padding: 15px;
-  margin-bottom: 0;
-  border: 1px solid $colo-light1-gray;
-  .list-inlin li {
-    display: inline-block;
-    margin-bottom: 0 !important;
-    font-size: $font-size-xx-small;
-    font-weight: 400;
-    a {
-      padding: 0 5px;
-      color: $color-light-gray-40;
-      font-size: $font-size-xx-small;
-      font-weight: 500;
-    }
-    &amp; .link-txt {
-      color: $color-light-blue-40;
-      margin-left: 5px;
-    }
-  }
-}
-
-ul.list-inlin {
-  margin-bottom: 0px;
-}
-</code></pre>
-    </div>
 
     <div class="tab-pane fade " id="c-tree">
         <div id="tree-container"></div>

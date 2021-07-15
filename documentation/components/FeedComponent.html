@@ -46,15 +46,6 @@
             <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
         </li>
         <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
-        </li>
-        <li >
-            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
-        </li>
-        <li >
-            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
-        </li>
-        <li >
             <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
         </li>
 </ul>
@@ -181,11 +172,6 @@
 <code>constructor()</code>
                     </td>
                 </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/reusable/feed/feed.component.ts:42</a></div>
-                            </td>
-                        </tr>
 
             </tbody>
         </table>
@@ -218,12 +204,6 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="48"
-                            class="link-to-prism">src/app/reusable/feed/feed.component.ts:48</a></div>
-                </td>
-            </tr>
 
 
             <tr>
@@ -255,12 +235,6 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="45"
-                            class="link-to-prism">src/app/reusable/feed/feed.component.ts:45</a></div>
-                </td>
-            </tr>
 
 
             <tr>
@@ -297,11 +271,6 @@
 
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/reusable/feed/feed.component.ts:10</a></div>
-                        </td>
-                    </tr>
 
 
         </tbody>
@@ -358,11 +327,6 @@
         }]</code>
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/reusable/feed/feed.component.ts:12</a></div>
-                        </td>
-                    </tr>
 
 
         </tbody>
@@ -389,11 +353,6 @@
                         <i>Default value : </i><code>&#x27;https://tse1.mm.bing.net/th?id&#x3D;OIP.E45HCyveqDL44p8lmvQL9AAAAA&amp;pid&#x3D;Api&amp;P&#x3D;0&#x27;</code>
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/reusable/feed/feed.component.ts:11</a></div>
-                        </td>
-                    </tr>
 
 
         </tbody>
@@ -403,181 +362,8 @@
 </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
-import { Feed } from &#x27;src/app/model/feed&#x27;;
 
-@Component({
-  selector: &#x27;app-feed&#x27;,
-  templateUrl: &#x27;./feed.component.html&#x27;,
-  styleUrls: [&#x27;./feed.component.scss&#x27;]
-})
-export class FeedComponent implements OnInit {
-  commentText: any;
-  imageURL &#x3D; &#x27;https://tse1.mm.bing.net/th?id&#x3D;OIP.E45HCyveqDL44p8lmvQL9AAAAA&amp;pid&#x3D;Api&amp;P&#x3D;0&#x27;;
-  feedData: Feed[] &#x3D; [{
-          &#x27;authorName&#x27;: &#x27;User1&#x27;,
-          &#x27;authorLink&#x27;: &#x27;&#x27;,
-          &#x27;action&#x27;: &#x27;added you as friend&#x27;,
-          &#x27;message&#x27;: &#x27;&#x27;,
-          &#x27;attachments&#x27;: [],
-          &#x27;likes&#x27;: 40
-        },
-        {
-          &#x27;authorName&#x27;: &#x27;User2&#x27;,
-          &#x27;authorLink&#x27;: &#x27;&#x27;,
-          &#x27;action&#x27;: &#x27;posted on page&#x27;,
-          &#x27;message&#x27;: &#x27;Someone added you as a friend Someone added you as a friend Someone added you as a friend Someone added you as a friendSomeone added you as a friend Someone added you as a friend Someone added you as a friendSomeone added you as a friendSomeone added you as a friend Someone added you as a friend&#x27;,
-          &#x27;attachments&#x27;: [],
-          &#x27;likes&#x27;: 40
-        },
-        {
-          &#x27;authorName&#x27;: &#x27;User3&#x27;,
-          &#x27;authorLink&#x27;: &#x27;&#x27;,
-          &#x27;action&#x27;: &#x27;added attachments&#x27;,
-          &#x27;message&#x27;: &#x27;&#x27;,
-          &#x27;attachments&#x27;: [
-            {
-              &#x27;url&#x27;:&#x27;http://dwglogo.com/wp-content/uploads/2016/06/1700px_Novartis_logo.png&#x27;
-            },
-            {
-              &#x27;url&#x27;:&#x27;http://dwglogo.com/wp-content/uploads/2016/06/1700px_Novartis_logo.png&#x27;
-            }
-          ],
-          &#x27;likes&#x27;: 40
-        }]
-  constructor() { }
 
-  ngOnInit(): void {
-  }
-
-  addComment():void{
-    if (this.commentText) {
-      const commentObj: Feed &#x3D; {
-        &#x27;authorName&#x27;: &#x27;User5&#x27;,
-        &#x27;authorLink&#x27;: &#x27;&#x27;,
-        &#x27;action&#x27;: &#x27;posted on page&#x27;,
-        &#x27;message&#x27;: this.commentText,
-        &#x27;attachments&#x27;: [],
-        &#x27;likes&#x27;: 0
-      }
-      this.feedData.push(commentObj);
-      this.commentText &#x3D;&#x27;&#x27;;
-    }
-    
-  }
-
-}
-</code></pre>
-    </div>
-
-    <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;feed-main&quot;&gt;&lt;b class&#x3D;&quot;feed-title&quot;&gt;Feeds&lt;/b&gt;
-&lt;div class&#x3D;&quot;feed-text&quot;&gt;
-    &lt;div class&#x3D;&quot;ht-60&quot; *ngFor&#x3D;&quot;let data of feedData&quot;&gt;
-        &lt;div class&#x3D;&quot;feed-usr-icon&quot;&gt;
-            &lt;img class&#x3D;&quot;novatek-logo img-style&quot; alt&#x3D;&quot;Novatek Logo&quot; 
-             src&#x3D;&quot;{{imageURL}}&quot; /&gt;
-         &lt;/div&gt;
-         &lt;div class&#x3D;&quot;feed-details&quot;&gt;
-             &lt;div&gt;&lt;a href&#x3D;&quot;&quot;&gt;{{data.authorName}}&lt;/a&gt;&amp;nbsp;&lt;b&gt;{{data.action}}&lt;/b&gt;&amp;nbsp;&amp;nbsp;&lt;span class&#x3D;&quot;font-darkgrey&quot;&gt;1 hour ago&lt;/span&gt;&lt;/div&gt;
-             &lt;div class&#x3D;&quot;font-grey&quot; *ngIf&#x3D;&quot;data.message&quot;&gt;{{data.message}} &lt;/div&gt;
-             &lt;div *ngIf&#x3D;&quot;data.attachments.length&quot;&gt;
-                 &lt;span *ngFor&#x3D;&quot;let img of data.attachments&quot;&gt;
-                 &lt;img class&#x3D;&quot;novatek-logo img-attachment&quot; alt&#x3D;&quot;Novatek Logo&quot;
-             src&#x3D;&quot;{{img.url}}&quot; /&gt;
-            &lt;/span&gt;
-             
-             &lt;/div&gt;
-             &lt;div class&#x3D;&quot;pd-tp-5 font-grey&quot;&gt;{{data.likes}} Likes&lt;/div&gt;
-         &lt;/div&gt;
-        
-    &lt;/div&gt;
-    &lt;div class&#x3D;&quot;comment-button&quot;&gt;
-        &lt;textarea placeholder&#x3D;&quot;Add your comment&quot; class&#x3D;&quot;comment-box&quot; [(ngModel)]&#x3D;&quot;commentText&quot;&gt;&lt;/textarea&gt;
-        &lt;button class&#x3D;&quot;btn&quot; (click)&#x3D;&quot;addComment()&quot;&gt;Comment&lt;/button&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-    </div>
-
-    <div class="tab-pane fade " id="c-styleData">
-                <p class="comment">
-                    <code>./feed.component.scss</code>
-                </p>
-                <pre class="line-numbers"><code class="language-scss">.ht-60{
-    min-height:60px;
-}
-
-.feed-text{
-    font-size: 0.75rem;
-    margin-top: 3%;
-}
-.font-grey{
-    color:grey;
-}
-
-.feed-title{
-    padding-left: 2.5%;
-}
-.font-darkgrey{
-    color:darkgrey;
-}
-
-.img-style{
-    height:40px;
-    width:40px;
-    border-radius: 20px;
-}
-
-.img-attachment{
-    height:150px;
-    width:150px
-}
-
-.pd-tp-5{
-    padding-top: 5px;
-}
-
-.comment-box{
-    height: 80px;
-    width:90%
-}
-
-.comment-button{
-    margin: 2% 0% 0% 12%;
-}
-
-.feed-usr-icon{
-    display:inline-block;
-    width:100px;
-    position:absolute;
-    margin:0.5% 0 0 1%;
-}
-
-.feed-details{
-    margin: 3% 0 2% 0;
-    display:inline-block;
-    position: relative;
-    width:85%;
-    left:10%;
-    white-space: pre-line;
-}
-
-.feed-main{
-    border:1px solid darkgrey;
-    width:40%
-}
-
-.btn{
-    background: #FFC300;
-    border-radius: 5px;
-    font-weight: bold;
-    border: 1px solid;
-    margin-bottom: 2%;
-}</code></pre>
-    </div>
 
     <div class="tab-pane fade " id="c-tree">
         <div id="tree-container"></div>

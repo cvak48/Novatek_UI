@@ -124,9 +124,6 @@
     <li  class="active" >
         <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
     </li>
-    <li >
-        <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
-    </li>
 </ul>
 
 <div class="tab-content">
@@ -173,38 +170,6 @@
     </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
-import { CommonModule } from &#x27;@angular/common&#x27;;
-import { LoginComponent } from &#x27;./login/login.component&#x27;;
-import { MaterialModule } from &#x27;../material.module&#x27;;
-import { ReusableModule } from &#x27;../reusable/reusable.module&#x27;;
-import { RouterModule } from &#x27;@angular/router&#x27;;
-import { LayoutComponentModule } from &#x27;../layout&#x27;;
-
-
-
-@NgModule({
-  declarations: [
-    LoginComponent
-  ],
-  imports: [
-    CommonModule,
-    MaterialModule,
-    ReusableModule,
-    LayoutComponentModule,
-    RouterModule.forChild([
-      /**
-      * On application load, when user navigated to auth module it will point the login page
-      */
-      { path: &#x27;&#x27;, redirectTo: &#x27;login&#x27;, pathMatch: &#x27;full&#x27; },
-      { path: &#x27;login&#x27;, component: LoginComponent }
-    ])
-  ]
-})
-export class AuthModule { }
-</code></pre>
-    </div>
 </div>
 
 

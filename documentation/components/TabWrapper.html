@@ -46,9 +46,6 @@
             <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
         </li>
         <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
-        </li>
-        <li >
             <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
         </li>
 </ul>
@@ -189,11 +186,6 @@
 <code>constructor(componentFactoryResolver: <a href="https://angular.io/api/core/ComponentFactoryResolver" target="_blank">ComponentFactoryResolver</a>, compiler: <a href="https://angular.io/api/core/Compiler" target="_blank">Compiler</a>, cdRef: <a href="https://angular.io/api/core/ChangeDetectorRef" target="_blank">ChangeDetectorRef</a>)</code>
                     </td>
                 </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/reusable/tabs/tabs-wrapper.component.ts:12</a></div>
-                            </td>
-                        </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -269,11 +261,6 @@
 
                     </td>
                 </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/reusable/tabs/tabs-wrapper.component.ts:10</a></div>
-                            </td>
-                        </tr>
             </tbody>
         </table>
 </section>
@@ -303,12 +290,6 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="37"
-                            class="link-to-prism">src/app/reusable/tabs/tabs-wrapper.component.ts:37</a></div>
-                </td>
-            </tr>
 
 
             <tr>
@@ -340,12 +321,6 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="33"
-                            class="link-to-prism">src/app/reusable/tabs/tabs-wrapper.component.ts:33</a></div>
-                </td>
-            </tr>
 
 
             <tr>
@@ -377,12 +352,6 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="42"
-                            class="link-to-prism">src/app/reusable/tabs/tabs-wrapper.component.ts:42</a></div>
-                </td>
-            </tr>
 
 
             <tr>
@@ -414,12 +383,6 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="17"
-                            class="link-to-prism">src/app/reusable/tabs/tabs-wrapper.component.ts:17</a></div>
-                </td>
-            </tr>
 
 
             <tr>
@@ -456,11 +419,6 @@
 
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/reusable/tabs/tabs-wrapper.component.ts:11</a></div>
-                        </td>
-                    </tr>
 
 
         </tbody>
@@ -488,11 +446,6 @@
                         <i>Default value : </i><code>false</code>
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/reusable/tabs/tabs-wrapper.component.ts:12</a></div>
-                        </td>
-                    </tr>
 
 
         </tbody>
@@ -523,11 +476,6 @@
                         </code>
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/reusable/tabs/tabs-wrapper.component.ts:9</a></div>
-                        </td>
-                    </tr>
 
 
         </tbody>
@@ -558,11 +506,6 @@
                         </code>
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/reusable/tabs/tabs-wrapper.component.ts:10</a></div>
-                        </td>
-                    </tr>
 
 
         </tbody>
@@ -572,55 +515,6 @@
 </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule, Component, Compiler, ViewContainerRef, ViewChild, Input, ComponentRef, ComponentFactory, ComponentFactoryResolver, ChangeDetectorRef } from &#x27;@angular/core&#x27;
-
-// Helper component to add dynamic components
-@Component({
-    selector: &#x27;tab-wrapper&#x27;,
-    template: &#x60;&lt;div #target&gt;&lt;/div&gt;&#x60;
-})
-export class TabWrapper {
-    @ViewChild(&#x27;target&#x27;, { read: ViewContainerRef }) target: any;
-    @Input() type: any;
-    cmpRef!: ComponentRef&lt;any&gt;;
-    private isViewInitialized: boolean &#x3D; false;
-
-    constructor(private componentFactoryResolver: ComponentFactoryResolver, private compiler: Compiler,
-        private cdRef: ChangeDetectorRef) { }
-
-    updateComponent() {
-        if (!this.isViewInitialized) {
-            return;
-        }
-        if (this.cmpRef) {
-            this.cmpRef.destroy();
-        }
-
-        let factory &#x3D; this.componentFactoryResolver.resolveComponentFactory(this.type);
-        this.cmpRef &#x3D; this.target.createComponent(factory)
-        // to access the created instance use
-        // this.compRef.instance.someProperty &#x3D; &#x27;someValue&#x27;;
-        // this.compRef.instance.someOutput.subscribe(val &#x3D;&gt; doSomething());
-        this.cdRef.detectChanges();
-    }
-
-    ngOnChanges() {
-        this.updateComponent();
-    }
-
-    ngAfterViewInit() {
-        this.isViewInitialized &#x3D; true;
-        this.updateComponent();
-    }
-
-    ngOnDestroy() {
-        if (this.cmpRef) {
-            this.cmpRef.destroy();
-        }
-    }
-}</code></pre>
-    </div>
 
 
 

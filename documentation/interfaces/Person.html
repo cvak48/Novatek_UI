@@ -53,9 +53,6 @@
         <li class="active">
             <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
         </li>
-        <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
-        </li>
 </ul>
 
 <div class="tab-content">
@@ -259,108 +256,6 @@
     </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NvCustomComponent } from &#x27;./../../../reusable/nv-custom-component/nv-custom-component.component&#x27;;
-
-import { Component, OnInit } from &#x27;@angular/core&#x27;;
-
-export interface Person {
-id: number;
-name: string;
-imageUrl: string;
-notification?: Notification;
-}
-export interface Notification {
-  number?: number | any;
-  content?: string;
-  hasAttachment?: boolean;
-}
-export enum NvComponent {
-  // First: Add the name of your reusable component to this enum
-  Search,
-  AdvancedSearch,
-  NovaLogo,
-  Notification,
-  Avatar,
-  ProfileMenu,
-  Header,
-  Dropdown,
-  DropToUpload,
-  NvCheckBox,
-  NvSliderBar,
-  NvSliderToggle,
-  NvRadioBut,
-}
-
-@Component({
-  selector: &#x27;app-demo-page&#x27;,
-  templateUrl: &#x27;./demo-page.component.html&#x27;,
-  styleUrls: [&#x27;./demo-page.component.scss&#x27;]
-})
-export class DemoPageComponent implements OnInit {
-  public selectedItem: NvComponent &#x3D; NvComponent.Search;
-  public nvComponentType &#x3D; NvComponent;
-   // Second: Provide input data for your reusable component here if needed
-   // Search
-   items: string[] &#x3D; [&#x27;Tablet&#x27;, &#x27;Phone&#x27;, &#x27;Laptop&#x27;, &#x27;Keyboard&#x27;];
-   // footer
-   // Avatar
-   person: Person &#x3D; mockProfileMenu();
-   //CustomComponent
-   nvCheckBox &#x3D; NvCustomComponent.CheckBox;
-   nvSliderBar &#x3D; NvCustomComponent.SliderBar;
-   nvSliderToggle &#x3D; NvCustomComponent.SlidToggle;
-   nvRadioBut &#x3D; NvCustomComponent.RadioButton;
-   // search
-   isAdvance &#x3D;  mockAdvanceSearchInput().isAdvance;
-   showMenu &#x3D;  mockAdvanceSearchInput().showMenu;
-   list: any &#x3D; mockAdvanceSearchInput().list;
-   searchableRefList &#x3D;  mockAdvanceSearchInput().searchableRefList;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-  public onItemClick(selectedItem: NvComponent): void {
-    this.selectedItem &#x3D; selectedItem;
-  }
-  onItemsFilter(list: any): void {
-    console.log(list);
-  }
-}
-
-function mockProfileMenu(): Person {
-  const avatarProps &#x3D; {
-    id: 1,
-    name: &#x27;Alex Green&#x27;,
-    imageUrl: &#x27;https://tse1.mm.bing.net/th?id&#x3D;OIP.E45HCyveqDL44p8lmvQL9AAAAA&amp;pid&#x3D;Api&amp;P&#x3D;0&#x27;,
-    notification: {
-      number: 20,
-      content: &#x27;&#x27;,
-      hasAttachment: false,
-    } as Notification,
-  } as Person;
-  return avatarProps;
-}
-
-function mockAdvanceSearchInput(): any {
-  const searchInput &#x3D; {
-    list: [
-      { id: 1, name: &#x27;prashobh&#x27;, age: &#x27;25&#x27;, date: &#x27;Mon Dec 2005 1995 00:00:00 GMT-0500&#x27;, email: &#x27;john@yahoo.com&#x27; },
-      { id: 2, name: &#x27;Abraham&#x27;,  age: &#x27;35&#x27;, date: &#x27;Mon Dec 2005 1995 00:00:00 GMT-0500&#x27;, email: &#x27;aohn@yahoo.com&#x27; },
-      { id: 3, name: &#x27;Sam&#x27;,      age: &#x27;45&#x27;, date: &#x27;Mon Dec 20005 1995 00:00:00 GMT-0500&#x27;, email: &#x27;bohn@yahoo.com&#x27; },
-      { id: 4, name: &#x27;Anil&#x27;,     age: &#x27;15&#x27;, date: &#x27;Mon Dec 200005 1995 00:00:00 GMT-0500&#x27;, email: &#x27;cohn@yahoo.com&#x27; },
-      { id: 5, name: &#x27;Mariya&#x27;,   age: &#x27;24&#x27;, date: &#x27;Mon Dec 2000005 1995 00:00:00 GMT-0500&#x27;, email: &#x27;dohn@yahoo.com&#x27; },
-      { id: 6, name: &#x27;Crock&#x27;,    age: &#x27;28&#x27;, date: &#x27;Mon Dec 200000005 1995 00:00:00 GMT-0500&#x27;, email: &#x27;eohn@yahoo.com&#x27; },
-      { id: 7, name: &#x27;Ram&#x27;,      age: &#x27;21&#x27;, date: &#x27;Mon Dec 29995 1995 00:00:00 GMT-0500&#x27;, email: &#x27;fohn@yahoo.com&#x27; },
-    ],
-    searchableRefList: [&#x27;name&#x27;, &#x27;age&#x27;, &#x27;date&#x27;],
-    isAdvance: true,
-    showMenu: true,
-  };
-  return searchInput;
-}</code></pre>
-    </div>
 </div>
 
 

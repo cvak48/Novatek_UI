@@ -46,15 +46,6 @@
             <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
         </li>
         <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
-        </li>
-        <li >
-            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
-        </li>
-        <li >
-            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
-        </li>
-        <li >
             <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
         </li>
 </ul>
@@ -186,11 +177,6 @@
 <code>constructor()</code>
                     </td>
                 </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/reusable/right-tab/right-tab.component.ts:10</a></div>
-                            </td>
-                        </tr>
 
             </tbody>
         </table>
@@ -212,11 +198,6 @@
 
                     </td>
                 </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/reusable/right-tab/right-tab.component.ts:10</a></div>
-                            </td>
-                        </tr>
             </tbody>
         </table>
 </section>
@@ -246,12 +227,6 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="14"
-                            class="link-to-prism">src/app/reusable/right-tab/right-tab.component.ts:14</a></div>
-                </td>
-            </tr>
 
 
             <tr>
@@ -297,11 +272,6 @@
                         </code>
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/reusable/right-tab/right-tab.component.ts:10</a></div>
-                        </td>
-                    </tr>
 
 
         </tbody>
@@ -311,101 +281,8 @@
 </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, OnInit } from &#x27;@angular/core&#x27;;
 
-@Component({
-  selector: &#x27;app-right-tab&#x27;,
-  templateUrl: &#x27;./right-tab.component.html&#x27;,
-  styleUrls: [&#x27;./right-tab.component.scss&#x27;]
-})
-export class RightTabComponent implements OnInit {
 
-  @Input() tabs:any;
-  
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
-</code></pre>
-    </div>
-
-    <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container custom-container&quot;&gt;
-    &lt;ul class&#x3D;&quot;nav nav-tabs&quot; id&#x3D;&quot;myTab&quot; role&#x3D;&quot;tablist&quot;&gt;
-      &lt;li class&#x3D;&quot;nav-item&quot; *ngFor&#x3D;&quot;let item of tabs;  let index &#x3D; index&quot;&gt;
-        &lt;a class&#x3D;&quot;nav-link&quot; [class.active]&#x3D;&quot;index &#x3D;&#x3D; 0&quot; data-toggle&#x3D;&quot;tab&quot; href&#x3D;&quot;#{{item.name}}&quot; role&#x3D;&quot;tab&quot; aria-controls&#x3D;&quot;home&quot;&gt;{{item.name}}&lt;/a&gt;
-      &lt;/li&gt;
-  &lt;/ul&gt;
-  
-  &lt;div class&#x3D;&quot;tab-content&quot;&gt;
-    &lt;div class&#x3D;&quot;tab-pane&quot; [class.active]&#x3D;&quot;index &#x3D;&#x3D; 0&quot; [class.show]&#x3D;&quot;index &#x3D;&#x3D; 0&quot; *ngFor&#x3D;&quot;let item of tabs;  let index &#x3D; index&quot; id&#x3D;&quot;{{item.name}}&quot; role&#x3D;&quot;tabpanel&quot;&gt;
-      &lt;tab-wrapper [type]&#x3D;&quot;item.component&quot;&gt;&lt;/tab-wrapper&gt;
-      &lt;/div&gt;
-  &lt;/div&gt;
-  
-  &lt;/div&gt;</code></pre>
-    </div>
-
-    <div class="tab-pane fade " id="c-styleData">
-                <p class="comment">
-                    <code>./right-tab.component.scss</code>
-                </p>
-                <pre class="line-numbers"><code class="language-scss">@import &quot;./../theme/base.scss&quot;;
-
-.nav.nav-tabs {
-    float: right;
-    display: block;
-    margin-right: 20px;
-    padding-right: 15px;
-  }
-  .nav-tabs .nav-link {
-    border-left: 1px solid $color-white !important;
-  }
-  
-  .nav-tabs .nav-link.active {
-    border: 1px solid $color-white !important;
-    border-left: 0px !important;
-    background: $color-white-fa !important;
-  }
-  .nav-tabs .nav-link {
-    border: 1px solid transparent;
-    border-top-left-radius: 0rem!important;
-    border-top-right-radius: 0rem!important;
-  }
-  .tab-content&gt;.active {
-    display: block;
-    min-height: 165px;
-    border-right:0;
-    width: 90%;
-    border: 1px solid $color-white;
-  }
-  .nav.nav-tabs {
-    float: right;
-    display: block;
-    margin-right: 20px;
-    border-right: 1px solid transparent;
-    padding-right: 15px;
-  }
-  
-  .custom-container {
-    max-width: 100%;
-  }
-  
-  a {
-    color: $color-dark-gray;
-  }
-  
-  .nav-tabs {
-     border-bottom: 0px !important;
-  }
-
-  .tabs-below .nav-link {
-    background-color: $color-white-fa !important;
-}</code></pre>
-    </div>
 
     <div class="tab-pane fade " id="c-tree">
         <div id="tree-container"></div>

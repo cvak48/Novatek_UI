@@ -49,9 +49,6 @@
         <li class="active">
             <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
         </li>
-        <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
-        </li>
 </ul>
 
 <div class="tab-content">
@@ -102,12 +99,6 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="8"
-                            class="link-to-prism">src/app/reusable/custom-datatable/data-property-getter-pipe/data-property-getter.pipe.ts:8</a></div>
-                </td>
-            </tr>
 
 
             <tr>
@@ -181,21 +172,6 @@
     </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Pipe, PipeTransform} from &#x27;@angular/core&#x27;;
-
-@Pipe({
-  name: &#x27;dataPropertyGetter&#x27;
-})
-export class DataPropertyGetterPipe implements PipeTransform {
-
-  transform(object: any, keyName: string, ...args: unknown[]): unknown {
-    return object[keyName];
-  }
-
-}
-</code></pre>
-    </div>
 
 </div>
 

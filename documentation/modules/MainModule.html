@@ -148,9 +148,6 @@
     <li  class="active" >
         <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
     </li>
-    <li >
-        <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
-    </li>
 </ul>
 
 <div class="tab-content">
@@ -203,34 +200,6 @@
     </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { DemoPageComponent } from &#x27;./components/demo-page/demo-page.component&#x27;;
-import { NgModule } from &#x27;@angular/core&#x27;;
-import { CommonModule } from &#x27;@angular/common&#x27;;
-import { DashboardComponent } from &#x27;./components/dashboard/dashboard.component&#x27;;
-import { ReusableModule } from &#x27;../reusable/reusable.module&#x27;;
-import { MaterialModule } from &#x27;../material.module&#x27;;
-import { MainRoutingModule } from &#x27;./main-routing.module&#x27;;
-import { LayoutComponentModule } from &#x27;../layout&#x27;;
-
-@NgModule({
-  declarations: [
-    DashboardComponent,
-    DemoPageComponent,
-  ],
-  imports: [
-    CommonModule,
-    ReusableModule,
-    MaterialModule,
-    MainRoutingModule,
-    LayoutComponentModule,
-
-  ],
-  exports:[]
-})
-export class MainModule { }
-</code></pre>
-    </div>
 </div>
 
 

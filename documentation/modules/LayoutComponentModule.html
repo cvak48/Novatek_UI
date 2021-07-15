@@ -212,9 +212,6 @@
     <li  class="active" >
         <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
     </li>
-    <li >
-        <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
-    </li>
 </ul>
 
 <div class="tab-content">
@@ -288,37 +285,6 @@
     </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ReusableModule } from &#x27;./../reusable/reusable.module&#x27;;
-import { NvHeaderComponent } from &#x27;./nv-header/nv-header.component&#x27;;
-import { NgModule } from &#x27;@angular/core&#x27;;
-import { CommonModule } from &#x27;@angular/common&#x27;;
-import { NovaFooterComponent } from &#x27;./nova-footer/nova-footer.component&#x27;;
-import { NovaSidenavComponent } from &#x27;./nova-sidenav/nova-sidenav.component&#x27;;
-import { MaterialModule } from &#x27;../material.module&#x27;;
-import { NovaLoginFooterComponent } from &#x27;./nova-login-footer/nova-login-footer.component&#x27;;
-
-
-const sharedComponents &#x3D; [
-  NovaFooterComponent,
-  NovaSidenavComponent,
-  NvHeaderComponent,
-  NovaLoginFooterComponent
-];
-
-@NgModule({
-  declarations: sharedComponents,
-  imports: [
-    CommonModule,
-    MaterialModule,
-    ReusableModule
-
-  ],
-  exports: sharedComponents,
-})
-export class LayoutComponentModule { }
-</code></pre>
-    </div>
 </div>
 
 

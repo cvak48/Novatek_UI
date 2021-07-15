@@ -184,8 +184,17 @@ tr.mat-row.cdk-row:nth-child(odd) {
   vertical-align: middle !important;
 }
 
-table.table td, table.table th {
-  padding: 0rem 16px 0rem !important;
+ table.table th {
+  padding: 0rem 16px .55rem !important;
+}
+
+
+table.table td {
+  padding: 0rem 16px 0rem ;
+}
+
+.checkbox-column{
+  padding: 0rem 16px .55rem !important;
 }
 
 .mail-link{

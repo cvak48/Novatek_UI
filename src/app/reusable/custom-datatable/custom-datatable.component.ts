@@ -66,35 +66,44 @@ export class CustomDatatableComponent implements OnInit, AfterViewInit {
     }
   }
 
-  // we need this, in order to make pagination work with *ngIf
+  /**
+   * This method is required in order to make pagination work with *ngIf
+   */
   ngAfterViewInit(): void {
     this.tableDataSource.paginator = this.matPaginator;
   }
 
-
+/**
+ * 
+ * @param data 
+ * This method set the data to material table datasource
+ */
   setTableDataSource(data: any) {
     if (data) {
-      console.log("Service data >> ", data);
       this.apiData = [...data];
       this.tableDataSource = new MatTableDataSource(data);
       this.tableDataSource.paginator = this.matPaginator;
       this.tableDataSource.sort = this.matSort;
     }
   }
+
+  /**
+   * 
+   * @param data 
+   * This method is user to provide filtered data to table
+   */
   onItemsFilter(data: any): any {
       if (data) {
-      console.log('onFilter >>'  + JSON.stringify(data));
       this.setTableDataSource(data);
     }
   }
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.tableDataSource.filter = filterValue.trim().toLowerCase();
-  }
-
+  /**
+   * 
+   * @param sortParameters 
+   * This method is used to apply sorting on all columns in table
+   */
   sortTable(sortParameters: Sort): any {
-    console.log("sort para > ", sortParameters);
     let abc;
     for (let i = 0; i < this.tableColumns.length; i++) {
       if (this.tableColumns[i].name === sortParameters.active) {
@@ -102,19 +111,7 @@ export class CustomDatatableComponent implements OnInit, AfterViewInit {
       }
       break;
     }
-    // defining name of data property, to sort by, instead of column name
-    //  sortParameters.active = this.tableColumns.find((column) =>  column.name === sortParameters.active).dataKey;
-    /*const abc1 = this.tableColumns.find((column) => { 
-      console.log('in column find', column.name , sortParameters.active)
-      console.log("in find", column.name === sortParameters.active)
-      return (column.name === sortParameters.active) ? column.dataKey.toString() : 'name'
-    } );*/
-    console.log('column find', abc)
     sortParameters.active = abc?.dataKey ? abc?.dataKey : 'name'
-
-    // console.log("abc >> ",abc )
-    // sortParameters.active = "amount";
-
     this.sort.emit(sortParameters);
   }
 
@@ -122,6 +119,11 @@ export class CustomDatatableComponent implements OnInit, AfterViewInit {
     this.rowAction.emit(row);
   }
 
+  /**
+   * 
+   * @param event 
+   * This method is executed when user moves to any page using pagination
+   */
   onPageFired(event: any) {
     if ((this.currentRec <= ((event.pageIndex + 1) * event.pageSize)) && this.currentRec <= this.totalRec) {
       for (let i = 0; i < 5; i++) {
@@ -140,11 +142,20 @@ export class CustomDatatableComponent implements OnInit, AfterViewInit {
     }
   }
 
+  /**
+   * 
+   * This method gives boolen value to know that all checkboxes are checked or not
+   */
   isAllSelected() {
     const numSelected = this.selection.selected.length;
     const numRows = this.tableDataSource.data.length;
     return numSelected === numRows;
   }
+
+  /**
+   * 
+   * This method is executed hen user click on checkbox in table heading row
+   */
   masterToggle() {
     this.isAllSelected() ?
       this.selection.clear() :
@@ -153,13 +164,13 @@ export class CustomDatatableComponent implements OnInit, AfterViewInit {
 
 
   logSelection(row: any) {
-    console.log(row)
-    console.log(!this.selection.isSelected(row))
-    //this.selection.selected.forEach(s => console.log(s.name));
   }
 }
 
-
+/**
+ * 
+ * This function gives object properties which are used for configuration in table
+ */
 function mockSearchComponent() {
  const inputData = {
     tableTestData: [],

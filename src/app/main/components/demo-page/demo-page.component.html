@@ -63,9 +63,13 @@
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.NvRadioBut)">
         {{nvComponentType[nvComponentType.NvRadioBut]}}
       </div>
+      <div class="menu-item h40" (click)="onItemClick(nvComponentType.NvButton)">
+        {{nvComponentType[nvComponentType.NvButton]}}
+      </div>
     </div>
     <div class="preview-panel" [ngSwitch]="selectedItem">
       <div class="panel-body">
+
         <!-- Forth: Call your reusable component here and pass input data if needed  -->
         <div class="search-item-container" *ngSwitchCase="nvComponentType.Search">
           <app-search [isAdvance]="isAdvance" [hideMenu]="showMenu" [list]="list"
@@ -76,6 +80,7 @@
         <div class="body-header-container" *ngSwitchCase="nvComponentType.Header">
           <app-nv-header *ngIf="person" [person]="person"></app-nv-header>
         </div>
+
         <app-notification class="body-item"  *ngSwitchCase="nvComponentType.Notification"></app-notification>
         <ng-container *ngSwitchCase="nvComponentType.Avatar">
         <app-avatar class="body-item" *ngIf="person?.imageUrl && person?.name" [avatarUrl]="person.imageUrl!" [name]="person.name!" ></app-avatar>
@@ -83,6 +88,7 @@
         <app-user-profile-menu class="body-item" [person]="person" *ngSwitchCase="nvComponentType.ProfileMenu"></app-user-profile-menu>
        <div class="dropdown-container" *ngSwitchCase="nvComponentType.Dropdown">
         <app-nv-dropdown class="body-item" ></app-nv-dropdown>
+        </div>
     
         <div class="upload-file-container" *ngSwitchCase="nvComponentType.DropToUpload">
         <app-upload class="body-item" ></app-upload>
@@ -99,6 +105,7 @@
         <div class="custom-component-container" *ngSwitchCase="nvComponentType.NvRadioBut">
         <app-nv-custom-component class="body-item" [component]="nvRadioBut"></app-nv-custom-component>
       </div>
+       <app-nv-button [label]="buttonLabel" [type]="buttonType" [color]="themeColor" class="body-item" *ngSwitchCase="nvComponentType.NvButton"></app-nv-button>
       </div>
     </div>
   </div>

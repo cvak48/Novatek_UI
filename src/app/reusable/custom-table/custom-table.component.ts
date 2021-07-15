@@ -37,6 +37,14 @@ export class CustomTableComponent implements OnInit {
       this.count = this.orders.length;
     }); 
   }
+
+  /**
+   * 
+   * @param searchTitle 
+   * @param page 
+   * @param pageSize 
+   * This method creates a object which will be used to fetch data with filtered values.
+   */
   getRequestParams(searchTitle: any, page: any, pageSize: any): any {
     // tslint:disable-next-line:prefer-const
     let params: any = {};
@@ -55,6 +63,12 @@ export class CustomTableComponent implements OnInit {
 
     return params;
   }
+
+  /**
+   * 
+   * @param event 
+   * This method is getting executed when user enter any value in search box
+   */
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value.trim().toLowerCase();
    this.orders = this.ordersData.filter(order => {
@@ -86,20 +100,37 @@ export class CustomTableComponent implements OnInit {
         });*/
   }
 
+  /**
+   * 
+   * @param event 
+   * This method is getting executed when user moves to any page using pagination
+   */
   handlePageChange(event: any): void {
     this.page = event;
-   // this.retrieveTutorials();
   }
+
+  /**
+   * 
+   * @param event 
+   * This method is getting executed when user changes page size using Ites per page option
+   */
   handlePageSizeChange(event: any): void {
     this.pageSize = event.target.value;
     this.page = 1;
-    //this.retrieveTutorials();
   }
 
+  /**
+   * 
+   * @param ev 
+   * This method is getting executed when user click on check box to mark all checkbox
+   */
   checkAllCheckBox(ev: any) {
 		this.orders.forEach(x => x.checked = ev.target.checked)
 	}
 
+  /**
+   * This method return boolean value which indicates that all checkboxes are checked or not
+   */
 	isAllCheckBoxChecked() {
 		return this.orders.every(p => p.checked);
 	}

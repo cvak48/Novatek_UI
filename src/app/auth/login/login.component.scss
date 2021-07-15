@@ -23,7 +23,7 @@
 }
 
 .user-txt {
-    margin-top: 7% !important;
+    margin-top: 8% !important;
 }
 
 .nxt-btn {
@@ -132,14 +132,15 @@ button {
 }
 
 .header-divider {
-    margin-top: 25%;
+    margin-top: 28%;
     border-top-color:$color-black-rgba;
 }
 
 .user-txt-name {
-    font-weight: $font-weight-normal;
+    font-weight: $font-weight-semi-bold;
     margin-left: $padding-16;
     font-family: Lato;
+    margin-bottom: 2%;
 }
 
 .body-divider {

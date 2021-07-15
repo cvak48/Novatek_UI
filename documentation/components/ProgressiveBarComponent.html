@@ -389,14 +389,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="28"
-                            class="link-to-prism">src/app/reusable/progressive-bar/progressive-bar.component.ts:28</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">src/app/reusable/progressive-bar/progressive-bar.component.ts:32</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>totalSize will be based on the two uploads,
+Color is based on the response of the upload activity</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -715,6 +718,10 @@ export class ProgressiveBarComponent implements OnInit {
   constructor() {
   }
 
+    /**
+    * totalSize will be based on the two uploads, 
+    * Color is based on the response of the upload activity
+    */
   ngOnInit(): void {
     if (this.secondarySize.length &gt; 0) {
       this.totalSize &#x3D; parseInt(this.secondarySize) + parseInt(this.size)
@@ -724,7 +731,6 @@ export class ProgressiveBarComponent implements OnInit {
     }
     this.secondarySize &#x3D; this.secondarySize + &#x27;%&#x27;;
 
-    // Color is based on the response of the upload activity
     switch (this.color) {
       case &#x27;sucess&#x27;:
         this.color &#x3D; this.progressiveStatus[0].sucess

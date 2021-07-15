@@ -7,6 +7,10 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class NovatekLogoComponent implements OnInit {
 
+  /**
+  * logoSize variable receives the dimensions of the our Novatek Logo
+  */
+
   @Input() logosize = {
     width:'', height:''
   }

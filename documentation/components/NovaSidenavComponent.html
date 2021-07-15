@@ -191,7 +191,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/layout/nova-sidenav/nova-sidenav.component.ts:28</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/layout/nova-sidenav/nova-sidenav.component.ts:30</a></div>
                             </td>
                         </tr>
 
@@ -230,14 +230,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="35"
-                            class="link-to-prism">src/app/layout/nova-sidenav/nova-sidenav.component.ts:35</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">src/app/layout/nova-sidenav/nova-sidenav.component.ts:40</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Expands the side menu, if it is closed</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -269,14 +271,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="39"
-                            class="link-to-prism">src/app/layout/nova-sidenav/nova-sidenav.component.ts:39</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="47"
+                            class="link-to-prism">src/app/layout/nova-sidenav/nova-sidenav.component.ts:47</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Closes the side menu, if it is open</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -306,8 +310,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="32"
-                            class="link-to-prism">src/app/layout/nova-sidenav/nova-sidenav.component.ts:32</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">src/app/layout/nova-sidenav/nova-sidenav.component.ts:34</a></div>
                 </td>
             </tr>
 
@@ -400,10 +404,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/layout/nova-sidenav/nova-sidenav.component.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/layout/nova-sidenav/nova-sidenav.component.ts:16</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Side Menu list items</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -457,7 +467,9 @@ export class NovaSidenavComponent implements OnInit {
 
   public isExpanded:boolean &#x3D; false;
   public totalNotifications: number &#x3D; 4;
-  // Side menu items
+  /**
+  * Side Menu list items
+  */
   public sidenavItems &#x3D; [
     {icon:&#x27;../../../assets/icons/ico.dashboard.svg&#x27;, name:&#x27;Dashboard&#x27;},
     {icon:&#x27;../../../assets/icons/ico.register.svg&#x27;, name:&#x27;New&#x27;},
@@ -479,10 +491,16 @@ export class NovaSidenavComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+  * Expands the side menu, if it is closed
+  */
   public checkExpand() {
     this.isExpanded &#x3D; !this.isExpanded;
   }
 
+  /**
+  * Closes the side menu, if it is open
+  */
   public closeSideNav() {
     this.isExpanded &#x3D; false;
   }

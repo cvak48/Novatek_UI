@@ -1,9 +1,15 @@
 @import './../theme/base.scss';
-.label {
-    color: $color-brown; 
-    line-height: $line-height-xxxx-small;
-}
 
-.number-container {
-    text-anchor: middle
+.notification {
+    width: 36px;
+    height: 21px;
+
+    .label {
+        color: $color-brown; 
+        line-height: $line-height-xxxx-small;
+    }
+    
+    .number-container {
+        text-anchor: middle
+    }
 }

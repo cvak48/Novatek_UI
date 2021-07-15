@@ -10,6 +10,8 @@ export class ProgressiveBarComponent implements OnInit {
   @Input() color: string = '';
   @Input() size: string = '';
   @Input() secondarySize: string = '';
+  @Input() progressiveTxt: string = '';
+  @Input() statusText: string = '';
   public totalSize: number = 0;
 
   public progressiveStatus: any = [
@@ -23,6 +25,10 @@ export class ProgressiveBarComponent implements OnInit {
   constructor() {
   }
 
+  /**
+  * totalSize will be based on the two uploads, 
+  * Color is based on the response of the upload activity
+  */
   ngOnInit(): void {
     if (this.secondarySize.length > 0) {
       this.totalSize = parseInt(this.secondarySize) + parseInt(this.size)

@@ -18,6 +18,9 @@ import { LayoutComponentModule } from '../layout';
     ReusableModule,
     LayoutComponentModule,
     RouterModule.forChild([
+      /**
+      * On application load, when user navigated to auth module it will point the login page
+      */
       { path: '', redirectTo: 'login', pathMatch: 'full' },
       { path: 'login', component: LoginComponent }
     ])

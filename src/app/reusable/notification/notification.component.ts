@@ -7,18 +7,22 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./notification.component.scss']
 })
 export class NotificationComponent implements OnInit {
- @Input() set number(value: number) {
-  if (value && value >= 0){
-    this._number = value;
-  } else {
-    // TODO: need to ask Payam.
-    this._number = 0;
+  @Input() set number(value: number | string) {
+    if (value && value >= 0) {
+      if (value >= 100) {
+        this._number = 99 + '+';
+      } else {
+        this._number = value;
+      }
+    } else {
+      // TODO: need to ask Payam.
+      this._number = 0;
+    }
   }
- }
- get number(): number {
-   return this._number;
- }
- private _number!: number;
+  get number(): number | string {
+    return this._number;
+  }
+  private _number!: number | string;
   constructor() { }
 
   ngOnInit(): void {

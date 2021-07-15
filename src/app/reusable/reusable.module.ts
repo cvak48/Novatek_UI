@@ -1,3 +1,4 @@
+import { NvButtonComponent } from './nv-button/nv-button.component';
 import { FilterAllPipe } from './pipes/filters/filterAll/filter-all.pipe';
 import { AdvanceFilterPipe } from './pipes/filters/advance-filter/advance-filter.pipe';
 import { NvTrimPipe } from './pipes/nv-trim/nv-trim.pipe';
@@ -81,7 +82,8 @@ const sharedComponents = [
   NvCustomComponentComponent,
   UploadComponent,
   RattingComponent,
-  ProgressiveBarComponent
+  ProgressiveBarComponent,
+  NvButtonComponent
 ];
 
 @NgModule({

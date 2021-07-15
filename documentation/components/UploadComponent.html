@@ -46,15 +46,6 @@
             <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
         </li>
         <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
-        </li>
-        <li >
-            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
-        </li>
-        <li >
-            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
-        </li>
-        <li >
             <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
         </li>
 </ul>
@@ -167,11 +158,6 @@
 <code>constructor()</code>
                     </td>
                 </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/reusable/upload/upload.component.ts:8</a></div>
-                            </td>
-                        </tr>
 
             </tbody>
         </table>
@@ -204,12 +190,6 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">src/app/reusable/upload/upload.component.ts:18</a></div>
-                </td>
-            </tr>
 
 
             <tr>
@@ -272,12 +252,6 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="11"
-                            class="link-to-prism">src/app/reusable/upload/upload.component.ts:11</a></div>
-                </td>
-            </tr>
 
 
             <tr>
@@ -309,12 +283,6 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="13"
-                            class="link-to-prism">src/app/reusable/upload/upload.component.ts:13</a></div>
-                </td>
-            </tr>
 
 
             <tr>
@@ -377,12 +345,6 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">src/app/reusable/upload/upload.component.ts:22</a></div>
-                </td>
-            </tr>
 
 
             <tr>
@@ -432,97 +394,8 @@
 </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
-
-@Component({
-  selector: &#x27;app-upload&#x27;,
-  templateUrl: &#x27;./upload.component.html&#x27;,
-  styleUrls: [&#x27;./upload.component.scss&#x27;]
-})
-export class UploadComponent implements OnInit {
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-  onFileDropped(files: any): void {
-    this.prepareFilesList(files);
-
-  }
-
-  fileBrowseHandler(event: any): void {
-    this.prepareFilesList(event?.target?.files);
-  }
-
-  prepareFilesList(value: any): void {
-    const files &#x3D; value;
-    const file &#x3D; files[0];
-     // TODO: Need to be uploaded by doing an http post with the payload instead of log in console
-    console.log(file.name);
-    const payload &#x3D; new FormData();
-    payload.append(&#x27;data&#x27;, file);
-  }
-}
-</code></pre>
-    </div>
-
-    <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container&quot; appNvFileUpload (fileDropped)&#x3D;&quot;onFileDropped($event)&quot;&gt;
-  &lt;div class&#x3D;&quot;d-flex flex-column  align-items-center&quot;&gt;
-    &lt;input type&#x3D;&quot;file&quot; #fileDropRef id&#x3D;&quot;fileDropRef&quot; multiple (change)&#x3D;&quot;fileBrowseHandler($event)&quot; /&gt;
-    &lt;img class&#x3D;&quot;align-self-center mt-5&quot; src&#x3D;&quot;../../../assets/icons/ico.file.svg&quot;&gt;
-    &lt;div class&#x3D;&quot;content-label h30 align-self-center mt-3 mb-3&quot;&gt;Drag and drop file here&lt;/div&gt;
-    &lt;label for&#x3D;&quot;fileDropRef h50 d-flex justify-content-center&quot;&gt; 
-      &lt;span class&#x3D;&quot;d-flex align-self-center&quot;&gt;Upload&lt;/span&gt;&lt;/label&gt;
-
-  &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-    </div>
-
-    <div class="tab-pane fade " id="c-styleData">
-                <p class="comment">
-                    <code>./upload.component.scss</code>
-                </p>
-                <pre class="line-numbers"><code class="language-scss">@import &#x27;./../theme/base.scss&#x27;;
-
-.container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  border: 1px dashed $color-dark-gray-10;
-  margin: 0 auto;
-
-  input {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    opacity: 0;
-  }
-.content-label {
-    color: $color-black-20;
-}
-  label {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    width: 94px;
-    height: 40px;
-    background: $color-dark-blue-10 0% 0% no-repeat padding-box;
-    border: 1px solid $color-dark-blue;
-    color: $color-white-20;
-    border-radius: 4px;
-    opacity: 1;
-  }
-}
 
 
-</code></pre>
-    </div>
 
     <div class="tab-pane fade " id="c-tree">
         <div id="tree-container"></div>

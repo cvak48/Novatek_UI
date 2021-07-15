@@ -46,15 +46,6 @@
             <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
         </li>
         <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
-        </li>
-        <li >
-            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
-        </li>
-        <li >
-            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
-        </li>
-        <li >
             <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
         </li>
 </ul>
@@ -172,11 +163,6 @@
 <code>constructor()</code>
                     </td>
                 </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/layout/nova-login-footer/nova-login-footer.component.ts:9</a></div>
-                            </td>
-                        </tr>
 
             </tbody>
         </table>
@@ -209,12 +195,6 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="12"
-                            class="link-to-prism">src/app/layout/nova-login-footer/nova-login-footer.component.ts:12</a></div>
-                </td>
-            </tr>
 
 
             <tr>
@@ -256,11 +236,6 @@
                         <i>Default value : </i><code>&#x27;../../../assets/icons/ico.flag.svg&#x27;</code>
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/layout/nova-login-footer/nova-login-footer.component.ts:9</a></div>
-                        </td>
-                    </tr>
 
 
         </tbody>
@@ -270,79 +245,8 @@
 </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
 
-@Component({
-  selector: &#x27;nova-login-footer&#x27;,
-  templateUrl: &#x27;./nova-login-footer.component.html&#x27;,
-  styleUrls: [&#x27;./nova-login-footer.component.scss&#x27;]
-})
-export class NovaLoginFooterComponent implements OnInit {
-  flagIcon &#x3D; &#x27;../../../assets/icons/ico.flag.svg&#x27;;
-  constructor() { }
 
-  ngOnInit(): void {
-  }
-
-}
-</code></pre>
-    </div>
-
-    <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container-fluid&quot; id&#x3D;&quot;myNavbar&quot;&gt;
-  &lt;div class&#x3D;&quot;row&quot;&gt;
-    &lt;div class&#x3D;&quot;col-7 footer-pad&quot;&gt;
-      &lt;ul class&#x3D;&quot;list-inlin login-txt&quot;&gt;
-        &lt;li&gt;@2021 All Rights Reserved &lt;a href&#x3D;&quot;#&quot;&gt;ntint@com&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-    &lt;/div&gt;
-    &lt;div class&#x3D;&quot;col-5&quot;&gt;
-      &lt;ul class&#x3D;&quot;list-inlin login-txt pad-0&quot;&gt;
-        &lt;li&gt;
-          Language:
-          &lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;language&quot;&gt;
-            &lt;img src&#x3D;&quot;{{ flagIcon }}&quot; alt&#x3D;&quot;icon&quot; /&gt;
-            &lt;span class&#x3D;&quot;link-txt&quot;&gt;English&lt;/span&gt;&lt;/a
-          &gt;
-        &lt;/li&gt;
-      &lt;/ul&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-    </div>
-
-    <div class="tab-pane fade " id="c-styleData">
-                <p class="comment">
-                    <code>./nova-login-footer.component.scss</code>
-                </p>
-                <pre class="line-numbers"><code class="language-scss">@import &quot;../../reusable/theme/base.scss&quot;;
-
-ul.list-inlin.login-txt {
-  font-size: 0.7rem;
-  list-style: none;
-  color: $color-light-gray-40;
-  font-weight: 400;
-  &amp; a {
-    color: $color-light-gray-40;
-    font-weight: 400;
-  }
-  &amp; .link-txt {
-    color: $color-light-blue-40;
-    font-weight: 400;
-    margin-left: 5px;
-  }
-}
-
-.pad-0 {
-  padding-left: 0;
-}
-.footer-pad {
-  padding: 0px 0px 0px 11px;
-}
-</code></pre>
-    </div>
 
     <div class="tab-pane fade " id="c-tree">
         <div id="tree-container"></div>

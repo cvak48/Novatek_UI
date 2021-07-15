@@ -46,15 +46,6 @@
             <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
         </li>
         <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
-        </li>
-        <li >
-            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
-        </li>
-        <li >
-            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
-        </li>
-        <li >
             <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
         </li>
 </ul>
@@ -195,11 +186,6 @@
 <code>constructor(currencyPipe: <a href="https://angular.io/api/common/CurrencyPipe" target="_blank">CurrencyPipe</a>, decimalPipe: <a href="https://angular.io/api/common/DecimalPipe" target="_blank">DecimalPipe</a>, percentPipe: <a href="https://angular.io/api/common/PercentPipe" target="_blank">PercentPipe</a>)</code>
                     </td>
                 </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/main/test/test.component.ts:18</a></div>
-                            </td>
-                        </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -286,12 +272,6 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="80"
-                            class="link-to-prism">src/app/main/test/test.component.ts:80</a></div>
-                </td>
-            </tr>
 
 
             <tr>
@@ -323,12 +303,6 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="45"
-                            class="link-to-prism">src/app/main/test/test.component.ts:45</a></div>
-                </td>
-            </tr>
 
 
             <tr>
@@ -360,12 +334,6 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="25"
-                            class="link-to-prism">src/app/main/test/test.component.ts:25</a></div>
-                </td>
-            </tr>
 
 
             <tr>
@@ -397,12 +365,6 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">src/app/main/test/test.component.ts:41</a></div>
-                </td>
-            </tr>
 
 
             <tr>
@@ -465,12 +427,6 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">src/app/main/test/test.component.ts:30</a></div>
-                </td>
-            </tr>
 
 
             <tr>
@@ -543,11 +499,6 @@
                         <i>Default value : </i><code>[]</code>
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/main/test/test.component.ts:17</a></div>
-                        </td>
-                    </tr>
 
 
         </tbody>
@@ -574,11 +525,6 @@
                         <i>Default value : </i><code>[]</code>
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/main/test/test.component.ts:18</a></div>
-                        </td>
-                    </tr>
 
 
         </tbody>
@@ -588,154 +534,8 @@
 </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
-import { TableColumn } from &#x27;src/app/reusable/custom-datatable/table-column.model&#x27;;
-import {CurrencyPipe, DecimalPipe, PercentPipe} from &quot;@angular/common&quot;;
-import {Sort} from &quot;@angular/material/sort&quot;;
-import { Order } from &#x27;./order&#x27;;
-import * as moment from &#x27;moment&#x27;;
 
 
-@Component({
-  selector: &#x27;app-test&#x27;,
-  templateUrl: &#x27;./test.component.html&#x27;,
-  styleUrls: [&#x27;./test.component.scss&#x27;],
-  providers: [CurrencyPipe, DecimalPipe, PercentPipe]
-})
-export class TestComponent implements OnInit {
-
-  orders: Order[] &#x3D; [];
-  ordersTableColumns: TableColumn[] &#x3D; [];
-
-  constructor(private currencyPipe: CurrencyPipe,
-              private decimalPipe: DecimalPipe,
-              private percentPipe: PercentPipe) {
-  }
-
-  ngOnInit(): void {
-    this.initializeColumns();
-    this.orders &#x3D; this.getOrders();
-  }
-
-  sortData(sortParameters: Sort) {
-    const keyName &#x3D; sortParameters.active;
-    if (sortParameters.direction &#x3D;&#x3D; &#x27;asc&#x27;) {
-     return this.orders &#x3D; this.orders.sort((a: any, b: any) &#x3D;&gt; a[keyName].localeCompare(b[keyName]));
-    } else if (sortParameters.direction &#x3D;&#x3D;&#x3D; &#x27;desc&#x27;) {
-     return this.orders &#x3D; this.orders.sort((a: any, b: any) &#x3D;&gt; b[keyName].localeCompare(a[keyName]));
-    } else {
-      return this.orders &#x3D; this.getOrders();
-    }
-  }
-
-  removeOrder(order: Order) {
-    this.orders &#x3D; this.orders.filter(item &#x3D;&gt; item.id !&#x3D;&#x3D; order.id)
-  }
-
-  initializeColumns(): void {
-    this.ordersTableColumns &#x3D; [
-      {
-        name: &#x27;Select&#x27;,
-        dataKey: &#x27;select&#x27;,
-        position: &#x27;left&#x27;,
-        isSortable: false
-      },
-      {
-        name: &#x27;Name&#x27;,
-        dataKey: &#x27;name&#x27;,
-        position: &#x27;left&#x27;,
-        isSortable: true
-      },
-      {
-        name: &#x27;Date&#x27;,
-        dataKey: &#x27;date&#x27;,
-        position: &#x27;left&#x27;,
-        isSortable: true
-      },
-      {
-        name: &#x27;Email&#x27;,
-        dataKey: &#x27;email&#x27;,
-        position: &#x27;left&#x27;,
-        isSortable: true
-      },
-      {
-        name: &#x27;Status&#x27;,
-        dataKey: &#x27;status&#x27;,
-        position: &#x27;left&#x27;,
-        isSortable: true
-      },
-    ];
-  }
-
-  getOrders(): any[] {
-    return [
-      {
-        id: 1,
-        name: &#x27;John Liiki&#x27;,
-        date: moment(&quot;12-25-1995&quot;, &quot;MM-DD-YYYY&quot;),
-        email: &#x27;john@yahoo.com&#x27;,
-        status: &#x27;No&#x27;
-      },
-      {
-        id: 2,
-        name: &#x27;Rock&#x27;,
-        date: moment(&quot;06-13-1999&quot;, &quot;MM-DD-YYYY&quot;),
-        email: &#x27;rock@gmail.com&#x27;,
-        status: &#x27;Past Due&#x27;
-      },
-      {
-        id: 3,
-        name: &#x27;Tom Cruise&#x27;,
-        date: moment(&quot;04-27-2001&quot;, &quot;MM-DD-YYYY&quot;),
-        email: &#x27;tomcruise@yahoo.com&#x27;,
-        status: &#x27;Pending&#x27;
-      },
-      {
-        id: 4,
-        name: &#x27;Sumit Gupta&#x27;,
-        date: moment(&quot;03-30-2005&quot;, &quot;MM-DD-YYYY&quot;),
-        email: &#x27;sumit@gmail.com&#x27;,
-        status: &#x27;Completed&#x27;
-      },
-      {
-        id: 5,
-        name: &#x27;Nicole Kidman&#x27;,
-        date: moment(&quot;02-22-2007&quot;, &quot;MM-DD-YYYY&quot;),
-        email: &#x27;nicole@redifmail.com&#x27;,
-        status: &#x27;Yes&#x27;
-      }
-    ];
-  }
-}
-</code></pre>
-    </div>
-
-    <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;!-- &lt;custom-table
-  [tableData]&#x3D;&quot;customers&quot;
-  [tableColumns]&#x3D;&quot;customersTableColumns&quot;&gt;
-&lt;/custom-table&gt; --&gt;
-&lt;app-custom-datatable
-              [tableData]&#x3D;&quot;orders&quot;
-              [tableColumns]&#x3D;&quot;ordersTableColumns&quot;
-              [isFilterable]&#x3D;&quot;true&quot;
-              [isPageable]&#x3D;&quot;true&quot;
-              [paginationSizes]&#x3D;&quot;[2,4,6]&quot;
-              [defaultPageSize]&#x3D;&quot;4&quot;
-              (sort)&#x3D;&quot;sortData($event)&quot;
-              (rowAction)&#x3D;&quot;removeOrder($event)&quot;
-              &gt;
-              &lt;!-- [rowActionIcon]&#x3D;&quot;&#x27;remove_shopping_cart&#x27;&quot; --&gt;
-&lt;/app-custom-datatable&gt;</code></pre>
-    </div>
-
-    <div class="tab-pane fade " id="c-styleData">
-                <p class="comment">
-                    <code>./test.component.scss</code>
-                </p>
-                <pre class="line-numbers"><code class="language-scss"></code></pre>
-    </div>
 
     <div class="tab-pane fade " id="c-tree">
         <div id="tree-container"></div>

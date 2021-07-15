@@ -43,9 +43,6 @@
     <li  class="active" >
         <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
     </li>
-    <li >
-        <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
-    </li>
 </ul>
 
 <div class="tab-content">
@@ -71,37 +68,6 @@
     </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
-import { RouterModule, Routes } from &#x27;@angular/router&#x27;;
-
-const routes: Routes &#x3D; [
-  /**
-  * On application load it will navigate to the Auth module
-  */
-  {
-    path: &#x27;&#x27;,
-    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./auth/auth.module&#x27;)\
-    .then(m &#x3D;&gt; m.AuthModule)&quot;
-  },
-  /**
-  * When user directly pointing out the dashboard or some other pages it will navigate to main module
-  */
-  {
-    path: &#x27;main&#x27;,
-    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./main/main.module&#x27;)\
-    .then(m &#x3D;&gt; m.MainModule)&quot;
-  },
-
-];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
-</code></pre>
-    </div>
 </div>
 
 

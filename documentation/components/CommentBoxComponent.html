@@ -46,15 +46,6 @@
             <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
         </li>
         <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
-        </li>
-        <li >
-            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
-        </li>
-        <li >
-            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
-        </li>
-        <li >
             <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
         </li>
 </ul>
@@ -202,11 +193,6 @@
 <code>constructor()</code>
                     </td>
                 </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/reusable/comment-box/comment-box.component.ts:45</a></div>
-                            </td>
-                        </tr>
 
             </tbody>
         </table>
@@ -233,11 +219,6 @@
                         <i>Default value : </i><code>[]</code>
                     </td>
                 </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/reusable/comment-box/comment-box.component.ts:38</a></div>
-                            </td>
-                        </tr>
             </tbody>
         </table>
 </section>
@@ -267,12 +248,6 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="54"
-                            class="link-to-prism">src/app/reusable/comment-box/comment-box.component.ts:54</a></div>
-                </td>
-            </tr>
 
 
             <tr>
@@ -335,12 +310,6 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="49"
-                            class="link-to-prism">src/app/reusable/comment-box/comment-box.component.ts:49</a></div>
-                </td>
-            </tr>
 
 
             <tr>
@@ -372,12 +341,6 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="60"
-                            class="link-to-prism">src/app/reusable/comment-box/comment-box.component.ts:60</a></div>
-                </td>
-            </tr>
 
 
             <tr>
@@ -440,12 +403,6 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="65"
-                            class="link-to-prism">src/app/reusable/comment-box/comment-box.component.ts:65</a></div>
-                </td>
-            </tr>
 
 
             <tr>
@@ -527,11 +484,6 @@
                         </code>
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/reusable/comment-box/comment-box.component.ts:38</a></div>
-                        </td>
-                    </tr>
 
 
         </tbody>
@@ -563,11 +515,6 @@
   }</code>
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/reusable/comment-box/comment-box.component.ts:41</a></div>
-                        </td>
-                    </tr>
 
 
         </tbody>
@@ -594,11 +541,6 @@
                         <i>Default value : </i><code>&#x27;&#x27;</code>
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/reusable/comment-box/comment-box.component.ts:39</a></div>
-                        </td>
-                    </tr>
 
 
         </tbody>
@@ -608,151 +550,8 @@
 </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, OnInit } from &#x27;@angular/core&#x27;;
-import { Person } from &#x27;src/app/main/components/demo-page/demo-page.component&#x27;;
 
-export class CommentNode {
-  text:string &#x3D;&#x27;&#x27;;
-  imgUrl:string &#x3D;&#x27;&#x27;;
-  anwsers:CommentNode[] &#x3D; [];
-  isOpen:boolean &#x3D;false;
 
-  
-  
-  constructor(text:string, imgUrl : string){
-    this.text &#x3D; text;
-    this.imgUrl &#x3D; imgUrl
-  }
-
-  addAnwser(newComment:CommentNode){
-    if(newComment.text){
-      this.anwsers.push(newComment);
-    }
-  }
-
-  removeComment(newComment:CommentNode){
-    let index &#x3D; this.anwsers.indexOf(newComment);
-    if(~index){
-      this.anwsers.slice(index,1);
-    }
-  }
-}
-
-@Component({
-  selector: &#x27;app-comment-box&#x27;,
-  templateUrl: &#x27;./comment-box.component.html&#x27;,
-  styleUrls: [&#x27;./comment-box.component.scss&#x27;]
-})
-export class CommentBoxComponent implements OnInit {
-  @Input()
-  comments:CommentNode[] &#x3D; [];
-  text:string &#x3D; &#x27;&#x27;;
-  // image will be added from the user profile
-  public person : Person &#x3D; {
-    id: 1,
-    name: &#x27;Alex Green&#x27;,
-    imageUrl: &#x27;https://tse1.mm.bing.net/th?id&#x3D;OIP.E45HCyveqDL44p8lmvQL9AAAAA&amp;pid&#x3D;Api&amp;P&#x3D;0&#x27;,
-  } 
-
-  constructor(){}
-
-  ngOnInit(){
-   
-  }
-
-  // Comment will be pushed into the comment vairable
-  addComment(comment:CommentNode){
-    comment.addAnwser(new CommentNode(this.text, this.comments[0].imgUrl));      
-    comment.isOpen &#x3D; false;
-    this.text&#x3D;&quot;&quot;;
-  }
-
-  openCommentText(comment:any){
-    comment.isOpen &#x3D; !comment.isOpen;
-  }
-
-  // comment will be reved based on index
-  remove(comment:CommentNode){    
-    let index &#x3D; this.comments.indexOf(comment);
-    this.comments &#x3D; this.comments.splice(index,1);        
-  }
-
-}
-</code></pre>
-    </div>
-
-    <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;!-- List of previous comments are itterated from the comments variable --&gt;
-&lt;div id&#x3D;&quot;mainDiv&quot; *ngFor&#x3D;&quot;let comment of comments.reverse()&quot;&gt;
-  &lt;div class&#x3D;&quot;d-flex flex-row user-info&quot;&gt;
-    &lt;app-avatar class&#x3D;&quot;body-item&quot; *ngIf&#x3D;&quot;person?.imageUrl &amp;&amp; person?.name&quot; [avatarUrl]&#x3D;&quot;person.imageUrl!&quot;
-      [name]&#x3D;&quot;person.name!&quot;&gt;&lt;/app-avatar&gt;
-    &lt;div class&#x3D;&quot;d-flex flex-column justify-content-start ml-2&quot;&gt;&lt;span class&#x3D;&quot;d-block font-weight-bold name name-color&quot;&gt;Marry
-        Andrews  &lt;span class&#x3D;&quot;dateTimeTxt&quot;&gt;Today at 5:42 PM&lt;/span&gt;&lt;/span&gt;&lt;span class&#x3D;&quot;date text-black-50 name-color&quot;&gt;{{comment.text}}&lt;/span&gt;
-      &lt;span (click)&#x3D;&quot;openCommentText(comment)&quot; class&#x3D;&quot;reply date text-grey-50&quot;&gt;Reply&lt;/span&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;br&gt;
-  &lt;div *ngIf&#x3D;&quot;comment.isOpen&quot;&gt;
-    &lt;textarea class&#x3D;&quot;reply-txtbox&quot; [(ngModel)]&#x3D;&quot;text&quot; cols&#x3D;&quot;80&quot; rows&#x3D;&quot;7&quot;&gt;&lt;/textarea&gt;
-    &lt;br&gt;
-    &lt;button (click)&#x3D;&quot;addComment(comment)&quot; type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-labeled btn-primary btn-color&quot;&gt;
-      &lt;span class&#x3D;&quot;btn-label btn-content&quot;&gt;&lt;i class&#x3D;&quot;fa fa-edit&quot;&gt;&lt;/i&gt;&lt;/span&gt;Add reply&lt;/button&gt;
-  &lt;/div&gt;
-  &lt;!-- comment box will only appear when user clicks on the reply button --&gt;
-  &lt;app-comment-box [comments]&#x3D;&quot;comment.anwsers&quot;&gt;
-  &lt;/app-comment-box&gt;
-&lt;/div&gt;</code></pre>
-    </div>
-
-    <div class="tab-pane fade " id="c-styleData">
-                <p class="comment">
-                    <code>./comment-box.component.scss</code>
-                </p>
-                <pre class="line-numbers"><code class="language-scss">@import &quot;../theme/base.scss&quot;;
-
-#mainDiv{
-    padding-left: 25px;
-  }
-
-  .reply{
-    color:$color-dark-gray-20;
-    font-size: 11px;
-    cursor: pointer;
-  }
-
-  .reply-txtbox{
-    border: 1px solid $color-white-10;
-  }
-
-  textarea:focus {
-    border: 1px solid $color-white-10;
-    outline: 0 none;
-  }
-
-  .btn-content {
-    background: $btn-color;
-    padding: 0.5rem !important;
-    margin-left: -13px;
-    margin-right: 15px;
-  }
-
-  .btn-color {
-    background-color: $color-dark-blue-10 !important;
-    font-size: 12px;
-  }
-
-  .name-color {
-    color: $color-dark-gray;
-  }
-
-  .dateTimeTxt {
-    color: $color-black-12 !important;
-    font-size: smaller !important;
-    font-weight: 500 !important;
-  }</code></pre>
-    </div>
 
     <div class="tab-pane fade " id="c-tree">
         <div id="tree-container"></div>

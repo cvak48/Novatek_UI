@@ -46,15 +46,6 @@
             <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
         </li>
         <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
-        </li>
-        <li >
-            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
-        </li>
-        <li >
-            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
-        </li>
-        <li >
             <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
         </li>
 </ul>
@@ -201,11 +192,6 @@
 <code>constructor()</code>
                     </td>
                 </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/reusable/notification/notification.component.ts:21</a></div>
-                            </td>
-                        </tr>
 
             </tbody>
         </table>
@@ -227,11 +213,6 @@
 
                     </td>
                 </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/reusable/notification/notification.component.ts:10</a></div>
-                            </td>
-                        </tr>
             </tbody>
         </table>
 </section>
@@ -261,12 +242,6 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">src/app/reusable/notification/notification.component.ts:24</a></div>
-                </td>
-            </tr>
 
 
             <tr>
@@ -304,11 +279,6 @@
 
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/reusable/notification/notification.component.ts:21</a></div>
-                        </td>
-                    </tr>
 
 
         </tbody>
@@ -333,22 +303,12 @@
                         <span class="accessor"><b>get</b><code>number()</code></span>
                     </td>
                 </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/reusable/notification/notification.component.ts:18</a></div>
-                                </td>
-                            </tr>
 
                 <tr>
                     <td class="col-md-4">
                         <span class="accessor"><b>set</b><code>number(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code></span>
                     </td>
                 </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/reusable/notification/notification.component.ts:10</a></div>
-                                </td>
-                            </tr>
                     <tr>
                         <td class="col-md-4">
 
@@ -392,64 +352,8 @@
 </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { _isNumberValue } from &#x27;@angular/cdk/coercion&#x27;;
-import { Component, Input, OnInit } from &#x27;@angular/core&#x27;;
 
-@Component({
-  selector: &#x27;app-notification&#x27;,
-  templateUrl: &#x27;./notification.component.html&#x27;,
-  styleUrls: [&#x27;./notification.component.scss&#x27;]
-})
-export class NotificationComponent implements OnInit {
- @Input() set number(value: number) {
-  if (value &amp;&amp; value &gt;&#x3D; 0){
-    this._number &#x3D; value;
-  } else {
-    // TODO: need to ask Payam.
-    this._number &#x3D; 0;
-  }
- }
- get number(): number {
-   return this._number;
- }
- private _number!: number;
-  constructor() { }
 
-  ngOnInit(): void {
-  }
-
-}
-</code></pre>
-    </div>
-
-    <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;svg id&#x3D;&quot;notification.badge&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot; width&#x3D;&quot;32&quot; height&#x3D;&quot;21&quot; viewBox&#x3D;&quot;0 0 32 21&quot;&gt;
-  &lt;g id&#x3D;&quot;notification-background&quot; fill&#x3D;&quot;#fcb520&quot; stroke&#x3D;&quot;#946a12&quot; stroke-width&#x3D;&quot;2&quot;&gt;
-    &lt;rect width&#x3D;&quot;32&quot; height&#x3D;&quot;21&quot; rx&#x3D;&quot;10&quot; stroke&#x3D;&quot;none&quot; /&gt;
-    &lt;rect x&#x3D;&quot;1&quot; y&#x3D;&quot;1&quot; width&#x3D;&quot;30&quot; height&#x3D;&quot;19&quot; rx&#x3D;&quot;9&quot; fill&#x3D;&quot;none&quot; /&gt;
-  &lt;/g&gt;
-  &lt;text class&#x3D;&quot;number-container label h50&quot; id&#x3D;&quot;notification-number&quot; transform&#x3D;&quot;translate(16 16)&quot; fill&#x3D;&quot;#946a12&quot;&gt;
-    &lt;tspan  &gt;{{number}}&lt;/tspan&gt;
-  &lt;/text&gt;
-&lt;/svg&gt;
-</code></pre>
-    </div>
-
-    <div class="tab-pane fade " id="c-styleData">
-                <p class="comment">
-                    <code>./notification.component.scss</code>
-                </p>
-                <pre class="line-numbers"><code class="language-scss">@import &#x27;./../theme/base.scss&#x27;;
-.label {
-    color: $color-brown; 
-    line-height: $line-height-xxxx-small;
-}
-
-.number-container {
-    text-anchor: middle
-}</code></pre>
-    </div>
 
     <div class="tab-pane fade " id="c-tree">
         <div id="tree-container"></div>

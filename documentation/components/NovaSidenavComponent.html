@@ -46,15 +46,6 @@
             <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
         </li>
         <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
-        </li>
-        <li >
-            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
-        </li>
-        <li >
-            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
-        </li>
-        <li >
             <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
         </li>
 </ul>
@@ -68,6 +59,15 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>The Sidenav component</p>
+<p>This component will be used toto expand and close the sidenav</p>
+<p>List of components can we navigated from sidenav menu</p>
+
+    </p>
 
 
     <p class="comment">
@@ -189,12 +189,13 @@
 <code>constructor()</code>
                     </td>
                 </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/layout/nova-sidenav/nova-sidenav.component.ts:30</a></div>
-                            </td>
-                        </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Dependency injection will be added into the constructor</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -228,12 +229,6 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">src/app/layout/nova-sidenav/nova-sidenav.component.ts:40</a></div>
-                </td>
-            </tr>
 
 
             <tr>
@@ -269,12 +264,6 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="47"
-                            class="link-to-prism">src/app/layout/nova-sidenav/nova-sidenav.component.ts:47</a></div>
-                </td>
-            </tr>
 
 
             <tr>
@@ -308,16 +297,12 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">src/app/layout/nova-sidenav/nova-sidenav.component.ts:34</a></div>
-                </td>
-            </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Methods and variables declrations will be happend on component load</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -356,12 +341,13 @@
                         <i>Default value : </i><code>false</code>
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/layout/nova-sidenav/nova-sidenav.component.ts:11</a></div>
-                        </td>
-                    </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>isExpand variable state will define the sidenav expanded or not</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -402,11 +388,6 @@
   ]</code>
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/layout/nova-sidenav/nova-sidenav.component.ts:16</a></div>
-                        </td>
-                    </tr>
 
             <tr>
                 <td class="col-md-4">
@@ -440,12 +421,13 @@
                         <i>Default value : </i><code>4</code>
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/layout/nova-sidenav/nova-sidenav.component.ts:12</a></div>
-                        </td>
-                    </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>totalNotifications variable will define the number of notifications received to the user</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -454,209 +436,8 @@
 </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
-// import styles from &#x27;../../reusable/theme/base.scss&#x27;;
-
-@Component({
-  selector: &#x27;app-nova-sidenav&#x27;,
-  templateUrl: &#x27;./nova-sidenav.component.html&#x27;,
-  styleUrls: [&#x27;./nova-sidenav.component.scss&#x27;]
-})
-export class NovaSidenavComponent implements OnInit {
-
-  public isExpanded:boolean &#x3D; false;
-  public totalNotifications: number &#x3D; 4;
-  /**
-  * Side Menu list items
-  */
-  public sidenavItems &#x3D; [
-    {icon:&#x27;../../../assets/icons/ico.dashboard.svg&#x27;, name:&#x27;Dashboard&#x27;},
-    {icon:&#x27;../../../assets/icons/ico.register.svg&#x27;, name:&#x27;New&#x27;},
-    {icon:&#x27;../../../assets/icons/ico.masterlist.svg&#x27;, name:&#x27;Master List&#x27;},
-    {icon:&#x27;../../../assets/icons/ico.laboperations.svg&#x27;, name:&#x27;Lab Operations&#x27;},
-    {icon:&#x27;../../../assets/icons/ico.workload.svg&#x27;, name:&#x27;Workload&#x27;},
-    {icon:&#x27;../../../assets/icons/ico.testmethodmanagement.svg&#x27;, name:&#x27;Test Method Management&#x27;},
-    {icon:&#x27;../../../assets/icons/ico.inventory.svg&#x27;, name:&#x27;Inventory&#x27;},
-    {icon:&#x27;../../../assets/icons/ico.statisticalanalysis.svg&#x27;, name:&#x27;Statistical Analysis&#x27;},
-    {icon:&#x27;../../../assets/icons/ico.reports.svg&#x27;, name:&#x27;Reports&#x27;},
-    {icon:&#x27;../../../assets/icons/ico.sysadminadministration.svg&#x27;, name:&#x27;System Administration&#x27;}
-    
-    
-
-  ];
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-  /**
-  * Expands the side menu, if it is closed
-  */
-  public checkExpand() {
-    this.isExpanded &#x3D; !this.isExpanded;
-  }
-
-  /**
-  * Closes the side menu, if it is open
-  */
-  public closeSideNav() {
-    this.isExpanded &#x3D; false;
-  }
-
-}
-</code></pre>
-    </div>
-
-    <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;mat-drawer-container class&#x3D;&quot;example-container mat-typography&quot; autosize class&#x3D;&#x27;sidenav-height&#x27;&gt;
-    &lt;mat-drawer #drawer mode&#x3D;&quot;side&quot; disableClose&#x3D;&quot;true&quot; opened&#x3D;&quot;true&quot;&gt;
-        &lt;div class&#x3D;&quot;row custom-height&quot;&gt;
-            &lt;!-- closesidenav fun will close the side menu when it is opened --&gt;
-            &lt;mat-icon *ngIf&#x3D;&quot;isExpanded&quot; class&#x3D;&quot;sidenav-icon&quot; aria-label&#x3D;&quot;Menu&quot; (click)&#x3D;&quot;closeSideNav()&quot;&gt;menu&lt;/mat-icon&gt;
-            &lt;!-- expand side nav fun will open the side menu when it is closed --&gt;
-            &lt;mat-icon *ngIf&#x3D;&quot;!isExpanded&quot; class&#x3D;&quot;sidenav-closeicon&quot; mat-list-icon&gt;&lt;img (click)&#x3D;&quot;checkExpand()&quot;
-                    src&#x3D;&quot;../../../assets/icons/ico.hamburger.svg&quot;&gt;&lt;/mat-icon&gt;
-            &lt;h2 *ngIf&#x3D;&quot;isExpanded&quot; class&#x3D;&quot;sidenav-txt color-main&quot;&gt;MAIN MENU&lt;/h2&gt;
-        &lt;/div&gt;
-        &lt;mat-nav-list&gt;
-            &lt;!-- Itterrating all the menu items in the side menu --&gt;
-            &lt;mat-list-item *ngFor&#x3D;&#x27;let item of sidenavItems; let i &#x3D; index&#x27;&gt;
-                &lt;div class&#x3D;&quot;hoverColor&quot;&gt;&lt;/div&gt;
-                &lt;mat-icon mat-list-icon *ngIf&#x3D;&#x27;i!&#x3D;&#x3D;8&#x27;&gt;&lt;img class&#x3D;&quot;sidenav-menuicon&quot; src&#x3D;&quot;{{item.icon}}&quot;&gt;&lt;/mat-icon&gt;
-                &lt;mat-icon mat-list-icon *ngIf&#x3D;&#x27;i&#x3D;&#x3D;8&#x27;&gt;&lt;img class&#x3D;&quot;sidenav-menuicon2&quot; src&#x3D;&quot;{{item.icon}}&quot;&gt;&lt;/mat-icon&gt;
-                &lt;h4 class&#x3D;&quot;sidenav-content color-main&quot; mat-line *ngIf&#x3D;&quot;isExpanded&quot;&gt;{{item.name}}&lt;/h4&gt;
-                &lt;app-notification class&#x3D;&quot;notificationBar&quot; *ngIf&#x3D;&#x27;i&#x3D;&#x3D;1 &amp;&amp; isExpanded&#x27; [number]&#x3D;&quot;totalNotifications&quot;&gt;&lt;/app-notification&gt;
-                &lt;div class&#x3D;&quot;notificationDot&quot; *ngIf&#x3D;&#x27;i&#x3D;&#x3D;1 &amp;&amp; !isExpanded&#x27;&gt;&lt;/div&gt;
-                &lt;mat-divider *ngIf&#x3D;&quot;isExpanded&quot;&gt;&lt;/mat-divider&gt;
-            &lt;/mat-list-item&gt;
-        &lt;/mat-nav-list&gt;
-    &lt;/mat-drawer&gt;
-
-    &lt;div class&#x3D;&quot;example-sidenav-content&quot;&gt;
-        &lt;ng-content&gt;
-
-        &lt;/ng-content&gt;
-    &lt;/div&gt;
-&lt;/mat-drawer-container&gt;</code></pre>
-    </div>
-
-    <div class="tab-pane fade " id="c-styleData">
-                <p class="comment">
-                    <code>./nova-sidenav.component.scss</code>
-                </p>
-                <pre class="line-numbers"><code class="language-scss">@import &#x27;../../reusable/theme/base.scss&#x27;;
-
-::ng-deep .mat-drawer.mat-drawer-side {
-    background-color: #F0F0F0;
-}
-
-::ng-deep .mat-list-item :hover {
-    .hoverColor {
-        background: #fab31c;
-        width: 5px;
-        height: 32px;
-        float: left;
-        position: fixed;
-        margin-left: -8px;
-        margin-top: 0px;
-    }
-}
-
-.color-main {
-    color: $color-dark-gray;
-}
-
-::ng-deep .mat-list-base .mat-list-item.mat-list-item-with-avatar,
-.mat-list-base .mat-list-option.mat-list-item-with-avatar {
-    height: 35px !important;
-}
-
-::ng-deep .mat-list-base .mat-list-item .mat-list-text&gt;*,
-.mat-list-base .mat-list-option .mat-list-text&gt;* {
-    font-size: smaller !important;
-}
-
-::ng-deep .mat-drawer-inner-container {
-    overflow-x: hidden !important;
-}
-
-.sidenav-icon {
-    margin-left: 10%;
-    margin-top: 5px;
-    color: #5D5D5D;
-}
-
-.sidenav-closeicon {
-    margin-left: 38%;
-}
-
-.sidenav-txt {
-    margin-left: 11px;
-}
-
-.sidenav-content {
-    margin-top: 2vh !important;
-    font-weight: 500 !important;
-}
-
-.sidenav-menuicon {
-    width: 18px;
-}
-
-.sidenav-height {
-    height: 100vh;
-}
-
-.sidenav-menuicon2 {
-    width: 16px;
-}
-
-::ng-deep .mat-list-base .mat-list-item .mat-divider,
-.mat-list-base .mat-list-option .mat-divider {
-    position: absolute;
-    bottom: 0;
-    right: 0 !important;
-    left: 45px !important;
-    width: 75% !important;
-    margin: 0;
-    top: 35px !important;
-    border: 1px solid #dfdfdf;
-}
 
 
-::ng-deep .mat-list-base .mat-list-item .mat-list-item-content, .mat-list-base .mat-list-option .mat-list-item-content {
-    padding:  0 8px !important;
-}
-
-.custom-height {
-    height: 20px;
-}
-
-.notificationBar {
-    position: absolute;
-    float: right;
-    right: 0px;
-    top: -25px;
-    margin-right: 10px;
-}
-
-::ng-deep .mat-list-base .mat-list-item.mat-list-item-with-avatar .mat-list-item-content .mat-list-text, .mat-list-base .mat-list-item.mat-list-option .mat-list-item-content .mat-list-text, .mat-list-base .mat-list-option.mat-list-item-with-avatar .mat-list-item-content .mat-list-text, .mat-list-base .mat-list-option.mat-list-option .mat-list-item-content .mat-list-text {
-    padding-left: 5px !important;
-}
-
-.notificationDot {
-    position: absolute;
-    background: #FCB520;
-    border: 1px solid #946A12;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    top: -23px;
-    left: 22px;
-}</code></pre>
-    </div>
 
     <div class="tab-pane fade " id="c-tree">
         <div id="tree-container"></div>

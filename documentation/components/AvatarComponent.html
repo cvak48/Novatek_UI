@@ -46,15 +46,6 @@
             <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
         </li>
         <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
-        </li>
-        <li >
-            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
-        </li>
-        <li >
-            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
-        </li>
-        <li >
             <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
         </li>
 </ul>
@@ -211,11 +202,6 @@
 <code>constructor()</code>
                     </td>
                 </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/reusable/avatar/avatar.component.ts:24</a></div>
-                            </td>
-                        </tr>
 
             </tbody>
         </table>
@@ -237,11 +223,6 @@
 
                     </td>
                 </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/reusable/avatar/avatar.component.ts:10</a></div>
-                            </td>
-                        </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -258,11 +239,6 @@
 
                     </td>
                 </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/reusable/avatar/avatar.component.ts:13</a></div>
-                            </td>
-                        </tr>
             </tbody>
         </table>
 </section>
@@ -292,12 +268,6 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">src/app/reusable/avatar/avatar.component.ts:27</a></div>
-                </td>
-            </tr>
 
 
             <tr>
@@ -335,11 +305,6 @@
 
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/reusable/avatar/avatar.component.ts:23</a></div>
-                        </td>
-                    </tr>
 
 
         </tbody>
@@ -362,11 +327,6 @@
 
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/reusable/avatar/avatar.component.ts:24</a></div>
-                        </td>
-                    </tr>
 
 
         </tbody>
@@ -391,22 +351,12 @@
                         <span class="accessor"><b>get</b><code>avatarUrl()</code></span>
                     </td>
                 </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/reusable/avatar/avatar.component.ts:17</a></div>
-                                </td>
-                            </tr>
 
                 <tr>
                     <td class="col-md-4">
                         <span class="accessor"><b>set</b><code>avatarUrl(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code></span>
                     </td>
                 </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/reusable/avatar/avatar.component.ts:10</a></div>
-                                </td>
-                            </tr>
                     <tr>
                         <td class="col-md-4">
 
@@ -460,22 +410,12 @@
                         <span class="accessor"><b>get</b><code>name()</code></span>
                     </td>
                 </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/reusable/avatar/avatar.component.ts:20</a></div>
-                                </td>
-                            </tr>
 
                 <tr>
                     <td class="col-md-4">
                         <span class="accessor"><b>set</b><code>name(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code></span>
                     </td>
                 </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/reusable/avatar/avatar.component.ts:13</a></div>
-                                </td>
-                            </tr>
                     <tr>
                         <td class="col-md-4">
 
@@ -519,85 +459,8 @@
 </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, OnInit } from &#x27;@angular/core&#x27;;
-import { Person } from &#x27;../../main/components/demo-page/demo-page.component&#x27;;
-
-@Component({
-  selector: &#x27;app-avatar&#x27;,
-  templateUrl: &#x27;./avatar.component.html&#x27;,
-  styleUrls: [&#x27;./avatar.component.scss&#x27;]
-})
-export class AvatarComponent implements OnInit {
-  @Input() set avatarUrl(value: string) {
-    this._avatarUrl &#x3D; value ? value : &#x27;&#x27;;
-  }
-  @Input() set name(value: string) {
-    this._name &#x3D; value ? value : &#x27;&#x27;;
-  }
-
-  get avatarUrl(): string {
-    return this._avatarUrl;
-  }
-  get name(): string {
-    return this._name; 
-  }
-  private _avatarUrl!: string;
-  private _name!: string;
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
-</code></pre>
-    </div>
-
-    <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">  &lt;div class&#x3D;&quot;image-container&quot;&gt;
-    &lt;img class&#x3D;&quot;image&quot; *ngIf&#x3D;&quot;avatarUrl&quot; [src]&#x3D;&quot;avatarUrl&quot; /&gt;
-    &lt;div class&#x3D;&quot;label h30&quot; *ngIf&#x3D;&quot;!avatarUrl &amp;&amp; name&quot; &gt; {{name!  | nvInitials}} &lt;/div&gt;
-  &lt;/div&gt;
 
 
-</code></pre>
-    </div>
-
-    <div class="tab-pane fade " id="c-styleData">
-                <p class="comment">
-                    <code>./avatar.component.scss</code>
-                </p>
-                <pre class="line-numbers"><code class="language-scss">@import &#x27;./../theme/base.scss&#x27;;
-
-
-  .image-container {
-    position: relative;
-    background: transparent;
-    border-radius: 3px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    .image {
-      position: relative;
-      width: 40px;
-      height: 40px;
-    }
-
-    .label {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      border: 2px solid $color-dark-gray-10;
-      color: $color-dark-gray-10;
-
-    }
-  }
-</code></pre>
-    </div>
 
     <div class="tab-pane fade " id="c-tree">
         <div id="tree-container"></div>

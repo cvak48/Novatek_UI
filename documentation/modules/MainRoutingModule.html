@@ -43,9 +43,6 @@
     <li  class="active" >
         <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
     </li>
-    <li >
-        <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
-    </li>
 </ul>
 
 <div class="tab-content">
@@ -71,37 +68,6 @@
     </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { DemoPageComponent } from &#x27;./components/demo-page/demo-page.component&#x27;;
-import { NgModule } from &#x27;@angular/core&#x27;;
-import { RouterModule, Routes } from &#x27;@angular/router&#x27;;
-import { DashboardComponent } from &#x27;./components/dashboard/dashboard.component&#x27;;
-import { PlaceholderBigCardComponent } from &#x27;../reusable/placeholder/placeholderBigCard/placeholderBigCard.component&#x27;;
-import { PlaceholderCardComponent } from &#x27;../reusable/placeholder/placeholder-card/placeholder-card.component&#x27;;
-import { PlaceholderBannerComponent } from &#x27;../reusable/placeholder/placeholder-banner/placeholder-banner.component&#x27;;
-import { PlaceholderListComponent } from &#x27;../reusable/placeholder/placeholder-list/placeholder-list.component&#x27;;
-
-const routes: Routes &#x3D; [
-    { path: &#x27;&#x27;, redirectTo: &#x27;demo&#x27;, pathMatch: &#x27;full&#x27; },
-    { path: &#x27;dashboard&#x27;, component: DashboardComponent },
-    { path: &#x27;demo&#x27;, component: DemoPageComponent },
-    { path: &#x27;PlaceholderBigCard&#x27;, component: PlaceholderBigCardComponent },
-    { path: &#x27;placeholderCard&#x27;, component: PlaceholderCardComponent },
-    { path: &#x27;placeholderBanner&#x27;, component: PlaceholderBannerComponent },
-    { path: &#x27;placeholderList&#x27;, component: PlaceholderListComponent },
-
-
-
-
-];
-
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
-})
-export class MainRoutingModule { }
-</code></pre>
-    </div>
 </div>
 
 

@@ -37,6 +37,7 @@ export class CommentBoxComponent implements OnInit {
   @Input()
   comments:CommentNode[] = [];
   text:string = '';
+  // image will be added from the user profile
   public person : Person = {
     id: 1,
     name: 'Alex Green',
@@ -49,6 +50,7 @@ export class CommentBoxComponent implements OnInit {
    
   }
 
+  // Comment will be pushed into the comment vairable
   addComment(comment:CommentNode){
     comment.addAnwser(new CommentNode(this.text, this.comments[0].imgUrl));      
     comment.isOpen = false;
@@ -59,6 +61,7 @@ export class CommentBoxComponent implements OnInit {
     comment.isOpen = !comment.isOpen;
   }
 
+  // comment will be reved based on index
   remove(comment:CommentNode){    
     let index = this.comments.indexOf(comment);
     this.comments = this.comments.splice(index,1);        

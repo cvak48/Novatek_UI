@@ -37,6 +37,7 @@
 .sidenav-icon {
     margin-left: 10%;
     margin-top: 5px;
+    color: #5D5D5D;
 }
 
 .sidenav-closeicon {
@@ -58,6 +59,10 @@
 
 .sidenav-height {
     height: 100vh;
+}
+
+.sidenav-menuicon2 {
+    width: 16px;
 }
 
 ::ng-deep .mat-list-base .mat-list-item .mat-divider,
@@ -91,4 +96,15 @@
 
 ::ng-deep .mat-list-base .mat-list-item.mat-list-item-with-avatar .mat-list-item-content .mat-list-text, .mat-list-base .mat-list-item.mat-list-option .mat-list-item-content .mat-list-text, .mat-list-base .mat-list-option.mat-list-item-with-avatar .mat-list-item-content .mat-list-text, .mat-list-base .mat-list-option.mat-list-option .mat-list-item-content .mat-list-text {
     padding-left: 5px !important;
+}
+
+.notificationDot {
+    position: absolute;
+    background: #FCB520;
+    border: 1px solid #946A12;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    top: -23px;
+    left: 22px;
 }

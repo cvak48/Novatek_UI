@@ -64,6 +64,9 @@
         {{nvComponentType[nvComponentType.NvDatePicker]}}
       </div>
 
+      <div class="menu-item h40" (click)="onItemClick(nvComponentType.NvButton)">
+        {{nvComponentType[nvComponentType.NvButton]}}
+      </div>
     </div>
     <div class="preview-panel" [ngSwitch]="selectedItem">
       <div class="panel-body">
@@ -97,7 +100,14 @@
           <app-nv-dropdown class="body-item"></app-nv-dropdown>
         </div>
 
+      <ng-container *ngSwitchCase="nvComponentType.Avatar">
+        <app-avatar class="body-item" *ngIf="person?.imageUrl && person?.name" [avatarUrl]="person.imageUrl!" [name]="person.name!" ></app-avatar>
+      </ng-container>
 
+    
+        <div class="upload-file-container" *ngSwitchCase="nvComponentType.DropToUpload">
+        <app-upload class="body-item" ></app-upload>
+      </div>
         <div class="custom-component-container" *ngSwitchCase="nvComponentType.NvCheckBox">
           <app-nv-custom-component class="body-item" [component]="nvCheckBox"></app-nv-custom-component>
         </div>
@@ -113,6 +123,7 @@
         <div class="custom-component-container" *ngSwitchCase="nvComponentType.NvRadioBut">
           <app-nv-custom-component class="body-item" [component]="nvRadioBut"></app-nv-custom-component>
         </div>
+
         <div class="date-single-picker-container" *ngSwitchCase="nvComponentType.NvDatePicker">
         <app-nv-data-picker [isDateRangePicker]="false" class="body-item"></app-nv-data-picker>
         </div>
@@ -120,7 +131,9 @@
         <div class="date-range-picker-container" *ngSwitchCase="nvComponentType.NvDatePicker">
         <app-nv-data-picker [isDateRangePicker]="true"  class="body-item"></app-nv-data-picker>
         </div>
-      </div>
+
+  
+       <app-nv-button [label]="buttonLabel" [type]="buttonType" [color]="themeColor" class="body-item" *ngSwitchCase="nvComponentType.NvButton"></app-nv-button>
 
 
     </div>

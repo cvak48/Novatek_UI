@@ -1,9 +1,9 @@
 import { NvDataPickerComponent } from './nv-data-picker/nv-data-picker.component';
 import { NvTrimPipe } from './pipes/nv-trim/nv-trim.pipe';
+import { NvButtonComponent } from './nv-button/nv-button.component';
 import { FilterAllPipe } from './pipes/filters/filterAll/filter-all.pipe';
 import { AdvanceFilterPipe } from './pipes/filters/advance-filter/advance-filter.pipe';
 import { NvInitialsPipe } from './pipes/nv-initials/nv-initials.pipe';
-
 import { RattingComponent } from './ratting/ratting.component';
 import { NvCustomComponentComponent } from './nv-custom-component/nv-custom-component.component';
 import { UploadComponent } from './upload/upload.component';
@@ -85,6 +85,7 @@ const sharedComponents = [
   RattingComponent,
   ProgressiveBarComponent,
   NvDataPickerComponent,
+  NvButtonComponent
 ];
 
 @NgModule({

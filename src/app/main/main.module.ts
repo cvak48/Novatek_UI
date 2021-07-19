@@ -18,7 +18,6 @@ import { LayoutComponentModule } from '../layout';
     MaterialModule,
     MainRoutingModule,
     LayoutComponentModule,
-
   ],
   exports:[]
 })

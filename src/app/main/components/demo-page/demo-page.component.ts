@@ -17,7 +17,6 @@ export interface Notification {
 export enum NvComponent {
   // First: Add the name of your reusable component to this enum
   Search,
-  AdvancedSearch,
   NovaLogo,
   Notification,
   Avatar,
@@ -29,6 +28,7 @@ export enum NvComponent {
   NvSliderBar,
   NvSliderToggle,
   NvRadioBut,
+  NvDatePicker,
   NvButton
 }
 
@@ -69,7 +69,6 @@ export class DemoPageComponent implements OnInit {
     this.selectedItem = selectedItem;
   }
   onItemsFilter(list: any): void {
-    console.log(list);
   }
 }
 

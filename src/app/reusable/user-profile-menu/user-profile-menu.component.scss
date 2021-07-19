@@ -52,6 +52,10 @@
   }
 
 }
+
+::ng-deep .mat-elevation-z4 {
+  box-shadow: 0px 1px 4px #0000001A !important;
+}
 @media (max-width: 576px) {
   ::ng-deep .mat-menu {
     width: 134px !important;

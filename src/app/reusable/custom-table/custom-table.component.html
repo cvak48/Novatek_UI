@@ -41,13 +41,14 @@
         </tr>
     </table>
     <div class="ft-rt">
-        <div class="paging-space">
+        <div class="paging-space-arrow">
             <span class="page-size-title">Items Per Page:&nbsp;&nbsp;</span>
             <select (change)="handlePageSizeChange($event)" class="page-size">
-              <option *ngFor="let size of pageSizes" [ngValue]="size">
+              <option class="option-style" *ngFor="let size of pageSizes" [ngValue]="size">
                 {{ size }}
               </option>
             </select>
+            <!-- <div class="content-arrow"></div> -->
           </div>
         <div  class="paging-space">
             <pagination-controls 

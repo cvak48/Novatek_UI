@@ -142,7 +142,7 @@ export class CustomDatatableComponent implements OnInit, AfterViewInit {
     }
   }
 
-  /**
+  /** 
    * 
    * This method gives boolen value to know that all checkboxes are checked or not
    */

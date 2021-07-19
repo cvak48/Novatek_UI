@@ -6,15 +6,17 @@ html, body { height: 100%; }
 body { margin: 0; font-family: "Lato", Roboto, "Helvetica Neue", sans-serif;  overflow-y: scroll;}
 
 .ngx-pagination .pagination-previous a::before, .ngx-pagination .pagination-previous.disabled::before {
-    content: '«';
+    
+    content: url(./assets/icons/paginationLeft.icon.svg) !important;
     font-size: 25px !important;
     position: relative;
-    top: 3px;
+    top: 1px;
   }
   
   .ngx-pagination .pagination-next a::after, .ngx-pagination .pagination-next.disabled::after {
-    content: '»';
+    
+    content: url(./assets/icons/paginationRight.icon.svg) !important;
     font-size: 25px !important;
     position: relative;
-    top: 3px;
+    top: 1px;
 }

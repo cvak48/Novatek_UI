@@ -14,6 +14,7 @@ export class CustomTableComponent implements OnInit {
   count = 0;
   pageSize = 3;
   pageSizes = [3, 6, 9];
+  pageNewSizes = ['3', '6', '9'];
   columns = ['name', 'date', 'email', 'status', 'attachments'];
   directionLinks: boolean = true;
   autoHide: boolean = false;

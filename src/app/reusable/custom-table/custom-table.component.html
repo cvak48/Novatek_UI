@@ -43,11 +43,16 @@
     <div class="ft-rt">
         <div class="paging-space-arrow">
             <span class="page-size-title">Items Per Page:&nbsp;&nbsp;</span>
-            <select (change)="handlePageSizeChange($event)" class="page-size">
+            <div style="width: 60px;">
+              <app-nv-dropdown [items]="pageNewSizes" >
+
+              </app-nv-dropdown>
+            </div>
+            <!-- <select (change)="handlePageSizeChange($event)" class="page-size">
               <option class="option-style" *ngFor="let size of pageSizes" [ngValue]="size">
                 {{ size }}
               </option>
-            </select>
+            </select> -->
             <!-- <div class="content-arrow"></div> -->
           </div>
         <div  class="paging-space">

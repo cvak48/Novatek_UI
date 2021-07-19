@@ -187,19 +187,19 @@ tr.mat-row.cdk-row:nth-child(odd) {
 }
 
 /* Arrow */
-.paging-space-arrow::after {
-  content: '\25BC';
-  position: absolute;
-  top: 13px;
-  right: 0;
-  padding: 0 1em;
-  color: #34495e;
-  cursor: pointer;
-  pointer-events: none;
-  -webkit-transition: .25s all ease;
-  -o-transition: .25s all ease;
-  transition: .25s all ease;
-}
+// .paging-space-arrow::after {
+//   content: '\25BC';
+//   position: absolute;
+//   top: 13px;
+//   right: 0;
+//   padding: 0 1em;
+//   color: #34495e;
+//   cursor: pointer;
+//   pointer-events: none;
+//   -webkit-transition: .25s all ease;
+//   -o-transition: .25s all ease;
+//   transition: .25s all ease;
+// }
 /* Transition */
 .page-size:hover::after {
   color: #f39c12;

@@ -33,6 +33,14 @@ export class DashboardComponent implements OnInit {
   bannerData = {};
   smallCardData = {};
   listData: any[] = [];
+  SucessprogressiveBarValue:string = '90';
+  warningProgressivebarValue:string = '70';
+  dualwarningProgressivebarValue:string = '5';
+
+  sucessTxt: string = 'Everything worked, your file is all ready';
+  warningTxt: string = "Your file don't meet the minimum resolution";
+  errorTxt: string= "Tere was an error"
+  textColor: string = 'red'
   constructor() {
    }
 
@@ -95,7 +103,7 @@ function mockProfileMenu(): Person {
     name: 'Alex Green',
     imageUrl: 'https://tse1.mm.bing.net/th?id=OIP.E45HCyveqDL44p8lmvQL9AAAAA&pid=Api&P=0',
     notification: {
-      number: 20,
+      number: 200,
       content: '',
       hasAttachment: false,
     } as Notification,

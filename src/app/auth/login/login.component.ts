@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   ]
 
   public customLogoSize = {
-    width:'250',
+    width:'200',
     height: '50'
   }
 
@@ -28,13 +28,20 @@ export class LoginComponent implements OnInit {
   ]
   constructor() { }
 
+  /**
+  * Life cycle hook of Angular
+  */
   ngOnInit(): void {
   }
 
+  /**
+  * showPassword vairable state to shows the password feild
+  */
   askPassword() {
     this.showPassword = true;
   }
 
+  // Auth the user
   authenticateuser() {
     
   }

@@ -1,3 +1,4 @@
+import { ButtonType, ButtonThemeColor } from './../../../reusable/nv-button/nv-button.component';
 import { NvCustomComponent } from './../../../reusable/nv-custom-component/nv-custom-component.component';
 
 import { Component, OnInit } from '@angular/core';
@@ -16,7 +17,6 @@ export interface Notification {
 export enum NvComponent {
   // First: Add the name of your reusable component to this enum
   Search,
-  AdvancedSearch,
   NovaLogo,
   Notification,
   Avatar,
@@ -28,6 +28,8 @@ export enum NvComponent {
   NvSliderBar,
   NvSliderToggle,
   NvRadioBut,
+  NvDatePicker,
+  NvButton
 }
 
 @Component({
@@ -36,7 +38,7 @@ export enum NvComponent {
   styleUrls: ['./demo-page.component.scss']
 })
 export class DemoPageComponent implements OnInit {
-  public selectedItem: NvComponent = NvComponent.Search;
+  public selectedItem: NvComponent = NvComponent.NvButton;
   public nvComponentType = NvComponent;
    // Second: Provide input data for your reusable component here if needed
    // Search
@@ -54,6 +56,10 @@ export class DemoPageComponent implements OnInit {
    showMenu =  mockAdvanceSearchInput().showMenu;
    list: any = mockAdvanceSearchInput().list;
    searchableRefList =  mockAdvanceSearchInput().searchableRefList;
+  // button
+  buttonLabel = 'Default';
+  buttonType = ButtonType.Stroked;
+  themeColor = ButtonThemeColor.Basic;
 
   constructor() { }
 
@@ -63,7 +69,6 @@ export class DemoPageComponent implements OnInit {
     this.selectedItem = selectedItem;
   }
   onItemsFilter(list: any): void {
-    console.log(list);
   }
 }
 

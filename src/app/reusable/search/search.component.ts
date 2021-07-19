@@ -43,7 +43,7 @@ export class SearchComponent implements OnInit {
   constructor(private filter: FilterAllPipe, private advanceFilter: AdvanceFilterPipe) { }
 
   ngOnInit(): void {
-
+    //
     let isQueryKeyword: boolean = false;
     let trimmedInput: string
     this.queryFormControl.valueChanges.subscribe(selectedValue => {

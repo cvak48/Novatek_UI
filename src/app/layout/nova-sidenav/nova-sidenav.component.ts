@@ -1,15 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-// import styles from '../../reusable/theme/base.scss';
 
+/**
+ * The Sidenav component
+ *
+ * This component will be used toto expand and close the sidenav
+ * 
+ * List of components can we navigated from sidenav menu
+ */
 @Component({
   selector: 'app-nova-sidenav',
   templateUrl: './nova-sidenav.component.html',
   styleUrls: ['./nova-sidenav.component.scss']
 })
 export class NovaSidenavComponent implements OnInit {
-
+  /**
+  * isExpand variable state will define the sidenav expanded or not
+  */
   public isExpanded:boolean = false;
+  /**
+  * totalNotifications variable will define the number of notifications received to the user
+  */
   public totalNotifications: number = 4;
+  /**
+  * Side Menu list items
+  */
   public sidenavItems = [
     {icon:'../../../assets/icons/ico.dashboard.svg', name:'Dashboard'},
     {icon:'../../../assets/icons/ico.register.svg', name:'New'},
@@ -26,15 +40,27 @@ export class NovaSidenavComponent implements OnInit {
 
   ];
 
+  /**
+  * Dependency injection will be added into the constructor
+  */
   constructor() { }
 
+  /**
+  * Methods and variables declrations will be happend on component load
+  */
   ngOnInit(): void {
   }
 
+  /**
+  * Expands the side menu, if it is closed
+  */
   public checkExpand() {
     this.isExpanded = !this.isExpanded;
   }
 
+  /**
+  * Closes the side menu, if it is open
+  */
   public closeSideNav() {
     this.isExpanded = false;
   }

@@ -3,7 +3,16 @@
 .progressTxt {
     text-align: end;
     margin-right: 2%;
-    color: #ffffff;
+    color: $color-white-20;
+}
+
+.progressTxt-multi {
+    text-align: end;
+    color: $color-white-20;
+}
+
+.multi-txt {
+    margin-right: 2%;
 }
 
 .firstBlock {
@@ -12,4 +21,14 @@
 
 .secondBlock {
     background-color: $color-progressive-second-block !important;
+}
+
+.progress {
+    height: 24px !important;
+}
+
+.statusTxt {
+    font-size: 14px;
+    font-family: Lato Heavy;
+    text-align: center;
 }

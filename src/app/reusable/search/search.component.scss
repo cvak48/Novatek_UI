@@ -5,6 +5,7 @@ $border-thickness: 1px;
 $icon-width: 16px;
 $padding: 12px;
 $icons-distance: 8px;
+$icons-distance-large: 18px;
 
 .dropdown {
   position: relative;
@@ -149,7 +150,7 @@ $icons-distance: 8px;
         left: $padding;
       }
       &.cancel {
-        right: $icon-width + $padding + $icons-distance;
+        right: $icon-width + $padding + $icons-distance-large;
       }
       &.setting {
         right: $padding;
@@ -192,7 +193,7 @@ $icons-distance: 8px;
         font-size: $font-size-x-small;
         font-weight: $font-weight-normal;
         line-height: $line-height-xx-small;
-        color: $color-light-gray-60;
+        color: $color-black-20;
       }
 
       &.selected-item {
@@ -208,11 +209,6 @@ $icons-distance: 8px;
       &:hover {
         background: $color-light-gray;
       }
-      // .show {
-      //   &.show-display {
-      //     display: none;
-      //   }
-      // }
     }
 
   }

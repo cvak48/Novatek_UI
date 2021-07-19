@@ -2,7 +2,7 @@
 
     <button type="button" class="btn dropdown-toggle body20 label" data-toggle="dropdown" [ngClass]="{'default': isFirst}"
       (click)="isArrowDown=!isArrowDown">
-      {{selectedItem | nvTrim: 4}}
+      {{selectedItem | nvTrim: textTrimNumber}}
       <img *ngIf="isArrowDown" class="arrow-icon" src="../../../assets/icons/ico.arrow.down.svg">
       <img *ngIf="!isArrowDown" class="arrow-icon" src="../../../assets/icons/ico.arrow.up.svg">
     </button>

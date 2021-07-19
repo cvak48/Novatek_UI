@@ -55,9 +55,8 @@
           <mat-divider></mat-divider>
           <mat-card-actions align="end">
             <!-- Next button -->
-            <button *ngIf='!showPassword' class="nxt-btn" mat-raised-button (click)='askPassword()'>Next</button>
-            <!-- Login Button is only visible when showpassword value is true -->
-            <button *ngIf='showPassword' class="nxt-btn" mat-raised-button (click)='authenticateuser()'>Login</button>
+            <app-nv-button  *ngIf='!showPassword' class="nxt-btn" (buttonClick)='askPassword()' [label]="'Next'"></app-nv-button>
+            <app-nv-button  *ngIf='showPassword' class="nxt-btn" (buttonClick)='authenticateuser()' [label]="'Login'"></app-nv-button>
           </mat-card-actions>
         </mat-card>
       </div>

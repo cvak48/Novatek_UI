@@ -28,24 +28,13 @@
 
 .nxt-btn {
     margin: 10px 0 10px 0 !important;
-    box-shadow: none !important;
-    border: 1px solid $color-dark-gray;
 }
 
-.nxt-btn:hover {
-    color: $color-black-09;
-    background-color: $color-grey-c7 !important;
-}
 
 button:focus {
     outline: none !important;
 }
 
-.nxt-btn:active {
-    color:$color-black-09;
-    background-color: $color-white-f6 !important;
-    border: $color-dark-gray
-}
 
 select {
     background-image: linear-gradient(45deg, transparent 50%, $color-black-27 60%), linear-gradient(135deg, $color-black-1f 40%, transparent 50%) !important;

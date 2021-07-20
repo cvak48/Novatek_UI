@@ -46,9 +46,12 @@
         </tr>
     </table>
     <div class="ft-rt">
+      <div class="container-pagination">
+
+      
         <div class="paging-space-arrow">
             <span class="page-size-title">Items Per Page:&nbsp;&nbsp;</span>
-            <div style="width: 60px;">
+            <div class="drop-container">
               <app-nv-dropdown [items]="pageNewSizes" >
 
               </app-nv-dropdown>
@@ -74,6 +77,7 @@
             (pageChange)="handlePageChange($event)"
            ></pagination-controls>
           </div>
-    </div>
+        </div>
+        </div>
     
 </div>

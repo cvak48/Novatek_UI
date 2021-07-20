@@ -38,6 +38,12 @@ mat-paginator {
   width: 98% !important;
 }
 
+.drop-container {
+  width: 60px;
+  float: left;
+  display: inline-block;
+}
+
 ::ng-deep .search-placeholder-align .mat-form-field-infix{
   position: relative;
   top: -6px;

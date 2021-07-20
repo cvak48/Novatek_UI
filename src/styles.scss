@@ -20,3 +20,15 @@ body { margin: 0; font-family: "Lato", Roboto, "Helvetica Neue", sans-serif;  ov
     position: relative;
     top: 1px;
 }
+
+.ngx-pagination .disabled {
+  padding: 0.1875rem 0.625rem;
+  color: #999C9E !important;
+  cursor: default;
+  font-size: 16px;
+  margin-right: 17px;
+}
+
+ul.ngx-pagination.responsive {
+  padding-left: 17px;
+}

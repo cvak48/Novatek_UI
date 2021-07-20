@@ -8,7 +8,7 @@
     </button>
 
   <div class="dropdown-menu" (click)="isArrowDown=!isArrowDown">
-    <div class="dropdown-item body20" *ngFor="let item of items; let i = index" (click)="onItemSelect(i)" 
+    <div class="dropdown-item body20" *ngFor="let item of items; let i = index" (click)="onItemSelect(i)" (change)="onItemChange($event)"
       [ngClass]="{'selected-item': i==selectedIndex}"> {{item}}</div>
   </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-nv-dropdown',
@@ -6,6 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./nv-dropdown.component.scss']
 })
 export class NvDropdownComponent implements OnInit {
+  @Output() itemChange = new EventEmitter<any>();
   //TODO:By clicking on main page the arrow should change
   @Input() items: string[] = ['item1', 'item2 which is longer', 'item3 item2 which is longer and longer', 'item4', 'item5', 'item6', 'item7'];
   @Input() textTrimNumber: number = 1;
@@ -27,5 +28,9 @@ export class NvDropdownComponent implements OnInit {
     this.isFirst = false;
     this.selectedIndex = index;
     this.selectedItem = this.items[this.selectedIndex];
+  }
+  onItemChange(event: any) {
+  console.log('change');
+  this.itemChange.emit(event.value)
   }
 }

@@ -1,3 +1,4 @@
+import { NvDateTimePickerComponent } from './nv-date-time-picker/nv-date-time-picker.component';
 import { NvDataPickerComponent } from './nv-data-picker/nv-data-picker.component';
 import { NvTrimPipe } from './pipes/nv-trim/nv-trim.pipe';
 import { NvButtonComponent } from './nv-button/nv-button.component';
@@ -85,7 +86,8 @@ const sharedComponents = [
   RattingComponent,
   ProgressiveBarComponent,
   NvDataPickerComponent,
-  NvButtonComponent
+  NvButtonComponent,
+  NvDateTimePickerComponent
 ];
 
 @NgModule({

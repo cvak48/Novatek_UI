@@ -1,4 +1,4 @@
-<mat-form-field>
+<!-- <mat-form-field>
     <input matInput [ngxMatDatetimePicker]="pickerFrom" placeholder="From date & time" [(ngModel)]="myDatePickerFrom">
 
     <mat-datepicker-toggle matSuffix [for]="pickerFrom"></mat-datepicker-toggle>
@@ -13,4 +13,11 @@
     <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
 
     <ngx-mat-datetime-picker #pickerTo [enableMeridian]="true"></ngx-mat-datetime-picker>
+</mat-form-field> -->
+<mat-form-field>
+  <ngx-mat-datetime-picker #picker></ngx-mat-datetime-picker>
+  <input matInput [ngxMatDatetimePicker]="picker" placeholder="Choose a date & time" >
+  
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+
 </mat-form-field>

@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nv-date-time-picker.component.scss']
 })
 export class NvDateTimePickerComponent implements OnInit {
+  // myDatePickerFrom: any;
+  // myDatePickerTo: any;
+  myDatePicker: any;
 
   constructor() { }
 

@@ -147,7 +147,7 @@ function mockProfileMenu(): Person {
     name: 'Alex Green',
     imageUrl: 'https://tse1.mm.bing.net/th?id=OIP.E45HCyveqDL44p8lmvQL9AAAAA&pid=Api&P=0',
     notification: {
-      number: 20,
+      number: 200,
       content: '',
       hasAttachment: false,
     } as Notification,

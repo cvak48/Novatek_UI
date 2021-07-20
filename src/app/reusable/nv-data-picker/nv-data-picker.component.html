@@ -1,0 +1,27 @@
+ 
+  <!-- <button mat-button (click)="german()">  switch to German </button>
+  <button mat-button (click)="spanish()"> switch to Spanish </button> -->
+ <div class="date-picker-container">
+   <mat-date-range-picker #rangePicker></mat-date-range-picker>
+   <mat-datepicker #singlePicker></mat-datepicker>
+   <ng-container [ngTemplateOutlet]=" isDateRangePicker ? rangeDateInputTemplate : singleDateInputTemplate">
+   </ng-container>
+   <mat-datepicker-toggle matSuffix [for]="isDateRangePicker ? rangePicker : singlePicker">
+     <mat-icon matDatepickerToggleIcon>
+       <img class="date-toggle-icon" src="./../../../assets/icons/date-picker.icon.svg">
+     </mat-icon>
+   </mat-datepicker-toggle>
+ </div>
+
+ <ng-template #rangeDateInputTemplate>
+   <mat-date-range-input class="picker-range-input" [rangePicker]="rangePicker">
+     <input class="input-start " matStartDate matInput placeholder="Start date">
+     <input class="input-end " matEndDate matInput placeholder="End date">
+   </mat-date-range-input>
+ </ng-template>
+
+ <ng-template #singleDateInputTemplate>
+   <input class="input-single " matInput [matDatepicker]="singlePicker" placeholder="Choose a Date">
+ </ng-template>
+
+

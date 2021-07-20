@@ -17,7 +17,6 @@ export interface Notification {
 export enum NvComponent {
   // First: Add the name of your reusable component to this enum
   Search,
-  AdvancedSearch,
   NovaLogo,
   Notification,
   Avatar,
@@ -29,6 +28,7 @@ export enum NvComponent {
   NvSliderBar,
   NvSliderToggle,
   NvRadioBut,
+  NvDatePicker,
   NvButton
 }
 
@@ -69,7 +69,6 @@ export class DemoPageComponent implements OnInit {
     this.selectedItem = selectedItem;
   }
   onItemsFilter(list: any): void {
-    console.log(list);
   }
 }
 
@@ -79,7 +78,7 @@ function mockProfileMenu(): Person {
     name: 'Alex Green',
     imageUrl: 'https://tse1.mm.bing.net/th?id=OIP.E45HCyveqDL44p8lmvQL9AAAAA&pid=Api&P=0',
     notification: {
-      number: 20,
+      number: 200,
       content: '',
       hasAttachment: false,
     } as Notification,

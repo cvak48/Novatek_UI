@@ -31,6 +31,6 @@ export class NvDropdownComponent implements OnInit {
   }
   onItemChange(event: any) {
   console.log('change');
-  this.itemChange.emit(event.value)
+  this.itemChange.emit(event.target.value)
   }
 }

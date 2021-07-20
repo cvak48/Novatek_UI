@@ -37,9 +37,11 @@ button:focus {
 
 
 select {
-    background-image: linear-gradient(45deg, transparent 50%, $color-black-27 60%), linear-gradient(135deg, $color-black-1f 40%, transparent 50%) !important;
-    background-position: calc(100% - 30px) 14px, calc(100% - 25px) 14px, 100% 0;
-    background-size: 6px 6px, 6px 6px;
+    background-image: linear-gradient(
+        45deg, transparent 50%, $color-dark-gray-02 60%), linear-gradient(
+        135deg, $color-dark-gray-02 40%, transparent 50%) !important;
+    background-position: calc(100% - 30px) 14px, calc(100% - 22px) 14px, 100% 0;
+    background-size: 8px 8px, 8px 8px;
     background-repeat: no-repeat;
     -webkit-appearance: none;
 }

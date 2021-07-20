@@ -29,6 +29,7 @@ export enum NvComponent {
   NvSliderToggle,
   NvRadioBut,
   NvDatePicker,
+  NvDateTimePicker,
   NvButton
 }
 
@@ -38,7 +39,7 @@ export enum NvComponent {
   styleUrls: ['./demo-page.component.scss']
 })
 export class DemoPageComponent implements OnInit {
-  public selectedItem: NvComponent = NvComponent.NvButton;
+  public selectedItem: NvComponent = NvComponent.NvDateTimePicker;
   public nvComponentType = NvComponent;
    // Second: Provide input data for your reusable component here if needed
    // Search

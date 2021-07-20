@@ -67,6 +67,9 @@
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.NvButton)">
         {{nvComponentType[nvComponentType.NvButton]}}
       </div>
+      <div class="menu-item h40" (click)="onItemClick(nvComponentType.NvDateTimePicker)">
+        {{nvComponentType[nvComponentType.NvDateTimePicker]}}
+      </div>
     </div>
     <div class="preview-panel" [ngSwitch]="selectedItem">
       <div class="panel-body">
@@ -123,9 +126,11 @@
         <div class="date-range-picker-container" *ngSwitchCase="nvComponentType.NvDatePicker">
           <app-nv-data-picker [isDateRangePicker]="true" class="body-item"></app-nv-data-picker>
         </div>
+        <div class="date-single-picker-container" *ngSwitchCase="nvComponentType.NvDateTimePicker">
+          <app-nv-date-time-picker class="body-item"></app-nv-date-time-picker>
+        </div>
         <app-nv-button [label]="buttonLabel" [type]="buttonType" [color]="themeColor" class="body-item"
           *ngSwitchCase="nvComponentType.NvButton"></app-nv-button>
-
 
       </div>
     </div>

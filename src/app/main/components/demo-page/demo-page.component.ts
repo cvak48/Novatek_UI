@@ -76,7 +76,7 @@ export class DemoPageComponent implements OnInit {
   onItemsFilter(list: any): void {
   }
   // dropDown selected item
-  onItemChange(item: string): void {
+  onItemSelect(item: string): void {
     console.log('selectedItem >>>> ' + +item);
   }
 }

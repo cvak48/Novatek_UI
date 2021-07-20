@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Sort } from '@angular/material/sort';
 import { Order } from 'src/app/main/test/order';
 import { DataService } from 'src/app/services/data.service';
+import { TableColumn } from '../custom-datatable/table-column.model';
 
 @Component({
   selector: 'app-custom-table',
@@ -27,12 +29,44 @@ export class CustomTableComponent implements OnInit {
     screenReaderPageLabel: 'page',
     screenReaderCurrentLabel: `You're on page`
 };
+
+@Input() isPageable = false;
+  @Input() isSortable = false;
+  @Input() isFilterable = false;
+  @Input() tableColumns: TableColumn[] = [];
+
+
+  @Input() rowActionIcon: string = '';
+  @Input() paginationSizes: number[] = [5, 10, 15];
+  @Input() defaultPageSize = this.paginationSizes[1];
+
+  @Output() sort: EventEmitter<Sort> = new EventEmitter();
+  @Output() rowAction: EventEmitter<any> = new EventEmitter<any>();
+  // search
+  tableTestData: any[] = mockSearchComponent().tableTestData;
+  isAdvance: boolean   = mockSearchComponent().isAdvance ;
+  hideMenu: boolean    = mockSearchComponent().hideMenu ;
+  searchableRefList: any[] = mockSearchComponent().searchableRefList ;
+
+  // this property needs to have a setter, to dynamically get changes from parent component
+  @Input() set tableData(data: any[]) {
+    if (data) {
+    this.tableTestData = data;
+    this.orders = data;
+    this.ordersData = data;
+    this.count = this.orders.length;
+    } else {
+      this.tableTestData = []
+    }
+  }
+
   constructor(private dataService: DataService) {
      }
 
   ngOnInit(): void {
     this.dataService.getTableData()
     .subscribe(data => {
+      this.tableTestData = data;
       this.orders = data;
       this.ordersData = data;
       this.count = this.orders.length;
@@ -134,5 +168,32 @@ export class CustomTableComponent implements OnInit {
    */
 	isAllCheckBoxChecked() {
 		return this.orders.every(p => p.checked);
-	}
+  }
+  
+   /**
+   * 
+   * @param data 
+   * This method is user to provide filtered data to table
+   */
+  onItemsFilter(data: any): any {
+    if (data) {
+      this.orders = data;
+      this.ordersData = data;
+      this.count = this.orders.length;
+  }
 }
+}
+
+/**
+ * 
+ * This function gives object properties which are used for configuration in table
+ */
+function mockSearchComponent() {
+  const inputData = {
+     tableTestData: [],
+     isAdvance: true,
+     hideMenu: true,
+     searchableRefList: ['name','date', 'email', 'status', 'checked'],
+   }
+   return inputData;
+ }

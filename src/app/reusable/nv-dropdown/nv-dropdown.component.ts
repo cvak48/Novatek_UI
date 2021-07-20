@@ -9,9 +9,9 @@ export class NvDropdownComponent implements OnInit {
   //TODO:By clicking on main page the arrow should change
   @Input() items: string[] = ['item1', 'item2 which is longer', 'item3 item2 which is longer and longer', 'item4', 'item5', 'item6', 'item7'];
   @Input() textTrimNumber: number = 1;
-  @Input() hasDefault = false;
+  @Input() selectedItem: string = 'Select dropdown item';
   showMenu!: boolean;
-  selectedItem: string = 'Select dropdown item';
+  //selectedItem: string = 'Select dropdown item';
   selectedIndex!: number;
   isFirst: boolean = true;
   isArrowDown: boolean = true;

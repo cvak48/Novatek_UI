@@ -1,0 +1,16 @@
+<mat-form-field>
+    <input matInput [ngxMatDatetimePicker]="pickerFrom" placeholder="From date & time" [(ngModel)]="myDatePickerFrom">
+
+    <mat-datepicker-toggle matSuffix [for]="pickerFrom"></mat-datepicker-toggle>
+
+    <ngx-mat-datetime-picker #pickerFrom [enableMeridian]="true"></ngx-mat-datetime-picker>
+</mat-form-field>
+
+<mat-form-field>
+    <input matInput [ngxMatDatetimePicker]="pickerTo" placeholder="To date & time" [(ngModel)]="myDatePickerTo"
+      [min]="myDatePickerFrom">
+
+    <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
+
+    <ngx-mat-datetime-picker #pickerTo [enableMeridian]="true"></ngx-mat-datetime-picker>
+</mat-form-field>

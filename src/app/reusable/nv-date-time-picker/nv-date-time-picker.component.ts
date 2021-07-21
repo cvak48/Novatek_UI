@@ -8,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class NvDateTimePickerComponent implements OnInit {
   myDatePickerFrom: any;
   myDatePickerTo: any;
-  myDatePicker: any;
+  // myDatePicker: any;
 
-  myTimePicker: any;
+  // myTimePicker: any;
 
   constructor() { }
 

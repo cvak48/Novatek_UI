@@ -1,4 +1,4 @@
-<mat-form-field>
+<!-- <mat-form-field>
     <input matInput [ngxMatDatetimePicker]="pickerFrom" placeholder="From date & time" [(ngModel)]="myDatePickerFrom">
 
     <mat-datepicker-toggle matSuffix [for]="$any(pickerFrom)"></mat-datepicker-toggle>
@@ -23,6 +23,11 @@
 
   <ngx-mat-datetime-picker #picker></ngx-mat-datetime-picker>
 </mat-form-field> 
-<br><br><br><br><br><br><br>
- <ngx-mat-timepicker [(ngModel)]="myTimePicker">
-</ngx-mat-timepicker>
+<br><br><br><br><br><br><br> -->
+
+
+
+<div class="row">
+  <ngx-mat-timepicker class="border border-right-1 border-secondary" [(ngModel)]="myDatePickerFrom">  </ngx-mat-timepicker>
+   <ngx-mat-timepicker class="" [(ngModel)]="myDatePickerTo">  </ngx-mat-timepicker>
+</div>

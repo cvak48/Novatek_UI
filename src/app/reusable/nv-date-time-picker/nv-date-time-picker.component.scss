@@ -1,0 +1,26 @@
+.row {
+    border: 1px solid black;
+    width: 124px;
+
+    .col-6 {
+        border: 1px solid black;  
+    }
+}
+
+
+
+::ng-deep .ngx-mat-timepicker form {
+    min-width: 40px !important;
+}
+
+::ng-deep .mat-input-element { 
+
+    border: 1px solid gray !important;
+    background-color: gray;
+    width: 18px;
+    height: 35px;
+}
+
+::ng-deep .mat-form-field-infix { 
+    border-top: none !important;
+}

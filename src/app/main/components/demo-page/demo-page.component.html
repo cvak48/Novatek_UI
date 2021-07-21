@@ -73,34 +73,27 @@
     </div>
     <div class="preview-panel" [ngSwitch]="selectedItem">
       <div class="panel-body">
-
         <!-- Forth: Call your reusable component here and pass input data if needed  -->
         <div class="search-item-container" *ngSwitchCase="nvComponentType.Search">
           <app-search [isAdvance]="isAdvance" [hideMenu]="showMenu" [list]="list"
             [searchableRefList]="searchableRefList" (filteredItems)="onItemsFilter($event)" class="body-item">
           </app-search>
         </div>
-
         <app-novatek-logo class="body-item" *ngSwitchCase="nvComponentType.NovaLogo"></app-novatek-logo>
-
         <div class="body-header-container" *ngSwitchCase="nvComponentType.Header">
           <app-nv-header *ngIf="person" [person]="person"></app-nv-header>
         </div>
         <app-notification class="body-item" *ngSwitchCase="nvComponentType.Notification"></app-notification>
-
         <ng-container *ngSwitchCase="nvComponentType.Avatar">
           <app-avatar class="body-item" *ngIf="person?.imageUrl && person?.name" [avatarUrl]="person.imageUrl!"
             [name]="person.name!"></app-avatar>
         </ng-container>
-
         <app-user-profile-menu class="body-item" [person]="person" *ngSwitchCase="nvComponentType.ProfileMenu">
         </app-user-profile-menu>
-
         <div class="dropdown-container" *ngSwitchCase="nvComponentType.Dropdown">
           <app-nv-dropdown class="body-item" [items]="dropdownItems" [textTrimNumber]="textTrimNumber" 
           [selectedItem]="selectedItemDefault" (itemChange)="onItemSelect($event)"></app-nv-dropdown>
         </div>
-
         <ng-container *ngSwitchCase="nvComponentType.Avatar">
           <app-avatar class="body-item" *ngIf="person?.imageUrl && person?.name" [avatarUrl]="person.imageUrl!"
             [name]="person.name!"></app-avatar>
@@ -127,12 +120,11 @@
         <div class="date-range-picker-container" *ngSwitchCase="nvComponentType.NvDatePicker">
           <app-nv-data-picker [isDateRangePicker]="true" class="body-item"></app-nv-data-picker>
         </div>
-        <div class="date-single-picker-container" *ngSwitchCase="nvComponentType.NvDateTimePicker">
-          <app-nv-date-time-picker class="body-item"></app-nv-date-time-picker>
-        </div>
         <app-nv-button [label]="buttonLabel" [type]="buttonType" [color]="themeColor" class="body-item"
           *ngSwitchCase="nvComponentType.NvButton"></app-nv-button>
-
+          <div class="date-single-picker-container" *ngSwitchCase="nvComponentType.NvDateTimePicker">
+            <app-nv-date-time-picker class="body-item"></app-nv-date-time-picker>
+          </div>
       </div>
     </div>
   </div>

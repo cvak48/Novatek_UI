@@ -8,12 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
   public showPassword: boolean = false;
   public states = [
-    { value: 'Alberta' },
-    { value: 'Manitoba' },
-    { value: 'Nunavut' },
-    { value: 'Ontario' },
-    { value: 'Quebec' },
-    { value: 'Saskatchewan' }
+    'Alberta',
+    'Manitoba',
+    'Nunavut',
+    'Ontario',
+    'Quebec',
+    'Saskatchewan'
   ]
 
   public customLogoSize = {
@@ -22,9 +22,9 @@ export class LoginComponent implements OnInit {
   }
 
   public Domain = [
-    { value: 'Doctor' },
-    { value: 'Pharma' },
-    { value: 'Nurse' }
+    'Doctor',
+    'Pharma',
+    'Nurse'
   ]
   constructor() { }
 
@@ -44,6 +44,10 @@ export class LoginComponent implements OnInit {
   // Auth the user
   authenticateuser() {
     
+  }
+
+  onStateSelect(e:any) {
+
   }
 
 }

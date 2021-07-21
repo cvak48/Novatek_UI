@@ -29,19 +29,13 @@
               </div>
               <!-- Site -->
               <div class="form-group">
-                <label for="name" class="control-label label-weight">Site</label>
-                <select class="form-control" id="exampleFormControlSelect1" placeholder="Username">
-                  <option>Select Site</option>
-                  <option *ngFor='let state of states'>{{state.value}}</option>
-                </select>
+                <label for="name" class="control-label label-weight">States</label>
+                <app-nv-dropdown class="body-item" [items]="states" (itemChange)="onStateSelect($event)"></app-nv-dropdown>
               </div>
               <!-- Domain -->
               <div class="form-group">
                 <label for="name" class="control-label label-weight">Domain</label>
-                <select class="form-control" id="exampleFormControlSelect1">
-                  <option>Select Domain</option>
-                  <option *ngFor='let user of Domain'>{{user.value}}</option>
-                </select>
+                <app-nv-dropdown class="body-item" [items]="Domain" (itemChange)="onStateSelect($event)"></app-nv-dropdown>
               </div>
               <!-- Password -->
               <!-- Password is only visible when showpassword value is true -->
@@ -55,8 +49,10 @@
           <mat-divider></mat-divider>
           <mat-card-actions align="end">
             <!-- Next button -->
-            <app-nv-button  *ngIf='!showPassword' class="nxt-btn" (buttonClick)='askPassword()' [label]="'Next'"></app-nv-button>
-            <app-nv-button  *ngIf='showPassword' class="nxt-btn" (buttonClick)='authenticateuser()' [label]="'Login'"></app-nv-button>
+            <app-nv-button *ngIf='!showPassword' class="nxt-btn" (buttonClick)='askPassword()' [label]="'Next'">
+            </app-nv-button>
+            <app-nv-button *ngIf='showPassword' class="nxt-btn" (buttonClick)='authenticateuser()' [label]="'Login'">
+            </app-nv-button>
           </mat-card-actions>
         </mat-card>
       </div>

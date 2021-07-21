@@ -28,9 +28,9 @@ export class CustomTableComponent implements OnInit {
     screenReaderPaginationLabel: 'Pagination',
     screenReaderPageLabel: 'page',
     screenReaderCurrentLabel: `You're on page`
-};
+  };
 
-@Input() isPageable = false;
+  @Input() isPageable = false;
   @Input() isSortable = false;
   @Input() isFilterable = false;
   @Input() tableColumns: TableColumn[] = [];
@@ -44,33 +44,37 @@ export class CustomTableComponent implements OnInit {
   @Output() rowAction: EventEmitter<any> = new EventEmitter<any>();
   // search
   tableTestData: any[] = mockSearchComponent().tableTestData;
-  isAdvance: boolean   = mockSearchComponent().isAdvance ;
-  hideMenu: boolean    = mockSearchComponent().hideMenu ;
-  searchableRefList: any[] = mockSearchComponent().searchableRefList ;
+  isAdvance: boolean = mockSearchComponent().isAdvance;
+  hideMenu: boolean = mockSearchComponent().hideMenu;
+  searchableRefList: any[] = mockSearchComponent().searchableRefList;
+  // dropDown
+  // dropdownItems = mockDropdown().itemsNumber;
+  textTrimNumber = mockDropdown().textTrimNumber;
+  selectedItemDefault = mockDropdown().selectedItemDefault;
 
   // this property needs to have a setter, to dynamically get changes from parent component
   @Input() set tableData(data: any[]) {
     if (data) {
-    this.tableTestData = data;
-    this.orders = data;
-    this.ordersData = data;
-    this.count = this.orders.length;
+      this.tableTestData = data;
+      this.orders = data;
+      this.ordersData = data;
+      this.count = this.orders.length;
     } else {
       this.tableTestData = []
     }
   }
 
   constructor(private dataService: DataService) {
-     }
+  }
 
   ngOnInit(): void {
     this.dataService.getTableData()
-    .subscribe(data => {
-      this.tableTestData = data;
-      this.orders = data;
-      this.ordersData = data;
-      this.count = this.orders.length;
-    }); 
+      .subscribe(data => {
+        this.tableTestData = data;
+        this.orders = data;
+        this.ordersData = data;
+        this.count = this.orders.length;
+      });
   }
 
   /**
@@ -106,15 +110,15 @@ export class CustomTableComponent implements OnInit {
    */
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value.trim().toLowerCase();
-   this.orders = this.ordersData.filter(order => {
-     let hasData = false;
-     for (let i=0; i< this.columns.length; i++) {
-      if (String((<any>order)[this.columns[i]]).toLowerCase().includes(filterValue)) {
-        hasData = true;
-        break;
+    this.orders = this.ordersData.filter(order => {
+      let hasData = false;
+      for (let i = 0; i < this.columns.length; i++) {
+        if (String((<any>order)[this.columns[i]]).toLowerCase().includes(filterValue)) {
+          hasData = true;
+          break;
+        }
       }
-     }
-      return hasData? order: '';
+      return hasData ? order : '';
     });
     this.count = this.orders.length;
   }
@@ -160,28 +164,28 @@ export class CustomTableComponent implements OnInit {
    * This method is getting executed when user click on check box to mark all checkbox
    */
   checkAllCheckBox(ev: any) {
-		this.orders.forEach(x => x.checked = ev.target.checked)
-	}
+    this.orders.forEach(x => x.checked = ev.target.checked)
+  }
 
   /**
    * This method return boolean value which indicates that all checkboxes are checked or not
    */
-	isAllCheckBoxChecked() {
-		return this.orders.every(p => p.checked);
+  isAllCheckBoxChecked() {
+    return this.orders.every(p => p.checked);
   }
-  
-   /**
-   * 
-   * @param data 
-   * This method is user to provide filtered data to table
-   */
+
+  /**
+  * 
+  * @param data 
+  * This method is user to provide filtered data to table
+  */
   onItemsFilter(data: any): any {
     if (data) {
       this.orders = data;
       this.ordersData = data;
       this.count = this.orders.length;
+    }
   }
-}
 }
 
 /**
@@ -190,10 +194,20 @@ export class CustomTableComponent implements OnInit {
  */
 function mockSearchComponent() {
   const inputData = {
-     tableTestData: [],
-     isAdvance: true,
-     hideMenu: true,
-     searchableRefList: ['name','date', 'email', 'status', 'checked'],
-   }
-   return inputData;
- }
+    tableTestData: [],
+    isAdvance: true,
+    hideMenu: true,
+    searchableRefList: ['name', 'date', 'email', 'status', 'checked'],
+  }
+  return inputData;
+}
+
+function mockDropdown(): any {
+  const dropdownInputs = {
+    items: ['item1', 'item2 which is longer', 'item3  which is longer and longer than item2', 'item4', 'item5', 'item6', 'item7'],
+    itemsNumber: ['1', '2', '3', '4', '5', '11', '22', '33', '44', '55'],
+    textTrimNumber: 1,
+    selectedItemDefault: '',
+  };
+  return dropdownInputs;
+}

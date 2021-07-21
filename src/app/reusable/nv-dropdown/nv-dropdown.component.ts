@@ -13,7 +13,6 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class NvDropdownComponent implements OnInit {
   @Output() itemChange = new EventEmitter<any>();
-  // TODO: By clicking on main page the arrow should change.
   @Input() items: string[] = ['item1'];
   @Input() textTrimNumber: number = 1;
   @Input() selectedItem: string = 'Select dropdown item';
@@ -28,11 +27,18 @@ export class NvDropdownComponent implements OnInit {
   }
   onInputClick(): void {
   }
+  onBlur() {
+    this.isArrowDown = true;
+  }
 
   onItemSelect(index: number): void {
     this.isFirst = false;
     this.selectedIndex = index;
     this.selectedItem = this.items[this.selectedIndex];
     this.itemChange.emit(this.selectedItem);
+    if (!this.isArrowDown) {
+      this.isArrowDown = true;
+    }
+
   }
 }

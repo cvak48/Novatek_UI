@@ -17,7 +17,6 @@ export class NvDropdownComponent implements OnInit {
   @Input() textTrimNumber: number = 1;
   @Input() selectedItem: string = 'Select dropdown item';
   showMenu!: boolean;
-  selectedItem: string = 'Select';
   selectedIndex!: number;
   isFirst: boolean = true;
   isArrowDown: boolean = true;

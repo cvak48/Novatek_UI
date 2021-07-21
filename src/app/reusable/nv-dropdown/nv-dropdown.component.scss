@@ -9,10 +9,13 @@ $icons-distance: 8px;
 .dropdown {
   position: relative;
   width: 100%;
+<<<<<<< HEAD
+=======
+  // min-width: 190px;
+>>>>>>> ab3a64ae95623750e940a49f6436515204144a2e
   height: $height;
   border: 1px solid $color-white-10;
   border-radius: 4px;
-
   .dropdown-toggle {
     position: relative;
     width: 100%;

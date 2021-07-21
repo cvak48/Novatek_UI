@@ -60,6 +60,10 @@ export class DemoPageComponent implements OnInit {
   buttonLabel = 'Default';
   buttonType = ButtonType.Stroked;
   themeColor = ButtonThemeColor.Basic;
+  // dropDown
+  dropdownItems = mockDropdown().itemsNumber;
+  textTrimNumber = mockDropdown().textTrimNumber;
+  selectedItemDefault = mockDropdown().selectedItemDefault;
 
   constructor() { }
 
@@ -68,9 +72,19 @@ export class DemoPageComponent implements OnInit {
   public onItemClick(selectedItem: NvComponent): void {
     this.selectedItem = selectedItem;
   }
+  // search output
   onItemsFilter(list: any): void {
   }
+  // dropDown selected item
+  onItemSelect(item: string): void {
+    console.log('selectedItem >>>> ' + +item);
+  }
 }
+
+
+
+
+
 
 function mockProfileMenu(): Person {
   const avatarProps = {
@@ -102,4 +116,14 @@ function mockAdvanceSearchInput(): any {
     showMenu: true,
   };
   return searchInput;
+}
+
+function mockDropdown(): any {
+  const dropdownInputs = {
+    items: ['item1', 'item2 which is longer', 'item3  which is longer and longer than item2', 'item4', 'item5', 'item6', 'item7'],
+    itemsNumber: ['1', '2', '3', '4', '5'],
+    textTrimNumber: 2,
+    selectedItemDefault: 'Page Number',
+  };
+  return dropdownInputs;
 }

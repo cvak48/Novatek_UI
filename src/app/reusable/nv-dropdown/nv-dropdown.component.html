@@ -1,13 +1,13 @@
 <div class="dropdown">
 
     <button type="button" class="btn dropdown-toggle body20 label" data-toggle="dropdown" [ngClass]="{'default': isFirst}"
-      (click)="isArrowDown=!isArrowDown">
+      (click)="isArrowDown=!isArrowDown" (blur)="onBlur()">
       {{selectedItem | nvTrim: textTrimNumber}}
-      <img *ngIf="isArrowDown" class="arrow-icon" src="../../../assets/icons/ico.arrow.down.svg">
+      <img *ngIf="isArrowDown" class="arrow-icon"  src="../../../assets/icons/ico.arrow.down.svg">
       <img *ngIf="!isArrowDown" class="arrow-icon" src="../../../assets/icons/ico.arrow.up.svg">
     </button>
 
-  <div class="dropdown-menu" (click)="isArrowDown=!isArrowDown">
+  <div class="dropdown-menu">
     <div class="dropdown-item body20" *ngFor="let item of items; let i = index" (click)="onItemSelect(i)"
       [ngClass]="{'selected-item': i==selectedIndex}"> {{item}}</div>
   </div>

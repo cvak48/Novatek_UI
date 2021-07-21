@@ -16,7 +16,7 @@ export class CustomTableComponent implements OnInit {
   count = 0;
   pageSize = 3;
   pageSizes = [3, 6, 9];
-  pageNewSizes = ['3', '6', '9'];
+  pageNewSizes = ['1', '2', '3'];
   columns = ['name', 'date', 'email', 'status', 'attachments'];
   directionLinks: boolean = true;
   autoHide: boolean = false;
@@ -48,7 +48,6 @@ export class CustomTableComponent implements OnInit {
   hideMenu: boolean = mockSearchComponent().hideMenu;
   searchableRefList: any[] = mockSearchComponent().searchableRefList;
   // dropDown
-  // dropdownItems = mockDropdown().itemsNumber;
   textTrimNumber = mockDropdown().textTrimNumber;
   selectedItemDefault = mockDropdown().selectedItemDefault;
 
@@ -123,6 +122,20 @@ export class CustomTableComponent implements OnInit {
     this.count = this.orders.length;
   }
 
+  /**
+ * 
+ * @param event 
+ * This method is getting executed when user moves to any page using pagination
+ * dropDown selected item
+ */
+  onItemSelect(item: string): void {
+    if (item) {
+      console.log('selectedItem >>>> ' + +item);
+      this.page = +item;
+    }
+
+  }
+
   retrieveTutorials(): void {
     /*const params = this.getRequestParams(this.title, this.page, this.pageSize);
 
@@ -150,7 +163,7 @@ export class CustomTableComponent implements OnInit {
 
   /**
    * 
-   * @param event 
+   * @param event
    * This method is getting executed when user changes page size using Ites per page option
    */
   handlePageSizeChange(event: any): void {

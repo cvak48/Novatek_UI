@@ -149,8 +149,8 @@ export class CustomTableComponent implements OnInit {
    * @param event 
    * This method is getting executed when user changes page size using Ites per page option
    */
-  handlePageSizeChange(event: any): void {
-    this.pageSize = event.target.value;
+  handlePageSizeChange(value: any): void {
+    this.pageSize = value;
     this.page = 1;
   }
 

@@ -47,7 +47,17 @@ select {
 }
 
 
+::ng-deep .dropdown {
+    border:0px !important;
+}
 
+::placeholder { /* Most modern browsers support this now. */
+    color:$color-dark-gray-30;
+ }
+
+::ng-deep .dropdown .dropdown-menu {
+    width: 21.5vw !important;
+}
 
 .login-items {
     padding: $padding-16;

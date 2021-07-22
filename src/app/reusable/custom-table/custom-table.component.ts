@@ -16,7 +16,7 @@ export class CustomTableComponent implements OnInit {
   count = 0;
   pageSize = 3;
   pageSizes = [3, 6, 9];
-  pageNewSizes = ['1', '2', '3'];
+  pageNewSizes = ['3', '6', '9'];
   columns = ['name', 'date', 'email', 'status', 'attachments'];
   directionLinks: boolean = true;
   autoHide: boolean = false;
@@ -167,7 +167,7 @@ export class CustomTableComponent implements OnInit {
    * This method is getting executed when user changes page size using Ites per page option
    */
   handlePageSizeChange(event: any): void {
-    this.pageSize = event.target.value;
+    this.pageSize = event;
     this.page = 1;
   }
 

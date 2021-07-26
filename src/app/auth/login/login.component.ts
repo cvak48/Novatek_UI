@@ -26,6 +26,13 @@ export class LoginComponent implements OnInit {
     'Pharma',
     'Nurse'
   ]
+
+  public Next: string = 'Next';
+  public Login: string = 'Login';
+  public selectedNumber: number = 2;
+  public stateTxt: string = 'Select Site';
+  public domainTxt:string = 'Select Domain'
+  
   constructor() { }
 
   /**

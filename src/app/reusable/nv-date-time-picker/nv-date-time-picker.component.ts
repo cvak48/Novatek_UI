@@ -17,4 +17,10 @@ export class NvDateTimePickerComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onTimeChange(value: any): void {
+    console.log('timeChange' + value);
+    
+
+  }
+
 }

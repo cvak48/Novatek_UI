@@ -27,7 +27,20 @@
 
 
 
-<div class="row">
+<!-- <div class="row">
   <ngx-mat-timepicker class="border border-right-1 border-secondary" [(ngModel)]="myDatePickerFrom">  </ngx-mat-timepicker>
    <ngx-mat-timepicker class="" [(ngModel)]="myDatePickerTo">  </ngx-mat-timepicker>
+</div> -->
+
+<div class="ngx-timepicker-field-container">
+  <ngx-timepicker-field [min]="'03:15 am'" (timeChanged)="onTimeChange($event)"></ngx-timepicker-field>
+  <div class="ngx-timepicker-control-arrows">
+
+      <img class="arrow-up" src="./../../../assets/icons/ico.arrow.up.svg">
+      <div class="spacer"></div>
+      <img class="arrow-down" src="./../../../assets/icons/ico.arrow.down.svg">
+
+  </div>  
 </div>
+
+

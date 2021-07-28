@@ -2,7 +2,7 @@
   [tableData]="customers"
   [tableColumns]="customersTableColumns">
 </custom-table> -->
-<app-custom-datatable
+<app-nv-custom-datatable
               [tableData]="orders"
               [tableColumns]="ordersTableColumns"
               [isFilterable]="true"
@@ -13,4 +13,4 @@
               (rowAction)="removeOrder($event)"
               >
               <!-- [rowActionIcon]="'remove_shopping_cart'" -->
-</app-custom-datatable>
+</app-nv-custom-datatable>

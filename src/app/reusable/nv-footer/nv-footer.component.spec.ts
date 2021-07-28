@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PlaceholderListComponent } from './placeholder-list.component';
+import { NvFooterComponent } from './nv-footer.component';
 
-describe('PlaceholderListComponent', () => {
-  let component: PlaceholderListComponent;
-  let fixture: ComponentFixture<PlaceholderListComponent>;
+describe('NvFooterComponent', () => {
+  let component: NvFooterComponent;
+  let fixture: ComponentFixture<NvFooterComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PlaceholderListComponent ]
+      declarations: [ NvFooterComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PlaceholderListComponent);
+    fixture = TestBed.createComponent(NvFooterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

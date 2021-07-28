@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { TableColumn } from 'src/app/reusable/custom-datatable/table-column.model';
+import { TableColumn } from 'src/app/reusable/nv-custom-datatable/table-column.model';
 import {CurrencyPipe, DecimalPipe, PercentPipe} from "@angular/common";
 import {Sort} from "@angular/material/sort";
 import { Order } from './order';

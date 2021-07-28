@@ -1,15 +1,15 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Sort } from '@angular/material/sort';
-import { Order } from 'src/app/main/test/order';
+import { Order } from 'src/app/reusable/test/order';
 import { DataService } from 'src/app/services/data.service';
-import { TableColumn } from '../custom-datatable/table-column.model';
+import { TableColumn } from '../nv-custom-datatable/table-column.model';
 
 @Component({
-  selector: 'app-custom-table',
-  templateUrl: './custom-table.component.html',
-  styleUrls: ['./custom-table.component.scss']
+  selector: 'app-nv-custom-table',
+  templateUrl: './nv-custom-table.component.html',
+  styleUrls: ['./nv-custom-table.component.scss']
 })
-export class CustomTableComponent implements OnInit {
+export class NvCustomTableComponent implements OnInit {
   orders: Order[] = [];
   ordersData: Order[] = [];
   page = 1;
@@ -166,8 +166,8 @@ export class CustomTableComponent implements OnInit {
    * @param event
    * This method is getting executed when user changes page size using Ites per page option
    */
-  handlePageSizeChange(event: any): void {
-    this.pageSize = event;
+  handlePageSizeChange(value: any): void {
+    this.pageSize = value;
     this.page = 1;
   }
 

@@ -28,6 +28,11 @@ mat-paginator {
   margin: 1% 0;
 }
 
+.table-scroll {
+  overflow: auto;
+  max-height: 200px;
+}
+
 .drop-container {
   width: 60px;
   float: left;

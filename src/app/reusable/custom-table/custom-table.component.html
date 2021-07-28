@@ -12,39 +12,42 @@
         [searchableRefList]="searchableRefList" (filteredItems)="onItemsFilter($event)"></app-search> 
       
       </div>
-    <table class="data-table" mdbTable>
-        <tr class="mat-header-row">
-            <th class="mat-header-cell">
-                <input class="table-check" type="checkbox" [checked]="isAllCheckBoxChecked()" (change)="checkAllCheckBox($event)">
-            </th>
-            <th *ngFor="let column of columns ; let i = index"  scope="col" [mdbTableSort]="orders" [sortBy]="columns[i]" class="mat-header-cell">
-                {{column}} <span><mat-icon class="img"><img src="../../../assets/icons/table-shorting.icon.svg" /></mat-icon></span>
-            </th>
-            
-        </tr>
-        <tr class="mat-row" [ngClass]="{'status-gr': order.status === 'Completed', 'status-rd' : order.status === 'No', 'status-yl': order.status === 'Pending' }" *ngFor="let order of orders | paginate : {
-            itemsPerPage: pageSize,
-            currentPage: page,
-            totalItems: count
-          };
-          let i = index">
-            <td class="pd-lt-2 checkbox-column" >
-               <input class="table-check" type="checkbox" value="{{order.id}}" [(ngModel)]="orders[i].checked">
-            </td>
-           <td>{{order.name}}</td>
-            <td>{{order.date}}</td>
-            <td class="mail-link">{{order.email}}</td>
-            <td>{{order.status}}</td>
-            <td>
-                <div>
-                    <mat-chip-list >
-                      <mat-chip *ngFor="let attachment of order.attachments">{{attachment.name}} <img src="./assets/images/dots.png" class="more-opt-icon" /></mat-chip>
-                    </mat-chip-list>
-                  </div>
-            </td>
-           
-        </tr>
-    </table>
+      <div class="table-scroll">
+        <table class="data-table" mdbTable>
+          <tr class="mat-header-row">
+              <th class="mat-header-cell">
+                  <input class="table-check" type="checkbox" [checked]="isAllCheckBoxChecked()" (change)="checkAllCheckBox($event)">
+              </th>
+              <th *ngFor="let column of columns ; let i = index"  scope="col" [mdbTableSort]="orders" [sortBy]="columns[i]" class="mat-header-cell">
+                  {{column}} <span><mat-icon class="img"><img src="../../../assets/icons/table-shorting.icon.svg" /></mat-icon></span>
+              </th>
+              
+          </tr>
+          <tr class="mat-row" [ngClass]="{'status-gr': order.status === 'Completed', 'status-rd' : order.status === 'No', 'status-yl': order.status === 'Pending' }" *ngFor="let order of orders | paginate : {
+              itemsPerPage: pageSize,
+              currentPage: page,
+              totalItems: count
+            };
+            let i = index">
+              <td class="pd-lt-2 checkbox-column" >
+                 <input class="table-check" type="checkbox" value="{{order.id}}" [(ngModel)]="orders[i].checked">
+              </td>
+             <td>{{order.name}}</td>
+              <td>{{order.date}}</td>
+              <td class="mail-link">{{order.email}}</td>
+              <td>{{order.status}}</td>
+              <td>
+                  <div>
+                      <mat-chip-list >
+                        <mat-chip *ngFor="let attachment of order.attachments">{{attachment.name}} <img src="./assets/images/dots.png" class="more-opt-icon" /></mat-chip>
+                      </mat-chip-list>
+                    </div>
+              </td>
+             
+          </tr>
+      </table>
+      </div>
+    
     <div class="ft-rt">
       <div class="container-pagination">
 

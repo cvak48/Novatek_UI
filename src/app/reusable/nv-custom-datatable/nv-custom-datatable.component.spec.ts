@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FooterComponent } from './footer.component';
+import { NvCustomDatatableComponent } from './nv-custom-datatable.component';
 
-describe('FooterComponent', () => {
-  let component: FooterComponent;
-  let fixture: ComponentFixture<FooterComponent>;
+describe('NvCustomDatatableComponent', () => {
+  let component: NvCustomDatatableComponent;
+  let fixture: ComponentFixture<NvCustomDatatableComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FooterComponent ]
+      declarations: [ NvCustomDatatableComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FooterComponent);
+    fixture = TestBed.createComponent(NvCustomDatatableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

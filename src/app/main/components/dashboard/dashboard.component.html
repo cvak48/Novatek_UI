@@ -6,7 +6,7 @@
    <br>
    <app-nova-panel>
      
-         <app-custom-table></app-custom-table>
+         <app-nv-custom-table></app-nv-custom-table>
      
    </app-nova-panel>
    <hr>
@@ -70,28 +70,28 @@
    <hr>
   
    <div>
-      <app-placeholder-text-card [textData]="textCardData"></app-placeholder-text-card>
+      <app-nv-placeholder-text-card [textData]="textCardData"></app-nv-placeholder-text-card>
    </div>
    <div>
-      <app-placeholder-small-card [textToShow]="cardSmallData"></app-placeholder-small-card>
+      <app-nv-placeholder-small-card [textToShow]="cardSmallData"></app-nv-placeholder-small-card>
    </div>
    <div>
-      <app-placeholder-list [listToShow]="listData"></app-placeholder-list>
-   </div>
-   <br>
-   <hr>
-   <div>
-      <app-placeholder-card [textToShow]="cardData"></app-placeholder-card>
+      <app-nv-placeholder-list [listToShow]="listData"></app-nv-placeholder-list>
    </div>
    <br>
    <hr>
    <div>
-      <placeholder-banner [bannerTextData]="bannerData"></placeholder-banner>
+      <app-nv-placeholder-card [textToShow]="cardData"></app-nv-placeholder-card>
    </div>
    <br>
    <hr>
    <div>
-      <placeholder-Bigcard [smallCardData]="smallCardData"></placeholder-Bigcard>
+      <nv-placeholder-banner [bannerTextData]="bannerData"></nv-placeholder-banner>
+   </div>
+   <br>
+   <hr>
+   <div>
+      <nv-placeholder-Bigcard [smallCardData]="smallCardData"></nv-placeholder-Bigcard>
    </div> 
 </app-nova-sidenav>
 <app-nova-footer></app-nova-footer>

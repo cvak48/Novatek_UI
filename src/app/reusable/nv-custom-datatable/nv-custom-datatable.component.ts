@@ -1,4 +1,4 @@
-import { FilterAllPipe } from './../pipes/filters/filterAll/filter-all.pipe';
+import { FilterAllPipe } from '../pipes/filters/filterAll/filter-all.pipe';
 import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 // import {TableColumn} from "./TableColumn";
 import { MatSort, Sort } from "@angular/material/sort";
@@ -9,11 +9,11 @@ import { ThrowStmt } from '@angular/compiler';
 import { SelectionModel } from '@angular/cdk/collections';
 
 @Component({
-  selector: 'app-custom-datatable',
-  templateUrl: './custom-datatable.component.html',
-  styleUrls: ['./custom-datatable.component.scss']
+  selector: 'app-nv-custom-datatable',
+  templateUrl: './nv-custom-datatable.component.html',
+  styleUrls: ['./nv-custom-datatable.component.scss']
 })
-export class CustomDatatableComponent implements OnInit, AfterViewInit {
+export class NvCustomDatatableComponent implements OnInit, AfterViewInit {
 
   public tableDataSource = new MatTableDataSource([]);
   public displayedColumns: string[] = [];

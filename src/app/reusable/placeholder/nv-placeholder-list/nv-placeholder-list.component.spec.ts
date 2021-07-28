@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PlaceholderCardComponent } from './placeholder-card.component';
+import { NvPlaceholderListComponent } from './nv-placeholder-list.component';
 
-describe('PlaceholderCardComponent', () => {
-  let component: PlaceholderCardComponent;
-  let fixture: ComponentFixture<PlaceholderCardComponent>;
+describe('NvPlaceholderListComponent', () => {
+  let component: NvPlaceholderListComponent;
+  let fixture: ComponentFixture<NvPlaceholderListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PlaceholderCardComponent ]
+      declarations: [ NvPlaceholderListComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PlaceholderCardComponent);
+    fixture = TestBed.createComponent(NvPlaceholderListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

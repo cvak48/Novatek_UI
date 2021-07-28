@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CustomDatatableComponent } from './custom-datatable.component';
+import { NvPlaceholderCardComponent } from './nv-placeholder-card.component';
 
-describe('CustomDatatableComponent', () => {
-  let component: CustomDatatableComponent;
-  let fixture: ComponentFixture<CustomDatatableComponent>;
+describe('NvPlaceholderCardComponent', () => {
+  let component: NvPlaceholderCardComponent;
+  let fixture: ComponentFixture<NvPlaceholderCardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CustomDatatableComponent ]
+      declarations: [ NvPlaceholderCardComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CustomDatatableComponent);
+    fixture = TestBed.createComponent(NvPlaceholderCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

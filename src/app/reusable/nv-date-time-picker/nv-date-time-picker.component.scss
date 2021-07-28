@@ -1,5 +1,13 @@
 @import "./../theme/base.scss";
 
+@mixin label {
+  font-weight: $font-weight-normal !important;
+  font-size: $font-size-x-small !important;
+  font-family: $nv-font !important;
+  line-height: $line-height-medium !important;
+  color: $color-dark-gray-12 !important;
+}
+
 .row {
   border: 1px solid black;
   width: 124px;
@@ -32,8 +40,20 @@
   border: 1px solid #DEDEDF !important;
   border-radius: 4px !important;
   background-color: #FFFFFF !important;
-  width: 200px !important;
+  width: 160px !important;
   height: 40px !important;
+
+  &.small {
+    width: 114px !important;
+  }
+
+  &.medium {
+    width: 151px !important;
+  }
+
+  &.large {
+    width: 186px !important;
+  }
 }
 
 ::ng-deep .ngx-material-timepicker-toggle {
@@ -45,16 +65,17 @@
   height: 17px !important;
 }
 
+::ng-deep .ngx-timepicker-control--active {
+  &::after {
+    display: none !important;
+  }
+}
+
 ::ng-deep .ngx-timepicker-control__input {
-  font-weight: $font-weight-normal !important;
-  font-size: $font-size-x-small !important;
-  font-family: $nv-font !important;
-  line-height: $line-height-medium !important;
-  color: $color-dark-gray-12 !important;
+  @include label;
 }
 
 ::ng-deep .ngx-timepicker-control__arrows {
-  // border: 1px solid black !important;
   top: -9px !important;
 }
 
@@ -64,44 +85,100 @@
 ::ng-deep .ngx-timepicker-control__arrow {
   // background-image: url(./../../../assets/icons/ico.arrow.up.svg) !important;
   // display: none !important; 
-  font-size: 9px !important;
+  font-size: 8px !important;
   line-height: $line-height-medium !important;
   color: #4D4D4D !important;
   width: 8px !important;
   height: 12px !important;
 
-  color: transparent !important;
-  background-color: transparent !important;
+  // color: transparent !important;
+  // background-color: transparent !important;
+}
 
+::ng-deep .ngx-timepicker__time-colon {
+  @include label;
+}
+
+::ng-deep .ngx-timepicker__time-colon {
+  margin-left: 5px !important;
+}
+
+::ng-deep .period-control__button {
+  @include label;
+}
+
+
+::ng-deep .ngx-timepicker__control--forth {
+  @include label;
+}
+
+
+::ng-deep .period-control__button {
+  width: 49px !important;
+  height: 17px !important;
+  margin-left: 0px !important;
+
+  &::after {
+    display: none !important;
+  }
+}
+
+::ng-deep .period-control__arrow {
+  margin-left: 8px !important;
+  font-size: 8px !important;
+  line-height: $line-height-medium !important;
+  color: #4D4D4D !important;
+  width: 8px !important;
+  height: 12px !important;
+}
+
+::ng-deep .period-selector {
+  width: 100px !important;
+  background: #FFFFFF !important;
+  box-shadow: 0px 1px 4px #0000001A !important;
+  // border: 1px solid #E4E4E5 !important;
+  border-radius: 3px !important;
+  padding: 0 !important;
+  @include label;
+}
+
+::ng-deep .period-selector__button {
+  @include label;
+}
+
+::ng-deep .period-selector__button--active {
+  color: $color-black-18 !important;
 }
 
 // ::ng-deep .ngx-timepicker-control__arrow {
 //     background-image: url(./../../../assets/icons/ico.arrow.down.svg) !important; 
 //   }
 .ngx-timepicker-field-container {
-    position: relative;
-  .ngx-timepicker-control-arrows {
-      position: absolute;
-      left: 41px;
-      top: 12px;
-      display: grid;
-      width: 8px;
-      height: 17px;
-      grid-row: 5px 7px 5px;
-      z-index: -1;
-      .arrow-up {
-        width: 8px;
-        height: 5px;
-        color:  #4D4D4D;
-        // z-index: -6;
-      }
-      .spacer {
+  position: relative;
 
-      }
-      .arrow-down {
-        width: 8px;
-        height: 5px;
-        color:  #4D4D4D;
-      }
+  .ngx-timepicker-control-arrows {
+    position: absolute;
+    left: 41px;
+    top: 12px;
+    display: grid;
+    width: 8px;
+    height: 17px;
+    grid-row: 5px 7px 5px;
+    z-index: -1;
+
+    .arrow-up {
+      width: 8px;
+      height: 5px;
+      color: #4D4D4D;
+      // z-index: -6;
+    }
+
+    .spacer {}
+
+    .arrow-down {
+      width: 8px;
+      height: 5px;
+      color: #4D4D4D;
+    }
   }
 }

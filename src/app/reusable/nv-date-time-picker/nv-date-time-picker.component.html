@@ -1,46 +1,14 @@
-<!-- <mat-form-field>
-    <input matInput [ngxMatDatetimePicker]="pickerFrom" placeholder="From date & time" [(ngModel)]="myDatePickerFrom">
-
-    <mat-datepicker-toggle matSuffix [for]="$any(pickerFrom)"></mat-datepicker-toggle>
-
-    <ngx-mat-datetime-picker #pickerFrom [enableMeridian]="true"></ngx-mat-datetime-picker>
-</mat-form-field>
-
-<mat-form-field>
-    <input matInput [ngxMatDatetimePicker]="pickerTo" placeholder="To date & time" [(ngModel)]="myDatePickerTo"
-      [min]="myDatePickerFrom">
-
-    <mat-datepicker-toggle matSuffix [for]="$any(pickerTo)"></mat-datepicker-toggle>
-
-    <ngx-mat-datetime-picker #pickerTo [enableMeridian]="true"></ngx-mat-datetime-picker>
-</mat-form-field>
-
-<br><br><br><br><br><br><br>
-<mat-form-field>
-  <input matInput [ngxMatDatetimePicker]="picker" placeholder="Choose a date & time" [(ngModel)]="myDatePicker">
-  
-  <mat-datepicker-toggle matSuffix [for]="$any(picker)"></mat-datepicker-toggle>
-
-  <ngx-mat-datetime-picker #picker></ngx-mat-datetime-picker>
-</mat-form-field> 
-<br><br><br><br><br><br><br> -->
-
-
-
-<!-- <div class="row">
-  <ngx-mat-timepicker class="border border-right-1 border-secondary" [(ngModel)]="myDatePickerFrom">  </ngx-mat-timepicker>
-   <ngx-mat-timepicker class="" [(ngModel)]="myDatePickerTo">  </ngx-mat-timepicker>
-</div> -->
-
-<div class="ngx-timepicker-field-container">
-  <ngx-timepicker-field [min]="'03:15 am'" (timeChanged)="onTimeChange($event)"></ngx-timepicker-field>
-  <div class="ngx-timepicker-control-arrows">
-
+<div class="{{'ngx-timepicker-field-container'}}">
+  <ngx-timepicker-field [format]="24" [min]="'03:15 am'" (timeChanged)="onTimeChange($event)"></ngx-timepicker-field>
+  <!-- <div class="ngx-timepicker-control-arrows">
       <img class="arrow-up" src="./../../../assets/icons/ico.arrow.up.svg">
       <div class="spacer"></div>
       <img class="arrow-down" src="./../../../assets/icons/ico.arrow.down.svg">
+  </div>   -->
+</div>
 
-  </div>  
+<div class="ngx-timepicker-field-container">
+  <ngx-timepicker-field [format]="24" [defaultTime]="'23:11'"></ngx-timepicker-field>
 </div>
 
 

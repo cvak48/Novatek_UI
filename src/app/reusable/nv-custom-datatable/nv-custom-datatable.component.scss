@@ -5,12 +5,12 @@ mat-paginator {
 }
 
 .search-box{
-  border: 1px solid #DEDEDF;
+  border: 1px solid $color-white-10;
   margin: 1%;
   border-radius: 4px;
   height: 40px;
-  background: #fff;
-  color: #9A9A9A;
+  background:$color-white-20;
+  color: $color-light-gray-70;
 }
 
 .search-field{

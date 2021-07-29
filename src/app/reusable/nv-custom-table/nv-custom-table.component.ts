@@ -50,18 +50,7 @@ export class NvCustomTableComponent implements OnInit {
   // dropDown
   textTrimNumber = mockDropdown().textTrimNumber;
   selectedItemDefault = mockDropdown().selectedItemDefault;
-
-  // this property needs to have a setter, to dynamically get changes from parent component
-  @Input() set tableData(data: any[]) {
-    if (data) {
-      this.tableTestData = data;
-      this.orders = data;
-      this.ordersData = data;
-      this.count = this.orders.length;
-    } else {
-      this.tableTestData = []
-    }
-  }
+ 
 
   constructor(private dataService: DataService) {
   }
@@ -136,23 +125,7 @@ export class NvCustomTableComponent implements OnInit {
 
   }
 
-  retrieveTutorials(): void {
-    /*const params = this.getRequestParams(this.title, this.page, this.pageSize);
-
-    this.tutorialService.getAll(params)
-      .subscribe(
-        response => {
-          const { tutorials, totalItems } = response;
-          this.tutorials = tutorials;
-          this.count = totalItems;
-          console.log(response);
-        },
-        error => {
-          console.log(error);
-        });*/
-  }
-
-  /**
+   /**
    * 
    * @param event 
    * This method is getting executed when user moves to any page using pagination

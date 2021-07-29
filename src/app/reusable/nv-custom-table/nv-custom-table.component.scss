@@ -105,7 +105,7 @@ tr.mat-header-row {
 }
 .mat-header-cell {
   text-transform: capitalize !important;
-  color: $color-dark-gray-70;
+  color: $color-dark-gray-70 !important;
 }
 .mat-cell,
 .mat-footer-cell {
@@ -274,7 +274,7 @@ table.table td {
 
 .mail-link {
   text-decoration: underline !important;
-  color: $color-blue-mail !important;
+  color: $color-blue-10 !important;
 }
 
 ::ng-deep .ngx-pagination .current {

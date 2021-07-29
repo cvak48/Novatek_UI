@@ -1,3 +1,4 @@
+import { ITimePickerSetting } from '../../../reusable/nv-time-picker/nv-time-picker.component';
 import { ButtonType, ButtonThemeColor } from './../../../reusable/nv-button/nv-button.component';
 import { NvCustomComponent } from './../../../reusable/nv-custom-component/nv-custom-component.component';
 
@@ -15,7 +16,9 @@ export interface Notification {
   hasAttachment?: boolean;
 }
 export enum NvComponent {
-  // First: Add the name of your reusable component to this enum
+  /*
+  * First: Add the name of your reusable component to this enum
+*/
   Search,
   NovaLogo,
   Notification,
@@ -29,7 +32,7 @@ export enum NvComponent {
   NvSliderToggle,
   NvRadioBut,
   NvDatePicker,
-  NvDateTimePicker,
+  NvTimePicker,
   NvButton
 }
 
@@ -39,52 +42,74 @@ export enum NvComponent {
   styleUrls: ['./demo-page.component.scss']
 })
 export class DemoPageComponent implements OnInit {
-  public selectedItem: NvComponent = NvComponent.NvDateTimePicker;
+  public selectedItem: NvComponent = NvComponent.NvTimePicker;
   public nvComponentType = NvComponent;
-   // Second: Provide input data for your reusable component here if needed
-   // Search
+  /*
+  * Second: Provide input data for your reusable components
+  * 
+ */
+
+  /*
+  *   Search
+ */
    items: string[] = ['Tablet', 'Phone', 'Laptop', 'Keyboard'];
-   // footer
-   // Avatar
+  /*
+  *   Avatar
+ */
    person: Person = mockProfileMenu();
-   //CustomComponent
+  /*
+  *   CustomComponent
+ */
    nvCheckBox = NvCustomComponent.CheckBox;
    nvSliderBar = NvCustomComponent.SliderBar;
    nvSliderToggle = NvCustomComponent.SlidToggle;
    nvRadioBut = NvCustomComponent.RadioButton;
-   // search
+  /*
+  *   search
+ */
    isAdvance =  mockAdvanceSearchInput().isAdvance;
    showMenu =  mockAdvanceSearchInput().showMenu;
    list: any = mockAdvanceSearchInput().list;
    searchableRefList =  mockAdvanceSearchInput().searchableRefList;
-  // button
+  /*
+  *   Button
+ */
   buttonLabel = 'Default';
   buttonType = ButtonType.Stroked;
   themeColor = ButtonThemeColor.Basic;
-  // dropDown
+  /*
+  *   DropDown
+ */
   dropdownItems = mockDropdown().itemsNumber;
   textTrimNumber = mockDropdown().textTrimNumber;
   selectedItemDefault = mockDropdown().selectedItemDefault;
+  
+  /*
+  * timePicker
+ */
+  timeFormat: number = 24;
 
-  constructor() { }
+  constructor(   
+  ) { }
 
   ngOnInit(): void {
   }
   public onItemClick(selectedItem: NvComponent): void {
     this.selectedItem = selectedItem;
   }
-  // search output
+  /*
+  * search output
+ */
   onItemsFilter(list: any): void {
   }
-  // dropDown selected item
+  
+  /*
+  * dropDown selected item
+ */
   onItemSelect(item: string): void {
     console.log('selectedItem >>>> ' + +item);
   }
 }
-
-
-
-
 
 
 function mockProfileMenu(): Person {
@@ -127,4 +152,14 @@ function mockDropdown(): any {
     selectedItemDefault: 'Page',
   };
   return dropdownInputs;
+}
+
+function populateTimeSettingDefault(): ITimePickerSetting {
+  const defaultSetting: ITimePickerSetting = {
+    isTimePicker: true,
+    hasToggle: false,
+    timeFormats: 12,
+    fieldSize: 'small',
+  }
+  return defaultSetting;
 }

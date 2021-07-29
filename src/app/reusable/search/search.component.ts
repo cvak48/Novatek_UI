@@ -9,6 +9,8 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
+  private _list: any;
+  private _searchableRefList: any;
   @Output() filteredItems = new EventEmitter<any[]>();
   @Input() isAdvance = true;
   @Input() hideMenu = false;
@@ -19,7 +21,6 @@ export class SearchComponent implements OnInit {
       this._list = mockAdvanceSearchInput().list;
     }
   }
-  private _list: any;
   @Input() set searchableRefList(list: string[]) {
     if (list && list?.length > 0) {
       this._searchableRefList = list;
@@ -27,7 +28,7 @@ export class SearchComponent implements OnInit {
       this._searchableRefList = mockAdvanceSearchInput().searchableRefList;
     }
   }
-  private _searchableRefList: any;
+  
   queryFormControl = new FormControl('');
   searchableList: string[] = [];
   inputKeywordLabel: string = '';
@@ -43,7 +44,6 @@ export class SearchComponent implements OnInit {
   constructor(private filter: FilterAllPipe, private advanceFilter: AdvanceFilterPipe) { }
 
   ngOnInit(): void {
-    //
     let isQueryKeyword: boolean = false;
     let trimmedInput: string
     this.queryFormControl.valueChanges.subscribe(selectedValue => {
@@ -82,7 +82,6 @@ export class SearchComponent implements OnInit {
         if (trimmedInput === ' ') {
           this.queryFormControl.setValue(trimmedInput);
         }
-
         this.filteredList = this.advanceFilter?.transform(this._list, this.queryFormControl.value, this.searchableList)?.map((item: any) => item);
       } else {
       // simple filter
@@ -147,17 +146,20 @@ export class SearchComponent implements OnInit {
   onSettingClick(): void {
   }
   onKeyDown(event: any): void {
-    if (event.key === 'Enter') {
-      event.preventDefault();
-    }
-    if (event.key === 'Backspace') {
-      if (this.queryFormControl.value === '') {
-        if (this.filteredList) {
-          this.filteredList.length = 0;
+    if (this.queryFormControl.value.length) {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+      }
+      if (event.key === 'Backspace') {
+        if (this.queryFormControl.value === '') {
+          if (this.filteredList) {
+            this.filteredList.length = 0;
+          }
+          this.showMenuToggle = false;
         }
-        this.showMenuToggle = false;
       }
     }
+ 
   }
 
   onKeyUp(event: any): void {
@@ -165,7 +167,7 @@ export class SearchComponent implements OnInit {
     if (event.key === 'Backspace') {
       if (this.queryFormControl.value === '') {
         if (this.filteredList) {
-          this.filteredList.length = 0;
+        //  this.filteredList.length = 0;
         }
         this.showMenuToggle = false;
         this.searchIcon = true;

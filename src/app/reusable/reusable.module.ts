@@ -17,7 +17,7 @@ import { MaterialModule } from './../material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FooterComponent } from './footer/footer.component';
+import { NvFooterComponent } from './nv-footer/nv-footer.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { NovatekLogoComponent } from './novatek-logo/novatek-logo.component';
 import { PanelComponent } from './panel/panel.component';
@@ -29,21 +29,27 @@ import { InvertedTabsComponent } from './inverted-tabs/inverted-tabs.component';
 import { LeftTabComponent } from './left-tab/left-tab.component';
 import { RightTabComponent } from './right-tab/right-tab.component';
 import { FeedComponent } from './feed/feed.component';
-import { PlaceholderCardComponent } from './placeholder/placeholder-card/placeholder-card.component';
-import { PlaceholderListComponent } from './placeholder/placeholder-list/placeholder-list.component';
-import { PlaceholderBannerComponent } from './placeholder/placeholder-banner/placeholder-banner.component';
-import { PlaceholderBigCardComponent } from './placeholder/placeholderBigCard/placeholderBigCard.component';
+import { NvPlaceholderCardComponent } from './placeholder/nv-placeholder-card/nv-placeholder-card.component';
+import { NvPlaceholderListComponent } from './placeholder/nv-placeholder-list/nv-placeholder-list.component';
+import { NvPlaceholderBannerComponent } from './placeholder/nv-placeholder-banner/nv-placeholder-banner.component';
+import { NvPlaceholderBigCardComponent } from './placeholder/nv-placeholderBigCard/nv-placeholderBigCard.component';
 import { MatTableModule } from '@angular/material/table';
-import { CustomDatatableComponent } from './custom-datatable/custom-datatable.component';
+import { NvCustomDatatableComponent } from './nv-custom-datatable/nv-custom-datatable.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatSortModule} from "@angular/material/sort";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
-import { DataPropertyGetterPipe } from './custom-datatable/data-property-getter-pipe/data-property-getter.pipe';
-import { TestComponent } from '../main/test/test.component';
+import { DataPropertyGetterPipe } from './pipes/data-property-getter-pipe/data-property-getter.pipe';
+import { TestComponent } from './test/test.component';
+import { NvPlaceholderTextCardComponent } from './placeholder/nv-placeholder-text-card/nv-placeholder-text-card.component';
+import { NvPlaceholderSmallCardComponent } from './placeholder/nv-placeholder-small-card/nv-placeholder-small-card.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { NvCustomTableComponent } from './nv-custom-table/nv-custom-table.component';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ProgressiveBarComponent } from './progressive-bar/progressive-bar.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 const sharedComponents = [
@@ -52,10 +58,10 @@ const sharedComponents = [
   FilterAllPipe,
   NvTrimPipe,
   NvFileUploadDirective,
-  FooterComponent,
+  NvFooterComponent,
   SideNavComponent,
   NovatekLogoComponent,
-  CustomDatatableComponent,
+  NvCustomDatatableComponent,
   DataPropertyGetterPipe,
   PanelComponent,
   SearchComponent,
@@ -76,13 +82,16 @@ const sharedComponents = [
   LeftTabComponent,
   RightTabComponent,
   FeedComponent,
-  PlaceholderCardComponent,
-  PlaceholderListComponent,
-  PlaceholderBannerComponent,
-  PlaceholderBigCardComponent,
+  NvPlaceholderCardComponent,
+  NvPlaceholderListComponent,
+  NvPlaceholderBannerComponent,
+  NvPlaceholderBigCardComponent,
   NvCustomComponentComponent,
   UploadComponent,
   RattingComponent,
+  NvPlaceholderTextCardComponent,
+  NvPlaceholderSmallCardComponent,
+  NvCustomTableComponent,
   ProgressiveBarComponent,
   NvDataPickerComponent,
   NvButtonComponent
@@ -102,6 +111,9 @@ const sharedComponents = [
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
+    MatCheckboxModule,
+    NgxPaginationModule,
+    MDBBootstrapModule.forRoot()
   ],
   exports: sharedComponents,
   providers: [FilterAllPipe, AdvanceFilterPipe ]

@@ -87,7 +87,7 @@ export class DemoPageComponent implements OnInit {
   /*
   * timePicker
  */
-  timeFormat: number = 24;
+  timeFormat: number = 12;
 
   constructor(   
   ) { }

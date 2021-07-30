@@ -29,7 +29,8 @@
 ::ng-deep .ngx-timepicker-control {
   width: 40px !important;
   height: 17px !important;
-  border: 1px solid black !important;
+  //border: 1px solid black !important;
+  z-index: 20;
 }
 
 ::ng-deep .ngx-timepicker-control--active {
@@ -46,6 +47,7 @@
 
 ::ng-deep .ngx-timepicker-control__arrows {
   top: -9px !important;
+  right: -9px !important;
 }
 
 ::ng-deep .ngx-timepicker-control__arrow {
@@ -56,21 +58,16 @@
   color: #4d4d4d !important;
   width: 8px !important;
   height: 12px !important;
-
-  //color: transparent !important;
+  // border: 1px solid red;
+  color: transparent !important;
   z-index: 1;
 }
 
-::ng-deep .ngx-timepicker__time-colon {
-  @include label;
-}
 
 ::ng-deep .ngx-timepicker__time-colon {
-  margin-left: 5px !important;
-}
-
-::ng-deep .period-control__button {
   @include label;
+  margin-left: 14px !important;
+  //border: 1px solid yellow !important;
 }
 
 ::ng-deep .ngx-timepicker__control--forth {
@@ -78,10 +75,11 @@
 }
 
 ::ng-deep .period-control__button {
+  @include label;
   width: 49px !important;
   height: 17px !important;
-  margin-left: 4px !important;
-
+  margin-left: 12px !important;
+  z-index: 20;
   &::after {
     display: none !important;
   }
@@ -94,8 +92,7 @@
   color: #4d4d4d !important;
   width: 8px !important;
   height: 12px !important;
-  //color: transparent !important;
-  z-index: 1;
+  color: transparent !important;
 }
 
 ::ng-deep .period-selector {
@@ -116,13 +113,10 @@
   color: $color-black-18 !important;
 }
 
-// ::ng-deep .ngx-timepicker-control__arrow {
-//     background-image: url(./../../../assets/icons/ico.arrow.down.svg) !important;
-//   }
 @mixin arrows {
   .ngx-timepicker-control-arrows {
     position: absolute;
-    left: 39px;
+    left: 41px;
     top: 12px;
     display: grid;
     width: 8px;
@@ -140,9 +134,11 @@
     }
 
     .arrow-down {
+
       width: 8px;
       height: 5px;
       color: #4D4D4D;
+
     }
   }
 }
@@ -155,21 +151,24 @@
     z-index: 2;
   }
   .second-arrows {
-    transform: translate(61px);
+    transform: translate(58px);
     @include arrows;
     z-index: 2;
   }
   .third-arrow {
-    transform: translate(107px);
+    transform: translate(105px);
     position: absolute;
     left: 39px;
     top: 8px;
     z-index: 2;
+    line-height: $line-height-medium !important;
+
 
     .arrow-down {
       width: 8px;
       height: 5px;
       color: #4D4D4D; 
+
     }
   }
 }

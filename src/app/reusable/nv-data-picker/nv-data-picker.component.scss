@@ -71,7 +71,7 @@
     width: 100%;
     height: 100%;
     background: transparent;
-    border: none;
+    // border: none;
     padding-left: $padding-small;
     @include inputLabel;
   }
@@ -89,9 +89,48 @@
 
 }
 
+// ::ng-deep .mat-datepicker-input-container {
+//   width: 50px !important;
+// }
+
 ::ng-deep input.mat-input-element {
   margin-top: 0px !important;
+  border: 1px solid blue;
+  //width: fit-content !important;
+  min-width: 100px !important;
 }
+::ng-deep .mat-form-field-autofill-control {
+  border: 1px solid yellow !important; 
+  // display: none !important;
+  //width: fit-content !important;
+  min-width: 300px !important;
+}
+::ng-deep .mat-datepicker-input {
+  border: 1px solid yellow !important; 
+  //width: fit-content !important;
+  min-width: 200px !important;
+  min-width: 300px !important;
+
+}
+::ng-deep .cdk-text-field-autofill-monitored {
+  //display: none !important;
+  //width: fit-content !important;
+  min-width: 300px !important;
+}
+
+//  mat-input-element
+//  mat-form-field-autofill-control
+//  mat-datepicker-input
+//  input-single
+//  cdk-text-field-autofill-monitored
+
+
+
+
+
+
+
+
 
 ::ng-deep button:focus {
   outline: none !important;

@@ -27,7 +27,10 @@
 }
 
 .nxt-btn {
-    margin: 10px 0 10px 0 !important;
+    margin: 10px 2% 10px 0 !important;
+    width: 78px;
+    height: 40px;
+    display: flex;
 }
 
 
@@ -62,6 +65,11 @@ select {
 .login-items {
     padding: $padding-16;
     background-color: $color-white-f3;
+}
+
+.forgotPassword-items {
+    padding: $padding-16;
+    background-color: $color-white-f3; 
 }
 
 ::ng-deep .mat-card-actions,
@@ -105,6 +113,7 @@ button {
     float: right;
     text-decoration: underline;
     color: $color-dark-blue-12;
+    cursor: pointer;
 }
 
 .login-txt {
@@ -129,7 +138,8 @@ button {
 }
 
 .label-weight {
-    font-weight: $font-weight-normal;
+    font-weight: 600;
+    font-family: Lato;
 }
 
 .header-divider {
@@ -158,4 +168,24 @@ button {
 
 ::ng-deep .form-control {
     font-family: Lato;
+    color:$color-dark-gray-30;
+}
+
+::ng-deep .alert-success {
+    background-color: #FCFFF5 !important;
+    margin-bottom: 0px !important;
+    border-color: #A8C599 !important;
+}
+
+.secondary-txt {
+    margin-top: 8%;
+    font-size: 14px;
+    font-family: Lato;
+}
+
+.sucess-Txt {
+    color: #1E561F;
+    font-size: 18px;
+    font-family: 'Lato';
+    font-weight: 600;
 }

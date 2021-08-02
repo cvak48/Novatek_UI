@@ -17,42 +17,58 @@
           </mat-card-header>
           <mat-card-content>
             <div class="user-txt">
-              <h1 class="user-txt-name"> User Login</h1>
+              <h1 class="user-txt-name"> {{cardHeading}}</h1>
             </div>
             <mat-divider class="body-divider"></mat-divider>
-            <div class="login-items">
+            <div *ngIf='!hideLogin' class="login-items">
               <!-- User Name -->
               <div class="form-group">
                 <label for="name" class="control-label label-weight">User Name</label>
-                <label for="forgotuser" class="control-label forgot-user">Forgot User Name</label>
-                <input type="text" class="form-control" placeholder="User Name" aria-label="Username">
-              </div>
-              <!-- Site -->
-              <div class="form-group">
-                <label for="name" class="control-label label-weight">States</label>
-                <app-nv-dropdown class="body-item" [items]="states" (itemChange)="onStateSelect($event)"></app-nv-dropdown>
+                <label for="forgotuser" (click)='forgotDetails("username")' class="control-label forgot-user">Forgot
+                  User Name</label>
+                <input type="text" [disabled]='passwordDetails' class="form-control" placeholder="User Name" aria-label="Username">
               </div>
               <!-- Domain -->
               <div class="form-group">
                 <label for="name" class="control-label label-weight">Domain</label>
-                <app-nv-dropdown class="body-item" [items]="Domain" (itemChange)="onStateSelect($event)"></app-nv-dropdown>
+                <app-nv-dropdown class="body-item" [items]="Domain" [textTrimNumber]="selectedNumber" [selectedItem]="domainTxt"></app-nv-dropdown>
               </div>
               <!-- Password -->
               <!-- Password is only visible when showpassword value is true -->
-              <div class="form-group" *ngIf='showPassword'>
+              <div class="form-group passwordField" *ngIf='showPassword'>
                 <label for="name" class="control-label label-weight">Password</label>
-                <label for="forgotuser" class="control-label forgot-user">Forgot Password</label>
-                <input type="password" class="form-control" placeholder="Password" aria-label="Password">
+                <label for="forgotuser" (click)='forgotDetails("password")' class="control-label forgot-user">Forgot
+                  Password</label>
+                <input type="password" class="form-control" placeholder="Enter Password" aria-label="Password">
+              </div>
+            </div>
+            <div *ngIf='hideLogin && !confirmation' class="forgotPassword-items">
+              <div class="form-group" *ngIf='cardHeading !== "Forgot Username"'>
+                <label for="name" class="control-label label-weight">User Name</label>
+                <input type="text" class="form-control" placeholder="User Name" aria-label="Username">
+              </div>
+              <div class="form-group">
+                <label for="name" class="control-label label-weight">Email</label>
+                <input type="email" class="form-control" placeholder="Email" aria-label="Email">
+              </div>
+              <div class="form-group" *ngIf='cardHeading == "Forgot Username"'>
+                <label for="name" class="control-label label-weight">Confirm Email</label>
+                <input type="email" class="form-control" placeholder="Email" aria-label="Email">
+              </div>
+            </div>
+            <div  *ngIf='hideLogin && confirmation' class="forgotPassword-items">
+              <div class="alert alert-dismissible alert-success">
+                <p class="sucess-Txt">Sucess!</p>
+                <p class="secondary-txt">Please check your email for login information</p>
               </div>
             </div>
           </mat-card-content>
           <mat-divider></mat-divider>
           <mat-card-actions align="end">
             <!-- Next button -->
-            <app-nv-button *ngIf='!showPassword' class="nxt-btn" (buttonClick)='askPassword()' [label]="'Next'">
-            </app-nv-button>
-            <app-nv-button *ngIf='showPassword' class="nxt-btn" (buttonClick)='authenticateuser()' [label]="'Login'">
-            </app-nv-button>
+            <app-nv-button class="nxt-btn" (buttonClick)='btnClick(btnText)' [label]="btnText"></app-nv-button>
+            <app-nv-button *ngIf='showPassword' class="nxt-btn" (buttonClick)='cancleClick()' [label]="'Cancle'"></app-nv-button>
+            <app-nv-button *ngIf='confirmation' class="nxt-btn" (buttonClick)='cancleClick()' [label]="'Login'"></app-nv-button>            
           </mat-card-actions>
         </mat-card>
       </div>

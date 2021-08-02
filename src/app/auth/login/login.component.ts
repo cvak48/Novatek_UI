@@ -1,18 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  slideFadeIn,
-  slideFadeOut,
-  useSlideFadeInAnimation,
-  useSlideFadeOutAnimation
-} from '../../../assets/animation';
-import {
-  bounceInAndOut,
-  enterAndLeaveFromLeft,
-  enterAndLeaveFromRight,
   fadeInAndOut,
-  fadeInThenOut,
-  growInShrinkOut,
-  swingInAndOut
+  fadeInThenOut
 } from '../../../assets/trigger';
 
 @Component({

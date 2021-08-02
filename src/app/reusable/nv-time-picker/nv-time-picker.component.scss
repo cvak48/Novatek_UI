@@ -22,6 +22,10 @@
   }
 }
 
+::ng-deep .ngx-timepicker {
+  border-bottom: none !important;
+}
+
 ::ng-deep .ngx-material-timepicker-toggle {
   display: none !important;
 }

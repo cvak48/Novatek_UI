@@ -1,9 +1,30 @@
 import { Component, OnInit } from '@angular/core';
+import {
+  slideFadeIn,
+  slideFadeOut,
+  useSlideFadeInAnimation,
+  useSlideFadeOutAnimation
+} from '../../../assets/animation';
+import {
+  bounceInAndOut,
+  enterAndLeaveFromLeft,
+  enterAndLeaveFromRight,
+  fadeInAndOut,
+  fadeInThenOut,
+  growInShrinkOut,
+  swingInAndOut
+} from '../../../assets/trigger';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
+  animations: [
+    // The following are pre-built triggers - Use these to add animations with the least work
+    fadeInThenOut,
+    fadeInAndOut
+  ]
+  
 })
 export class LoginComponent implements OnInit {
   public showPassword: boolean = false;

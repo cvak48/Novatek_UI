@@ -35,7 +35,7 @@
               </div>
               <!-- Password -->
               <!-- Password is only visible when showpassword value is true -->
-              <div class="form-group passwordField" *ngIf='showPassword'>
+              <div class="form-group passwordField" *ngIf='showPassword' [@fadeInAndOut]>
                 <label for="name" class="control-label label-weight">Password</label>
                 <label for="forgotuser" (click)='forgotDetails("password")' class="control-label forgot-user">Forgot
                   Password</label>

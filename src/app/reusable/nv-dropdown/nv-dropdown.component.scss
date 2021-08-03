@@ -72,13 +72,13 @@ $icons-distance: 8px;
     width: 100%;
     min-width: 155px;
     height: 100%;
-    background-color: #E0E1E2;
-    border: 1px solid #5D5D5D;
+    background-color: $color-light-gray-22;
+    border: 1px solid $color-dark-gray;
     border-radius: 4px;
 
     @include dropdownFieldStyles;
     &.label {
-      color: #00000099;
+      color: $color-black-09;
       font-weight: bold;
     }
 
@@ -91,8 +91,7 @@ $icons-distance: 8px;
     position: relative;
     width: 40px;
     height: 40px;
-    background-color: #E0E1E2;
-    // border: 1px solid #5D5D5D;
+    background-color: $color-light-gray-22;
     border-radius: 4px;
   }
 
@@ -101,9 +100,9 @@ $icons-distance: 8px;
     max-width: 184px;
     padding-top: 0px;
     padding-bottom: 0px;
-    background: #FFFFFF;
-    box-shadow: 0px 1px 4px #0000001a;
-    border: 1px solid #D9D9DA;
+    background: $color-white-20;
+    box-shadow: 0px 1px 4px $color-black-14;
+    border: 1px solid $color-white;
     border-radius: 4px;
     overflow-y: auto;
 

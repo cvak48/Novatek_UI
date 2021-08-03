@@ -95,7 +95,7 @@
 
         <div class="dropdown-container" *ngSwitchCase="nvComponentType.Dropdown">
           <app-nv-dropdown class="body-item" [items]="dropdownItems" [textTrimNumber]="textTrimNumber" 
-          [selectedItem]="selectedItemDefault" (itemChange)="onItemSelect($event)"></app-nv-dropdown>
+          [selectedItem]="selectedItemDefault" [fieldType]="dropDownFieldType" (itemChange)="onItemSelect($event)"></app-nv-dropdown>
         </div>
 
         <ng-container *ngSwitchCase="nvComponentType.Avatar">

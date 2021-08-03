@@ -1,3 +1,4 @@
+import { DropdownFieldType } from './../../model/data-model';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 /**
@@ -17,13 +18,16 @@ export class NvDropdownComponent implements OnInit {
   @Input() textTrimNumber: number = 1;
   @Input() selectedItem: string = 'Select dropdown item';
   // advance
-  @Input() isButton: boolean = false;
-  @Input() hasIcon: boolean = false;
+  @Input() fieldType: DropdownFieldType = DropdownFieldType.Default;
+  
   showMenu!: boolean;
   selectedIndex!: number;
   isFirst: boolean = true;
   isArrowDown: boolean = true;
-  constructor() { }
+  dropDownFieldType = DropdownFieldType;
+  constructor() {
+    
+   }
 
   ngOnInit(): void {
   }

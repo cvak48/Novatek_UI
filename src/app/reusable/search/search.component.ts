@@ -5,9 +5,9 @@ import { FormControl } from '@angular/forms';
 
 /**
 * USAGE:
-* Note that the parent component need to provide proper container (set width and height)
+* Note that the parent component need to provide proper container (set width and height);
 * This component receives a list and provide filteredItems
-* items so the parent is responsible for providing input data (list)
+* items so the parent is responsible for providing input data (list);
 * 
 */
 

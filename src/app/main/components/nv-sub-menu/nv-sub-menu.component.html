@@ -4,33 +4,22 @@
             <mat-icon>menu</mat-icon>
             <mat-label class="mr-lt-3">MAIN MENU</mat-label>
         </div>
-        <div class="col-md-5 dp-flex border border-secondary ">
+        <div class="col-md-5 dp-flex">
             <mat-label class="label-submenu">LEVEL 1 MENU</mat-label>
             <app-nv-dropdown class="dropdown-levelMenu-container" [items]="dropdownItemsMenu" [textTrimNumber]="textTrimNumberMenu" 
-            [selectedItem]="selectedItemDefaultMenu" [fieldType]="dropDownFieldTypeMenu" (itemChange)="onMenuItemSelect($event)"></app-nv-dropdown>
+            [selectedItem]="selectedItemDefaultMenu" [fieldType]="dropDownFieldTypeMenu" (itemSelect)="onMenuItemSelect($event)"></app-nv-dropdown>
         </div>
 
-        <div class="col-md-4 dp-flex border border-secondary">
+        <div class="col-md-4 dp-flex">
             <mat-label class="label-submenu">SITE</mat-label>
             <app-nv-dropdown class="dropdown-site-container" [items]="dropdownItemsSite" [textTrimNumber]="textTrimNumberSite" 
-            [selectedItem]="selectedItemDefaultSite" [fieldType]="dropDownFieldTypeSite" (itemChange)="onPlusItemSelect($event)"></app-nv-dropdown>
+            [selectedItem]="selectedItemDefaultSite" [fieldType]="dropDownFieldTypeSite" (itemSelect)="onPlusItemSelect($event)"></app-nv-dropdown>
         </div>
 
         <div class="col-md-1 dp-flex">
-            <!-- <div class="dropdown dropdown-toggle">
-                <button class="btn btn-secondary dropdown-toggle add-btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <mat-icon class="add-icon">add</mat-icon>
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </div> -->
-              <div class="dropdown-container">
-                <app-nv-dropdown [items]="dropdownItemsPlus" [textTrimNumber]="textTrimNumberPlus" 
-                [selectedItem]="selectedItemDefaultPlus" [fieldType]="dropDownFieldTypePlus" (itemChange)="onPlusItemSelect($event)"></app-nv-dropdown>
-              </div>
+                <app-nv-dropdown class="dropdown-plus-container" [items]="dropdownItemsPlus" [textTrimNumber]="textTrimNumberPlus" 
+                [selectedItem]="selectedItemDefaultPlus" [fieldType]="dropDownFieldTypePlus" 
+                [isRightToLeft]="isRightToLeft" (itemSelect)="onPlusItemSelect($event)"></app-nv-dropdown>
         </div>
         
     </div>

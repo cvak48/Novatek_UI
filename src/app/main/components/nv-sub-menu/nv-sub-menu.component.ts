@@ -25,6 +25,7 @@ export class NvSubMenuComponent implements OnInit {
     textTrimNumberPlus = mockPlusDropdown().textTrimNumber;
     selectedItemDefaultPlus = mockPlusDropdown().selectedItemDefault;
     dropDownFieldTypePlus = mockPlusDropdown().dropDownFieldType;
+    isRightToLeft = mockPlusDropdown().isRightToLeft;
   constructor() { }
 
   ngOnInit(): void {
@@ -72,6 +73,7 @@ function mockPlusDropdown(): any {
     textTrimNumber: 3,
     selectedItemDefault: 'Page',
     dropDownFieldType: DropdownFieldType.Icon,
+    isRightToLeft: true,
   };
   return dropdownInputs;
 }

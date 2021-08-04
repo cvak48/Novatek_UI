@@ -6,25 +6,11 @@
         </div>
         <div class="col-md-5 dp-flex">
             <mat-label>LEVEL 1 MENU NAME</mat-label>
-            <mat-select class="wd-70 mr-lt-3 ht-70" >
-                <mat-option  value="menu1">
-                menu1
-                </mat-option>
-                <mat-option  value="menu2">
-                    menu2
-                </mat-option>
-            </mat-select>
+            <app-nv-dropdown class="wd-70 mr-lt-3 ht-70" [items]="menuItems" ></app-nv-dropdown>
         </div>
         <div class="col-md-4 dp-flex">
             <mat-label>SITE</mat-label>
-            <mat-select class="mr-lt-3 ht-70" >
-                <mat-option  value="site1">
-                site1
-                </mat-option>
-                <mat-option  value="site2">
-                    site2
-                </mat-option>
-            </mat-select>
+            <app-nv-dropdown class="wd-100 mr-lt-3 ht-70" [items]="siteItems" ></app-nv-dropdown>
         </div>
         <div class="col-md-1 dp-flex">
             <div class="dropdown dropdown-toggle">

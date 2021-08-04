@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Person } from '../../main/components/demo-page/demo-page.component';
 
 @Component({
   selector: 'app-avatar',

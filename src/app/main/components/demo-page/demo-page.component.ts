@@ -1,10 +1,7 @@
-
-
 import { DropdownFieldType, Notification, Person } from './../../../model/data-model';
 import { ButtonType, ButtonThemeColor } from './../../../reusable/nv-button/nv-button.component';
 import { NvCustomComponent } from './../../../reusable/nv-custom-component/nv-custom-component.component';
 import { Component, OnInit } from '@angular/core';
-import { Button } from 'protractor';
 
 
 export enum NvComponent {

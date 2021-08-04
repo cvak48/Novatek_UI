@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Person } from 'src/app/main/components/demo-page/demo-page.component';
+import { Person } from 'src/app/model/data-model';
 
 export class CommentNode {
   text:string ='';

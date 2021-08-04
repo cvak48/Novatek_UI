@@ -1,7 +1,9 @@
+import { DropdownFieldType } from './../../../model/data-model';
 import { ButtonType, ButtonThemeColor } from './../../../reusable/nv-button/nv-button.component';
 import { NvCustomComponent } from './../../../reusable/nv-custom-component/nv-custom-component.component';
 
 import { Component, OnInit } from '@angular/core';
+import { Button } from 'protractor';
 
 export interface Person {
 id: number;
@@ -64,7 +66,8 @@ export class DemoPageComponent implements OnInit {
   dropdownItems = mockDropdown().itemsNumber;
   textTrimNumber = mockDropdown().textTrimNumber;
   selectedItemDefault = mockDropdown().selectedItemDefault;
-
+  dropDownFieldType = mockDropdown().dropDownFieldType;
+  
   constructor() { }
 
   ngOnInit(): void {
@@ -124,6 +127,7 @@ function mockDropdown(): any {
     itemsNumber: ['1', '2', '3', '4', '5','11', '22', '33', '44', '55'],
     textTrimNumber: 2,
     selectedItemDefault: 'Page',
+    dropDownFieldType: DropdownFieldType.Icon,
   };
   return dropdownInputs;
 }

@@ -6,8 +6,30 @@
     border-bottom: 2px solid $color-light-gray-28;
     font-size: 14px;
     font-weight: 500;
+    height: 56px;
+}
+::ng-deep .dropdown{
+border: none !important;
 }
 
+::ng-deep .dropdown-levelMenu-container {
+    width: 70%;
+    height: 40px !important;
+    margin-left: 10px; 
+ .dropdown-menu {
+        max-width: 100% !important;
+        width: 600px;
+     } 
+}
+::ng-deep .dropdown-site-container {
+width: 90%;
+height: 40px !important;
+margin-left: 10px;
+.dropdown-menu {
+    max-width: 100% !important;
+    width: 600px;
+ } 
+}
 .dp-flex{
     display: flex;
     align-items: center;

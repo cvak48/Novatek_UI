@@ -30,7 +30,7 @@ export class NvDropdownComponent implements OnInit {
    * there are three types: Button, Icon, and Default, which is a simple field.
    */
   @Input() fieldType: DropdownFieldType = DropdownFieldType.Default;
-  
+  @Input() isRightToLeft: boolean = false;
   showMenu!: boolean;
   selectedIndex!: number;
   isFirst: boolean = true;

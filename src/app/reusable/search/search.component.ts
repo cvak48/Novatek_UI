@@ -3,6 +3,14 @@ import { FilterAllPipe } from './../pipes/filters/filterAll/filter-all.pipe';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
+/**
+* USAGE:
+* Note that the parent component need to provide proper container (set width and height)
+* This component receives a list and provide filteredItems
+* items so the parent is responsible for providing input data (list)
+* 
+*/
+
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',

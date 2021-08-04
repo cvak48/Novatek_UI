@@ -2,14 +2,12 @@ import { AdvanceFilterPipe } from './../pipes/filters/advance-filter/advance-fil
 import { FilterAllPipe } from './../pipes/filters/filterAll/filter-all.pipe';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
-
 /**
-* USAGE:
-* Note that the parent component need to provide proper container (set width and height);
-* This component receives a list and provide filteredItems
-* items so the parent is responsible for providing input data (list);
-* 
-*/
+  * USAGE:
+  * Note that the parent component need to provide proper container (set width and height);
+  * This component receives a list and provide filteredItems
+  * items so the parent is responsible for providing input data (list);
+  */
 
 @Component({
   selector: 'app-search',
@@ -17,10 +15,11 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-  private _list: any;
-  private _searchableRefList: any;
   @Output() filteredItems = new EventEmitter<any[]>();
   @Input() isAdvance = true;
+  /**
+   * In some case we do not need the menu popping up like table.
+   */
   @Input() hideMenu = false;
   @Input() set list(list: any) {
     if (list && list?.length > 0) {
@@ -29,6 +28,9 @@ export class SearchComponent implements OnInit {
       this._list = mockAdvanceSearchInput().list;
     }
   }
+  /**
+   * An Array of strings for filtering purpose; they can be all or part of the keys of input object
+   */
   @Input() set searchableRefList(list: string[]) {
     if (list && list?.length > 0) {
       this._searchableRefList = list;
@@ -36,7 +38,8 @@ export class SearchComponent implements OnInit {
       this._searchableRefList = mockAdvanceSearchInput().searchableRefList;
     }
   }
-  
+  private _list: any;
+  private _searchableRefList: any;
   queryFormControl = new FormControl('');
   searchableList: string[] = [];
   inputKeywordLabel: string = '';
@@ -49,13 +52,18 @@ export class SearchComponent implements OnInit {
   isFocus = false;
 
   // TODO: Need to bring click event from parents to make isFocus false and delete blur event
+  /**
+   * there are two filter applied with pipe; the advance is going to use the key as filter parameter (searchableList)
+   */
   constructor(private filter: FilterAllPipe, private advanceFilter: AdvanceFilterPipe) { }
 
   ngOnInit(): void {
     let isQueryKeyword: boolean = false;
-    let trimmedInput: string
+    let trimmedInput: string;
+    /**
+     * The logic is implemented as the user start typing his query
+     */
     this.queryFormControl.valueChanges.subscribe(selectedValue => {
-       
       if (this.queryFormControl.value === '') {
         if (this.filteredList) {
           this.filteredList.length = 0;
@@ -69,7 +77,7 @@ export class SearchComponent implements OnInit {
           this.searchableList = [];
           this.inputKeywordLabel = '';
         }
-        // modify searchableList; specific search item
+        // modify searchableList; specific filter key
         if (selectedValue.includes(':')) {
           this.searchableList = this.modifySearchableList(selectedValue, this._searchableRefList);
           if (this.searchableList.length > 0) {
@@ -92,8 +100,8 @@ export class SearchComponent implements OnInit {
         }
         this.filteredList = this.advanceFilter?.transform(this._list, this.queryFormControl.value, this.searchableList)?.map((item: any) => item);
       } else {
-      // simple filter
-      this.filteredList = this.filter?.transform(this._list, this.queryFormControl.value)?.map((item: any) => item);
+        // simple filter
+        this.filteredList = this.filter?.transform(this._list, this.queryFormControl.value)?.map((item: any) => item);
       }
       if (this.filteredList) {
         this.showMenuToggle = true;
@@ -121,6 +129,9 @@ export class SearchComponent implements OnInit {
     event.preventDefault();
     event.stopPropagation();
   }
+  /**
+   * selecting item from pop up menu containing the filtered items
+   */
   onItemSelect(index: number): void {
     if (this.filteredList) {
       this.selectedIndex = index;
@@ -167,15 +178,17 @@ export class SearchComponent implements OnInit {
         }
       }
     }
- 
-  }
 
+  }
+  /**
+   * Managing different keywords inputted by user
+   */
   onKeyUp(event: any): void {
     this.searchIcon = false;
     if (event.key === 'Backspace') {
       if (this.queryFormControl.value === '') {
         if (this.filteredList) {
-        //  this.filteredList.length = 0;
+          //  this.filteredList.length = 0;
         }
         this.showMenuToggle = false;
         this.searchIcon = true;
@@ -202,7 +215,10 @@ export class SearchComponent implements OnInit {
       this.selectedIndex = (this.selectedIndex - 1) % this.filteredList.length;
     }
   }
-
+  /**
+   * preparing input query to be able to compare with searchableList's keys
+   * in order to find out if he used filter (from searchable list) for search
+   */
   trimInputKeyWord(input: string, list: string[]): string {
     let newItem: string = '';
     let newInput: string = '';
@@ -218,7 +234,9 @@ export class SearchComponent implements OnInit {
     }
     return newInput;
   }
-
+  /**
+   * find specific keyword user inputted first as filter (searchableRefList items)
+   */
   modifySearchableList(query: string, list: string[]): string[] {
     let keyWordQuery: string = '';
     if (list) {
@@ -246,7 +264,9 @@ export class SearchComponent implements OnInit {
     }
   }
 }
-
+/**
+ * if the user does not provide input data; for test purposes only
+ */
 function mockAdvanceSearchInput(): any {
   const searchInput = {
     list: [

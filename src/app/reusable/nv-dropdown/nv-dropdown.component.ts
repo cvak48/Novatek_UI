@@ -33,6 +33,7 @@ export class NvDropdownComponent implements OnInit {
   @Input() extensionDirection: MenuExtensionDirection = MenuExtensionDirection.ToRight;
   showMenu!: boolean;
   selectedIndex!: number;
+  // TODO: need to define type for each of these
   isFirst: boolean = true;
   isArrowDown: boolean = true;
   dropDownFieldType = DropdownFieldType;

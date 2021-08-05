@@ -1,18 +1,8 @@
-import { DropdownFieldType } from './../../../model/data-model';
-import { ButtonType, ButtonThemeColor } from './../../../reusable/nv-button/nv-button.component';
+import { ButtonThemeColor, ButtonType } from './../../../reusable/nv-button/nv-button.component';
 import { Component, OnInit } from '@angular/core';
+import { Notification, Person, DropdownFieldType } from './../../../model/data-model';
 
-export interface Person {
-id: number;
-name: string;
-imageUrl: string;
-notification?: Notification;
-}
-export interface Notification {
-  number?: number | any;
-  content?: string;
-  hasAttachment?: boolean;
-}
+
 export enum NvComponent {
   // First: Add the name of your reusable component to this enum
   Search,

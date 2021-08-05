@@ -106,16 +106,16 @@
           <app-upload class="body-item"></app-upload>
         </div>
         <div class="custom-component-container" *ngSwitchCase="nvComponentType.NvCheckBox">
-          <app-nv-custom-component class="body-item" [component]="nvCheckBox"></app-nv-custom-component>
+          <app-nv-checkbox class="body-item" [label]="checkBoxLabel"></app-nv-checkbox>
         </div>
         <div class="custom-component-container" *ngSwitchCase="nvComponentType.NvSliderBar">
-          <app-nv-custom-component class="body-item" [component]="nvSliderBar"></app-nv-custom-component>
+          <app-nv-slider class="body-item"></app-nv-slider>
         </div>
         <div class="custom-component-container" *ngSwitchCase="nvComponentType.NvSliderToggle">
-          <app-nv-custom-component class="body-item" [component]="nvSliderToggle"></app-nv-custom-component>
+          <app-nv-slider-toggle class="body-item"></app-nv-slider-toggle>
         </div>
         <div class="custom-component-container" *ngSwitchCase="nvComponentType.NvRadioBut">
-          <app-nv-custom-component class="body-item" [component]="nvRadioBut"></app-nv-custom-component>
+          <app-nv-slider-radio-button class="body-item"></app-nv-slider-radio-button>
         </div>
         <div class="date-single-picker-container" *ngSwitchCase="nvComponentType.NvDatePicker">
           <app-nv-data-picker [isDateRangePicker]="false" class="body-item"></app-nv-data-picker>
@@ -126,7 +126,6 @@
         </div>
         <app-nv-button [label]="buttonLabel" [type]="buttonType" [color]="themeColor" class="body-item"
           *ngSwitchCase="nvComponentType.NvButton"></app-nv-button>
-
 
       </div>
     </div>

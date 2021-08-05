@@ -1,18 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import {MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
+import { DATE_FORMATS } from '../../../assets/setting';
 
-export const MY_FORMATS = {
-  parse: {
-    dateInput: 'LL',
-  },
-  display: {
-    dateInput: 'LL',
-    monthYearLabel: 'MMM YYYY',
-    dateA11yLabel: 'LL',
-    monthYearA11yLabel: 'MMMM YYYY',
-  },
-};
+
 
 @Component({
   selector: 'app-nv-data-picker',
@@ -21,7 +12,7 @@ export const MY_FORMATS = {
   providers: [
     {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
     // {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS},
-    {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS},
+    {provide: MAT_DATE_FORMATS, useValue: DATE_FORMATS},
     {provide:  MAT_DATE_LOCALE, useValue: 'de-LU'},
   ]
 })

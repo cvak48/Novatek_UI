@@ -1,5 +1,5 @@
-import { Person } from '../../main/components/demo-page/demo-page.component';
 import { Component, Input, OnInit } from '@angular/core';
+import { Person } from 'src/app/model/data-model';
 
 @Component({
   selector: 'app-nv-header',

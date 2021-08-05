@@ -1,0 +1,61 @@
+@import "../../../reusable/theme/base.scss";
+
+.card-style{
+    border: 3px solid $color-light-gray-30;
+    margin: 1%;
+    border-radius: 5px;
+    border-radius: 4px;
+    background: #fff;
+}
+
+.section-style{
+    padding-top: 1%;
+    border-right: 1px solid $color-light-gray-30;
+    color:$color-dark-gray-70;
+}
+
+.row-style{
+    width: 98% !important;
+    margin: 0 auto !important;
+    display: inline-block !important;
+}
+
+p {
+    color: $color-dark-gray-70;
+}
+
+p{
+    color: $color-dark-gray-70;
+}
+
+.card-text-2{
+    position: absolute;
+    background-color:$color-light-gray-20;
+    height:12px;
+    width:80%;
+}
+
+.card-text-3{
+    position: absolute;
+    background-color:$color-light-gray-20;
+    height:12px;
+    width:80%;
+    margin-top:5%;
+}
+
+.card-text-4{
+    position: absolute;
+    background-color:$color-light-gray-20;
+    height:12px;
+    width:50%;
+    margin-top:10%;
+}
+
+.mn-hgt-95{
+    min-height: 95px;
+}
+
+div.card-border{
+    margin: 0 1% 0 1%;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+  }

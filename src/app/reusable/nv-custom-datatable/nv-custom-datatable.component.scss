@@ -1,0 +1,144 @@
+@import "../../reusable/theme/base.scss";
+
+mat-paginator {
+  margin-bottom: 47px !important;
+}
+
+.search-box{
+  border: 1px solid $color-white-10;
+  margin: 1%;
+  border-radius: 4px;
+  height: 40px;
+  background:$color-white-20;
+  color: $color-light-gray-70;
+}
+
+.search-field{
+    width: 97%;
+    padding-left: 1%;
+}
+.search-container {
+  position: relative;
+  width: 100%;
+  padding-left: 1%;
+  padding-right: 1%;
+  .search {
+    width: 100%;
+  }
+}
+
+
+::ng-deep .mat-icon {
+  fill: $color-white !important;
+}
+
+.data-table{
+  border: 1px solid $color-white;
+  margin: 1%;
+  width: 98% !important;
+}
+
+.drop-container {
+  width: 60px;
+  float: left;
+  display: inline-block;
+}
+
+::ng-deep .search-placeholder-align .mat-form-field-infix{
+  position: relative;
+  top: -6px;
+}
+
+::ng-deep .search-placeholder-align .mat-form-field-label-wrapper {
+  margin-top: 4px;
+}
+
+.padding-3{
+  padding:4px;
+}
+
+.status-gr{
+    background-color: $color-light-green;
+}
+
+.status-rd{
+    background-color: $color-light-red;
+}
+
+.status-yl{
+    background-color: $color-light-blue-20;
+}
+
+th{
+    font-weight: bold;
+}
+
+::ng-deep .mat-form-field-underline {
+  display: none;
+}
+
+.mat-cell, .mat-footer-cell {
+color: $color-dark-gray-70 !important;
+}
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+  background-color: $color-black-10 !important;
+}
+
+::ng-deep .mat-checkbox .mat-accent .mat-checkbox-indeterminate{
+  background-color: $color-black-10 !important;
+}
+
+::ng-deep .mat-sort-header-container:not(.mat-sort-header-sorted) .mat-sort-header-arrow {
+  opacity: 0.54 !important;
+  transform: translateY(0px) !important;
+}
+
+thead {
+    background: hsl(240, 8%, 97%) !important;
+}
+tr.mat-header-row {
+    height: 40px !important;
+    background-color: #fff !important;
+    height: 50px !important;
+}
+.mat-header-cell {
+    text-transform: capitalize !important;
+    color: $color-dark-gray-70;
+}
+.mat-cell, .mat-footer-cell {
+    font-size: 12px;
+    text-transform: capitalize !important;
+}
+tr.mat-header-row > .mat-checkbox-layout {
+  margin-top: 8px !important;
+ }
+
+ .mat-header-cell {
+  font-size: 14px !important;
+  font-weight: 500;
+}
+
+.mat-table {
+    background: #fff;
+    width: 100%;
+}
+
+tr.mat-row.cdk-row:nth-child(odd) {
+    background: #C1E9C1;
+}
+
+.mat-chip{
+  background-color: lightgray !important;
+  color: darkgrey !important;
+}
+
+.more-opt-icon{
+  width:20px;
+  height:20px;
+  margin-left: 15%;
+}
+
+th.mat-header-cell:first-of-type, td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type {
+  padding-left: 26px;
+  padding-top: 6px !important;
+}

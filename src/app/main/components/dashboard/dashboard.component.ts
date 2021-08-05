@@ -1,5 +1,5 @@
 import { CommentNode } from 'src/app/reusable/comment-box/comment-box.component';
-import { Person, Notification } from './../demo-page/demo-page.component';
+
 import { Component, Input, OnInit } from '@angular/core';
 import { TextAreaComponent } from 'src/app/reusable/text-area/text-area.component';
 import { NovatekLogoComponent } from 'src/app/reusable/novatek-logo/novatek-logo.component';
@@ -8,6 +8,7 @@ import { SearchComponent } from 'src/app/reusable/search/search.component';
 import { PlaceHolderCard } from 'src/app/model/placeHolderCard';
 import { PlaceHolderBanner } from 'src/app/model/placeHolderBanner';
 import { PlaceholderBigCard } from 'src/app/model/PlaceholderBigCard';
+import { Notification, Person } from 'src/app/model/data-model';
 
 
 
@@ -33,6 +34,8 @@ export class DashboardComponent implements OnInit {
   bannerData = {};
   smallCardData = {};
   listData: any[] = [];
+  cardSmallData = {};
+  textCardData= {};
   SucessprogressiveBarValue:string = '90';
   warningProgressivebarValue:string = '70';
   dualwarningProgressivebarValue:string = '5';
@@ -50,6 +53,8 @@ export class DashboardComponent implements OnInit {
     this.setPlaceHolderBannerdata();
     this.setPlaceHolder1();
     this.setListData();
+    this.setPlaceHolderSmallCardData();
+    this.setPlaceHolderTextData();
   }
 
   setPlaceHolderCarddata(): void {
@@ -64,6 +69,46 @@ export class DashboardComponent implements OnInit {
     dui. Mauris dapibus lectus id laoreet iaculis. Duis auctor augue
     augue, eget lobortis quam auctor at.`}as PlaceHolderCard;
   }
+
+  setPlaceHolderTextData(): void {
+    this.textCardData = [
+      {'text': `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel
+      ipsum aliquam metus facilisis scelerisque. Quisque vitae
+      condimentum nulla. Vestibulum lobortis ullamcorper augue id
+      consequat.`},
+      {'text': `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel
+      ipsum aliquam metus facilisis scelerisque. Quisque vitae
+      condimentum nulla. Vestibulum lobortis ullamcorper augue id
+      consequat.`},
+      {'text': `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel
+      ipsum aliquam metus facilisis scelerisque. Quisque vitae
+      condimentum nulla. Vestibulum lobortis ullamcorper augue id
+      consequat.`}
+    ];
+  }
+
+  setPlaceHolderSmallCardData(): void {
+    this.cardSmallData = [{'img': this.avtar,
+    'text1':'Tom Cruise',
+    'text2':'Posted on May 20, 2018',
+    'description':`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel
+    ipsum aliquam metus facilisis scelerisque. Quisque vitae
+    condimentum nulla.`},
+    {'img': this.avtar,
+    'text1':'Tom Cruise',
+    'text2':'Posted on May 20, 2018',
+    'description':`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel
+    ipsum aliquam metus facilisis scelerisque. Quisque vitae
+    condimentum nulla.`},
+    {'img': this.avtar,
+    'text1':'Tom Cruise',
+    'text2':'Posted on May 20, 2018',
+    'description':`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel
+    ipsum aliquam metus facilisis scelerisque. Quisque vitae
+    condimentum nulla.`}
+  ];
+}
+
 
   setPlaceHolder1(): void {
     this.smallCardData = {'img': this.avtar,

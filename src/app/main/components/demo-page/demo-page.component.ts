@@ -1,19 +1,9 @@
-import { ButtonType, ButtonThemeColor } from './../../../reusable/nv-button/nv-button.component';
+import { ButtonThemeColor, ButtonType } from './../../../reusable/nv-button/nv-button.component';
 import { NvCustomComponent } from './../../../reusable/nv-custom-component/nv-custom-component.component';
-
 import { Component, OnInit } from '@angular/core';
+import { Notification, Person, DropdownFieldType } from './../../../model/data-model';
 
-export interface Person {
-id: number;
-name: string;
-imageUrl: string;
-notification?: Notification;
-}
-export interface Notification {
-  number?: number | any;
-  content?: string;
-  hasAttachment?: boolean;
-}
+
 export enum NvComponent {
   // First: Add the name of your reusable component to this enum
   Search,
@@ -38,7 +28,7 @@ export enum NvComponent {
   styleUrls: ['./demo-page.component.scss']
 })
 export class DemoPageComponent implements OnInit {
-  public selectedItem: NvComponent = NvComponent.NvDatePicker;
+  public selectedItem: NvComponent = NvComponent.Dropdown;
   public nvComponentType = NvComponent;
    // Second: Provide input data for your reusable component here if needed
    // Search
@@ -60,7 +50,12 @@ export class DemoPageComponent implements OnInit {
   buttonLabel = 'Default';
   buttonType = ButtonType.Stroked;
   themeColor = ButtonThemeColor.Basic;
-
+  // dropDown
+  dropdownItems = mockDropdown().itemsNumber;
+  textTrimNumber = mockDropdown().textTrimNumber;
+  selectedItemDefault = mockDropdown().selectedItemDefault;
+  dropDownFieldType = mockDropdown().dropDownFieldType;
+  
   constructor() { }
 
   ngOnInit(): void {
@@ -68,9 +63,19 @@ export class DemoPageComponent implements OnInit {
   public onItemClick(selectedItem: NvComponent): void {
     this.selectedItem = selectedItem;
   }
+  // search output
   onItemsFilter(list: any): void {
   }
+  // dropDown selected item
+  onItemSelect(item: string): void {
+    console.log('selectedItem >>>> ' + +item);
+  }
 }
+
+
+
+
+
 
 function mockProfileMenu(): Person {
   const avatarProps = {
@@ -102,4 +107,15 @@ function mockAdvanceSearchInput(): any {
     showMenu: true,
   };
   return searchInput;
+}
+
+function mockDropdown(): any {
+  const dropdownInputs = {
+    items: ['item1', 'item2 which is longer', 'item3  which is longer and longer than item2', 'item4', 'item5', 'item6', 'item7'],
+    itemsNumber: ['1', '2', '3', '4', '5','11', '22', '33', '44', '55'],
+    textTrimNumber: 2,
+    selectedItemDefault: 'Page',
+    dropDownFieldType: DropdownFieldType.Icon,
+  };
+  return dropdownInputs;
 }

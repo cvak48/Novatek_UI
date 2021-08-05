@@ -19,11 +19,11 @@ export class NvDropdownComponent implements OnInit {
   @Output() itemSelect = new EventEmitter<any>();
   @Input() items: string[] = ['item1'];
   /**
-   * it keep first "textTrimNumber" number and ignore the rest, adding ... instead.
+   * it keeps first "textTrimNumber" number and ignore the rest, adding ... instead.
    */
   @Input() textTrimNumber: number = 2;
   /**
-   * the default value shown in the field
+   * the default value shown in the field comes as an input but it will be updated as soon as user select new item
    */
   @Input() selectedItem: string = '';
   /**

@@ -1,6 +1,5 @@
-import { ButtonThemeColor, ButtonType } from './../../../reusable/nv-button/nv-button.component';
 import { Component, OnInit } from '@angular/core';
-import { Notification, Person, DropdownFieldType } from './../../../model/data-model';
+import { Notification, Person, DropdownFieldType, ButtonType, ButtonThemeColor } from './../../../model/data-model';
 
 
 export enum NvComponent {

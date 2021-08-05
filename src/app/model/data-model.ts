@@ -1,3 +1,7 @@
+/**
+ * All types of data models using Class, Interface and Enum
+ */
+
 export enum DropdownFieldType {
     Button,
     Icon,
@@ -8,6 +12,15 @@ export enum MenuExtensionDirection {
     ToRight,
 }
 
+export enum ButtonType {
+    Raised,
+    Stroked
+}
+
+export enum ButtonThemeColor {
+    Basic,
+    Primary,
+}
 export interface Person {
     id: number;
     name: string;
@@ -19,3 +32,4 @@ export interface Notification {
     content?: string;
     hasAttachment?: boolean;
 }
+

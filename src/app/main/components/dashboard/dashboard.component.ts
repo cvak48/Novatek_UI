@@ -1,5 +1,5 @@
 import { CommentNode } from 'src/app/reusable/comment-box/comment-box.component';
-import { Person, Notification } from './../demo-page/demo-page.component';
+
 import { Component, Input, OnInit } from '@angular/core';
 import { TextAreaComponent } from 'src/app/reusable/text-area/text-area.component';
 import { NovatekLogoComponent } from 'src/app/reusable/novatek-logo/novatek-logo.component';
@@ -8,6 +8,7 @@ import { SearchComponent } from 'src/app/reusable/search/search.component';
 import { PlaceHolderCard } from 'src/app/model/placeHolderCard';
 import { PlaceHolderBanner } from 'src/app/model/placeHolderBanner';
 import { PlaceholderBigCard } from 'src/app/model/PlaceholderBigCard';
+import { Notification, Person } from 'src/app/model/data-model';
 
 
 

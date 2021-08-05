@@ -1,4 +1,4 @@
-import { DropdownFieldType } from './../../model/data-model';
+import { DropdownFieldType, MenuExtensionDirection } from './../../model/data-model';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 /**
@@ -30,12 +30,14 @@ export class NvDropdownComponent implements OnInit {
    * there are three types: Button, Icon, and Default, which is a simple field.
    */
   @Input() fieldType: DropdownFieldType = DropdownFieldType.Default;
-  @Input() isRightToLeft: boolean = false;
+  @Input() extensionDirection: MenuExtensionDirection = MenuExtensionDirection.ToRight;
   showMenu!: boolean;
   selectedIndex!: number;
+  // TODO: need to define type for each of these
   isFirst: boolean = true;
   isArrowDown: boolean = true;
   dropDownFieldType = DropdownFieldType;
+  menuExtensionDirection = MenuExtensionDirection;
   constructor() {
     
    }

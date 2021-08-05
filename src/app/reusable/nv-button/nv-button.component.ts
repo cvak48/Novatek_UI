@@ -1,15 +1,6 @@
+import { ButtonType, ButtonThemeColor } from './../../model/data-model';
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 
-export enum ButtonType {
-  Raised,
-  Stroked
-}
-
-export enum ButtonThemeColor {
-  Basic,
-  Primary,
-  // Secondary,
-}
 
 @Component({
   selector: 'app-nv-button',

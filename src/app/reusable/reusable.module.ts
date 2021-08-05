@@ -1,3 +1,7 @@
+import { NvSliderToggleComponent } from './nv-slider-toggle/nv-slider-toggle.component';
+import { NvSliderRadioButtonComponent } from './nv-slider-radio-button/nv-slider-radio-button.component';
+import { NvSliderComponent } from './nv-slider/nv-slider.component';
+import { NvCheckboxComponent } from './nv-checkbox/nv-checkbox.component';
 import { NvDataPickerComponent } from './nv-data-picker/nv-data-picker.component';
 import { NvTrimPipe } from './pipes/nv-trim/nv-trim.pipe';
 import { NvButtonComponent } from './nv-button/nv-button.component';
@@ -5,7 +9,6 @@ import { FilterAllPipe } from './pipes/filters/filterAll/filter-all.pipe';
 import { AdvanceFilterPipe } from './pipes/filters/advance-filter/advance-filter.pipe';
 import { NvInitialsPipe } from './pipes/nv-initials/nv-initials.pipe';
 import { RattingComponent } from './ratting/ratting.component';
-import { NvCustomComponentComponent } from './nv-custom-component/nv-custom-component.component';
 import { UploadComponent } from './upload/upload.component';
 import { NvFileUploadDirective } from './directives/file-upload/nv-file-upload.directive';
 import { NvDropdownComponent } from './nv-dropdown/nv-dropdown.component';
@@ -86,7 +89,10 @@ const sharedComponents = [
   NvPlaceholderListComponent,
   NvPlaceholderBannerComponent,
   NvPlaceholderBigCardComponent,
-  NvCustomComponentComponent,
+  NvCheckboxComponent,
+  NvSliderComponent,
+  NvSliderRadioButtonComponent,
+  NvSliderToggleComponent,
   UploadComponent,
   RattingComponent,
   NvPlaceholderTextCardComponent,

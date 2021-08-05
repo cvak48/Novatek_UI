@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NvCustomComponentComponent } from './nv-custom-component.component';
+import { NvCheckboxComponent } from './nv-checkbox.component';
 
-describe('NvCustomComponentComponent', () => {
-  let component: NvCustomComponentComponent;
-  let fixture: ComponentFixture<NvCustomComponentComponent>;
+describe('NvCheckboxComponent', () => {
+  let component: NvCheckboxComponent;
+  let fixture: ComponentFixture<NvCheckboxComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NvCustomComponentComponent ]
+      declarations: [ NvCheckboxComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NvCustomComponentComponent);
+    fixture = TestBed.createComponent(NvCheckboxComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -60,6 +60,8 @@ import { NVProgressiveBarComponent } from './nv-progressive-bar/nv-progressive-b
 import { NvInputComponent } from './nv-input/nv-input.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { NvTextColorDirective } from './directives/nv-status-color/nv-text-color.directive';
+import { NvEditPanelComponent } from './nv-edit-panel/nv-edit-panel.component';
+
 
 const sharedComponents = [
   NvInitialsPipe,
@@ -110,6 +112,9 @@ const sharedComponents = [
   NvAvatarComponent,
   NvUploadComponent,
   NvTimePickerComponent,
+  NvDatePickerComponent,
+  NvButtonComponent,
+  NvEditPanelComponent
 ];
 
 @NgModule({

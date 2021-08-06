@@ -1,0 +1,71 @@
+@import "../../reusable/theme/base.scss";
+
+.custom-card {
+    border-radius: 8px !important;
+  .card-header {
+    font-size: 12px;
+    padding: 0px 12px 0px 10px;
+    border-top-left-radius: 8px !important;
+    border-top-right-radius: 8px !important;
+    font: normal normal bold 18px/23px Lato;
+    height: 40px;
+  }
+  .card-body {
+      min-height: 25%;
+    padding: 0px;
+    padding: 10px;
+    background: $color-light-gray;
+  }
+
+  .shadow-sm-dark {
+    width: 25%;
+    min-height: 50px;
+    border-bottom-left-radius: 8px !important;
+    border-bottom-right-radius: 8px !important;
+  }
+  .panel-titleTxt {
+    display: block;
+    color: $color-light-gray-60;
+    font-size: 18px;
+    top: 8px;
+    position: relative;
+    width: 102px;
+    float: left;
+  }
+  .mg-15 {
+    float: right;
+    position: relative;
+    top: 5px;
+    left: -9px;
+  }
+
+  .mr-rt-1{
+    margin-right: 1%;
+  }
+  button.close {
+    position: relative;
+    top: 5px;
+    left: 0px;
+    margin-left: 4px;
+}
+
+  .dp-inline{
+      display: inline-block;
+  }
+
+  .btn-right{
+      float: right;
+  }
+
+  .card-content-box{
+    min-height: 200px;
+    background-color: $color-white-20;
+  }
+
+  .card-footer{
+    padding:0;
+    height:50px;
+    border-top: none !important;
+    background-color:$color-light-gray;
+  }
+}

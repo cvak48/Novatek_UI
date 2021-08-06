@@ -1,5 +1,6 @@
-import { DropdownFieldType } from './../../../model/data-model';
+
 import { Component, OnInit } from '@angular/core';
+import { DropdownFieldType } from 'src/app/model/data-model';
 
 @Component({
   selector: 'app-nv-sub-menu',

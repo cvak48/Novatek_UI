@@ -6,13 +6,15 @@ import { NovaFooterComponent } from './nova-footer/nova-footer.component';
 import { NovaSidenavComponent } from './nova-sidenav/nova-sidenav.component';
 import { MaterialModule } from '../material.module';
 import { NovaLoginFooterComponent } from './nova-login-footer/nova-login-footer.component';
+import { NvSubMenuComponent } from './nv-sub-menu/nv-sub-menu.component';
 
 
 const sharedComponents = [
   NovaFooterComponent,
   NovaSidenavComponent,
   NvHeaderComponent,
-  NovaLoginFooterComponent
+  NovaLoginFooterComponent,
+  NvSubMenuComponent
 ];
 
 @NgModule({
@@ -21,7 +23,7 @@ const sharedComponents = [
     CommonModule,
     MaterialModule,
     ReusableModule
-
+    
   ],
   exports: sharedComponents,
 })

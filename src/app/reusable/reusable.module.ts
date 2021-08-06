@@ -2,6 +2,7 @@ import { NvSliderToggleComponent } from './nv-slider-toggle/nv-slider-toggle.com
 import { NvSliderRadioButtonComponent } from './nv-slider-radio-button/nv-slider-radio-button.component';
 import { NvSliderComponent } from './nv-slider/nv-slider.component';
 import { NvCheckboxComponent } from './nv-checkbox/nv-checkbox.component';
+import { AdvanceSearchComponent } from './nv-advance-search/search.component';
 import { NvDataPickerComponent } from './nv-data-picker/nv-data-picker.component';
 import { NvTrimPipe } from './pipes/nv-trim/nv-trim.pipe';
 import { NvButtonComponent } from './nv-button/nv-button.component';
@@ -15,7 +16,7 @@ import { NvDropdownComponent } from './nv-dropdown/nv-dropdown.component';
 import { UserProfileMenuComponent } from './user-profile-menu/user-profile-menu.component';
 import { NotificationComponent } from './notification/notification.component';
 import { AvatarComponent } from './avatar/avatar.component';
-import { SearchComponent } from './search/search.component';
+import { SearchComponent } from './nv-search/search.component';
 import { MaterialModule } from './../material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -68,14 +69,13 @@ const sharedComponents = [
   DataPropertyGetterPipe,
   PanelComponent,
   SearchComponent,
+  AdvanceSearchComponent,
   TextAreaComponent,
   AvatarComponent,
   NotificationComponent,
   UserProfileMenuComponent,
   PanelComponent,
-  SearchComponent,
   CommentBoxComponent,
-  TextAreaComponent,
   NvDropdownComponent,
   UploadComponent,
   TestComponent,

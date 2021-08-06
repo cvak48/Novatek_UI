@@ -1,5 +1,5 @@
-import { AdvanceFilterPipe } from './../pipes/filters/advance-filter/advance-filter.pipe';
-import { FilterAllPipe } from './../pipes/filters/filterAll/filter-all.pipe';
+import { AdvanceFilterPipe } from '../pipes/filters/advance-filter/advance-filter.pipe';
+import { FilterAllPipe } from '../pipes/filters/filterAll/filter-all.pipe';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
 /**

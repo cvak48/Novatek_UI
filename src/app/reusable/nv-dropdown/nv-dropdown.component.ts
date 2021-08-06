@@ -36,9 +36,7 @@ export class NvDropdownComponent implements OnInit {
   isFirst: boolean = true;
   isArrowDown: boolean = true;
   dropDownFieldType = DropdownFieldType;
-  constructor() {
-    
-   }
+  constructor() {   }
 
   ngOnInit(): void {
   }

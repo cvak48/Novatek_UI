@@ -15,11 +15,11 @@ import {map, startWith} from 'rxjs/operators';
   */
 
 @Component({
-  selector: 'app-advance-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss']
+  selector: 'app-advance-dropdown',
+  templateUrl: './advance-dropdown.component.html',
+  styleUrls: ['./advance-dropdown.component.scss']
 })
-export class AdvanceSearchComponent implements OnInit {
+export class AdvanceDropdownComponent implements OnInit {
   @Output() filteredItems = new EventEmitter<any[]>();
   @Input() isAdvance = true;
   /**

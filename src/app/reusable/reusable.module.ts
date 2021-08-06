@@ -2,7 +2,7 @@ import { NvSliderToggleComponent } from './nv-slider-toggle/nv-slider-toggle.com
 import { NvSliderRadioButtonComponent } from './nv-slider-radio-button/nv-slider-radio-button.component';
 import { NvSliderComponent } from './nv-slider/nv-slider.component';
 import { NvCheckboxComponent } from './nv-checkbox/nv-checkbox.component';
-import { AdvanceSearchComponent } from './nv-advance-search/search.component';
+import { AdvanceDropdownComponent } from './nv-advance-dropdown/advance-dropdown.component';
 import { NvDataPickerComponent } from './nv-data-picker/nv-data-picker.component';
 import { NvTrimPipe } from './pipes/nv-trim/nv-trim.pipe';
 import { NvButtonComponent } from './nv-button/nv-button.component';
@@ -69,7 +69,7 @@ const sharedComponents = [
   DataPropertyGetterPipe,
   PanelComponent,
   SearchComponent,
-  AdvanceSearchComponent,
+  AdvanceDropdownComponent,
   TextAreaComponent,
   AvatarComponent,
   NotificationComponent,

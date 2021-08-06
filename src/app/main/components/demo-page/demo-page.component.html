@@ -27,8 +27,8 @@
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.Search)">
         {{nvComponentType[nvComponentType.Search]}}
       </div>
-      <div class="menu-item h40" (click)="onItemClick(nvComponentType.AdvanceSearch)">
-        {{nvComponentType[nvComponentType.AdvanceSearch]}}
+      <div class="menu-item h40" (click)="onItemClick(nvComponentType.AdvanceDropdown)">
+        {{nvComponentType[nvComponentType.AdvanceDropdown]}}
       </div>
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.NovaLogo)">
         {{nvComponentType[nvComponentType.NovaLogo]}}
@@ -81,11 +81,7 @@
             [searchableRefList]="searchableRefList" (filteredItems)="onItemsFilter($event)" class="body-item">
           </app-search>
         </div>
-        <div class="search-item-container" *ngSwitchCase="nvComponentType.AdvanceSearch">
-          <app-advance-search [isAdvance]="isAdvance" [hideMenu]="showMenu" [list]="list"
-            [searchableRefList]="searchableRefList" (filteredItems)="onItemsFilter($event)" class="body-item">
-          </app-advance-search>
-        </div>
+
         <app-novatek-logo class="body-item" *ngSwitchCase="nvComponentType.NovaLogo"></app-novatek-logo>
 
         <div class="body-header-container" *ngSwitchCase="nvComponentType.Header">
@@ -105,7 +101,9 @@
           <app-nv-dropdown class="body-item" [items]="dropdownItems" [textTrimNumber]="textTrimNumber" 
           [selectedItem]="selectedItemDefault" [fieldType]="dropDownFieldType" (itemSelect)="onItemSelect($event)"></app-nv-dropdown>
         </div>
-
+        <div class="search-item-container" *ngSwitchCase="nvComponentType.AdvanceDropdown">
+          <app-advance-dropdown (filteredItems)="onItemsFilter($event)" class="body-item"> </app-advance-dropdown>
+        </div>
         <ng-container *ngSwitchCase="nvComponentType.Avatar">
           <app-avatar class="body-item" *ngIf="person?.imageUrl && person?.name" [avatarUrl]="person.imageUrl!"
             [name]="person.name!"></app-avatar>

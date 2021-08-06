@@ -73,7 +73,7 @@ function mockPlusDropdown(): any {
     textTrimNumber: 3,
     selectedItemDefault: 'Page',
     dropDownFieldType: DropdownFieldType.Icon,
-    isRightToLeft: true,
+    // isRightToLeft: true,
   };
   return dropdownInputs;
 }

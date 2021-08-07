@@ -24,7 +24,8 @@
               
           </tr>
           <tr class="mat-row" [ngClass]="{'status-gr': order.status === 'Completed', 'status-rd' : order.status === 'No', 'status-yl': order.status === 'Pending' }" *ngFor="let order of orders | paginate : {
-              itemsPerPage: pageSize,
+            id: 'orderList',  
+            itemsPerPage: pageSize,
               currentPage: page,
               totalItems: count
             };
@@ -55,7 +56,7 @@
         <div class="paging-space-arrow">
             <span class="page-size-title">Items Per Page:&nbsp;&nbsp;</span>
             <div class="drop-container">
-              <app-nv-dropdown [items]="pageNewSizes" (itemChange)="handlePageSizeChange($event)">
+              <app-nv-dropdown [items]="pageNewSizes" (itemSelect)="handlePageSizeChange($event)">
 
               </app-nv-dropdown>
             </div>
@@ -68,6 +69,7 @@
           </div>
         <div class="paging-space">
             <pagination-controls 
+            id="orderList"
             [maxSize]="maxSize"
             [directionLinks]="directionLinks"
             [autoHide]="autoHide"

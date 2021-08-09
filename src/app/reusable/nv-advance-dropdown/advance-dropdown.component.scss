@@ -221,6 +221,17 @@ $icons-distance-large: 18px;
   width: 100%;
   min-height: $height;
 }
+::ng-deep .mat-chip-list-wrapper {
+  padding-left: 8px;
+}
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-infix { 
+  padding: 8px 0 0 0 !important;
+
+}
+::ng-deep .mat-form-field-infix { 
+  border-top: 0 !important;
+}
+
 // chip size using padding
 ::ng-deep .mat-standard-chip.mat-chip-with-trailing-icon {
   padding-top: 4px !important;
@@ -309,9 +320,22 @@ margin: 2px !important;
   
   
 }
+::ng-deep .cdk-overlay-container, .cdk-global-overlay-wrapper { 
+  top: 20px !important;
+}
+::ng-deep .mat-autocomplete-panel:not([class*=mat-elevation-z]) {
+  box-shadow: 0px 1px 4px $color-black-14 !important;
+ }
+// disable material ico
 
 ::ng-deep .material-icons {
   font-family: none !important;
   color: transparent !important;
 } 
+// disable mat-ripple
+::ng-deep .mat-option .mat-option-ripple {
+  display: none !important;
+}
+
+//
 

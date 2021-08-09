@@ -2,7 +2,9 @@
  * All types of data models using Class, Interface and Enum
  */
 
-
+export enum NvIcons {
+    Cancel = 'cancel',
+}
 export enum DropdownFieldType {
     Button,
     Icon,

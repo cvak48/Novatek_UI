@@ -223,32 +223,39 @@ $icons-distance-large: 18px;
 }
 // chip size using padding
 ::ng-deep .mat-standard-chip.mat-chip-with-trailing-icon {
-  padding-top: 2px;
-  padding-bottom: 2px;
-  padding-right: 8px;
-  padding-left: 12px;
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
+  padding-right: 8px !important;
+  padding-left: 8px !important;
 }
 // ripple
 ::ng-deep .mat-chip-ripple {
   display: none !important;
 }
+::ng-deep .mat-chip {
+  font-style: $font-style-normal !important;
+  font-weight: $font-weight-normal !important;
+  font-size: $font-size-xx-small !important;
+  font-family: $nv-font !important;
+  line-height: $line-height-medium !important;
+  color: $color-dark-gray-12 !important;
+}
 
-// 
 ::ng-deep  .mat-chip-list-wrapper input.mat-input-element, .mat-chip-list-wrapper .mat-standard-chip {
 margin: 2px !important;
 }
 ::ng-deep .mat-chip.mat-standard-chip {
   background-color: #FAFAFB !important;
   color: #5D5D5DCC !important;
-  border: 1px solid #DEDEDF !important;
-
+  border: 1px solid #E2E2E3 !important;
+  border-radius: 20px !important;
 }
 
 ::ng-deep .mat-standard-chip {
   transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
   display: inline-flex;
   padding: 7px 12px;
-  border-radius: 16px;
+  border-radius: 20px !important;
   align-items: center;
   cursor: default;
   min-height: 32px;
@@ -260,22 +267,51 @@ margin: 2px !important;
 
 // cancel icon
 ::ng-deep .mat-standard-chip .mat-chip-remove.mat-icon {
-  width: 18px !important;
-  height: 18px !important;
+  width: 16px !important;
+  height: 16px !important;
+  // to disappear the cancel text
+  // color: #FFFFFF !important;
+  //background-color: #7A7A7A !important;;
+  // border: 1px solid red !important;
+  opacity: 1 !important;
+
 }
 // icon size
 ::ng-deep .mat-chip .mat-chip-trailing-icon.mat-icon, .mat-chip .mat-chip-remove.mat-icon {
  font-size: 18px !important;
+ //background-color: #7A7A7A !important;
+
 }
 
 // icon color 
 ::ng-deep .mat-chip.mat-standard-chip .mat-chip-remove {
-  color: #7A7A7A !important;
-  border: 1px solid red !important;
-  border-radius: 50% !important;
+  // color: #FFFFFF !important;
+  // background-color: #7A7A7A !important;;
+  // border: 1px solid red !important;
+  // border-radius: 50% !important;
+  // opacity: 1 !important;
+
+  background-image: url("./../../../assets/icons/circular-cancel.icon.svg") !important;
+  background-size: 16px 16px !important;
+  width: 16px !important;
+  height: 16px !important;
+
 }
+::ng-deep .mat-chip.mat-standard-chip::after {
+  background-color: #5D5D5DCC !important;
+ }
+ ::ng-deep .mat-form-field-underline {
+   display: none !important;
+ }
 
 // menu gap
 ::ng-deep .mat-form-field-infix { 
   
+  
 }
+
+::ng-deep .material-icons {
+  font-family: none !important;
+  color: transparent !important;
+} 
+

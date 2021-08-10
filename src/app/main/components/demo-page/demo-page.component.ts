@@ -1,19 +1,7 @@
-import { ButtonType, ButtonThemeColor } from './../../../reusable/nv-button/nv-button.component';
-import { NvCustomComponent } from './../../../reusable/nv-custom-component/nv-custom-component.component';
-
 import { Component, OnInit } from '@angular/core';
+import { Notification, Person, DropdownFieldType, ButtonType, ButtonThemeColor } from './../../../model/data-model';
 
-export interface Person {
-id: number;
-name: string;
-imageUrl: string;
-notification?: Notification;
-}
-export interface Notification {
-  number?: number | any;
-  content?: string;
-  hasAttachment?: boolean;
-}
+
 export enum NvComponent {
   // First: Add the name of your reusable component to this enum
   Search,
@@ -38,7 +26,7 @@ export enum NvComponent {
   styleUrls: ['./demo-page.component.scss']
 })
 export class DemoPageComponent implements OnInit {
-  public selectedItem: NvComponent = NvComponent.Dropdown;
+  public selectedItem: NvComponent = NvComponent.NvRadioBut;
   public nvComponentType = NvComponent;
    // Second: Provide input data for your reusable component here if needed
    // Search
@@ -46,11 +34,6 @@ export class DemoPageComponent implements OnInit {
    // footer
    // Avatar
    person: Person = mockProfileMenu();
-   //CustomComponent
-   nvCheckBox = NvCustomComponent.CheckBox;
-   nvSliderBar = NvCustomComponent.SliderBar;
-   nvSliderToggle = NvCustomComponent.SlidToggle;
-   nvRadioBut = NvCustomComponent.RadioButton;
    // search
    isAdvance =  mockAdvanceSearchInput().isAdvance;
    showMenu =  mockAdvanceSearchInput().showMenu;
@@ -64,7 +47,9 @@ export class DemoPageComponent implements OnInit {
   dropdownItems = mockDropdown().itemsNumber;
   textTrimNumber = mockDropdown().textTrimNumber;
   selectedItemDefault = mockDropdown().selectedItemDefault;
-
+  dropDownFieldType = mockDropdown().dropDownFieldType;
+  // checkbox
+  checkBoxLabel = 'Im a new Checkbox';
   constructor() { }
 
   ngOnInit(): void {
@@ -121,9 +106,10 @@ function mockAdvanceSearchInput(): any {
 function mockDropdown(): any {
   const dropdownInputs = {
     items: ['item1', 'item2 which is longer', 'item3  which is longer and longer than item2', 'item4', 'item5', 'item6', 'item7'],
-    itemsNumber: ['1', '2', '3', '4', '5','11', '22', '33', '44', '55'],
+    itemsNumber: ['1', '2', '3', '4', '5', '11', '22', '33', '44', '55'],
     textTrimNumber: 2,
     selectedItemDefault: 'Page',
+    dropDownFieldType: DropdownFieldType.Icon,
   };
   return dropdownInputs;
 }

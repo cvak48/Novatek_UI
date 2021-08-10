@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "compodoc": "npx compodoc -p tsconfig.doc.json"
+    "compodoc": "npx compodoc -p tsconfig.doc.json -s -r 8081"
   },
   "private": true,
   "dependencies": {
@@ -26,7 +26,9 @@
     "@ngx-translate/http-loader": "3.0.1",
     "@ngx-translate/core": "10.0.1",
     "font-awesome": "^4.7.0",
+    "angular-bootstrap-md": "^11.1.0",
     "moment": "^2.29.1",
+    "ngx-pagination": "^5.1.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"

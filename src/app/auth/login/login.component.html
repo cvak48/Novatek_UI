@@ -12,51 +12,54 @@
       <div class="login-card">
         <mat-card class="example-card">
           <mat-card-header>
-            <app-novatek-logo [logosize]='customLogoSize' class="novatek-logo-center"></app-novatek-logo>
+            <app-novatek-logo [logosize]='variableList.customLogoSize' class="novatek-logo-center"></app-novatek-logo>
             <mat-divider class="header-divider"></mat-divider>
           </mat-card-header>
           <mat-card-content>
             <div class="user-txt">
-              <h1 class="user-txt-name"> {{cardHeading}}</h1>
+              <h1 class="user-txt-name"> {{'cardHeading' | translate}} <span *ngIf='variableList.cardHeading == "Confirmation"'>( {{variableList.count }} )</span></h1>
             </div>
             <mat-divider class="body-divider"></mat-divider>
-            <div *ngIf='!hideLogin' class="login-items">
+            <div *ngIf='!variableList.hideLogin' class="login-items">
               <!-- User Name -->
-              <div class="form-group">
-                <label for="name" class="control-label label-weight">User Name</label>
-                <label for="forgotuser" (click)='forgotDetails("username")' class="control-label forgot-user">Forgot
-                  User Name</label>
-                <input type="text" [disabled]='passwordDetails' class="form-control" placeholder="User Name" aria-label="Username">
-              </div>
+              <ng-container>
+                <app-nv-input [(sharedVar)]="variableList.userNameInput"
+                  [inputPlaceHolder]="variableList.usernamePlaceholder" [secondaryLabel]="variableList.forgotUserName"
+                  [status]='variableList.noValidation' (eventName)="forgotDetails($event)"></app-nv-input>
+              </ng-container>
+
               <!-- Domain -->
               <div class="form-group">
-                <label for="name" class="control-label label-weight">Domain</label>
-                <app-nv-dropdown class="body-item" [items]="Domain" [textTrimNumber]="selectedNumber" [selectedItem]="domainTxt"></app-nv-dropdown>
+                <label for="name" class="control-label label-weight">{{'Domain' | translate}} </label>
+                <app-nv-dropdown class="body-item" [items]="variableList.Domain"
+                  [textTrimNumber]="variableList.selectedNumber" [selectedItem]="variableList.domainTxt">
+                </app-nv-dropdown>
               </div>
-              <!-- Password -->
-              <!-- Password is only visible when showpassword value is true -->
-              <div class="form-group passwordField" *ngIf='showPassword' [@fadeInAndOut]>
-                <label for="name" class="control-label label-weight">Password</label>
-                <label for="forgotuser" (click)='forgotDetails("password")' class="control-label forgot-user">Forgot
-                  Password</label>
-                <input type="password" class="form-control" placeholder="Enter Password" aria-label="Password">
-              </div>
-            </div>
-            <div *ngIf='hideLogin && !confirmation' class="forgotPassword-items">
-              <div class="form-group" *ngIf='cardHeading !== "Forgot Username"'>
-                <label for="name" class="control-label label-weight">User Name</label>
-                <input type="text" class="form-control" placeholder="User Name" aria-label="Username">
-              </div>
-              <div class="form-group">
-                <label for="name" class="control-label label-weight">Email</label>
-                <input type="email" class="form-control" placeholder="Email" aria-label="Email">
-              </div>
-              <div class="form-group" *ngIf='cardHeading == "Forgot Username"'>
-                <label for="name" class="control-label label-weight">Confirm Email</label>
-                <input type="email" class="form-control" placeholder="Email" aria-label="Email">
+              <!-- Password 
+                   Password is only visible when showpassword value is true -->
+              <div class="form-group passwordField" *ngIf='variableList.showPassword' [@fadeInAndOut]>
+                <app-nv-input [inputPlaceHolder]="variableList.passwordPlaceholder"
+                  [secondaryLabel]="variableList.forgotPassword" [label]='variableList.passwordLabel'
+                  (eventName)="forgotDetails($event)"></app-nv-input>
               </div>
             </div>
-            <div  *ngIf='hideLogin && confirmation' class="forgotPassword-items">
+            <div *ngIf='variableList.hideLogin && !variableList.confirmation' class="forgotPassword-items">
+              <!-- username -->
+              <app-nv-input [(sharedVar)]="variableList.userNameInput" *ngIf='variableList.cardHeading !== "Forgot Username"'
+                [inputPlaceHolder]="variableList.usernamePlaceholder" [status]='variableList.noValidation'>
+              </app-nv-input>
+              <!-- Email -->
+              <app-nv-input [(sharedVar)]="variableList.emailInput" [inputPlaceHolder]="variableList.emailPlaceholder" [label]='variableList.emailLabel' [status]='variableList.emailValidation'>
+              </app-nv-input>
+              <!-- Confirm Email -->
+              <app-nv-input [(sharedVar)]="variableList.confirmEmailInput"  *ngIf='variableList.cardHeading == "Forgot Username"' [inputPlaceHolder]="variableList.confirmEmailPlaceholder"
+                [label]='variableList.confirmEmailLabel' [status]='variableList.confirmEmailValidation'></app-nv-input>
+                <div  [@fadeInAndOut] *ngIf='variableList.confirmEmailNotMatch' class="alert alert-dismissible alert-danger">
+                  <p class="">Error!</p>
+                  <p class="secondary-txt">The Email entered did not match</p>
+                </div>
+            </div>
+            <div *ngIf='variableList.hideLogin && variableList.confirmation' class="forgotPassword-items">
               <div class="alert alert-dismissible alert-success">
                 <p class="sucess-Txt">Sucess!</p>
                 <p class="secondary-txt">Please check your email for login information</p>
@@ -66,14 +69,17 @@
           <mat-divider></mat-divider>
           <mat-card-actions align="end">
             <!-- Next button -->
-            <app-nv-button class="nxt-btn" (buttonClick)='btnClick(btnText)' [label]="btnText"></app-nv-button>
-            <app-nv-button *ngIf='showPassword' class="nxt-btn" (buttonClick)='cancleClick()' [label]="'Cancle'"></app-nv-button>
-            <app-nv-button *ngIf='confirmation' class="nxt-btn" (buttonClick)='cancleClick()' [label]="'Login'"></app-nv-button>            
+            <app-nv-button class="nxt-btn" (buttonClick)='btnClick(variableList.btnText)'
+              [label]="variableList.btnText"></app-nv-button>
+            <app-nv-button *ngIf='variableList.showPassword' class="nxt-btn" (buttonClick)='cancelClick()'
+              [label]="'Cancel'"></app-nv-button>
+            <app-nv-button *ngIf='variableList.confirmation' class="nxt-btn" (buttonClick)='cancelClick()'
+              [label]="'Login'"></app-nv-button>
           </mat-card-actions>
         </mat-card>
       </div>
       <!-- Login Footer -->
-      <nova-login-footer></nova-login-footer>
+      <nova-login-footer (langTxt)='changeLang($event)'></nova-login-footer>
     </div>
   </div>
 </div>

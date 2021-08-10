@@ -6,6 +6,7 @@ import { NovaFooterComponent } from './nova-footer/nova-footer.component';
 import { NovaSidenavComponent } from './nova-sidenav/nova-sidenav.component';
 import { MaterialModule } from '../material.module';
 import { NovaLoginFooterComponent } from './nova-login-footer/nova-login-footer.component';
+import { FormsModule } from '@angular/forms';
 
 
 const sharedComponents = [
@@ -20,7 +21,8 @@ const sharedComponents = [
   imports: [
     CommonModule,
     MaterialModule,
-    ReusableModule
+    ReusableModule,
+    FormsModule
 
   ],
   exports: sharedComponents,

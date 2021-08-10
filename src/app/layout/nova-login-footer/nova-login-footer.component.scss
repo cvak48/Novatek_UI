@@ -22,3 +22,11 @@ ul.list-inlin.login-txt {
 .footer-pad {
   padding: 0px 0px 0px 11px;
 }
+
+.input-group-lg>.input-group-append>select.btn:not([size]):not([multiple]), .input-group-lg>.input-group-append>select.input-group-text:not([size]):not([multiple]), .input-group-lg>.input-group-prepend>select.btn:not([size]):not([multiple]), .input-group-lg>.input-group-prepend>select.input-group-text:not([size]):not([multiple]), .input-group-lg>select.form-control:not([size]):not([multiple]), select.form-control-lg:not([size]):not([multiple]) {
+  padding: 0px;
+  width: 69px;
+  display: inline-flex;
+  height: 23px;
+  font-size: 13px;
+}

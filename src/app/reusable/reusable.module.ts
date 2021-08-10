@@ -44,6 +44,7 @@ import {MatButtonModule} from "@angular/material/button";
 import { DataPropertyGetterPipe } from './custom-datatable/data-property-getter-pipe/data-property-getter.pipe';
 import { TestComponent } from '../main/test/test.component';
 import { ProgressiveBarComponent } from './progressive-bar/progressive-bar.component';
+import { NvInputComponent } from './nv-input/nv-input.component';
 
 
 const sharedComponents = [
@@ -85,7 +86,8 @@ const sharedComponents = [
   RattingComponent,
   ProgressiveBarComponent,
   NvDataPickerComponent,
-  NvButtonComponent
+  NvButtonComponent,
+  NvInputComponent
 ];
 
 @NgModule({

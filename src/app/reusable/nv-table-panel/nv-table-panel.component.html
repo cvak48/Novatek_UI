@@ -13,7 +13,7 @@
         <div class="search-container">
         
         <div class="card-body ">
-            <div >
+            <div class="mr-bt-4">
                 <div class=" shadow-sm-dark dp-inline">
                     <app-search class="search" ></app-search> 
                 </div>
@@ -32,7 +32,7 @@
             </div>
             <div class="card-footer">
                 <div class="footer-btn">
-                    <div class="mr-rt-1 dp-inline">
+                    <div class="mr-rt-1 paging-position">
                         <span class="page-size-title">Items Per Page:&nbsp;&nbsp;</span>
                         <div class="drop-container">
                           <app-nv-dropdown [items]="pageNewSizes" >
@@ -40,7 +40,7 @@
                           </app-nv-dropdown>
                         </div>
                       </div>
-                      <div class="mr-rt-1 dp-inline">
+                      <div class="mr-rt-1 paging-position">
                         <pagination-controls 
                         [maxSize]="maxSize"
                         [directionLinks]="directionLinks"

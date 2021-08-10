@@ -55,8 +55,16 @@
 }
 
   .dp-inline{
-      display: inline-block;
+    float:left;
   }
+
+  .paging-position{
+   display:inline-block;
+}
+
+.mr-bt-4{
+    margin-bottom: 4.5%;
+}
 
   .btn-right{
       float: right;

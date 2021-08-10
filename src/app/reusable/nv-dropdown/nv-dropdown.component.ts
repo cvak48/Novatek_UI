@@ -1,4 +1,4 @@
-import { DropdownFieldType } from './../../model/data-model';
+import { DropdownFieldType, ArrowIcon } from './../../model/data-model';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 /**
@@ -36,6 +36,11 @@ export class NvDropdownComponent implements OnInit {
   isFirst: boolean = true;
   isArrowDown: boolean = true;
   dropDownFieldType = DropdownFieldType;
+  readonly arrowIcons: ArrowIcon = {
+    upward: '../../../assets/icons/ico.arrow.up.svg',
+    downward: '../../../assets/icons/ico.arrow.down.svg'
+  };
+
   constructor() {   }
 
   ngOnInit(): void {

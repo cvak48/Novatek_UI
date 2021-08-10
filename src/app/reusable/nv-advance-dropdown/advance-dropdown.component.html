@@ -1,6 +1,6 @@
 
-<mat-form-field class="advance-dropdown-container">
-  <mat-chip-list #chipList>
+<mat-form-field class="advance-dropdown-container" >
+  <mat-chip-list #chipList >
     <mat-chip
       *ngFor="let fruit of fruits"
       [selectable]="selectable"
@@ -16,14 +16,20 @@
       [matChipInputFor]="chipList"
       [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
       [matChipInputAddOnBlur]="addOnBlur"
-      (matChipInputTokenEnd)="add($event)" >
+      (matChipInputTokenEnd)="add($event)" (click)="onFieldClick()" (blur)="onBlur()">
   </mat-chip-list>
+<ng-container [ngTemplateOutlet]="arrowTemplate" [ngTemplateOutletContext]="{isArrowDown:isArrowDown}"></ng-container>
   <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
     <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
       {{fruit}}
     </mat-option>
   </mat-autocomplete>
 </mat-form-field>
+
+<ng-template #arrowTemplate let-item="isArrowDown">
+  <img *ngIf="isArrowDown" class="arrow-icon"  src="{{arrowIcons?.downward}}">
+  <img *ngIf="!isArrowDown" class="arrow-icon" src="{{arrowIcons?.upward}}">
+</ng-template>
 
 
 

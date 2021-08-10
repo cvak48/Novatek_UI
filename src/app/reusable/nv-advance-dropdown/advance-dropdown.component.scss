@@ -2,7 +2,6 @@
 
 $height: 40px;
 
-
 @mixin label {
   font-style: $font-style-normal !important;
   font-weight: $font-weight-normal !important;
@@ -11,6 +10,23 @@ $height: 40px;
   line-height: $line-height-medium !important;
   color: $color-dark-gray-12 !important;
 }
+@mixin triangleArrow {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  cursor: pointer;
+  right: 12.7px;
+  top: 0px;
+  bottom: 0px;
+  width: 8.2px;
+  height: 4.7px;
+  fill: $color-dark-gray-02;
+  opacity: 1;
+}
 
 .advance-dropdown-container {
   border: 1px solid $color-white-10;
@@ -18,6 +34,15 @@ $height: 40px;
   border-radius: 4px;
   width: 100%;
   min-height: $height;
+  &::after {
+    width: 10px !important;
+    height: 100px !important;
+    border: 1px solid red !important;
+  }
+
+  .arrow-icon {
+    @include triangleArrow;
+  }
 }
 
 // the size of field

@@ -1,3 +1,4 @@
+import { ArrowIcon } from './../../model/data-model';
 import { Observable } from 'rxjs';
 import { AdvanceFilterPipe } from '../pipes/filters/advance-filter/advance-filter.pipe';
 import { FilterAllPipe } from '../pipes/filters/filterAll/filter-all.pipe';
@@ -32,8 +33,11 @@ export class AdvanceDropdownComponent implements OnInit {
   allFruits: string[] = ['Apple', 'Lemon', 'Lime', 'Orange', 'Strawberry'];
   @ViewChild('fruitInput') fruitInput!: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete!: MatAutocomplete;
-
-
+  isArrowDown: boolean = true;
+  readonly arrowIcons: ArrowIcon = {
+    upward: '../../../assets/icons/ico.arrow.up.svg',
+    downward: '../../../assets/icons/ico.arrow.down.svg'
+  };
   /**
    *
    */
@@ -43,6 +47,21 @@ export class AdvanceDropdownComponent implements OnInit {
       // The Array.slice() method returns a new array
       map((fruit: string | null) => fruit ? this._filter(fruit) : this.allFruits.slice()));
   }
+  onBlur(): void {
+    this.isArrowDown = true;
+    console.log('hi blur');
+    
+  }
+  onFieldClick(): void {
+    if (!this.matAutocomplete.isOpen) {
+      this.isArrowDown = false;
+    } else {
+      this.isArrowDown = true;
+    }
+    // console.log(this.matAutocomplete.isOpen);
+    
+  }
+
   add(event: MatChipInputEvent): void {
     // Add fruit only when MatAutocomplete is not open
     // To make sure this does not conflict with OptionSelected Event
@@ -76,6 +95,9 @@ export class AdvanceDropdownComponent implements OnInit {
     this.fruits.push(event.option.viewValue);
     this.fruitInput.nativeElement.value = '';
     this.fruitCtrl.setValue(null);
+    if (!this.isArrowDown) {
+      this.isArrowDown = true;
+    }
   }
 
   private _filter(value: string): string[] {

@@ -1,9 +1,13 @@
 /**
  * All types of data models using Class, Interface and Enum
  */
-
+// TODO: Register Icons or use library
 export enum NvIcons {
     Cancel = 'cancel',
+}
+export interface ArrowIcon {
+    upward: string;
+    downward: string;
 }
 export enum DropdownFieldType {
     Button,

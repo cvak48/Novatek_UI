@@ -1,17 +1,14 @@
 <div class="dropdown">
-
     <button *ngIf="fieldType === dropDownFieldType.Default" type="button" class="btn dropdown-toggle body20 label" data-toggle="dropdown" [ngClass]="{'default': isFirst}"
       (click)="isArrowDown=!isArrowDown" (blur)="onBlur()">
       {{selectedItem | nvTrim: textTrimNumber}}
-      <img *ngIf="isArrowDown" class="arrow-icon"  src="../../../assets/icons/ico.arrow.down.svg">
-      <img *ngIf="!isArrowDown" class="arrow-icon" src="../../../assets/icons/ico.arrow.up.svg">
+      <ng-container [ngTemplateOutlet]="arrowTemplate" [ngTemplateOutletContext]="{isArrowDown:isArrowDown}"></ng-container>
     </button>
     <img *ngIf="fieldType === dropDownFieldType.Icon" class="dropdown-icon" data-toggle="dropdown"  src="./../../../assets/icons/plus-button.icon.svg">
     <button *ngIf="fieldType === dropDownFieldType.Button" type="button" class="btn dropdown-button body20 label" data-toggle="dropdown" 
       (click)="isArrowDown=!isArrowDown" (blur)="onBlur()">
       {{'Dropdown Button'}}
-      <img *ngIf="isArrowDown"  class="arrow-icon"  src="../../../assets/icons/ico.arrow.down.svg">
-      <img *ngIf="!isArrowDown" class="arrow-icon" src="../../../assets/icons/ico.arrow.up.svg">
+      <ng-container [ngTemplateOutlet]="arrowTemplate" [ngTemplateOutletContext]="{isArrowDown:isArrowDown}"></ng-container>
     </button>
 
   <div class="dropdown-menu" [ngClass]=" isRightToLeft ? 'dropdown-menu-right': '' ">
@@ -19,5 +16,11 @@
       [ngClass]="{'selected-item': i==selectedIndex}"> {{item}}</div>
   </div>
 </div>
+
+<ng-template #arrowTemplate let-item="isArrowDown">
+  <img *ngIf="isArrowDown" class="arrow-icon"  src="{{arrowIcons?.downward}}">
+  <img *ngIf="!isArrowDown" class="arrow-icon" src="{{arrowIcons?.upward}}">
+</ng-template>
+
 
 

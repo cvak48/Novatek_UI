@@ -122,9 +122,9 @@ margin: 2px !important;
  }
 
 // menu gap
-::ng-deep .mat-form-field-infix { 
-  
-  
+::ng-deep .mat-form-field-infix { }
+::ng-deep .cdk-overlay-pane { 
+  margin-top: 12px;
 }
 ::ng-deep .mat-autocomplete-panel { 
   max-height: 320px !important;

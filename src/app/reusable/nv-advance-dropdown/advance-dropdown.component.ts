@@ -28,21 +28,19 @@ export class AdvanceDropdownComponent implements OnInit {
   separatorKeysCodes: number[] = [ENTER, COMMA];
   fruitCtrl = new FormControl();
   filteredFruits!: Observable<string[]>;
-  fruits: string[] = ['Lemon'];
+  fruits: string[] = ['Select'];
   allFruits: string[] = ['Apple', 'Lemon', 'Lime', 'Orange', 'Strawberry'];
-
   @ViewChild('fruitInput') fruitInput!: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete!: MatAutocomplete;
 
 
-
   /**
-   * there are two filter applied with pipe; the advance is going to use the key as filter parameter (searchableList)
+   *
    */
   constructor() {
-
     this.filteredFruits = this.fruitCtrl.valueChanges.pipe(
       startWith(null),
+      // The Array.slice() method returns a new array
       map((fruit: string | null) => fruit ? this._filter(fruit) : this.allFruits.slice()));
   }
   add(event: MatChipInputEvent): void {
@@ -82,8 +80,8 @@ export class AdvanceDropdownComponent implements OnInit {
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
-
-    return this.allFruits.filter(fruit => fruit.toLowerCase().indexOf(filterValue) === 0);
+    const filteredFruits = this.allFruits.filter(fruit => fruit.toLowerCase().indexOf(filterValue) === 0);
+    return filteredFruits;
   }
 
   ngOnInit(): void {  }

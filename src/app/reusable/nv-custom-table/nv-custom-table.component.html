@@ -55,7 +55,7 @@
         <div class="paging-space-arrow">
             <span class="page-size-title">Items Per Page:&nbsp;&nbsp;</span>
             <div class="drop-container">
-              <app-nv-dropdown [items]="pageNewSizes" (itemChange)="handlePageSizeChange($event)">
+              <app-nv-dropdown [items]="pageNewSizes" (itemSelect)="handlePageSizeChange($event)">
 
               </app-nv-dropdown>
             </div>

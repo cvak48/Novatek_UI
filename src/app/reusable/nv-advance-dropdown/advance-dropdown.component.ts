@@ -14,7 +14,6 @@ import { map, startWith } from 'rxjs/operators';
   * 
   * 
   */
-
 @Component({
   selector: 'app-advance-dropdown',
   templateUrl: './advance-dropdown.component.html',
@@ -50,16 +49,18 @@ export class AdvanceDropdownComponent implements OnInit {
   onBlur(): void {
     this.isArrowDown = true;
     console.log('hi blur');
+    if (this.matAutocomplete.isOpen) {
+      this.isArrowDown = true;
+    } 
     
   }
   onFieldClick(): void {
-    if (!this.matAutocomplete.isOpen) {
+    if (this.matAutocomplete.isOpen) {
       this.isArrowDown = false;
     } else {
       this.isArrowDown = true;
     }
-    // console.log(this.matAutocomplete.isOpen);
-    
+
   }
 
   add(event: MatChipInputEvent): void {

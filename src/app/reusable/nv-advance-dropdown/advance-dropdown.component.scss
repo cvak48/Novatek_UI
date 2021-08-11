@@ -10,6 +10,7 @@ $height: 40px;
   line-height: $line-height-medium !important;
   color: $color-dark-gray-12 !important;
 }
+
 @mixin triangleArrow {
   position: absolute;
   display: flex;
@@ -23,7 +24,7 @@ $height: 40px;
   top: 0px;
   bottom: 0px;
   width: 8.2px;
-  height: 4.7px;
+  height: 5.7px;
   fill: $color-dark-gray-02;
   opacity: 1;
 }
@@ -34,72 +35,81 @@ $height: 40px;
   border-radius: 4px;
   width: 100%;
   min-height: $height;
-  &::after {
-    width: 10px !important;
-    height: 100px !important;
-    border: 1px solid red !important;
+
+  .arrow-icon-container {
+
+    &.no-fruit {
+     margin-top: 10px;
+    }
+    .arrow-icon {
+      @include triangleArrow;
+      top: 6px;
+    }
   }
 
-  .arrow-icon {
-    @include triangleArrow;
-  }
 }
 
 // the size of field
 ::ng-deep .mat-chip-list-wrapper {
   padding-left: 8px;
 }
-::ng-deep .mat-form-field-appearance-legacy .mat-form-field-infix { 
+
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-infix {
   padding: 8px 0 0 0 !important;
 
 }
-::ng-deep .mat-form-field-appearance-legacy .mat-form-field-wrapper { 
+
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-wrapper {
   padding-bottom: 8px !important;
 }
-::ng-deep .mat-form-field-infix { 
+
+::ng-deep .mat-form-field-infix {
   border-top: 0 !important;
 }
 
 // chip size using padding
 ::ng-deep .mat-standard-chip.mat-chip-with-trailing-icon {
-  padding-top: 4px !important;
+  padding-top: 5px !important;
   padding-bottom: 4px !important;
   padding-right: 8px !important;
   padding-left: 8px !important;
 }
+
+::ng-deep .mat-standard-chip {
+  min-height: 22px !important;
+}
+
 // ripple
 ::ng-deep .mat-chip-ripple {
   display: none !important;
 }
+// chip label
 ::ng-deep .mat-chip {
   @include label;
   font-size: $font-size-xx-small !important;
 }
 
-::ng-deep  .mat-chip-list-wrapper input.mat-input-element, .mat-chip-list-wrapper .mat-standard-chip {
-margin: 2px !important;
+::ng-deep .mat-chip-list-wrapper input.mat-input-element,
+.mat-chip-list-wrapper .mat-standard-chip {
+  margin: 2px !important;
 }
+
 ::ng-deep .mat-chip.mat-standard-chip {
-  background-color: #FAFAFB !important;
-  color: #5D5D5DCC !important;
-  border: 1px solid #E2E2E3 !important;
+  background-color: $color-white-18 !important;
+  color: $color-dark-gray-12 !important;
+  border: 1px solid $color-white !important;
   border-radius: 20px !important;
 }
 
 ::ng-deep .mat-standard-chip {
-  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
-  display: inline-flex;
   padding: 7px 12px;
   border-radius: 20px !important;
-  align-items: center;
-  cursor: default;
-  min-height: 32px;
-  height: 1px;
 
   &:hover {
-    background-color: #F0F0F0 !important;;
+    background-color: $color-light-gray !important;
   }
 }
+
 ::ng-deep .mat-chip.mat-standard-chip:not(.mat-chip-disabled):active {
   box-shadow: none !important;
 }
@@ -108,20 +118,18 @@ margin: 2px !important;
 ::ng-deep .mat-standard-chip .mat-chip-remove.mat-icon {
   width: 16px !important;
   height: 16px !important;
-  // to disappear the cancel text
-  // color: #FFFFFF !important;
   opacity: 1 !important;
-
 }
-::ng-deep     .mat-chip-trailing-icon.mat-icon,
+
+::ng-deep .mat-chip-trailing-icon.mat-icon,
 .mat-chip-remove.mat-icon {
-  font-size:12px !important;
+  font-size: 12px !important;
 }
-// icon size
-::ng-deep .mat-chip .mat-chip-trailing-icon.mat-icon, .mat-chip .mat-chip-remove.mat-icon {
- font-size: 18px !important;
- //background-color: #7A7A7A !important;
 
+// icon size
+::ng-deep .mat-chip .mat-chip-trailing-icon.mat-icon,
+.mat-chip .mat-chip-remove.mat-icon {
+  font-size: 18px !important;
 }
 
 // icon color 
@@ -131,54 +139,63 @@ margin: 2px !important;
   background-size: 16px 16px !important;
   width: 16px !important;
   height: 16px !important;
+
   &:hover {
-    // -webkit-mask-box-image: url("./../../../assets/icons/circular-cancel.icon.svg");  
-    // fill: red;  
     background-image: url("./../../../assets/icons/circular-cancel--hover.icon.svg") !important;
     // TODO: How to use mask !
   }
 
 }
+
 ::ng-deep .mat-chip.mat-standard-chip::after {
-  background-color: #5D5D5DCC !important;
- }
- ::ng-deep .mat-form-field-underline {
-   display: none !important;
- }
+  background-color: $color-dark-gray-12 !important;
+}
+
+::ng-deep .mat-form-field-underline {
+  display: none !important;
+}
 
 // menu gap
-::ng-deep .mat-form-field-infix { }
-::ng-deep .cdk-overlay-pane { 
+::ng-deep .mat-form-field-infix {}
+
+::ng-deep .cdk-overlay-pane {
   margin-top: 12px;
 }
-::ng-deep .mat-autocomplete-panel { 
+
+::ng-deep .mat-autocomplete-panel {
   max-height: 320px !important;
 }
-::ng-deep .cdk-overlay-container, .cdk-global-overlay-wrapper { 
+
+::ng-deep .cdk-overlay-container,
+.cdk-global-overlay-wrapper {
   top: 20px !important;
 }
+
 ::ng-deep .mat-autocomplete-panel:not([class*=mat-elevation-z]) {
   box-shadow: 0px 1px 4px $color-black-14 !important;
- }
+}
+
 // disable material ico
 
 ::ng-deep .material-icons {
   font-family: none !important;
   color: transparent !important;
-} 
+}
+
 // disable mat-ripple
 ::ng-deep .mat-option .mat-option-ripple {
   display: none !important;
 }
 
 // menu font
-::ng-deep .mat-option { 
+::ng-deep .mat-option {
   @include label;
-  &:hover{
-    background-color: #F0F0F0 !important;
+
+  &:hover {
+    background-color: $color-light-gray !important;
   }
 }
-::ng-deep .mat-selected {
-background-color: #F3F3F3 !important;
-}
 
+::ng-deep .mat-selected {
+  background-color: $color-white-13 !important;
+}

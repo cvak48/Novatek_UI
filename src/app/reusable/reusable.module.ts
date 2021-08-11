@@ -55,6 +55,7 @@ import { ProgressiveBarComponent } from './progressive-bar/progressive-bar.compo
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { NvEditPanelComponent } from './nv-edit-panel/nv-edit-panel.component';
 import { NvTablePanelComponent } from './nv-table-panel/nv-table-panel.component';
+import { NvGeneralSettingsComponent } from './nv-general-settings/nv-general-settings.component';
 
 
 const sharedComponents = [
@@ -104,7 +105,8 @@ const sharedComponents = [
   NvDataPickerComponent,
   NvButtonComponent,
   NvEditPanelComponent,
-  NvTablePanelComponent
+  NvTablePanelComponent,
+  NvGeneralSettingsComponent
 ];
 
 @NgModule({

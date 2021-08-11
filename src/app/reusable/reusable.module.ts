@@ -62,6 +62,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { NvTextColorDirective } from './directives/nv-status-color/nv-text-color.directive';
 import { NvEditPanelComponent } from './nv-edit-panel/nv-edit-panel.component';
 import { NvTablePanelComponent } from './nv-table-panel/nv-table-panel.component';
+import { NvGeneralSettingsComponent } from './nv-general-settings/nv-general-settings.component';
 
 
 const sharedComponents = [
@@ -116,7 +117,8 @@ const sharedComponents = [
   NvDatePickerComponent,
   NvButtonComponent,
   NvEditPanelComponent,
-  NvTablePanelComponent
+  NvTablePanelComponent,
+  NvGeneralSettingsComponent
 ];
 
 @NgModule({

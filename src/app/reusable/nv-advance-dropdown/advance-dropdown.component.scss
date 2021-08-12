@@ -52,6 +52,8 @@ $height: 40px;
 // the size of field
 ::ng-deep .mat-chip-list-wrapper {
   padding-left: 8px;
+  padding-right: 27px;
+
 }
 
 ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-infix {
@@ -69,7 +71,7 @@ $height: 40px;
 
 // chip size using padding
 ::ng-deep .mat-standard-chip.mat-chip-with-trailing-icon {
-  padding-top: 5px !important;
+  padding-top: 4px !important;
   padding-bottom: 4px !important;
   padding-right: 8px !important;
   padding-left: 8px !important;

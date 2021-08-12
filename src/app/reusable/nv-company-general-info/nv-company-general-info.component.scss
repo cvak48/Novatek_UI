@@ -1,0 +1,88 @@
+@import "../../reusable/theme/base.scss";
+.main-container{
+    min-height: 500px;
+    width: 100%;
+    background-color: $color-white-20;
+    padding:1.5%;
+    overflow: hidden;
+}
+
+.files-container {
+    width: 110%;
+    margin: -35px 0% 0 -2.5%;
+  }
+
+  .margin-top-10 {
+    margin-top: 10px;
+  }
+
+  
+.text-style-label-md {
+    text-overflow: ellipsis;
+    display: inline-block;
+    overflow: inherit;
+    white-space: nowrap;
+    font-size: 14px;
+    margin-left: 20px;
+    line-height: 1.5;
+  }
+
+  .container-upload {
+    background-color: $color-light-gray;
+    width: 90%;
+    min-width: 160px;
+    margin: 0 30px 0 20px;
+    border: 1px solid $color-light-gray-20;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  .container-upload:hover {
+    cursor: grab;
+    background-color: $color-light-gray !important;
+  }
+
+  .margin-top-4 {
+    margin-top: 4%;
+  }
+
+  .center-img-block {
+    display: flex;
+    justify-content: center;
+  }
+
+  .mr-tp-2{
+      margin-top: 2%;;
+  }
+
+  .mr-rt-1{
+    margin-right: 1%;;
+}
+
+  .pd-5{
+      padding: 5%;
+  }
+
+  .upload-btn{
+    width: 12%;
+    margin: 2% 0 0 45%;
+    background-color: $btn-color;
+  }
+
+  .card-footer{
+    height:50px;
+    border-top: none !important;
+    background-color:$color-light-gray;
+  }
+
+  .footer-btn{
+    margin: 0 auto;
+    width: 100%;
+    text-align: end;
+    margin-left: 2.5%;
+  }
+
+  .flt-right{
+      float:right;
+  }
+  

@@ -63,6 +63,8 @@ import { NvTextColorDirective } from './directives/nv-status-color/nv-text-color
 import { NvEditPanelComponent } from './nv-edit-panel/nv-edit-panel.component';
 import { NvTablePanelComponent } from './nv-table-panel/nv-table-panel.component';
 import { NvGeneralSettingsComponent } from './nv-general-settings/nv-general-settings.component';
+import { NvCompanyGeneralInfoComponent } from './nv-company-general-info/nv-company-general-info.component';
+import { NvDragAndDropDirective } from './directives/drag-drop/drag-and-drop.directive';
 
 
 const sharedComponents = [
@@ -118,7 +120,9 @@ const sharedComponents = [
   NvButtonComponent,
   NvEditPanelComponent,
   NvTablePanelComponent,
-  NvGeneralSettingsComponent
+  NvGeneralSettingsComponent,
+  NvCompanyGeneralInfoComponent,
+  NvDragAndDropDirective
 ];
 
 @NgModule({

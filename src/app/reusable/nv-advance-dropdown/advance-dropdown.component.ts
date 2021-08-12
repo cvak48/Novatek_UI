@@ -20,7 +20,7 @@ import { map, startWith } from 'rxjs/operators';
   styleUrls: ['./advance-dropdown.component.scss']
 })
 export class AdvanceDropdownComponent implements OnInit {
-
+// TODO: The arrow need to shift to the right out of the field
   visible = true;
   selectable = true;
   removable = true;

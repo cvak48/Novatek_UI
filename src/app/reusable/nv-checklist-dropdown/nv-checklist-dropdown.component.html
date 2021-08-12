@@ -1,0 +1,76 @@
+
+<mat-form-field class="advance-dropdown-container" >
+  <mat-chip-list #chipList >
+    <mat-chip
+      *ngFor="let item of items"
+      [selectable]="selectable"
+      [removable]="removable"
+      (removed)="remove(item)">
+      {{item}}
+      <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+    </mat-chip>
+    <input multiline
+      #itemInput
+      [formControl]="itemCtrl"
+
+      [matChipInputFor]="chipList"
+      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+      [matChipInputAddOnBlur]="addOnBlur"
+      (matChipInputTokenEnd)="add($event)" (click)="onFieldClick()" (blur)="onBlur()">
+  </mat-chip-list>
+<ng-container [ngTemplateOutlet]="arrowTemplate" [ngTemplateOutletContext]="{isArrowDown:isArrowDown}"></ng-container>
+<!-- <ng-container [ngTemplateOutlet]="treeViewTemplate"></ng-container> -->
+<ng-container [ngTemplateOutlet]="flatMenuTemplate" [ngTemplateOutletContext]="{filteredItems:filteredItems}"></ng-container>
+
+
+</mat-form-field>
+
+<ng-template #arrowTemplate let-item="isArrowDown">
+  <div class="arrow-icon-container" [ngClass]="{'no-fruit': !hasItem}">
+  <img *ngIf="isArrowDown" class="arrow-icon"  src="{{arrowIcons?.downward}}">
+  <img *ngIf="!isArrowDown" class="arrow-icon" src="{{arrowIcons?.upward}}">
+</div>
+</ng-template>
+
+<ng-template #flatMenuTemplate let-item="filteredItems">
+  <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+    <mat-option *ngFor="let item of filteredItems | async" [value]="item">
+      {{item}}
+    </mat-option>
+  </mat-autocomplete>
+</ng-template>
+
+<ng-template #treeViewTemplate>
+<mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+    <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle matTreeNodePadding>
+      <button mat-icon-button disabled></button>
+      <mat-checkbox class="checklist-leaf-node"
+                    [checked]="checklistSelection.isSelected(node)"
+                    (change)="todoLeafItemSelectionToggle(node)">{{node.item}}</mat-checkbox>
+    </mat-tree-node>
+  
+    <mat-tree-node *matTreeNodeDef="let node; when: hasNoContent" matTreeNodePadding>
+      <button mat-icon-button disabled></button>
+      <mat-form-field appearance="fill">
+        <mat-label>New item...</mat-label>
+        <input matInput #itemValue placeholder="Ex. Lettuce">
+      </mat-form-field>
+
+    </mat-tree-node>
+  
+    <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding>
+      <button mat-icon-button matTreeNodeToggle
+              [attr.aria-label]="'Toggle ' + node.item">
+        <mat-icon class="mat-icon-rtl-mirror">
+          {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+        </mat-icon>
+      </button>
+      <mat-checkbox [checked]="descendantsAllSelected(node)"
+                    [indeterminate]="descendantsPartiallySelected(node)"
+                    (change)="todoItemSelectionToggle(node)">{{node.item}}</mat-checkbox>
+    </mat-tree-node>
+  </mat-tree>
+
+</ng-template>
+  
+  

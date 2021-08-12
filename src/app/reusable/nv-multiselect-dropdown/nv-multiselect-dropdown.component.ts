@@ -1,27 +1,24 @@
-import { ArrowIcon } from './../../model/data-model';
+import { ArrowIcon } from '../../model/data-model';
 import { Observable, onErrorResumeNext, of, from } from 'rxjs';
-import { AdvanceFilterPipe } from '../pipes/filters/advance-filter/advance-filter.pipe';
-import { FilterAllPipe } from '../pipes/filters/filterAll/filter-all.pipe';
 import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatAutocomplete, MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { map, startWith } from 'rxjs/operators';
-/**
-  * USAGE:
-  * 
-  * 
-  * 
+ /**
+  *   @title Tree with checkboxes
+  *   * USAGE:
+  *
   */
 @Component({
-  selector: 'app-advance-dropdown',
-  templateUrl: './advance-dropdown.component.html',
-  styleUrls: ['./advance-dropdown.component.scss']
+  selector: 'app-nv-multiselect-dropdown',
+  templateUrl: './nv-multiselect-dropdown.component.html',
+  styleUrls: ['./nv-multiselect-dropdown.component.scss']
 })
-export class AdvanceDropdownComponent implements OnInit {
-// TODO: The arrow need to shift to the right out of the field
-// delete the last chips change the triangle twice
+export class NvMultiSelectDropdownComponent implements OnInit {
+  // TODO: The arrow need to shift to the right out of the field
+  // delete the last chips change the triangle twice
   visible = true;
   selectable = true;
   removable = true;
@@ -41,18 +38,20 @@ export class AdvanceDropdownComponent implements OnInit {
     downward: '../../../assets/icons/ico.arrow.down.svg'
   };
   hasItem = true;
-  /**
-   *
-   */
   constructor() {
-    
-    
+    /**
+     * AutoComplete as user make query
+     * 
+     */
     this.filteredItems = this.itemCtrl.valueChanges.pipe(
-
       startWith(null),
       // The Array.slice() method returns a new array
       map((item: string | null) => item ? this._filter(item) : this.referenceItems.slice()));
   }
+    /**
+     * blur and click eventHandler are responsible for changing the triangle icon direction
+     * 
+     */
   onBlur(): void {
     this.isArrowDown = true;
     if (this.matAutocomplete.isOpen) {
@@ -88,10 +87,16 @@ export class AdvanceDropdownComponent implements OnInit {
     }
 
   }
-
-  remove(fruit: string): void {
-    const index = this.items.indexOf(fruit);
-    // 
+    /**
+     * triggered after removing chip
+     * add removed chip into filteredItem
+     */
+  remove(item: string): void {
+    const index = this.items.indexOf(item);
+    this.filteredItems = this.filteredItems.pipe(map(values => {
+      values.push(item);
+      return values;
+    }));
 
     if (index >= 0) {
       this.items.splice(index, 1);
@@ -101,21 +106,16 @@ export class AdvanceDropdownComponent implements OnInit {
       this.hasItem = false;
     }
   }
-  private _getFilteredItem(list: string[]): Observable<string[]> {
-  return of(list);
-}
-
+    /**
+     * triggered after selecting from filteredList
+     */
   selected(event: MatAutocompleteSelectedEvent): void {
     this.items.push(event.option.viewValue);
-
-    // this.filteredItems.subscribe(values => {
-    //   console.log(values);
-      
-    //     const newList = values.filter(item => item !== event.option.viewValue);   
-    //     this.filteredItems = this._getFilteredItem(newList);
-    //   }
-    // );
-    // this.filteredItems.subscribe(value => console.log(value));
+    /**
+     * removing the selected chip from filteredList
+     */
+    this.filteredItems =  this.filteredItems.pipe(map(values =>
+      values.filter(item => item !== event.option.viewValue)));
     this.itemInput.nativeElement.value = '';
     this.itemCtrl.setValue(null);
     if (!this.isArrowDown) {

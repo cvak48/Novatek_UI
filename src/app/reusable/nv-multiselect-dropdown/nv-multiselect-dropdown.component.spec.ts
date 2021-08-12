@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AdvanceDropdownComponent } from './advance-dropdown.component';
+import { NvMultiSelectDropdownComponent } from './nv-multiselect-dropdown.component';
 
 describe('SearchComponent', () => {
-  let component: AdvanceDropdownComponent;
-  let fixture: ComponentFixture<AdvanceDropdownComponent>;
+  let component: NvMultiSelectDropdownComponent;
+  let fixture: ComponentFixture<NvMultiSelectDropdownComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AdvanceDropdownComponent ]
+      declarations: [ NvMultiSelectDropdownComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AdvanceDropdownComponent);
+    fixture = TestBed.createComponent(NvMultiSelectDropdownComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -31,6 +31,8 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { CommonModule } from '@angular/common';
 import { MatNativeDateModule } from '@angular/material/core';
+import { CdkTreeModule } from '@angular/cdk/tree';
+import { MatTreeModule } from '@angular/material/tree';
 
 const materialModulesList = [
     CommonModule,
@@ -64,7 +66,9 @@ const materialModulesList = [
     MatSortModule,
     MatPaginatorModule,
     MatCheckboxModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    CdkTreeModule,
+    MatTreeModule,
 ]
 
 @NgModule({

@@ -1,0 +1,285 @@
+@import './../theme/base.scss';
+$height: 40px;
+
+@mixin label {
+  font-style: $font-style-normal !important;
+  font-weight: $font-weight-normal !important;
+  font-size: $font-size-x-small !important;
+  font-family: $nv-font !important;
+  line-height: $line-height-medium !important;
+  color: $color-dark-gray-12 !important;
+}
+
+@mixin triangleArrow {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  cursor: pointer;
+  right: 12.7px;
+  top: 0px;
+  bottom: 0px;
+  width: 8.2px;
+  height: 5.7px;
+  fill: $color-dark-gray-02;
+  opacity: 1;
+}
+
+// chips
+
+
+.advance-dropdown-container {
+  border: 1px solid $color-white-10;
+  background: $color-white-20;
+  border-radius: 4px;
+  width: 100%;
+  min-height: $height;
+
+  .arrow-icon-container {
+
+    &.no-fruit {
+     margin-top: 0px;
+    }
+    .arrow-icon {
+      @include triangleArrow;
+      top: 0px;
+    }
+  }
+
+}
+
+// the size of field
+::ng-deep .mat-chip-list-wrapper {
+  padding-left: 8px;
+  padding-right: 27px;
+
+}
+
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-infix {
+  padding: 8px 0 0 0 !important;
+
+}
+
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-wrapper {
+  padding-bottom: 8px !important;
+}
+
+::ng-deep .mat-form-field-infix {
+  border-top: 0 !important;
+}
+
+// chip size using padding
+::ng-deep .mat-standard-chip.mat-chip-with-trailing-icon {
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
+  padding-right: 8px !important;
+  padding-left: 8px !important;
+}
+
+::ng-deep .mat-standard-chip {
+  min-height: 22px !important;
+}
+
+// ripple
+::ng-deep .mat-chip-ripple {
+  display: none !important;
+}
+// chip label
+::ng-deep .mat-chip {
+  @include label;
+  font-size: $font-size-xx-small !important;
+}
+
+::ng-deep .mat-chip-list-wrapper input.mat-input-element,
+.mat-chip-list-wrapper .mat-standard-chip {
+  margin: 2px !important;
+}
+
+::ng-deep .mat-chip.mat-standard-chip {
+  background-color: $color-white-18 !important;
+  color: $color-dark-gray-12 !important;
+  border: 1px solid $color-white !important;
+  border-radius: 20px !important;
+}
+
+::ng-deep .mat-standard-chip {
+  padding: 7px 12px;
+  border-radius: 20px !important;
+
+  &:hover {
+    background-color: $color-light-gray !important;
+  }
+}
+
+::ng-deep .mat-chip.mat-standard-chip:not(.mat-chip-disabled):active {
+  box-shadow: none !important;
+}
+
+// cancel icon
+::ng-deep .mat-standard-chip .mat-chip-remove.mat-icon {
+  width: 16px !important;
+  height: 16px !important;
+  opacity: 1 !important;
+}
+
+::ng-deep .mat-chip-trailing-icon.mat-icon,
+.mat-chip-remove.mat-icon {
+  font-size: 12px !important;
+}
+
+// icon size
+::ng-deep .mat-chip .mat-chip-trailing-icon.mat-icon,
+.mat-chip .mat-chip-remove.mat-icon {
+  font-size: 18px !important;
+}
+
+// icon color 
+::ng-deep .mat-chip.mat-standard-chip .mat-chip-remove {
+
+  background-image: url("./../../../assets/icons/circular-cancel.icon.svg") !important;
+  background-size: 16px 16px !important;
+  width: 16px !important;
+  height: 16px !important;
+
+  &:hover {
+    background-image: url("./../../../assets/icons/circular-cancel--hover.icon.svg") !important;
+    // TODO: How to use mask !
+  }
+
+}
+
+::ng-deep .mat-chip.mat-standard-chip::after {
+  background-color: $color-dark-gray-12 !important;
+}
+
+::ng-deep .mat-form-field-underline {
+  display: none !important;
+}
+
+// menu gap
+::ng-deep .mat-form-field-infix {}
+
+::ng-deep .cdk-overlay-pane {
+  margin-top: 12px;
+}
+
+::ng-deep .mat-autocomplete-panel {
+  max-height: 320px !important;
+}
+
+::ng-deep .cdk-overlay-container,
+.cdk-global-overlay-wrapper {
+  top: 20px !important;
+}
+
+::ng-deep .mat-autocomplete-panel:not([class*=mat-elevation-z]) {
+  box-shadow: 0px 1px 4px $color-black-14 !important;
+}
+
+// disable material ico
+
+// ::ng-deep .material-icons {
+//   font-family: none !important;
+//   color: transparent !important;
+// }
+::ng-deep .mat-button-wrapper {
+  .material-icons { 
+  //     font-family: none !important;
+  //  color: transparent !important;
+  }
+}
+
+// ::ng-deep .mat-button-wrapper .material-icons {
+//   font-family: 'Material Icon' !important;
+//   color: black !important;
+// }
+// disable mat-ripple
+::ng-deep .mat-option .mat-option-ripple {
+  display: none !important;
+}
+
+// menu font
+::ng-deep .mat-option {
+  @include label;
+
+  &:hover {
+    background-color: $color-light-gray !important;
+  }
+}
+
+::ng-deep .mat-selected {
+  background-color: $color-white-13 !important;
+}
+
+
+
+
+// tree
+
+.mat-label {
+  font-style: $font-style-normal;
+  font-weight: $font-weight-normal;
+  font-size: $font-size-x-small;
+  font-family: $nv-font;
+  line-height: $line-height-medium;
+  color: $color-dark-gray-10;
+  opacity: 1;
+}
+
+
+::ng-deep .mat-ripple-element {
+    display: none !important;
+}
+
+::ng-deep .mat-checkbox {
+  font-style: $font-style-normal;
+  font-weight: $font-weight-normal;
+  font-size: $font-size-x-small;
+  font-family: $nv-font;
+  line-height: $line-height-medium;
+  color: $color-dark-gray-10;
+  opacity: 1;
+}
+
+::ng-deep .mat-checkbox-checkmark-path {
+  stroke-width: 3.3333333333px !important;
+}
+
+::ng-deep .mat-checkbox-checkmark-path {
+  stroke: $color-black !important;
+}
+
+::ng-deep .mat-checkbox-layout .mat-checkbox-label {
+  line-height: $line-height-medium;
+}
+
+
+::ng-deep .mat-checkbox-frame {
+  background: $color-white 0% 0% no-repeat padding-box;
+  border: 1px solid $color-white !important;
+  border-radius: 2px !important;
+  opacity: 1;
+}
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  background-color: transparent !important;
+}
+
+//
+
+
+
+
+.mat-form-field {
+    margin-right: 4px;
+  }
+  ::ng-deep button {
+    &:focus {
+      outline: none !important;
+    }
+  }
+  

@@ -21,6 +21,7 @@ import { map, startWith } from 'rxjs/operators';
 })
 export class AdvanceDropdownComponent implements OnInit {
 // TODO: The arrow need to shift to the right out of the field
+// delete the last chips change the triangle twice
   visible = true;
   selectable = true;
   removable = true;
@@ -39,12 +40,15 @@ export class AdvanceDropdownComponent implements OnInit {
     upward: '../../../assets/icons/ico.arrow.up.svg',
     downward: '../../../assets/icons/ico.arrow.down.svg'
   };
-  hasFruit = true;
+  hasItem = true;
   /**
    *
    */
   constructor() {
+    
+    
     this.filteredItems = this.itemCtrl.valueChanges.pipe(
+
       startWith(null),
       // The Array.slice() method returns a new array
       map((item: string | null) => item ? this._filter(item) : this.referenceItems.slice()));
@@ -94,35 +98,37 @@ export class AdvanceDropdownComponent implements OnInit {
     }
     if (this.items.length === 0) {
       this.isArrowDown = false;
-      this.hasFruit = false;
+      this.hasItem = false;
     }
   }
+  private _getFilteredItem(list: string[]): Observable<string[]> {
+  return of(list);
+}
 
   selected(event: MatAutocompleteSelectedEvent): void {
     this.items.push(event.option.viewValue);
-    console.log(event.option.viewValue);
-    this.filteredItems.subscribe(
-      values => {
-        const newList = values.filter(item => item !== event.option.viewValue);
-        const obsList = of<string[]>(newList);
-        console.log(obsList);
-        
-        this.filteredItems = obsList;
-      }
-    );
+
+    // this.filteredItems.subscribe(values => {
+    //   console.log(values);
+      
+    //     const newList = values.filter(item => item !== event.option.viewValue);   
+    //     this.filteredItems = this._getFilteredItem(newList);
+    //   }
+    // );
+    // this.filteredItems.subscribe(value => console.log(value));
     this.itemInput.nativeElement.value = '';
     this.itemCtrl.setValue(null);
     if (!this.isArrowDown) {
       this.isArrowDown = true;
     }
     if (this.items.length > 0) {
-      this.hasFruit = true;
+      this.hasItem = true;
     }
   }
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
-    const filteredFruits = this.referenceItems.filter(fruit => fruit.toLowerCase().indexOf(filterValue) === 0);
+    const filteredFruits = this.referenceItems.filter(item => item.toLowerCase().indexOf(filterValue) === 0);
     return filteredFruits;
   }
 

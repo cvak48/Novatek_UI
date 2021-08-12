@@ -108,6 +108,7 @@
           <app-avatar class="body-item" *ngIf="person?.imageUrl && person?.name" [avatarUrl]="person.imageUrl!"
             [name]="person.name!"></app-avatar>
         </ng-container>
+
         <div class="upload-file-container" *ngSwitchCase="nvComponentType.DropToUpload">
           <app-upload class="body-item"></app-upload>
         </div>

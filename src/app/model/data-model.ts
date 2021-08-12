@@ -9,10 +9,15 @@ export interface ArrowIcon {
     upward: string;
     downward: string;
 }
+
 export enum DropdownFieldType {
     Button,
     Icon,
     Default,
+}
+export enum MenuExtensionDirection {
+    ToLeft,
+    ToRight,
 }
 
 export enum ButtonType {
@@ -35,3 +40,4 @@ export interface Notification {
     content?: string;
     hasAttachment?: boolean;
 }
+

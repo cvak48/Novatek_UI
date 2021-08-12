@@ -1,4 +1,4 @@
-import { DropdownFieldType, ArrowIcon } from './../../model/data-model';
+import { DropdownFieldType, MenuExtensionDirection, ArrowIcon } from './../../model/data-model';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 /**
@@ -19,20 +19,21 @@ export class NvDropdownComponent implements OnInit {
   @Output() itemSelect = new EventEmitter<any>();
   @Input() items: string[] = ['item1'];
   /**
-   * it keep first "textTrimNumber" number and ignore the rest, adding ... instead.
+   * it keeps first "textTrimNumber" number and ignore the rest, adding ... instead.
    */
   @Input() textTrimNumber: number = 2;
   /**
-   * the default value shown in the field
+   * the default value shown in the field comes as an input but it will be updated as soon as user select new item
    */
   @Input() selectedItem: string = '';
   /**
    * there are three types: Button, Icon, and Default, which is a simple field.
    */
   @Input() fieldType: DropdownFieldType = DropdownFieldType.Default;
-  @Input() isRightToLeft: boolean = false;
+  @Input() extensionDirection: MenuExtensionDirection = MenuExtensionDirection.ToRight;
   showMenu!: boolean;
   selectedIndex!: number;
+  // TODO: need to define type for each of these
   isFirst: boolean = true;
   isArrowDown: boolean = true;
   dropDownFieldType = DropdownFieldType;
@@ -40,8 +41,10 @@ export class NvDropdownComponent implements OnInit {
     upward: '../../../assets/icons/ico.arrow.up.svg',
     downward: '../../../assets/icons/ico.arrow.down.svg'
   };
-
-  constructor() {   }
+  menuExtensionDirection = MenuExtensionDirection;
+  constructor() {
+    
+   }
 
   ngOnInit(): void {
   }

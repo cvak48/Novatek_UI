@@ -1,9 +1,9 @@
 import { TodoItemFlatNode, TodoItemNode, ArrowIcon } from './../../model/data-model';
 import { TreeViewChecklistService } from './../../services/local-data/tree-view-checklist.service';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import {MatTreeFlatDataSource, MatTreeFlattener} from '@angular/material/tree';
-import {SelectionModel} from '@angular/cdk/collections';
-import {FlatTreeControl} from '@angular/cdk/tree';
+import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
+import { SelectionModel } from '@angular/cdk/collections';
+import { FlatTreeControl } from '@angular/cdk/tree';
 
 import { Observable, onErrorResumeNext, of, from } from 'rxjs';
 import { FormControl } from '@angular/forms';
@@ -41,30 +41,29 @@ export class NvChecklistDropdownComponent implements OnInit {
   checklistSelection = new SelectionModel<TodoItemFlatNode>(true /* multiple */);
 
   // nv
-  filteredChecklistItems: TodoItemFlatNode[] = [];
   counter!: number;
   /**
   *  
    */
-   visible = true;
-   selectable = true;
-   removable = true;
-   addOnBlur = true;
-   separatorKeysCodes: number[] = [ENTER, COMMA];
-   itemCtrl = new FormControl();
-   // menu
-   filteredItems!: Observable<string[]>;
-   // field
-   items: string[] = ['Multiple Select'];
-   referenceItems: string[] = ['Apple', 'Lemon', 'Lime', 'Orange', 'Strawberry'];
-   @ViewChild('itemInput') itemInput!: ElementRef<HTMLInputElement>;
-   @ViewChild('auto') matAutocomplete!: MatAutocomplete;
-   isArrowDown: boolean = true;
-   readonly arrowIcons: ArrowIcon = {
-     upward: '../../../assets/icons/ico.arrow.up.svg',
-     downward: '../../../assets/icons/ico.arrow.down.svg'
-   };
-   hasItem = true;
+  visible = true;
+  selectable = true;
+  removable = true;
+  addOnBlur = true;
+  separatorKeysCodes: number[] = [ENTER, COMMA];
+  itemCtrl = new FormControl();
+  // menu
+  filteredItems!: Observable<string[]>;
+  // field
+  items: string[] = ['Multiple Select'];
+  referenceItems: string[] = ['Apple'];
+  @ViewChild('itemInput') itemInput!: ElementRef<HTMLInputElement>;
+  @ViewChild('auto') matAutocomplete!: MatAutocomplete;
+  isArrowDown: boolean = true;
+  readonly arrowIcons: ArrowIcon = {
+    upward: '../../../assets/icons/ico.arrow.up.svg',
+    downward: '../../../assets/icons/ico.arrow.down.svg'
+  };
+  hasItem = true;
 
 
 
@@ -88,88 +87,96 @@ export class NvChecklistDropdownComponent implements OnInit {
       map((item: string | null) => item ? this._filter(item) : this.referenceItems.slice()));
   }
     /**
-     * blur and click eventHandler are responsible for changing the triangle icon direction
-     * 
+     * dropdown menu stop from closing
      */
-     onBlur(): void {
-      this.isArrowDown = true;
-      if (this.matAutocomplete.isOpen) {
-        this.isArrowDown = true;
-      }
+    // test
+    onMenuClick(event: any) {
+      event.stopPropagation();
     }
-    onFieldClick(): void {
-      if (this.matAutocomplete.isOpen) {
-        this.isArrowDown = false;
-      } else {
-        this.isArrowDown = true;
+
+  /**
+   * blur and click eventHandler are responsible for changing the triangle icon direction
+   * 
+   */
+  onBlur(): void {
+    this.isArrowDown = true;
+    // if (this.matAutocomplete.isOpen) {
+    //   this.isArrowDown = true;
+    // }
+  }
+  onFieldClick(): void {
+    // if (this.matAutocomplete.isOpen) {
+    //   this.isArrowDown = false;
+    // } else {
+    //   this.isArrowDown = true;
+    // }
+  }
+
+  add(event: MatChipInputEvent): void {
+    // Add fruit only when MatAutocomplete is not open
+    // To make sure this does not conflict with OptionSelected Event
+    // if (!this.matAutocomplete.isOpen) {
+// TODO: Check to see if deleting these condition  produce any bug
+      const input = event.input;
+      const value = event.value;
+
+      // Add our fruit
+      if ((value || '').trim()) {
+        this.items.push(value.trim());
       }
-    }
-  
-    add(event: MatChipInputEvent): void {
-      // Add fruit only when MatAutocomplete is not open
-      // To make sure this does not conflict with OptionSelected Event
-      if (!this.matAutocomplete.isOpen) {
-  
-        const input = event.input;
-        const value = event.value;
-  
-        // Add our fruit
-        if ((value || '').trim()) {
-          this.items.push(value.trim());
-        }
-  
-        // Reset the input value
-        if (input) {
-          input.value = '';
-        }
-        this.itemCtrl.setValue(null);
+
+      // Reset the input value
+      if (input) {
+        input.value = '';
       }
-  
-    }
-      /**
-       * triggered after removing chip
-       * add removed chip into filteredItem
-       */
-    remove(item: string): void {
-      const index = this.items.indexOf(item);
-      this.filteredItems = this.filteredItems.pipe(map(values => {
-        values.push(item);
-        return values;
-      }));
-  
-      if (index >= 0) {
-        this.items.splice(index, 1);
-      }
-      if (this.items.length === 0) {
-        this.isArrowDown = false;
-        this.hasItem = false;
-      }
-    }
-      /**
-       * triggered after selecting from filteredList
-       */
-    selected(event: MatAutocompleteSelectedEvent): void {
-      this.items.push(event.option.viewValue);
-      /**
-       * removing the selected chip from filteredList
-       */
-      this.filteredItems =  this.filteredItems.pipe(map(values =>
-        values.filter(item => item !== event.option.viewValue)));
-      this.itemInput.nativeElement.value = '';
       this.itemCtrl.setValue(null);
-      if (!this.isArrowDown) {
-        this.isArrowDown = true;
-      }
-      if (this.items.length > 0) {
-        this.hasItem = true;
-      }
+    // }
+
+  }
+  /**
+   * triggered after removing chip
+   * add removed chip into filteredItem
+   */
+  remove(item: string): void {
+    const index = this.items.indexOf(item);
+    // this.filteredItems = this.filteredItems.pipe(map(values => {
+    //   values.push(item);
+    //   return values;
+    // }));
+
+    if (index >= 0) {
+      this.items.splice(index, 1);
     }
-  
-    private _filter(value: string): string[] {
-      const filterValue = value.toLowerCase();
-      const filteredFruits = this.referenceItems.filter(item => item.toLowerCase().indexOf(filterValue) === 0);
-      return filteredFruits;
+    if (this.items.length === 0) {
+      this.isArrowDown = false;
+      this.hasItem = false;
     }
+  }
+  /**
+   * triggered after selecting from filteredList
+   */
+  selected(checkedItems: string[]): void {
+    this.items = checkedItems ? checkedItems : [];
+    /**
+     * removing the selected chip from filteredList
+     */
+    // this.filteredItems = this.filteredItems.pipe(map(values =>
+    //   values.filter(item => item !== event.option.viewValue)));
+    this.itemInput.nativeElement.value = '';
+    this.itemCtrl.setValue(null);
+    if (!this.isArrowDown) {
+      this.isArrowDown = true;
+    }
+    if (this.items.length > 0) {
+      this.hasItem = true;
+    }
+  }
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+    const filteredFruits = this.referenceItems.filter(item => item.toLowerCase().indexOf(filterValue) === 0);
+    return filteredFruits;
+  }
 
   // end of chips component
 
@@ -196,8 +203,8 @@ export class NvChecklistDropdownComponent implements OnInit {
 
     const existingNode = this.nestedNodeMap.get(node);
     const flatNode = existingNode && existingNode.item === node.item
-        ? existingNode
-        : new TodoItemFlatNode();
+      ? existingNode
+      : new TodoItemFlatNode();
     flatNode.item = node.item;
     flatNode.level = level;
     flatNode.expandable = !!node.children?.length;
@@ -210,12 +217,8 @@ export class NvChecklistDropdownComponent implements OnInit {
   descendantsAllSelected(node: TodoItemFlatNode): boolean {
     const descendants = this.treeControl.getDescendants(node);
     const descAllSelected = descendants.length > 0 && descendants.every(child => {
-
       return this.checklistSelection.isSelected(child);
     });
-    // console.log(this.counter);
-    
-
     return descAllSelected;
   }
 
@@ -223,7 +226,6 @@ export class NvChecklistDropdownComponent implements OnInit {
   descendantsPartiallySelected(node: TodoItemFlatNode): boolean {
     const descendants = this.treeControl.getDescendants(node);
     const result = descendants.some(child => this.checklistSelection.isSelected(child));
-
     return result && !this.descendantsAllSelected(node);
   }
 
@@ -244,9 +246,22 @@ export class NvChecklistDropdownComponent implements OnInit {
   todoLeafItemSelectionToggle(node: TodoItemFlatNode): void {
     this.checklistSelection.toggle(node);
     this.checkAllParentsSelection(node);
-   
-  //  save the items to be used as chips
-  this.filteredChecklistItems = this.checklistSelection.selected;
+
+    //  save the children items to be used as chips
+    this.filteredItems = this._toChips(this.checklistSelection.selected);
+
+  }
+  /**
+   * transfer from checklist items to chips
+   * convert them into Observable List
+   * 
+   */
+
+  private _toChips(list: TodoItemFlatNode[]): Observable<string[]> {
+     let newList: string[] = [];
+     list.forEach(value => newList.push(value.item));
+     this.selected(newList);
+    return of(newList);
   }
 
   /* Checks all the parents when a leaf node is selected/unselected */
@@ -256,7 +271,9 @@ export class NvChecklistDropdownComponent implements OnInit {
       this.checkRootNodeSelection(parent);
       parent = this.getParentNode(parent);
     }
-  }
+    //  save the children items to be used as chips
+    this.filteredItems = this._toChips(this.checklistSelection.selected);
+   }
 
   /** Check root node checked state and change it accordingly */
   checkRootNodeSelection(node: TodoItemFlatNode): void {

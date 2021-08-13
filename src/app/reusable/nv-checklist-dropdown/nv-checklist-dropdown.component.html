@@ -1,47 +1,34 @@
 
-<mat-form-field class="advance-dropdown-container" >
-  <mat-chip-list #chipList >
-    <mat-chip
-      *ngFor="let item of items"
-      [selectable]="selectable"
-      [removable]="removable"
-      (removed)="remove(item)">
-      {{item}}
-      <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-    </mat-chip>
-    <input multiline
-      #itemInput
-      [formControl]="itemCtrl"
+<div class="dropdown">
+  <mat-form-field class="advance-dropdown-container dropdown-toggle" data-toggle="dropdown">
+    <mat-chip-list #chipList >
+      <mat-chip
+        *ngFor="let item of items"
+        [selectable]="selectable"
+        [removable]="removable"
+        (removed)="remove(item)">
+        {{item}}
+        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+      </mat-chip>
+      <input multiline
+        #itemInput
 
-      [matChipInputFor]="chipList"
-      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-      [matChipInputAddOnBlur]="addOnBlur"
-      (matChipInputTokenEnd)="add($event)" (click)="onFieldClick()" (blur)="onBlur()">
-  </mat-chip-list>
-<ng-container [ngTemplateOutlet]="arrowTemplate" [ngTemplateOutletContext]="{isArrowDown:isArrowDown}"></ng-container>
-<!-- <ng-container [ngTemplateOutlet]="treeViewTemplate"></ng-container> -->
-<ng-container [ngTemplateOutlet]="flatMenuTemplate" [ngTemplateOutletContext]="{filteredItems:filteredItems}"></ng-container>
+  
+        [matChipInputFor]="chipList"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        [matChipInputAddOnBlur]="addOnBlur"
+        (matChipInputTokenEnd)="add($event)" (click)="onFieldClick()" (blur)="onBlur()">
+    </mat-chip-list>
+  <ng-container [ngTemplateOutlet]="arrowTemplate" [ngTemplateOutletContext]="{isArrowDown:isArrowDown}"></ng-container>
+  </mat-form-field>
 
+<div class="dropdown-menu" (click)="onMenuClick($event)">
+  <ng-container [ngTemplateOutlet]="treeViewTemplate"></ng-container>
+</div>   
 
-</mat-form-field>
-
-<ng-template #arrowTemplate let-item="isArrowDown">
-  <div class="arrow-icon-container" [ngClass]="{'no-fruit': !hasItem}">
-  <img *ngIf="isArrowDown" class="arrow-icon"  src="{{arrowIcons?.downward}}">
-  <img *ngIf="!isArrowDown" class="arrow-icon" src="{{arrowIcons?.upward}}">
-</div>
-</ng-template>
-
-<ng-template #flatMenuTemplate let-item="filteredItems">
-  <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
-    <mat-option *ngFor="let item of filteredItems | async" [value]="item">
-      {{item}}
-    </mat-option>
-  </mat-autocomplete>
-</ng-template>
 
 <ng-template #treeViewTemplate>
-<mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+<mat-tree [dataSource]="dataSource" [treeControl]="treeControl" style="display: block;">
     <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle matTreeNodePadding>
       <button mat-icon-button disabled></button>
       <mat-checkbox class="checklist-leaf-node"
@@ -71,6 +58,23 @@
     </mat-tree-node>
   </mat-tree>
 
+</ng-template>
+
+<ng-template #arrowTemplate let-item="isArrowDown">
+  <div class="arrow-icon-container" [ngClass]="{'no-fruit': !hasItem}">
+  <img *ngIf="isArrowDown" class="arrow-icon"  src="{{arrowIcons?.downward}}">
+  <img *ngIf="!isArrowDown" class="arrow-icon" src="{{arrowIcons?.upward}}">
+</div>
+</ng-template>
+
+<!-- TODO: It does not recognize auto  [matAutocomplete]="auto"-->
+<!-- TODO: <ng-container [ngTemplateOutlet]="flatMenuTemplate" [ngTemplateOutletContext]="{filteredItems:filteredItems, matAutocomplete:matAutocomplete}"></ng-container> -->
+<ng-template #flatMenuTemplate let-items = filteredItems let-matAutocomplete = matAutocomplete>
+  <mat-autocomplete #auto="matAutocomplete" >
+    <mat-option *ngFor="let item of items.filteredItems | async" [value]="item">
+      {{item}}
+    </mat-option>
+  </mat-autocomplete>
 </ng-template>
   
   

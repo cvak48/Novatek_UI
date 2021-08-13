@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NvDataPickerComponent } from './nv-data-picker.component';
+import { NvDataPickerComponent } from './nv-date-picker.component';
 
 describe('NvDataPickerComponent', () => {
   let component: NvDataPickerComponent;

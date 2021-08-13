@@ -6,9 +6,9 @@ import { DATE_FORMATS } from '../../../assets/setting';
 
 
 @Component({
-  selector: 'app-nv-data-picker',
-  templateUrl: './nv-data-picker.component.html',
-  styleUrls: ['./nv-data-picker.component.scss'],
+  selector: 'app-nv-date-picker',
+  templateUrl: './nv-date-picker.component.html',
+  styleUrls: ['./nv-date-picker.component.scss'],
   providers: [
     {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
     // {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS},

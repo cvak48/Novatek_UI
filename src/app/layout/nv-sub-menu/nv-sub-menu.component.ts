@@ -8,9 +8,6 @@ import { DropdownFieldType } from 'src/app/model/data-model';
   styleUrls: ['./nv-sub-menu.component.scss']
 })
 export class NvSubMenuComponent implements OnInit {
-  menuItems = ['menu item 1', 'menu item 2'];
-  siteItems = ['site item 1', 'site item 2'];
-  actionItems = ['action 1', 'action 2'];
     // dropDown Menu
     dropdownItemsMenu = mockMenuDropdown().items;
     textTrimNumberMenu = mockMenuDropdown().textTrimNumber;
@@ -36,13 +33,10 @@ export class NvSubMenuComponent implements OnInit {
    * DropDowns event handlers
    */
   onMenuItemSelect(item: string): void {
-    console.log('selectedMenuItem >>>> ' + +item);
   }
   onSiteItemSelect(item: string): void {
-    console.log('selectedSiteItem >>>> ' + +item);
   }
   onPlusItemSelect(item: string): void {
-    console.log('selectedPlusItem >>>> ' + +item);
   }
 
 }

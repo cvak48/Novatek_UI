@@ -6,17 +6,13 @@
   font-size: $font-size-x-small;
   font-family: $nv-font;
   line-height: $line-height-medium;
-  color: $color-dark-gray-10;
+  color: $color-dark-gray-70;
   opacity: 1;
 }
-
 
 ::ng-deep .mat-ripple-element {
     display: none !important;
   }
-  
-
-
   
   ::ng-deep .mat-slide-toggle-thumb {
     height: 20px !important;

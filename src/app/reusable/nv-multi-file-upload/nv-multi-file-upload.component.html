@@ -1,0 +1,46 @@
+
+<div class="form-group">
+    <div>
+        <label for="file">Choose File 1</label>
+        <input type="file"
+               id="file"
+               (change)="handleFileInput($event, '1')">
+    </div>
+    <div>
+        <label for="file">Choose File 2</label>
+        <input type="file"
+               id="file"
+               (change)="handleFileInput($event, '2')">
+    </div>
+    <div>
+        <label for="file">Choose File 3</label>
+        <input type="file"
+               id="file"
+               (change)="handleFileInput($event, '3')">
+    </div>
+    <div>
+        <label for="file">Choose File 5</label>
+        <input type="file"
+               id="file"
+               (change)="handleFileInput($event, '4')">
+    </div>
+    <div>
+        <label for="file">Choose File 5</label>
+        <input type="file"
+               id="file"
+               (change)="handleFileInput($event, '5')">
+    </div>
+    <div>
+        <button (click)="uploadFiles()">Upload</button>
+    </div>
+    <div *ngIf="showUploadedFiles">
+        <span>
+            <b>File 1: </b> {{fileToUpload.file1?.name}}<br>
+            <b>File 2: </b> {{fileToUpload.file2?.name}}<br>
+            <b>File 3: </b> {{fileToUpload.file3?.name}}<br>
+            <b>File 4: </b> {{fileToUpload.file4?.name}}<br>
+            <b>File 5: </b> {{fileToUpload.file5?.name}}<br>
+        </span>
+    </div>
+   
+</div>

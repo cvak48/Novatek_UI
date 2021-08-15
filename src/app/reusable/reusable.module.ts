@@ -53,6 +53,7 @@ import { NvCustomTableComponent } from './nv-custom-table/nv-custom-table.compon
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ProgressiveBarComponent } from './progressive-bar/progressive-bar.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { NvMultiFileUploadComponent } from './nv-multi-file-upload/nv-multi-file-upload.component';
 
 
 const sharedComponents = [
@@ -100,7 +101,8 @@ const sharedComponents = [
   NvCustomTableComponent,
   ProgressiveBarComponent,
   NvDataPickerComponent,
-  NvButtonComponent
+  NvButtonComponent,
+  NvMultiFileUploadComponent
 ];
 
 @NgModule({

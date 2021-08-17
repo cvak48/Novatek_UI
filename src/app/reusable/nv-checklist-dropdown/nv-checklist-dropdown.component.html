@@ -1,6 +1,6 @@
 
 <div class="dropdown">
-  <mat-form-field class="advance-dropdown-container dropdown-toggle" data-toggle="dropdown">
+  <mat-form-field #default class="advance-dropdown-container dropdown-toggle" data-toggle="dropdown" >
     <mat-chip-list #chipList >
       <mat-chip
         *ngFor="let item of items"
@@ -8,16 +8,17 @@
         [removable]="removable"
         (removed)="remove(item)">
         {{item}}
-        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        <mat-icon matChipRemove *ngIf="removable"></mat-icon>
       </mat-chip>
       <input multiline
         #itemInput
 
-  
+        
         [matChipInputFor]="chipList"
         [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
         [matChipInputAddOnBlur]="addOnBlur"
-        (matChipInputTokenEnd)="add($event)" (click)="onFieldClick()" (blur)="onBlur()">
+        (matChipInputTokenEnd)="add($event)" (click)="onFieldClick()" (blur)="onBlur()"
+        >
     </mat-chip-list>
   <ng-container [ngTemplateOutlet]="arrowTemplate" [ngTemplateOutletContext]="{isArrowDown:isArrowDown}"></ng-container>
   </mat-form-field>
@@ -28,7 +29,7 @@
 
 
 <ng-template #treeViewTemplate>
-<mat-tree [dataSource]="dataSource" [treeControl]="treeControl" style="display: block;">
+<mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
     <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle matTreeNodePadding>
       <button mat-icon-button disabled></button>
       <mat-checkbox class="checklist-leaf-node"
@@ -78,3 +79,4 @@
 </ng-template>
   
   
+<!-- (input)="filterChanged($event.target.value)" -->

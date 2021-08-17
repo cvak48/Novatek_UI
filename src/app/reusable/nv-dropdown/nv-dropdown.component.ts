@@ -1,5 +1,5 @@
 import { DropdownFieldType, MenuExtensionDirection, ArrowIcon } from './../../model/data-model';
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 
 /**
 * USAGE:
@@ -31,6 +31,7 @@ export class NvDropdownComponent implements OnInit {
    */
   @Input() fieldType: DropdownFieldType = DropdownFieldType.Default;
   @Input() extensionDirection: MenuExtensionDirection = MenuExtensionDirection.ToRight;
+  @ViewChild('default') defaultDropdown!: ElementRef<HTMLElement>;
   showMenu!: boolean;
   selectedIndex!: number;
   // TODO: need to define type for each of these
@@ -42,9 +43,7 @@ export class NvDropdownComponent implements OnInit {
     downward: '../../../assets/icons/ico.arrow.down.svg'
   };
   menuExtensionDirection = MenuExtensionDirection;
-  constructor() {
-    
-   }
+  constructor() {  }
 
   ngOnInit(): void {
   }
@@ -52,6 +51,9 @@ export class NvDropdownComponent implements OnInit {
   }
   onBlur() {
     this.isArrowDown = true;
+    // this.defaultDropdown.nativeElement.toggleAttribute('toggle').valueOf();
+    console.log(this.defaultDropdown.nativeElement.toggleAttribute('toggle'));
+    // console.log(this.defaultDropdown.nativeElement.toggle(true));
   }
   /**
    * event handler within which the selected item's index is set and the selected item is emitted as an output

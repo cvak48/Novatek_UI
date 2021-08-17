@@ -4,13 +4,11 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
 import { SelectionModel } from '@angular/cdk/collections';
 import { FlatTreeControl } from '@angular/cdk/tree';
-
-import { Observable, onErrorResumeNext, of, from } from 'rxjs';
-import { FormControl } from '@angular/forms';
-import { MatAutocomplete, MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { Observable, of } from 'rxjs';
+import { MatAutocomplete } from '@angular/material/autocomplete';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
-import { map, startWith } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-nv-checklist-dropdown',
@@ -50,7 +48,7 @@ export class NvChecklistDropdownComponent implements OnInit {
   removable = true;
   addOnBlur = true;
   separatorKeysCodes: number[] = [ENTER, COMMA];
-  itemCtrl = new FormControl();
+  // itemCtrl = new FormControl();
   // menu
   filteredItems!: Observable<string[]>;
   // field
@@ -58,6 +56,7 @@ export class NvChecklistDropdownComponent implements OnInit {
   referenceItems: string[] = ['Apple'];
   @ViewChild('itemInput') itemInput!: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete!: MatAutocomplete;
+  @ViewChild('default') defaultDropdown!: ElementRef<HTMLElement>;
   isArrowDown: boolean = true;
   readonly arrowIcons: ArrowIcon = {
     upward: '../../../assets/icons/ico.arrow.up.svg',
@@ -81,10 +80,10 @@ export class NvChecklistDropdownComponent implements OnInit {
     /**
      * AutoComplete as user make query
      */
-    this.filteredItems = this.itemCtrl.valueChanges.pipe(
-      startWith(null),
+    // this.filteredItems = this.itemCtrl.valueChanges.pipe(
+      // startWith(null),
       // The Array.slice() method returns a new array
-      map((item: string | null) => item ? this._filter(item) : this.referenceItems.slice()));
+      // map((item: string | null) => item ? this._filter(item) : this.referenceItems.slice()));
   }
     /**
      * dropdown menu stop from closing
@@ -96,20 +95,23 @@ export class NvChecklistDropdownComponent implements OnInit {
 
   /**
    * blur and click eventHandler are responsible for changing the triangle icon direction
-   * 
+   *
    */
   onBlur(): void {
-    this.isArrowDown = true;
-    // if (this.matAutocomplete.isOpen) {
-    //   this.isArrowDown = true;
-    // }
+    if (!this.isArrowDown) {
+      this.isArrowDown = true;
+    }
   }
   onFieldClick(): void {
-    // if (this.matAutocomplete.isOpen) {
+    // if (this.defaultDropdown.nativeElement.toggleAttribute('toggle')) {
     //   this.isArrowDown = false;
     // } else {
     //   this.isArrowDown = true;
     // }
+
+    console.log(this.defaultDropdown.nativeElement.toggleAttribute('toggle'));
+    // this.defaultDropdown.nativeElement.className;
+
   }
 
   add(event: MatChipInputEvent): void {
@@ -129,7 +131,7 @@ export class NvChecklistDropdownComponent implements OnInit {
       if (input) {
         input.value = '';
       }
-      this.itemCtrl.setValue(null);
+      // this.itemCtrl.setValue(null);
     // }
 
   }
@@ -163,7 +165,7 @@ export class NvChecklistDropdownComponent implements OnInit {
     // this.filteredItems = this.filteredItems.pipe(map(values =>
     //   values.filter(item => item !== event.option.viewValue)));
     this.itemInput.nativeElement.value = '';
-    this.itemCtrl.setValue(null);
+    // this.itemCtrl.setValue(null);
     if (!this.isArrowDown) {
       this.isArrowDown = true;
     }
@@ -183,7 +185,8 @@ export class NvChecklistDropdownComponent implements OnInit {
 
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    // TODO: Not sure the application
+    // throw new Error('Method not implemented.');
   }
 
   getLevel = (node: TodoItemFlatNode) => node.level;
@@ -309,6 +312,14 @@ export class NvChecklistDropdownComponent implements OnInit {
     return null;
   }
 
-
+  // filterChanged(filterText: string): void {
+  //   this._database.filter(filterText);
+  //   if(filterText)
+  //   {
+  //     this.treeControl.expandAll();
+  //   } else {
+  //     this.treeControl.collapseAll();
+  //   }
+  // }
 
 }

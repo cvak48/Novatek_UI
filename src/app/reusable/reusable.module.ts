@@ -1,10 +1,11 @@
+import { NvDatePickerComponent } from './nv-date-picker/nv-date-picker.component';
 import { NvChecklistDropdownComponent } from './nv-checklist-dropdown/nv-checklist-dropdown.component';
 import { NvSliderToggleComponent } from './nv-slider-toggle/nv-slider-toggle.component';
 import { NvSliderRadioButtonComponent } from './nv-slider-radio-button/nv-slider-radio-button.component';
 import { NvSliderComponent } from './nv-slider/nv-slider.component';
 import { NvCheckboxComponent } from './nv-checkbox/nv-checkbox.component';
 import { NvMultiSelectDropdownComponent } from './nv-multiselect-dropdown/nv-multiselect-dropdown.component';
-import { NvDataPickerComponent } from './nv-date-picker/nv-date-picker.component';
+
 import { NvTrimPipe } from './pipes/nv-trim/nv-trim.pipe';
 import { NvButtonComponent } from './nv-button/nv-button.component';
 import { FilterAllPipe } from './pipes/filters/filterAll/filter-all.pipe';
@@ -16,7 +17,7 @@ import { NvFileUploadDirective } from './directives/file-upload/nv-file-upload.d
 import { NvDropdownComponent } from './nv-dropdown/nv-dropdown.component';
 import { UserProfileMenuComponent } from './user-profile-menu/user-profile-menu.component';
 import { NotificationComponent } from './notification/notification.component';
-import { AvatarComponent } from './nv-avatar/avatar.component';
+import { AvatarComponent } from './avatar/avatar.component';
 import { SearchComponent } from './nv-search/search.component';
 import { MaterialModule } from './../material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -97,7 +98,7 @@ const sharedComponents = [
   NvPlaceholderSmallCardComponent,
   NvCustomTableComponent,
   ProgressiveBarComponent,
-  NvDataPickerComponent,
+  NvDatePickerComponent,
   NvButtonComponent
 ];
 

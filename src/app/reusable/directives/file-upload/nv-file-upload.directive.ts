@@ -9,7 +9,7 @@ export class NvFileUploadDirective {
   @HostBinding('style.opacity') public opacity = '1';
   @Output() fileDropped = new EventEmitter<any>();
 
-  constructor() { }
+  constructor() { } 
 
   @HostListener('dragover', ['$event']) onDragOver(evt: any): void {
     evt.preventDefault();

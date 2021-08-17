@@ -53,7 +53,6 @@ export class NvMultiSelectDropdownComponent implements OnInit {
      * 
      */
   onBlur(): void {
-    this.isArrowDown = true;
     if (this.matAutocomplete.isOpen) {
       this.isArrowDown = true;
     }

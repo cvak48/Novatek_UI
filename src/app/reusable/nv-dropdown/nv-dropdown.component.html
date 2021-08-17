@@ -1,5 +1,5 @@
 <div class="dropdown">
-    <button *ngIf="fieldType === dropDownFieldType.Default" type="button" class="btn dropdown-toggle body20 label" data-toggle="dropdown" [ngClass]="{'default': isFirst}"
+    <button *ngIf="fieldType === dropDownFieldType.Default" type="button" #default class="btn dropdown-toggle body20 label" data-toggle="dropdown" [ngClass]="{'default': isFirst}"
       (click)="isArrowDown=!isArrowDown" (blur)="onBlur()">
       {{selectedItem | nvTrim: textTrimNumber}}
       <ng-container [ngTemplateOutlet]="arrowTemplate" [ngTemplateOutletContext]="{isArrowDown:isArrowDown}"></ng-container>

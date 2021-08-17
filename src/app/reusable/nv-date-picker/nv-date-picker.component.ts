@@ -16,7 +16,7 @@ import { DATE_FORMATS } from '../../../assets/setting';
     {provide:  MAT_DATE_LOCALE, useValue: 'de-LU'},
   ]
 })
-export class NvDataPickerComponent implements OnInit {
+export class NvDatePickerComponent implements OnInit { 
   @Input() isDateRangePicker = true;
 
   constructor(private adapter: DateAdapter<any>) { }

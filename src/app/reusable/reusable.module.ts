@@ -53,6 +53,11 @@ import { NvCustomTableComponent } from './nv-custom-table/nv-custom-table.compon
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ProgressiveBarComponent } from './progressive-bar/progressive-bar.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { NvEditPanelComponent } from './nv-edit-panel/nv-edit-panel.component';
+import { NvTablePanelComponent } from './nv-table-panel/nv-table-panel.component';
+import { NvGeneralSettingsComponent } from './nv-general-settings/nv-general-settings.component';
+import { NvCompanyGeneralInfoComponent } from './nv-company-general-info/nv-company-general-info.component';
+import { NvDragAndDropDirective } from './directives/drag-drop/drag-and-drop.directive';
 
 
 const sharedComponents = [
@@ -100,7 +105,12 @@ const sharedComponents = [
   NvCustomTableComponent,
   ProgressiveBarComponent,
   NvDataPickerComponent,
-  NvButtonComponent
+  NvButtonComponent,
+  NvEditPanelComponent,
+  NvTablePanelComponent,
+  NvGeneralSettingsComponent,
+  NvCompanyGeneralInfoComponent,
+  NvDragAndDropDirective
 ];
 
 @NgModule({

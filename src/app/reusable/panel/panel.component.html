@@ -1,7 +1,7 @@
 <div class="container">
   <div class="card custom-card" *ngIf="!showPanel">
       <div class="card-header">
-        <span class="panel-titleTxt">Panel Table</span>  
+        <span class="panel-titleTxt">{{panelTitle}}</span>  
         
         <button type="button" (click)="showPanel=!showPanel" class="close mg-15" aria-label="Close">
           <span aria-hidden="true"><img src="../../../assets/icons/ico.close.svg" /></span>

@@ -1,0 +1,42 @@
+<div class="main-container">
+    <div>
+        <label>Company Name</label>
+        <input type="text" class="form-control" placeholder="Enter your company name" aria-label="company name">
+    </div>
+    <div class="mr-tp-2">
+        <label>Company Logo</label>
+        <div class="files-container">
+           
+          <div class="container-upload margin-top-4 pd-5" appDragAndDrop
+               (file)="dragAndDropFile($event)" aria-label="upload files">
+            <input hidden type="file"  #fileInput (change)="uploadFile($event);">
+            <div class="d-flex flex-column text-center mt-1">
+              <div class="center-img-block margin-bottom-10">
+                <img class="img-file" height="35px" src="assets/images/doc.png" alt="pdf file logo">
+              </div>
+              <mat-label>
+                <div class="text-size-md text-color-disable">
+                  <div>Drag And Drop Your Company Logo Here</div>
+                  <div>Recommended 200 x 50 Pixels </div>
+                </div>
+              </mat-label>
+              <button  color="primary" class="upload-btn" mat-flat-button type="button"
+                      (click)="fileInput.click()">
+                <span>Upload</span>
+              </button>
+            </div>
+            
+          </div>
+        </div>
+    </div>
+    <div class="mr-tp-2">
+        <label>Apply to Site(s):</label>
+    </div>
+    
+</div>
+<div class="card-footer">
+    <div class="footer-btn">
+        <app-nv-button class="flt-right" label="Cancel"></app-nv-button>
+        <app-nv-button class="flt-right mr-rt-1"  label="Save"></app-nv-button>
+    </div>
+</div>

@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="card custom-card" *ngIf="!showPanel">
+        <div class="card-header">
+          <span class="panel-titleTxt">Panel Table</span>  
+          
+          <button type="button" (click)="showPanel=!showPanel" class="close mg-15" aria-label="Close">
+            <span aria-hidden="true"><img src="../../../assets/icons/ico.close.svg" /></span>
+          </button>
+          <button type="button"  class="close" aria-label="drop">
+            <span aria-hidden="true"><img src="../../../assets/icons/threeDots.icon.svg" /></span>
+          </button>
+        </div>
+        <div class="search-container">
+        
+        <div class="card-body ">
+            <div class="mr-bt-4">
+                <div class=" shadow-sm-dark dp-inline">
+                    <app-search class="search" ></app-search> 
+                </div>
+                <div class=" shadow-sm-dark dp-inline mr-lt-1">
+                    <app-nv-dropdown></app-nv-dropdown>
+                </div>
+                <div class="dp-inline btn-right">
+                    <app-nv-button label="Button"></app-nv-button>
+                </div>
+            </div>
+            <div class="card-content-box">
+                <ng-content></ng-content>
+            </div>
+             
+             
+            </div>
+            <div class="card-footer">
+                <div class="footer-btn">
+                    <div class="mr-rt-1 paging-position">
+                        <span class="page-size-title">Items Per Page:&nbsp;&nbsp;</span>
+                        <div class="drop-container">
+                          <app-nv-dropdown [items]="pageNewSizes" >
+            
+                          </app-nv-dropdown>
+                        </div>
+                      </div>
+                      <div class="mr-rt-1 paging-position">
+                        <pagination-controls 
+                        [maxSize]="maxSize"
+                        [directionLinks]="directionLinks"
+                        [autoHide]="autoHide"
+                        [responsive]="responsive"
+                        [previousLabel]="labels.previousLabel"
+                        [nextLabel]="labels.nextLabel"
+                        [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel"
+                        [screenReaderPageLabel]="labels.screenReaderPageLabel"
+                        [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel"
+                       
+                       ></pagination-controls>
+                      </div>
+                  
+                </div>
+            </div>
+        </div>
+      </div>
+  </div>
+  
+  
+  

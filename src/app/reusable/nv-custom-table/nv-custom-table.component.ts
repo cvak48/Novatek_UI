@@ -14,7 +14,7 @@ export class NvCustomTableComponent implements OnInit {
   ordersData: Order[] = [];
   page = 1;
   count = 0;
-  pageSize = 3;
+  pageSize = 10;
   pageSizes = [5, 10, 20, 50, 100];
   pageNewSizes = ['5', '10', '20', '50', '100'];
   columns = ['name', 'date', 'email', 'status', 'attachments'];
@@ -22,6 +22,8 @@ export class NvCustomTableComponent implements OnInit {
   autoHide: boolean = false;
   responsive: boolean = true;
   maxSize: number = 7;
+  sortColumn: string = '';
+  sortPreference: string = '';
   public labels: any = {
     previousLabel: '❮',
     nextLabel: '❯',
@@ -171,6 +173,16 @@ export class NvCustomTableComponent implements OnInit {
       this.ordersData = data;
       this.count = this.orders.length;
     }
+  }
+
+  rowClicked(event: any): void{
+    this.sortColumn = event.target.innerText.trim().toLowerCase();
+    this.sortPreference = event.target.ariaSort;
+    console.log('event', event.target,event.target.ariaSort)
+  }
+
+  rowImgClicked(event: any): void{
+    event.stopPropagation();
   }
 }
 

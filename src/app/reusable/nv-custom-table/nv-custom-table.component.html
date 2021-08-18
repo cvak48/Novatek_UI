@@ -18,8 +18,9 @@
               <th class="mat-header-cell">
                   <input class="table-check" type="checkbox" [checked]="isAllCheckBoxChecked()" (change)="checkAllCheckBox($event)">
               </th>
-              <th *ngFor="let column of columns ; let i = index"  scope="col" [mdbTableSort]="orders" [sortBy]="columns[i]" class="mat-header-cell">
-                  {{column}} <span><mat-icon class="img"><img src="../../../assets/icons/table-shorting.icon.svg" /></mat-icon></span>
+              <th (click)="rowClicked($event)" *ngFor="let column of columns ; let i = index"  scope="col" [mdbTableSort]="orders" [sortBy]="columns[i]" class="mat-header-cell">
+                  {{column}} <span><mat-icon class="img" *ngIf="sortColumn == column && sortPreference == 'ascending'"><img src="../../../assets/icons/table-shorting.icon.svg" (click)="rowImgClicked($event)"/></mat-icon>
+                    <mat-icon class="img rotateimg180" *ngIf="sortColumn == column && sortPreference == 'descending'"><img src="../../../assets/icons/table-shorting.icon.svg" (click)="rowImgClicked($event)"/></mat-icon></span>
               </th>
               
           </tr>

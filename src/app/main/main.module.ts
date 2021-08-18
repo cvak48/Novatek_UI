@@ -6,11 +6,13 @@ import { ReusableModule } from '../reusable/reusable.module';
 import { MaterialModule } from '../material.module';
 import { MainRoutingModule } from './main-routing.module';
 import { LayoutComponentModule } from '../layout';
+import { UserListViewComponent } from './components/user-list-view/user-list-view.component';
 
 @NgModule({
   declarations: [
     DashboardComponent,
-    DemoPageComponent
+    DemoPageComponent,
+    UserListViewComponent
   ],
   imports: [
     CommonModule,

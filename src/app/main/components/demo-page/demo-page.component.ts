@@ -49,6 +49,7 @@ export class DemoPageComponent implements OnInit {
   textTrimNumber = mockDropdown().textTrimNumber;
   selectedItemDefault = mockDropdown().selectedItemDefault;
   dropDownFieldType = mockDropdown().dropDownFieldType;
+  isDisable = mockDropdown().isDisable;
   //  StatusColorDirectives test on dropdown adding three new input
     backgroundColor = mockDropdown().backgroundColor;
     borderColor = mockDropdown().borderColor;
@@ -116,9 +117,10 @@ function mockDropdown(): any {
     textTrimNumber: 2,
     selectedItemDefault: 'Page',
     dropDownFieldType: DropdownFieldType.Default,
-    backgroundColor: StatusColor.Accepted,
-    borderColor: StatusColor.Accepted,
-    textColor: StatusColor.Accepted,
+    backgroundColor: StatusColor.Disabled,
+    borderColor: StatusColor.Disabled,
+    textColor: StatusColor.Disabled,
+    isDisable: true,
   };
   return dropdownInputs;
 }

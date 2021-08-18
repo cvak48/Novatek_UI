@@ -1,5 +1,5 @@
 import { DropdownFieldType, MenuExtensionDirection, StatusColor } from './../../model/data-model';
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 
 /**
 * USAGE:
@@ -30,7 +30,8 @@ export class NvDropdownComponent implements OnInit {
    * there are three types: Button, Icon, and Default, which is a simple field.
    */
   @Input() fieldType: DropdownFieldType = DropdownFieldType.Default;
-  @Input() extensionDirection: MenuExtensionDirection = MenuExtensionDirection.ToLeft;
+  @Input() extensionDirection: MenuExtensionDirection = MenuExtensionDirection.ToRight;
+
   /**
    * receives styles base on the status of the field
    */
@@ -38,6 +39,21 @@ export class NvDropdownComponent implements OnInit {
   @Input() borderColor: StatusColor = StatusColor.Default;
   @Input() textColor: StatusColor = StatusColor.Default;
 
+  /**
+   * disabling the dropdown
+   */
+  @ViewChild('field') dropDownField!: ElementRef;
+  @Input() set isDisable(value: boolean) {
+    console.log('Input');
+    this._isDisable = value;
+    if (this._isDisable) {
+      this.backgroundColor = StatusColor.Disabled;
+      this.borderColor = StatusColor.Disabled;
+      this.textColor = StatusColor.Disabled;
+
+    }
+  }
+  private _isDisable!: boolean;
   showMenu!: boolean;
   selectedIndex!: number;
   // TODO: need to define type for each of these
@@ -47,10 +63,19 @@ export class NvDropdownComponent implements OnInit {
   menuExtensionDirection = MenuExtensionDirection;
 
   constructor() {
-
+    console.log('constructor');
+    
+  }
+  private _removeToggleAtt(): void {
+    this.dropDownField.nativeElement.removeAttribute('data-toggle');
   }
 
   ngOnInit(): void {
+    console.log('ngOnInit');
+    // if (this._isDisable) {
+    //   this._removeToggleAtt();
+    // }
+    this.dropDownField.nativeElement.removeAttribute('data-toggle');
   }
   onInputClick(): void {
   }

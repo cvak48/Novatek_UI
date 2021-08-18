@@ -102,7 +102,7 @@
         </div>
         <div class="dropdown-container" *ngSwitchCase="nvComponentType.StatusColorDirectives">
           <app-nv-dropdown class="body-item" [items]="dropdownItems" [textTrimNumber]="textTrimNumber" 
-          [selectedItem]="selectedItemDefault" [fieldType]="dropDownFieldType" 
+          [selectedItem]="selectedItemDefault" [fieldType]="dropDownFieldType" [isDisable]="isDisable"
           [backgroundColor]="backgroundColor" [borderColor]="borderColor" [textColor]="textColor"></app-nv-dropdown>
         </div>
 

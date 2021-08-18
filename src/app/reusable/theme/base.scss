@@ -254,6 +254,11 @@ $border-color-500: $color-white;
 }
 
 
+/** 
+* all the classes that can be used along side custom-color directives added in the html elements
+* the background/ border/ text color can be change using the custom-color directives
+* the different statuses are defined by enum " StatusColor " which is the second part of the class name
+*/
 .background-Active {
 background-color:  $color-white-20 !important;
 }

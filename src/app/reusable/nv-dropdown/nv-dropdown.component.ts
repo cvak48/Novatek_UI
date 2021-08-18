@@ -1,4 +1,4 @@
-import { DropdownFieldType, MenuExtensionDirection } from './../../model/data-model';
+import { DropdownFieldType, MenuExtensionDirection, StatusColor } from './../../model/data-model';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 /**
@@ -30,7 +30,14 @@ export class NvDropdownComponent implements OnInit {
    * there are three types: Button, Icon, and Default, which is a simple field.
    */
   @Input() fieldType: DropdownFieldType = DropdownFieldType.Default;
-  @Input() extensionDirection: MenuExtensionDirection = MenuExtensionDirection.ToRight;
+  @Input() extensionDirection: MenuExtensionDirection = MenuExtensionDirection.ToLeft;
+  /**
+   * receives styles base on the status of the field
+   */
+  @Input() backgroundColor: StatusColor = StatusColor.Default;
+  @Input() borderColor: StatusColor = StatusColor.Default;
+  @Input() textColor: StatusColor = StatusColor.Default;
+
   showMenu!: boolean;
   selectedIndex!: number;
   // TODO: need to define type for each of these
@@ -38,9 +45,10 @@ export class NvDropdownComponent implements OnInit {
   isArrowDown: boolean = true;
   dropDownFieldType = DropdownFieldType;
   menuExtensionDirection = MenuExtensionDirection;
+
   constructor() {
-    
-   }
+
+  }
 
   ngOnInit(): void {
   }

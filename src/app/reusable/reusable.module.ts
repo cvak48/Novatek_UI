@@ -1,3 +1,6 @@
+import { NvTextColorDirective } from './directives/file-upload/custom-color/nv-text-color.directive';
+import { NvBorderColorDirective } from './directives/file-upload/custom-color/nv-border-color.directive';
+import { NvBackgroundColorDirective } from './directives/file-upload/custom-color/nv-background-color.directive';
 import { NvSliderToggleComponent } from './nv-slider-toggle/nv-slider-toggle.component';
 import { NvSliderRadioButtonComponent } from './nv-slider-radio-button/nv-slider-radio-button.component';
 import { NvSliderComponent } from './nv-slider/nv-slider.component';
@@ -60,12 +63,15 @@ const sharedComponents = [
   AdvanceFilterPipe,
   FilterAllPipe,
   NvTrimPipe,
+  DataPropertyGetterPipe,
   NvFileUploadDirective,
+  NvBackgroundColorDirective,
+  NvBorderColorDirective,
+  NvTextColorDirective,
   NvFooterComponent,
   SideNavComponent,
   NovatekLogoComponent,
   NvCustomDatatableComponent,
-  DataPropertyGetterPipe,
   PanelComponent,
   SearchComponent,
   TextAreaComponent,

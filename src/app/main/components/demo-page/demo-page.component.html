@@ -45,6 +45,9 @@
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.Dropdown)">
         {{nvComponentType[nvComponentType.Dropdown]}}
       </div>
+      <div class="menu-item h40" (click)="onItemClick(nvComponentType.StatusColorDirectives)">
+        {{nvComponentType[nvComponentType.StatusColorDirectives]}}
+      </div>
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.DropToUpload)">
         {{nvComponentType[nvComponentType.DropToUpload]}}
       </div>
@@ -96,6 +99,11 @@
         <div class="dropdown-container" *ngSwitchCase="nvComponentType.Dropdown">
           <app-nv-dropdown class="body-item" [items]="dropdownItems" [textTrimNumber]="textTrimNumber" 
           [selectedItem]="selectedItemDefault" [fieldType]="dropDownFieldType" (itemSelect)="onItemSelect($event)"></app-nv-dropdown>
+        </div>
+        <div class="dropdown-container" *ngSwitchCase="nvComponentType.StatusColorDirectives">
+          <app-nv-dropdown class="body-item" [items]="dropdownItems" [textTrimNumber]="textTrimNumber" 
+          [selectedItem]="selectedItemDefault" [fieldType]="dropDownFieldType" 
+          [backgroundColor]="backgroundColor" [borderColor]="borderColor" [textColor]="textColor"></app-nv-dropdown>
         </div>
 
         <div class="upload-file-container" *ngSwitchCase="nvComponentType.DropToUpload">

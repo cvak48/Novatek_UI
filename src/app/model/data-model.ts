@@ -7,6 +7,15 @@ export enum DropdownFieldType {
     Icon,
     Default,
 }
+export enum StatusColor {
+    Active,
+    Required,
+    Error,
+    Accepted,
+    Modified,
+    Disabled,
+    Default
+}
 export enum MenuExtensionDirection {
     ToLeft,
     ToRight,

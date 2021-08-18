@@ -1,7 +1,8 @@
 <div class="dropdown">
 
     <button *ngIf="fieldType === dropDownFieldType.Default" type="button" class="btn dropdown-toggle body20 label" data-toggle="dropdown" [ngClass]="{'default': isFirst}"
-      (click)="isArrowDown=!isArrowDown" (blur)="onBlur()">
+      (click)="isArrowDown=!isArrowDown" (blur)="onBlur()"
+      nvBackgroundColor [color]="backgroundColor" nvBorderColor [color]="borderColor" nvTextColor [color]="textColor" >
       {{selectedItem | nvTrim: textTrimNumber}}
       <img *ngIf="isArrowDown" class="arrow-icon"  src="../../../assets/icons/ico.arrow.down.svg">
       <img *ngIf="!isArrowDown" class="arrow-icon" src="../../../assets/icons/ico.arrow.up.svg">
@@ -14,7 +15,7 @@
       <img *ngIf="!isArrowDown" class="arrow-icon" src="../../../assets/icons/ico.arrow.up.svg">
     </button>
 
-  <div class="dropdown-menu" [ngClass]=" (extensionDirection === menuExtensionDirection.ToLeft) ? 'dropdown-menu-right': '' ">
+  <div class="dropdown-menu"   [ngClass]=" (extensionDirection === menuExtensionDirection.ToLeft) ? 'dropdown-menu-right': '' ">
     <div class="dropdown-item body20" *ngFor="let item of items; let i = index" (click)="onItemSelect(i)"
       [ngClass]="{'selected-item': i==selectedIndex}"> {{item}}</div>
   </div>

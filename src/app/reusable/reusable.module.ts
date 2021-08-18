@@ -58,6 +58,7 @@ import { NvTablePanelComponent } from './nv-table-panel/nv-table-panel.component
 import { NvGeneralSettingsComponent } from './nv-general-settings/nv-general-settings.component';
 import { NvCompanyGeneralInfoComponent } from './nv-company-general-info/nv-company-general-info.component';
 import { NvDragAndDropDirective } from './directives/drag-drop/drag-and-drop.directive';
+import { UserListTableComponent } from './user-list-table/user-list-table.component';
 
 
 const sharedComponents = [
@@ -110,7 +111,8 @@ const sharedComponents = [
   NvTablePanelComponent,
   NvGeneralSettingsComponent,
   NvCompanyGeneralInfoComponent,
-  NvDragAndDropDirective
+  NvDragAndDropDirective,
+  UserListTableComponent
 ];
 
 @NgModule({

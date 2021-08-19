@@ -38,11 +38,11 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   @Input() backgroundColor: StatusColor = StatusColor.Default;
   @Input() borderColor: StatusColor = StatusColor.Default;
   @Input() textColor: StatusColor = StatusColor.Default;
-
   /**
    * disabling the dropdown
    */
   @ViewChild('fieldId') fieldId!: ElementRef<HTMLElement>;
+  @ViewChild('icon') iconId!: ElementRef<HTMLElement>;
   @Input() set isDisable(value: boolean) {
     console.log('Input');
     this._isDisable = value;
@@ -50,14 +50,12 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
       this.backgroundColor = StatusColor.Disabled;
       this.borderColor = StatusColor.Disabled;
       this.textColor = StatusColor.Disabled;
-      this._removeToggleAtt();
     }
   }
-  private _isDisable!: boolean;
+  private _isDisable: boolean = false;
   get isDisable(): boolean {
     return this._isDisable;
   }
-
   showMenu!: boolean;
   selectedIndex!: number;
   // TODO: need to define type for each of these
@@ -65,16 +63,20 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   isArrowDown: boolean = true;
   dropDownFieldType = DropdownFieldType;
   menuExtensionDirection = MenuExtensionDirection;
-
   constructor() {
+    console.log('constructor');
   }
 
   ngOnInit(): void {
   }
-  ngAfterViewInit() {  }
-  private _removeToggleAtt(): void {
-    this.fieldId.nativeElement.removeAttribute('data-toggle');
-  }
+  ngAfterViewInit(): void {
+    console.log('ngAfterViewInit');
+    if (this.isDisable) {
+      this.fieldId.nativeElement.removeAttribute('data-toggle');
+      this.iconId.nativeElement.style.display = 'none';
+
+      }
+       }
 
   onInputClick(): void {
   }

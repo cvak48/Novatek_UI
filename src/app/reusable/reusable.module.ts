@@ -59,6 +59,7 @@ import { NvGeneralSettingsComponent } from './nv-general-settings/nv-general-set
 import { NvCompanyGeneralInfoComponent } from './nv-company-general-info/nv-company-general-info.component';
 import { NvDragAndDropDirective } from './directives/drag-drop/drag-and-drop.directive';
 import { UserListTableComponent } from './user-list-table/user-list-table.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
 
 
 const sharedComponents = [
@@ -112,7 +113,8 @@ const sharedComponents = [
   NvGeneralSettingsComponent,
   NvCompanyGeneralInfoComponent,
   NvDragAndDropDirective,
-  UserListTableComponent
+  UserListTableComponent,
+  EditUserComponent
 ];
 
 @NgModule({

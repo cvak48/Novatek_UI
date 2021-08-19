@@ -1,4 +1,4 @@
-import { DropdownFieldType, MenuExtensionDirection, StatusColor } from './../../model/data-model';
+import { DropdownFieldType, MenuExtensionDirection, StatusColor, ArrowIcon } from './../../model/data-model';
 import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 
 /**
@@ -63,6 +63,11 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   isArrowDown: boolean = true;
   dropDownFieldType = DropdownFieldType;
   menuExtensionDirection = MenuExtensionDirection;
+  readonly arrowIcons: ArrowIcon = {
+    upward: '../../../assets/icons/ico.arrow.up.svg',
+    downward: '../../../assets/icons/ico.arrow.down.svg'
+  };
+  readonly plusIcon = {icon: './../../../assets/icons/plus-button.icon.svg'};
   constructor() {
     console.log('constructor');
   }
@@ -72,8 +77,12 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     console.log('ngAfterViewInit');
     if (this.isDisable) {
-      this.fieldId.nativeElement.removeAttribute('data-toggle');
-      this.iconId.nativeElement.style.display = 'none';
+      // this.fieldId.nativeElement.removeAttribute('data-toggle');
+      // this.iconId.nativeElement.style.display = 'none';
+      this.iconId.nativeElement.
+
+      
+
 
       }
        }

@@ -2,6 +2,11 @@
  * All types of data models using Class, Interface and Enum
  */
 
+export interface ArrowIcon {
+    upward: string;
+    downward: string;
+}
+
 export enum DropdownFieldType {
     Button,
     Icon,

@@ -1,5 +1,5 @@
 import { DropdownFieldType, MenuExtensionDirection, StatusColor } from './../../model/data-model';
-import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 
 /**
 * USAGE:
@@ -12,7 +12,7 @@ import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef }
   templateUrl: './nv-dropdown.component.html',
   styleUrls: ['./nv-dropdown.component.scss']
 })
-export class NvDropdownComponent implements OnInit {
+export class NvDropdownComponent implements OnInit, AfterViewInit {
   /**
    * the selected item as an output
    */
@@ -42,7 +42,7 @@ export class NvDropdownComponent implements OnInit {
   /**
    * disabling the dropdown
    */
-  @ViewChild('field') dropDownField!: ElementRef;
+  @ViewChild('fieldId') fieldId!: ElementRef<HTMLElement>;
   @Input() set isDisable(value: boolean) {
     console.log('Input');
     this._isDisable = value;
@@ -50,10 +50,14 @@ export class NvDropdownComponent implements OnInit {
       this.backgroundColor = StatusColor.Disabled;
       this.borderColor = StatusColor.Disabled;
       this.textColor = StatusColor.Disabled;
-
+      this._removeToggleAtt();
     }
   }
   private _isDisable!: boolean;
+  get isDisable(): boolean {
+    return this._isDisable;
+  }
+
   showMenu!: boolean;
   selectedIndex!: number;
   // TODO: need to define type for each of these
@@ -63,20 +67,15 @@ export class NvDropdownComponent implements OnInit {
   menuExtensionDirection = MenuExtensionDirection;
 
   constructor() {
-    console.log('constructor');
-    
-  }
-  private _removeToggleAtt(): void {
-    this.dropDownField.nativeElement.removeAttribute('data-toggle');
   }
 
   ngOnInit(): void {
-    console.log('ngOnInit');
-    // if (this._isDisable) {
-    //   this._removeToggleAtt();
-    // }
-    this.dropDownField.nativeElement.removeAttribute('data-toggle');
   }
+  ngAfterViewInit() {  }
+  private _removeToggleAtt(): void {
+    this.fieldId.nativeElement.removeAttribute('data-toggle');
+  }
+
   onInputClick(): void {
   }
   onBlur() {

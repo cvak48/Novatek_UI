@@ -1,6 +1,6 @@
 <div class="dropdown">
 
-    <button #field id="field" *ngIf="fieldType === dropDownFieldType.Default" type="button" class="btn dropdown-toggle body20 label"  data-toggle="dropdown" 
+    <button #fieldId *ngIf="fieldType === dropDownFieldType.Default" type="button" class="btn dropdown-toggle body20 label"  data-toggle="dropdown" 
     [ngClass]="{'default': isFirst}" (click)="isArrowDown=!isArrowDown" (blur)="onBlur()"
       nvBackgroundColor [color]="backgroundColor" nvBorderColor [color]="borderColor" nvTextColor [color]="textColor" >
       {{selectedItem | nvTrim: textTrimNumber}}

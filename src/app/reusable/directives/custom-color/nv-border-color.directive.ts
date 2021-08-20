@@ -1,4 +1,4 @@
-import { StatusColor } from '../../../../model/data-model';
+import { StatusColor } from '../../../model/data-model';
 import { Directive, Renderer2, ElementRef, Input, OnInit, OnDestroy } from '@angular/core';
 
 @Directive({

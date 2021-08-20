@@ -1,3 +1,4 @@
+import { map } from 'rxjs/operators';
 import { DropdownFieldType, MenuExtensionDirection, StatusColor, ArrowIcon } from './../../model/data-model';
 import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 
@@ -42,7 +43,7 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
    * disabling the dropdown
    */
   @ViewChild('fieldId') fieldId!: ElementRef<HTMLElement>;
-  @ViewChild('icon') iconId!: ElementRef<HTMLElement>;
+  @ViewChild('arrow') arrow!: ElementRef<HTMLObjectElement>;
   @Input() set isDisable(value: boolean) {
     console.log('Input');
     this._isDisable = value;
@@ -52,7 +53,7 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
       this.textColor = StatusColor.Disabled;
     }
   }
-  private _isDisable: boolean = false;
+  private _isDisable: boolean = true;
   get isDisable(): boolean {
     return this._isDisable;
   }
@@ -67,7 +68,7 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
     upward: '../../../assets/icons/ico.arrow.up.svg',
     downward: '../../../assets/icons/ico.arrow.down.svg'
   };
-  readonly plusIcon = {icon: './../../../assets/icons/plus-button.icon.svg'};
+  readonly plusIcon = { icon: './../../../assets/icons/plus-button.icon.svg' };
   constructor() {
     console.log('constructor');
   }
@@ -76,20 +77,18 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   }
   ngAfterViewInit(): void {
     console.log('ngAfterViewInit');
-    if (this.isDisable) {
-      // this.fieldId.nativeElement.removeAttribute('data-toggle');
-      // this.iconId.nativeElement.style.display = 'none';
-      this.iconId.nativeElement.
+    // this.fieldId.nativeElement.removeAttribute('data-toggle');
+    // this.iconId.nativeElement.style.display = 'none';
+    //  const svgDoc = this.arrow.nativeElement.contentDocument;
+    //  console.log(svgDoc?.getElementById('ico.arrow.down-2'));
+     
+    //  svgDoc?.getElementById('ico.arrow.down-2')?.setAttribute('fill', 'red');
 
-      
-
-
-      }
-       }
+  }
 
   onInputClick(): void {
   }
-  onBlur() {
+  onBlur(): void {
     this.isArrowDown = true;
   }
   /**

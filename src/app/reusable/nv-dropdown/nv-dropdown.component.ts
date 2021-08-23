@@ -42,21 +42,22 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   /**
    * disabling the dropdown
    */
-  @ViewChild('fieldId') fieldId!: ElementRef<HTMLElement>;
+  @ViewChild('fieldId1') fieldId1!: ElementRef<HTMLElement>;
+  @ViewChild('fieldId2') fieldId2!: ElementRef<HTMLObjectElement>;
+  @ViewChild('fieldId3') fieldId3!: ElementRef<HTMLElement>;
   @ViewChild('icon') iconId!: ElementRef<HTMLElement>;
   @ViewChild('arrow') arrow!: ElementRef<HTMLObjectElement>;
-  @Input() set isDisable(value: boolean) {
-    console.log('Input');
-    this._isDisable = value;
-    if (this._isDisable) {
+  @Input() set isFieldDisable(value: boolean) {
+    this._isFieldDisable = value;
+    if (this._isFieldDisable) {
       this.backgroundColor = StatusColor.Disabled;
       this.borderColor = StatusColor.Disabled;
       this.textColor = StatusColor.Disabled;
     }
   }
-  private _isDisable: boolean = true;
-  get isDisable(): boolean {
-    return this._isDisable;
+  private _isFieldDisable: boolean = true;
+  get isFieldDisable(): boolean {
+    return this._isFieldDisable;
   }
   showMenu!: boolean;
   selectedIndex!: number;
@@ -70,26 +71,52 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
     downward: '../../../assets/icons/ico.arrow.down.svg'
   };
   readonly plusIcon = { icon: './../../../assets/icons/plus-button.icon.svg' };
-  constructor() {  }
-
+  constructor() { }
+  onSvgClick() {
+    console.log('hi svg');
+    
+  }
   ngOnInit(): void {
   }
   ngAfterViewInit(): void {
-    // this.fieldId.nativeElement.removeAttribute('data-toggle');
-    // this.iconId.nativeElement.style.display = 'none';
-    
-    const svgDoc = this.arrow.nativeElement.contentDocument;
+    if (this.isFieldDisable) {
+     // const svgArrowDoc = this.arrow.nativeElement.contentDocument?.getElementById('ico.arrow.down-2')?.setAttribute('fill', 'green');
+      /**
+       * Remove toggle to disable the dropdown menu
+       */
+      if (this.fieldType === this.dropDownFieldType.Default) {
+        this.fieldId1.nativeElement.removeAttribute('data-toggle');
+      } else if (this.fieldType === this.dropDownFieldType.Button) {
+        this.fieldId3.nativeElement.removeAttribute('data-toggle');
+      } else if (this.dropDownFieldType.Icon) {
+        // this.fieldId2.nativeElement.removeAttribute('data-toggle');
+      /**
+       *  plus icon color
+       */
+      // const svgPlusDoc = this.arrow.nativeElement.contentDocument.
+      }
+      /**
+       * Remove icons; triangles
+       * they are disabled in html
+       */
+      const svgPlusDoc = this.fieldId2.nativeElement.contentDocument?.documentElement;
+      // const cw = this.fieldId2.nativeElement?.contentWindow?.addEventListener("click", () => {
+      //   console.log('hi');
+        
+      // });
 
 
-    const rectElement = svgDoc?.getElementById('Plus_Sign');
-
-    if (rectElement) {
-      console.log('rectElement' + rectElement);
-      // rectElement.setAttribute('class', 'svg-color');
-      // this.renderer.addClass(rectElement, 'svg-color');
-
-      // this.renderer.setStyle(rectElement, 'fill', 'green');
     }
+
+
+
+
+
+    //const rectElement = svgDoc?.getElementById('Plus_Sign');
+
+    // if (rectElement) {
+    // this.renderer.setStyle(rectElement, 'fill', 'green');
+    // }
   }
 
   onInputClick(): void {

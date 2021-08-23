@@ -116,7 +116,7 @@ function mockDropdown(): any {
     itemsNumber: ['1', '2', '3', '4', '5', '11', '22', '33', '44', '55'],
     textTrimNumber: 2,
     selectedItemDefault: 'Page',
-    dropDownFieldType: DropdownFieldType.Default,
+    dropDownFieldType: DropdownFieldType.Icon,
     backgroundColor: StatusColor.Disabled,
     borderColor: StatusColor.Disabled,
     textColor: StatusColor.Disabled,

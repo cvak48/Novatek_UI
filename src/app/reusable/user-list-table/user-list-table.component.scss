@@ -18,6 +18,9 @@ mat-paginator {
   padding-left: 1%;
 }
 
+tr.mat-row, tr.mat-footer-row {
+  height: 48px;
+}
 
 ::ng-deep .mat-icon {
   fill: $color-white !important;

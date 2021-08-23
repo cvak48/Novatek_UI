@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-nv-table-panel',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nv-table-panel.component.scss']
 })
 export class NvTablePanelComponent implements OnInit {
+  @Input() panelNum!: string;
+  @Output() panelClick: EventEmitter<boolean> = new EventEmitter();
   showPanel: boolean = false;
   page = 1;
   count = 0;
@@ -27,6 +29,10 @@ export class NvTablePanelComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  buttonClick(): void{
+    this.panelClick.emit();
   }
 
 }

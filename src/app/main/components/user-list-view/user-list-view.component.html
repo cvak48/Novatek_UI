@@ -3,19 +3,14 @@
 <br>
 
   <div class="row">
-        <div class="col-md-8 style-right">
-         
-           
-            <app-nova-panel title="User Management">
-             <app-user-list-table></app-user-list-table>
-            </app-nova-panel>
-          
-        
+        <div class="col-md-12" *ngIf="showPanel == '1'">
+            <app-nv-table-panel panelNum="1" (panelClick)="panelClicked('1')"></app-nv-table-panel>
         </div>
-        <div class="col-md-4 style-left">
-            <app-nova-panel title="Edit Users(5)">
-              <app-edit-user></app-edit-user>
-            </app-nova-panel>
+        <div class="col-md-5" *ngIf="showPanel != '1'">
+          <app-nv-table-panel panelNum="2" (panelClick)="panelClicked('2')"></app-nv-table-panel>
+        </div>
+        <div class="col-md-5" *ngIf="showPanel == '3'">
+          <app-nv-table-panel panelNum="3" (panelClick)="panelClicked('3')"></app-nv-table-panel>
         </div>
         </div>
   <br>

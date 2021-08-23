@@ -14,17 +14,18 @@ export class SvgDecoratorDirective implements AfterViewInit {
     /**
      * directive logic ico.arrow.down
      */
-    const svgDoc = this.element.nativeElement.contentDocument;
+    // const svgDoc: Document | null = this.element.nativeElement.contentDocument;
 
-    const rectElement = svgDoc?.getElementById('Plus_Sign');
+    // const rectElement = svgDoc?.getElementById('Plus_Sign');
+    const rectElement = this.element.nativeElement.contentDocument?.getElementById('Plus_Sign');
 
     if (rectElement) {
-      console.log(rectElement);
-      rectElement.setAttribute('class', 'svg-color');
-      // this.renderer.addClass(rectElement, 'svg-color');
-
-      // this.renderer.setStyle(rectElement, 'fill', 'green');
+      this.renderer.setStyle(rectElement, 'fill', 'green');
     }
+
+    this.element.nativeElement.removeAttribute('data-toggle');
+    // this.element.nativeElement.style.display = 'none';
+    // this.renderer.setStyle(this.element, 'display', 'none' );
 
   }
 

@@ -1,6 +1,6 @@
 import { map } from 'rxjs/operators';
 import { DropdownFieldType, MenuExtensionDirection, StatusColor, ArrowIcon } from './../../model/data-model';
-import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef, AfterViewInit, Renderer2 } from '@angular/core';
 
 /**
 * USAGE:
@@ -43,6 +43,7 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
    * disabling the dropdown
    */
   @ViewChild('fieldId') fieldId!: ElementRef<HTMLElement>;
+  @ViewChild('icon') iconId!: ElementRef<HTMLElement>;
   @ViewChild('arrow') arrow!: ElementRef<HTMLObjectElement>;
   @Input() set isDisable(value: boolean) {
     console.log('Input');
@@ -69,21 +70,26 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
     downward: '../../../assets/icons/ico.arrow.down.svg'
   };
   readonly plusIcon = { icon: './../../../assets/icons/plus-button.icon.svg' };
-  constructor() {
-    console.log('constructor');
-  }
+  constructor() {  }
 
   ngOnInit(): void {
   }
   ngAfterViewInit(): void {
-    console.log('ngAfterViewInit');
     // this.fieldId.nativeElement.removeAttribute('data-toggle');
     // this.iconId.nativeElement.style.display = 'none';
-    //  const svgDoc = this.arrow.nativeElement.contentDocument;
-    //  console.log(svgDoc?.getElementById('ico.arrow.down-2'));
-     
-    //  svgDoc?.getElementById('ico.arrow.down-2')?.setAttribute('fill', 'red');
+    
+    const svgDoc = this.arrow.nativeElement.contentDocument;
 
+
+    const rectElement = svgDoc?.getElementById('Plus_Sign');
+
+    if (rectElement) {
+      console.log('rectElement' + rectElement);
+      // rectElement.setAttribute('class', 'svg-color');
+      // this.renderer.addClass(rectElement, 'svg-color');
+
+      // this.renderer.setStyle(rectElement, 'fill', 'green');
+    }
   }
 
   onInputClick(): void {

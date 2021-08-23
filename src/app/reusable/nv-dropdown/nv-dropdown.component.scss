@@ -93,9 +93,7 @@ $icons-distance: 8px;
     height: 40px;
     background-color: $color-light-gray-22;
     border-radius: 4px;
-    .svg-color {
-      fill: red !important;
-    }
+
   }
 
   .dropdown-menu {
@@ -136,12 +134,7 @@ $icons-distance: 8px;
 
 
 
-/**
-* SVG decorators class
-*/
-::ng-deep .svg-color {
-  fill: red !important;
-}
+
 
 @media (min-width: 576px) {
   .container {

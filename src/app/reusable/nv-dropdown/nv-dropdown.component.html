@@ -2,19 +2,19 @@
 
     <button #fieldId *ngIf="fieldType === dropDownFieldType.Default" type="button" class="btn dropdown-toggle body20 label"  data-toggle="dropdown" 
     [ngClass]="{'default': isFirst}" (click)="isArrowDown=!isArrowDown" (blur)="onBlur()"
-      nvBackgroundColor [color]="backgroundColor" nvBorderColor [color]="borderColor" nvTextColor [color]="textColor" >
+      nvBackgroundColor [color]="backgroundColor" nvBorderColor [color]="borderColor" nvTextColor [color]="textColor" nvSvgDecorator>
       {{selectedItem | nvTrim: textTrimNumber}}
       <ng-container [ngTemplateOutlet]="arrowTemplate" [ngTemplateOutletContext]="{isArrowDown:isArrowDown}"></ng-container>
     </button>
-    <object  #fieldId *ngIf="fieldType === dropDownFieldType.Icon" class="dropdown-icon" data-toggle="dropdown" 
-     data="./../../../assets/icons/plus-button.icon.svg" type="image/svg+xml"  nvSvgDecorator ></object>
+    <object #arrow  #fieldId  *ngIf="fieldType === dropDownFieldType.Icon" nvSvgDecorator class="dropdown-icon" data-toggle="dropdown" 
+     data="./../../../assets/icons/plus-button.icon.svg" type="image/svg+xml"   ></object>
     <button #fieldId *ngIf="fieldType === dropDownFieldType.Button" type="button" class="btn dropdown-button body20 label" data-toggle="dropdown" 
       (click)="isArrowDown=!isArrowDown" (blur)="onBlur()">
       {{'Dropdown Button'}}
       <ng-container [ngTemplateOutlet]="arrowTemplate" [ngTemplateOutletContext]="{isArrowDown:isArrowDown}"></ng-container>
     </button>
 
-  <div class="dropdown-menu"   [ngClass]=" (extensionDirection === menuExtensionDirection.ToLeft) ? 'dropdown-menu-right': '' ">
+  <div class="dropdown-menu" [ngClass]=" (extensionDirection === menuExtensionDirection.ToLeft) ? 'dropdown-menu-right': '' ">
     <div class="dropdown-item body20" *ngFor="let item of items; let i = index" (click)="onItemSelect(i)"
       [ngClass]="{'selected-item': i==selectedIndex}"> {{item}}</div>
   </div>
@@ -24,9 +24,9 @@
 <ng-template #arrowTemplate let-item="isArrowDown">
   <!-- <img #icon *ngIf="isArrowDown" class="arrow-icon"  src="{{arrowIcons?.downward}}"> -->
   <!-- <img *ngIf="!isArrowDown" class="arrow-icon" src="{{arrowIcons?.upward}}"> -->
-  <object  *ngIf="isArrowDown" class="arrow-icon"  data="../../../assets/icons/ico.arrow.down.svg" 
-  type="image/svg+xml" ></object>
-  <object  *ngIf="!isArrowDown" class="arrow-icon"  data="../../../assets/icons/ico.arrow.up.svg"
-     type="image/svg+xml" ></object>
+  <object #icon *ngIf="isArrowDown" class="arrow-icon"  data="../../../assets/icons/ico.arrow.down.svg" 
+  type="image/svg+xml" nvSvgDecorator></object>
+  <object #icon  *ngIf="!isArrowDown" class="arrow-icon"  data="../../../assets/icons/ico.arrow.up.svg"
+     type="image/svg+xml" nvSvgDecorator></object>
 
 </ng-template>

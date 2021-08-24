@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-list-view.component.scss']
 })
 export class UserListViewComponent implements OnInit {
+  isLeftVisible = true;
+
   showPanel: string = '1';
   constructor() { }
 
@@ -26,7 +28,8 @@ export class UserListViewComponent implements OnInit {
         break;
     }
    // this.showPanel = panel;
-    console.log('panel clicked', panel)
+    console.log('panel clicked', panel);
+    this.isLeftVisible = !this.isLeftVisible
   }
 
 }

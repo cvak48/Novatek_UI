@@ -1,0 +1,68 @@
+@import "./../../reusable/theme/base.scss";
+
+.form-control:focus {
+    border-color: #727272;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.label-weight {
+    font-weight: 600;
+    font-family: Lato;
+}
+
+::placeholder { /* Most modern browsers support this now. */
+    color:$color-dark-gray-30;
+ }
+
+ .forgot-user {
+    float: right;
+    text-decoration: underline;
+    color: $color-dark-blue-12;
+    cursor: pointer;
+}
+
+::ng-deep .is-valid {
+    border-color:#A8C599;
+    background-color: #FCFFF5;
+}
+
+.is-notValid {
+    color: #DB2828;
+}
+
+::ng-deep .is-invalid {
+    border-color: #973937 !important;
+    background-color: #FFF6F6;
+}
+
+.icon {
+    position: absolute;
+    top: 205px;
+    left: 332px;
+}
+
+#input_container {
+    position:relative;
+}
+#input {
+    height:20px;
+    margin:0;
+    padding-right: 30px;
+    width: 100%;
+}
+#input_img {
+    position:absolute;
+    bottom:4px;
+    right:0px;
+    width:24px;
+    height:24px;
+}
+
+.sucess-check {
+    color: #198515
+}
+
+.danger-check {
+    color: #DB2828
+}

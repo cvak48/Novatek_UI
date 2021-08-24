@@ -52,6 +52,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { NvCustomTableComponent } from './nv-custom-table/nv-custom-table.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ProgressiveBarComponent } from './progressive-bar/progressive-bar.component';
+import { NvInputComponent } from './nv-input/nv-input.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
@@ -100,7 +101,8 @@ const sharedComponents = [
   NvCustomTableComponent,
   ProgressiveBarComponent,
   NvDataPickerComponent,
-  NvButtonComponent
+  NvButtonComponent,
+  NvInputComponent
 ];
 
 @NgModule({

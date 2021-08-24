@@ -1,5 +1,5 @@
 <div class="form-group" id="input_container">
-    <label for="name" class="control-label label-weight is-notValid">{{label}}</label>
+    <label for="name" class="control-label label-weight">{{label}}</label>
     <label for="forgotuser" (click)='emitEvent(secondaryLabel)'  class="control-label forgot-user">{{secondaryLabel}}</label>
     <input [type]='inputType' [disabled]='disableInput' [ngClass]="status" class="form-control" [placeholder]='inputPlaceHolder'
         autocomplete="off" required  [ngModel]="sharedVar" (ngModelChange)="change($event)">

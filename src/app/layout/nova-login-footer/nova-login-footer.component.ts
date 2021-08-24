@@ -7,19 +7,23 @@ import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 export class NovaLoginFooterComponent implements OnInit {
   @Output() langTxt = new EventEmitter();
   flagIcon = '../../../assets/icons/ico.flag.svg';
-  public Domain =[
-    {item: 'English'},
-    {item: 'French'}
+//   public Domain =[
+//     {item: 'English'},
+//     {item: 'French'}
+// ]
+public Domain =[
+  'English',
+  'French'
 ]
-public selectedItem = 'English';
+public selectedItems = 'English';
   constructor() { }
 
   ngOnInit(): void {
   }
 
   onChange(value:string) {
-    this.selectedItem = value; 
-    this.langTxt.emit(this.selectedItem);
+    this.selectedItems = value; 
+    this.langTxt.emit(this.selectedItems);
 }
 
 

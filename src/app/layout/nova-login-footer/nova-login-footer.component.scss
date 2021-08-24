@@ -30,3 +30,26 @@ ul.list-inlin.login-txt {
   height: 23px;
   font-size: 13px;
 }
+.lang-item {
+  width: 87px !important;
+  display: inline-flex;
+  max-height: 10px;
+}
+
+.lang-item .dropdown-menu {
+  max-width: 87px !important;
+  width: 87px !important;
+}
+
+::ng-deep .lang-item {
+  width: 70%;
+  height: 40px !important;
+  margin-left: 10px; 
+.dropdown{
+       border: none !important;
+      }
+.dropdown-menu {
+  max-width: 87px !important;
+  width: 87px !important;
+   } 
+}

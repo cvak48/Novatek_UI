@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { DropdownFieldType } from 'src/app/model/data-model';
 import { fadeInAndOut } from '../../../assets/trigger';
 @Component({
   selector: 'app-login',
@@ -12,16 +13,37 @@ import { fadeInAndOut } from '../../../assets/trigger';
 
 })
 export class LoginComponent implements OnInit {
-
-  public variableList = {
+  selectedLang = 'English';
+  isResendSubmitted = false;
+  isEmailInvalid = false;
+  showSubmitBtn = false;
+  showNextBtn = true;
+  showResendBtn = false;
+  showLoginBtn = false;
+  showLoginTxt = true;
+  showPasswordTxt = false;
+  showForgotUsrnameTxt = false;
+  showForgotPasswordTxt = false;
+  showConfirmationTxt = false;
+  // dropDown Menu
+  dropdownItemsMenu = this.mockMenuDropdown().items;
+  textTrimNumberMenu = this.mockMenuDropdown().textTrimNumber;
+  selectedItemDefaultMenu = this.mockMenuDropdown().selectedItemDefault;
+  dropDownFieldTypeMenu = this.mockMenuDropdown().dropDownFieldType;
+  public variableList:any = {
     selectedNumber: 2,
-    count:0,
+    count:1,
     usernamePlaceholder: 'Enter Username',
+    usernameLabel: 'Username',
     Next: 'Next',
     Login: 'Login',
+    Resend: 'Resend',
+    Submit: 'Submit',
     stateTxt: 'Select Site',
     domainTxt: 'Select Domain',
     btnText: 'Next',
+    Cancel: 'Cancel',
+    ConfirmationText: 'Confirmation',
     cardHeading: 'User Login',
     forgotUserName: 'Forgot Username',
     passwordPlaceholder: 'Enter Password',
@@ -29,16 +51,10 @@ export class LoginComponent implements OnInit {
     passwordLabel: 'Password',
     isValid: 'is-valid',
     isInValid: 'is-invalid',
-    emailLabel: 'Email',
-    emailPlaceholder: 'Enter Email',
+    emailLabel: 'E-mail',
+    emailPlaceholder: 'Enter Your E-mail',
     confirmEmailLabel: 'Confirm-Email',
     confirmEmailPlaceholder: 'Confirm-Email',
-    confirmEmailInput: '',
-    emailInput: '',
-    userNameInput: '',
-    noValidation: '',
-    confirmEmailValidation: '',
-    emailValidation: '',
     showPassword: false,
     confirmation: false,
     passwordDetails: false,
@@ -55,12 +71,18 @@ export class LoginComponent implements OnInit {
     ]
 };
 
+public emptyVariableList ={
+  confirmEmailInput: '',
+  emailInput: '',
+  userNameInput: '',
+  noValidation: '',
+  confirmEmailValidation: '',
+  emailValidation: '',
+}
+
   constructor(public translate: TranslateService) {
     translate.addLangs(['en-US', 'fr-FR']);
     translate.setDefaultLang('en-US');
-    console.log(this.translate.instant('userName'));
-    // const browserLang = translate.getBrowserLang();
-    // translate.use(browserLang.match(/fr|fr-FR/) ? 'fr-FR' : 'en-US');
   }
 
   /**
@@ -77,41 +99,66 @@ export class LoginComponent implements OnInit {
   btnClick(text: string) {
     switch (text) {
       case 'Next':
-        if (this.variableList.userNameInput.length > 0) {
+      case 'Prochaine':
+        if (this.emptyVariableList.userNameInput.length > 0) {
           this.variableList.noValidation = this.variableList.isValid;
           this.variableList.showPassword = true;
-          this.variableList.btnText = this.variableList.Login;
+          //this.variableList.btnText = this.variableList.Login;
           this.variableList.confirmation = false;
           this.variableList.passwordDetails = true;
-          this.variableList.cardHeading = this.variableList.passwordPlaceholder;
+          //this.variableList.cardHeading = this.variableList.passwordLabel;
+          this.showSubmitBtn = false;
+          this.showResendBtn = false;
+          this.showNextBtn = false;
+          this.showLoginBtn = true;
+          this.showLoginTxt = false;
+          this.showPasswordTxt = true;
+          this.showForgotUsrnameTxt = false;
+          this.showForgotPasswordTxt = false;
+          this.showConfirmationTxt = false;
+          //this.variableList.cardHeading = this.variableList.passwordPlaceholder; -- don't delete
         } else {
           this.variableList.noValidation = this.variableList.isInValid;
         }
         break;
       case 'Reset':
-        if(this.variableList.emailInput.length>0 && this.variableList.emailInput.includes('@')) {
-          this.variableList.btnText = 'Resend';
+        if(this.emptyVariableList.emailInput.length>0 && this.emptyVariableList.emailInput.includes('@')) {
+          if(this.selectedLang === 'French'){
+            this.variableList.btnText = 'Renvoyer';
+          }else {
+            this.variableList.btnText = 'Resend';
+          }
           this.recoveryConfirmation();
         } else {
           this.variableList.emailValidation = this.variableList.isInValid;
+          this.isEmailInvalid = true;
         }
-
         break;
-      case 'Sent':
+      case 'Submit':
+      case 'nous':  
         this.emailValidation();
-
         break;
       case 'Login':
-
-        break;
+      case 'Connexion':
         break;
       case 'Resend':
+      case 'Renvoyer':
+        this.showResendBtn = true;
         this.variableList.count = this.variableList.count+1;
-
+        if(this.variableList.count > 1){
+          this.isResendSubmitted = true;
+        }else {
+          this.isResendSubmitted = false;
+        }
         break;
       default:
         this.cancelClick();        
-        this.variableList.cardHeading = 'User Login';
+        //this.variableList.cardHeading = 'User Login';
+        this.showLoginTxt = true;
+        this.showPasswordTxt = false;
+        this.showForgotUsrnameTxt = false;
+        this.showForgotPasswordTxt = false;
+        this.showConfirmationTxt = false;
         break;
     }
   }
@@ -122,24 +169,14 @@ export class LoginComponent implements OnInit {
   * If user gave the valid email then it will check if email and email confirmation are same
   */
   public emailValidation() {
-    if (this.variableList.emailInput.length > 0 && this.variableList.confirmEmailInput.length > 0 && this.variableList.emailInput.includes('@') && this.variableList.confirmEmailInput.includes('@')) {
+    if (this.emptyVariableList.emailInput.length > 0  && this.emptyVariableList.emailInput.includes('@') ) {
       this.variableList.emailValidation = '';
       this.variableList.confirmEmailValidation = '';
-      if (this.variableList.emailInput == this.variableList.confirmEmailInput) {
-        this.recoveryConfirmation();
-      } else {
-        this.variableList.confirmEmailValidation = this.variableList.isInValid;
-        this.variableList.confirmEmailNotMatch = true;
-      }
+      this.isEmailInvalid = false;
+      this.recoveryConfirmation();
     } else {
-      if (this.variableList.emailInput.length == 0 || !this.variableList.emailInput.includes('@')) {
         this.variableList.emailValidation = this.variableList.isInValid;
-      } else {
-        this.variableList.emailValidation = '';
-      }
-      if (this.variableList.confirmEmailInput.length == 0 || !this.variableList.confirmEmailInput.includes('@')) {
-        this.variableList.confirmEmailValidation = this.variableList.isInValid;
-      }
+        this.isEmailInvalid = true;
     }
   }
 
@@ -152,14 +189,31 @@ export class LoginComponent implements OnInit {
     this.variableList.hideLogin = true;
     switch (text) {
       case 'Forgot Password':
-        this.variableList.btnText = 'Reset';
-        this.variableList.cardHeading = this.variableList.forgotPassword;
+      case 'Mot de passe oublié':
+        this.showSubmitBtn = true;
+        this.showNextBtn = false;
+        this.showResendBtn = false;
+        this.showLoginBtn = false;
+        //this.variableList.cardHeading = this.variableList.forgotPassword;
         this.variableList.showPassword = true;
+        this.showLoginTxt = false;
+        this.showPasswordTxt = false;
+        this.showForgotUsrnameTxt = false;
+        this.showForgotPasswordTxt = true;
+        this.showConfirmationTxt = false;
         break;
-
+      // using Forgot Username as default case
       default:
-        this.variableList.btnText = 'Sent';
-        this.variableList.cardHeading = this.variableList.forgotUserName;
+        this.showSubmitBtn = true;
+        this.showNextBtn = false;
+        this.showResendBtn = false;
+        this.showLoginBtn = false;
+        //this.variableList.cardHeading = this.variableList.forgotUserName;
+        this.showLoginTxt = false;
+        this.showPasswordTxt = false;
+        this.showForgotUsrnameTxt = true;
+        this.showForgotPasswordTxt = false;
+        this.showConfirmationTxt = false;
         this.variableList.showPassword = true;
         break;
     }
@@ -170,9 +224,17 @@ export class LoginComponent implements OnInit {
   */
 
   public recoveryConfirmation() {
-    this.variableList.cardHeading = 'Confirmation';
+    //this.variableList.cardHeading = this.variableList.ConfirmationText;
+    this.showLoginTxt = false;
+    this.showPasswordTxt = false;
+    this.showForgotUsrnameTxt = false;
+    this.showForgotPasswordTxt = false;
+    this.showConfirmationTxt = true;
     this.variableList.confirmation = true;
-    this.variableList.btnText = 'Resend';
+    this.showSubmitBtn = false;
+    this.showResendBtn = true;
+    this.showNextBtn = false;
+    this.showLoginBtn = false;
     this.variableList.showPassword = false;
   }
 
@@ -180,28 +242,75 @@ export class LoginComponent implements OnInit {
   * when user click on the login or cancel then we will reset all the variables to starting stage.
   */
   public cancelClick() {
+    this.showSubmitBtn = false;
+    this.showNextBtn = true;
+    this.showResendBtn = false;
+    this.showLoginBtn = false;
     this.variableList.showPassword = false;
+    this.isResendSubmitted = false;
     this.variableList.hideLogin = false;
     this.variableList.passwordDetails = false;
-    this.variableList.btnText = 'Next';
+    this.showLoginTxt = true;
+    this.showPasswordTxt = false;
+    this.showForgotUsrnameTxt = false;
+    this.showForgotPasswordTxt = false;
+    this.showConfirmationTxt = false;
     this.variableList.confirmation = false;
-    this.variableList.cardHeading = "User Login";
     this.variableList.emailValidation = '';
     this.variableList.confirmEmailValidation = '';
+    this.isEmailInvalid = false;
     this.variableList.confirmEmailNotMatch = false;
     this.variableList.confirmEmailInput = '';
     this.variableList.emailInput = '';
-    this.variableList.count = 0;
-    this.variableList.userNameInput = '';
+    this.variableList.count = 1;
+    this.emptyVariableList.userNameInput = '';
     this.variableList.noValidation = '';
   }
 
   public changeLang(event: string) {
     if (event == 'French') {
       this.translate.use('fr-FR');
+      this.selectedLang = 'French';
+      this.transilateVar();
     } else {
       this.translate.use('en-US');
+      this.selectedLang = 'English';
+      this.transilateVar();
     }
+  }
+
+  private transilateVar() {
+    for (var key of Object.keys(this.variableList)) {
+      if (typeof (this.variableList[key]) !== "number") {
+        if (this.variableList[key].length > 0) {
+          this.transilateLang(key);
+        }
+      }
+    }
+  }
+
+  private transilateLang(key: string) {
+    this.translate.get(key).subscribe(res => {
+      this.variableList[key] = res
+    });
+  }
+
+  onDomainChange(item: string): void {
+    console.log('selected item ' + +item);
+  }
+  
+  mockMenuDropdown(): any {
+    const dropdownInputs = {
+      items: ['Doctor', 'Pharma', 'Nurse'],
+      textTrimNumber: 2,//5
+      selectedItemDefault: 'Select Domain',
+      dropDownFieldType: DropdownFieldType.Default,
+    };
+    return dropdownInputs;
+  }
+
+  login(){
+    console.log('TODO - login');
   }
 
 }

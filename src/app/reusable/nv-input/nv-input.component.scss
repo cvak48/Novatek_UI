@@ -32,7 +32,7 @@
 }
 
 ::ng-deep .is-invalid {
-    border-color: #973937;
+    border-color: #973937 !important;
     background-color: #FFF6F6;
 }
 
@@ -53,8 +53,8 @@
 }
 #input_img {
     position:absolute;
-    bottom:2px;
-    right:5px;
+    bottom:4px;
+    right:0px;
     width:24px;
     height:24px;
 }

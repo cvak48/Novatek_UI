@@ -3,16 +3,6 @@
 <br>
 
   <div class="row">
-       <!-- <div class="col-md-12" *ngIf="showPanel == '1'">
-            <app-nv-table-panel panelNum="1" (panelClick)="panelClicked('1')"></app-nv-table-panel>
-        </div>
-        <div class="col-md-5" *ngIf="showPanel != '1'">
-          <app-nv-table-panel panelNum="2" (panelClick)="panelClicked('2')"></app-nv-table-panel>
-        </div>
-        <div class="col-md-5" *ngIf="showPanel == '3'">
-          <app-nv-table-panel panelNum="3" (panelClick)="panelClicked('3')"></app-nv-table-panel>
-        </div>-->
-
         <app-slide-panel class="wth-100" [activePane]="isLeftVisible ? 'left' : 'right'">
           <div leftPane>
             <div class="col-md-12" >
@@ -20,11 +10,11 @@
           </div>
           </div>
           <div rightPane>
-            <div class="row">
-            <div class="col-md-5" >
+            <div class="row mg-0">
+            <div class="col-md-6 style-right" >
               <app-nv-table-panel panelNum="2" (panelClick)="panelClicked('2')"></app-nv-table-panel>
             </div>
-            <div class="col-md-5" *ngIf="showPanel == '3'">
+            <div class="col-md-6 style-left" *ngIf="showPanel == '3'">
               <app-nv-table-panel panelNum="3" (panelClick)="panelClicked('3')"></app-nv-table-panel>
             </div>
           </div>

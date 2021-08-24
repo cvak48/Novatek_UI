@@ -2,6 +2,7 @@
 
 .custom-card {
     border-radius: 8px !important;
+    
   .card-header {
     font-size: 12px;
     padding: 0px 12px 0px 10px;
@@ -71,8 +72,9 @@
   }
 
   .card-content-box{
-    min-height: 200px;
     background-color: $color-white-20;
+    padding: 10px;
+    min-height: 284px;
   }
 
   .card-footer{
@@ -93,8 +95,18 @@
     display: inline-block;
   }
 
+  .style-right {
+    margin-right: 0px;
+    padding-right: 0px;
+  }
+  .style-left {
+    margin-left: -10px;
+    padding-left: 0;
+    padding-right: 5px;
+  }
+
  
 }
 .mr-div-2{
-  margin:2% !important;
+  margin: 0 10px !important;
 }

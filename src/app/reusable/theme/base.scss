@@ -327,5 +327,9 @@ color: $color-dark-gray-13 !important;
   color: $color-dark-gray-13 !important;
 }
 
+::ng-deep .plus-sign {
+  fill: red !important;
+}
+
 
 

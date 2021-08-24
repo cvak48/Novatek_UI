@@ -33,4 +33,7 @@ ul.ngx-pagination.responsive {
   padding-left: 17px;
 }
 
+::ng-deep .plus-sign {
+  fill: red !important;
+}
 

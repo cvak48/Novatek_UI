@@ -60,6 +60,7 @@ import { NvCompanyGeneralInfoComponent } from './nv-company-general-info/nv-comp
 import { NvDragAndDropDirective } from './directives/drag-drop/drag-and-drop.directive';
 import { UserListTableComponent } from './user-list-table/user-list-table.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
+import { SlidePanelComponent } from './slide-panel/slide-panel.component';
 
 
 const sharedComponents = [
@@ -114,7 +115,8 @@ const sharedComponents = [
   NvCompanyGeneralInfoComponent,
   NvDragAndDropDirective,
   UserListTableComponent,
-  EditUserComponent
+  EditUserComponent,
+  SlidePanelComponent
 ];
 
 @NgModule({

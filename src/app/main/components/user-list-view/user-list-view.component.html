@@ -3,7 +3,7 @@
 <br>
 
   <div class="row">
-        <div class="col-md-12" *ngIf="showPanel == '1'">
+       <!-- <div class="col-md-12" *ngIf="showPanel == '1'">
             <app-nv-table-panel panelNum="1" (panelClick)="panelClicked('1')"></app-nv-table-panel>
         </div>
         <div class="col-md-5" *ngIf="showPanel != '1'">
@@ -11,11 +11,25 @@
         </div>
         <div class="col-md-5" *ngIf="showPanel == '3'">
           <app-nv-table-panel panelNum="3" (panelClick)="panelClicked('3')"></app-nv-table-panel>
-        </div>
+        </div>-->
+
+        <app-slide-panel class="wth-100" [activePane]="isLeftVisible ? 'left' : 'right'">
+          <div leftPane>
+            <div class="col-md-12" >
+              <app-nv-table-panel panelNum="1" (panelClick)="panelClicked('1')"></app-nv-table-panel>
+          </div>
+          </div>
+          <div rightPane>
+            <div class="row">
+            <div class="col-md-6" >
+              <app-nv-table-panel panelNum="2" (panelClick)="panelClicked('2')"></app-nv-table-panel>
+            </div>
+            <div class="col-md-6" *ngIf="showPanel == '3'">
+              <app-nv-table-panel panelNum="3" (panelClick)="panelClicked('3')"></app-nv-table-panel>
+            </div>
+          </div>
+          </div>
+        </app-slide-panel>
         </div>
   <br>
-   
-  
-   
-
 <app-nova-footer></app-nova-footer>

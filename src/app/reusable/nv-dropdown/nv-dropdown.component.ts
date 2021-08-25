@@ -80,12 +80,12 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
     this.fieldId2.nativeElement?.contentWindow?.addEventListener('click', () => {
       const hasShowClass = this.menu.nativeElement.classList.contains('show');
       if (!this.isFieldDisable) {
-      if ( hasShowClass) {
-        this.renderer.removeClass(this.menu.nativeElement, 'show');
-      } else {
-        this.renderer.addClass(this.menu.nativeElement, 'show');
+        if (hasShowClass) {
+          this.renderer.removeClass(this.menu.nativeElement, 'show');
+        } else {
+          this.renderer.addClass(this.menu.nativeElement, 'show');
+        }
       }
-    }
 
     });
 
@@ -102,20 +102,30 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
       } else if (this.fieldType === this.dropDownFieldType.Button) {
         this.fieldId3.nativeElement.removeAttribute('data-toggle');
       } else if (this.dropDownFieldType.Icon) {
-      /**
-       * data-toggle does not work in Object element So the click and blur events handle the open and close functionalities
-       */
+        /**
+         * data-toggle does not work in Object element So the click and blur events handle the open and close functionalities
+         */
         /**
          *  plus icon color
          */
         const svgPlusButtonDoc = this.fieldId2.nativeElement?.contentDocument;
-        const plusSign  = svgPlusButtonDoc?.getElementById('Plus_Sign');
-        const plusBorder =  svgPlusButtonDoc?.getElementById('Button_Background');
+        const plusSign = svgPlusButtonDoc?.getElementById('Plus_Sign');
+        const plusBorder = svgPlusButtonDoc?.getElementById('Button_Background');
+
         // this.fieldId2.nativeElement.contentDocument?.getElementById('ico.arrow.down-2')?.setAttribute('fill', 'green');
-        this.renderer.setStyle(plusSign, 'fill', 'red' );
-        this.renderer.addClass(plusSign, 'svg-plus');
-        this.renderer.setStyle(plusBorder, 'stroke', 'green' );
-        plusSign?.setAttribute('fill', 'red' );
+
+
+        if (plusSign) {
+          console.log(plusSign);
+          this.renderer.setStyle(plusSign, 'fill', 'red');
+          this.renderer.addClass(plusSign, 'svg-plus');
+          plusSign?.setAttribute('fill', 'red');
+        }
+        if (plusBorder) {
+          console.log(plusBorder);
+          this.renderer.setStyle(plusBorder, 'stroke', 'green');
+
+        }
 
 
       }
@@ -123,7 +133,8 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
        * Remove icons; triangles
        * they are disabled in html
        */
-
+      // this.element.nativeElement.style.display = 'none';
+      // this.renderer.setStyle(this.element, 'display', 'none' );
     }
 
 

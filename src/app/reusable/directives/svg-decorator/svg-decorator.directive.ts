@@ -18,7 +18,7 @@ export class SvgDecoratorDirective implements AfterViewInit {
 
   ngAfterViewInit(): void {
     const svgPlusDoc = this.element.nativeElement.contentDocument?.documentElement;
-    this.element.nativeElement.contentDocument?.documentElement.setAttributeNS('http://www.w3.org/2000/svg', 'data-toggle', 'dropdown');
+    // this.element.nativeElement.contentDocument?.documentElement.setAttributeNS('http://www.w3.org/2000/svg', 'data-toggle', 'dropdown');
 
 
     if (this.isDisable) {

@@ -278,7 +278,7 @@ background-color:  $color-white-20 !important;
   background-color:  $color-light-gray !important;
 }
 .background-Default {
-  background-color:  $color-white-20 !important;
+  // background-color:  $color-white-20 !important;
 }
 
 
@@ -301,7 +301,7 @@ border: 1px solid $color-light-gray-80 !important;
   border: 1px solid $color-white-10 !important;
 }
 .border-Default {
-  border: 1px solid $color-white-10 !important;
+  // border: 1px solid $color-white-10 !important;
 }
 
 .text-Active {
@@ -324,12 +324,10 @@ color: $color-dark-gray-13 !important;
   color: $color-dark-gray-30 !important;
 }
 .text-Default {
-  color: $color-dark-gray-13 !important;
+  // color: $color-dark-gray-13 !important;
 }
 
-::ng-deep .plus-sign {
-  fill: red !important;
-}
+
 
 
 

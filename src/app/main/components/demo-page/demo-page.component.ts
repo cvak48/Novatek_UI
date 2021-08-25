@@ -48,7 +48,8 @@ export class DemoPageComponent implements OnInit {
   dropdownItems = mockDropdown().itemsNumber;
   textTrimNumber = mockDropdown().textTrimNumber;
   selectedItemDefault = mockDropdown().selectedItemDefault;
-  dropDownFieldType = mockDropdown().dropDownFieldType;
+  dropDownFieldType0 = mockDropdown().dropDownFieldType0;
+  dropDownFieldType1 = mockDropdown().dropDownFieldType1;
   isDisable = mockDropdown().isDisable;
   //  StatusColorDirectives test on dropdown adding three new input
     backgroundColor = mockDropdown().backgroundColor;
@@ -116,7 +117,8 @@ function mockDropdown(): any {
     itemsNumber: ['1', '2', '3', '4', '5', '11', '22', '33', '44', '55'],
     textTrimNumber: 2,
     selectedItemDefault: 'Page',
-    dropDownFieldType: DropdownFieldType.Icon,
+    dropDownFieldType0: DropdownFieldType.Default,
+    dropDownFieldType1: DropdownFieldType.Default,
     backgroundColor: StatusColor.Disabled,
     borderColor: StatusColor.Disabled,
     textColor: StatusColor.Disabled,

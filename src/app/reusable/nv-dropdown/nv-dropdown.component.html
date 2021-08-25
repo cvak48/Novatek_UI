@@ -1,23 +1,25 @@
 <div #dropdown class="dropdown">
 
-    <button #fieldId1 *ngIf="fieldType === dropDownFieldType.Default" type="button" class="btn dropdown-toggle body20 label"  data-toggle="dropdown" 
-    [ngClass]="{'default': isFirst}" (click)="isArrowDown=!isArrowDown" (blur)="onBlur()"
-      nvBackgroundColor [color]="backgroundColor" nvBorderColor [color]="borderColor" nvTextColor [color]="textColor">
-      {{selectedItem | nvTrim: textTrimNumber}}
-      <ng-container [ngTemplateOutlet]="arrowTemplate" [ngTemplateOutletContext]="{isArrowDown:isArrowDown}"></ng-container>
-    </button>
-    <object #fieldId2 *ngIf="fieldType === dropDownFieldType.Icon"  class="dropdown-icon" data-toggle="dropdown" 
-     data="./../../../assets/icons/plus-button.icon.svg" type="image/svg+xml" nvSvgDecorator  ></object>
-     <!-- <img *ngIf="fieldType === dropDownFieldType.Icon"  class="dropdown-icon" data-toggle="dropdown" 
-     src="./../../../assets/icons/plus-button.icon.svg"  > -->
-    <button #fieldId3 *ngIf="fieldType === dropDownFieldType.Button" type="button" class="btn dropdown-button body20 label" data-toggle="dropdown" 
-      (click)="isArrowDown=!isArrowDown" (blur)="onBlur()"
-      nvBackgroundColor [color]="backgroundColor" nvBorderColor [color]="borderColor" nvTextColor [color]="textColor">
-      {{'Dropdown Button'}}
-      <ng-container [ngTemplateOutlet]="arrowTemplate" [ngTemplateOutletContext]="{isArrowDown:isArrowDown}"></ng-container>
-    </button>
+  <button #DefaultFieldRef *ngIf="fieldType === dropDownFieldType.Default" type="button"
+    class="btn dropdown-toggle body20 label" data-toggle="dropdown" [ngClass]="{'default': isFirst}"
+    (click)="onFieldClick()" (blur)="onBlur()" nvBackgroundColor [color]="backgroundColor"
+    [color]="borderColor" nvTextColor [color]="textColor" nvBorderColor>
+    {{selectedItem | nvTrim: textTrimNumber}}
+    <ng-container [ngTemplateOutlet]="arrowTemplate" [ngTemplateOutletContext]="{isArrowDown:isArrowDown}">
+    </ng-container>
+  </button>
+   <object #PlusIconRef *ngIf="fieldType === dropDownFieldType.Icon" class="dropdown-icon" data-toggle="dropdown"
+    data="./../../../assets/icons/plus-button.icon.svg" type="image/svg+xml" nvSvgDecorator></object>
+  <button #ButtonRef *ngIf="fieldType === dropDownFieldType.Button" type="button" (click)="onFieldClick()"
+    class="btn dropdown-button body20 label" data-toggle="dropdown" (blur)="onBlur()"
+    nvBackgroundColor [color]="backgroundColor" nvBorderColor [color]="borderColor" nvTextColor [color]="textColor">
+    {{'Dropdown Button'}}
+    <ng-container [ngTemplateOutlet]="arrowTemplate" [ngTemplateOutletContext]="{isArrowDown:isArrowDown}">
+    </ng-container>
+  </button>
 
-  <div #menu class="dropdown-menu" [ngClass]=" (extensionDirection === menuExtensionDirection.ToLeft) ? 'dropdown-menu-right': '' ">
+  <div #menu class="dropdown-menu"
+    [ngClass]=" (extensionDirection === menuExtensionDirection.ToLeft) ? 'dropdown-menu-right': '' ">
     <div class="dropdown-item body20" *ngFor="let item of items; let i = index" (click)="onItemSelect(i)"
       [ngClass]="{'selected-item': i==selectedIndex}"> {{item}}</div>
   </div>
@@ -25,11 +27,8 @@
 
 
 <ng-template #arrowTemplate let-item="isArrowDown">
-  <!-- <img #icon *ngIf="isArrowDown" class="arrow-icon"  src="{{arrowIcons?.downward}}"> -->
-  <!-- <img *ngIf="!isArrowDown" class="arrow-icon" src="{{arrowIcons?.upward}}"> -->
-  <object #arrow  #icon *ngIf="isArrowDown && !isFieldDisable" class="arrow-icon"  data="../../../assets/icons/ico.arrow.down.svg" 
-  type="image/svg+xml" ></object>
-  <object *ngIf="!isArrowDown && !isFieldDisable" class="arrow-icon"  data="../../../assets/icons/ico.arrow.up.svg"
-     type="image/svg+xml" ></object>
-
+    <object #arrowDown *ngIf="isArrowDown" class="arrow-icon" data="../../../assets/icons/ico.arrow.down.svg"
+      type="image/svg+xml"></object>
+    <object *ngIf="!isArrowDown && !isFieldDisable" class="arrow-icon" data="../../../assets/icons/ico.arrow.up.svg"
+      type="image/svg+xml"></object>
 </ng-template>

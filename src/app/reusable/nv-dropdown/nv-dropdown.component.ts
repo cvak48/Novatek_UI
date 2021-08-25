@@ -41,22 +41,19 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   /**
    * disabling the dropdown
    */
-  @ViewChild('fieldId1') fieldId1!: ElementRef<HTMLElement>;
-  @ViewChild('fieldId2') fieldId2!: ElementRef<HTMLObjectElement>;
-  @ViewChild('fieldId3') fieldId3!: ElementRef<HTMLElement>;
+  @ViewChild('DefaultFieldRef') DefaultFieldRef!: ElementRef<HTMLElement>;
+  @ViewChild('PlusIconRef') PlusIconRef!: ElementRef<HTMLObjectElement>;
+  @ViewChild('arrowDown') arrowDown!: ElementRef<HTMLObjectElement>;
+  @ViewChild('ButtonRef') ButtonRef!: ElementRef<HTMLElement>;
   @ViewChild('menu') menu!: ElementRef<HTMLElement>;
   @ViewChild('dropdown') dropdown!: ElementRef<HTMLElement>;
-  @ViewChild('icon') iconId!: ElementRef<HTMLElement>;
-  @ViewChild('arrow') arrow!: ElementRef<HTMLObjectElement>;
   @Input() set isFieldDisable(value: boolean) {
     this._isFieldDisable = value;
     if (this._isFieldDisable) {
-      this.backgroundColor = StatusColor.Disabled;
-      this.borderColor = StatusColor.Disabled;
-      this.textColor = StatusColor.Disabled;
+      this._changeStyleToDisable();
     }
   }
-  private _isFieldDisable: boolean = true;
+  private _isFieldDisable!: boolean;
   get isFieldDisable(): boolean {
     return this._isFieldDisable;
   }
@@ -69,7 +66,6 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   menuExtensionDirection = MenuExtensionDirection;
   constructor(private renderer: Renderer2) { }
   onSvgClick() {
-    console.log('hi svg');
   }
   ngOnInit(): void {
   }
@@ -77,30 +73,34 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
     /**
      * opening and closing the dropdown menu in case of plus-button
      */
-    this.fieldId2.nativeElement?.contentWindow?.addEventListener('click', () => {
-      const hasShowClass = this.menu.nativeElement.classList.contains('show');
-      if (!this.isFieldDisable) {
-        if (hasShowClass) {
-          this.renderer.removeClass(this.menu.nativeElement, 'show');
-        } else {
-          this.renderer.addClass(this.menu.nativeElement, 'show');
+    if (this.fieldType === this.dropDownFieldType.Icon) {
+      this.PlusIconRef?.nativeElement?.contentWindow?.addEventListener('click', () => {
+        const hasShowClass = this.menu?.nativeElement?.classList?.contains('show');
+        if (!this.isFieldDisable) {
+          if (hasShowClass) {
+            this.renderer.removeClass(this.menu?.nativeElement, 'show');
+          } else {
+            this.renderer.addClass(this.menu?.nativeElement, 'show');
+          }
         }
-      }
 
-    });
+      });
 
-    this.fieldId2.nativeElement?.contentWindow?.addEventListener('blur', () => {
-      this.renderer.removeClass(this.menu.nativeElement, 'show');
-    });
+      this.PlusIconRef?.nativeElement?.contentWindow?.addEventListener('blur', () => {
+        this.renderer.removeClass(this.menu?.nativeElement, 'show');
+      });
+    }
     if (this.isFieldDisable) {
-      // const svgArrowDoc = this.arrow.nativeElement.contentDocument?.getElementById('ico.arrow.down-2')?.setAttribute('fill', 'green');
       /**
        * Remove toggle to disable the dropdown menu
        */
+      const svgTriangleDoc = this.arrowDown?.nativeElement?.contentDocument;
       if (this.fieldType === this.dropDownFieldType.Default) {
-        this.fieldId1.nativeElement.removeAttribute('data-toggle');
+        this.DefaultFieldRef?.nativeElement.removeAttribute('data-toggle');
+        this._changeTriangleToDisable();
       } else if (this.fieldType === this.dropDownFieldType.Button) {
-        this.fieldId3.nativeElement.removeAttribute('data-toggle');
+        this.ButtonRef?.nativeElement.removeAttribute('data-toggle');
+        this._changeTriangleToDisable();
       } else if (this.dropDownFieldType.Icon) {
         /**
          * data-toggle does not work in Object element So the click and blur events handle the open and close functionalities
@@ -108,44 +108,40 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
         /**
          *  plus icon color
          */
-        const svgPlusButtonDoc = this.fieldId2.nativeElement?.contentDocument;
-        const plusSign = svgPlusButtonDoc?.getElementById('Plus_Sign');
-        const plusBorder = svgPlusButtonDoc?.getElementById('Button_Background');
-
-        // this.fieldId2.nativeElement.contentDocument?.getElementById('ico.arrow.down-2')?.setAttribute('fill', 'green');
-
-
-        if (plusSign) {
-          console.log(plusSign);
-          this.renderer.setStyle(plusSign, 'fill', 'red');
-          this.renderer.addClass(plusSign, 'svg-plus');
-          plusSign?.setAttribute('fill', 'red');
-        }
-        if (plusBorder) {
-          console.log(plusBorder);
-          this.renderer.setStyle(plusBorder, 'stroke', 'green');
-
-        }
-
+        setTimeout(() => {
+          const svgPlusButtonDoc = this.PlusIconRef?.nativeElement?.contentDocument;
+          const plusSign = svgPlusButtonDoc?.getElementById('Plus_Sign');
+          const plusBorder = svgPlusButtonDoc?.getElementById('Button_Background');
+          const disableColor = '#B5B5B5';
+          if (plusSign) {
+            this.renderer.setStyle(plusSign, 'fill', disableColor);
+          }
+          if (plusBorder) {
+            this.renderer.setStyle(plusBorder, 'stroke', disableColor);
+          }
+        }, 100);
 
       }
       /**
-       * Remove icons; triangles
+       *
+       */
+      /**
+       * Note: Remove icons; triangles
        * they are disabled in html
        */
-      // this.element.nativeElement.style.display = 'none';
-      // this.renderer.setStyle(this.element, 'display', 'none' );
     }
 
 
 
-
-
-
+  }
+  onFieldClick(): void {
+    if (this.isArrowDown && !this.isFieldDisable) {
+      this.isArrowDown = false;
+    } else if (!this.isArrowDown && !this.isFieldDisable) {
+      this.isArrowDown = true;
+    }
   }
 
-  onInputClick(): void {
-  }
   onBlur(): void {
     this.isArrowDown = true;
   }
@@ -164,7 +160,23 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
      * close the dropdown menu in case of plus-button
      *
      */
-    this.renderer.removeClass(this.menu.nativeElement, 'show');
+
+    this.renderer.removeClass(this.menu?.nativeElement, 'show');
+  }
+  private _changeStyleToDisable(): void {
+    this.backgroundColor = StatusColor.Disabled;
+    this.borderColor = StatusColor.Disabled;
+    this.textColor = StatusColor.Disabled;
+  }
+  private _changeTriangleToDisable(): void {
+    setTimeout(() => {
+      const svgTriangleDoc = this.arrowDown?.nativeElement?.contentDocument;
+      const arrowSign = svgTriangleDoc?.getElementById('ico.arrow.down-2');
+      const disableColor = '#B5B5B5';
+      if (arrowSign) {
+        this.renderer.setStyle(arrowSign, 'fill', disableColor);
+      }
+    }, 100);
   }
 
 }

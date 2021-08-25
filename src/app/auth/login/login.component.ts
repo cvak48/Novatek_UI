@@ -296,7 +296,7 @@ public emptyVariableList ={
   }
 
   onDomainChange(item: string): void {
-    console.log('selected item ' + +item);
+    console.log('selected item ' + +item); 
   }
   
   mockMenuDropdown(): any {

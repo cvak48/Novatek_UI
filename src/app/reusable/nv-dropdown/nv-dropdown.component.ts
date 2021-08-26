@@ -1,3 +1,4 @@
+import { FilterAllPipe } from './../pipes/filters/filterAll/filter-all.pipe';
 import { FormControl } from '@angular/forms';
 import { map } from 'rxjs/operators';
 import { DropdownFieldType, MenuExtensionDirection, StatusColor, ArrowIcon } from './../../model/data-model';
@@ -38,10 +39,10 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
    * All the styles will be automatically changed
    */
   @Input() isFieldDisable: boolean = false;
-/**
- * Receives styles base on the status of the field
- * The inputs of directives
- */
+  /**
+   * Receives styles base on the status of the field
+   * The inputs of directives
+   */
   @Input() set fieldStatusColor(status: StatusColor) {
     if (status && !this.isFieldDisable) {
       this._updateStyles(status);
@@ -71,24 +72,23 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   dropDownFieldType = DropdownFieldType;
   menuExtensionDirection = MenuExtensionDirection;
   queryFormControl = new FormControl(`${this.selectedItem}`);
-  constructor(private renderer: Renderer2) { }
+  filteredList: any;
+  constructor(private renderer: Renderer2, private filter: FilterAllPipe) { }
 
   ngOnInit(): void {
+/**
+ * find the query among items
+ */
+    this.queryFormControl.valueChanges.subscribe(query =>
+      this.filteredList = this.filter.transform(this.items, query)?.map((item: any) => item));
     if (this.isFieldDisable) {
       /**
        * change the border, background and text color if it is disabled before the view get initialized
        */
       this._updateStyles(StatusColor.Disabled);
     }
-   }
+  }
   ngAfterViewInit(): void {
-    /**
-     * find the query among items
-     */
-    this.queryFormControl.valueChanges.subscribe(item => console.log('query' + item));
-    
-    
-
     /**
      * opening and closing the dropdown menu in case of plus-button
      */
@@ -166,7 +166,7 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   onItemSelect(index: number): void {
     this.isDefaultStyle = false;
     this.selectedIndex = index;
-    this.selectedItem = this.items[this.selectedIndex];
+    this.selectedItem = this.filteredList[this.selectedIndex];
     this.queryFormControl.setValue(this.selectedItem);
     this.itemSelect.emit(this.selectedItem);
     if (!this.isArrowDownIcon) {

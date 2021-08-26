@@ -5,7 +5,7 @@
     (click)="onFieldClick()" (blur)="onBlur()" contenteditable="true" [formControl]="queryFormControl"
      nvBackgroundColor [color]="backgroundColor"
     [color]="borderColor" nvTextColor [color]="textColor" nvBorderColor>
-    {{selectedItem | nvTrim: textTrimNumber}}
+    <!-- {{selectedItem | nvTrim: textTrimNumber}} -->
     <ng-container [ngTemplateOutlet]="arrowTemplate" [ngTemplateOutletContext]="{isArrowDown:isArrowDownIcon}">
     </ng-container>
   </button>
@@ -21,7 +21,7 @@
 
   <div #menu class="dropdown-menu"
     [ngClass]=" (extensionDirection === menuExtensionDirection.ToLeft) ? 'dropdown-menu-right': '' ">
-    <div class="dropdown-item body20" *ngFor="let item of items; let i = index" (click)="onItemSelect(i)"
+    <div class="dropdown-item body20" *ngFor="let item of filteredList; let i = index" (click)="onItemSelect(i)"
       [ngClass]="{'selected-item': i==selectedIndex}"> {{item}}</div>
   </div>
 </div>

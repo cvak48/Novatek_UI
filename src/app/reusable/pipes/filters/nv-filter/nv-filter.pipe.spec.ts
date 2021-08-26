@@ -1,8 +1,8 @@
-import { FilterAllPipe } from './filter-all.pipe';
+import { NvFilterPipe } from './nv-filter.pipe';
 
 describe('FilterAllPipe', () => {
   it('create an instance', () => {
-    const pipe = new FilterAllPipe();
+    const pipe = new NvFilterPipe();
     expect(pipe).toBeTruthy();
   });
 });

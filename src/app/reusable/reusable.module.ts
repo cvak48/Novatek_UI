@@ -9,8 +9,8 @@ import { NvCheckboxComponent } from './nv-checkbox/nv-checkbox.component';
 import { NvDataPickerComponent } from './nv-data-picker/nv-data-picker.component';
 import { NvTrimPipe } from './pipes/nv-trim/nv-trim.pipe';
 import { NvButtonComponent } from './nv-button/nv-button.component';
-import { FilterAllPipe } from './pipes/filters/filterAll/filter-all.pipe';
-import { AdvanceFilterPipe } from './pipes/filters/advance-filter/advance-filter.pipe';
+import { NvFilterPipe as NvFilterPipe } from './pipes/filters/nv-filter/nv-filter.pipe';
+import { NvAdvanceFilterPipe as NvAdvanceFilterPipe } from './pipes/filters/nv-advance-filter/nv-advance-filter.pipe';
 import { NvInitialsPipe } from './pipes/nv-initials/nv-initials.pipe';
 import { RattingComponent } from './ratting/ratting.component';
 import { UploadComponent } from './upload/upload.component';
@@ -61,8 +61,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 
 const sharedComponents = [
   NvInitialsPipe,
-  AdvanceFilterPipe,
-  FilterAllPipe,
+  NvAdvanceFilterPipe,
+  NvFilterPipe,
   NvTrimPipe,
   DataPropertyGetterPipe,
   NvFileUploadDirective,
@@ -130,6 +130,6 @@ const sharedComponents = [
     MDBBootstrapModule.forRoot()
   ],
   exports: sharedComponents,
-  providers: [FilterAllPipe, AdvanceFilterPipe ]
+  providers: [NvFilterPipe, NvAdvanceFilterPipe, NvTrimPipe ]
 })
 export class ReusableModule { }

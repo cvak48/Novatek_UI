@@ -1,4 +1,5 @@
-import { FilterAllPipe } from './../pipes/filters/filterAll/filter-all.pipe';
+import { NvTrimPipe } from './../pipes/nv-trim/nv-trim.pipe';
+import { NvFilterPipe } from '../pipes/filters/nv-filter/nv-filter.pipe';
 import { FormControl } from '@angular/forms';
 import { map, startWith } from 'rxjs/operators';
 import { DropdownFieldType, MenuExtensionDirection, StatusColor, ArrowIcon } from './../../model/data-model';
@@ -72,9 +73,18 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   dropDownFieldType = DropdownFieldType;
   menuExtensionDirection = MenuExtensionDirection;
   queryFormControl = new FormControl(`${this.selectedItem}`);
-  filteredList!: any;
-  constructor(private renderer: Renderer2, private filter: FilterAllPipe) { 
+  filteredList!: string[];
+  constructor(private renderer: Renderer2, private filter: NvFilterPipe,
+              private nvTextTrim: NvTrimPipe) {
+  this.filteredList = this.queryFormControl.valueChanges.pipe(startWith(null),
+  map(query => query ? this._filter(query) : this.items.slice()));
+  
+  }
 
+  private _filter(value: string): string[] {
+    const filterValue = value?.toLowerCase();
+    const filteredItems = this.items.filter(item => item.toLowerCase().indexOf(filterValue) === 0);
+    return filteredItems;
   }
 
   ngOnInit(): void {

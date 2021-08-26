@@ -1,6 +1,6 @@
 import { FilterAllPipe } from './../pipes/filters/filterAll/filter-all.pipe';
 import { FormControl } from '@angular/forms';
-import { map } from 'rxjs/operators';
+import { map, startWith } from 'rxjs/operators';
 import { DropdownFieldType, MenuExtensionDirection, StatusColor, ArrowIcon } from './../../model/data-model';
 import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef, AfterViewInit, Renderer2 } from '@angular/core';
 
@@ -72,15 +72,13 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   dropDownFieldType = DropdownFieldType;
   menuExtensionDirection = MenuExtensionDirection;
   queryFormControl = new FormControl(`${this.selectedItem}`);
-  filteredList: any;
-  constructor(private renderer: Renderer2, private filter: FilterAllPipe) { }
+  filteredList!: any;
+  constructor(private renderer: Renderer2, private filter: FilterAllPipe) { 
+
+  }
 
   ngOnInit(): void {
-/**
- * find the query among items
- */
-    this.queryFormControl.valueChanges.subscribe(query =>
-      this.filteredList = this.filter.transform(this.items, query)?.map((item: any) => item));
+
     if (this.isFieldDisable) {
       /**
        * change the border, background and text color if it is disabled before the view get initialized
@@ -88,6 +86,7 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
       this._updateStyles(StatusColor.Disabled);
     }
   }
+
   ngAfterViewInit(): void {
     /**
      * opening and closing the dropdown menu in case of plus-button
@@ -166,7 +165,7 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   onItemSelect(index: number): void {
     this.isDefaultStyle = false;
     this.selectedIndex = index;
-    this.selectedItem = this.filteredList[this.selectedIndex];
+    this.selectedItem = this.items[this.selectedIndex];
     this.queryFormControl.setValue(this.selectedItem);
     this.itemSelect.emit(this.selectedItem);
     if (!this.isArrowDownIcon) {

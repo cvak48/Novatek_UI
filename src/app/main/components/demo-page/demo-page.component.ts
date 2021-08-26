@@ -45,7 +45,7 @@ export class DemoPageComponent implements OnInit {
   buttonType = ButtonType.Stroked;
   themeColor = ButtonThemeColor.Basic;
   // dropDown && StatusColorTest
-  dropdownItems = mockDropdown().itemsNumber;
+  dropdownItems = mockDropdown().items;
   textTrimNumber = mockDropdown().textTrimNumber;
   selectedItemDefault = mockDropdown().selectedItemDefault;
   dropDownFieldType0 = mockDropdown().dropDownFieldType0;
@@ -116,11 +116,11 @@ function mockDropdown(): any {
     itemsNumber: ['1', '2', '3', '4', '5', '11', '22', '33', '44', '55'],
     textTrimNumber: 2,
     selectedItemDefault: 'Page',
-    dropDownFieldType0: DropdownFieldType.Icon,
-    dropDownFieldType1: DropdownFieldType.Default,
-    fieldStatusColor: StatusColor.Default,
     menuExtensionDir:  MenuExtensionDirection.ToRight,
-    isDisable: false,
+    dropDownFieldType0: DropdownFieldType.Default,
+    dropDownFieldType1: DropdownFieldType.Icon,
+    fieldStatusColor: StatusColor.Default,
+    isDisable: true,
   };
   return dropdownInputs;
 }

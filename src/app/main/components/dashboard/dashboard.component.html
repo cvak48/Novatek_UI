@@ -1,98 +1,128 @@
 <app-nv-header *ngIf="person" [person]="person"></app-nv-header>
 <app-nv-sub-menu></app-nv-sub-menu>
 <app-nova-sidenav>
+  <h1 class="comments-header"><strong>Comments</strong></h1>
+  <app-comment-box [comments]="comments"></app-comment-box>
+  <br />
+  <app-nova-panel>
+    <app-nv-custom-table></app-nv-custom-table>
+  </app-nova-panel>
+  <hr />
+  <h1 class="comments-header"><strong>Star Rating</strong></h1>
+  <app-ratting [type]="'star'"></app-ratting>
+  <br />
+  <hr />
+  <h1 class="comments-header"><strong>Heart Rating</strong></h1>
+  <app-ratting [type]="'heart'"></app-ratting>
+  <br />
+  <hr />
+  <h1 class="comments-header"><strong>Sucess Progressive Bar</strong></h1>
+  <app-progressive-bar
+    [color]="'sucess'"
+    [size]="SucessprogressiveBarValue"
+    [progressiveTxt]="sucessTxt"
+  ></app-progressive-bar>
+  <br />
+  <hr />
+  <h1 class="comments-header"><strong>warning Progressive Bar</strong></h1>
+  <app-progressive-bar
+    [color]="'warning'"
+    [size]="warningProgressivebarValue"
+    [progressiveTxt]="warningTxt"
+    [statusText]="textColor"
+  ></app-progressive-bar>
+  <br />
+  <hr />
+  <h1 class="comments-header"><strong>error Progressive Bar</strong></h1>
+  <app-progressive-bar
+    [color]="'error'"
+    [size]="SucessprogressiveBarValue"
+    [progressiveTxt]="errorTxt"
+    [statusText]="textColor"
+  ></app-progressive-bar>
+  <br />
+  <hr />
+  <h1 class="comments-header"><strong>tentative Progressive Bar</strong></h1>
+  <app-progressive-bar
+    [color]="'tentitive'"
+    [size]="warningProgressivebarValue"
+  ></app-progressive-bar>
+  <br />
+  <hr />
+  <h1 class="comments-header"><strong>File uploadProgressive Bar</strong></h1>
+  <app-progressive-bar
+    [color]="'fileUpload'"
+    [size]="warningProgressivebarValue"
+  ></app-progressive-bar>
+  <br />
+  <hr />
+  <h1 class="comments-header"><strong>Multi Color Progressive Bar</strong></h1>
+  <app-progressive-bar
+    [size]="warningProgressivebarValue"
+    [secondarySize]="dualwarningProgressivebarValue"
+  ></app-progressive-bar>
+  <br />
+  <hr />
+  <h1 class="comments-header"><strong>Regular Tabs</strong></h1>
+  <app-tabs [tabs]="types"></app-tabs>
+  <br />
+  <hr />
+  <h1 class="comments-header"><strong>Inverted Tabs</strong></h1>
+  <app-inverted-tabs [tabs]="invertedTypes"></app-inverted-tabs>
+  <br />
+  <hr />
+  <h1 class="comments-header"><strong>Left Aligned Tabs</strong></h1>
+  <app-left-tab [tabs]="leftTypes"></app-left-tab>
+  <br />
+  <hr />
+  <h1 class="comments-header"><strong>Right Aligned Tabs</strong></h1>
+  <app-right-tab [tabs]="rightTypes"></app-right-tab>
+  <br />
+  <hr />
+  <h1 class="comments-header"><strong>Feeds</strong></h1>
+  <nv-app-feed></nv-app-feed>
+  <br />
+  <hr />
+  <h1 class="comments-header"><strong>Custom Panel</strong></h1>
+  <app-nova-panel>
+    <app-test></app-test>
+  </app-nova-panel>
+  <br />
+  <hr />
 
-   <h1 class="comments-header"><strong>Comments</strong></h1>
-   <app-comment-box [comments]="comments"></app-comment-box>
-   <br>
-   <app-nova-panel>
-     
-         <app-nv-custom-table></app-nv-custom-table>
-     
-   </app-nova-panel>
-   <hr>
-   <h1 class="comments-header"><strong>Star Rating</strong></h1>
-   <app-ratting [type]="'star'"></app-ratting>
-   <br>
-   <hr>
-   <h1 class="comments-header"><strong>Heart Rating</strong></h1>
-   <app-ratting [type]="'heart'"></app-ratting>
-   <br>
-   <hr>
-   <h1 class="comments-header"><strong>Sucess Progressive Bar</strong></h1>
-   <app-progressive-bar [color]="'sucess'" [size]="SucessprogressiveBarValue" [progressiveTxt]='sucessTxt'></app-progressive-bar>
-   <br>
-   <hr>
-   <h1 class="comments-header"><strong>warning Progressive Bar</strong></h1>
-   <app-progressive-bar [color]="'warning'" [size]="warningProgressivebarValue" [progressiveTxt]='warningTxt' [statusText]='textColor'></app-progressive-bar>
-   <br>
-   <hr>
-   <h1 class="comments-header"><strong>error Progressive Bar</strong></h1>
-   <app-progressive-bar [color]="'error'" [size]="SucessprogressiveBarValue" [progressiveTxt]='errorTxt' [statusText]='textColor'></app-progressive-bar>
-   <br>
-   <hr>
-   <h1 class="comments-header"><strong>tentative Progressive Bar</strong></h1>
-   <app-progressive-bar [color]="'tentitive'" [size]="warningProgressivebarValue"></app-progressive-bar>
-   <br>
-   <hr>
-   <h1 class="comments-header"><strong>File uploadProgressive Bar</strong></h1>
-   <app-progressive-bar [color]="'fileUpload'" [size]="warningProgressivebarValue"></app-progressive-bar>
-   <br>
-   <hr>
-   <h1 class="comments-header"><strong>Multi Color Progressive Bar</strong></h1>
-   <app-progressive-bar [size]="warningProgressivebarValue" [secondarySize]="dualwarningProgressivebarValue"></app-progressive-bar>
-   <br>
-   <hr>
-   <h1 class="comments-header"><strong>Regular Tabs</strong></h1>
-   <app-tabs [tabs]="types"></app-tabs>
-   <br>
-   <hr>
-   <h1 class="comments-header"><strong>Inverted Tabs</strong></h1>
-   <app-inverted-tabs [tabs]="invertedTypes"></app-inverted-tabs>
-   <br>
-   <hr>
-   <h1 class="comments-header"><strong>Left Aligned Tabs</strong></h1>
-   <app-left-tab [tabs]="leftTypes"></app-left-tab>
-   <br>
-   <hr>
-   <h1 class="comments-header"><strong>Right Aligned Tabs</strong></h1>
-   <app-right-tab [tabs]="rightTypes"></app-right-tab>
-   <br>
-   <hr>
-   <h1 class="comments-header"><strong>Feeds</strong></h1>
-   <app-feed></app-feed>
-   <br>
-   <hr>
-   <h1 class="comments-header"><strong>Custom Panel</strong></h1>
-   <app-nova-panel>
-      <app-test></app-test>
-   </app-nova-panel>
-   <br>
-   <hr>
-  
-   <div>
-      <app-nv-placeholder-text-card [textData]="textCardData"></app-nv-placeholder-text-card>
-   </div>
-   <div>
-      <app-nv-placeholder-small-card [textToShow]="cardSmallData"></app-nv-placeholder-small-card>
-   </div>
-   <div>
-      <app-nv-placeholder-list [listToShow]="listData"></app-nv-placeholder-list>
-   </div>
-   <br>
-   <hr>
-   <div>
-      <app-nv-placeholder-card [textToShow]="cardData"></app-nv-placeholder-card>
-   </div>
-   <br>
-   <hr>
-   <div>
-      <nv-placeholder-banner [bannerTextData]="bannerData"></nv-placeholder-banner>
-   </div>
-   <br>
-   <hr>
-   <div>
-      <nv-placeholder-Bigcard [smallCardData]="smallCardData"></nv-placeholder-Bigcard>
-   </div> 
+  <div>
+    <app-nv-placeholder-text-card
+      [textData]="textCardData"
+    ></app-nv-placeholder-text-card>
+  </div>
+  <div>
+    <app-nv-placeholder-small-card
+      [textToShow]="cardSmallData"
+    ></app-nv-placeholder-small-card>
+  </div>
+  <div>
+    <app-nv-placeholder-list
+      [listToShow]="cardListData"
+    ></app-nv-placeholder-list>
+  </div>
+  <br />
+  <hr />
+  <div>
+    <app-nv-placeholder-card [textToShow]="cardData"></app-nv-placeholder-card>
+  </div>
+  <br />
+  <hr />
+  <div>
+    <nv-placeholder-banner
+      [bannerTextData]="bannerData"
+    ></nv-placeholder-banner>
+  </div>
+  <br />
+  <hr />
+  <div>
+    <nv-placeholder-Bigcard
+      [smallCardData]="smallCardData"
+    ></nv-placeholder-Bigcard>
+  </div>
 </app-nova-sidenav>
 <app-nova-footer></app-nova-footer>

@@ -110,6 +110,7 @@ function mockAdvanceSearchInput(): any {
   return searchInput;
 }
 
+
 function mockDropdown(): any {
   const dropdownInputs = {
     items: ['item1', 'item2 which is longer', 'item3  which is longer and longer than item2', 'item4', 'item5', 'item6', 'item7'],
@@ -124,3 +125,5 @@ function mockDropdown(): any {
   };
   return dropdownInputs;
 }
+
+

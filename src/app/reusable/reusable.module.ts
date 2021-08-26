@@ -36,7 +36,7 @@ import { TabWrapper } from './nv-tabs/nv-tabs-wrapper.component';
 import { NVInvertedTabsComponent } from './nv-inverted-tabs/nv-inverted-tabs.component';
 import { NVLeftTabComponent } from './nv-left-tab/nv-left-tab.component';
 import { NVRightTabComponent } from './nv-right-tab/nv-right-tab.component';
-import { FeedComponent } from './feed/feed.component';
+import { NvFeedComponent } from './nv-feed/nv-feed.component';
 import { NvPlaceholderCardComponent } from './placeholder/nv-placeholder-card/nv-placeholder-card.component';
 import { NvPlaceholderListComponent } from './placeholder/nv-placeholder-list/nv-placeholder-list.component';
 import { NvPlaceholderBannerComponent } from './placeholder/nv-placeholder-banner/nv-placeholder-banner.component';
@@ -99,7 +99,7 @@ const sharedComponents = [
   NVInvertedTabsComponent,
   NVLeftTabComponent,
   NVRightTabComponent,
-  FeedComponent,
+  NvFeedComponent,
   NvPlaceholderCardComponent,
   NvPlaceholderListComponent,
   NvPlaceholderBannerComponent,

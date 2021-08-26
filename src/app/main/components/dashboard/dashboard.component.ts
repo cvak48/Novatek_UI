@@ -4,9 +4,9 @@ import { NVTextAreaComponent } from 'src/app/reusable/nv-text-area/nv-text-area.
 import { NVLogoComponent } from 'src/app/reusable/nv-logo/nv-logo.component';
 import { MatTabHeaderPosition } from '@angular/material/tabs';
 import { NvSearchComponent } from 'src/app/reusable/nv-search/nv-search.component';
-import { PlaceHolderCard } from 'src/app/model/placeHolderCard';
-import { PlaceHolderBanner } from 'src/app/model/placeHolderBanner';
-import { PlaceholderBigCard } from 'src/app/model/PlaceholderBigCard';
+import { PlaceHolderCardModel } from 'src/app/model/placeHolderCard-model';
+import { PlaceHolderBannerModel } from 'src/app/model/placeHolderBanner-model';
+import { PlaceholderBigCardModel } from 'src/app/model/PlaceholderBigCard-model';
 import { Notification, Person } from 'src/app/model/data-model';
 
 @Component({
@@ -47,7 +47,7 @@ export class DashboardComponent implements OnInit {
   cardData = {};
   bannerData = {};
   smallCardData = {};
-  listData: any[] = [];
+  cardListData: any[] = [];
   cardSmallData = {};
   textCardData = {};
   SucessprogressiveBarValue: string = '90';
@@ -87,7 +87,7 @@ export class DashboardComponent implements OnInit {
     parturient montes, nascetur ridiculus mus. Phasellus at aliquet
     dui. Mauris dapibus lectus id laoreet iaculis. Duis auctor augue
     augue, eget lobortis quam auctor at.`,
-    } as PlaceHolderCard;
+    } as PlaceHolderCardModel;
   }
 
   setPlaceHolderTextData(): void {
@@ -154,7 +154,7 @@ export class DashboardComponent implements OnInit {
     parturient montes, nascetur ridiculus mus. Phasellus at aliquet
     dui. Mauris dapibus lectus id laoreet iaculis. Duis auctor augue
     augue, eget lobortis quam auctor at.`,
-    } as PlaceholderBigCard;
+    } as PlaceholderBigCardModel;
   }
   setPlaceHolderBannerdata(): void {
     this.bannerData = {
@@ -166,11 +166,11 @@ export class DashboardComponent implements OnInit {
     parturient montes, nascetur ridiculus mus. Phasellus at aliquet
     dui. Mauris dapibus lectus id laoreet iaculis. Duis auctor augue
     augue, eget lobortis quam auctor at.`,
-    } as PlaceHolderBanner;
+    } as PlaceHolderBannerModel;
   }
 
   setListData(): void {
-    this.listData = [{ element: 'listItem1' }, { element: 'listItem2' }];
+    this.cardListData = [{ element: 'listItem1' }, { element: 'listItem2' }];
   }
 }
 

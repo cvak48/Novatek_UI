@@ -1,4 +1,4 @@
-export interface Feed{
+export interface FeedModel{
     authorName: string,
     authorLink: string,
     action: string,

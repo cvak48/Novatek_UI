@@ -1,3 +1,4 @@
+import { FormControl } from '@angular/forms';
 import { map } from 'rxjs/operators';
 import { DropdownFieldType, MenuExtensionDirection, StatusColor, ArrowIcon } from './../../model/data-model';
 import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef, AfterViewInit, Renderer2 } from '@angular/core';
@@ -32,7 +33,6 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
    */
   @Input() fieldType: DropdownFieldType = DropdownFieldType.Default;
   @Input() extensionDirection: MenuExtensionDirection = MenuExtensionDirection.ToRight;
-
   /**
    * Disable the fields
    * All the styles will be automatically changed
@@ -48,7 +48,7 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
     }
   }
   /**
-   * disabling the dropdown
+   * access to html elements
    */
   @ViewChild('DefaultFieldRef') DefaultFieldRef!: ElementRef<HTMLElement>;
   @ViewChild('PlusIconRef') PlusIconRef!: ElementRef<HTMLObjectElement>;
@@ -70,10 +70,25 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   isArrowDownIcon: boolean = true;
   dropDownFieldType = DropdownFieldType;
   menuExtensionDirection = MenuExtensionDirection;
+  queryFormControl = new FormControl(`${this.selectedItem}`);
   constructor(private renderer: Renderer2) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    if (this.isFieldDisable) {
+      /**
+       * change the border, background and text color if it is disabled before the view get initialized
+       */
+      this._updateStyles(StatusColor.Disabled);
+    }
+   }
   ngAfterViewInit(): void {
+    /**
+     * find the query among items
+     */
+    this.queryFormControl.valueChanges.subscribe(item => console.log('query' + item));
+    
+    
+
     /**
      * opening and closing the dropdown menu in case of plus-button
      */
@@ -95,10 +110,6 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
       });
     }
     if (this.isFieldDisable) {
-      /**
-       * change the border, background and text color if it is disabled
-       */
-      this._updateStyles(StatusColor.Disabled);
       /**
        * Remove toggle to disable the dropdown menu
        */
@@ -156,6 +167,7 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
     this.isDefaultStyle = false;
     this.selectedIndex = index;
     this.selectedItem = this.items[this.selectedIndex];
+    this.queryFormControl.setValue(this.selectedItem);
     this.itemSelect.emit(this.selectedItem);
     if (!this.isArrowDownIcon) {
       this.isArrowDownIcon = true;

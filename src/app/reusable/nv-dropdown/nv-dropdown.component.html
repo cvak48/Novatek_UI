@@ -2,7 +2,8 @@
 
   <button #DefaultFieldRef *ngIf="fieldType === dropDownFieldType.Default" type="button"
     class="btn dropdown-toggle body20 label" data-toggle="dropdown" [ngClass]="{'default': isDefaultStyle}"
-    (click)="onFieldClick()" (blur)="onBlur()" nvBackgroundColor [color]="backgroundColor"
+    (click)="onFieldClick()" (blur)="onBlur()" contenteditable="true" [formControl]="queryFormControl"
+     nvBackgroundColor [color]="backgroundColor"
     [color]="borderColor" nvTextColor [color]="textColor" nvBorderColor>
     {{selectedItem | nvTrim: textTrimNumber}}
     <ng-container [ngTemplateOutlet]="arrowTemplate" [ngTemplateOutletContext]="{isArrowDown:isArrowDownIcon}">

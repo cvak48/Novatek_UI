@@ -32,43 +32,47 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
    */
   @Input() fieldType: DropdownFieldType = DropdownFieldType.Default;
   @Input() extensionDirection: MenuExtensionDirection = MenuExtensionDirection.ToRight;
+
   /**
-   * receives styles base on the status of the field
+   * Disable the fields
+   * All the styles will be automatically changed
    */
-  @Input() backgroundColor: StatusColor = StatusColor.Default;
-  @Input() borderColor: StatusColor = StatusColor.Default;
-  @Input() textColor: StatusColor = StatusColor.Default;
+  @Input() isFieldDisable: boolean = false;
+/**
+ * Receives styles base on the status of the field
+ * The inputs of directives
+ */
+  @Input() set fieldStatusColor(status: StatusColor) {
+    if (status && !this.isFieldDisable) {
+      this._updateStyles(status);
+    }
+  }
   /**
    * disabling the dropdown
    */
   @ViewChild('DefaultFieldRef') DefaultFieldRef!: ElementRef<HTMLElement>;
   @ViewChild('PlusIconRef') PlusIconRef!: ElementRef<HTMLObjectElement>;
-  @ViewChild('arrowDown') arrowDown!: ElementRef<HTMLObjectElement>;
+  @ViewChild('arrowDownRef') arrowDownRef!: ElementRef<HTMLObjectElement>;
   @ViewChild('ButtonRef') ButtonRef!: ElementRef<HTMLElement>;
   @ViewChild('menu') menu!: ElementRef<HTMLElement>;
   @ViewChild('dropdown') dropdown!: ElementRef<HTMLElement>;
-  @Input() set isFieldDisable(value: boolean) {
-    this._isFieldDisable = value;
-    if (this._isFieldDisable) {
-      this._changeStyleToDisable();
-    }
-  }
-  private _isFieldDisable!: boolean;
-  get isFieldDisable(): boolean {
-    return this._isFieldDisable;
-  }
+
   showMenu!: boolean;
   selectedIndex!: number;
+  backgroundColor!: StatusColor;
+  borderColor!: StatusColor;
+  textColor!: StatusColor;
   // TODO: need to define type for each of these
-  isFirst: boolean = true;
-  isArrowDown: boolean = true;
+  /**
+   * the default style for selectedItem
+   */
+  isDefaultStyle: boolean = true;
+  isArrowDownIcon: boolean = true;
   dropDownFieldType = DropdownFieldType;
   menuExtensionDirection = MenuExtensionDirection;
   constructor(private renderer: Renderer2) { }
-  onSvgClick() {
-  }
-  ngOnInit(): void {
-  }
+
+  ngOnInit(): void { }
   ngAfterViewInit(): void {
     /**
      * opening and closing the dropdown menu in case of plus-button
@@ -92,15 +96,18 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
     }
     if (this.isFieldDisable) {
       /**
+       * change the border, background and text color if it is disabled
+       */
+      this._updateStyles(StatusColor.Disabled);
+      /**
        * Remove toggle to disable the dropdown menu
        */
-      const svgTriangleDoc = this.arrowDown?.nativeElement?.contentDocument;
       if (this.fieldType === this.dropDownFieldType.Default) {
         this.DefaultFieldRef?.nativeElement.removeAttribute('data-toggle');
-        this._changeTriangleToDisable();
+        this._changeTriangleStyleToDisable();
       } else if (this.fieldType === this.dropDownFieldType.Button) {
         this.ButtonRef?.nativeElement.removeAttribute('data-toggle');
-        this._changeTriangleToDisable();
+        this._changeTriangleStyleToDisable();
       } else if (this.dropDownFieldType.Icon) {
         /**
          * data-toggle does not work in Object element So the click and blur events handle the open and close functionalities
@@ -123,9 +130,6 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
 
       }
       /**
-       *
-       */
-      /**
        * Note: Remove icons; triangles
        * they are disabled in html
        */
@@ -135,42 +139,74 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
 
   }
   onFieldClick(): void {
-    if (this.isArrowDown && !this.isFieldDisable) {
-      this.isArrowDown = false;
-    } else if (!this.isArrowDown && !this.isFieldDisable) {
-      this.isArrowDown = true;
+    if (this.isArrowDownIcon && !this.isFieldDisable) {
+      this.isArrowDownIcon = false;
+    } else if (!this.isArrowDownIcon && !this.isFieldDisable) {
+      this.isArrowDownIcon = true;
     }
   }
 
   onBlur(): void {
-    this.isArrowDown = true;
+    this.isArrowDownIcon = true;
   }
   /**
    * event handler within which the selected item's index is set and the selected item is emitted as an output
    */
   onItemSelect(index: number): void {
-    this.isFirst = false;
+    this.isDefaultStyle = false;
     this.selectedIndex = index;
     this.selectedItem = this.items[this.selectedIndex];
     this.itemSelect.emit(this.selectedItem);
-    if (!this.isArrowDown) {
-      this.isArrowDown = true;
+    if (!this.isArrowDownIcon) {
+      this.isArrowDownIcon = true;
     }
     /**
      * close the dropdown menu in case of plus-button
      *
      */
+    if (this.fieldType === this.dropDownFieldType.Icon) {
+      this.renderer.removeClass(this.menu?.nativeElement, 'show');
+    }
 
-    this.renderer.removeClass(this.menu?.nativeElement, 'show');
   }
-  private _changeStyleToDisable(): void {
-    this.backgroundColor = StatusColor.Disabled;
-    this.borderColor = StatusColor.Disabled;
-    this.textColor = StatusColor.Disabled;
+  /**
+   * update the style based on the received status color type by generating scss class name
+   */
+  private _updateStyles(type: StatusColor): void {
+    let statusType: StatusColor;
+    switch (type) {
+      case StatusColor.Active:
+        statusType = StatusColor.Active;
+        break;
+      case StatusColor.Required:
+        statusType = StatusColor.Required;
+        break;
+      case StatusColor.Accepted:
+        statusType = StatusColor.Accepted;
+        break;
+      case StatusColor.Error:
+        statusType = StatusColor.Error;
+        break;
+      case StatusColor.Accepted:
+        statusType = StatusColor.Accepted;
+        break;
+      case StatusColor.Modified:
+        statusType = StatusColor.Modified;
+        break;
+      case StatusColor.Disabled:
+        statusType = StatusColor.Disabled;
+        break;
+      default:
+        statusType = StatusColor.Default;
+        break;
+    }
+    this.backgroundColor = statusType;
+    this.borderColor = statusType;
+    this.textColor = statusType;
   }
-  private _changeTriangleToDisable(): void {
+  private _changeTriangleStyleToDisable(): void {
     setTimeout(() => {
-      const svgTriangleDoc = this.arrowDown?.nativeElement?.contentDocument;
+      const svgTriangleDoc = this.arrowDownRef?.nativeElement?.contentDocument;
       const arrowSign = svgTriangleDoc?.getElementById('ico.arrow.down-2');
       const disableColor = '#B5B5B5';
       if (arrowSign) {

@@ -1,11 +1,11 @@
 <div #dropdown class="dropdown">
 
   <button #DefaultFieldRef *ngIf="fieldType === dropDownFieldType.Default" type="button"
-    class="btn dropdown-toggle body20 label" data-toggle="dropdown" [ngClass]="{'default': isFirst}"
+    class="btn dropdown-toggle body20 label" data-toggle="dropdown" [ngClass]="{'default': isDefaultStyle}"
     (click)="onFieldClick()" (blur)="onBlur()" nvBackgroundColor [color]="backgroundColor"
     [color]="borderColor" nvTextColor [color]="textColor" nvBorderColor>
     {{selectedItem | nvTrim: textTrimNumber}}
-    <ng-container [ngTemplateOutlet]="arrowTemplate" [ngTemplateOutletContext]="{isArrowDown:isArrowDown}">
+    <ng-container [ngTemplateOutlet]="arrowTemplate" [ngTemplateOutletContext]="{isArrowDown:isArrowDownIcon}">
     </ng-container>
   </button>
    <object #PlusIconRef *ngIf="fieldType === dropDownFieldType.Icon" class="dropdown-icon" data-toggle="dropdown"
@@ -14,7 +14,7 @@
     class="btn dropdown-button body20 label" data-toggle="dropdown" (blur)="onBlur()"
     nvBackgroundColor [color]="backgroundColor" nvBorderColor [color]="borderColor" nvTextColor [color]="textColor">
     {{'Dropdown Button'}}
-    <ng-container [ngTemplateOutlet]="arrowTemplate" [ngTemplateOutletContext]="{isArrowDown:isArrowDown}">
+    <ng-container [ngTemplateOutlet]="arrowTemplate" [ngTemplateOutletContext]="{isArrowDown:isArrowDownIcon}">
     </ng-container>
   </button>
 
@@ -27,8 +27,8 @@
 
 
 <ng-template #arrowTemplate let-item="isArrowDown">
-    <object #arrowDown *ngIf="isArrowDown" class="arrow-icon" data="../../../assets/icons/ico.arrow.down.svg"
+    <object #arrowDownRef *ngIf="isArrowDownIcon" class="arrow-icon" data="../../../assets/icons/ico.arrow.down.svg"
       type="image/svg+xml"></object>
-    <object *ngIf="!isArrowDown && !isFieldDisable" class="arrow-icon" data="../../../assets/icons/ico.arrow.up.svg"
+    <object *ngIf="!isArrowDownIcon && !isFieldDisable" class="arrow-icon" data="../../../assets/icons/ico.arrow.up.svg"
       type="image/svg+xml"></object>
 </ng-template>

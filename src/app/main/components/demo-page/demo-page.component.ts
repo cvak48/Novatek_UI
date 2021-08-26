@@ -51,10 +51,8 @@ export class DemoPageComponent implements OnInit {
   dropDownFieldType0 = mockDropdown().dropDownFieldType0;
   dropDownFieldType1 = mockDropdown().dropDownFieldType1;
   isDisable = mockDropdown().isDisable;
-  //  StatusColorDirectives test on dropdown adding three new input
-    backgroundColor = mockDropdown().backgroundColor;
-    borderColor = mockDropdown().borderColor;
-    textColor = mockDropdown().textColor;
+  //  StatusColorDirectives test on dropdown; the field status color type
+  fieldStatusColor = mockDropdown().fieldStatusColor;
 
   // checkbox
   checkBoxLabel = 'Im a new Checkbox';
@@ -117,11 +115,9 @@ function mockDropdown(): any {
     itemsNumber: ['1', '2', '3', '4', '5', '11', '22', '33', '44', '55'],
     textTrimNumber: 2,
     selectedItemDefault: 'Page',
-    dropDownFieldType0: DropdownFieldType.Default,
-    dropDownFieldType1: DropdownFieldType.Default,
-    backgroundColor: StatusColor.Disabled,
-    borderColor: StatusColor.Disabled,
-    textColor: StatusColor.Disabled,
+    dropDownFieldType0: DropdownFieldType.Button,
+    dropDownFieldType1: DropdownFieldType.Button,
+    fieldStatusColor: StatusColor.Disabled,
     isDisable: true,
   };
   return dropdownInputs;

@@ -1,9 +1,10 @@
+import { NvFilterPipe } from './../pipes/filters/nv-filter/nv-filter.pipe';
 import { NvTrimPipe } from './../pipes/nv-trim/nv-trim.pipe';
-import { NvFilterPipe } from '../pipes/filters/nv-filter/nv-filter.pipe';
 import { FormControl } from '@angular/forms';
 import { map, startWith } from 'rxjs/operators';
 import { DropdownFieldType, MenuExtensionDirection, StatusColor, ArrowIcon } from './../../model/data-model';
 import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef, AfterViewInit, Renderer2 } from '@angular/core';
+import { Observable } from 'rxjs';
 
 /**
 * USAGE:
@@ -58,7 +59,7 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   @ViewChild('ButtonRef') ButtonRef!: ElementRef<HTMLElement>;
   @ViewChild('menu') menu!: ElementRef<HTMLElement>;
   @ViewChild('dropdown') dropdown!: ElementRef<HTMLElement>;
-
+  
   showMenu!: boolean;
   selectedIndex!: number;
   backgroundColor!: StatusColor;
@@ -73,20 +74,30 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   dropDownFieldType = DropdownFieldType;
   menuExtensionDirection = MenuExtensionDirection;
   queryFormControl = new FormControl(`${this.selectedItem}`);
-  filteredList!: string[];
+  filteredItems$!: Observable<string[]>;
+  // filteredItemsValue!: string[];
   constructor(private renderer: Renderer2, private filter: NvFilterPipe,
               private nvTextTrim: NvTrimPipe) {
-  this.filteredList = this.queryFormControl.valueChanges.pipe(startWith(null),
-  map(query => query ? this._filter(query) : this.items.slice()));
-  
+  this.filteredItems$ = this.queryFormControl.valueChanges.pipe(startWith(null),
+  map(query => query ? (this.filter.transform(this.items, query) ? this.filter.transform(this.items, query)
+  : this.items.slice()) : this.items.slice()));
   }
+//    get filteredItemsValue(): string[] {
+//      let ff;
+//     this.filteredItems$.subscribe(items => ff = items);
+//     return ff ;
+//   }
+//   constructor(
+//     private router: Router,
+//     private http: HttpClient
+// ) {
+//     this.userSubject = new BehaviorSubject<User>(null);
+//     this.user = this.userSubject.asObservable();
+// }
 
-  private _filter(value: string): string[] {
-    const filterValue = value?.toLowerCase();
-    const filteredItems = this.items.filter(item => item.toLowerCase().indexOf(filterValue) === 0);
-    return filteredItems;
-  }
-
+public get userValue(): User {
+    return this.userSubject.value;
+}
   ngOnInit(): void {
 
     if (this.isFieldDisable) {
@@ -164,6 +175,7 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
     } else if (!this.isArrowDownIcon && !this.isFieldDisable) {
       this.isArrowDownIcon = true;
     }
+
   }
 
   onBlur(): void {
@@ -175,8 +187,8 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   onItemSelect(index: number): void {
     this.isDefaultStyle = false;
     this.selectedIndex = index;
-    this.selectedItem = this.items[this.selectedIndex];
-    this.queryFormControl.setValue(this.selectedItem);
+    this.filteredItems$.subscribe(items => this.selectedItem = items[this.selectedIndex]);
+    this.queryFormControl.setValue( this.nvTextTrim.transform(this.selectedItem, this.textTrimNumber));
     this.itemSelect.emit(this.selectedItem);
     if (!this.isArrowDownIcon) {
       this.isArrowDownIcon = true;

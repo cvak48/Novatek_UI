@@ -1,23 +1,13 @@
 <div #dropdown class="dropdown">
-  <!-- <button #DefaultFieldRef *ngIf="fieldType === dropDownFieldType.Default" type="button"
-    class="btn dropdown-toggle body20 label" data-toggle="dropdown" [ngClass]="{'default': isDefaultStyle}"
-    (click)="onFieldClick()" (blur)="onBlur()" readonly="false" 
-     nvBackgroundColor [color]="backgroundColor"
-    [color]="borderColor" nvTextColor [color]="textColor" nvBorderColor>
-    {{selectedItem | nvTrim: textTrimNumber}}
-    <ng-container [ngTemplateOutlet]="arrowTemplate" [ngTemplateOutletContext]="{isArrowDown:isArrowDownIcon}">
-    </ng-container>
-  </button> -->
   <input #DefaultFieldRef *ngIf="fieldType === dropDownFieldType.Default" type="text"
   class="btn dropdown-input body20 label" data-toggle="dropdown" [ngClass]="{'default': isDefaultStyle}"
   (click)="onFieldClick()" (blur)="onBlur()" [formControl]="queryFormControl"
    nvBackgroundColor [color]="backgroundColor"
   [color]="borderColor" nvTextColor [color]="textColor" nvBorderColor>
-  {{selectedItem | nvTrim: textTrimNumber}}
   <ng-container [ngTemplateOutlet]="arrowTemplate" [ngTemplateOutletContext]="{isArrowDown:isArrowDownIcon}">
   </ng-container>
    <object #PlusIconRef *ngIf="fieldType === dropDownFieldType.Icon" class="dropdown-icon" data-toggle="dropdown"
-    data="./../../../assets/icons/plus-button.icon.svg" type="image/svg+xml" nvSvgDecorator></object>
+    data="./../../../assets/icons/plus-button.icon.svg" type="image/svg+xml"></object>
   <button #ButtonRef *ngIf="fieldType === dropDownFieldType.Button" type="button" (click)="onFieldClick()"
     class="btn dropdown-button body20 label" data-toggle="dropdown" (blur)="onBlur()"
     nvBackgroundColor [color]="backgroundColor" nvBorderColor [color]="borderColor" nvTextColor [color]="textColor">
@@ -28,7 +18,7 @@
 
   <div #menu class="dropdown-menu"
     [ngClass]=" (extensionDirection === menuExtensionDirection.ToLeft) ? 'dropdown-menu-right': '' ">
-    <div class="dropdown-item body20" *ngFor="let item of items; let i = index" (click)="onItemSelect(i)"
+    <div class="dropdown-item body20" *ngFor="let item of filteredItems$ | async; let i = index" (click)="onItemSelect(i)"
       [ngClass]="{'selected-item': i==selectedIndex}"> {{item}}</div>
   </div>
 </div>

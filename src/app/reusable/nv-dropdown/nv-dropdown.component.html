@@ -4,7 +4,7 @@
   (click)="onFieldClick()" (blur)="onBlur()" [formControl]="queryFormControl"
    nvBackgroundColor [color]="backgroundColor"
   [color]="borderColor" nvTextColor [color]="textColor" nvBorderColor>
-  <ng-container [ngTemplateOutlet]="arrowTemplate" [ngTemplateOutletContext]="{isArrowDown:isArrowDownIcon}">
+  <ng-container *ngIf="fieldType === dropDownFieldType.Default" [ngTemplateOutlet]="arrowTemplate" [ngTemplateOutletContext]="{isArrowDown:isArrowDownIcon}">
   </ng-container>
    <object #PlusIconRef *ngIf="fieldType === dropDownFieldType.Icon" class="dropdown-icon" data-toggle="dropdown"
     data="./../../../assets/icons/plus-button.icon.svg" type="image/svg+xml"></object>
@@ -16,7 +16,7 @@
     </ng-container>
   </button>
 
-  <div #menu class="dropdown-menu"
+  <div #menu class="dropdown-menu" [ngClass]="{'display-menu': hideMenu}"
     [ngClass]=" (extensionDirection === menuExtensionDirection.ToLeft) ? 'dropdown-menu-right': '' ">
     <div class="dropdown-item body20" *ngFor="let item of filteredItems$ | async; let i = index" (click)="onItemSelect(i)"
       [ngClass]="{'selected-item': i==selectedIndex}"> {{item}}</div>

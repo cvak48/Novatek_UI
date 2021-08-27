@@ -1,16 +1,23 @@
 import { NvFilterPipe } from './../pipes/filters/nv-filter/nv-filter.pipe';
 import { NvTrimPipe } from './../pipes/nv-trim/nv-trim.pipe';
 import { FormControl } from '@angular/forms';
-import { map, startWith } from 'rxjs/operators';
+import { map, startWith, tap } from 'rxjs/operators';
 import { DropdownFieldType, MenuExtensionDirection, StatusColor, ArrowIcon } from './../../model/data-model';
 import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef, AfterViewInit, Renderer2 } from '@angular/core';
-import { Observable } from 'rxjs';
-
-/**
-* USAGE:
-* Note that the parent component need to provide proper container (width and height)
-* in some case dropdown menu width should be modified
-*/
+import { Observable, of } from 'rxjs';
+ /**
+  * Title:
+  * Functionalities:
+  * 1: covers button, simple field (editable) and Icon dropdown => fieldType
+  * 2: it can be disabled based on need => isFieldDisable
+  * 3: The menu can open from leftToRight and vice versa => MenuExtensionDirection
+  * 4: the length of item to be shown after selection is adjustable => textTrimNumber
+  * Usage:
+  * that the parent component need to provide proper container (width and height)
+  * Note:
+  * in some case dropdown menu width should be modified
+  * Author: Spz 27-08-2021
+  */
 
 @Component({
   selector: 'app-nv-dropdown',
@@ -30,7 +37,7 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   /**
    * the default value shown in the field comes as an input but it will be updated as soon as user select new item
    */
-  @Input() selectedItem: string = '';
+  @Input() selectedItem: string = 'Select ...';
   /**
    * there are three types: Button, Icon, and Default, which is a simple field.
    */
@@ -42,8 +49,8 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
    */
   @Input() isFieldDisable: boolean = false;
   /**
-   * Receives styles base on the status of the field
-   * The inputs of directives
+   * set styles base on the status of the field
+   * The inputs of directives in html
    */
   @Input() set fieldStatusColor(status: StatusColor) {
     if (status && !this.isFieldDisable) {
@@ -59,8 +66,8 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   @ViewChild('ButtonRef') ButtonRef!: ElementRef<HTMLElement>;
   @ViewChild('menu') menu!: ElementRef<HTMLElement>;
   @ViewChild('dropdown') dropdown!: ElementRef<HTMLElement>;
-  
-  showMenu!: boolean;
+
+  hideMenu: boolean = false;
   selectedIndex!: number;
   backgroundColor!: StatusColor;
   borderColor!: StatusColor;
@@ -73,31 +80,19 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   isArrowDownIcon: boolean = true;
   dropDownFieldType = DropdownFieldType;
   menuExtensionDirection = MenuExtensionDirection;
-  queryFormControl = new FormControl(`${this.selectedItem}`);
+   // initial value: this.selectedItem
+  queryFormControl = new FormControl(`${this.selectedItem}`); // initial value
   filteredItems$!: Observable<string[]>;
-  // filteredItemsValue!: string[];
   constructor(private renderer: Renderer2, private filter: NvFilterPipe,
               private nvTextTrim: NvTrimPipe) {
-  this.filteredItems$ = this.queryFormControl.valueChanges.pipe(startWith(null),
-  map(query => query ? (this.filter.transform(this.items, query) ? this.filter.transform(this.items, query)
-  : this.items.slice()) : this.items.slice()));
+  /**
+   * filtering items in case of default field otherwise it returns items for showing in menu
+   */
+    this.filteredItems$ = this.queryFormControl.valueChanges.pipe(startWith(null),
+    map(query => query ? (this.filter.transform(this.items, query) ? this.filter.transform(this.items, query)
+    : this.items.slice()) : this.items.slice()));
   }
-//    get filteredItemsValue(): string[] {
-//      let ff;
-//     this.filteredItems$.subscribe(items => ff = items);
-//     return ff ;
-//   }
-//   constructor(
-//     private router: Router,
-//     private http: HttpClient
-// ) {
-//     this.userSubject = new BehaviorSubject<User>(null);
-//     this.user = this.userSubject.asObservable();
-// }
 
-public get userValue(): User {
-    return this.userSubject.value;
-}
   ngOnInit(): void {
 
     if (this.isFieldDisable) {
@@ -169,12 +164,24 @@ public get userValue(): User {
 
 
   }
+  get filteredItemsValue(): string[] {
+    let value: string[] = [];
+    this.filteredItems$.subscribe(items => value = items);
+    // TODO: Unsubscribe!
+    return value;
+  }
   onFieldClick(): void {
     if (this.isArrowDownIcon && !this.isFieldDisable) {
       this.isArrowDownIcon = false;
     } else if (!this.isArrowDownIcon && !this.isFieldDisable) {
       this.isArrowDownIcon = true;
     }
+
+    if ( this.filteredItemsValue.length === 0) {
+      this.hideMenu = true;
+    } else {
+      this.hideMenu = false;
+      }
 
   }
 
@@ -185,11 +192,15 @@ public get userValue(): User {
    * event handler within which the selected item's index is set and the selected item is emitted as an output
    */
   onItemSelect(index: number): void {
+    let selectedItem: string = '';
     this.isDefaultStyle = false;
     this.selectedIndex = index;
-    this.filteredItems$.subscribe(items => this.selectedItem = items[this.selectedIndex]);
-    this.queryFormControl.setValue( this.nvTextTrim.transform(this.selectedItem, this.textTrimNumber));
+    this.filteredItems$.subscribe(items => selectedItem = items[this.selectedIndex]);
+    this.selectedItem = selectedItem;
     this.itemSelect.emit(this.selectedItem);
+    if (this.fieldType === DropdownFieldType.Default) {
+      this.queryFormControl.setValue( this.nvTextTrim.transform(this.selectedItem, this.textTrimNumber));
+    }
     if (!this.isArrowDownIcon) {
       this.isArrowDownIcon = true;
     }

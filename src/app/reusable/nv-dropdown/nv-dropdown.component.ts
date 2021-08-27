@@ -53,6 +53,7 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
    * The inputs of directives in html
    */
   @Input() set fieldStatusColor(status: StatusColor) {
+    
     if (status && !this.isFieldDisable) {
       this._updateStyles(status);
     }
@@ -85,6 +86,7 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   filteredItems$!: Observable<string[]>;
   constructor(private renderer: Renderer2, private filter: NvFilterPipe,
               private nvTextTrim: NvTrimPipe) {
+
   /**
    * filtering items in case of default field otherwise it returns items for showing in menu
    */
@@ -94,7 +96,6 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-
     if (this.isFieldDisable) {
       /**
        * change the border, background and text color if it is disabled before the view get initialized

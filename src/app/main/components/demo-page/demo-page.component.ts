@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Notification, Person, DropdownFieldType, ButtonType, ButtonThemeColor } from './../../../model/data-model';
+import { Notification, Person, DropdownFieldType, ButtonType, ButtonThemeColor, MenuExtensionDirection } from './../../../model/data-model';
 
 
 export enum NvComponent {
@@ -48,6 +48,7 @@ export class DemoPageComponent implements OnInit {
   textTrimNumber = mockDropdown().textTrimNumber;
   selectedItemDefault = mockDropdown().selectedItemDefault;
   dropDownFieldType = mockDropdown().dropDownFieldType;
+  extensionDirection = mockDropdown().extensionDirection;
   // checkbox
   checkBoxLabel = 'Im a new Checkbox';
   constructor() { }
@@ -110,6 +111,7 @@ function mockDropdown(): any {
     textTrimNumber: 2,
     selectedItemDefault: 'Page',
     dropDownFieldType: DropdownFieldType.Icon,
+    extensionDirection: MenuExtensionDirection.ToLeft
   };
   return dropdownInputs;
 }

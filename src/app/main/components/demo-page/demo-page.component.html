@@ -94,7 +94,7 @@
         </app-user-profile-menu>
 
         <div class="dropdown-container" *ngSwitchCase="nvComponentType.Dropdown">
-          <app-nv-dropdown class="body-item" [items]="dropdownItems" [textTrimNumber]="textTrimNumber" 
+          <app-nv-dropdown class="body-item" [items]="dropdownItems" [textTrimNumber]="textTrimNumber" [extensionDirection]="extensionDirection"
           [selectedItem]="selectedItemDefault" [fieldType]="dropDownFieldType" (itemSelect)="onItemSelect($event)"></app-nv-dropdown>
         </div>
 

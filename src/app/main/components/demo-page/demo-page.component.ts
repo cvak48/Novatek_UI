@@ -117,9 +117,9 @@ function mockDropdown(): any {
     itemsNumber: ['1', '2', '3', '4', '5', '11', '22', '33', '44', '55'],
     textTrimNumber: 2,
     selectedItemDefault: 'Page',
-    menuExtensionDir:  MenuExtensionDirection.ToLeft,
-    dropDownFieldType0: DropdownFieldType.Icon,
-    dropDownFieldType1: DropdownFieldType.Default,
+    menuExtensionDir:  MenuExtensionDirection.ToRight,
+    dropDownFieldType0: DropdownFieldType.Default,
+    dropDownFieldType1: DropdownFieldType.Icon,
     fieldStatusColor: StatusColor.Default,
     isDisable: false,
   };

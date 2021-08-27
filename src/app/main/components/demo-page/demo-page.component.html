@@ -97,14 +97,16 @@
         </app-user-profile-menu>
 
         <div class="dropdown-container" *ngSwitchCase="nvComponentType.Dropdown">
-          <app-nv-dropdown class="body-item" [items]="dropdownItems" [textTrimNumber]="textTrimNumber" 
-          [selectedItem]="selectedItemDefault" [fieldType]="dropDownFieldType0" 
-          [extensionDirection]="menuExtensionDir" (itemSelect)="onItemSelect($event)"></app-nv-dropdown>
+          <app-nv-dropdown class="body-item"  [extensionDirection]="menuExtensionDir"
+           [items]="dropdownItems" [textTrimNumber]="textTrimNumber" 
+          [selectedItem]="selectedItemDefault" [fieldType]="dropDownFieldType0"
+           (itemSelect)="onItemSelect($event)"></app-nv-dropdown>
         </div>
         <div class="dropdown-container" *ngSwitchCase="nvComponentType.StatusColorDirectives">
-          <app-nv-dropdown class="body-item" [items]="dropdownItems" [textTrimNumber]="textTrimNumber" 
+          <app-nv-dropdown class="body-item" [extensionDirection]="menuExtensionDir" [items]="dropdownItems" 
+          [textTrimNumber]="textTrimNumber" 
           [selectedItem]="selectedItemDefault" [fieldType]="dropDownFieldType1" [isFieldDisable]="isDisable"
-          [fieldStatusColor]="fieldStatusColor" [extensionDirection]="menuExtensionDir"></app-nv-dropdown>
+          [fieldStatusColor]="fieldStatusColor" ></app-nv-dropdown>
         </div>
 
         <div class="upload-file-container" *ngSwitchCase="nvComponentType.DropToUpload">
@@ -125,10 +127,6 @@
         <div class="date-single-picker-container" *ngSwitchCase="nvComponentType.NvDatePicker">
           <app-nv-data-picker [isDateRangePicker]="false" class="body-item"></app-nv-data-picker>
         </div>
-        <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
-        <!-- <div class="date-range-picker-container" *ngSwitchCase="nvComponentType.NvDatePicker">
-          <app-nv-data-picker [isDateRangePicker]="true" class="body-item"></app-nv-data-picker>
-        </div> -->
         <app-nv-button [label]="buttonLabel" [type]="buttonType" [color]="themeColor" class="body-item"
           *ngSwitchCase="nvComponentType.NvButton"></app-nv-button>
 

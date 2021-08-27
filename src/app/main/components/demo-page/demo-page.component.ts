@@ -1,6 +1,6 @@
-import { ButtonThemeColor, ButtonType } from './../../../reusable/nv-button/nv-button.component';
+
 import { Component, OnInit } from '@angular/core';
-import { Notification, Person, DropdownFieldType } from './../../../model/data-model';
+import { Notification, Person, DropdownFieldType, ButtonType, ButtonThemeColor } from './../../../model/data-model';
 
 
 export enum NvComponent {
@@ -49,6 +49,7 @@ export class DemoPageComponent implements OnInit {
   textTrimNumber = mockDropdown().textTrimNumber;
   selectedItemDefault = mockDropdown().selectedItemDefault;
   dropDownFieldType = mockDropdown().dropDownFieldType;
+  isRightToLeft =  mockDropdown().isRightToLeft;
   // checkbox
   checkBoxLabel = 'Im a new Checkbox';
   constructor() { }
@@ -98,6 +99,7 @@ function mockAdvanceSearchInput(): any {
       { id: 7, name: 'Ram',      age: '21', date: 'Mon Dec 29995 1995 00:00:00 GMT-0500', email: 'fohn@yahoo.com' },
     ],
     searchableRefList: ['name', 'age', 'date'],
+    isRightToLeft: true,
     isAdvance: true,
     showMenu: true,
   };

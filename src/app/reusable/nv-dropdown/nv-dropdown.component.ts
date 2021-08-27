@@ -41,6 +41,7 @@ export class NvDropdownComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.isRightToLeft = true;
   }
   onInputClick(): void {
   }

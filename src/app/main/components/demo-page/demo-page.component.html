@@ -94,7 +94,7 @@
         </app-user-profile-menu>
 
         <div class="dropdown-container" *ngSwitchCase="nvComponentType.Dropdown">
-          <app-nv-dropdown class="body-item" [items]="dropdownItems" [textTrimNumber]="textTrimNumber" 
+          <app-nv-dropdown class="body-item" [items]="dropdownItems" [textTrimNumber]="textTrimNumber" [isRightToLeft]="isRightToLeft" 
           [selectedItem]="selectedItemDefault" [fieldType]="dropDownFieldType" (itemSelect)="onItemSelect($event)"></app-nv-dropdown>
         </div>
 
@@ -125,7 +125,7 @@
           <app-nv-data-picker [isDateRangePicker]="true" class="body-item"></app-nv-data-picker>
         </div> -->
         <app-nv-button [label]="buttonLabel" [type]="buttonType" [color]="themeColor" class="body-item"
-          *ngSwitchCase="nvComponentType.NvButton"></app-nv-button>
+          *ngSwitchCase="nvComponentType.NvButton" ></app-nv-button>
 
       </div>
     </div>

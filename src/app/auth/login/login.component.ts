@@ -81,7 +81,7 @@ public emptyVariableList ={
 }
 
   constructor(public translate: TranslateService) {
-    translate.addLangs(['en-US', 'fr-FR']);
+    translate.addLangs(['en-US', 'fr-FR', 'zh-CN']);
     translate.setDefaultLang('en-US');
   }
 
@@ -100,6 +100,7 @@ public emptyVariableList ={
     switch (text) {
       case 'Next':
       case 'Prochaine':
+      case '下一个':
         if (this.emptyVariableList.userNameInput.length > 0) {
           this.variableList.noValidation = this.variableList.isValid;
           this.variableList.showPassword = true;
@@ -136,13 +137,16 @@ public emptyVariableList ={
         break;
       case 'Submit':
       case 'nous':  
+      case '提交':
         this.emailValidation();
         break;
       case 'Login':
       case 'Connexion':
+      case '登录':
         break;
       case 'Resend':
       case 'Renvoyer':
+      case '重发':  
         this.showResendBtn = true;
         this.variableList.count = this.variableList.count+1;
         if(this.variableList.count > 1){
@@ -272,7 +276,12 @@ public emptyVariableList ={
       this.translate.use('fr-FR');
       this.selectedLang = 'French';
       this.transilateVar();
-    } else {
+    } else if (event == 'Chinese') {
+      this.translate.use('zh-CN');
+      this.selectedLang = 'Chinese';
+      this.transilateVar();
+    } 
+    else {
       this.translate.use('en-US');
       this.selectedLang = 'English';
       this.transilateVar();
@@ -296,7 +305,7 @@ public emptyVariableList ={
   }
 
   onDomainChange(item: string): void {
-    console.log('selected item ' + +item); 
+    console.log('selected item ' + +item);
   }
   
   mockMenuDropdown(): any {

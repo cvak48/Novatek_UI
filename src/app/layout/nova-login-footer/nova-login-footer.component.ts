@@ -13,7 +13,8 @@ export class NovaLoginFooterComponent implements OnInit {
 // ]
 public Domain =[
   'English',
-  'French'
+  'French',
+  'Chinese'
 ]
 public selectedItems = 'English';
   constructor() { }

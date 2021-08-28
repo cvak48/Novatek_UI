@@ -1,7 +1,3 @@
-import { SvgDecoratorDirective } from './directives/svg-decorator/svg-decorator.directive';
-import { NvTextColorDirective } from './directives/custom-color/nv-text-color.directive';
-import { NvBorderColorDirective } from './directives/custom-color/nv-border-color.directive';
-import { NvBackgroundColorDirective } from './directives/custom-color/nv-background-color.directive';
 import { NvSliderToggleComponent } from './nv-slider-toggle/nv-slider-toggle.component';
 import { NvSliderRadioButtonComponent } from './nv-slider-radio-button/nv-slider-radio-button.component';
 import { NvSliderComponent } from './nv-slider/nv-slider.component';
@@ -9,8 +5,8 @@ import { NvCheckboxComponent } from './nv-checkbox/nv-checkbox.component';
 import { NvDataPickerComponent } from './nv-data-picker/nv-data-picker.component';
 import { NvTrimPipe } from './pipes/nv-trim/nv-trim.pipe';
 import { NvButtonComponent } from './nv-button/nv-button.component';
-import { NvFilterPipe as NvFilterPipe } from './pipes/filters/nv-filter/nv-filter.pipe';
-import { NvAdvanceFilterPipe as NvAdvanceFilterPipe } from './pipes/filters/nv-advance-filter/nv-advance-filter.pipe';
+import { FilterAllPipe } from './pipes/filters/filterAll/filter-all.pipe';
+import { AdvanceFilterPipe } from './pipes/filters/advance-filter/advance-filter.pipe';
 import { NvInitialsPipe } from './pipes/nv-initials/nv-initials.pipe';
 import { RattingComponent } from './ratting/ratting.component';
 import { UploadComponent } from './upload/upload.component';
@@ -62,19 +58,15 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 
 const sharedComponents = [
   NvInitialsPipe,
-  NvAdvanceFilterPipe,
-  NvFilterPipe,
+  AdvanceFilterPipe,
+  FilterAllPipe,
   NvTrimPipe,
-  DataPropertyGetterPipe,
   NvFileUploadDirective,
-  NvBackgroundColorDirective,
-  NvBorderColorDirective,
-  NvTextColorDirective,
-  SvgDecoratorDirective,
   NvFooterComponent,
   SideNavComponent,
   NovatekLogoComponent,
   NvCustomDatatableComponent,
+  DataPropertyGetterPipe,
   PanelComponent,
   SearchComponent,
   TextAreaComponent,
@@ -132,6 +124,6 @@ const sharedComponents = [
     MDBBootstrapModule.forRoot()
   ],
   exports: sharedComponents,
-  providers: [NvFilterPipe, NvAdvanceFilterPipe, NvTrimPipe ]
+  providers: [FilterAllPipe, AdvanceFilterPipe ]
 })
 export class ReusableModule { }

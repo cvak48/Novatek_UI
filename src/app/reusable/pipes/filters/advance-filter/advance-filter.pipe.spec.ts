@@ -1,8 +1,8 @@
-import { NvAdvanceFilterPipe } from './nv-advance-filter.pipe';
+import { AdvanceFilterPipe } from './advance-filter.pipe';
 
 describe('AdvanceFilterPipe', () => {
   it('create an instance', () => {
-    const pipe = new NvAdvanceFilterPipe();
+    const pipe = new AdvanceFilterPipe();
     expect(pipe).toBeTruthy();
   });
 });

@@ -1,9 +1,7 @@
 <svg id="button.add" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
-
   <g id="Button_Background" data-name="Button Background" fill="#e0e1e2" stroke="#5d5d5d" stroke-width="1">
     <rect width="40" height="40" rx="4" stroke="none"/>
     <rect x="0.5" y="0.5" width="39" height="39" rx="3.5" fill="none"/>
   </g>
-  <path id="Plus_Sign" class="plus-sign" data-name="Plus Sign" d="M14634,537V527h-10v-4h10V513h4v10h10v4h-10v10Z" 
-  transform="translate(-14616 -505)" fill="#5d5d5d" />
+  <path id="Plus_Sign" data-name="Plus Sign" d="M14634,537V527h-10v-4h10V513h4v10h10v4h-10v10Z" transform="translate(-14616 -505)" fill="#5d5d5d"/>
 </svg>

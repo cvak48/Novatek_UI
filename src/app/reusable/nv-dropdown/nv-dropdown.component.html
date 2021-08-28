@@ -1,34 +1,23 @@
-<div #dropdown class="dropdown">
-  <input #DefaultFieldRef *ngIf="fieldType === dropDownFieldType.Default" type="text"
-  class="btn dropdown-input body20 label" data-toggle="dropdown" [ngClass]="{'default': isDefaultStyle}"
-  (click)="onFieldClick()" (blur)="onBlur()" [formControl]="queryFormControl"
-   nvBackgroundColor [color]="backgroundColor"
-  [color]="borderColor" nvTextColor [color]="textColor" nvBorderColor>
-  <ng-container *ngIf="fieldType === dropDownFieldType.Default" [ngTemplateOutlet]="arrowTemplate" [ngTemplateOutletContext]="{isArrowDown:isArrowDownIcon}">
-  </ng-container>
-   <object #PlusIconRef *ngIf="fieldType === dropDownFieldType.Icon" class="dropdown-icon" data-toggle="dropdown"
-    data="./../../../assets/icons/plus-button.icon.svg" type="image/svg+xml"></object>
-  <button #ButtonRef *ngIf="fieldType === dropDownFieldType.Button" type="button" (click)="onFieldClick()"
-    class="btn dropdown-button body20 label" data-toggle="dropdown" (blur)="onBlur()"
-    nvBackgroundColor [color]="backgroundColor" nvBorderColor [color]="borderColor" nvTextColor [color]="textColor">
-    {{'Dropdown Button'}}
-    <ng-container [ngTemplateOutlet]="arrowTemplate" [ngTemplateOutletContext]="{isArrowDown:isArrowDownIcon}">
-    </ng-container>
-  </button>
+<div class="dropdown">
 
-  <div #menu class="dropdown-menu" [ngClass]="{'display-menu': hideMenu}"
-    [ngClass]=" (extensionDirection === menuExtensionDirection.ToLeft) ? 'dropdown-menu-right': '' ">
-    <div class="dropdown-item body20" *ngFor="let item of filteredItems$ | async; let i = index" (click)="onItemSelect(i)"
+    <button *ngIf="fieldType === dropDownFieldType.Default" type="button" class="btn dropdown-toggle body20 label" data-toggle="dropdown" [ngClass]="{'default': isFirst}"
+      (click)="isArrowDown=!isArrowDown" (blur)="onBlur()">
+      {{selectedItem | nvTrim: textTrimNumber}}
+      <img *ngIf="isArrowDown" class="arrow-icon"  src="../../../assets/icons/ico.arrow.down.svg">
+      <img *ngIf="!isArrowDown" class="arrow-icon" src="../../../assets/icons/ico.arrow.up.svg">
+    </button>
+    <img *ngIf="fieldType === dropDownFieldType.Icon" class="dropdown-icon" data-toggle="dropdown"  src="./../../../assets/icons/plus-button.icon.svg">
+    <button *ngIf="fieldType === dropDownFieldType.Button" type="button" class="btn dropdown-button body20 label" data-toggle="dropdown" 
+      (click)="isArrowDown=!isArrowDown" (blur)="onBlur()">
+      {{'Dropdown Button'}}
+      <img *ngIf="isArrowDown"  class="arrow-icon"  src="../../../assets/icons/ico.arrow.down.svg">
+      <img *ngIf="!isArrowDown" class="arrow-icon" src="../../../assets/icons/ico.arrow.up.svg">
+    </button>
+
+  <div class="dropdown-menu" [ngClass]=" (extensionDirection === menuExtensionDirection.ToLeft) ? 'dropdown-menu-right': '' ">
+    <div class="dropdown-item body20" *ngFor="let item of items; let i = index" (click)="onItemSelect(i)"
       [ngClass]="{'selected-item': i==selectedIndex}"> {{item}}</div>
   </div>
 </div>
 
 
-
-
-<ng-template #arrowTemplate let-item="isArrowDown">
-    <object #arrowDownRef *ngIf="isArrowDownIcon" class="arrow-icon" data="../../../assets/icons/ico.arrow.down.svg"
-      type="image/svg+xml"></object>
-    <object *ngIf="!isArrowDownIcon && !isFieldDisable" class="arrow-icon" data="../../../assets/icons/ico.arrow.up.svg"
-      type="image/svg+xml"></object>
-</ng-template>

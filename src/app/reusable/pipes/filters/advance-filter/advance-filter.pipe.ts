@@ -1,9 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-    name: 'nvAdvanceFilter',
+    name: 'advanceFilter',
 })
-export class NvAdvanceFilterPipe implements PipeTransform {
+export class AdvanceFilterPipe implements PipeTransform {
     transform(value: any, input: string, searchableList: any): any {
         if (input) {
             input = input.trim().toLowerCase();

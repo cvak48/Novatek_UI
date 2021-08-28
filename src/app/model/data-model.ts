@@ -2,10 +2,24 @@
  * All types of data models using Class, Interface and Enum
  */
 
+export interface ArrowIcon {
+    upward: string;
+    downward: string;
+}
+
 export enum DropdownFieldType {
     Button,
     Icon,
     Default,
+}
+export enum StatusColor {
+    Active,
+    Required,
+    Error,
+    Accepted,
+    Modified,
+    Disabled,
+    Default
 }
 export enum MenuExtensionDirection {
     ToLeft,

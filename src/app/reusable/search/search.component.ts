@@ -1,8 +1,8 @@
-import { AdvanceFilterPipe } from './../pipes/filters/advance-filter/advance-filter.pipe';
-import { FilterAllPipe } from './../pipes/filters/filterAll/filter-all.pipe';
+import { NvAdvanceFilterPipe } from '../pipes/filters/nv-advance-filter/nv-advance-filter.pipe';
+import { NvFilterPipe } from '../pipes/filters/nv-filter/nv-filter.pipe';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
-/**
+ /**
   * USAGE:
   * Note that the parent component need to provide proper container (set width and height);
   * This component receives a list and provide filteredItems
@@ -55,7 +55,7 @@ export class SearchComponent implements OnInit {
   /**
    * there are two filter applied with pipe; the advance is going to use the key as filter parameter (searchableList)
    */
-  constructor(private filter: FilterAllPipe, private advanceFilter: AdvanceFilterPipe) { }
+  constructor(private filter: NvFilterPipe, private advanceFilter: NvAdvanceFilterPipe) { }
 
   ngOnInit(): void {
     let isQueryKeyword: boolean = false;

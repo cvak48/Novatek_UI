@@ -2,15 +2,14 @@
   <input #DefaultFieldRef *ngIf="fieldType === dropDownFieldType.Default" type="text"
   class="btn dropdown-input body20 label" data-toggle="dropdown" [ngClass]="{'default': isDefaultStyle}"
   (click)="onFieldClick()" (blur)="onBlur()" [formControl]="queryFormControl"
-   nvBackgroundColor [color]="backgroundColor"
-  [color]="borderColor" nvTextColor [color]="textColor" nvBorderColor>
+   nvBackgroundColor [color]="backgroundColor" nvBorderColor [color]="borderColor">
   <ng-container *ngIf="fieldType === dropDownFieldType.Default" [ngTemplateOutlet]="arrowTemplate" [ngTemplateOutletContext]="{isArrowDown:isArrowDownIcon}">
   </ng-container>
-   <object #PlusIconRef *ngIf="fieldType === dropDownFieldType.Icon" class="dropdown-icon" data-toggle="dropdown"
-    data="./../../../assets/icons/plus-button.icon.svg" type="image/svg+xml"></object>
+  <img #PlusIconRef *ngIf="fieldType === dropDownFieldType.Icon" class="dropdown-icon" data-toggle="dropdown"
+  src="./../../../assets/icons/plus-button.icon.svg" alt="The Plus Icon">
   <button #ButtonRef *ngIf="fieldType === dropDownFieldType.Button" type="button" (click)="onFieldClick()"
     class="btn dropdown-button body20 label" data-toggle="dropdown" (blur)="onBlur()"
-    nvBackgroundColor [color]="backgroundColor" nvBorderColor [color]="borderColor" nvTextColor [color]="textColor">
+    nvBackgroundColor [color]="backgroundColor" nvBorderColor [color]="borderColor">
     {{'Dropdown Button'}}
     <ng-container [ngTemplateOutlet]="arrowTemplate" [ngTemplateOutletContext]="{isArrowDown:isArrowDownIcon}">
     </ng-container>
@@ -22,8 +21,6 @@
       [ngClass]="{'selected-item': i==selectedIndex}"> {{item}}</div>
   </div>
 </div>
-
-
 
 
 <ng-template #arrowTemplate let-item="isArrowDown">

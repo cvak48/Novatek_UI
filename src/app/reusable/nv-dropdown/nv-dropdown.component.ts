@@ -62,7 +62,8 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
    * access to html elements
    */
   @ViewChild('DefaultFieldRef') DefaultFieldRef!: ElementRef<HTMLElement>;
-  @ViewChild('PlusIconRef') PlusIconRef!: ElementRef<HTMLObjectElement>;
+  // @ViewChild('PlusIconRef') PlusIconRef!: ElementRef<HTMLObjectElement>;
+  @ViewChild('PlusIconRef') PlusIconRef!: ElementRef<HTMLElement>;
   @ViewChild('arrowDownRef') arrowDownRef!: ElementRef<HTMLObjectElement>;
   @ViewChild('ButtonRef') ButtonRef!: ElementRef<HTMLElement>;
   @ViewChild('menu') menu!: ElementRef<HTMLElement>;
@@ -106,25 +107,9 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     /**
-     * opening and closing the dropdown menu in case of plus-button
+     * opening and closing the dropdown menu in case of plus-button TODO: adding object
      */
-    if (this.fieldType === this.dropDownFieldType.Icon) {
-      this.PlusIconRef?.nativeElement?.contentWindow?.addEventListener('click', () => {
-        const hasShowClass = this.menu?.nativeElement?.classList?.contains('show');
-        if (!this.isFieldDisable) {
-          if (hasShowClass) {
-            this.renderer.removeClass(this.menu?.nativeElement, 'show');
-          } else {
-            this.renderer.addClass(this.menu?.nativeElement, 'show');
-          }
-        }
 
-      });
-
-      this.PlusIconRef?.nativeElement?.contentWindow?.addEventListener('blur', () => {
-        this.renderer.removeClass(this.menu?.nativeElement, 'show');
-      });
-    }
     if (this.isFieldDisable) {
       /**
        * Remove toggle to disable the dropdown menu
@@ -136,25 +121,13 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
         this.ButtonRef?.nativeElement.removeAttribute('data-toggle');
         this._changeTriangleStyleToDisable();
       } else if (this.dropDownFieldType.Icon) {
+        this.PlusIconRef?.nativeElement.removeAttribute('data-toggle');
         /**
          * data-toggle does not work in Object element So the click and blur events handle the open and close functionalities
          */
         /**
-         *  plus icon color
+         *  plus icon color TODO: adding object
          */
-        setTimeout(() => {
-          const svgPlusButtonDoc = this.PlusIconRef?.nativeElement?.contentDocument;
-          const plusSign = svgPlusButtonDoc?.getElementById('Plus_Sign');
-          const plusBorder = svgPlusButtonDoc?.getElementById('Button_Background');
-          const disableColor = '#B5B5B5';
-          if (plusSign) {
-            this.renderer.setStyle(plusSign, 'fill', disableColor);
-          }
-          if (plusBorder) {
-            this.renderer.setStyle(plusBorder, 'stroke', disableColor);
-          }
-        }, 100);
-
       }
       /**
        * Note: Remove icons; triangles
@@ -197,6 +170,7 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
     this.isDefaultStyle = false;
     this.selectedIndex = index;
     this.filteredItems$.subscribe(items => selectedItem = items[this.selectedIndex]);
+    this.filteredItems$ = of(this.items);
     this.selectedItem = selectedItem;
     this.itemSelect.emit(this.selectedItem);
     if (this.fieldType === DropdownFieldType.Default) {
@@ -206,13 +180,9 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
       this.isArrowDownIcon = true;
     }
     /**
-     * close the dropdown menu in case of plus-button
+     * close the dropdown menu in case of plus-button TODO: adding object
      *
      */
-    if (this.fieldType === this.dropDownFieldType.Icon) {
-      this.renderer.removeClass(this.menu?.nativeElement, 'show');
-    }
-
   }
   /**
    * update the style based on the received status color type by generating scss class name
@@ -247,7 +217,6 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
     }
     this.backgroundColor = statusType;
     this.borderColor = statusType;
-    this.textColor = statusType;
   }
   private _changeTriangleStyleToDisable(): void {
     setTimeout(() => {

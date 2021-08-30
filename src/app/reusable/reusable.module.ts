@@ -131,6 +131,6 @@ const sharedComponents = [
     MDBBootstrapModule.forRoot()
   ],
   exports: sharedComponents,
-  providers: [NvFilterPipe, NvAdvanceFilterPipe ]
+  providers: [NvFilterPipe, NvAdvanceFilterPipe, NvTrimPipe ]
 })
 export class ReusableModule { }

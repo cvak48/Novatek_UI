@@ -68,7 +68,6 @@ export class DemoPageComponent implements OnInit {
   }
   // dropDown selected item
   onItemSelect(item: string): void {
-    console.log('selectedItem >>>> ' + +item);
   }
 }
 

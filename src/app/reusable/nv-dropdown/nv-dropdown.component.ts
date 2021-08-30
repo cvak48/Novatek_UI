@@ -1,8 +1,8 @@
 import { NvFilterPipe } from './../pipes/filters/filterAll/nv-filter.pipe';
 import { NvTrimPipe } from './../pipes/nv-trim/nv-trim.pipe';
 import { FormControl } from '@angular/forms';
-import { map, startWith, tap } from 'rxjs/operators';
-import { DropdownFieldType, MenuExtensionDirection, StatusColor, ArrowIcon } from './../../model/data-model';
+import { map, startWith } from 'rxjs/operators';
+import { DropdownFieldType, MenuExtensionDirection, StatusColor } from './../../model/data-model';
 import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef, AfterViewInit, Renderer2 } from '@angular/core';
 import { Observable, of } from 'rxjs';
  /**

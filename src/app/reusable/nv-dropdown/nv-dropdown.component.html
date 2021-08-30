@@ -5,8 +5,10 @@
    nvBackgroundColor [color]="backgroundColor" nvBorderColor [color]="borderColor">
   <ng-container *ngIf="fieldType === dropDownFieldType.Default" [ngTemplateOutlet]="arrowTemplate" [ngTemplateOutletContext]="{isArrowDown:isArrowDownIcon}">
   </ng-container>
-  <img #PlusIconRef *ngIf="fieldType === dropDownFieldType.Icon" class="dropdown-icon" data-toggle="dropdown"
+  <img #PlusIconRef *ngIf="(fieldType === dropDownFieldType.Icon) &&  !isFieldDisable" class="dropdown-icon" data-toggle="dropdown"
   src="./../../../assets/icons/plus-button.icon.svg" alt="The Plus Icon">
+  <img #PlusIconRef *ngIf="(fieldType === dropDownFieldType.Icon) &&  isFieldDisable" class="dropdown-icon" data-toggle="dropdown"
+  src="./../../../assets/icons/plus-button--disabled.icon.svg" alt="The Plus Icon">
   <button #ButtonRef *ngIf="fieldType === dropDownFieldType.Button" type="button" (click)="onFieldClick()"
     class="btn dropdown-button body20 label" data-toggle="dropdown" (blur)="onBlur()"
     nvBackgroundColor [color]="backgroundColor" nvBorderColor [color]="borderColor">

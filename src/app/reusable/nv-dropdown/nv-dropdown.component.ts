@@ -1,4 +1,4 @@
-import { NvFilterPipe } from './../pipes/filters/nv-filter/nv-filter.pipe';
+import { NvFilterPipe } from './../pipes/filters/filterAll/nv-filter.pipe';
 import { NvTrimPipe } from './../pipes/nv-trim/nv-trim.pipe';
 import { FormControl } from '@angular/forms';
 import { map, startWith, tap } from 'rxjs/operators';

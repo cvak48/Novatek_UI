@@ -1,8 +1,8 @@
-import { NvAdvanceFilterPipe } from '../pipes/filters/nv-advance-filter/nv-advance-filter.pipe';
-import { NvFilterPipe } from '../pipes/filters/nv-filter/nv-filter.pipe';
+import { NvAdvanceFilterPipe } from '../pipes/filters/advance-filter/nv-advance-filter.pipe';
+import { NvFilterPipe } from '../pipes/filters/filterAll/nv-filter.pipe';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
- /**
+/**
   * USAGE:
   * Note that the parent component need to provide proper container (set width and height);
   * This component receives a list and provide filteredItems

@@ -99,13 +99,13 @@
         <div class="dropdown-container" *ngSwitchCase="nvComponentType.Dropdown">
           <app-nv-dropdown class="body-item"  [extensionDirection]="menuExtensionDir"
            [items]="dropdownItems" [textTrimNumber]="textTrimNumber" 
-          [selectedItem]="selectedItemDefault" [fieldType]="dropDownFieldType0"
+          [selectedItem]="defaultSelectedItem" [fieldType]="dropDownFieldType0"
            (itemSelect)="onItemSelect($event)"></app-nv-dropdown>
         </div>
         <div class="dropdown-container" *ngSwitchCase="nvComponentType.StatusColorDirectives">
           <app-nv-dropdown class="body-item" [extensionDirection]="menuExtensionDir" [items]="dropdownItems" 
           [textTrimNumber]="textTrimNumber" 
-          [selectedItem]="selectedItemDefault" [fieldType]="dropDownFieldType1" [isFieldDisable]="isDisable"
+          [selectedItem]="defaultSelectedItem" [fieldType]="dropDownFieldType1" [isFieldDisable]="isDisable"
           [fieldStatusColor]="fieldStatusColor" ></app-nv-dropdown>
         </div>
 

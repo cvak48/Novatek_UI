@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'nvFilterAll'
+  name: 'nvFilter'
 })
 export class NvFilterPipe implements PipeTransform {
   transform(value: any, args?: any): any {

@@ -254,74 +254,73 @@ $border-color-500: $color-white;
 }
 
 
+
+
 /** 
 * all the classes that can be used along side custom-color directives added in the html elements
 * the background/ border/ text color can be change using the custom-color directives
 * the different statuses are defined by enum " StatusColor " which is the second part of the class name
 */
 .background-Active {
-background-color:  $color-white-20 !important;
-}
-.background-Required {
   background-color:  $color-white-20 !important;
-}
-.background-Error {
-  background-color:  $color-light-red-10 !important;
-}
-.background-Accepted {
-  background-color:  $color-light-green-10 !important;
-}
-.background-Modified {
-  background-color:  $color-light-yellow !important;
-}
-.background-Disabled {
-  background-color:  $color-light-gray !important;
-}
-.background-Default {}
-
-
-.border-Active {
-border: 1px solid $color-light-gray-80 !important;
-}
-.border-Required {
-  border: 1px solid $color-white-10 !important;
-}
-.border-Error {
-  border: 1px solid $color-red-20 !important;
-}
-.border-Accepted {
-  border: 1px solid $color-green !important;
-}
-.border-Modified {
-  border: 1px solid $color-orange !important;
-}
-.border-Disabled {
-  border: 1px solid $color-white-10 !important;
-}
-.border-Default {}
-
-.text-Active {
-color: $color-dark-gray-13 !important;
-}
-.text-Required {
-  color: $color-red !important;
+  }
+  .background-Required {
+    background-color:  $color-white-20 !important;
+  }
+  .background-Error {
+    background-color:  $color-light-red-10 !important;
+  }
+  .background-Accepted {
+    background-color:  $color-light-green-10 !important;
+  }
+  .background-Modified {
+    background-color:  $color-light-yellow !important;
+  }
+  .background-Disabled {
+    background-color:  $color-light-gray !important;
+  }
+  .background-Default {}
   
-}
-.text-Error {
-  color: $color-red !important;
-}
-.text-Accepted {
-  color: $color-green !important;
-}
-.text-Modified {
-  color: $color-orange !important;
-}
-.text-Disabled {
-  color: $color-dark-gray-30 !important;
-}
-.text-Default {}
-
-
-
-
-
+  
+  .border-Active {
+  border: 1px solid $color-light-gray-80 !important;
+  }
+  .border-Required {
+    border: 1px solid $color-white-10 !important;
+  }
+  .border-Error {
+    border: 1px solid $color-red-20 !important;
+  }
+  .border-Accepted {
+    border: 1px solid $color-green !important;
+  }
+  .border-Modified {
+    border: 1px solid $color-orange !important;
+  }
+  .border-Disabled {
+    border: 1px solid $color-white-10 !important;
+  }
+  .border-Default {}
+  
+  .text-Active {
+  color: $color-dark-gray-13 !important;
+  }
+  .text-Required {
+    color: $color-red !important;
+  
+  }
+  .text-Error {
+    color: $color-red !important;
+  }
+  .text-Accepted {
+    color: $color-green !important;
+  }
+  .text-Modified {
+    color: $color-orange !important;
+  }
+  .text-Disabled {
+    color: $color-dark-gray-30 !important;
+  }
+  .text-Default {}
+  
+  

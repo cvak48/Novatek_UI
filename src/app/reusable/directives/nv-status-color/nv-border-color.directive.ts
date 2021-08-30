@@ -1,10 +1,10 @@
-import { StatusColor } from '../../../model/data-model';
-import { Directive, Renderer2, ElementRef, Input, OnInit, OnDestroy } from '@angular/core';
+import { StatusColor } from './../../../model/data-model';
+import { Directive, Input, Renderer2, ElementRef } from '@angular/core';
 
 @Directive({
   selector: '[nvBorderColor]'
 })
-export class NvBorderColorDirective implements OnInit, OnDestroy {
+export class NvBorderColorDirective {
 
   @Input() color: StatusColor = StatusColor.Default;
   constructor(private renderer: Renderer2, private element: ElementRef) { }

@@ -1,6 +1,6 @@
 import { NvFilterPipe } from './nv-filter.pipe';
 
-describe('FilterAllPipe', () => {
+describe('NvFilterPipe', () => {
   it('create an instance', () => {
     const pipe = new NvFilterPipe();
     expect(pipe).toBeTruthy();

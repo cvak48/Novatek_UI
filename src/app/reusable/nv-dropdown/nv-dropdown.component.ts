@@ -5,19 +5,19 @@ import { map, startWith } from 'rxjs/operators';
 import { DropdownFieldType, MenuExtensionDirection, StatusColor } from './../../model/data-model';
 import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef, AfterViewInit, Renderer2 } from '@angular/core';
 import { Observable, of } from 'rxjs';
- /**
-  * Title:
-  * Functionalities:
-  * 1: covers button, simple field (editable) and Icon dropdown => fieldType
-  * 2: it can be disabled based on need => isFieldDisable
-  * 3: The menu can open from leftToRight and vice versa => MenuExtensionDirection
-  * 4: the length of item to be shown after selection is adjustable => textTrimNumber
-  * Usage:
-  * that the parent component need to provide proper container (width and height)
-  * Note:
-  * in some case dropdown menu width should be modified
-  * Author: Spz 27-08-2021
-  */
+/**
+ * Title:
+ * Functionalities:
+ * 1: covers button, simple field (editable) and Icon dropdown => fieldType
+ * 2: it can be disabled based on need => isFieldDisable
+ * 3: The menu can open from leftToRight and vice versa => MenuExtensionDirection
+ * 4: the length of item to be shown after selection is adjustable => textTrimNumber
+ * Usage:
+ * that the parent component need to provide proper container (width and height)
+ * Note:
+ * in some case dropdown menu width should be modified
+ * Author: Spz 27-08-2021
+ */
 
 @Component({
   selector: 'app-nv-dropdown',
@@ -53,7 +53,7 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
    * The inputs of directives in html
    */
   @Input() set fieldStatusColor(status: StatusColor) {
-    
+
     if (status && !this.isFieldDisable) {
       this._updateStyles(status);
     }
@@ -82,18 +82,24 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   isArrowDownIcon: boolean = true;
   dropDownFieldType = DropdownFieldType;
   menuExtensionDirection = MenuExtensionDirection;
-   // initial value: this.selectedItem
+  // initial value: this.selectedItem
   queryFormControl = new FormControl(`${this.selectedItem}`); // initial value
   filteredItems$!: Observable<string[]>;
+  filteredItems: string[] = [];
   constructor(private renderer: Renderer2, private filter: NvFilterPipe,
-              private nvTextTrim: NvTrimPipe) {
+    private nvTextTrim: NvTrimPipe) {
 
-  /**
-   * filtering items in case of default field otherwise it returns items for showing in menu
-   */
+    /**
+     * filtering items in case of default field otherwise it returns items for showing in menu
+     */
     this.filteredItems$ = this.queryFormControl.valueChanges.pipe(startWith(null),
-    map(query => query ? (this.filter.transform(this.items, query) ? this.filter.transform(this.items, query)
-    : this.items.slice()) : this.items.slice()));
+      map(query => {
+
+        const filteredItems = query ? (this.filter.transform(this.items, query) ? this.filter.transform(this.items, query)
+          : this.items.slice()) : this.items.slice();
+        this.filteredItems = filteredItems;
+        return filteredItems;
+      }));
   }
 
   ngOnInit(): void {
@@ -151,11 +157,11 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
       this.isArrowDownIcon = true;
     }
 
-    if ( this.filteredItemsValue.length === 0) {
+    if (this.filteredItemsValue.length === 0) {
       this.hideMenu = true;
     } else {
       this.hideMenu = false;
-      }
+    }
 
   }
 
@@ -169,12 +175,13 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
     let selectedItem: string = '';
     this.isDefaultStyle = false;
     this.selectedIndex = index;
-    this.filteredItems$.subscribe(items => selectedItem = items[this.selectedIndex]);
     this.filteredItems$ = of(this.items);
+    selectedItem = this.filteredItems[this.selectedIndex];
+    this.filteredItems = this.items;
     this.selectedItem = selectedItem;
     this.itemSelect.emit(this.selectedItem);
     if (this.fieldType === DropdownFieldType.Default) {
-      this.queryFormControl.setValue( this.nvTextTrim.transform(this.selectedItem, this.textTrimNumber));
+      this.queryFormControl.setValue(this.nvTextTrim.transform(this.selectedItem, this.textTrimNumber));
     }
     if (!this.isArrowDownIcon) {
       this.isArrowDownIcon = true;

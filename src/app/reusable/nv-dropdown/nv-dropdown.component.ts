@@ -197,6 +197,7 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
     this.isDefaultStyle = false;
     this.selectedIndex = index;
     this.filteredItems$.subscribe(items => selectedItem = items[this.selectedIndex]);
+    this.filteredItems$ = of(this.items);
     this.selectedItem = selectedItem;
     this.itemSelect.emit(this.selectedItem);
     if (this.fieldType === DropdownFieldType.Default) {

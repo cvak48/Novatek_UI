@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Notification, Person, DropdownFieldType, ButtonType, ButtonThemeColor, MenuExtensionDirection, StatusColor } from './../../../model/data-model';
+import { Notification, Person, DropdownFieldType, ButtonType, ButtonThemeColor, MenuExtensionDirection, StatusType } from './../../../model/data-model';
 
 
 export enum NvComponent {
@@ -118,7 +118,7 @@ function mockDropdown(): any {
     menuExtensionDir:  MenuExtensionDirection.ToRight,
     dropDownFieldType0: DropdownFieldType.Input,
     dropDownFieldType1: DropdownFieldType.Input,
-    fieldStatusColor: StatusColor.Accepted,
+    fieldStatusColor: StatusType.Accepted,
     isDisable: false,
   };
   return dropdownInputs;

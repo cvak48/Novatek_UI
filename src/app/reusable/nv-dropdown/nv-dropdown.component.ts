@@ -1,4 +1,4 @@
-import { MenuExtensionDirection, StatusColor } from './../../model/data-model';
+import { MenuExtensionDirection, StatusType, StyleType } from './../../model/data-model';
 import { DropdownFieldType } from 'src/app/model/data-model';
 import { NvFilterPipe } from './../pipes/filters/filterAll/nv-filter.pipe';
 import { NvTrimPipe } from './../pipes/nv-trim/nv-trim.pipe';
@@ -59,7 +59,7 @@ export class NvDropdownComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() set isFieldDisable(isDisable: boolean) {
     this._isFieldDisable = isDisable;
     if (this._isFieldDisable) {
-      this._updateStyles(StatusColor.Disabled);
+      this._updateStyles(StatusType.Disabled);
     }
 
   }
@@ -71,16 +71,15 @@ export class NvDropdownComponent implements OnInit, AfterViewInit, OnChanges {
    * set styles base on the status of the field
    * The inputs of directives in html
    */
-  @Input() fieldStatusColor!: StatusColor;
-    // this._fieldStatusColor = status;
-    // console.log('INPUT');
-    // if (this._fieldStatusColor && !this.isFieldDisable) {
-    //   this._updateStyles(this._fieldStatusColor);
-    // }
-    // if (!this._fieldStatusColor && !this.isFieldDisable) {
-    //   this._updateStyles(StatusColor.Default);
-    // }
-
+  @Input() fieldStatusColor!: StatusType;
+  // this._fieldStatusColor = status;
+  // console.log('INPUT');
+  // if (this._fieldStatusColor && !this.isFieldDisable) {
+  //   this._updateStyles(this._fieldStatusColor);
+  // }
+  // if (!this._fieldStatusColor && !this.isFieldDisable) {
+  //   this._updateStyles(StatusColor.Default);
+  // }
 
 
   /**
@@ -97,9 +96,10 @@ export class NvDropdownComponent implements OnInit, AfterViewInit, OnChanges {
   hideMenu: boolean = false;
   selectedIndex!: number;
   isItemSelected: boolean = false;
-  backgroundColor!: StatusColor;
-  borderColor!: StatusColor;
-  textColor!: StatusColor;
+  backgroundColor!: StatusType;
+  borderColor!: StatusType;
+  textColor!: StatusType;
+  styleType!: StyleType;
   // TODO: need to define type for each of these
   /**
    * the default style for selectedItem
@@ -113,7 +113,7 @@ export class NvDropdownComponent implements OnInit, AfterViewInit, OnChanges {
   filteredItems: string[] = this.items;
   constructor(private renderer: Renderer2, private filter: NvFilterPipe, private nvTextTrim: NvTrimPipe) { }
   ngOnChanges(changes: SimpleChanges): void {
-  console.log('fieldStatusColor OnChange >' + this.fieldStatusColor);
+    console.log('fieldStatusColor OnChange >' + this.fieldStatusColor);
   }
 
   ngOnInit(): void {
@@ -138,10 +138,8 @@ export class NvDropdownComponent implements OnInit, AfterViewInit, OnChanges {
       this._updateStyles(this.fieldStatusColor);
     }
     if (!this.fieldStatusColor && !this.isFieldDisable) {
-      // this._updateStyles(StatusColor.Default);
+      this._updateStyles(StatusType.Default);
     }
-    console.log(this.backgroundColor);
-    
 
   }
 
@@ -173,11 +171,7 @@ export class NvDropdownComponent implements OnInit, AfterViewInit, OnChanges {
        * Note: Remove icons; triangles
        * they are disabled in html
        */
-       console.log("ngAfterViewInit" + this.backgroundColor);
     }
-
-
-
   }
 
   onFieldClick(): void {
@@ -224,41 +218,53 @@ export class NvDropdownComponent implements OnInit, AfterViewInit, OnChanges {
   /**
    * update the style based on the received status color type by generating scss class name
    */
-  private _updateStyles(type: StatusColor): void {
-    let statusType: StatusColor;
+  private _updateStyles(type: StatusType): void {
+    let statusType: StatusType;
     switch (type) {
-      case StatusColor.Active:
-        statusType = StatusColor.Active;
+      case StatusType.Active:
+        statusType = StatusType.Active;
         break;
-      case StatusColor.Required:
-        statusType = StatusColor.Required;
+      case StatusType.Required:
+        statusType = StatusType.Required;
         break;
-      case StatusColor.Accepted:
-        statusType = StatusColor.Accepted;
+      case StatusType.Accepted:
+        statusType = StatusType.Accepted;
         break;
-      case StatusColor.Error:
-        statusType = StatusColor.Error;
+      case StatusType.Error:
+        statusType = StatusType.Error;
         break;
-      case StatusColor.Accepted:
-        statusType = StatusColor.Accepted;
+      case StatusType.Accepted:
+        statusType = StatusType.Accepted;
         break;
-      case StatusColor.Modified:
-        statusType = StatusColor.Modified;
+      case StatusType.Modified:
+        statusType = StatusType.Modified;
         break;
-      case StatusColor.Disabled:
-        statusType = StatusColor.Disabled;
+      case StatusType.Disabled:
+        statusType = StatusType.Disabled;
         break;
       default:
-        statusType = StatusColor.Default;
+        statusType = StatusType.Default;
         console.log('Default' + this.backgroundColor);
         break;
     }
     this.backgroundColor = statusType;
     this.borderColor = statusType;
-    this.textColor = StatusColor.Default;
-    if (statusType === StatusColor.Disabled) {
+    this.textColor = StatusType.Default;
+    if (statusType === StatusType.Disabled) {
       this.textColor = statusType;
     }
+  }
+  private _populateStyleType(statusType: StatusType): StyleType {
+    const styles: StyleType = {
+      background: statusType,
+      border: statusType,
+      text: StatusType.Default
+    };
+    if (statusType === StatusType.Disabled) {
+      styles.text = statusType;
+    }
+
+    return styles;
   }
   private _changeTriangleStyleToDisable(): void {
     setTimeout(() => {

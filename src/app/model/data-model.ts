@@ -10,7 +10,24 @@ export enum DropdownFieldType {
     Icon,
     Input,
 }
-export enum StatusColor {
+
+export interface Person {
+    id: number;
+    name: string;
+    imageUrl: string;
+    notification?: Notification;
+}
+export interface Notification {
+    number?: number | any;
+    content?: string;
+    hasAttachment?: boolean;
+}
+
+/**
+ * Theme
+ */
+
+export enum StatusType {
     Active,
     Required,
     Error,
@@ -18,6 +35,11 @@ export enum StatusColor {
     Modified,
     Disabled,
     Default
+}
+export interface StyleType {
+    border: number;
+    background: number;
+    text: number;
 }
 export enum MenuExtensionDirection {
     ToLeft,
@@ -32,16 +54,5 @@ export enum ButtonType {
 export enum ButtonThemeColor {
     Basic,
     Primary,
-}
-export interface Person {
-    id: number;
-    name: string;
-    imageUrl: string;
-    notification?: Notification;
-}
-export interface Notification {
-    number?: number | any;
-    content?: string;
-    hasAttachment?: boolean;
 }
 

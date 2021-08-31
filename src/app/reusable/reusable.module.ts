@@ -1,3 +1,4 @@
+import { NvStyleColorDirective } from './directives/nv-status-color/nv-style-color.directive';
 
 import { NvSliderToggleComponent } from './nv-slider-toggle/nv-slider-toggle.component';
 import { NvSliderRadioButtonComponent } from './nv-slider-radio-button/nv-slider-radio-button.component';
@@ -69,6 +70,7 @@ const sharedComponents = [
   NvTextColorDirective,
   NvBorderColorDirective,
   NvBackgroundColorDirective,
+  NvStyleColorDirective,
   NvFooterComponent,
   SideNavComponent,
   NovatekLogoComponent,

@@ -1,4 +1,4 @@
-import { StatusColor } from './../../../model/data-model';
+import { StatusType } from './../../../model/data-model';
 import { Directive, Input, Renderer2, ElementRef } from '@angular/core';
 
 @Directive({
@@ -6,15 +6,15 @@ import { Directive, Input, Renderer2, ElementRef } from '@angular/core';
 })
 export class NvBorderColorDirective {
 
-  @Input() color: StatusColor = StatusColor.Default;
+  @Input() color: StatusType = StatusType.Default;
   constructor(private renderer: Renderer2, private element: ElementRef) { }
 
   ngOnInit(): void {
-    this.renderer.addClass(this.element.nativeElement, 'border-' + StatusColor[this.color]);
+    this.renderer.addClass(this.element.nativeElement, 'border-' + StatusType[this.color]);
   }
 
   ngOnDestroy(): void {
-    this.renderer.removeClass(this.element.nativeElement, 'border-' + StatusColor[this.color]);
+    this.renderer.removeClass(this.element.nativeElement, 'border-' + StatusType[this.color]);
   }
 
 }

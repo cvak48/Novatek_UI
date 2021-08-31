@@ -304,7 +304,7 @@ public emptyVariableList ={
       items: ['Doctor', 'Pharma', 'Nurse'],
       textTrimNumber: 2,//5
       selectedItemDefault: 'Select Domain',
-      dropDownFieldType: DropdownFieldType.Default,
+      dropDownFieldType: DropdownFieldType.Input,
     };
     return dropdownInputs;
   }

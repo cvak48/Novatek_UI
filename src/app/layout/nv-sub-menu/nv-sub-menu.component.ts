@@ -47,7 +47,7 @@ function mockMenuDropdown(): any {
     items: ['menu item 1', 'menu item 2'],
     textTrimNumber: 5,
     selectedItemDefault: 'Level 2 Menu Name ',
-    dropDownFieldType: DropdownFieldType.Default,
+    dropDownFieldType: DropdownFieldType.Input,
   };
   return dropdownInputs;
 }
@@ -57,7 +57,7 @@ function mockSiteDropdown(): any {
     items: ['site item 1', 'site item 2'],
     textTrimNumber: 5,
     selectedItemDefault: 'Current Site',
-    dropDownFieldType: DropdownFieldType.Default,
+    dropDownFieldType: DropdownFieldType.Input,
   };
   return dropdownInputs;
 }

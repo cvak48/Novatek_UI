@@ -1,10 +1,11 @@
+import { MenuExtensionDirection, StatusColor } from './../../model/data-model';
+import { DropdownFieldType } from 'src/app/model/data-model';
 import { NvFilterPipe } from './../pipes/filters/filterAll/nv-filter.pipe';
 import { NvTrimPipe } from './../pipes/nv-trim/nv-trim.pipe';
 import { FormControl } from '@angular/forms';
-import { map, startWith } from 'rxjs/operators';
-import { DropdownFieldType, MenuExtensionDirection, StatusColor } from './../../model/data-model';
 import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef, AfterViewInit, Renderer2 } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
+import { _MatMenuDirectivesModule } from '@angular/material/menu';
 /**
  * Title:
  * Functionalities:
@@ -29,7 +30,14 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
    * the selected item as an output
    */
   @Output() itemSelect = new EventEmitter<any>();
-  @Input() items: string[] = ['item1'];
+  @Input() set items(list: string[]) {
+    this._items = list ? list : [];
+    this.filteredItems = this._items;
+  }
+  get items(): string[] {
+    return this._items;
+  }
+  private _items!: string[];
   /**
    * it keeps first "textTrimNumber" number and ignore the rest, adding ... instead.
    */
@@ -41,7 +49,7 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   /**
    * there are three types: Button, Icon, and Default, which is a simple field.
    */
-  @Input() fieldType: DropdownFieldType = DropdownFieldType.Default;
+  @Input() fieldType: DropdownFieldType = DropdownFieldType.Input;
   @Input() extensionDirection: MenuExtensionDirection = MenuExtensionDirection.ToRight;
   /**
    * Disable the fields
@@ -53,15 +61,19 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
    * The inputs of directives in html
    */
   @Input() set fieldStatusColor(status: StatusColor) {
-
-    if (status && !this.isFieldDisable) {
-      this._updateStyles(status);
+    this._fieldStatusColor = status;
+    if (this._fieldStatusColor && !this.isFieldDisable) {
+      this._updateStyles(this._fieldStatusColor);
     }
   }
+  get fieldStatusColor(): StatusColor {
+    return this._fieldStatusColor;
+  }
+  private _fieldStatusColor!: StatusColor;
   /**
    * access to html elements
    */
-  @ViewChild('DefaultFieldRef') DefaultFieldRef!: ElementRef<HTMLElement>;
+  @ViewChild('inputFieldRef') inputFieldRef!: ElementRef<HTMLElement>;
   // @ViewChild('PlusIconRef') PlusIconRef!: ElementRef<HTMLObjectElement>;
   @ViewChild('PlusIconRef') PlusIconRef!: ElementRef<HTMLElement>;
   @ViewChild('arrowDownRef') arrowDownRef!: ElementRef<HTMLObjectElement>;
@@ -71,6 +83,7 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
 
   hideMenu: boolean = false;
   selectedIndex!: number;
+  isItemSelected: boolean = false;
   backgroundColor!: StatusColor;
   borderColor!: StatusColor;
   textColor!: StatusColor;
@@ -84,30 +97,33 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   menuExtensionDirection = MenuExtensionDirection;
   // initial value: this.selectedItem
   queryFormControl = new FormControl(`${this.selectedItem}`); // initial value
-  filteredItems$!: Observable<string[]>;
-  filteredItems: string[] = [];
-  constructor(private renderer: Renderer2, private filter: NvFilterPipe,
-    private nvTextTrim: NvTrimPipe) {
-
-    /**
-     * filtering items in case of default field otherwise it returns items for showing in menu
-     */
-    this.filteredItems$ = this.queryFormControl.valueChanges.pipe(startWith(null),
-      map(query => {
-
-        const filteredItems = query ? (this.filter.transform(this.items, query) ? this.filter.transform(this.items, query)
-          : this.items.slice()) : this.items.slice();
-        this.filteredItems = filteredItems;
-        return filteredItems;
-      }));
-  }
+  filteredItems: string[] = this.items;
+  constructor(private renderer: Renderer2, private filter: NvFilterPipe, private nvTextTrim: NvTrimPipe) { }
 
   ngOnInit(): void {
+    /**
+     * filtering items in case of input field otherwise it returns items for showing in menu
+     */
+    if (this.fieldType === this.dropDownFieldType.Input) {
+    this.queryFormControl.valueChanges.subscribe(query => {
+    /**
+     * if the item is selected from menu, it should not be filtered again
+     */
+      if (this.isItemSelected) {
+        this.isItemSelected = false;
+      } else {
+        this.filteredItems = query ? (this.filter.transform(this.items, query) ? this.filter.transform(this.items, query)
+          : this.items.slice()) : this.items.slice();
+      }
+    });
+  }
     if (this.isFieldDisable) {
       /**
        * change the border, background and text color if it is disabled before the view get initialized
        */
       this._updateStyles(StatusColor.Disabled);
+    } else if (!this._fieldStatusColor) {
+      this._updateStyles(StatusColor.Default);
     }
   }
 
@@ -120,8 +136,8 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
       /**
        * Remove toggle to disable the dropdown menu
        */
-      if (this.fieldType === this.dropDownFieldType.Default) {
-        this.DefaultFieldRef?.nativeElement.removeAttribute('data-toggle');
+      if (this.fieldType === this.dropDownFieldType.Input) {
+        this.inputFieldRef?.nativeElement.removeAttribute('data-toggle');
         this._changeTriangleStyleToDisable();
       } else if (this.fieldType === this.dropDownFieldType.Button) {
         this.ButtonRef?.nativeElement.removeAttribute('data-toggle');
@@ -129,10 +145,10 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
       } else if (this.dropDownFieldType.Icon) {
         this.PlusIconRef?.nativeElement.removeAttribute('data-toggle');
         /**
-         * data-toggle does not work in Object element So the click and blur events handle the open and close functionalities
+         *  plus icon color TODO: adding object
          */
         /**
-         *  plus icon color TODO: adding object
+         * data-toggle does not work in Object element So the click and blur events handle the open and close functionalities
          */
       }
       /**
@@ -144,12 +160,7 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
 
 
   }
-  get filteredItemsValue(): string[] {
-    let value: string[] = [];
-    this.filteredItems$.subscribe(items => value = items);
-    // TODO: Unsubscribe!
-    return value;
-  }
+
   onFieldClick(): void {
     if (this.isArrowDownIcon && !this.isFieldDisable) {
       this.isArrowDownIcon = false;
@@ -157,7 +168,7 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
       this.isArrowDownIcon = true;
     }
 
-    if (this.filteredItemsValue.length === 0) {
+    if (this.filteredItems.length === 0) {
       this.hideMenu = true;
     } else {
       this.hideMenu = false;
@@ -172,17 +183,17 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
    * event handler within which the selected item's index is set and the selected item is emitted as an output
    */
   onItemSelect(index: number): void {
-    let selectedItem: string = '';
     this.isDefaultStyle = false;
     this.selectedIndex = index;
-    this.filteredItems$ = of(this.items);
-    selectedItem = this.filteredItems[this.selectedIndex];
+    this.isItemSelected  = true;
+    this.selectedItem = this.filteredItems[this.selectedIndex];
     this.filteredItems = this.items;
-    this.selectedItem = selectedItem;
-    this.itemSelect.emit(this.selectedItem);
-    if (this.fieldType === DropdownFieldType.Default) {
-      this.queryFormControl.setValue(this.nvTextTrim.transform(this.selectedItem, this.textTrimNumber));
+    if (this.fieldType === DropdownFieldType.Input) {
+      const trimmedValue = this.nvTextTrim.transform(this.selectedItem, this.textTrimNumber);
+      this.queryFormControl.setValue(trimmedValue);
+      this.selectedItem = trimmedValue;
     }
+    this.itemSelect.emit(this.selectedItem);
     if (!this.isArrowDownIcon) {
       this.isArrowDownIcon = true;
     }
@@ -224,6 +235,10 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
     }
     this.backgroundColor = statusType;
     this.borderColor = statusType;
+    this.textColor = StatusColor.Default;
+    if (statusType === StatusColor.Disabled) {
+      this.textColor = statusType;
+    }
   }
   private _changeTriangleStyleToDisable(): void {
     setTimeout(() => {

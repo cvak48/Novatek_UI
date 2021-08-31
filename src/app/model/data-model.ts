@@ -8,7 +8,7 @@ export interface ArrowIcon {
 export enum DropdownFieldType {
     Button,
     Icon,
-    Default,
+    Input,
 }
 export enum StatusColor {
     Active,

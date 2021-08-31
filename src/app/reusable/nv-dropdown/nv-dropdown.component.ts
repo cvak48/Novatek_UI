@@ -3,7 +3,7 @@ import { DropdownFieldType } from 'src/app/model/data-model';
 import { NvFilterPipe } from './../pipes/filters/filterAll/nv-filter.pipe';
 import { NvTrimPipe } from './../pipes/nv-trim/nv-trim.pipe';
 import { FormControl } from '@angular/forms';
-import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef, AfterViewInit, Renderer2 } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef, AfterViewInit, Renderer2, OnChanges, SimpleChanges } from '@angular/core';
 import { Observable } from 'rxjs';
 import { _MatMenuDirectivesModule } from '@angular/material/menu';
 /**
@@ -25,13 +25,14 @@ import { _MatMenuDirectivesModule } from '@angular/material/menu';
   templateUrl: './nv-dropdown.component.html',
   styleUrls: ['./nv-dropdown.component.scss']
 })
-export class NvDropdownComponent implements OnInit, AfterViewInit {
+export class NvDropdownComponent implements OnInit, AfterViewInit, OnChanges {
   /**
    * the selected item as an output
    */
-  @Output() itemSelect = new EventEmitter<any>();
+  @Output() itemSelect = new EventEmitter<string>();
   @Input() set items(list: string[]) {
     this._items = list ? list : [];
+    // initializing the menu items
     this.filteredItems = this._items;
   }
   get items(): string[] {
@@ -55,21 +56,33 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
    * Disable the fields
    * All the styles will be automatically changed
    */
-  @Input() isFieldDisable: boolean = false;
+  @Input() set isFieldDisable(isDisable: boolean) {
+    this._isFieldDisable = isDisable;
+    if (this._isFieldDisable) {
+      this._updateStyles(StatusColor.Disabled);
+    }
+
+  }
+  get isFieldDisable(): boolean {
+    return this._isFieldDisable;
+  }
+  private _isFieldDisable!: boolean;
   /**
    * set styles base on the status of the field
    * The inputs of directives in html
    */
-  @Input() set fieldStatusColor(status: StatusColor) {
-    this._fieldStatusColor = status;
-    if (this._fieldStatusColor && !this.isFieldDisable) {
-      this._updateStyles(this._fieldStatusColor);
-    }
-  }
-  get fieldStatusColor(): StatusColor {
-    return this._fieldStatusColor;
-  }
-  private _fieldStatusColor!: StatusColor;
+  @Input() fieldStatusColor!: StatusColor;
+    // this._fieldStatusColor = status;
+    // console.log('INPUT');
+    // if (this._fieldStatusColor && !this.isFieldDisable) {
+    //   this._updateStyles(this._fieldStatusColor);
+    // }
+    // if (!this._fieldStatusColor && !this.isFieldDisable) {
+    //   this._updateStyles(StatusColor.Default);
+    // }
+
+
+
   /**
    * access to html elements
    */
@@ -99,32 +112,37 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   queryFormControl = new FormControl(`${this.selectedItem}`); // initial value
   filteredItems: string[] = this.items;
   constructor(private renderer: Renderer2, private filter: NvFilterPipe, private nvTextTrim: NvTrimPipe) { }
+  ngOnChanges(changes: SimpleChanges): void {
+  console.log('fieldStatusColor OnChange >' + this.fieldStatusColor);
+  }
 
   ngOnInit(): void {
     /**
      * filtering items in case of input field otherwise it returns items for showing in menu
      */
     if (this.fieldType === this.dropDownFieldType.Input) {
-    this.queryFormControl.valueChanges.subscribe(query => {
-    /**
-     * if the item is selected from menu, it should not be filtered again
-     */
-      if (this.isItemSelected) {
-        this.isItemSelected = false;
-      } else {
-        this.filteredItems = query ? (this.filter.transform(this.items, query) ? this.filter.transform(this.items, query)
-          : this.items.slice()) : this.items.slice();
-      }
-    });
-  }
-    if (this.isFieldDisable) {
-      /**
-       * change the border, background and text color if it is disabled before the view get initialized
-       */
-      this._updateStyles(StatusColor.Disabled);
-    } else if (!this._fieldStatusColor) {
-      this._updateStyles(StatusColor.Default);
+      this.queryFormControl.valueChanges.subscribe(query => {
+        /**
+         * if the item is selected from menu, it should not be filtered again
+         */
+        if (this.isItemSelected) {
+          this.isItemSelected = false;
+        } else {
+          this.filteredItems = query ? (this.filter.transform(this.items, query) ? this.filter.transform(this.items, query)
+            : this.items.slice()) : this.items.slice();
+        }
+      });
     }
+    console.log('fieldStatusColor OnInit >' + this.fieldStatusColor);
+    if (this.fieldStatusColor && !this.isFieldDisable) {
+      this._updateStyles(this.fieldStatusColor);
+    }
+    if (!this.fieldStatusColor && !this.isFieldDisable) {
+      // this._updateStyles(StatusColor.Default);
+    }
+    console.log(this.backgroundColor);
+    
+
   }
 
   ngAfterViewInit(): void {
@@ -155,6 +173,7 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
        * Note: Remove icons; triangles
        * they are disabled in html
        */
+       console.log("ngAfterViewInit" + this.backgroundColor);
     }
 
 
@@ -185,7 +204,7 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   onItemSelect(index: number): void {
     this.isDefaultStyle = false;
     this.selectedIndex = index;
-    this.isItemSelected  = true;
+    this.isItemSelected = true;
     this.selectedItem = this.filteredItems[this.selectedIndex];
     this.filteredItems = this.items;
     if (this.fieldType === DropdownFieldType.Input) {
@@ -231,6 +250,7 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
         break;
       default:
         statusType = StatusColor.Default;
+        console.log('Default' + this.backgroundColor);
         break;
     }
     this.backgroundColor = statusType;

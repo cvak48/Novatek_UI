@@ -104,9 +104,9 @@
         </div>
         <div class="dropdown-container" *ngSwitchCase="nvComponentType.StatusColorDirectives">
           <app-nv-dropdown class="body-item" [extensionDirection]="menuExtensionDir" [items]="dropdownItems" 
-          [textTrimNumber]="textTrimNumber" 
+          [textTrimNumber]="textTrimNumber"  [fieldStatusColor]="fieldStatusColor"
           [selectedItem]="defaultSelectedItem" [fieldType]="dropDownFieldType1" [isFieldDisable]="isDisable"
-          [fieldStatusColor]="fieldStatusColor" ></app-nv-dropdown>
+           ></app-nv-dropdown>
         </div>
 
         <div class="upload-file-container" *ngSwitchCase="nvComponentType.DropToUpload">

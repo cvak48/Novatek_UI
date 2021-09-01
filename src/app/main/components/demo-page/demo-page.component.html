@@ -45,9 +45,6 @@
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.Dropdown)">
         {{nvComponentType[nvComponentType.Dropdown]}}
       </div>
-      <div class="menu-item h40" (click)="onItemClick(nvComponentType.StatusColorDirectives)">
-        {{nvComponentType[nvComponentType.StatusColorDirectives]}}
-      </div>
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.DropToUpload)">
         {{nvComponentType[nvComponentType.DropToUpload]}}
       </div>
@@ -97,16 +94,9 @@
         </app-user-profile-menu>
 
         <div class="dropdown-container" *ngSwitchCase="nvComponentType.Dropdown">
-          <app-nv-dropdown class="body-item"  [extensionDirection]="menuExtensionDir"
-           [items]="dropdownItems" [textTrimNumber]="textTrimNumber" 
-          [selectedItem]="defaultSelectedItem" [fieldType]="dropDownFieldType0"
-           (itemSelect)="onItemSelect($event)"></app-nv-dropdown>
-        </div>
-        <div class="dropdown-container" *ngSwitchCase="nvComponentType.StatusColorDirectives">
           <app-nv-dropdown class="body-item" [extensionDirection]="menuExtensionDir" [items]="dropdownItems" 
-          [textTrimNumber]="textTrimNumber"  [fieldStatusColor]="fieldStatusColor"
-          [selectedItem]="defaultSelectedItem" [fieldType]="dropDownFieldType1" [isFieldDisable]="isDisable"
-           ></app-nv-dropdown>
+          [selectedItem]="defaultSelectedItem" [textTrimNumber]="textTrimNumber" [isFieldDisable]="isDisable" 
+           [fieldStatusType]="fieldStatusType" [fieldType]="dropDownFieldType"  ></app-nv-dropdown>
         </div>
 
         <div class="upload-file-container" *ngSwitchCase="nvComponentType.DropToUpload">

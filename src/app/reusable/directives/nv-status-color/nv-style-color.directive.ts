@@ -9,12 +9,14 @@ export class NvStyleColorDirective implements OnInit, OnDestroy {
   constructor(private renderer: Renderer2, private element: ElementRef) { }
 
   ngOnInit(): void {
-    console.log('dir >' + this.styleType.toString());
+    console.log('dir >' + this.styleType);
     if (this.styleType?.background) {
       this.renderer.addClass(this.element.nativeElement, 'background-' + StatusType[this.styleType.background]);
-    } else if (this.styleType?.border) {
+    }
+    if (this.styleType?.border) {
       this.renderer.addClass(this.element.nativeElement, 'border-' + StatusType[this.styleType.border]);
-    } else if (this.styleType?.text) {
+    }
+    if (this.styleType?.text) {
       this.renderer.addClass(this.element.nativeElement, 'text-' + StatusType[this.styleType.text]);
     }
 
@@ -23,9 +25,11 @@ export class NvStyleColorDirective implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     if (this.styleType?.background) {
       this.renderer.removeClass(this.element.nativeElement, 'background-' + StatusType[this.styleType.background]);
-    } else if (this.styleType?.border) {
+    }
+    if (this.styleType?.border) {
       this.renderer.removeClass(this.element.nativeElement, 'border-' + StatusType[this.styleType.border]);
-    } else if (this.styleType?.text) {
+    }
+    if (this.styleType?.text) {
       this.renderer.removeClass(this.element.nativeElement, 'text-' + StatusType[this.styleType.text]);
     }
   }

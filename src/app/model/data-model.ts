@@ -34,7 +34,7 @@ export enum StatusType {
     Accepted,
     Modified,
     Disabled,
-    Default
+    Default,
 }
 export interface StyleType {
     border: number;

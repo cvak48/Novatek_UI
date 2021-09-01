@@ -1,3 +1,4 @@
+import { NvDropdownComponent } from './nv-dropdown/nv-dropdown.component';
 import { NvStyleColorDirective } from './directives/nv-status-color/nv-style-color.directive';
 
 import { NvSliderToggleComponent } from './nv-slider-toggle/nv-slider-toggle.component';
@@ -13,7 +14,7 @@ import { NvInitialsPipe } from './pipes/nv-initials/nv-initials.pipe';
 import { RattingComponent } from './ratting/ratting.component';
 import { UploadComponent } from './upload/upload.component';
 import { NvFileUploadDirective } from './directives/file-upload/nv-file-upload.directive';
-import { NvDropdownComponent } from './nv-dropdown/nv-dropdown.component';
+
 import { UserProfileMenuComponent } from './user-profile-menu/user-profile-menu.component';
 import { NotificationComponent } from './notification/notification.component';
 import { AvatarComponent } from './avatar/avatar.component';
@@ -56,9 +57,8 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ProgressiveBarComponent } from './progressive-bar/progressive-bar.component';
 import { NvInputComponent } from './nv-input/nv-input.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { NvBackgroundColorDirective } from './directives/nv-status-color/nv-background-color.directive';
 import { NvTextColorDirective } from './directives/nv-status-color/nv-text-color.directive';
-import { NvBorderColorDirective } from './directives/nv-status-color/nv-border-color.directive';
+
 
 
 const sharedComponents = [
@@ -68,8 +68,6 @@ const sharedComponents = [
   NvTrimPipe,
   NvFileUploadDirective,
   NvTextColorDirective,
-  NvBorderColorDirective,
-  NvBackgroundColorDirective,
   NvStyleColorDirective,
   NvFooterComponent,
   SideNavComponent,

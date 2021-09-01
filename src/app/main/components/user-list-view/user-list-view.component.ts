@@ -25,9 +25,14 @@ export class UserListViewComponent implements OnInit {
         this.showPanel='3';
         break;
       case '3':
-          this.showPanel='1';
-          this.isLeftVisible = !this.isLeftVisible
+          this.showPanel='4';
         break;
+      case '4':
+      case '5':
+      case '6':
+        this.showPanel='1';
+        this.isLeftVisible = !this.isLeftVisible
+      break;
     }
    // this.showPanel = panel;
     console.log('panel clicked', panel);

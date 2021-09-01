@@ -20,12 +20,23 @@
           </div>
           </div>
           <div rightPane>
-            <div class="row mg-0">
+            <div class="row mg-0" *ngIf="showPanel != '4'">
             <div class="col-md-8 style-right" >
               <app-nv-table-panel panelNum="2" (panelClick)="panelClicked('2')"></app-nv-table-panel>
             </div>
             <div class="col-md-4 style-left panel-slide" *ngIf="showPanel == '3'">
               <app-nv-table-panel panelNum="3" (panelClick)="panelClicked('3')"></app-nv-table-panel>
+            </div>
+          </div>
+          <div class="row mg-0 panel-slide" *ngIf="showPanel == '4'">
+            <div class="col-md-4 style-right" >
+              <app-nv-table-panel panelNum="4" (panelClick)="panelClicked('4')"></app-nv-table-panel>
+            </div>
+            <div class="col-md-4 style-right" >
+              <app-nv-table-panel panelNum="5" (panelClick)="panelClicked('5')"></app-nv-table-panel>
+            </div>
+            <div class="col-md-4 style-left " >
+              <app-nv-table-panel panelNum="6" (panelClick)="panelClicked('6')"></app-nv-table-panel>
             </div>
           </div>
           </div>

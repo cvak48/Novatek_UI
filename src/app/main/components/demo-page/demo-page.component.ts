@@ -11,6 +11,7 @@ export enum NvComponent {
   ProfileMenu,
   Header,
   Dropdown,
+  LoginDropdown,
   DropToUpload,
   NvCheckBox,
   NvSliderBar,
@@ -52,6 +53,8 @@ export class DemoPageComponent implements OnInit {
   isDisable = mockDropdown().isDisable;
   //  StatusColorDirectives test on dropdown; the field status color type
   fieldStatusType = mockDropdown().fieldStatusType;
+  //LoginDropdown
+  loginFieldStatusType = StatusType.Error;
   // checkbox
   checkBoxLabel = 'Im a new Checkbox';
   constructor() {     }
@@ -67,6 +70,9 @@ export class DemoPageComponent implements OnInit {
   // dropDown selected item
   onItemSelect(item: string): void {
   }
+  // test for login page dropdown label once the color need to be change based on different statuses
+
+
 }
 
 
@@ -111,7 +117,7 @@ function mockDropdown(): any {
     selectedItemDefault: 'Page',
     menuExtensionDir:  MenuExtensionDirection.ToRight,
     dropDownFieldType: DropdownFieldType.Input,
-    fieldStatusType: StatusType.Default,
+    fieldStatusType: StatusType.Normal,
     isDisable: false,
   };
   return dropdownInputs;

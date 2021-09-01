@@ -34,7 +34,13 @@ export enum StatusType {
     Accepted,
     Modified,
     Disabled,
-    Default,
+    Normal,
+}
+export enum StatusIconType {
+    Checkmark,
+    Exclamation,
+    Question,
+    Default = 'None'
 }
 export interface StyleType {
     border: number;

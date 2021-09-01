@@ -1,4 +1,4 @@
-import { MenuExtensionDirection, StatusType, StyleType } from './../../model/data-model';
+import { MenuExtensionDirection, StatusType, StyleType, StatusIconType } from './../../model/data-model';
 import { DropdownFieldType } from 'src/app/model/data-model';
 import { NvFilterPipe } from './../pipes/filters/filterAll/nv-filter.pipe';
 import { NvTrimPipe } from './../pipes/nv-trim/nv-trim.pipe';
@@ -52,11 +52,11 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
    */
   @Input() fieldType: DropdownFieldType = DropdownFieldType.Input;
   @Input() extensionDirection: MenuExtensionDirection = MenuExtensionDirection.ToRight;
-/**
+  /**
    * Disable the fields
    * All the styles will be automatically changed
    */
- @Input() set isFieldDisable(isDisable: boolean) {
+  @Input() set isFieldDisable(isDisable: boolean) {
   this._isFieldDisable = isDisable;
   if (this._isFieldDisable) {
     this._updateStyles(StatusType.Disabled);
@@ -81,7 +81,7 @@ private _isFieldDisable!: boolean;
     if (this._fieldStatusType === 0) {
       this._updateStyles(StatusType.Active);
     } else {
-      this._updateStyles(StatusType.Default);
+      this._updateStyles(StatusType.Normal);
     }
    }
 
@@ -108,8 +108,8 @@ private _isFieldDisable!: boolean;
   borderColor!: StatusType;
   textColor!: StatusType;
   styleType!: StyleType;
-
-  // TODO: need to define type for each of these
+  statusIconType = StatusIconType;
+  statusIcon!: StatusIconType;
   /**
    * the default style for selectedItem
    */
@@ -121,7 +121,7 @@ private _isFieldDisable!: boolean;
   queryFormControl = new FormControl(`${this.selectedItem}`); // initial value
   filteredItems: string[] = this.items;
   constructor(private renderer: Renderer2, private filter: NvFilterPipe, private nvTextTrim: NvTrimPipe) { 
-  }
+    }
 
   ngOnInit(): void {
     /**
@@ -220,6 +220,7 @@ private _isFieldDisable!: boolean;
    */
   private _updateStyles(type: StatusType): void {
     let status: StatusType;
+    this.statusIcon = StatusIconType.Default;
     switch (type) {
       case StatusType.Active:
         status = StatusType.Active;
@@ -227,14 +228,13 @@ private _isFieldDisable!: boolean;
       case StatusType.Required:
         status = StatusType.Required;
         break;
-      case StatusType.Accepted:
-        status = StatusType.Accepted;
-        break;
       case StatusType.Error:
         status = StatusType.Error;
+        this.statusIcon = StatusIconType.Exclamation;
         break;
       case StatusType.Accepted:
         status = StatusType.Accepted;
+        this.statusIcon = StatusIconType.Checkmark;
         break;
       case StatusType.Modified:
         status = StatusType.Modified;
@@ -243,14 +243,15 @@ private _isFieldDisable!: boolean;
         status = StatusType.Disabled;
         break;
       default:
-        status = StatusType.Default;
+        status = StatusType.Normal;
+        this.statusIcon = StatusIconType.Question;
         break;
     }
 
     if (status) {
       this.styleType = this._populateStyleType(status);
     } else {
-      this.styleType = this._populateStyleType(StatusType.Default);
+      this.styleType = this._populateStyleType(StatusType.Normal);
     }
   }
   private _populateStyleType(selectedStatusType: StatusType): StyleType {
@@ -260,7 +261,7 @@ private _isFieldDisable!: boolean;
       /**
        * The text is not affected by the user except the disabled state
        */
-      text: StatusType.Default
+      text: StatusType.Normal
     };
     if (selectedStatusType === StatusType.Disabled) {
       styles.text = selectedStatusType;

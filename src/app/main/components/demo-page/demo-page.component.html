@@ -45,6 +45,9 @@
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.Dropdown)">
         {{nvComponentType[nvComponentType.Dropdown]}}
       </div>
+      <div class="menu-item h40" (click)="onItemClick(nvComponentType.LoginDropdown)">
+        {{nvComponentType[nvComponentType.LoginDropdown]}}
+      </div>
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.DropToUpload)">
         {{nvComponentType[nvComponentType.DropToUpload]}}
       </div>
@@ -94,6 +97,13 @@
         </app-user-profile-menu>
 
         <div class="dropdown-container" *ngSwitchCase="nvComponentType.Dropdown">
+          <app-nv-dropdown class="body-item" [extensionDirection]="menuExtensionDir" [items]="dropdownItems" 
+          [selectedItem]="defaultSelectedItem" [textTrimNumber]="textTrimNumber" [isFieldDisable]="isDisable" 
+           [fieldStatusType]="fieldStatusType" [fieldType]="dropDownFieldType"  ></app-nv-dropdown>
+        </div>
+        <div class="dropdown-container" *ngSwitchCase="nvComponentType.LoginDropdown">
+          <div id="dropdown" nvTextColor [color]="loginFieldStatusType" > Field Validation Field</div>
+          <br>
           <app-nv-dropdown class="body-item" [extensionDirection]="menuExtensionDir" [items]="dropdownItems" 
           [selectedItem]="defaultSelectedItem" [textTrimNumber]="textTrimNumber" [isFieldDisable]="isDisable" 
            [fieldStatusType]="fieldStatusType" [fieldType]="dropDownFieldType"  ></app-nv-dropdown>

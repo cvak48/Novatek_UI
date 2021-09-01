@@ -6,7 +6,7 @@ import { Directive, Input, Renderer2, ElementRef } from '@angular/core';
 })
 export class NvTextColorDirective {
 
-  @Input() color: StatusType = StatusType.Default;
+  @Input() color: StatusType = StatusType.Normal;
   constructor(private renderer: Renderer2, private element: ElementRef) { }
 
   ngOnInit(): void {

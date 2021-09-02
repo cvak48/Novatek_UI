@@ -8,17 +8,17 @@
             <div class="col-md-12" >
               <app-nv-table-panel panelNum="1" (panelClick)="panelClicked('1')"></app-nv-table-panel>
           </div>
-          </div>
-          <div rightPane>
-            <div class="row mg-0" *ngIf="showPanel != '4'">
-            <div class="col-md-8 style-right" >
+          
+          
+            <div class="row mg-0 " *ngIf="showPanel == '2' || showPanel == '3'" [ngClass]="{'wth-100':showPanel >= '3'}">
+            <div class="style-right panel-slide" [ngClass]="{'col-md-8':showPanel == '3', 'col-md-12':showPanel == '2'}">
               <app-nv-table-panel panelNum="2" (panelClick)="panelClicked('2')"></app-nv-table-panel>
             </div>
             <div class="col-md-4 style-left panel-slide" *ngIf="showPanel == '3'">
               <app-nv-table-panel panelNum="3" (panelClick)="panelClicked('3')"></app-nv-table-panel>
             </div>
           </div>
-          <div class="row mg-0 panel-slide" *ngIf="showPanel == '4'">
+          <div class="row mg-0 panel-slide" *ngIf="showPanel == '4'" [ngClass]="{'wth-100':showPanel == '4'}">
             <div class="col-md-4 style-right" >
               <app-nv-table-panel panelNum="4" (panelClick)="panelClicked('4')"></app-nv-table-panel>
             </div>
@@ -29,8 +29,8 @@
               <app-nv-table-panel panelNum="6" (panelClick)="panelClicked('6')"></app-nv-table-panel>
             </div>
           </div>
-          </div>
-        </app-slide-panel>
+        
+     
         </div>
   <br>
 <app-nova-footer></app-nova-footer>

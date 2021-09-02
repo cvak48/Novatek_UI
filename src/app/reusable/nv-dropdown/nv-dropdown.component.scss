@@ -69,6 +69,8 @@ $icons-distance: 8px;
     &.status-icon {
       width: 16px;
       height: 16px;
+      fill: yellow !important;
+        // background-color: black !important;
     }
 
   }
@@ -86,7 +88,6 @@ $icons-distance: 8px;
       color: $color-black-09;
       font-weight: bold;
     }
-
 
     .icon {
       @include sharedIconStyle;
@@ -107,7 +108,6 @@ $icons-distance: 8px;
     height: 40px;
     background-color: $color-light-gray-22;
     border-radius: 4px;
-
   }
 
   .dropdown-menu {
@@ -149,9 +149,6 @@ $icons-distance: 8px;
     }
   }
 }
-
-
-
 
 
 @media (min-width: 576px) {

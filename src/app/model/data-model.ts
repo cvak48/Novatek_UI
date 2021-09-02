@@ -24,9 +24,14 @@ export interface Notification {
 }
 
 /**
- * Theme
+ * data model related to Theme/skin
  */
-
+export interface FieldStatus {
+    name: string;
+    color: string;
+    type: StatusType;
+    icon: StatusIconType;
+}
 export enum StatusType {
     Active,
     Required,
@@ -34,13 +39,23 @@ export enum StatusType {
     Accepted,
     Modified,
     Disabled,
+    Help,
     Normal,
 }
 export enum StatusIconType {
-    Checkmark,
+    CheckMark,
     Exclamation,
     Question,
     Default = 'None'
+}
+/**
+ * to change the color of svg
+ * @param subId the svg could have multiple sub-section 
+ */
+export interface SvgIconId {
+    name: string;
+    id: string;
+    subId: SvgIconId[];
 }
 export interface StyleType {
     border: number;

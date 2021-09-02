@@ -1,11 +1,12 @@
-import { MenuExtensionDirection, StatusType, StyleType, StatusIconType } from './../../model/data-model';
+import { MenuExtensionDirection, StatusType, StyleType, StatusIconType, SvgIconId, FieldStatus } from './../../model/data-model';
 import { DropdownFieldType } from 'src/app/model/data-model';
 import { NvFilterPipe } from '../pipes/filters/nv-filter/nv-filter.pipe';
 import { NvTrimPipe } from './../pipes/nv-trim/nv-trim.pipe';
 import { FormControl } from '@angular/forms';
 import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef, AfterViewInit, Renderer2, OnChanges, SimpleChanges } from '@angular/core';
-import { Observable } from 'rxjs';
 import { _MatMenuDirectivesModule } from '@angular/material/menu';
+import { SVG_ICONS_IDS, FIELD_STATUS_COLOR } from './../../../assets/constants'
+
 /**
  * Title:
  * Functionalities:
@@ -23,16 +24,16 @@ import { _MatMenuDirectivesModule } from '@angular/material/menu';
 @Component({
   selector: 'app-nv-dropdown',
   templateUrl: './nv-dropdown.component.html',
-  styleUrls: ['./nv-dropdown.component.scss']
+  styleUrls: ['./nv-dropdown.component.scss'],
 })
 export class NvDropdownComponent implements OnInit, AfterViewInit {
   /**
-   * the selected item as an output
+   * The selected item as an output
    */
   @Output() itemSelect = new EventEmitter<string>();
   @Input() set items(list: string[]) {
     this._items = list ? list : [];
-    // initializing the menu items
+    // Initializing the menu items
     this.filteredItems = this._items;
   }
   get items(): string[] {
@@ -40,15 +41,15 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   }
   private _items!: string[];
   /**
-   * it keeps first "textTrimNumber" number and ignore the rest, adding ... instead.
+   * It keeps first "textTrimNumber" number and ignore the rest, adding ... instead.
    */
   @Input() textTrimNumber: number = 2;
   /**
-   * the default value shown in the field comes as an input but it will be updated as soon as user select new item
+   * The default value shown in the field comes as an input but it will be updated as soon as user select new item
    */
   @Input() selectedItem: string = 'Select item';
   /**
-   * there are three types: Button, Icon, and Default, which is a simple field.
+   * There are three types: Button, Icon, and Default, which is a simple field.
    */
   @Input() fieldType: DropdownFieldType = DropdownFieldType.Input;
   @Input() extensionDirection: MenuExtensionDirection = MenuExtensionDirection.ToRight;
@@ -57,46 +58,49 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
    * All the styles will be automatically changed
    */
   @Input() set isFieldDisable(isDisable: boolean) {
-  this._isFieldDisable = isDisable;
-  if (this._isFieldDisable) {
-    this._updateStyles(StatusType.Disabled);
-  }
+    this._isFieldDisable = isDisable;
+    if (this._isFieldDisable) {
+      this._updateStyles(StatusType.Disabled);
+    }
 
-}
-get isFieldDisable(): boolean {
-  return this._isFieldDisable;
-}
-private _isFieldDisable!: boolean;
+  }
+  get isFieldDisable(): boolean {
+    return this._isFieldDisable;
+  }
+  private _isFieldDisable!: boolean;
   /**
    * set styles base on the status of the field
    * The inputs of directives in html
    */
   @Input() set fieldStatusType(type: StatusType) {
     // TODO: initial function
-  this._fieldStatusType = type;
-  if (this._fieldStatusType && !this.isFieldDisable) {
-    this._updateStyles(this._fieldStatusType);
-  }
-  if (!this._fieldStatusType && !this.isFieldDisable) {
-    if (this._fieldStatusType === 0) {
-      this._updateStyles(StatusType.Active);
-    } else {
-      this._updateStyles(StatusType.Normal);
+    this._fieldStatusType = type;
+    if (this._fieldStatusType && !this.isFieldDisable) {
+      this._updateStyles(this._fieldStatusType);
     }
-   }
+    if (!this._fieldStatusType && !this.isFieldDisable) {
+      if (this._fieldStatusType === 0) {
+        this._updateStyles(StatusType.Active);
+      } else {
+        this._updateStyles(StatusType.Normal);
+      }
+    }
 
   }
   get fieldStatusType(): StatusType {
     return this._fieldStatusType;
   }
   private _fieldStatusType!: StatusType;
-  
+
   /**
    * access to html elements
    */
   @ViewChild('inputFieldRef') inputFieldRef!: ElementRef<HTMLElement>;
   @ViewChild('PlusIconRef') PlusIconRef!: ElementRef<HTMLElement>;
   @ViewChild('arrowDownRef') arrowDownRef!: ElementRef<HTMLObjectElement>;
+  @ViewChild('questionIconRef') questionIconRef!: ElementRef<HTMLObjectElement>;
+  @ViewChild('exclamationIconRef') exclamationIconRef!: ElementRef<HTMLObjectElement>;
+  @ViewChild('checkMarkIconRef') checkMarkIconRef!: ElementRef<HTMLObjectElement>;
   @ViewChild('ButtonRef') ButtonRef!: ElementRef<HTMLElement>;
   @ViewChild('menu') menu!: ElementRef<HTMLElement>;
   @ViewChild('dropdown') dropdown!: ElementRef<HTMLElement>;
@@ -120,8 +124,17 @@ private _isFieldDisable!: boolean;
   // initial value: this.selectedItem
   queryFormControl = new FormControl(`${this.selectedItem}`); // initial value
   filteredItems: string[] = this.items;
-  constructor(private renderer: Renderer2, private filter: NvFilterPipe, private nvTextTrim: NvTrimPipe) { 
-    }
+  svgIconsRef!: SvgIconId[];
+  statusColors!: FieldStatus[];
+  constructor(private renderer: Renderer2, private filter: NvFilterPipe, private nvTextTrim: NvTrimPipe) {
+    // ADD INITIALIZE METHOD
+    /**
+     * Having access to svg icon id to change the style
+     */
+    this.svgIconsRef = SVG_ICONS_IDS;
+    this.statusColors = FIELD_STATUS_COLOR;
+  }
+  initializeSvgProps(): void { }
 
   ngOnInit(): void {
     /**
@@ -154,10 +167,10 @@ private _isFieldDisable!: boolean;
        */
       if (this.fieldType === this.dropDownFieldType.Input) {
         this.inputFieldRef?.nativeElement.removeAttribute('data-toggle');
-        this._changeTriangleStyleToDisable();
+        this._changeArrowIconStyleToDisable();
       } else if (this.fieldType === this.dropDownFieldType.Button) {
         this.ButtonRef?.nativeElement.removeAttribute('data-toggle');
-        this._changeTriangleStyleToDisable();
+        this._changeArrowIconStyleToDisable();
       } else if (this.dropDownFieldType.Icon) {
         this.PlusIconRef?.nativeElement.removeAttribute('data-toggle');
         /**
@@ -234,7 +247,7 @@ private _isFieldDisable!: boolean;
         break;
       case StatusType.Accepted:
         status = StatusType.Accepted;
-        this.statusIcon = StatusIconType.Checkmark;
+        this.statusIcon = StatusIconType.CheckMark;
         break;
       case StatusType.Modified:
         status = StatusType.Modified;
@@ -242,9 +255,12 @@ private _isFieldDisable!: boolean;
       case StatusType.Disabled:
         status = StatusType.Disabled;
         break;
-      default:
+      case StatusType.Help:
         status = StatusType.Normal;
         this.statusIcon = StatusIconType.Question;
+        break;
+      default:
+        status = StatusType.Normal;
         break;
     }
 
@@ -259,7 +275,7 @@ private _isFieldDisable!: boolean;
       background: selectedStatusType,
       border: selectedStatusType,
       /**
-       * The text is not affected by the user except the disabled state
+       * The filed text is not affected by the user except the disabled state
        */
       text: StatusType.Normal
     };
@@ -268,7 +284,7 @@ private _isFieldDisable!: boolean;
     }
     return styles;
   }
-  private _changeTriangleStyleToDisable(): void {
+  private _changeArrowIconStyleToDisable(): void {
     setTimeout(() => {
       const svgTriangleDoc = this.arrowDownRef?.nativeElement?.contentDocument;
       const arrowSign = svgTriangleDoc?.getElementById('ico.arrow.down-2');
@@ -278,5 +294,8 @@ private _isFieldDisable!: boolean;
       }
     }, 100);
   }
+
+
+
 
 }

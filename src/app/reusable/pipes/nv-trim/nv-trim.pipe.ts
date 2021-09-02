@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class NvTrimPipe implements PipeTransform {
 
   transform(text: string, length = 0): string {
-    const threeDots = '...';
+    const threeDots = '. . .';
     let modifiedValue: string = '';
     const splittedValue = text.trim().split(' ');
     if (splittedValue.length > length && length !== 0) {

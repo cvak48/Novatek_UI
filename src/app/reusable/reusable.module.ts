@@ -1,3 +1,4 @@
+import { NvSvgColorDirective } from './directives/nv-svg-decorator/nv-svg-color.directive';
 import { NvDropdownComponent } from './nv-dropdown/nv-dropdown.component';
 import { NvStyleColorDirective } from './directives/nv-status-color/nv-style-color.directive';
 
@@ -69,6 +70,7 @@ const sharedComponents = [
   NvFileUploadDirective,
   NvTextColorDirective,
   NvStyleColorDirective,
+  NvSvgColorDirective,
   NvFooterComponent,
   SideNavComponent,
   NovatekLogoComponent,

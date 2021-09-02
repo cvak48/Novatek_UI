@@ -117,7 +117,7 @@ function mockDropdown(): any {
     selectedItemDefault: 'Page',
     menuExtensionDir:  MenuExtensionDirection.ToRight,
     dropDownFieldType: DropdownFieldType.Input,
-    fieldStatusType: StatusType.Normal,
+    fieldStatusType: StatusType.Accepted,
     isDisable: false,
   };
   return dropdownInputs;

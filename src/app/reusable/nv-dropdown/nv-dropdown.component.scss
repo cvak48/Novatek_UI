@@ -6,7 +6,7 @@ $border-thickness: 1px;
 $icon-width: 16px;
 $padding: 12px;
 $icons-distance: 8px;
-@mixin dropdownFieldStyles {
+@mixin dropdownFieldSharedStyles {
   
   &.label {
     color: $color-dark-gray-12;
@@ -29,7 +29,7 @@ $icons-distance: 8px;
     display: none !important;
   }
 }
-@mixin triangleArrow {
+@mixin sharedIconStyle {
   position: absolute;
   display: flex;
   align-items: center;
@@ -41,8 +41,6 @@ $icons-distance: 8px;
   right: 12.7px;
   top: 0px;
   bottom: 0px;
-  width: 8.2px;
-  height: 4.7px;
   fill: $color-dark-gray-02;
   opacity: 1;
 }
@@ -60,10 +58,19 @@ $icons-distance: 8px;
     background: $color-white-20;
     border: 1px solid $color-white-10;
     border-radius: 4px;
-    @include dropdownFieldStyles;
+    @include dropdownFieldSharedStyles;
   }
-  .arrow-icon {
-    @include triangleArrow;
+  .icon {
+    @include sharedIconStyle;
+    &.arrow {
+      width: 8.2px;
+      height: 4.7px;
+    }
+    &.status-icon {
+      width: 16px;
+      height: 16px;
+    }
+
   }
   .dropdown-button {
     position: relative;
@@ -74,15 +81,24 @@ $icons-distance: 8px;
     border: 1px solid $color-dark-gray;
     border-radius: 4px;
 
-    @include dropdownFieldStyles;
+    @include dropdownFieldSharedStyles;
     &.label {
       color: $color-black-09;
       font-weight: bold;
     }
 
 
-    .arrow-icon {
-      @include triangleArrow;
+    .icon {
+      @include sharedIconStyle;
+
+      &.arrow {
+        width: 8.2px;
+        height: 4.7px;
+      }
+      &.status-icon {
+        width: 16px;
+        height: 16px;
+      }
     }
   }
   .dropdown-icon {

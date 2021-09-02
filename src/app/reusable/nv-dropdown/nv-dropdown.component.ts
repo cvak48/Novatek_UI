@@ -1,6 +1,6 @@
 import { MenuExtensionDirection, StatusType, StyleType, StatusIconType } from './../../model/data-model';
 import { DropdownFieldType } from 'src/app/model/data-model';
-import { NvFilterPipe } from './../pipes/filters/filterAll/nv-filter.pipe';
+import { NvFilterPipe } from '../pipes/filters/nv-filter/nv-filter.pipe';
 import { NvTrimPipe } from './../pipes/nv-trim/nv-trim.pipe';
 import { FormControl } from '@angular/forms';
 import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef, AfterViewInit, Renderer2, OnChanges, SimpleChanges } from '@angular/core';
@@ -46,7 +46,7 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   /**
    * the default value shown in the field comes as an input but it will be updated as soon as user select new item
    */
-  @Input() selectedItem: string = 'Select ...';
+  @Input() selectedItem: string = 'Select item';
   /**
    * there are three types: Button, Icon, and Default, which is a simple field.
    */

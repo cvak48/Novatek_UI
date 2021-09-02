@@ -8,8 +8,8 @@ import { NvCheckboxComponent } from './nv-checkbox/nv-checkbox.component';
 import { NvDataPickerComponent } from './nv-data-picker/nv-data-picker.component';
 import { NvTrimPipe } from './pipes/nv-trim/nv-trim.pipe';
 import { NvButtonComponent } from './nv-button/nv-button.component';
-import { NvFilterPipe } from './pipes/filters/filterAll/nv-filter.pipe';
-import { NvAdvanceFilterPipe } from './pipes/filters/advance-filter/nv-advance-filter.pipe';
+import { NvFilterPipe } from './pipes/filters/nv-filter/nv-filter.pipe';
+import { NvAdvanceFilterPipe } from './pipes/filters/nv-advance-filter/nv-advance-filter.pipe';
 import { NvInitialsPipe } from './pipes/nv-initials/nv-initials.pipe';
 import { RattingComponent } from './ratting/ratting.component';
 import { UploadComponent } from './upload/upload.component';
@@ -18,7 +18,7 @@ import { NvFileUploadDirective } from './directives/file-upload/nv-file-upload.d
 import { UserProfileMenuComponent } from './user-profile-menu/user-profile-menu.component';
 import { NotificationComponent } from './notification/notification.component';
 import { AvatarComponent } from './avatar/avatar.component';
-import { SearchComponent } from './search/search.component';
+import { NvSearchComponent } from './nv-search/nv-search.component';
 import { MaterialModule } from './../material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -75,13 +75,13 @@ const sharedComponents = [
   NvCustomDatatableComponent,
   DataPropertyGetterPipe,
   PanelComponent,
-  SearchComponent,
+  NvSearchComponent,
   TextAreaComponent,
   AvatarComponent,
   NotificationComponent,
   UserProfileMenuComponent,
   PanelComponent,
-  SearchComponent,
+  NvSearchComponent,
   CommentBoxComponent,
   TextAreaComponent,
   NvDropdownComponent,

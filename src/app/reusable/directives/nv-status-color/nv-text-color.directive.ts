@@ -1,4 +1,4 @@
-import { StatusType } from './../../../model/data-model';
+import { FieldStatusType } from './../../../model/data-model';
 import { Directive, Input, Renderer2, ElementRef } from '@angular/core';
 
 @Directive({
@@ -6,15 +6,15 @@ import { Directive, Input, Renderer2, ElementRef } from '@angular/core';
 })
 export class NvTextColorDirective {
 
-  @Input() color: StatusType = StatusType.Normal;
+  @Input() color: FieldStatusType = FieldStatusType.Normal;
   constructor(private renderer: Renderer2, private element: ElementRef) { }
 
   ngOnInit(): void {
-    this.renderer.addClass(this.element.nativeElement, 'text-' + StatusType[this.color]);
+    this.renderer.addClass(this.element.nativeElement, 'text-' + FieldStatusType[this.color]);
   }
 
   ngOnDestroy(): void {
-    this.renderer.removeClass(this.element.nativeElement, 'text-' + StatusType[this.color]);
+    this.renderer.removeClass(this.element.nativeElement, 'text-' + FieldStatusType[this.color]);
   }
 
 }

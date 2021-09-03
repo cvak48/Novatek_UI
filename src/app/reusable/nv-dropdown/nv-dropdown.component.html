@@ -1,7 +1,7 @@
 <div #dropdown class="dropdown">
   <input #inputFieldRef type="text" *ngIf="fieldType === dropDownFieldType.Input"
     class="btn dropdown-input body20 label" data-toggle="dropdown" [ngClass]="{'default': isDefaultStyle}"
-    (click)="onFieldClick()" (blur)="onBlur()" [formControl]="queryFormControl" nvStyleColor [styleType]="styleType">
+    (click)="onFieldClick()" (blur)="onBlur()" [formControl]="queryFormControl" nvStyleColor [style]="fieldStyle">
   <ng-container *ngIf="fieldType === dropDownFieldType.Input" [ngTemplateOutlet]="arrowTemplate"
     [ngTemplateOutletContext]="{isArrowDown:isArrowDownIcon}">
   </ng-container>
@@ -11,7 +11,7 @@
     data-toggle="dropdown" src="./../../../assets/icons/plus-button--disabled.icon.svg" alt="The Plus Icon">
   <button #ButtonRef *ngIf="fieldType === dropDownFieldType.Button" type="button" (click)="onFieldClick()"
     class="btn dropdown-button body20 label" data-toggle="dropdown" (blur)="onBlur()" nvStyleColor
-    [styleType]="styleType">
+    [style]="fieldStyle">
     {{'Dropdown Button'}}
     <ng-container [ngTemplateOutlet]="arrowTemplate" [ngTemplateOutletContext]="{isArrowDown:isArrowDownIcon}">
     </ng-container>
@@ -26,17 +26,17 @@
 
 
 <ng-template #arrowTemplate let-item="isArrowDown">
-  <object #arrowDownRef *ngIf="isArrowDownIcon && (statusIcon === 'None')" class="icon arrow" data="../../../assets/icons/ico.arrow.down.svg"
+  <object #arrowDownRef *ngIf="isArrowDownIcon && (fieldStatusType === statusType.None)" class="icon arrow" data="../../../assets/icons/ico.arrow.down.svg"
     type="image/svg+xml"></object>
-  <object *ngIf="!isArrowDownIcon && !isFieldDisable && (statusIcon === 'None')" class="icon arrow" data="../../../assets/icons/ico.arrow.up.svg"
+  <object *ngIf="!isArrowDownIcon && !isFieldDisable && (fieldStatusType === statusType.None)" class="icon arrow" data="../../../assets/icons/ico.arrow.up.svg"
     type="image/svg+xml"></object>
-  <object #questionIconRef *ngIf=" !isFieldDisable && (statusIcon === statusIconType.Question)" class="icon status-icon" data="../../../assets/icons/question.icon.svg"
+  <object #questionIconRef *ngIf=" !isFieldDisable && (fieldStatusType === statusType.Help)" class="icon status-icon" data="../../../assets/icons/question.icon.svg"
     type="image/svg+xml" nvSvgColor [svgElementId]="'question-path'" [color]="'#1F78B4'"></object>
-  <object #exclamationIconRef *ngIf=" !isFieldDisable && (statusIcon === statusIconType.Exclamation)" class="icon status-icon"
+  <object #exclamationIconRef *ngIf=" !isFieldDisable && (fieldStatusType === statusType.Error)" class="icon status-icon"
     data="../../../assets/icons/exclamation.icon.svg" type="image/svg+xml"
     nvSvgColor [svgElementId]="'exclamation-path'" [color]="'#DB2828'"></object>
-  <object #checkMarkIconRef *ngIf=" !isFieldDisable && (statusIcon === statusIconType.CheckMark)" class="icon status-icon" data="../../../assets/icons/checkmark.icon.svg"
-    type="image/svg+xml" nvSvgColor [svgElementId]="'checkmark-path'" [color]="'#198515'"></object>
+  <object #checkMarkIconRef *ngIf=" !isFieldDisable && (fieldStatusType === statusType.Accepted)" class="icon status-icon" data="../../../assets/icons/checkmark.icon.svg"
+    type="image/svg+xml" nvSvgColor [svgElementId]="svgIconsRef.checkMark" [color]="'#198515'"></object>
 </ng-template>
 
 <!-- nvSvgColor [svgElementId]="'question-path'" [color]="'#1F78B4'"

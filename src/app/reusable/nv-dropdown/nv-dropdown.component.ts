@@ -1,4 +1,4 @@
-import { MenuExtensionDirection, StatusType, StyleType, StatusIconType, SvgIconId, FieldStatus } from './../../model/data-model';
+import { MenuExtensionDirection, FieldStatusType, fieldStatusStyle, SvgIconId, FieldStatus } from './../../model/data-model';
 import { DropdownFieldType } from 'src/app/model/data-model';
 import { NvFilterPipe } from '../pipes/filters/nv-filter/nv-filter.pipe';
 import { NvTrimPipe } from './../pipes/nv-trim/nv-trim.pipe';
@@ -15,7 +15,7 @@ import { SVG_ICONS_IDS, FIELD_STATUS_COLOR } from './../../../assets/constants'
  * 3: The menu can open from leftToRight and vice versa => MenuExtensionDirection
  * 4: the length of item to be shown after selection is adjustable => textTrimNumber
  * Usage:
- * that the parent component need to provide proper container (width and height)
+ * the parent component need to provide proper container (width and height)
  * Note:
  * in some case dropdown menu width should be modified
  * Author: Spz 27-08-2021
@@ -31,6 +31,17 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
    * The selected item as an output
    */
   @Output() itemSelect = new EventEmitter<string>();
+  
+  /**
+   * access to html/svg elements
+   */
+   @ViewChild('inputFieldRef') inputFieldRef!: ElementRef<HTMLElement>;
+   @ViewChild('PlusIconRef') PlusIconRef!: ElementRef<HTMLElement>;
+   @ViewChild('arrowDownRef') arrowDownRef!: ElementRef<HTMLObjectElement>;
+   @ViewChild('ButtonRef') ButtonRef!: ElementRef<HTMLElement>;
+   @ViewChild('menu') menu!: ElementRef<HTMLElement>;
+   @ViewChild('dropdown') dropdown!: ElementRef<HTMLElement>;
+
   @Input() set items(list: string[]) {
     this._items = list ? list : [];
     // Initializing the menu items
@@ -57,63 +68,25 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
    * Disable the fields
    * All the styles will be automatically changed
    */
-  @Input() set isFieldDisable(isDisable: boolean) {
-    this._isFieldDisable = isDisable;
-    if (this._isFieldDisable) {
-      this._updateStyles(StatusType.Disabled);
-    }
+  @Input() isFieldDisable: boolean = false;
 
-  }
-  get isFieldDisable(): boolean {
-    return this._isFieldDisable;
-  }
-  private _isFieldDisable!: boolean;
   /**
    * set styles base on the status of the field
    * The inputs of directives in html
+   *  if isFieldDisable is true, the styles will be updated upon it
    */
-  @Input() set fieldStatusType(type: StatusType) {
-    // TODO: initial function
+  @Input() set fieldStatusType(type: FieldStatusType) {
     this._fieldStatusType = type;
-    if (this._fieldStatusType && !this.isFieldDisable) {
-      this._updateStyles(this._fieldStatusType);
-    }
-    if (!this._fieldStatusType && !this.isFieldDisable) {
-      if (this._fieldStatusType === 0) {
-        this._updateStyles(StatusType.Active);
-      } else {
-        this._updateStyles(StatusType.Normal);
-      }
-    }
-
+    this._setStyles(this.fieldStatusType, this.isFieldDisable);
   }
-  get fieldStatusType(): StatusType {
+  get fieldStatusType(): FieldStatusType {
     return this._fieldStatusType;
   }
-  private _fieldStatusType!: StatusType;
-
-  /**
-   * access to html elements
-   */
-  @ViewChild('inputFieldRef') inputFieldRef!: ElementRef<HTMLElement>;
-  @ViewChild('PlusIconRef') PlusIconRef!: ElementRef<HTMLElement>;
-  @ViewChild('arrowDownRef') arrowDownRef!: ElementRef<HTMLObjectElement>;
-  @ViewChild('questionIconRef') questionIconRef!: ElementRef<HTMLObjectElement>;
-  @ViewChild('exclamationIconRef') exclamationIconRef!: ElementRef<HTMLObjectElement>;
-  @ViewChild('checkMarkIconRef') checkMarkIconRef!: ElementRef<HTMLObjectElement>;
-  @ViewChild('ButtonRef') ButtonRef!: ElementRef<HTMLElement>;
-  @ViewChild('menu') menu!: ElementRef<HTMLElement>;
-  @ViewChild('dropdown') dropdown!: ElementRef<HTMLElement>;
+  private _fieldStatusType!: FieldStatusType;
 
   hideMenu: boolean = false;
   selectedIndex!: number;
   isItemSelected: boolean = false;
-  backgroundColor!: StatusType;
-  borderColor!: StatusType;
-  textColor!: StatusType;
-  styleType!: StyleType;
-  statusIconType = StatusIconType;
-  statusIcon!: StatusIconType;
   /**
    * the default style for selectedItem
    */
@@ -124,15 +97,20 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   // initial value: this.selectedItem
   queryFormControl = new FormControl(`${this.selectedItem}`); // initial value
   filteredItems: string[] = this.items;
-  svgIconsRef!: SvgIconId[];
-  statusColors!: FieldStatus[];
+
+  /**
+   * input for nvStyleColor directive
+   */
+  fieldStyle!: fieldStatusStyle;
+  statusType = FieldStatusType;
+  svgIconsRef!: any;
+  fieldStatusColors!: any;
   constructor(private renderer: Renderer2, private filter: NvFilterPipe, private nvTextTrim: NvTrimPipe) {
-    // ADD INITIALIZE METHOD
     /**
      * Having access to svg icon id to change the style
      */
     this.svgIconsRef = SVG_ICONS_IDS;
-    this.statusColors = FIELD_STATUS_COLOR;
+    this.fieldStatusColors = FIELD_STATUS_COLOR;
   }
   initializeSvgProps(): void { }
 
@@ -231,59 +209,41 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   /**
    * update the style based on the received status color type by generating scss class name
    */
-  private _updateStyles(type: StatusType): void {
-    let status: StatusType;
-    this.statusIcon = StatusIconType.Default;
-    switch (type) {
-      case StatusType.Active:
-        status = StatusType.Active;
-        break;
-      case StatusType.Required:
-        status = StatusType.Required;
-        break;
-      case StatusType.Error:
-        status = StatusType.Error;
-        this.statusIcon = StatusIconType.Exclamation;
-        break;
-      case StatusType.Accepted:
-        status = StatusType.Accepted;
-        this.statusIcon = StatusIconType.CheckMark;
-        break;
-      case StatusType.Modified:
-        status = StatusType.Modified;
-        break;
-      case StatusType.Disabled:
-        status = StatusType.Disabled;
-        break;
-      case StatusType.Help:
-        status = StatusType.Normal;
-        this.statusIcon = StatusIconType.Question;
-        break;
-      default:
-        status = StatusType.Normal;
-        break;
-    }
+  private _setStyles(type: FieldStatusType, isDisable: boolean): void {
+    let statusType = FieldStatusType.None;
 
-    if (status) {
-      this.styleType = this._populateStyleType(status);
+    if (!isDisable) {
+      if (type) {
+        statusType = type;
+      }
+      if (type === 0) {
+        statusType = FieldStatusType.Active;
+      }
+      if (!type && type !== 0) {
+        statusType = FieldStatusType.Normal
+      }
     } else {
-      this.styleType = this._populateStyleType(StatusType.Normal);
+      statusType = FieldStatusType.Disabled;
+    }
+    /**
+     * setting style based on status type; style is input for directive nv-style-color directive
+     * these styles are used to create style class name using enum type; the style classes are located in base.scss
+     * The filed text is not affected by the user except the disabled state
+     */
+    const style: fieldStatusStyle = {
+      border: statusType,
+      background: statusType,
+    /**
+     * The filed text is not affected by the user except the disabled state
+     */
+     text: FieldStatusType.Normal
+    }
+    this.fieldStyle = style;
+    if (statusType === FieldStatusType.Disabled) {
+      this.fieldStyle.text = statusType;
     }
   }
-  private _populateStyleType(selectedStatusType: StatusType): StyleType {
-    const styles: StyleType = {
-      background: selectedStatusType,
-      border: selectedStatusType,
-      /**
-       * The filed text is not affected by the user except the disabled state
-       */
-      text: StatusType.Normal
-    };
-    if (selectedStatusType === StatusType.Disabled) {
-      styles.text = selectedStatusType;
-    }
-    return styles;
-  }
+
   private _changeArrowIconStyleToDisable(): void {
     setTimeout(() => {
       const svgTriangleDoc = this.arrowDownRef?.nativeElement?.contentDocument;

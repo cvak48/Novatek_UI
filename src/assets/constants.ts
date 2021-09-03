@@ -1,12 +1,10 @@
-import { SvgIconId, StatusType, FieldStatus } from './../app/model/data-model';
+import { SvgIconId, FieldStatusType, FieldStatus } from './../app/model/data-model';
 
-const checkmark: SvgIconId = {
-    name: 'checkmark',
+const checkMark = {
     id: 'ico.checkmark',
-    subId: [{
-        name: 'path',
+    subId: { checkMarkPath : {
         id: 'checkmark-path'
-    } as SvgIconId]
+    }  },
 };
 const exclamation: SvgIconId = {
     name: 'exclamation',
@@ -35,13 +33,15 @@ const add: SvgIconId = {
         id: 'Plus_Sign'
     } as SvgIconId]
 };
-export const SVG_ICONS_IDS: SvgIconId[] = [checkmark, exclamation, question, add];
-export const FIELD_STATUS_COLOR: FieldStatus[] = [
+export const SVG_ICONS_IDS = { checkMark: checkMark, exclamation: exclamation,
+     question: question, add: add };
+
+export const FIELD_STATUS_COLOR = {
     // TODO: 
-    { name: 'error', type: StatusType.Error, color: '#DB2828' } as FieldStatus,
-    { name: 'accept', type: StatusType.Accepted, color: '#198515' } as FieldStatus,
-    { name: 'help', type: StatusType.Help, color: '#1F78B4' } as FieldStatus
-];
+    error : { name: 'error', type: FieldStatusType.Error, color: '#DB2828' } as FieldStatus ,
+    accept : { name: 'accept', type: FieldStatusType.Accepted, color: '#198515' } as FieldStatus ,
+    help : { name: 'help', type: FieldStatusType.Help, color: '#1F78B4' } as FieldStatus
+};
 
 
 

@@ -1,5 +1,5 @@
 import { Component, OnInit, SimpleChanges } from '@angular/core';
-import { Notification, Person, DropdownFieldType, ButtonType, ButtonThemeColor, MenuExtensionDirection, StatusType } from './../../../model/data-model';
+import { Notification, Person, DropdownFieldType, ButtonType, ButtonThemeColor, MenuExtensionDirection, FieldStatusType } from './../../../model/data-model';
 
 
 export enum NvComponent {
@@ -54,7 +54,7 @@ export class DemoPageComponent implements OnInit {
   //  StatusColorDirectives test on dropdown; the field status color type
   fieldStatusType = mockDropdown().fieldStatusType;
   //LoginDropdown
-  loginFieldStatusType = StatusType.Error;
+  loginFieldStatusType = FieldStatusType.Error;
   // checkbox
   checkBoxLabel = 'Im a new Checkbox';
   constructor() {     }
@@ -117,7 +117,7 @@ function mockDropdown(): any {
     selectedItemDefault: 'Page',
     menuExtensionDir:  MenuExtensionDirection.ToRight,
     dropDownFieldType: DropdownFieldType.Input,
-    fieldStatusType: StatusType.Accepted,
+    fieldStatusType: FieldStatusType.Accepted,
     isDisable: false,
   };
   return dropdownInputs;

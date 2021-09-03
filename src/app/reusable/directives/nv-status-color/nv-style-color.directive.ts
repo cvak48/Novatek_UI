@@ -1,11 +1,11 @@
-import { fieldStatusStyle, FieldStatusType } from './../../../model/data-model';
+import { FieldStatusStyle, FieldStatusType } from './../../../model/data-model';
 import { Directive, Input, OnInit, OnDestroy, ElementRef, Renderer2 } from '@angular/core';
 
 @Directive({
   selector: '[nvStyleColor]'
 })
 export class NvStyleColorDirective implements OnInit, OnDestroy {
-  @Input() style!: fieldStatusStyle;
+  @Input() style!: FieldStatusStyle;
   constructor(private renderer: Renderer2, private element: ElementRef) { }
 
   ngOnInit(): void {

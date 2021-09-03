@@ -1,11 +1,11 @@
-import { MenuExtensionDirection, FieldStatusType, fieldStatusStyle, SvgIconId, FieldStatus } from './../../model/data-model';
+import { MenuExtensionDirection, FieldStatusType, FieldStatusStyle} from './../../model/data-model';
 import { DropdownFieldType } from 'src/app/model/data-model';
 import { NvFilterPipe } from '../pipes/filters/nv-filter/nv-filter.pipe';
 import { NvTrimPipe } from './../pipes/nv-trim/nv-trim.pipe';
 import { FormControl } from '@angular/forms';
 import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef, AfterViewInit, Renderer2, OnChanges, SimpleChanges } from '@angular/core';
 import { _MatMenuDirectivesModule } from '@angular/material/menu';
-import { SVG_ICONS_IDS, FIELD_STATUS_COLOR } from './../../../assets/constants'
+import { SVG_ICON_IDS_DIC, FIELD_STATUS_COLOR_DIC } from './../../../assets/constants';
 
 /**
  * Title:
@@ -101,16 +101,16 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   /**
    * input for nvStyleColor directive
    */
-  fieldStyle!: fieldStatusStyle;
+  fieldStyle!: FieldStatusStyle;
   statusType = FieldStatusType;
-  svgIconsRef!: any;
-  fieldStatusColors!: any;
+  svgIconIdsDic!: {[name: string]: string};
+  fieldStatusColorDic!: { [name: string]: string};
   constructor(private renderer: Renderer2, private filter: NvFilterPipe, private nvTextTrim: NvTrimPipe) {
     /**
      * Having access to svg icon id to change the style
      */
-    this.svgIconsRef = SVG_ICONS_IDS;
-    this.fieldStatusColors = FIELD_STATUS_COLOR;
+    this.svgIconIdsDic = SVG_ICON_IDS_DIC;
+    this.fieldStatusColorDic = FIELD_STATUS_COLOR_DIC;
   }
   initializeSvgProps(): void { }
 
@@ -230,14 +230,14 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
      * these styles are used to create style class name using enum type; the style classes are located in base.scss
      * The filed text is not affected by the user except the disabled state
      */
-    const style: fieldStatusStyle = {
+    const style: FieldStatusStyle = {
       border: statusType,
       background: statusType,
-    /**
-     * The filed text is not affected by the user except the disabled state
-     */
+      /**
+       * The filed text is not affected by the user except the disabled state
+       */
      text: FieldStatusType.Normal
-    }
+    };
     this.fieldStyle = style;
     if (statusType === FieldStatusType.Disabled) {
       this.fieldStyle.text = statusType;

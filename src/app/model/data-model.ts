@@ -26,12 +26,6 @@ export interface Notification {
 /**
  * data model related to Theme/skin
  */
-// todo: not used yet
-export interface FieldStatus {
-    name: string;
-    color: string;
-    type: FieldStatusType;
-}
 export enum FieldStatusType {
     Active,
     Required,
@@ -44,33 +38,23 @@ export enum FieldStatusType {
     None
 }
 /**
-* these style props are used to create style class name 
-* the style classes are located in base.scss
+ * These style props are used to create style class name
+ * The style classes are located in base.scss
  */
-export interface fieldStatusStyle {
+export interface FieldStatusStyle {
     border: number;
     background: number;
     text: number;
-}
-/**
- * to change the color of svg
- * @param subId the svg could have multiple sub-section 
- */
-export interface SvgIconId {
-    id: string;
-    subId: SvgIconId[];
 }
 
 export enum MenuExtensionDirection {
     ToLeft,
     ToRight,
 }
-
 export enum ButtonType {
     Raised,
     Stroked
 }
-
 export enum ButtonThemeColor {
     Basic,
     Primary,

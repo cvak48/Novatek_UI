@@ -27,18 +27,14 @@
 
 <ng-template #arrowTemplate let-item="isArrowDown">
   <object #arrowDownRef *ngIf="isArrowDownIcon && (fieldStatusType === statusType.None)" class="icon arrow" data="../../../assets/icons/ico.arrow.down.svg"
-    type="image/svg+xml"></object>
+    type="image/svg+xml" nvSvgColor [svgElementId]="svgIconIdsDic.arrowDownPath" [color]="fieldStatusColorDic.disable"></object>
   <object *ngIf="!isArrowDownIcon && !isFieldDisable && (fieldStatusType === statusType.None)" class="icon arrow" data="../../../assets/icons/ico.arrow.up.svg"
     type="image/svg+xml"></object>
   <object #questionIconRef *ngIf=" !isFieldDisable && (fieldStatusType === statusType.Help)" class="icon status-icon" data="../../../assets/icons/question.icon.svg"
-    type="image/svg+xml" nvSvgColor [svgElementId]="'question-path'" [color]="'#1F78B4'"></object>
+    type="image/svg+xml" nvSvgColor [svgElementId]="svgIconIdsDic.questionPath" [color]="fieldStatusColorDic.help"></object>
   <object #exclamationIconRef *ngIf=" !isFieldDisable && (fieldStatusType === statusType.Error)" class="icon status-icon"
     data="../../../assets/icons/exclamation.icon.svg" type="image/svg+xml"
-    nvSvgColor [svgElementId]="'exclamation-path'" [color]="'#DB2828'"></object>
+    nvSvgColor [svgElementId]="svgIconIdsDic.exclamationPath" [color]="fieldStatusColorDic.error"></object>
   <object #checkMarkIconRef *ngIf=" !isFieldDisable && (fieldStatusType === statusType.Accepted)" class="icon status-icon" data="../../../assets/icons/checkmark.icon.svg"
-    type="image/svg+xml" nvSvgColor [svgElementId]="svgIconsRef.checkMark" [color]="'#198515'"></object>
+    type="image/svg+xml" nvSvgColor [svgElementId]="svgIconIdsDic.checkMarkPath" [color]="fieldStatusColorDic.accept"></object>
 </ng-template>
-
-<!-- nvSvgColor [svgElementId]="'question-path'" [color]="'#1F78B4'"
-nvSvgColor [svgElementId]="'exclamation-path'" [color]="'#DB2828'"
-nvSvgColor [svgElementId]="'checkMark-path'" [color]="'#198515'" -->

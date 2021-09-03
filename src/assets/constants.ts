@@ -1,47 +1,34 @@
-import { SvgIconId, FieldStatusType, FieldStatus } from './../app/model/data-model';
 
-const checkMark = {
-    id: 'ico.checkmark',
-    subId: { checkMarkPath : {
-        id: 'checkmark-path'
-    }  },
-};
-const exclamation: SvgIconId = {
-    name: 'exclamation',
-    id: 'ico.exclamation',
-    subId: [{
-        name: 'path',
-        id: 'exclamation-path'
-    } as SvgIconId]
-};
-const question: SvgIconId = {
-    name: 'question',
-    id: 'ico-question.mark',
-    subId: [{
-        name: 'path',
-        id: 'question-path'
-    } as SvgIconId]
-};
-const add: SvgIconId = {
-    name: 'add',
-    id: 'button.add',
-    subId: [{
-        name: 'border',
-        id: 'Button_Background'
-    } as SvgIconId, {
-        name: 'plus',
-        id: 'Plus_Sign'
-    } as SvgIconId]
-};
-export const SVG_ICONS_IDS = { checkMark: checkMark, exclamation: exclamation,
-     question: question, add: add };
+const iconSvgElmIdDic: {[idName: string]: string } = {};
+iconSvgElmIdDic.checkMarkElement = 'ico.checkmark';
+iconSvgElmIdDic.checkMarkPath = 'checkmark-path';
 
-export const FIELD_STATUS_COLOR = {
-    // TODO: 
-    error : { name: 'error', type: FieldStatusType.Error, color: '#DB2828' } as FieldStatus ,
-    accept : { name: 'accept', type: FieldStatusType.Accepted, color: '#198515' } as FieldStatus ,
-    help : { name: 'help', type: FieldStatusType.Help, color: '#1F78B4' } as FieldStatus
-};
+iconSvgElmIdDic.exclamationElement = 'ico.exclamation';
+iconSvgElmIdDic.exclamationPath = 'exclamation-path';
+
+iconSvgElmIdDic.questionElement = 'ico-question.mark';
+iconSvgElmIdDic.questionPath = 'question-path';
+
+iconSvgElmIdDic.addElement = 'button.add';
+iconSvgElmIdDic.addBorder = 'Button_Background';
+iconSvgElmIdDic.addPlus = 'Plus_Sign';
+
+iconSvgElmIdDic.arrowDownG = 'ico.arrow.down';
+iconSvgElmIdDic.arrowDownPath = 'ico.arrow.down-2';
+
+const fieldStatusColorDic: {[name: string]: string} = {};
+// TODO: although it is not recommended to hard code, when we use enum to generate
+// Globally class selector for svg element, they does not recognize scss class exist in the base.scss.
+// the FieldStatusType enum should be used for generating class selectors.
+// the following hard copy colors are temporary though.
+fieldStatusColorDic.error = '#DB2828';
+fieldStatusColorDic.accept = '#198515';
+fieldStatusColorDic.help = '#1F78B4';
+fieldStatusColorDic.disable = '#B5B5B5';
+
+export const SVG_ICON_IDS_DIC = iconSvgElmIdDic;
+export const FIELD_STATUS_COLOR_DIC = fieldStatusColorDic;
+
 
 
 

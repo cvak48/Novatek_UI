@@ -10,7 +10,7 @@ export class NvSvgColorDirective implements OnInit{
   constructor(private renderer: Renderer2, private element: ElementRef) { }
 
   ngOnInit(): void {
-    if (!this.isFieldDisable) {
+    if (this.isFieldDisable) {
       this._setStyle();
     }
 

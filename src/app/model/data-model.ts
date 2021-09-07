@@ -34,8 +34,7 @@ export enum FieldStatusType {
     Modified,
     Disabled,
     Help,
-    Normal,
-    None
+    Normal
 }
 /**
  * These style props are used to create style class name

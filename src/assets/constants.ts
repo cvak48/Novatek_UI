@@ -1,33 +1,33 @@
 
-const iconSvgElmIdDic: {[idName: string]: string } = {};
-iconSvgElmIdDic.checkMarkElement = 'ico.checkmark';
-iconSvgElmIdDic.checkMarkPath = 'checkmark-path';
+const SVG_ICON_IDS_DIC: {[idName: string]: string } = {};
+SVG_ICON_IDS_DIC.checkMarkElement = 'ico.checkmark';
+SVG_ICON_IDS_DIC.checkMarkPath = 'checkmark-path';
 
-iconSvgElmIdDic.exclamationElement = 'ico.exclamation';
-iconSvgElmIdDic.exclamationPath = 'exclamation-path';
+SVG_ICON_IDS_DIC.exclamationElement = 'ico.exclamation';
+SVG_ICON_IDS_DIC.exclamationPath = 'exclamation-path';
 
-iconSvgElmIdDic.questionElement = 'ico-question.mark';
-iconSvgElmIdDic.questionPath = 'question-path';
+SVG_ICON_IDS_DIC.questionElement = 'ico-question.mark';
+SVG_ICON_IDS_DIC.questionPath = 'question-path';
 
-iconSvgElmIdDic.addElement = 'button.add';
-iconSvgElmIdDic.addBorder = 'Button_Background';
-iconSvgElmIdDic.addPlus = 'Plus_Sign';
+SVG_ICON_IDS_DIC.addElement = 'button.add';
+SVG_ICON_IDS_DIC.addBorder = 'Button_Background';
+SVG_ICON_IDS_DIC.addPlus = 'Plus_Sign';
 
-iconSvgElmIdDic.arrowDownG = 'ico.arrow.down';
-iconSvgElmIdDic.arrowDownPath = 'ico.arrow.down-2';
+SVG_ICON_IDS_DIC.arrowDownG = 'ico.arrow.down';
+SVG_ICON_IDS_DIC.arrowDownPath = 'ico.arrow.down-2';
 
-const fieldStatusColorDic: {[name: string]: string} = {};
+const FIELD_STATUS_COLOR_DIC: {[name: string]: string} = {};
 // TODO: although it is not recommended to hard code, when we use enum to generate
-// Globally class selector for svg element, they does not recognize scss class exist in the base.scss.
+// Globally class selector for svg element, they does not recognize scss class existing in the base.scss.
 // the FieldStatusType enum should be used for generating class selectors.
-// the following hard copy colors are temporary though.
-fieldStatusColorDic.error = '#DB2828';
-fieldStatusColorDic.accept = '#198515';
-fieldStatusColorDic.help = '#1F78B4';
-fieldStatusColorDic.disable = '#B5B5B5';
+// the following hard copy colors are temporary.
+FIELD_STATUS_COLOR_DIC.error = '#DB2828';
+FIELD_STATUS_COLOR_DIC.accept = '#198515';
+FIELD_STATUS_COLOR_DIC.help = '#1F78B4';
+FIELD_STATUS_COLOR_DIC.disable = '#B5B5B5';
 
-export const SVG_ICON_IDS_DIC = iconSvgElmIdDic;
-export const FIELD_STATUS_COLOR_DIC = fieldStatusColorDic;
+export { SVG_ICON_IDS_DIC, FIELD_STATUS_COLOR_DIC }
+
 
 
 

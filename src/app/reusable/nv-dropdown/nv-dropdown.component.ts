@@ -1,24 +1,22 @@
-import { MenuExtensionDirection, FieldStatusType, FieldStatusStyle} from './../../model/data-model';
+import { MenuExtensionDirection, FieldStatusType, FieldStatusStyle } from './../../model/data-model';
 import { DropdownFieldType } from 'src/app/model/data-model';
 import { NvFilterPipe } from '../pipes/filters/nv-filter/nv-filter.pipe';
 import { NvTrimPipe } from './../pipes/nv-trim/nv-trim.pipe';
 import { FormControl } from '@angular/forms';
-import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef, AfterViewInit, Renderer2, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef, AfterViewInit, Renderer2 } from '@angular/core';
 import { _MatMenuDirectivesModule } from '@angular/material/menu';
 import { SVG_ICON_IDS_DIC, FIELD_STATUS_COLOR_DIC } from './../../../assets/constants';
 
 /**
- * Title:
  * Functionalities:
- * 1: covers button, simple field (Input) and Icon dropdown => fieldType
- * 2: it can be disabled based on need => isFieldDisable
+ * 1: Covers button, simple field (Input) and Icon dropdown => fieldType
+ * 2: It can be disabled based on need => isFieldDisable
  * 3: The menu can open from leftToRight and vice versa => MenuExtensionDirection
- * 4: the length of item to be shown after selection is adjustable => textTrimNumber
+ * 4: The length of item to be shown after selection is adjustable => textTrimNumber
  * Usage:
- * the parent component need to provide proper container (width and height)
+ * The parent component need to provide proper container (width and height) for dropdown field
  * Note:
  * in some case dropdown menu width should be modified
- * Author: Spz 27-08-2021
  */
 
 @Component({
@@ -31,16 +29,15 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
    * The selected item as an output
    */
   @Output() itemSelect = new EventEmitter<string>();
-  
   /**
    * access to html/svg elements
    */
-   @ViewChild('inputFieldRef') inputFieldRef!: ElementRef<HTMLElement>;
-   @ViewChild('PlusIconRef') PlusIconRef!: ElementRef<HTMLElement>;
-   @ViewChild('arrowDownRef') arrowDownRef!: ElementRef<HTMLObjectElement>;
-   @ViewChild('ButtonRef') ButtonRef!: ElementRef<HTMLElement>;
-   @ViewChild('menu') menu!: ElementRef<HTMLElement>;
-   @ViewChild('dropdown') dropdown!: ElementRef<HTMLElement>;
+  @ViewChild('inputFieldRef') inputFieldRef!: ElementRef<HTMLElement>;
+  @ViewChild('PlusIconRef') PlusIconRef!: ElementRef<HTMLElement>;
+  @ViewChild('arrowDownRef') arrowDownRef!: ElementRef<HTMLObjectElement>;
+  @ViewChild('ButtonRef') ButtonRef!: ElementRef<HTMLElement>;
+  @ViewChild('menu') menu!: ElementRef<HTMLElement>;
+  @ViewChild('dropdown') dropdown!: ElementRef<HTMLElement>;
 
   @Input() set items(list: string[]) {
     this._items = list ? list : [];
@@ -52,7 +49,7 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   }
   private _items!: string[];
   /**
-   * It keeps first "textTrimNumber" number and ignore the rest, adding ... instead.
+   * It keeps first "textTrimNumber" number and ignore the rest, adding . . . instead.
    */
   @Input() textTrimNumber: number = 2;
   /**
@@ -65,15 +62,15 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   @Input() fieldType: DropdownFieldType = DropdownFieldType.Input;
   @Input() extensionDirection: MenuExtensionDirection = MenuExtensionDirection.ToRight;
   /**
-   * Disable the fields
+   * Disables the fields
    * All the styles will be automatically changed
    */
   @Input() isFieldDisable: boolean = false;
 
   /**
-   * set styles base on the status of the field
+   * Sets styles base on the status of the field
    * The inputs of directives in html
-   *  if isFieldDisable is true, the styles will be updated upon it
+   * If isFieldDisable is true, the styles will be updated upon it
    */
   @Input() set fieldStatusType(type: FieldStatusType) {
     this._fieldStatusType = type;
@@ -99,20 +96,16 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   filteredItems: string[] = this.items;
 
   /**
-   * input for nvStyleColor directive
+   * Input for nvStyleColor directive
    */
   fieldStyle!: FieldStatusStyle;
   statusType = FieldStatusType;
-  svgIconIdsDic!: {[name: string]: string};
-  fieldStatusColorDic!: { [name: string]: string};
+  svgIconIdsDic!: { [name: string]: string };
+  fieldStatusColorDic!: { [name: string]: string };
   constructor(private renderer: Renderer2, private filter: NvFilterPipe, private nvTextTrim: NvTrimPipe) {
-    /**
-     * Having access to svg icon id to change the style
-     */
-    this.svgIconIdsDic = SVG_ICON_IDS_DIC;
-    this.fieldStatusColorDic = FIELD_STATUS_COLOR_DIC;
+    this._initializeSvgIconStyles()
   }
-  initializeSvgProps(): void { }
+
 
   ngOnInit(): void {
     /**
@@ -145,10 +138,10 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
        */
       if (this.fieldType === this.dropDownFieldType.Input) {
         this.inputFieldRef?.nativeElement.removeAttribute('data-toggle');
-        this._changeArrowIconStyleToDisable();
+        // this._changeArrowIconStyleToDisable();
       } else if (this.fieldType === this.dropDownFieldType.Button) {
         this.ButtonRef?.nativeElement.removeAttribute('data-toggle');
-        this._changeArrowIconStyleToDisable();
+        // this._changeArrowIconStyleToDisable();
       } else if (this.dropDownFieldType.Icon) {
         this.PlusIconRef?.nativeElement.removeAttribute('data-toggle');
         /**
@@ -207,10 +200,11 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
      */
   }
   /**
-   * update the style based on the received status color type by generating scss class name
+   * update the style based on the received status color type;
+   * generating scss class name
    */
   private _setStyles(type: FieldStatusType, isDisable: boolean): void {
-    let statusType = FieldStatusType.None;
+    let statusType = FieldStatusType.Normal;
 
     if (!isDisable) {
       if (type) {
@@ -236,7 +230,7 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
       /**
        * The filed text is not affected by the user except the disabled state
        */
-     text: FieldStatusType.Normal
+      text: FieldStatusType.Normal
     };
     this.fieldStyle = style;
     if (statusType === FieldStatusType.Disabled) {
@@ -255,7 +249,13 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
     }, 100);
   }
 
-
+/**
+ * Importing svg icon id and status colors to change the color of svg Icon
+ */
+  private _initializeSvgIconStyles(): void {
+    this.svgIconIdsDic = SVG_ICON_IDS_DIC;
+    this.fieldStatusColorDic = FIELD_STATUS_COLOR_DIC;
+  }
 
 
 }

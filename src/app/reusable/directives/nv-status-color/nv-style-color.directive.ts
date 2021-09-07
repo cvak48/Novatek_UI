@@ -9,7 +9,9 @@ export class NvStyleColorDirective implements OnInit, OnDestroy {
   constructor(private renderer: Renderer2, private element: ElementRef) { }
 
   ngOnInit(): void {
-    console.log('dir >' + this.style);
+  /**
+   * These class selector are generated here based on FieldStatusType enum and the related scss class are in the base.scss file
+   */
     if (this.style?.background) {
       this.renderer.addClass(this.element.nativeElement, 'background-' + FieldStatusType[this.style.background]);
     }

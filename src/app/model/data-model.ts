@@ -30,7 +30,7 @@ export enum FieldStatusType {
     Active,
     Required,
     Error,
-    Accepted,
+    Accept,
     Modified,
     Disabled,
     Help,

@@ -27,7 +27,9 @@
 
 <ng-template #iconTemplate let-item="isArrowDown">
   <object #arrowDownRef *ngIf="isArrowDownIcon && (fieldStatusType === statusType.Normal)" class="icon arrow" data="../../../assets/icons/ico.arrow.down.svg"
-    type="image/svg+xml" nvSvgColor [svgElementId]="svgIconIdsDic.arrowDownPath" [color]="fieldStatusColorDic.disable"></object>
+    type="image/svg+xml" 
+    nvSvgColor [svgElementId]="svgIconIdsDic.arrowDownPath" 
+    [color]="fieldStatusColorDic.disable" [isDirectiveEnable]="isFieldDisable"></object>
   <object *ngIf="!isArrowDownIcon && !isFieldDisable && (fieldStatusType === statusType.Normal)" class="icon arrow" data="../../../assets/icons/ico.arrow.up.svg"
     type="image/svg+xml"></object>
   <object #questionIconRef *ngIf=" !isFieldDisable && (fieldStatusType === statusType.Help)" class="icon status-icon" data="../../../assets/icons/question.icon.svg"
@@ -35,6 +37,6 @@
   <object #exclamationIconRef *ngIf=" !isFieldDisable && (fieldStatusType === statusType.Error)" class="icon status-icon"
     data="../../../assets/icons/exclamation.icon.svg" type="image/svg+xml"
     nvSvgColor [svgElementId]="svgIconIdsDic.exclamationPath" [color]="fieldStatusColorDic.error"></object>
-  <object #checkMarkIconRef *ngIf=" !isFieldDisable && (fieldStatusType === statusType.Accepted)" class="icon status-icon" data="../../../assets/icons/checkmark.icon.svg"
+  <object #checkMarkIconRef *ngIf=" !isFieldDisable && (fieldStatusType === statusType.Accept)" class="icon status-icon" data="../../../assets/icons/checkmark.icon.svg"
     type="image/svg+xml" nvSvgColor [svgElementId]="svgIconIdsDic.checkMarkPath" [color]="fieldStatusColorDic.accept"></object>
 </ng-template>

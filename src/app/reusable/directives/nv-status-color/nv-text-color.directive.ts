@@ -5,7 +5,9 @@ import { Directive, Input, Renderer2, ElementRef } from '@angular/core';
   selector: '[nvTextColor]'
 })
 export class NvTextColorDirective {
-
+  /**
+   * changes the color of text based on dynamic class selector generated using FieldStatusType enum
+   */
   @Input() color: FieldStatusType = FieldStatusType.Normal;
   constructor(private renderer: Renderer2, private element: ElementRef) { }
 

@@ -99,14 +99,14 @@
         <div class="dropdown-container" *ngSwitchCase="nvComponentType.Dropdown">
           <app-nv-dropdown class="body-item" [extensionDirection]="menuExtensionDir" [items]="dropdownItems" 
           [selectedItem]="defaultSelectedItem" [textTrimNumber]="textTrimNumber" [isFieldDisable]="isDisable" 
-           [fieldStatusType]="fieldStatusType" [fieldType]="dropDownFieldType"  ></app-nv-dropdown>
+           [fieldStatusType]="fieldStatusType" [fieldType]="dropDownFieldType" (itemSelect)="onItemSelect($event)"></app-nv-dropdown>
         </div>
         <div class="dropdown-container" *ngSwitchCase="nvComponentType.LoginDropdown">
           <div id="dropdown" nvTextColor [color]="loginFieldStatusType" > Field Validation Field</div>
           <br>
           <app-nv-dropdown class="body-item" [extensionDirection]="menuExtensionDir" [items]="dropdownItems" 
           [selectedItem]="defaultSelectedItem" [textTrimNumber]="textTrimNumber" [isFieldDisable]="isDisable" 
-           [fieldStatusType]="fieldStatusType" [fieldType]="dropDownFieldType"  ></app-nv-dropdown>
+           [fieldStatusType]="fieldStatusType" [fieldType]="dropDownFieldType" (itemSelect)="onItemSelect($event)"></app-nv-dropdown>
         </div>
 
         <div class="upload-file-container" *ngSwitchCase="nvComponentType.DropToUpload">

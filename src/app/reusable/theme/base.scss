@@ -270,7 +270,7 @@ $border-color-500: $color-white;
   .background-Error {
     background-color:  $color-light-red-10 !important;
   }
-  .background-Accepted {
+  .background-Accept {
     background-color:  $color-light-green-10 !important;
   }
   .background-Modified {
@@ -290,7 +290,7 @@ $border-color-500: $color-white;
   .border-Error {
     border: 1px solid $color-red-20 !important;
   }
-  .border-Accepted {
+  .border-Accept {
     border: 1px solid $color-green !important;
   }
   .border-Modified {
@@ -310,7 +310,7 @@ $border-color-500: $color-white;
   .text-Error {
     color: $color-red !important;
   }
-  .text-Accepted {
+  .text-Accept {
     color: $color-green !important;
   }
   .text-Modified {

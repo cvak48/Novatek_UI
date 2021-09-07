@@ -51,9 +51,8 @@ export class DemoPageComponent implements OnInit {
   dropDownFieldType = mockDropdown().dropDownFieldType;
   menuExtensionDir = mockDropdown().menuExtensionDir;
   isDisable = mockDropdown().isDisable;
-  //  StatusColorDirectives test on dropdown; the field status color type
   fieldStatusType = mockDropdown().fieldStatusType;
-  //LoginDropdown
+  //  LoginDropdown
   loginFieldStatusType = FieldStatusType.Error;
   // checkbox
   checkBoxLabel = 'Im a new Checkbox';
@@ -68,10 +67,8 @@ export class DemoPageComponent implements OnInit {
   onItemsFilter(list: any): void {
   }
   // dropDown selected item
-  onItemSelect(item: string): void {
+  onItemSelect(item: any): void {
   }
-  // test for login page dropdown label once the color need to be change based on different statuses
-
 
 }
 
@@ -117,7 +114,7 @@ function mockDropdown(): any {
     selectedItemDefault: 'Page',
     menuExtensionDir:  MenuExtensionDirection.ToRight,
     dropDownFieldType: DropdownFieldType.Input,
-    fieldStatusType: FieldStatusType.Normal,
+    fieldStatusType:   FieldStatusType.Accept,
     isDisable: false,
   };
   return dropdownInputs;

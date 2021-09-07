@@ -1,5 +1,8 @@
 
-const SVG_ICON_IDS_DIC: {[idName: string]: string } = {};
+/**
+ * This constant ids are used in svg related directives as an reference to change the style
+ */
+const SVG_ICON_IDS_DIC: { [idName: string]: string } = {};
 SVG_ICON_IDS_DIC.checkMarkElement = 'ico.checkmark';
 SVG_ICON_IDS_DIC.checkMarkPath = 'checkmark-path';
 
@@ -16,11 +19,13 @@ SVG_ICON_IDS_DIC.addPlus = 'Plus_Sign';
 SVG_ICON_IDS_DIC.arrowDownG = 'ico.arrow.down';
 SVG_ICON_IDS_DIC.arrowDownPath = 'ico.arrow.down-2';
 
-const FIELD_STATUS_COLOR_DIC: {[name: string]: string} = {};
-// TODO: although it is not recommended to hard code, when we use enum to generate
-// Globally class selector for svg element, they does not recognize scss class existing in the base.scss.
-// the FieldStatusType enum should be used for generating class selectors.
-// the following hard copy colors are temporary.
+const FIELD_STATUS_COLOR_DIC: { [name: string]: string } = {};
+/**
+ * TODO: when we use enum to generate globally class selector for svg element, they does not recognize scss class existing in the base.scss.
+ * the hard coded color use temporarily and need to be addressed!
+ * the FieldStatusType enum should be used for generating class selectors.
+ */
+
 FIELD_STATUS_COLOR_DIC.error = '#DB2828';
 FIELD_STATUS_COLOR_DIC.accept = '#198515';
 FIELD_STATUS_COLOR_DIC.help = '#1F78B4';

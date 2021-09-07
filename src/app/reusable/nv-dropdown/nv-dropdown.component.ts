@@ -4,7 +4,6 @@ import { NvFilterPipe } from '../pipes/filters/nv-filter/nv-filter.pipe';
 import { NvTrimPipe } from './../pipes/nv-trim/nv-trim.pipe';
 import { FormControl } from '@angular/forms';
 import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef, AfterViewInit, Renderer2 } from '@angular/core';
-import { _MatMenuDirectivesModule } from '@angular/material/menu';
 import { SVG_ICON_IDS_DIC, FIELD_STATUS_COLOR_DIC } from './../../../assets/constants';
 
 /**
@@ -13,10 +12,10 @@ import { SVG_ICON_IDS_DIC, FIELD_STATUS_COLOR_DIC } from './../../../assets/cons
  * 2: It can be disabled based on need => isFieldDisable
  * 3: The menu can open from leftToRight and vice versa => MenuExtensionDirection
  * 4: The length of item to be shown after selection is adjustable => textTrimNumber
- * Usage:
- * The parent component need to provide proper container (width and height) for dropdown field
  * Note:
+ * The parent component need to provide proper container (width and height) for dropdown field
  * in some case dropdown menu width should be modified
+ * nvSvgColor are nvStyleColor directives are used in html file for changing styles
  */
 
 @Component({
@@ -34,10 +33,8 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
    */
   @ViewChild('inputFieldRef') inputFieldRef!: ElementRef<HTMLElement>;
   @ViewChild('PlusIconRef') PlusIconRef!: ElementRef<HTMLElement>;
-  @ViewChild('arrowDownRef') arrowDownRef!: ElementRef<HTMLObjectElement>;
   @ViewChild('ButtonRef') ButtonRef!: ElementRef<HTMLElement>;
-  @ViewChild('menu') menu!: ElementRef<HTMLElement>;
-  @ViewChild('dropdown') dropdown!: ElementRef<HTMLElement>;
+
 
   @Input() set items(list: string[]) {
     this._items = list ? list : [];
@@ -66,7 +63,6 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
    * All the styles will be automatically changed
    */
   @Input() isFieldDisable: boolean = false;
-
   /**
    * Sets styles base on the status of the field
    * The inputs of directives in html
@@ -80,7 +76,6 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
     return this._fieldStatusType;
   }
   private _fieldStatusType!: FieldStatusType;
-
   hideMenu: boolean = false;
   selectedIndex!: number;
   isItemSelected: boolean = false;
@@ -94,7 +89,6 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   // initial value: this.selectedItem
   queryFormControl = new FormControl(`${this.selectedItem}`); // initial value
   filteredItems: string[] = this.items;
-
   /**
    * Input for nvStyleColor directive
    */
@@ -105,7 +99,6 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   constructor(private renderer: Renderer2, private filter: NvFilterPipe, private nvTextTrim: NvTrimPipe) {
     this._initializeSvgIconStyles()
   }
-
 
   ngOnInit(): void {
     /**
@@ -124,14 +117,12 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
         }
       });
     }
-
   }
 
   ngAfterViewInit(): void {
     /**
      * opening and closing the dropdown menu in case of plus-button TODO: adding object element
      */
-
     if (this.isFieldDisable) {
       /**
        * Remove toggle to disable the dropdown menu
@@ -145,16 +136,9 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
       } else if (this.dropDownFieldType.Icon) {
         this.PlusIconRef?.nativeElement.removeAttribute('data-toggle');
         /**
-         *  plus icon color TODO: adding object element
-         */
-        /**
          * data-toggle does not work in Object element So the click and blur events handle the open and close functionalities
          */
       }
-      /**
-       * Note: Remove icons; triangles
-       * they are disabled in html
-       */
     }
   }
 
@@ -170,7 +154,6 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
     } else {
       this.hideMenu = false;
     }
-
   }
 
   onBlur(): void {
@@ -238,17 +221,6 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
     }
   }
 
-  private _changeArrowIconStyleToDisable(): void {
-    setTimeout(() => {
-      const svgTriangleDoc = this.arrowDownRef?.nativeElement?.contentDocument;
-      const arrowSign = svgTriangleDoc?.getElementById('ico.arrow.down-2');
-      const disableColor = '#B5B5B5';
-      if (arrowSign) {
-        this.renderer.setStyle(arrowSign, 'fill', disableColor);
-      }
-    }, 100);
-  }
-
 /**
  * Importing svg icon id and status colors to change the color of svg Icon
  */
@@ -256,6 +228,5 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
     this.svgIconIdsDic = SVG_ICON_IDS_DIC;
     this.fieldStatusColorDic = FIELD_STATUS_COLOR_DIC;
   }
-
 
 }

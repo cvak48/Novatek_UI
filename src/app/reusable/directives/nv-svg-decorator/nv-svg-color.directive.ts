@@ -4,18 +4,26 @@ import { Directive, Input, Renderer2, ElementRef, OnInit } from '@angular/core';
   selector: '[nvSvgColor]'
 })
 export class NvSvgColorDirective implements OnInit{
-  @Input() isFieldDisable: boolean = false;
+  /**
+   * conditional directive
+   */
+  @Input() isDirectiveEnable: boolean = true;
+  /**
+   * when we have svg id as a reference to svg element and desired color, we can change the color
+   */
   @Input() svgElementId!: string;
   @Input() color!: string;
   constructor(private renderer: Renderer2, private element: ElementRef) { }
 
   ngOnInit(): void {
-    if (this.isFieldDisable) {
+    if (this.isDirectiveEnable) {
       this._setStyle();
     }
 
   }
-
+  /**
+   * when we have svg id as a reference to svg element and desired color, we can change the color
+   */
   private _setStyle(): void {
     setTimeout(() => {
       const svgDoc = this.element?.nativeElement?.contentDocument;

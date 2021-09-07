@@ -1,16 +1,15 @@
 import { ArrowIcon } from '../../model/data-model';
-import { Observable, onErrorResumeNext, of, from } from 'rxjs';
-import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatAutocomplete, MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { map, startWith } from 'rxjs/operators';
- /**
-  *   @title Tree with checkboxes
-  *   * USAGE:
-  *
-  */
+/**
+ * This component is generated based on Angular material
+ * https://v6.material.angular.io/components/chips/api
+ */
 @Component({
   selector: 'app-nv-multiselect-dropdown',
   templateUrl: './nv-multiselect-dropdown.component.html',
@@ -18,7 +17,6 @@ import { map, startWith } from 'rxjs/operators';
 })
 export class NvMultiSelectDropdownComponent implements OnInit {
   // TODO: The arrow need to shift to the right out of the field
-  // delete the last chips change the triangle twice
   visible = true;
   selectable = true;
   removable = true;
@@ -29,7 +27,7 @@ export class NvMultiSelectDropdownComponent implements OnInit {
   filteredItems!: Observable<string[]>;
   // field
   items: string[] = ['Multiple Select'];
-  referenceItems: string[] = ['Apple', 'Lemon', 'Lime', 'Orange', 'Strawberry'];
+  @Input() referenceItems: string[] = ['Apple', 'Lemon', 'Lime', 'Orange', 'Strawberry'];
   @ViewChild('itemInput') itemInput!: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete!: MatAutocomplete;
   isArrowDown: boolean = true;
@@ -41,17 +39,15 @@ export class NvMultiSelectDropdownComponent implements OnInit {
   constructor() {
     /**
      * AutoComplete as user make query
-     * 
      */
     this.filteredItems = this.itemCtrl.valueChanges.pipe(
       startWith(null),
       // The Array.slice() method returns a new array
       map((item: string | null) => item ? this._filter(item) : this.referenceItems.slice()));
   }
-    /**
-     * blur and click eventHandler are responsible for changing the triangle icon direction
-     * 
-     */
+  /**
+   * blur and click eventHandler are responsible for changing the triangle icon direction
+   */
   onBlur(): void {
     if (this.matAutocomplete.isOpen) {
       this.isArrowDown = true;
@@ -66,14 +62,14 @@ export class NvMultiSelectDropdownComponent implements OnInit {
   }
 
   add(event: MatChipInputEvent): void {
-    // Add fruit only when MatAutocomplete is not open
+    // Add item only when MatAutocomplete is not open
     // To make sure this does not conflict with OptionSelected Event
     if (!this.matAutocomplete.isOpen) {
 
       const input = event.input;
       const value = event.value;
 
-      // Add our fruit
+      // Add our item
       if ((value || '').trim()) {
         this.items.push(value.trim());
       }
@@ -86,10 +82,10 @@ export class NvMultiSelectDropdownComponent implements OnInit {
     }
 
   }
-    /**
-     * triggered after removing chip
-     * add removed chip into filteredItem
-     */
+  /**
+   * Triggered after removing chip
+   * add removed chip into filteredItem
+   */
   remove(item: string): void {
     const index = this.items.indexOf(item);
     this.filteredItems = this.filteredItems.pipe(map(values => {
@@ -105,15 +101,15 @@ export class NvMultiSelectDropdownComponent implements OnInit {
       this.hasItem = false;
     }
   }
-    /**
-     * triggered after selecting from filteredList
-     */
+  /**
+   * triggered after selecting from filteredList
+   */
   selected(event: MatAutocompleteSelectedEvent): void {
     this.items.push(event.option.viewValue);
     /**
      * removing the selected chip from filteredList
      */
-    this.filteredItems =  this.filteredItems.pipe(map(values =>
+    this.filteredItems = this.filteredItems.pipe(map(values =>
       values.filter(item => item !== event.option.viewValue)));
     this.itemInput.nativeElement.value = '';
     this.itemCtrl.setValue(null);

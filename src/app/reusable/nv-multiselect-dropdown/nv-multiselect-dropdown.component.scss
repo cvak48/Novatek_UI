@@ -37,8 +37,7 @@ $height: 40px;
   min-height: $height;
 
   .arrow-icon-container {
-
-    &.no-fruit {
+    &.no-item {
      margin-top: 10px;
     }
     .arrow-icon {
@@ -46,7 +45,6 @@ $height: 40px;
       top: 6px;
     }
   }
-
 }
 
 // the size of field
@@ -144,7 +142,6 @@ $height: 40px;
 
   &:hover {
     background-image: url("./../../../assets/icons/circular-cancel--hover.icon.svg") !important;
-    // TODO: How to use mask !
   }
 
 }
@@ -192,7 +189,6 @@ $height: 40px;
 // menu font
 ::ng-deep .mat-option {
   @include label;
-
   &:hover {
     background-color: $color-light-gray !important;
   }

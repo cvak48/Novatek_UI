@@ -1,6 +1,6 @@
 import { ArrowIcon } from '../../model/data-model';
 import { Observable } from 'rxjs';
-import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatAutocomplete, MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
@@ -16,7 +16,15 @@ import { map, startWith } from 'rxjs/operators';
   styleUrls: ['./nv-multiselect-dropdown.component.scss']
 })
 export class NvMultiSelectDropdownComponent implements OnInit {
+  /**
+   * the selected item as an output
+   */
+  @Output() itemSelect = new EventEmitter<any>();
   // TODO: The arrow need to shift to the right out of the field
+
+  @Input() referenceItems: string[] = ['Apple', 'Lemon', 'Lime', 'Orange', 'Strawberry'];
+  @ViewChild('itemInput') itemInput!: ElementRef<HTMLInputElement>;
+  @ViewChild('auto') matAutocomplete!: MatAutocomplete;
   visible = true;
   selectable = true;
   removable = true;
@@ -26,10 +34,9 @@ export class NvMultiSelectDropdownComponent implements OnInit {
   // menu
   filteredItems!: Observable<string[]>;
   // field
+  // TODO: What is the default
+
   items: string[] = ['Multiple Select'];
-  @Input() referenceItems: string[] = ['Apple', 'Lemon', 'Lime', 'Orange', 'Strawberry'];
-  @ViewChild('itemInput') itemInput!: ElementRef<HTMLInputElement>;
-  @ViewChild('auto') matAutocomplete!: MatAutocomplete;
   isArrowDown: boolean = true;
   readonly arrowIcons: ArrowIcon = {
     upward: '../../../assets/icons/ico.arrow.up.svg',
@@ -42,7 +49,6 @@ export class NvMultiSelectDropdownComponent implements OnInit {
      */
     this.filteredItems = this.itemCtrl.valueChanges.pipe(
       startWith(null),
-      // The Array.slice() method returns a new array
       map((item: string | null) => item ? this._filter(item) : this.referenceItems.slice()));
   }
   /**
@@ -62,19 +68,24 @@ export class NvMultiSelectDropdownComponent implements OnInit {
   }
 
   add(event: MatChipInputEvent): void {
-    // Add item only when MatAutocomplete is not open
-    // To make sure this does not conflict with OptionSelected Event
+    /**
+     * Add item only when MatAutocomplete is not open
+     * To make sure this does not conflict with OptionSelected Event
+     */
     if (!this.matAutocomplete.isOpen) {
 
       const input = event.input;
       const value = event.value;
-
-      // Add our item
+      /**
+       * Add our item
+       */
       if ((value || '').trim()) {
-        this.items.push(value.trim());
+        this.items.unshift(value.trim());
       }
 
-      // Reset the input value
+      /**
+       * Reset the input value
+       */
       if (input) {
         input.value = '';
       }
@@ -89,7 +100,7 @@ export class NvMultiSelectDropdownComponent implements OnInit {
   remove(item: string): void {
     const index = this.items.indexOf(item);
     this.filteredItems = this.filteredItems.pipe(map(values => {
-      values.push(item);
+      values.unshift(item);
       return values;
     }));
 
@@ -102,15 +113,20 @@ export class NvMultiSelectDropdownComponent implements OnInit {
     }
   }
   /**
-   * triggered after selecting from filteredList
+   * Triggered after selecting from filteredList
    */
   selected(event: MatAutocompleteSelectedEvent): void {
-    this.items.push(event.option.viewValue);
+    const selectedItem = event.option?.viewValue;
+    this.items.push(selectedItem);
+    /**
+     * sends selectedItem as an output
+     */
+    this.itemSelect.emit(selectedItem);
     /**
      * removing the selected chip from filteredList
      */
     this.filteredItems = this.filteredItems.pipe(map(values =>
-      values.filter(item => item !== event.option.viewValue)));
+      values.filter(item => item !== selectedItem)));
     this.itemInput.nativeElement.value = '';
     this.itemCtrl.setValue(null);
     if (!this.isArrowDown) {
@@ -123,8 +139,8 @@ export class NvMultiSelectDropdownComponent implements OnInit {
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
-    const filteredFruits = this.referenceItems.filter(item => item.toLowerCase().indexOf(filterValue) === 0);
-    return filteredFruits;
+    const filteredItems = this.referenceItems.filter(item => item.toLowerCase().indexOf(filterValue) === 0);
+    return filteredItems;
   }
 
   ngOnInit(): void { }

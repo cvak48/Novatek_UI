@@ -1,4 +1,4 @@
-import { FilterAllPipe } from '../pipes/filters/filterAll/filter-all.pipe';
+import { NvFilterPipe } from '../pipes/filters/nv-filter/nv-filter.pipe';
 import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 // import {TableColumn} from "./TableColumn";
 import { MatSort, Sort } from "@angular/material/sort";

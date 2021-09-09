@@ -1,3 +1,7 @@
+import { NvSvgColorDirective } from './directives/nv-svg-decorator/nv-svg-color.directive';
+import { NvDropdownComponent } from './nv-dropdown/nv-dropdown.component';
+import { NvStyleColorDirective } from './directives/nv-status-color/nv-style-color.directive';
+
 import { NvSliderToggleComponent } from './nv-slider-toggle/nv-slider-toggle.component';
 import { NvSliderRadioButtonComponent } from './nv-slider-radio-button/nv-slider-radio-button.component';
 import { NvSliderComponent } from './nv-slider/nv-slider.component';
@@ -5,17 +9,17 @@ import { NvCheckboxComponent } from './nv-checkbox/nv-checkbox.component';
 import { NvDataPickerComponent } from './nv-data-picker/nv-data-picker.component';
 import { NvTrimPipe } from './pipes/nv-trim/nv-trim.pipe';
 import { NvButtonComponent } from './nv-button/nv-button.component';
-import { FilterAllPipe } from './pipes/filters/filterAll/filter-all.pipe';
-import { AdvanceFilterPipe } from './pipes/filters/advance-filter/advance-filter.pipe';
+import { NvFilterPipe } from './pipes/filters/nv-filter/nv-filter.pipe';
+import { NvAdvanceFilterPipe } from './pipes/filters/nv-advance-filter/nv-advance-filter.pipe';
 import { NvInitialsPipe } from './pipes/nv-initials/nv-initials.pipe';
 import { RattingComponent } from './ratting/ratting.component';
 import { UploadComponent } from './upload/upload.component';
 import { NvFileUploadDirective } from './directives/file-upload/nv-file-upload.directive';
-import { NvDropdownComponent } from './nv-dropdown/nv-dropdown.component';
+
 import { UserProfileMenuComponent } from './user-profile-menu/user-profile-menu.component';
 import { NotificationComponent } from './notification/notification.component';
 import { AvatarComponent } from './avatar/avatar.component';
-import { SearchComponent } from './search/search.component';
+import { NvSearchComponent } from './nv-search/nv-search.component';
 import { MaterialModule } from './../material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -38,12 +42,12 @@ import { NvPlaceholderBannerComponent } from './placeholder/nv-placeholder-banne
 import { NvPlaceholderBigCardComponent } from './placeholder/nv-placeholderBigCard/nv-placeholderBigCard.component';
 import { MatTableModule } from '@angular/material/table';
 import { NvCustomDatatableComponent } from './nv-custom-datatable/nv-custom-datatable.component';
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatInputModule} from "@angular/material/input";
-import {MatPaginatorModule} from "@angular/material/paginator";
-import {MatSortModule} from "@angular/material/sort";
-import {MatIconModule} from "@angular/material/icon";
-import {MatButtonModule} from "@angular/material/button";
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
 import { DataPropertyGetterPipe } from './pipes/data-property-getter-pipe/data-property-getter.pipe';
 import { TestComponent } from './test/test.component';
 import { NvPlaceholderTextCardComponent } from './placeholder/nv-placeholder-text-card/nv-placeholder-text-card.component';
@@ -54,27 +58,32 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ProgressiveBarComponent } from './progressive-bar/progressive-bar.component';
 import { NvInputComponent } from './nv-input/nv-input.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { NvTextColorDirective } from './directives/nv-status-color/nv-text-color.directive';
+
 
 
 const sharedComponents = [
   NvInitialsPipe,
-  AdvanceFilterPipe,
-  FilterAllPipe,
+  NvAdvanceFilterPipe,
+  NvFilterPipe,
   NvTrimPipe,
   NvFileUploadDirective,
+  NvTextColorDirective,
+  NvStyleColorDirective,
+  NvSvgColorDirective,
   NvFooterComponent,
   SideNavComponent,
   NovatekLogoComponent,
   NvCustomDatatableComponent,
   DataPropertyGetterPipe,
   PanelComponent,
-  SearchComponent,
+  NvSearchComponent,
   TextAreaComponent,
   AvatarComponent,
   NotificationComponent,
   UserProfileMenuComponent,
   PanelComponent,
-  SearchComponent,
+  NvSearchComponent,
   CommentBoxComponent,
   TextAreaComponent,
   NvDropdownComponent,
@@ -124,6 +133,6 @@ const sharedComponents = [
     MDBBootstrapModule.forRoot()
   ],
   exports: sharedComponents,
-  providers: [FilterAllPipe, AdvanceFilterPipe ]
+  providers: [NvFilterPipe, NvAdvanceFilterPipe, NvTrimPipe ]
 })
 export class ReusableModule { }

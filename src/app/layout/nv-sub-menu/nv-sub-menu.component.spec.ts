@@ -1,21 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NvDropdownComponent } from './nv-dropdown.component';
+import { NvSubMenuComponent } from './nv-sub-menu.component';
 
-describe('NvDropdownComponent', () => {
-  let component: NvDropdownComponent;
-  let fixture: ComponentFixture<NvDropdownComponent>;
+describe('NvSubMenuComponent', () => {
+  let component: NvSubMenuComponent;
+  let fixture: ComponentFixture<NvSubMenuComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NvDropdownComponent ]
+      declarations: [ NvSubMenuComponent ]
     })
     .compileComponents();
   });
 
-
   beforeEach(() => {
-    fixture = TestBed.createComponent(NvDropdownComponent);
+    fixture = TestBed.createComponent(NvSubMenuComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

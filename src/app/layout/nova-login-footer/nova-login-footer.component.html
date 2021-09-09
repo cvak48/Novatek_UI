@@ -5,14 +5,18 @@
         <li>@2021 All Rights Reserved <a href="#">ntint@com</a></li>
       </ul>
     </div>
-    <div class="col-5">
+    <div class="col-5" style="top:-8px">
       <ul class="list-inlin login-txt pad-0">
         <li>
-          Language:
-          <a href="#" class="language">
+          Language
+          <!-- <a href="#" class="language">
             <img src="{{ flagIcon }}" alt="icon" />
-            <span class="link-txt">English</span></a
-          >
+          </a> -->
+          <app-nv-dropdown class="lang-item" [items]="Domain" [selectedItem]="selectedItems" (itemSelect)='onChange($event)'>
+          </app-nv-dropdown>
+          <!-- <select class="form-control form-control-lg" [ngModel]="selectedItem" (ngModelChange)="onChange($event)">
+            <option *ngFor='let item of Domain'>{{item.item}}</option>
+          </select> -->
         </li>
       </ul>
     </div>

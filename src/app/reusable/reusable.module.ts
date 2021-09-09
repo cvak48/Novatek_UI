@@ -1,5 +1,8 @@
 import { NvDatePickerComponent } from './nv-date-picker/nv-date-picker.component';
 import { NvChecklistDropdownComponent } from './nv-checklist-dropdown/nv-checklist-dropdown.component';
+import { NvSvgColorDirective } from './directives/nv-svg-decorator/nv-svg-color.directive';
+import { NvDropdownComponent } from './nv-dropdown/nv-dropdown.component';
+import { NvStyleColorDirective } from './directives/nv-status-color/nv-style-color.directive';
 import { NvSliderToggleComponent } from './nv-slider-toggle/nv-slider-toggle.component';
 import { NvSliderRadioButtonComponent } from './nv-slider-radio-button/nv-slider-radio-button.component';
 import { NvSliderComponent } from './nv-slider/nv-slider.component';
@@ -7,17 +10,14 @@ import { NvCheckboxComponent } from './nv-checkbox/nv-checkbox.component';
 import { NvMultiSelectDropdownComponent } from './nv-multiselect-dropdown/nv-multiselect-dropdown.component';
 import { NvTrimPipe } from './pipes/nv-trim/nv-trim.pipe';
 import { NvButtonComponent } from './nv-button/nv-button.component';
-import { FilterAllPipe } from './pipes/filters/filterAll/filter-all.pipe';
-import { AdvanceFilterPipe } from './pipes/filters/advance-filter/advance-filter.pipe';
+import { NvFilterPipe } from './pipes/filters/nv-filter/nv-filter.pipe';
+import { NvAdvanceFilterPipe } from './pipes/filters/nv-advance-filter/nv-advance-filter.pipe';
 import { NvInitialsPipe } from './pipes/nv-initials/nv-initials.pipe';
 import { RattingComponent } from './ratting/ratting.component';
-import { UploadComponent } from './nv-upload/nv-upload.component';
 import { NvFileUploadDirective } from './directives/file-upload/nv-file-upload.directive';
-import { NvDropdownComponent } from './nv-dropdown/nv-dropdown.component';
 import { UserProfileMenuComponent } from './user-profile-menu/user-profile-menu.component';
 import { NotificationComponent } from './notification/notification.component';
-import { NvAvatarComponent } from './nv-avatar/nv-avatar.component';
-import { SearchComponent } from './nv-search/nv-search.component';
+import { NvSearchComponent } from './nv-search/nv-search.component';
 import { MaterialModule } from './../material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -52,30 +52,35 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { NvCustomTableComponent } from './nv-custom-table/nv-custom-table.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ProgressiveBarComponent } from './progressive-bar/progressive-bar.component';
+import { NvInputComponent } from './nv-input/nv-input.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { NvTextColorDirective } from './directives/nv-status-color/nv-text-color.directive';
+
 
 
 const sharedComponents = [
   NvInitialsPipe,
-  AdvanceFilterPipe,
-  FilterAllPipe,
+  NvAdvanceFilterPipe,
+  NvFilterPipe,
   NvTrimPipe,
   NvFileUploadDirective,
+  NvStyleColorDirective,
+  NvTextColorDirective,
+  NvSvgColorDirective,
   NovatekLogoComponent,
   NvCustomDatatableComponent,
+  NvDatePickerComponent,
   DataPropertyGetterPipe,
   PanelComponent,
-  SearchComponent,
   NvMultiSelectDropdownComponent,
   NvChecklistDropdownComponent,
   TextAreaComponent,
-  NvAvatarComponent,
   NotificationComponent,
   UserProfileMenuComponent,
   PanelComponent,
+  NvSearchComponent,
   CommentBoxComponent,
   NvDropdownComponent,
-  UploadComponent,
   TestComponent,
   TabsComponent,
   TabWrapper,
@@ -91,14 +96,13 @@ const sharedComponents = [
   NvSliderComponent,
   NvSliderRadioButtonComponent,
   NvSliderToggleComponent,
-  UploadComponent,
   RattingComponent,
   NvPlaceholderTextCardComponent,
   NvPlaceholderSmallCardComponent,
   NvCustomTableComponent,
   ProgressiveBarComponent,
-  NvDatePickerComponent,
-  NvButtonComponent
+  NvButtonComponent,
+  NvInputComponent
 ];
 
 @NgModule({
@@ -120,6 +124,6 @@ const sharedComponents = [
     MDBBootstrapModule.forRoot()
   ],
   exports: sharedComponents,
-  providers: [FilterAllPipe, AdvanceFilterPipe ]
+  providers: [NvFilterPipe, NvAdvanceFilterPipe, NvTrimPipe ]
 })
 export class ReusableModule { }

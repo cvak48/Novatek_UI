@@ -1,11 +1,11 @@
 <div class="profile-container" [matMenuTriggerFor]="beforeMenu">
-      <app-avatar class="avatar" *ngIf="person.imageUrl && person.name" [avatarUrl]="person.imageUrl!" [name]="person.name!"></app-avatar>
+      <app-nv-avatar class="avatar" *ngIf="person.imageUrl && person.name" [avatarUrl]="person.imageUrl!" [name]="person.name!"></app-nv-avatar>
     <div class="profile-stats">
       <div class="notification-container" *ngIf="person.notification?.number">
           <app-notification [number]="person.notification?.number"></app-notification>
       </div>
       <div class="spacer"></div>
-      <img id="ico.arrow.down" class="arrow-down" src="./../../../assets/icons/ico.arrow.down.svg">
+      <img id="ico.arrow.down" class="arrow-down" src="./../../../assets/icons/ico.arrow.down.svg"  alt='Arrow'>
     </div>
   </div>
 

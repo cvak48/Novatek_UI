@@ -63,8 +63,8 @@
 
 <ng-template #arrowTemplate let-item="isArrowDown">
   <div class="arrow-icon-container" [ngClass]="{'no-fruit': !hasItem}">
-  <img *ngIf="isArrowDown" class="arrow-icon"  src="{{arrowIcons?.downward}}">
-  <img *ngIf="!isArrowDown" class="arrow-icon" src="{{arrowIcons?.upward}}">
+  <img *ngIf="isArrowDown" class="arrow-icon"  src="{{arrowIcons?.downward}}" alt='Arrow'>
+  <img *ngIf="!isArrowDown" class="arrow-icon" src="{{arrowIcons?.upward}}" alt='Arrow'>
 </div>
 </ng-template>
 

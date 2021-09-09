@@ -1,8 +1,8 @@
 <!-- List of previous comments are itterated from the comments variable -->
 <div id="mainDiv" *ngFor="let comment of comments.reverse()">
   <div class="d-flex flex-row user-info">
-    <app-avatar class="body-item" *ngIf="person?.imageUrl && person?.name" [avatarUrl]="person.imageUrl!"
-      [name]="person.name!"></app-avatar>
+    <app-nv-avatar class="body-item" *ngIf="person?.imageUrl && person?.name" [avatarUrl]="person.imageUrl!"
+      [name]="person.name!"></app-nv-avatar>
     <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name name-color">Marry
         Andrews  <span class="dateTimeTxt">Today at 5:42 PM</span></span><span class="date text-black-50 name-color">{{comment.text}}</span>
       <span (click)="openCommentText(comment)" class="reply date text-grey-50">Reply</span>

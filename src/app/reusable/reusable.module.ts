@@ -5,20 +5,19 @@ import { NvSliderRadioButtonComponent } from './nv-slider-radio-button/nv-slider
 import { NvSliderComponent } from './nv-slider/nv-slider.component';
 import { NvCheckboxComponent } from './nv-checkbox/nv-checkbox.component';
 import { NvMultiSelectDropdownComponent } from './nv-multiselect-dropdown/nv-multiselect-dropdown.component';
-
 import { NvTrimPipe } from './pipes/nv-trim/nv-trim.pipe';
 import { NvButtonComponent } from './nv-button/nv-button.component';
 import { FilterAllPipe } from './pipes/filters/filterAll/filter-all.pipe';
 import { AdvanceFilterPipe } from './pipes/filters/advance-filter/advance-filter.pipe';
 import { NvInitialsPipe } from './pipes/nv-initials/nv-initials.pipe';
 import { RattingComponent } from './ratting/ratting.component';
-import { UploadComponent } from './upload/upload.component';
+import { UploadComponent } from './nv-upload/nv-upload.component';
 import { NvFileUploadDirective } from './directives/file-upload/nv-file-upload.directive';
 import { NvDropdownComponent } from './nv-dropdown/nv-dropdown.component';
 import { UserProfileMenuComponent } from './user-profile-menu/user-profile-menu.component';
 import { NotificationComponent } from './notification/notification.component';
-import { AvatarComponent } from './avatar/avatar.component';
-import { SearchComponent } from './nv-search/search.component';
+import { NvAvatarComponent } from './nv-avatar/nv-avatar.component';
+import { SearchComponent } from './nv-search/nv-search.component';
 import { MaterialModule } from './../material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -39,12 +38,12 @@ import { NvPlaceholderBannerComponent } from './placeholder/nv-placeholder-banne
 import { NvPlaceholderBigCardComponent } from './placeholder/nv-placeholderBigCard/nv-placeholderBigCard.component';
 import { MatTableModule } from '@angular/material/table';
 import { NvCustomDatatableComponent } from './nv-custom-datatable/nv-custom-datatable.component';
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatInputModule} from "@angular/material/input";
-import {MatPaginatorModule} from "@angular/material/paginator";
-import {MatSortModule} from "@angular/material/sort";
-import {MatIconModule} from "@angular/material/icon";
-import {MatButtonModule} from "@angular/material/button";
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
 import { DataPropertyGetterPipe } from './pipes/data-property-getter-pipe/data-property-getter.pipe';
 import { TestComponent } from './test/test.component';
 import { NvPlaceholderTextCardComponent } from './placeholder/nv-placeholder-text-card/nv-placeholder-text-card.component';
@@ -70,7 +69,7 @@ const sharedComponents = [
   NvMultiSelectDropdownComponent,
   NvChecklistDropdownComponent,
   TextAreaComponent,
-  AvatarComponent,
+  NvAvatarComponent,
   NotificationComponent,
   UserProfileMenuComponent,
   PanelComponent,

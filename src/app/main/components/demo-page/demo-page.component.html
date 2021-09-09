@@ -80,9 +80,9 @@
         <!-- Forth: Call your reusable component here and pass input data if needed  -->
         
         <div class="search-item-container" *ngSwitchCase="nvComponentType.Search">
-          <app-search [isAdvance]="isAdvance" [hideMenu]="showMenu" [list]="list"
+          <app-nv-search [isAdvance]="isAdvance" [hideMenu]="showMenu" [list]="list"
             [searchableRefList]="searchableRefList" (filteredItems)="onItemsFilter($event)" class="body-item">
-          </app-search>
+          </app-nv-search>
         </div>
 
         <app-novatek-logo class="body-item" *ngSwitchCase="nvComponentType.NovaLogo"></app-novatek-logo>
@@ -93,8 +93,8 @@
         <app-notification class="body-item" *ngSwitchCase="nvComponentType.Notification"></app-notification>
 
         <ng-container *ngSwitchCase="nvComponentType.Avatar">
-          <app-avatar class="body-item" *ngIf="person?.imageUrl && person?.name" [avatarUrl]="person.imageUrl!"
-            [name]="person.name!"></app-avatar>
+          <app-nv-avatar class="body-item" *ngIf="person?.imageUrl && person?.name" [avatarUrl]="person.imageUrl!"
+            [name]="person.name!"></app-nv-avatar>
         </ng-container>
 
         <app-user-profile-menu class="body-item" [person]="person" *ngSwitchCase="nvComponentType.ProfileMenu">
@@ -111,12 +111,12 @@
           <app-nv-checklist-dropdown  class="body-item"> </app-nv-checklist-dropdown>
         </div>
         <ng-container *ngSwitchCase="nvComponentType.Avatar">
-          <app-avatar class="body-item" *ngIf="person?.imageUrl && person?.name" [avatarUrl]="person.imageUrl!"
-            [name]="person.name!"></app-avatar>
+          <app-nv-avatar class="body-item" *ngIf="person?.imageUrl && person?.name" [avatarUrl]="person.imageUrl!"
+            [name]="person.name!"></app-nv-avatar>
         </ng-container>
 
         <div class="upload-file-container" *ngSwitchCase="nvComponentType.DropToUpload">
-          <app-upload class="body-item"></app-upload>
+          <app-nv-upload class="body-item"></app-nv-upload>
         </div>
         <div class="custom-component-container" *ngSwitchCase="nvComponentType.NvCheckBox">
           <app-nv-checkbox class="body-item" [label]="checkBoxLabel"></app-nv-checkbox>
@@ -133,10 +133,6 @@
         <div class="date-single-picker-container" *ngSwitchCase="nvComponentType.NvDatePicker">
           <app-nv-date-picker [isDateRangePicker]="false" class="body-item"></app-nv-date-picker>
         </div>
-        <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
-        <!-- <div class="date-range-picker-container" *ngSwitchCase="nvComponentType.NvDatePicker">
-          <app-nv-data-picker [isDateRangePicker]="true" class="body-item"></app-nv-data-picker>
-        </div> -->
         <app-nv-button [label]="buttonLabel" [type]="buttonType" [color]="themeColor" class="body-item"
           *ngSwitchCase="nvComponentType.NvButton"></app-nv-button>
 

@@ -12,24 +12,21 @@ export class NvFileUploadDirective {
   constructor() { } 
 
   @HostListener('dragover', ['$event']) onDragOver(evt: any): void {
-    evt.preventDefault();
-    evt.stopPropagation();
     console.log('dragover');
     this.background = '#C9E2F5';
     this.opacity = '0.8';
+    this._preventEventEffect(evt);
   }
 
   @HostListener('dragleave', ['$event']) public onDragLeave(evt: any): void {
-    evt.preventDefault();
-    evt.stopPropagation();
     console.log('dragLeave');
     this.background = '#fff';
     this.opacity = '1';
+    this._preventEventEffect(evt);
   }
 
   @HostListener('drop', ['$event']) onFieldDrop(evt: any): void {
-    evt.preventDefault();
-    evt.stopPropagation();
+
     console.log('drop');
     this.background = '#f5fcff';
     this.opacity = '1';
@@ -37,6 +34,11 @@ export class NvFileUploadDirective {
     if (files.length > 0) {
       this.fileDropped.emit(files);
     }
+    this._preventEventEffect(evt);
+  }
+  private _preventEventEffect(evt: any): void {
+    evt.preventDefault();
+    evt.stopPropagation();
   }
 
 }

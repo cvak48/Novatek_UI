@@ -4,7 +4,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { TextAreaComponent } from 'src/app/reusable/text-area/text-area.component';
 import { NovatekLogoComponent } from 'src/app/reusable/novatek-logo/novatek-logo.component';
 import { MatTabHeaderPosition } from '@angular/material/tabs';
-import { SearchComponent } from 'src/app/reusable/nv-search/search.component';
+import { SearchComponent } from 'src/app/reusable/nv-search/nv-search.component';
 import { PlaceHolderCard } from 'src/app/model/placeHolderCard';
 import { PlaceHolderBanner } from 'src/app/model/placeHolderBanner';
 import { PlaceholderBigCard } from 'src/app/model/PlaceholderBigCard';

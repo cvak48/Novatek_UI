@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NvMultiSelectDropdownComponent } from './nv-multiselect-dropdown.component';
 
-describe('SearchComponent', () => {
+describe('NvMultiSelectDropdownComponent', () => {
   let component: NvMultiSelectDropdownComponent;
   let fixture: ComponentFixture<NvMultiSelectDropdownComponent>;
 

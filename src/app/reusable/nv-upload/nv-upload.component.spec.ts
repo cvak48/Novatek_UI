@@ -1,19 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { NvSearchComponent } from './nv-search.component';
 
-describe('NvSearchComponent', () => {
-  let component: NvSearchComponent;
-  let fixture: ComponentFixture<NvSearchComponent>;
+import { NvUploadComponent } from './nv-upload.component';
+
+describe('NvUploadComponent', () => {
+  let component: NvUploadComponent;
+  let fixture: ComponentFixture<NvUploadComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NvSearchComponent ]
+      declarations: [ NvUploadComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NvSearchComponent);
+    fixture = TestBed.createComponent(NvUploadComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

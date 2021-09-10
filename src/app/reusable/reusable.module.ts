@@ -1,3 +1,5 @@
+import { NvUploadComponent } from './nv-upload/nv-upload.component';
+import { NvAvatarComponent } from './nv-avatar/nv-avatar.component';
 import { NvDatePickerComponent } from './nv-date-picker/nv-date-picker.component';
 import { NvChecklistDropdownComponent } from './nv-checklist-dropdown/nv-checklist-dropdown.component';
 import { NvSvgColorDirective } from './directives/nv-svg-decorator/nv-svg-color.directive';
@@ -102,7 +104,9 @@ const sharedComponents = [
   NvCustomTableComponent,
   ProgressiveBarComponent,
   NvButtonComponent,
-  NvInputComponent
+  NvInputComponent,
+  NvAvatarComponent,
+  NvUploadComponent
 ];
 
 @NgModule({

@@ -43,4 +43,5 @@
 ::ng-deep .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background,
 ::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background {
   border: 1px solid $color-dark-blue-10 !important;
+  border-radius: 4px !important;
 }

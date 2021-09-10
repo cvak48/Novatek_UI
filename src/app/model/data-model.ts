@@ -64,10 +64,7 @@ export enum MenuExtensionDirection {
     ToLeft,
     ToRight,
 }
-export enum ButtonType {
-    Raised,
-    Stroked
-}
+
 export enum ButtonThemeColor {
     Basic,
     Primary,

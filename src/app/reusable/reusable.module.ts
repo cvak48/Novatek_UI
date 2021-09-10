@@ -1,15 +1,17 @@
-import { NvUploadComponent } from './nv-upload/nv-upload.component';
-import { NvAvatarComponent } from './nv-avatar/nv-avatar.component';
-import { NvDatePickerComponent } from './nv-date-picker/nv-date-picker.component';
 import { NvChecklistDropdownComponent } from './nv-checklist-dropdown/nv-checklist-dropdown.component';
+import { NvMultiSelectDropdownComponent } from './nv-multiselect-dropdown/nv-multiselect-dropdown.component';
+import { NvDatePickerComponent } from './nv-date-picker/nv-date-picker.component';
+import { NvAvatarComponent } from './nv-avatar/nv-avatar.component';
+import { NvUploadComponent } from './nv-upload/nv-upload.component';
+
 import { NvSvgColorDirective } from './directives/nv-svg-decorator/nv-svg-color.directive';
 import { NvDropdownComponent } from './nv-dropdown/nv-dropdown.component';
 import { NvStyleColorDirective } from './directives/nv-status-color/nv-style-color.directive';
 import { NvSliderToggleComponent } from './nv-slider-toggle/nv-slider-toggle.component';
 import { NvSliderRadioButtonComponent } from './nv-slider-radio-button/nv-slider-radio-button.component';
-import { NvSliderComponent } from './nv-slider/nv-slider.component';
+import { NvSliderComponent } from './nv-slider-bar/nv-slider-bar.component';
 import { NvCheckboxComponent } from './nv-checkbox/nv-checkbox.component';
-import { NvMultiSelectDropdownComponent } from './nv-multiselect-dropdown/nv-multiselect-dropdown.component';
+
 import { NvTrimPipe } from './pipes/nv-trim/nv-trim.pipe';
 import { NvButtonComponent } from './nv-button/nv-button.component';
 import { NvFilterPipe } from './pipes/filters/nv-filter/nv-filter.pipe';
@@ -18,7 +20,7 @@ import { NvInitialsPipe } from './pipes/nv-initials/nv-initials.pipe';
 import { RattingComponent } from './ratting/ratting.component';
 import { NvFileUploadDirective } from './directives/file-upload/nv-file-upload.directive';
 import { UserProfileMenuComponent } from './user-profile-menu/user-profile-menu.component';
-import { NotificationComponent } from './notification/notification.component';
+import { NvNotificationIconComponent } from './nv-notification-icon/nv-notification-icon.component';
 import { NvSearchComponent } from './nv-search/nv-search.component';
 import { MaterialModule } from './../material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -77,7 +79,7 @@ const sharedComponents = [
   NvMultiSelectDropdownComponent,
   NvChecklistDropdownComponent,
   TextAreaComponent,
-  NotificationComponent,
+  NvNotificationIconComponent,
   UserProfileMenuComponent,
   PanelComponent,
   NvSearchComponent,

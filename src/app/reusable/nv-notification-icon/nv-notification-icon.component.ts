@@ -1,12 +1,11 @@
-import { _isNumberValue } from '@angular/cdk/coercion';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-notification',
-  templateUrl: './notification.component.html',
-  styleUrls: ['./notification.component.scss']
+  selector: 'app-nv-notification-icon',
+  templateUrl: './nv-notification-icon.component.html',
+  styleUrls: ['./nv-notification-icon.component.scss']
 })
-export class NotificationComponent implements OnInit {
+export class NvNotificationIconComponent implements OnInit {
   @Input() set number(value: number | string) {
     if (value && value >= 0) {
       if (value >= 100) {
@@ -15,7 +14,6 @@ export class NotificationComponent implements OnInit {
         this._number = value;
       }
     } else {
-      // TODO: need to ask Payam.
       this._number = 0;
     }
   }

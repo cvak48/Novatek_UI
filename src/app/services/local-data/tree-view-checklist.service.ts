@@ -39,7 +39,7 @@ export class TreeViewChecklistService {
     this.initialize();
   }
 
-  initialize() {
+  initialize(): void {
     // Build the tree nodes from Json object. The result is a list of `TodoItemNode` with nested
     //     file node as children.
     const data = this.buildFileTree(TREE_DATA, 0);
@@ -71,14 +71,14 @@ export class TreeViewChecklistService {
   }
 
   /** Add an item to to-do list */
-  insertItem(parent: TodoItemNode, name: string) {
+  insertItem(parent: TodoItemNode, name: string): void {
     if (parent.children) {
       parent.children.push({item: name} as TodoItemNode);
       this.dataChange.next(this.data);
     }
   }
 
-  updateItem(node: TodoItemNode, name: string) {
+  updateItem(node: TodoItemNode, name: string): void {
     node.item = name;
     this.dataChange.next(this.data);
   }

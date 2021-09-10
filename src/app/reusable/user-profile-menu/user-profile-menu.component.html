@@ -2,7 +2,7 @@
       <app-nv-avatar class="avatar" *ngIf="person.imageUrl && person.name" [avatarUrl]="person.imageUrl!" [name]="person.name!"></app-nv-avatar>
     <div class="profile-stats">
       <div class="notification-container" *ngIf="person.notification?.number">
-          <app-notification [number]="person.notification?.number"></app-notification>
+          <app-nv-notification-icon [number]="person.notification?.number"></app-nv-notification-icon>
       </div>
       <div class="spacer"></div>
       <img id="ico.arrow.down" class="arrow-down" src="./../../../assets/icons/ico.arrow.down.svg"  alt='Arrow'>
@@ -13,7 +13,7 @@
   <mat-menu class="mat-menu" #beforeMenu="matMenu" xPosition="before">
       <div class="d-flex flex-direction-row justify-content-between first-item label" mat-menu-item>
         <div>Notifications</div>
-        <app-notification class="d-flex align-content-center align-items-center mr-0" [number]="person.notification?.number"></app-notification>
+        <app-nv-notification-icon class="d-flex align-content-center align-items-center mr-0" [number]="person.notification?.number"></app-nv-notification-icon>
       </div>
       <div  mat-menu-item>User Profile</div>
       <div  mat-menu-item>Account Settings</div>

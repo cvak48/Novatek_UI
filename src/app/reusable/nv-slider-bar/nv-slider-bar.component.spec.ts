@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NvSliderComponent } from './nv-slider.component';
+import { NvSliderComponent } from './nv-slider-bar.component';
 
 describe('NvSliderComponent', () => {
   let component: NvSliderComponent;

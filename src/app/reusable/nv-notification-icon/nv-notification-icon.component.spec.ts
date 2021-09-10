@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NotificationComponent } from './notification.component';
+import { NvNotificationIconComponent } from './nv-notification-icon.component';
 
 describe('NotificationComponent', () => {
-  let component: NotificationComponent;
-  let fixture: ComponentFixture<NotificationComponent>;
+  let component: NvNotificationIconComponent;
+  let fixture: ComponentFixture<NvNotificationIconComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NotificationComponent ]
+      declarations: [ NvNotificationIconComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NotificationComponent);
+    fixture = TestBed.createComponent(NvNotificationIconComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,5 +1,6 @@
 @import './../theme/base.scss';
 
+.radio-button-container {
 .mat-label {
   font-style: $font-style-normal;
   font-weight: $font-weight-normal;
@@ -25,4 +26,5 @@
 
 ::ng-deep .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
   border-color: $color-white-12;
+}
 }

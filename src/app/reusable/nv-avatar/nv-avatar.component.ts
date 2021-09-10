@@ -6,6 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./nv-avatar.component.scss']
 })
 export class NvAvatarComponent implements OnInit {
+  // TODO: the person object should be received
   @Input() set avatarUrl(value: string) {
     this._avatarUrl = value ? value : '';
   }
@@ -17,7 +18,7 @@ export class NvAvatarComponent implements OnInit {
     return this._avatarUrl;
   }
   get name(): string {
-    return this._name; 
+    return this._name;
   }
   private _avatarUrl!: string;
   private _name!: string;
@@ -25,6 +26,4 @@ export class NvAvatarComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-
 }

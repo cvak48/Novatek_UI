@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-
+/**
+ * This component created based on angular material;
+ * https://v7.material.angular.io/components/slider/api
+ */
 @Component({
-  selector: 'app-nv-slider',
-  templateUrl: './nv-slider.component.html',
-  styleUrls: ['./nv-slider.component.scss']
+  selector: 'app-nv-slider-bar',
+  templateUrl: './nv-slider-bar.component.html',
+  styleUrls: ['./nv-slider-bar.component.scss']
 })
 export class NvSliderComponent implements OnInit {
 

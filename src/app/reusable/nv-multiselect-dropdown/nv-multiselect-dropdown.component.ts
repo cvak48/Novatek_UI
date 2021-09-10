@@ -82,7 +82,6 @@ export class NvMultiSelectDropdownComponent implements OnInit {
       if ((value || '').trim()) {
         this.items.unshift(value.trim());
       }
-
       /**
        * Reset the input value
        */

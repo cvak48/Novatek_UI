@@ -2,10 +2,10 @@
 
 @mixin inputLabel {
 
-    font-family: $nv-font;
-    font-size: $font-size-x-small;
-    font-weight: $font-weight-normal;
-    color: $color-dark-gray-12;
+  font-family: $nv-font;
+  font-size: $font-size-x-small;
+  font-weight: $font-weight-normal;
+  color: $color-dark-gray-12;
 
   &:focus {
     outline: none;
@@ -38,7 +38,7 @@
     color: $color-dark-gray-30;
   }
 }
-// width: 180px; parent
+
 .date-picker-container {
   position: relative;
   display: flex;
@@ -91,58 +91,9 @@
 
 }
 
-
-.date-picker-container {
-
-// ::ng-deep .mat-datepicker-input-container {
-//   width: 50px !important;
-// }
-
-::ng-deep input.mat-input-element {
-  margin-top: 0px !important;
-  // border: 1px solid blue;
-  //width: fit-content !important;
-  // min-width: 100px !important;
-}
-::ng-deep .mat-form-field-autofill-control {
-  // border: 1px solid yellow !important; 
-  // display: none !important;
-  //width: fit-content !important;
-  //min-width: 300px !important;
-}
-::ng-deep .mat-datepicker-input {
-  // border: 1px solid yellow !important; 
-  //width: fit-content !important;
-  // min-width: 200px !important;
-  // min-width: 300px !important;
- // width: fit-content !important;
-
-}
-::ng-deep .cdk-text-field-autofill-monitored {
-  //display: none !important;
-  //width: fit-content !important;
-  // min-width: 300px !important;
-}
-
-//  mat-input-element
-//  mat-form-field-autofill-control
-//  mat-datepicker-input
-//  input-single
-//  cdk-text-field-autofill-monitored
-
-
-
-
 ::ng-deep button:focus {
   outline: none !important;
 }
-
-::ng-deep .mat-datepicker-toggle {
-  // margin-left: auto !important;
-  // margin-right: -2px !important;
-}
-
-::ng-deep .mat-icon-button {}
 
 ::ng-deep .mat-calendar-body-cell-content {
   border-radius: 4px !important;
@@ -198,18 +149,15 @@
   color: $color-light-gray-80;
 }
 
-::ng-deep .mat-icon {}
-
 ::ng-deep .mat-calendar-body-today:not(.mat-calendar-body-selected) {
   background-color: transparent !important;
 }
 
 ::ng-deep .mat-calendar-body-cell.mat-calendar-body-in-range:after {
   background-color: $color-light-blue-10 !important;
-} 
+}
 
 ::ng-deep .mat-datepicker-content {
   box-shadow: 0px 1px 4px #0000001A !important;
   border: 1px solid #E4E4E5 !important;
-}
 }

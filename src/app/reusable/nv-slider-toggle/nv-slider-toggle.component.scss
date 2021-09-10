@@ -1,5 +1,5 @@
 @import './../theme/base.scss';
-
+.slide-toggle-container {
 .mat-label {
   font-style: $font-style-normal;
   font-weight: $font-weight-normal;
@@ -46,3 +46,4 @@
     line-height: $line-height-medium;
     color: $color-dark-gray-10;
   }
+}

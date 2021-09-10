@@ -8,7 +8,11 @@ import { Observable, of } from 'rxjs';
 import { MatAutocomplete } from '@angular/material/autocomplete';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
-
+/**
+ * This component is generated based on Angular material
+ * https://v7.material.angular.io/components/tree/api
+ * https://stackoverflow.com/questions/50611686/how-to-filter-a-mat-tree-component-angular-material-6-0-1
+ */
 
 @Component({
   selector: 'app-nv-checklist-dropdown',
@@ -40,9 +44,6 @@ export class NvChecklistDropdownComponent implements OnInit {
 
   // nv
   counter!: number;
-  /**
-  *  
-   */
   visible = true;
   selectable = true;
   removable = true;
@@ -76,22 +77,14 @@ export class NvChecklistDropdownComponent implements OnInit {
       this.dataSource.data = data;
 
     });
-    /// chips
-    /**
-     * AutoComplete as user make query
-     */
-    // this.filteredItems = this.itemCtrl.valueChanges.pipe(
-      // startWith(null),
-      // The Array.slice() method returns a new array
-      // map((item: string | null) => item ? this._filter(item) : this.referenceItems.slice()));
   }
-    /**
-     * dropdown menu stop from closing
-     */
-    // test
-    onMenuClick(event: any) {
-      event.stopPropagation();
-    }
+  /**
+   * dropdown menu stop from closing
+   */
+  // test
+  onMenuClick(event: any) {
+    event.stopPropagation();
+  }
 
   /**
    * blur and click eventHandler are responsible for changing the triangle icon direction
@@ -103,11 +96,6 @@ export class NvChecklistDropdownComponent implements OnInit {
     }
   }
   onFieldClick(): void {
-    // if (this.defaultDropdown.nativeElement.toggleAttribute('toggle')) {
-    //   this.isArrowDown = false;
-    // } else {
-    //   this.isArrowDown = true;
-    // }
 
     console.log(this.defaultDropdown.nativeElement.toggleAttribute('toggle'));
     // this.defaultDropdown.nativeElement.className;
@@ -117,34 +105,29 @@ export class NvChecklistDropdownComponent implements OnInit {
   add(event: MatChipInputEvent): void {
     // Add fruit only when MatAutocomplete is not open
     // To make sure this does not conflict with OptionSelected Event
-    // if (!this.matAutocomplete.isOpen) {
-// TODO: Check to see if deleting these condition  produce any bug
-      const input = event.input;
-      const value = event.value;
+    // TODO: Check to see if deleting these condition  produce any bug
+    const input = event.input;
+    const value = event.value;
 
-      // Add our fruit
-      if ((value || '').trim()) {
-        this.items.push(value.trim());
-      }
+    // Add our fruit
+    if ((value || '').trim()) {
+      this.items.push(value.trim());
+    }
 
-      // Reset the input value
-      if (input) {
-        input.value = '';
-      }
-      // this.itemCtrl.setValue(null);
+    // Reset the input value
+    if (input) {
+      input.value = '';
+    }
+    // this.itemCtrl.setValue(null);
     // }
 
   }
   /**
    * triggered after removing chip
-   * add removed chip into filteredItem
+   * 
    */
   remove(item: string): void {
     const index = this.items.indexOf(item);
-    // this.filteredItems = this.filteredItems.pipe(map(values => {
-    //   values.push(item);
-    //   return values;
-    // }));
 
     if (index >= 0) {
       this.items.splice(index, 1);
@@ -182,12 +165,7 @@ export class NvChecklistDropdownComponent implements OnInit {
 
   // end of chips component
 
-
-
-  ngOnInit(): void {
-    // TODO: Not sure the application
-    // throw new Error('Method not implemented.');
-  }
+  ngOnInit(): void {  }
 
   getLevel = (node: TodoItemFlatNode) => node.level;
 
@@ -257,13 +235,12 @@ export class NvChecklistDropdownComponent implements OnInit {
   /**
    * transfer from checklist items to chips
    * convert them into Observable List
-   * 
    */
 
   private _toChips(list: TodoItemFlatNode[]): Observable<string[]> {
-     let newList: string[] = [];
-     list.forEach(value => newList.push(value.item));
-     this.selected(newList);
+    let newList: string[] = [];
+    list.forEach(value => newList.push(value.item));
+    this.selected(newList);
     return of(newList);
   }
 
@@ -276,7 +253,7 @@ export class NvChecklistDropdownComponent implements OnInit {
     }
     //  save the children items to be used as chips
     this.filteredItems = this._toChips(this.checklistSelection.selected);
-   }
+  }
 
   /** Check root node checked state and change it accordingly */
   checkRootNodeSelection(node: TodoItemFlatNode): void {
@@ -311,15 +288,5 @@ export class NvChecklistDropdownComponent implements OnInit {
     }
     return null;
   }
-
-  // filterChanged(filterText: string): void {
-  //   this._database.filter(filterText);
-  //   if(filterText)
-  //   {
-  //     this.treeControl.expandAll();
-  //   } else {
-  //     this.treeControl.collapseAll();
-  //   }
-  // }
 
 }

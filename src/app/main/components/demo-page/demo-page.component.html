@@ -81,7 +81,7 @@
       <div class="panel-body">
 
         <!-- Forth: Call your reusable component here and pass input data if needed  -->
-        
+
         <div class="search-item-container" *ngSwitchCase="nvComponentType.Search">
           <app-nv-search [isAdvance]="isAdvance" [hideMenu]="showMenu" [list]="list"
             [searchableRefList]="searchableRefList" (filteredItems)="onItemsFilter($event)" class="body-item">
@@ -93,7 +93,8 @@
         <div class="body-header-container" *ngSwitchCase="nvComponentType.Header">
           <app-nv-header *ngIf="person" [person]="person"></app-nv-header>
         </div>
-        <app-notification class="body-item" *ngSwitchCase="nvComponentType.Notification"></app-notification>
+        <app-nv-notification-icon class="body-item" *ngSwitchCase="nvComponentType.Notification">
+        </app-nv-notification-icon>
 
         <ng-container *ngSwitchCase="nvComponentType.Avatar">
           <app-nv-avatar class="body-item" *ngIf="person?.imageUrl && person?.name" [avatarUrl]="person.imageUrl!"
@@ -104,22 +105,25 @@
         </app-user-profile-menu>
 
         <div class="dropdown-container" *ngSwitchCase="nvComponentType.Dropdown">
-          <app-nv-dropdown class="body-item" [extensionDirection]="menuExtensionDir" [items]="dropdownItems" 
-          [selectedItem]="defaultSelectedItem" [textTrimNumber]="textTrimNumber" [isFieldDisable]="isDisable" 
-           [fieldStatusType]="fieldStatusType" [fieldType]="dropDownFieldType" (itemSelect)="onItemSelect($event)"></app-nv-dropdown>
+          <app-nv-dropdown class="body-item" [extensionDirection]="menuExtensionDir" [items]="dropdownItems"
+            [selectedItem]="defaultSelectedItem" [textTrimNumber]="textTrimNumber" [isFieldDisable]="isDisable"
+            [fieldStatusType]="fieldStatusType" [fieldType]="dropDownFieldType" (itemSelect)="onItemSelect($event)">
+          </app-nv-dropdown>
         </div>
         <div class="dropdown-container" *ngSwitchCase="nvComponentType.LoginDropdown">
-          <div id="dropdown" nvTextColor [color]="loginFieldStatusType" > Field Validation Field</div>
+          <div id="dropdown" nvTextColor [color]="loginFieldStatusType"> Field Validation Field</div>
           <br>
-          <app-nv-dropdown class="body-item" [extensionDirection]="menuExtensionDir" [items]="dropdownItems" 
-          [selectedItem]="defaultSelectedItem" [textTrimNumber]="textTrimNumber" [isFieldDisable]="isDisable" 
-           [fieldStatusType]="fieldStatusType" [fieldType]="dropDownFieldType" (itemSelect)="onItemSelect($event)"></app-nv-dropdown>
+          <app-nv-dropdown class="body-item" [extensionDirection]="menuExtensionDir" [items]="dropdownItems"
+            [selectedItem]="defaultSelectedItem" [textTrimNumber]="textTrimNumber" [isFieldDisable]="isDisable"
+            [fieldStatusType]="fieldStatusType" [fieldType]="dropDownFieldType" (itemSelect)="onItemSelect($event)">
+          </app-nv-dropdown>
         </div>
         <div class="search-item-container" *ngSwitchCase="nvComponentType.MultiSelectDropdown">
-          <app-nv-multiselect-dropdown (filteredItems)="onItemsFilter($event)" class="body-item"> </app-nv-multiselect-dropdown>
+          <app-nv-multiselect-dropdown (filteredItems)="onItemsFilter($event)" class="body-item">
+          </app-nv-multiselect-dropdown>
         </div>
         <div class="search-item-container" *ngSwitchCase="nvComponentType.TreeViewDropdown">
-          <app-nv-checklist-dropdown  class="body-item"> </app-nv-checklist-dropdown>
+          <app-nv-checklist-dropdown class="body-item"> </app-nv-checklist-dropdown>
         </div>
 
         <div class="upload-file-container" *ngSwitchCase="nvComponentType.DropToUpload">
@@ -129,7 +133,7 @@
           <app-nv-checkbox class="body-item" [label]="checkBoxLabel"></app-nv-checkbox>
         </div>
         <div class="custom-component-container" *ngSwitchCase="nvComponentType.NvSliderBar">
-          <app-nv-slider class="body-item"></app-nv-slider>
+          <app-nv-slider-bar class="body-item"></app-nv-slider-bar>
         </div>
         <div class="custom-component-container" *ngSwitchCase="nvComponentType.NvSliderToggle">
           <app-nv-slider-toggle class="body-item"></app-nv-slider-toggle>
@@ -140,7 +144,7 @@
         <div class="date-single-picker-container" *ngSwitchCase="nvComponentType.NvDatePicker">
           <app-nv-date-picker [isDateRangePicker]="false" class="body-item"></app-nv-date-picker>
         </div>
-        <app-nv-button [label]="buttonLabel" [type]="buttonType" [color]="themeColor" class="body-item"
+        <app-nv-button [label]="buttonLabel" [color]="themeColor" class="body-item"
           *ngSwitchCase="nvComponentType.NvButton"></app-nv-button>
 
       </div>

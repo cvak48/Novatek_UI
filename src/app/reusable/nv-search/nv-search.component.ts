@@ -178,7 +178,6 @@ export class NvSearchComponent implements OnInit {
         }
       }
     }
-
   }
   /**
    * Managing different keywords inputted by user

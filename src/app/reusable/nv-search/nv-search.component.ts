@@ -10,7 +10,7 @@ import { FormControl } from '@angular/forms';
   */
 
 @Component({
-  selector: 'app-search',
+  selector: 'app-nv-search',
   templateUrl: './nv-search.component.html',
   styleUrls: ['./nv-search.component.scss']
 })

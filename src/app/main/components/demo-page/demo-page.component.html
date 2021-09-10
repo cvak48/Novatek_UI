@@ -121,10 +121,6 @@
         <div class="search-item-container" *ngSwitchCase="nvComponentType.TreeViewDropdown">
           <app-nv-checklist-dropdown  class="body-item"> </app-nv-checklist-dropdown>
         </div>
-        <ng-container *ngSwitchCase="nvComponentType.Avatar">
-          <app-nv-avatar class="body-item" *ngIf="person?.imageUrl && person?.name" [avatarUrl]="person.imageUrl!"
-            [name]="person.name!"></app-nv-avatar>
-        </ng-container>
 
         <div class="upload-file-container" *ngSwitchCase="nvComponentType.DropToUpload">
           <app-nv-upload class="body-item"></app-nv-upload>

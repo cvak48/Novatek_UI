@@ -1,79 +1,6 @@
 /* The Design System's styles can be added here */
-.h10 {
-    font-style: normal;
-    font-weight: 700;
-    font-size: 28px;
-    font-family: "Lato", "Roboto", "sans-serif";
-    line-height: 36px;
-    color: #0000001a;
-  }
-  
-  .h20 {
-    font-style: normal;
-    font-weight: 700;
-    font-size: 24px;
-    font-family: "Lato", "Roboto", "sans-serif";
-    line-height: 30px;
-    color: #0000001a;
-  }
-  
-  .h30 {
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
-    font-family: "Lato", "Roboto", "sans-serif";
-    line-height: 23px;
-    color: #0000001a;
-  }
-  
-  .h40 {
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    font-family: "Lato", "Roboto", "sans-serif";
-    line-height: 19px;
-    color: #0000001a;
-  }
-  
-  .h50 {
-    font-style: normal;
-    font-weight: 700;
-    font-size: 14px;
-    font-family: "Lato", "Roboto", "sans-serif";
-    line-height: 18px;
-    color: #0000001a;
-  }
-  
-  .sub-h20 {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    font-family: "Lato", "Roboto", "sans-serif";
-    line-height: 23px;
-    color: #5D5D5D99;
-  }
-  
-  .f10 {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    font-family: "Lato", "Roboto", "sans-serif";
-    line-height: 12px;
-    color: #5D5D5D99;
-  }
-  .f10:link {
-    line-height: 18px;
-    color: #5D5D5D;
-  }
-  .f10:visited {
-    line-height: 18px;
-    color: #004463;
-  }
-  .f10:hover {
-    line-height: 18px;
-    color: #1B1C1D;
-  }
-  
+ 
+   
   .body {
     font-style: normal;
     font-weight: 500;
@@ -94,15 +21,7 @@
     line-height: 18px;
     color: #81BDED;
   }
-  
-  .body20 {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    font-family: "Lato", "Roboto", "sans-serif";
-    line-height: 18px;
-    color: #131313;
-  }
+ 
   
   mat-paginator {
     margin-bottom: 47px !important;
@@ -176,11 +95,6 @@
     display: none;
   }
   
-  .mat-cell,
-  .mat-footer-cell {
-    color: #5D5D5D !important;
-  }
-  
   ::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background {
     background-color: #0000001a !important;
   }
@@ -194,10 +108,7 @@
     transform: translateY(0px) !important;
   }
   
-  table {
-    font-family: "Lato";
-  }
-  
+ 
   thead {
     background: #f7f7f8 !important;
   }
@@ -209,12 +120,15 @@
   }
   
   .mat-header-cell {
+    font-size: 14px !important;
+    font-weight: 500;
     text-transform: capitalize !important;
     color: #5D5D5D !important;
   }
   
   .mat-cell,
   .mat-footer-cell {
+    color: #5D5D5D !important;
     font-size: 12px;
     text-transform: capitalize !important;
   }
@@ -223,12 +137,7 @@
     margin-top: 8px !important;
   }
   
-  .mat-header-cell {
-    font-size: 14px !important;
-    font-weight: 500;
-  }
-  
-  .mat-table {
+ .mat-table {
     background: #fff;
     width: 100%;
   }
@@ -262,7 +171,6 @@
   }
   
   .page-size-title {
-    font-family: "Lato";
     font-weight: bold;
     margin-right: 9px;
     display: inline-block;
@@ -281,7 +189,6 @@
   
   .page-size {
     width: 59px;
-    font-family: "LATO";
     -webkit-appearance: none;
     -moz-appearance: none;
     -ms-appearance: none;
@@ -334,7 +241,6 @@
     white-space: nowrap;
     width: 16px;
     flex-shrink: 0;
-    position: relative;
     top: 4px;
   }
   

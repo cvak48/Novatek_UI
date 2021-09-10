@@ -1,0 +1,34 @@
+@import "../theme/base.scss";
+
+.progressTxt {
+    text-align: end;
+    margin-right: 2%;
+    color: $color-white-20;
+}
+
+.progressTxt-multi {
+    text-align: end;
+    color: $color-white-20;
+}
+
+.multi-txt {
+    margin-right: 2%;
+}
+
+.firstBlock {
+    background-color: $color-grey-ad !important;
+}
+
+.secondBlock {
+    background-color: $color-grey-88 !important;
+}
+
+.progress {
+    height: 24px !important;
+}
+
+.statusTxt {
+    font-size: 14px;
+    font-family: Lato Heavy;
+    text-align: center;
+}

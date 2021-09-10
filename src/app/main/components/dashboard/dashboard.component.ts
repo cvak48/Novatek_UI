@@ -1,8 +1,8 @@
-import { CommentNode } from 'src/app/reusable/comment-box/comment-box.component';
+import { CommentNode } from 'src/app/reusable/nv-comment-box/nv-comment-box.component';
 
 import { Component, Input, OnInit } from '@angular/core';
-import { TextAreaComponent } from 'src/app/reusable/text-area/text-area.component';
-import { NovatekLogoComponent } from 'src/app/reusable/novatek-logo/novatek-logo.component';
+import { NVTextAreaComponent } from 'src/app/reusable/nv-text-area/nv-text-area.component';
+import { NVLogoComponent } from 'src/app/reusable/nv-logo/nv-logo.component';
 import { MatTabHeaderPosition } from '@angular/material/tabs';
 import { SearchComponent } from 'src/app/reusable/search/search.component';
 import { PlaceHolderCard } from 'src/app/model/placeHolderCard';
@@ -21,10 +21,10 @@ export class DashboardComponent implements OnInit {
 
   comments:Array<CommentNode> = [];
   position: MatTabHeaderPosition = 'below';
-  types = [{component:TextAreaComponent, name:'TabOne'}, {component:NovatekLogoComponent, name:'TabTwo'}, {component:TextAreaComponent, name:'TabThree'}];
-  invertedTypes = [{component:SearchComponent, name:'ITabOne'}, {component:NovatekLogoComponent, name:'ITabTwo'}, {component:TextAreaComponent, name:'ITabThree'}, {component:SearchComponent, name:'ITabFour'}];
-  leftTypes = [{component:SearchComponent, name:'lTabOne'}, {component:NovatekLogoComponent, name:'lTabTwo'}, {component:TextAreaComponent, name:'lTabThree'}];
-  rightTypes = [{component:NovatekLogoComponent, name:'RTabOne'}, {component:SearchComponent, name:'RTabTwo'}, {component:TextAreaComponent, name:'RTabThree'}, {component:SearchComponent, name:'RTabFour'}];
+  types = [{component:NVTextAreaComponent, name:'TabOne'}, {component:NVLogoComponent, name:'TabTwo'}, {component:NVTextAreaComponent, name:'TabThree'}];
+  invertedTypes = [{component:SearchComponent, name:'ITabOne'}, {component:NVLogoComponent, name:'ITabTwo'}, {component:NVTextAreaComponent, name:'ITabThree'}, {component:SearchComponent, name:'ITabFour'}];
+  leftTypes = [{component:SearchComponent, name:'lTabOne'}, {component:NVLogoComponent, name:'lTabTwo'}, {component:NVTextAreaComponent, name:'lTabThree'}];
+  rightTypes = [{component:NVLogoComponent, name:'RTabOne'}, {component:SearchComponent, name:'RTabTwo'}, {component:NVTextAreaComponent, name:'RTabThree'}, {component:SearchComponent, name:'RTabFour'}];
   progressiveColor: string = '#198515';
   progressiveStatus:string = '50%'; 
   // mockData for header

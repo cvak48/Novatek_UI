@@ -8,7 +8,7 @@ import { NvButtonComponent } from './nv-button/nv-button.component';
 import { FilterAllPipe } from './pipes/filters/filterAll/filter-all.pipe';
 import { AdvanceFilterPipe } from './pipes/filters/advance-filter/advance-filter.pipe';
 import { NvInitialsPipe } from './pipes/nv-initials/nv-initials.pipe';
-import { RattingComponent } from './ratting/ratting.component';
+import { NVRatingComponent } from './nv-rating/nv-rating.component';
 import { UploadComponent } from './upload/upload.component';
 import { NvFileUploadDirective } from './directives/file-upload/nv-file-upload.directive';
 import { NvDropdownComponent } from './nv-dropdown/nv-dropdown.component';
@@ -21,16 +21,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NvFooterComponent } from './nv-footer/nv-footer.component';
-import { SideNavComponent } from './side-nav/side-nav.component';
-import { NovatekLogoComponent } from './novatek-logo/novatek-logo.component';
+import { NVLogoComponent } from './nv-logo/nv-logo.component';
 import { PanelComponent } from './panel/panel.component';
-import { TextAreaComponent } from './text-area/text-area.component';
-import { CommentBoxComponent } from './comment-box/comment-box.component';
-import { TabsComponent } from './tabs/tabs.component';
-import { TabWrapper } from './tabs/tabs-wrapper.component';
-import { InvertedTabsComponent } from './inverted-tabs/inverted-tabs.component';
-import { LeftTabComponent } from './left-tab/left-tab.component';
-import { RightTabComponent } from './right-tab/right-tab.component';
+import { NVTextAreaComponent } from './nv-text-area/nv-text-area.component';
+import { NVCommentBoxComponent } from './nv-comment-box/nv-comment-box.component';
+import { NVTabsComponent } from './nv-tabs/nv-tabs.component';
+import { TabWrapper } from './nv-tabs/nv-tabs-wrapper.component';
+import { NVInvertedTabsComponent } from './nv-inverted-tabs/nv-inverted-tabs.component';
+import { NVLeftTabComponent } from './nv-left-tab/nv-left-tab.component';
+import { NVRightTabComponent } from './nv-right-tab/nv-right-tab.component';
 import { FeedComponent } from './feed/feed.component';
 import { NvPlaceholderCardComponent } from './placeholder/nv-placeholder-card/nv-placeholder-card.component';
 import { NvPlaceholderListComponent } from './placeholder/nv-placeholder-list/nv-placeholder-list.component';
@@ -51,7 +50,7 @@ import { NvPlaceholderSmallCardComponent } from './placeholder/nv-placeholder-sm
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NvCustomTableComponent } from './nv-custom-table/nv-custom-table.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import { ProgressiveBarComponent } from './progressive-bar/progressive-bar.component';
+import { NVProgressiveBarComponent } from './nv-progressive-bar/nv-progressive-bar.component';
 import { NvInputComponent } from './nv-input/nv-input.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
@@ -63,28 +62,27 @@ const sharedComponents = [
   NvTrimPipe,
   NvFileUploadDirective,
   NvFooterComponent,
-  SideNavComponent,
-  NovatekLogoComponent,
+  NVLogoComponent,
   NvCustomDatatableComponent,
   DataPropertyGetterPipe,
   PanelComponent,
   SearchComponent,
-  TextAreaComponent,
+  NVTextAreaComponent,
   AvatarComponent,
   NotificationComponent,
   UserProfileMenuComponent,
   PanelComponent,
   SearchComponent,
-  CommentBoxComponent,
-  TextAreaComponent,
+  NVCommentBoxComponent,
+  NVTextAreaComponent,
   NvDropdownComponent,
   UploadComponent,
   TestComponent,
-  TabsComponent,
+  NVTabsComponent,
   TabWrapper,
-  InvertedTabsComponent,
-  LeftTabComponent,
-  RightTabComponent,
+  NVInvertedTabsComponent,
+  NVLeftTabComponent,
+  NVRightTabComponent,
   FeedComponent,
   NvPlaceholderCardComponent,
   NvPlaceholderListComponent,
@@ -95,11 +93,11 @@ const sharedComponents = [
   NvSliderRadioButtonComponent,
   NvSliderToggleComponent,
   UploadComponent,
-  RattingComponent,
+  NVRatingComponent,
   NvPlaceholderTextCardComponent,
   NvPlaceholderSmallCardComponent,
   NvCustomTableComponent,
-  ProgressiveBarComponent,
+  NVProgressiveBarComponent,
   NvDataPickerComponent,
   NvButtonComponent,
   NvInputComponent

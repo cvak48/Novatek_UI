@@ -1,13 +1,13 @@
 {
     "cardHeading": "User Login",
     "userName": "Username",
-    "Domain": "Domain",
+    "domain": "Domain",
+    "domainTxt": "Select Domain",
     "usernamePlaceholder": "Enter Username",
     "usernameLabel": "Username",
-    "Next": "Next",
+    "next": "Next",
     "forgotUserName": "Forgot Username",
     "forgotPassword": "Forgot Password",
-    "btnText": "Next",
     "isValid": "is-valid",
     "isInValid": "is-invalid",
     "passwordLabel": "Password",
@@ -18,10 +18,9 @@
     "loginInformation": "Please check your email for instructions to reset your password",
     "success": "Success",
     "error": "Error",
-    "Cancel":"Cancel",
-    "Login": "Login",
-    "Submit": "Submit",
-    "Resend": "Resend",
-    "Password": "Password",
-    "ConfirmationText":"Confirmation"
+    "cancel":"Cancel",
+    "login": "Login",
+    "submit": "Submit",
+    "resend": "Resend",
+    "confirmationText":"Confirmation"
 }

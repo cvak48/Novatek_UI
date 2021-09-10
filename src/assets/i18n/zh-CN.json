@@ -1,13 +1,13 @@
 {
     "cardHeading": "用户登录",
     "userName": "用户名",
-    "Domain": "领域",
+    "domain": "领域",
+    "domainTxt": "选择域",
     "usernamePlaceholder": "输入用户名",
     "usernameLabel": "用户名",
-    "Next": "下一个",
+    "next": "下一个",
     "forgotUserName": "忘了用户名了吗",
     "forgotPassword": "忘记密码",
-    "btnText": "下一个",
     "isValid": "is-valid",
     "isInValid": "is-invalid",
     "passwordLabel": "密码",
@@ -18,10 +18,9 @@
     "loginInformation": "请检查您的电子邮件以获取重置密码的说明",
     "success": "成功",
     "error": "错误",
-    "Cancel":"取消",
-    "Login": "登录",
-    "Submit": "提交",
-    "Resend": "重发",
-    "Password": "密码",
-    "ConfirmationText":"确认"
+    "cancel":"取消",
+    "login": "登录",
+    "submit": "提交",
+    "resend": "重发",
+    "confirmationText":"确认"
 }

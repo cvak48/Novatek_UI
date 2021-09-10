@@ -72,6 +72,8 @@ $height: 40px;
 
 }
 
+.checklist-dropdown-container {
+
 // the size of field
 ::ng-deep .mat-chip-list-wrapper {
   padding-left: 8px;
@@ -296,4 +298,4 @@ $height: 40px;
       outline: none !important;
     }
   }
-  
+}

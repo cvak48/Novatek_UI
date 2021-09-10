@@ -91,6 +91,9 @@
 
 }
 
+
+.date-picker-container {
+
 // ::ng-deep .mat-datepicker-input-container {
 //   width: 50px !important;
 // }
@@ -208,4 +211,5 @@
 ::ng-deep .mat-datepicker-content {
   box-shadow: 0px 1px 4px #0000001A !important;
   border: 1px solid #E4E4E5 !important;
+}
 }

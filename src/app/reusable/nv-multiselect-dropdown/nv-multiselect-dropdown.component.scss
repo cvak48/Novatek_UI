@@ -47,6 +47,9 @@ $height: 40px;
   }
 }
 
+.advance-dropdown-container {
+
+
 // the size of field
 ::ng-deep .mat-chip-list-wrapper {
   padding-left: 8px;
@@ -196,4 +199,5 @@ $height: 40px;
 
 ::ng-deep .mat-selected {
   background-color: $color-white-13 !important;
+}
 }

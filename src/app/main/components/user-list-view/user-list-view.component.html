@@ -3,9 +3,8 @@
 <br>
 
   <div class="row">
-        <app-slide-panel class="wth-100" [activePane]="isLeftVisible ? 'left' : 'right'">
-          <div leftPane>
-            <div class="col-md-12" >
+      
+            <div class="panel-slide"  [ngClass]="{'col-md-12':showPanel == '1', 'col-md-8':showPanel == '2', 'col-md-4':showPanel == '3'}" >
               <app-nv-table-panel panelNum="1" (panelClick)="panelClicked('1')"></app-nv-table-panel>
           </div>
           

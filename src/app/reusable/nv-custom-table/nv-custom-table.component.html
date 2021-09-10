@@ -1,12 +1,4 @@
 <div>
-    <!--<div class="search-box">
-        <mat-form-field floatLabel="never" class="search-field">
-          <input matInput (keyup)="applyFilter($event)"  placeholder="Search...">
-          
-         
-        </mat-form-field>
-        <mat-icon matPrefix >search</mat-icon>
-      </div>-->
       <div class="search-container">
         <app-nv-search class="search" [isAdvance]="isAdvance" [hideMenu]="hideMenu" [list]="tableTestData"
         [searchableRefList]="searchableRefList" (filteredItems)="onItemsFilter($event)"></app-nv-search> 
@@ -19,7 +11,7 @@
                   <input class="table-check" type="checkbox" [checked]="isAllCheckBoxChecked()" (change)="checkAllCheckBox($event)">
               </th>
               <th *ngFor="let column of columns ; let i = index"  scope="col" [mdbTableSort]="orders" [sortBy]="columns[i]" class="mat-header-cell">
-                  {{column}} <span><mat-icon class="img"><img src="../../../assets/icons/table-shorting.icon.svg" /></mat-icon></span>
+                  {{column}} <span><mat-icon class="img"><img src="../../../assets/icons/table-shorting.icon.svg" alt="sort table" /></mat-icon></span>
               </th>
               
           </tr>
@@ -40,7 +32,7 @@
               <td>
                   <div>
                       <mat-chip-list >
-                        <mat-chip *ngFor="let attachment of order.attachments">{{attachment.name}} <img src="./assets/images/dots.png" class="more-opt-icon" /></mat-chip>
+                        <mat-chip *ngFor="let attachment of order.attachments">{{attachment.name}} <img src="./assets/images/dots.png" class="more-opt-icon" alt="chip icon" /></mat-chip>
                       </mat-chip-list>
                     </div>
               </td>
@@ -60,12 +52,6 @@
 
               </app-nv-dropdown>
             </div>
-            <!-- <select (change)="handlePageSizeChange($event)" class="page-size">
-              <option class="option-style" *ngFor="let size of pageSizes" [ngValue]="size">
-                {{ size }}
-              </option>
-            </select> -->
-            <!-- <div class="content-arrow"></div> -->
           </div>
         <div class="paging-space">
             <pagination-controls 

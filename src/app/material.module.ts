@@ -1,3 +1,4 @@
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
 import { NgModule } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
@@ -72,7 +73,8 @@ const materialModulesList = [
     MatTreeModule,
     NgxMatDatetimePickerModule,
     NgxMatTimepickerModule,
-    NgxMatNativeDateModule, 
+    NgxMatNativeDateModule,
+    NgxMaterialTimepickerModule,
 ]
 
 @NgModule({

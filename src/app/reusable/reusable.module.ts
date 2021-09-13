@@ -1,4 +1,3 @@
-import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
 import { NvTimePickerComponent } from './nv-time-picker/nv-time-picker.component';
 import { NvChecklistDropdownComponent } from './nv-checklist-dropdown/nv-checklist-dropdown.component';
 import { NvMultiSelectDropdownComponent } from './nv-multiselect-dropdown/nv-multiselect-dropdown.component';
@@ -130,8 +129,6 @@ const sharedComponents = [
     MaterialModule,
     MatCheckboxModule,
     NgxPaginationModule,
-
-    
     MDBBootstrapModule.forRoot()
   ],
   exports: sharedComponents,

@@ -1,21 +1,20 @@
-
 <div class="{{'ngx-timepicker-field-container ' + fieldSize}}">
-    <div class="first-arrows">
-      <ng-container [ngTemplateOutlet]="arrowTemplate"></ng-container>
-    </div>
-    <div class="second-arrows">
-      <ng-container [ngTemplateOutlet]="arrowTemplate"></ng-container>
-    </div>
-    <div *ngIf="timeFormat === 12" class="third-arrow">
-      <img class="arrow-down" src="./../../../assets/icons/ico.arrow.down.svg">
-    </div>
-    <ngx-timepicker-field [format]="timeFormat"> </ngx-timepicker-field>
+  <div class="first-arrows">
+    <ng-container [ngTemplateOutlet]="arrowTemplate"></ng-container>
   </div>
-  
-  <ng-template #arrowTemplate>
-    <div class="ngx-timepicker-control-arrows">
-      <img class="arrow-up" src="./../../../assets/icons/ico.arrow.up.svg">
-      <div class="spacer"></div>
-      <img class="arrow-down" src="./../../../assets/icons/ico.arrow.down.svg">
-    </div>
-  </ng-template>
+  <div class="second-arrows">
+    <ng-container [ngTemplateOutlet]="arrowTemplate"></ng-container>
+  </div>
+  <div *ngIf="timeFormat === 12" class="third-arrow">
+    <img class="arrow-down" src="./../../../assets/icons/ico.arrow.down.svg" alt="Arrow">
+  </div>
+  <ngx-timepicker-field [format]="timeFormat"> </ngx-timepicker-field>
+</div>
+
+<ng-template #arrowTemplate>
+  <div class="ngx-timepicker-control-arrows">
+    <img class="arrow-up" src="./../../../assets/icons/ico.arrow.up.svg" alt="Arrow">
+    <div class="spacer"></div>
+    <img class="arrow-down" src="./../../../assets/icons/ico.arrow.down.svg" alt="Arrow">
+  </div>
+</ng-template>

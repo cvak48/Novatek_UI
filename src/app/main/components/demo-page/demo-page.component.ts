@@ -30,7 +30,7 @@ export enum NvComponent {
   styleUrls: ['./demo-page.component.scss']
 })
 export class DemoPageComponent implements OnInit {
-  public selectedItem: NvComponent = NvComponent.TreeViewDropdown;
+  public selectedItem: NvComponent = NvComponent.NvTimePicker;
   public nvComponentType = NvComponent;
   // Second: Provide input data for your reusable component here if needed
   // Search
@@ -63,7 +63,7 @@ export class DemoPageComponent implements OnInit {
    * timePicker
    * 12 or 24
    */
-  timeFormat: number = 12;
+  timeFormat: number = 24;
   constructor() { }
 
   ngOnInit(): void {

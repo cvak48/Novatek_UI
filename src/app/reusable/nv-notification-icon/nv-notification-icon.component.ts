@@ -3,7 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'app-nv-notification-icon',
   templateUrl: './nv-notification-icon.component.html',
-  styleUrls: ['./nv-notification-icon.component.scss']
+  styleUrls: ['./nv-notification-icon.component.scss'],
 })
 export class NvNotificationIconComponent implements OnInit {
   @Input() set number(value: number | string) {
@@ -21,9 +21,7 @@ export class NvNotificationIconComponent implements OnInit {
     return this._number;
   }
   private _number!: number | string;
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

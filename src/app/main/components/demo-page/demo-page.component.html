@@ -33,8 +33,8 @@
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.TreeViewDropdown)">
         {{nvComponentType[nvComponentType.TreeViewDropdown]}}
       </div>
-      <div class="menu-item h40" (click)="onItemClick(nvComponentType.NovaLogo)">
-        {{nvComponentType[nvComponentType.NovaLogo]}}
+      <div class="menu-item h40" (click)="onItemClick(nvComponentType.NvLogo)">
+        {{nvComponentType[nvComponentType.NvLogo]}}
       </div>
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.Avatar)">
         {{nvComponentType[nvComponentType.Avatar]}}
@@ -88,7 +88,7 @@
           </app-nv-search>
         </div>
 
-        <app-novatek-logo class="body-item" *ngSwitchCase="nvComponentType.NovaLogo"></app-novatek-logo>
+        <app-novatek-logo class="body-item" *ngSwitchCase="nvComponentType.NvLogo"></app-novatek-logo>
 
         <div class="body-header-container" *ngSwitchCase="nvComponentType.Header">
           <app-nv-header *ngIf="person" [person]="person"></app-nv-header>
@@ -101,8 +101,8 @@
             [name]="person.name!"></app-nv-avatar>
         </ng-container>
 
-        <app-user-profile-menu class="body-item" [person]="person" *ngSwitchCase="nvComponentType.ProfileMenu">
-        </app-user-profile-menu>
+        <app-nv-user-profile-menu class="body-item" [person]="person" *ngSwitchCase="nvComponentType.ProfileMenu">
+        </app-nv-user-profile-menu>
 
         <div class="dropdown-container" *ngSwitchCase="nvComponentType.Dropdown">
           <app-nv-dropdown class="body-item" [extensionDirection]="menuExtensionDir" [items]="dropdownItems"

@@ -3,14 +3,12 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-nv-upload',
   templateUrl: './nv-upload.component.html',
-  styleUrls: ['./nv-upload.component.scss']
+  styleUrls: ['./nv-upload.component.scss'],
 })
 export class NvUploadComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
   /**
    * event handler; receive file as the user drop it
    */
@@ -23,13 +21,13 @@ export class NvUploadComponent implements OnInit {
   fileBrowseHandler(event: any): void {
     this.prepareFilesList(event?.target?.files);
   }
-/**
- * prepare file format and even can sent it towards backend (TODO)
- */
+  /**
+   * prepare file format and even can sent it towards backend (TODO)
+   */
   prepareFilesList(value: any): void {
     const files = value;
     const file = files[0];
-     // TODO: Need to be uploaded by doing an http post with the payload instead of log in console
+    // TODO: Need to be uploaded by doing an http post with the payload instead of log in console
     // TODO: console.log(file.name) alternative for test
     const payload = new FormData();
     payload.append('data', file);

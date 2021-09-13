@@ -1,4 +1,3 @@
-
 @import './../theme/base.scss';
 
 $height: 40px;
@@ -6,8 +5,9 @@ $border-thickness: 1px;
 $icon-width: 16px;
 $padding: 12px;
 $icons-distance: 8px;
+
 @mixin dropdownFieldSharedStyles {
-  
+
   &.label {
     color: $color-dark-gray-12;
   }
@@ -29,6 +29,7 @@ $icons-distance: 8px;
     display: none !important;
   }
 }
+
 @mixin sharedIconStyle {
   position: absolute;
   display: flex;
@@ -51,6 +52,7 @@ $icons-distance: 8px;
   height: $height;
   border: 1px solid $color-white-10;
   border-radius: 4px;
+
   .dropdown-input {
     position: relative;
     width: 100%;
@@ -60,12 +62,15 @@ $icons-distance: 8px;
     border-radius: 4px;
     @include dropdownFieldSharedStyles;
   }
+
   .icon {
     @include sharedIconStyle;
+
     &.arrow {
       width: 8.2px;
       height: 4.7px;
     }
+
     &.status-icon {
       width: 16px;
       height: 16px;
@@ -73,6 +78,7 @@ $icons-distance: 8px;
     }
 
   }
+
   .dropdown-button {
     position: relative;
     width: 100%;
@@ -83,6 +89,7 @@ $icons-distance: 8px;
     border-radius: 4px;
 
     @include dropdownFieldSharedStyles;
+
     &.label {
       color: $color-black-09;
       font-weight: bold;
@@ -95,12 +102,14 @@ $icons-distance: 8px;
         width: 8.2px;
         height: 4.7px;
       }
+
       &.status-icon {
         width: 16px;
         height: 16px;
       }
     }
   }
+
   .dropdown-icon {
     position: relative;
     width: 40px;
@@ -125,6 +134,7 @@ $icons-distance: 8px;
     &.display-menu {
       display: none;
     }
+
     .dropdown-item {
       width: 100%;
       padding-left: 12px;
@@ -142,11 +152,10 @@ $icons-distance: 8px;
         color: $color-black-18;
         background-color: $color-light-gray;
       }
+
       &:hover {
         background: $color-light-gray;
       }
     }
   }
 }
-
-

@@ -1,8 +1,19 @@
 import { ArrowIcon } from '../../model/data-model';
 import { Observable } from 'rxjs';
-import { Component, OnInit, ViewChild, ElementRef, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  Input,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { MatAutocomplete, MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import {
+  MatAutocomplete,
+  MatAutocompleteSelectedEvent,
+} from '@angular/material/autocomplete';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { map, startWith } from 'rxjs/operators';
@@ -13,7 +24,7 @@ import { map, startWith } from 'rxjs/operators';
 @Component({
   selector: 'app-nv-multiselect-dropdown',
   templateUrl: './nv-multiselect-dropdown.component.html',
-  styleUrls: ['./nv-multiselect-dropdown.component.scss']
+  styleUrls: ['./nv-multiselect-dropdown.component.scss'],
 })
 export class NvMultiSelectDropdownComponent implements OnInit {
   /**
@@ -22,7 +33,13 @@ export class NvMultiSelectDropdownComponent implements OnInit {
   @Output() itemSelect = new EventEmitter<any>();
   // TODO: The arrow need to shift to the right out of the field
 
-  @Input() referenceItems: string[] = ['Apple', 'Lemon', 'Lime', 'Orange', 'Strawberry'];
+  @Input() referenceItems: string[] = [
+    'Apple',
+    'Lemon',
+    'Lime',
+    'Orange',
+    'Strawberry',
+  ];
   @ViewChild('itemInput') itemInput!: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete!: MatAutocomplete;
   visible = true;
@@ -40,7 +57,7 @@ export class NvMultiSelectDropdownComponent implements OnInit {
   isArrowDown: boolean = true;
   readonly arrowIcons: ArrowIcon = {
     upward: '../../../assets/icons/ico.arrow.up.svg',
-    downward: '../../../assets/icons/ico.arrow.down.svg'
+    downward: '../../../assets/icons/ico.arrow.down.svg',
   };
   hasItem = true;
   constructor() {
@@ -49,7 +66,10 @@ export class NvMultiSelectDropdownComponent implements OnInit {
      */
     this.filteredItems = this.itemCtrl.valueChanges.pipe(
       startWith(null),
-      map((item: string | null) => item ? this._filter(item) : this.referenceItems.slice()));
+      map((item: string | null) =>
+        item ? this._filter(item) : this.referenceItems.slice()
+      )
+    );
   }
   /**
    * blur and click eventHandler are responsible for changing the triangle icon direction
@@ -73,7 +93,6 @@ export class NvMultiSelectDropdownComponent implements OnInit {
      * To make sure this does not conflict with OptionSelected Event
      */
     if (!this.matAutocomplete.isOpen) {
-
       const input = event.input;
       const value = event.value;
       /**
@@ -90,7 +109,6 @@ export class NvMultiSelectDropdownComponent implements OnInit {
       }
       this.itemCtrl.setValue(null);
     }
-
   }
   /**
    * Triggered after removing chip
@@ -98,10 +116,12 @@ export class NvMultiSelectDropdownComponent implements OnInit {
    */
   remove(item: string): void {
     const index = this.items.indexOf(item);
-    this.filteredItems = this.filteredItems.pipe(map(values => {
-      values.unshift(item);
-      return values;
-    }));
+    this.filteredItems = this.filteredItems.pipe(
+      map((values) => {
+        values.unshift(item);
+        return values;
+      })
+    );
 
     if (index >= 0) {
       this.items.splice(index, 1);
@@ -124,8 +144,9 @@ export class NvMultiSelectDropdownComponent implements OnInit {
     /**
      * removing the selected chip from filteredList
      */
-    this.filteredItems = this.filteredItems.pipe(map(values =>
-      values.filter(item => item !== selectedItem)));
+    this.filteredItems = this.filteredItems.pipe(
+      map((values) => values.filter((item) => item !== selectedItem))
+    );
     this.itemInput.nativeElement.value = '';
     this.itemCtrl.setValue(null);
     if (!this.isArrowDown) {
@@ -138,10 +159,11 @@ export class NvMultiSelectDropdownComponent implements OnInit {
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
-    const filteredItems = this.referenceItems.filter(item => item.toLowerCase().indexOf(filterValue) === 0);
+    const filteredItems = this.referenceItems.filter(
+      (item) => item.toLowerCase().indexOf(filterValue) === 0
+    );
     return filteredItems;
   }
 
-  ngOnInit(): void { }
-
+  ngOnInit(): void {}
 }

@@ -7,7 +7,7 @@ export enum NvComponent {
   Search,
   MultiSelectDropdown,
   TreeViewDropdown,
-  NovaLogo,
+  NvLogo,
   Notification,
   Avatar,
   ProfileMenu,

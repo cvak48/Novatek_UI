@@ -5,6 +5,7 @@ export interface ArrowIcon {
     upward: string;
     downward: string;
 }
+
 export enum DropdownFieldType {
     Button,
     Icon,
@@ -24,8 +25,21 @@ export interface Notification {
 }
 
 /**
- * data model related to Theme/skin
+ * dropdown tree-view
+ * Node for to-do item
  */
+export class TodoItemNode {
+    children!: TodoItemNode[];
+    item!: string;
+}
+
+/** Flat to-do item node with expandable and level information */
+export class TodoItemFlatNode {
+    item!: string;
+    level!: number;
+    expandable!: boolean;
+}
+ /** data model related to Theme/skin */
 export enum FieldStatusType {
     Active,
     Required,
@@ -50,10 +64,7 @@ export enum MenuExtensionDirection {
     ToLeft,
     ToRight,
 }
-export enum ButtonType {
-    Raised,
-    Stroked
-}
+
 export enum ButtonThemeColor {
     Basic,
     Primary,

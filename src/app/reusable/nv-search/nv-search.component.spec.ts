@@ -1,8 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { NvSearchComponent } from './nv-search.component';
 
-describe('SearchComponent', () => {
+describe('NvSearchComponent', () => {
   let component: NvSearchComponent;
   let fixture: ComponentFixture<NvSearchComponent>;
 

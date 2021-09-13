@@ -1,10 +1,28 @@
-import { MenuExtensionDirection, FieldStatusType, FieldStatusStyle } from './../../model/data-model';
+import {
+  MenuExtensionDirection,
+  FieldStatusType,
+  FieldStatusStyle,
+  ArrowIcon,
+} from './../../model/data-model';
 import { DropdownFieldType } from 'src/app/model/data-model';
 import { NvFilterPipe } from '../pipes/filters/nv-filter/nv-filter.pipe';
 import { NvTrimPipe } from './../pipes/nv-trim/nv-trim.pipe';
 import { FormControl } from '@angular/forms';
-import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef, AfterViewInit, Renderer2 } from '@angular/core';
-import { SVG_ICON_IDS_DIC, FIELD_STATUS_COLOR_DIC } from './../../../assets/constants';
+import {
+  Component,
+  Input,
+  OnInit,
+  Output,
+  EventEmitter,
+  ViewChild,
+  ElementRef,
+  AfterViewInit,
+  Renderer2,
+} from '@angular/core';
+import {
+  SVG_ICON_IDS_DIC,
+  FIELD_STATUS_COLOR_DIC,
+} from './../../../assets/constants';
 
 /**
  * Functionalities:
@@ -35,7 +53,6 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   @ViewChild('PlusIconRef') PlusIconRef!: ElementRef<HTMLElement>;
   @ViewChild('ButtonRef') ButtonRef!: ElementRef<HTMLElement>;
 
-
   @Input() set items(list: string[]) {
     this._items = list ? list : [];
     // Initializing the menu items
@@ -57,7 +74,8 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
    * There are three types: Button, Icon, and Default, which is a simple field.
    */
   @Input() fieldType: DropdownFieldType = DropdownFieldType.Input;
-  @Input() extensionDirection: MenuExtensionDirection = MenuExtensionDirection.ToRight;
+  @Input() extensionDirection: MenuExtensionDirection =
+    MenuExtensionDirection.ToRight;
   /**
    * Disables the fields
    * All the styles will be automatically changed
@@ -85,6 +103,10 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   isDefaultStyle: boolean = true;
   isArrowDownIcon: boolean = true;
   dropDownFieldType = DropdownFieldType;
+  readonly arrowIcons: ArrowIcon = {
+    upward: '../../../assets/icons/ico.arrow.up.svg',
+    downward: '../../../assets/icons/ico.arrow.down.svg',
+  };
   menuExtensionDirection = MenuExtensionDirection;
   // initial value: this.selectedItem
   queryFormControl = new FormControl(`${this.selectedItem}`); // initial value
@@ -96,8 +118,12 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   statusType = FieldStatusType;
   svgIconIdsDic!: { [name: string]: string };
   fieldStatusColorDic!: { [name: string]: string };
-  constructor(private renderer: Renderer2, private filter: NvFilterPipe, private nvTextTrim: NvTrimPipe) {
-    this._initializeSvgIconStyles()
+  constructor(
+    private renderer: Renderer2,
+    private filter: NvFilterPipe,
+    private nvTextTrim: NvTrimPipe
+  ) {
+    this._initializeSvgIconStyles();
   }
 
   ngOnInit(): void {
@@ -105,15 +131,18 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
      * filtering items in case of input field otherwise it returns items for showing in menu
      */
     if (this.fieldType === this.dropDownFieldType.Input) {
-      this.queryFormControl.valueChanges.subscribe(query => {
+      this.queryFormControl.valueChanges.subscribe((query) => {
         /**
          * if the item is selected from menu, it should not be filtered again
          */
         if (this.isItemSelected) {
           this.isItemSelected = false;
         } else {
-          this.filteredItems = query ? (this.filter.transform(this.items, query) ? this.filter.transform(this.items, query)
-            : this.items.slice()) : this.items.slice();
+          this.filteredItems = query
+            ? this.filter.transform(this.items, query)
+              ? this.filter.transform(this.items, query)
+              : this.items.slice()
+            : this.items.slice();
         }
       });
     }
@@ -169,7 +198,10 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
     this.selectedItem = this.filteredItems[this.selectedIndex];
     this.filteredItems = this.items;
     if (this.fieldType === DropdownFieldType.Input) {
-      const trimmedValue = this.nvTextTrim.transform(this.selectedItem, this.textTrimNumber);
+      const trimmedValue = this.nvTextTrim.transform(
+        this.selectedItem,
+        this.textTrimNumber
+      );
       this.queryFormControl.setValue(trimmedValue);
       this.selectedItem = trimmedValue;
     }
@@ -197,7 +229,7 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
         statusType = FieldStatusType.Active;
       }
       if (!type && type !== 0) {
-        statusType = FieldStatusType.Normal
+        statusType = FieldStatusType.Normal;
       }
     } else {
       statusType = FieldStatusType.Disabled;
@@ -213,7 +245,7 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
       /**
        * The filed text is not affected by the user except the disabled state
        */
-      text: FieldStatusType.Normal
+      text: FieldStatusType.Normal,
     };
     this.fieldStyle = style;
     if (statusType === FieldStatusType.Disabled) {
@@ -221,12 +253,11 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
     }
   }
 
-/**
- * Importing svg icon id and status colors to change the color of svg Icon
- */
+  /**
+   * Importing svg icon id and status colors to change the color of svg Icon
+   */
   private _initializeSvgIconStyles(): void {
     this.svgIconIdsDic = SVG_ICON_IDS_DIC;
     this.fieldStatusColorDic = FIELD_STATUS_COLOR_DIC;
   }
-
 }

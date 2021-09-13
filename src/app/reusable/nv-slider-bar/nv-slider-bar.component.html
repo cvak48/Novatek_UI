@@ -1,0 +1,19 @@
+
+  <mat-card-content class="slider-bar-container d-flex align-content-center align-items-center">
+    <label class="mat-label mb-1 mr-2">Minimum</label>
+    <mat-slider
+        class="example-margin mr-2 ml-2 pb-2"
+        [disabled]="disabled"
+        [invert]="invert"
+        [max]="max"
+        [min]="min"
+        [step]="step"
+        [thumbLabel]="thumbLabel"
+        [tickInterval]="getSliderTickInterval()"
+        [(ngModel)]="value"
+        [vertical]="vertical"
+
+        aria-labelledby="example-name-label">
+    </mat-slider>
+    <label class=" mat-label mb-1"> Maximum</label>
+  </mat-card-content>

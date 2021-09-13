@@ -1,5 +1,4 @@
 import { CommentNode } from 'src/app/reusable/comment-box/comment-box.component';
-
 import { Component, Input, OnInit } from '@angular/core';
 import { TextAreaComponent } from 'src/app/reusable/text-area/text-area.component';
 import { NovatekLogoComponent } from 'src/app/reusable/novatek-logo/novatek-logo.component';

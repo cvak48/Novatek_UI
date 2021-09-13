@@ -7,8 +7,7 @@
   width: 63px;
   height: 46px;
 
-  .avatar {  
-  }
+  .avatar {}
 
   .profile-stats {
     position: relative;
@@ -44,10 +43,10 @@
 
 
 ::ng-deep .mat-menu {
-   width: 211px !important;
-   background: $color-white-20 0% 0% no-repeat padding-box;
+  width: 211px !important;
+  background: $color-white-20 0% 0% no-repeat padding-box;
 
-  .label{
+  .label {
     width: 100%;
   }
 
@@ -56,24 +55,27 @@
 ::ng-deep .mat-elevation-z4 {
   box-shadow: 0px 1px 4px $color-black-14 !important;
 }
+
 @media (max-width: 576px) {
   ::ng-deep .mat-menu {
     width: 134px !important;
   }
 }
+
 ::ng-deep .mat-menu-panel {
   min-width: 134px !important;
 }
 
 
 ::ng-deep .mat-menu-item.ng-tns-c39-0:hover {
-  background-color: transparent ;
+  background-color: transparent;
 }
 
 ::ng-deep .mat-menu-content:not(:empty) {
   padding-top: 0px !important;
   padding-bottom: 0px !important;
 }
+
 ::ng-deep .mat-menu-item {
   font-style: $font-style-normal;
   font-weight: $font-weight-bold;
@@ -87,4 +89,3 @@
     background: $color-light-gray 0% 0% no-repeat padding-box;
   }
 }
-

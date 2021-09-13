@@ -9,7 +9,10 @@ $color-green: #198515;
 $color-light-green: #C1E9C1;
 $color-green-a8: #A8C599;
 $color-green-1e: #1E561F;
+$color-light-green-10: #FCFFF5;
 $color-red: #DB2828;
+$color-red-20: #973937;
+$color-light-red-10: #FFF6F6;
 $color-light-red: #FFD7D7;
 $color-red-97:#973937;
 $color-light-red-f5:#f5c6cb;
@@ -256,3 +259,73 @@ $border-color-500: $color-white;
   line-height: $line-height-x-small;
   color: $color-black-18;
 }
+
+
+
+
+/** 
+* all the classes that can be used along side custom-color directives added in the html elements
+* the background/ border/ text color can be change using the custom-color directives
+* the different statuses are defined by enum " StatusColor " which is the second part of the class name
+*/
+.background-Active {
+  background-color:  $color-white-20 !important;
+  }
+  .background-Required {
+    background-color:  $color-white-20 !important;
+  }
+  .background-Error {
+    background-color:  $color-light-red-10 !important;
+  }
+  .background-Accept {
+    background-color:  $color-light-green-10 !important;
+  }
+  .background-Modified {
+    background-color:  $color-light-yellow !important;
+  }
+  .background-Disabled {
+    background-color:  $color-light-gray !important;
+  }
+  
+  
+  .border-Active {
+  border: 1px solid $color-light-gray-80 !important;
+  }
+  .border-Required {
+    border: 1px solid $color-white-10 !important;
+  }
+  .border-Error {
+    border: 1px solid $color-red-20 !important;
+  }
+  .border-Accept {
+    border: 1px solid $color-green !important;
+  }
+  .border-Modified {
+    border: 1px solid $color-orange !important;
+  }
+  .border-Disabled {
+    border: 1px solid $color-white-10 !important;
+  }
+  
+  .text-Active {
+  color: $color-dark-gray-13 !important;
+  }
+  .text-Required {
+    color: $color-red !important;
+  
+  }
+  .text-Error {
+    color: $color-red !important;
+  }
+  .text-Accept {
+    color: $color-green !important;
+  }
+  .text-Modified {
+    color: $color-orange !important;
+  }
+  .text-Disabled {
+    color: $color-dark-gray-30 !important;
+  }
+
+  
+  

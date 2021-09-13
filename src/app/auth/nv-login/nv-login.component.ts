@@ -290,7 +290,7 @@ export class NVLoginComponent implements OnInit {
       items: ['Doctor', 'Pharma', 'Nurse'],
       textTrimNumber: 2, //5
       selectedItemDefault: this.variableList.domainTxt, //'Select Domain',
-      dropDownFieldType: DropdownFieldType.Default,
+      dropDownFieldType: DropdownFieldType.Input,
     };
     return dropdownInputs;
   }

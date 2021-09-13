@@ -1,5 +1,5 @@
-import { AdvanceFilterPipe } from './../pipes/filters/advance-filter/advance-filter.pipe';
-import { FilterAllPipe } from './../pipes/filters/filterAll/filter-all.pipe';
+import { NvAdvanceFilterPipe } from '../pipes/filters/nv-advance-filter/nv-advance-filter.pipe';
+import { NvFilterPipe } from '../pipes/filters/nv-filter/nv-filter.pipe';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
 /**
@@ -11,10 +11,10 @@ import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss']
+  templateUrl: './nv-search.component.html',
+  styleUrls: ['./nv-search.component.scss']
 })
-export class SearchComponent implements OnInit {
+export class NvSearchComponent implements OnInit {
   @Output() filteredItems = new EventEmitter<any[]>();
   @Input() isAdvance = true;
   /**
@@ -55,7 +55,7 @@ export class SearchComponent implements OnInit {
   /**
    * there are two filter applied with pipe; the advance is going to use the key as filter parameter (searchableList)
    */
-  constructor(private filter: FilterAllPipe, private advanceFilter: AdvanceFilterPipe) { }
+  constructor(private filter: NvFilterPipe, private advanceFilter: NvAdvanceFilterPipe) { }
 
   ngOnInit(): void {
     let isQueryKeyword: boolean = false;

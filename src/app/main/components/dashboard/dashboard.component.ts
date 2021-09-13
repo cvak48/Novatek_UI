@@ -4,7 +4,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NVTextAreaComponent } from 'src/app/reusable/nv-text-area/nv-text-area.component';
 import { NVLogoComponent } from 'src/app/reusable/nv-logo/nv-logo.component';
 import { MatTabHeaderPosition } from '@angular/material/tabs';
-import { SearchComponent } from 'src/app/reusable/search/search.component';
+import { NvSearchComponent } from 'src/app/reusable/nv-search/nv-search.component';
 import { PlaceHolderCard } from 'src/app/model/placeHolderCard';
 import { PlaceHolderBanner } from 'src/app/model/placeHolderBanner';
 import { PlaceholderBigCard } from 'src/app/model/PlaceholderBigCard';
@@ -22,9 +22,9 @@ export class DashboardComponent implements OnInit {
   comments:Array<CommentNode> = [];
   position: MatTabHeaderPosition = 'below';
   types = [{component:NVTextAreaComponent, name:'TabOne'}, {component:NVLogoComponent, name:'TabTwo'}, {component:NVTextAreaComponent, name:'TabThree'}];
-  invertedTypes = [{component:SearchComponent, name:'ITabOne'}, {component:NVLogoComponent, name:'ITabTwo'}, {component:NVTextAreaComponent, name:'ITabThree'}, {component:SearchComponent, name:'ITabFour'}];
-  leftTypes = [{component:SearchComponent, name:'lTabOne'}, {component:NVLogoComponent, name:'lTabTwo'}, {component:NVTextAreaComponent, name:'lTabThree'}];
-  rightTypes = [{component:NVLogoComponent, name:'RTabOne'}, {component:SearchComponent, name:'RTabTwo'}, {component:NVTextAreaComponent, name:'RTabThree'}, {component:SearchComponent, name:'RTabFour'}];
+  rightTypes = [{component:NVLogoComponent, name:'RTabOne'}, {component:NvSearchComponent, name:'RTabTwo'}, {component:NVTextAreaComponent, name:'RTabThree'}, {component:NvSearchComponent, name:'RTabFour'}];
+  invertedTypes = [{component:NvSearchComponent, name:'ITabOne'}, {component:NVLogoComponent, name:'ITabTwo'}, {component:NVTextAreaComponent, name:'ITabThree'}, {component:NvSearchComponent, name:'ITabFour'}];
+  leftTypes = [{component:NvSearchComponent, name:'lTabOne'}, {component:NVLogoComponent, name:'lTabTwo'}, {component:NVTextAreaComponent, name:'lTabThree'}];
   progressiveColor: string = '#198515';
   progressiveStatus:string = '50%'; 
   // mockData for header

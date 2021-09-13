@@ -29,7 +29,8 @@ $height: 40px;
   opacity: 1;
 }
 
-.advance-dropdown-container {
+.multiselect-dropdown-container {
+  position: relative;
   border: 1px solid $color-white-10;
   background: $color-white-20;
   border-radius: 4px;
@@ -47,23 +48,17 @@ $height: 40px;
   }
 }
 
-.advance-dropdown-container {
-
+.multiselect-dropdown-container {
 
 // the size of field
 ::ng-deep .mat-chip-list-wrapper {
-  padding-left: 8px;
-  padding-right: 27px;
-
-}
-
-::ng-deep .mat-form-field-appearance-legacy .mat-form-field-infix {
-  padding: 8px 0 0 0 !important;
-
+  padding-left: 8px !important;
+  padding-right: 27px !important;
+  margin-top: -2px !important;
 }
 
 ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-wrapper {
-  padding-bottom: 8px !important;
+  padding-bottom: 0 !important;
 }
 
 ::ng-deep .mat-form-field-infix {
@@ -200,4 +195,10 @@ $height: 40px;
 ::ng-deep .mat-selected {
   background-color: $color-white-13 !important;
 }
+
+ }
+
+ // TODO: It does not work in the container => multiselect-dropdown-container
+ ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-wrapper {
+  padding-bottom: 0 !important;
 }

@@ -374,12 +374,12 @@
   }
 
   .style-right {
-    margin-right: 0px;
-    padding-right: 0px;
+    // margin-right: 0px;
+    // padding-right: 0px;
   }
   .style-left {
-    margin-left: -10px;
-    padding-left: 0;
+    // margin-left: -10px;
+    // padding-left: 0;
   }
   .mg-0 {
     margin: 0px !important;
@@ -408,4 +408,8 @@
 
   .panel-slide{
     animation: 1s ease-out 0s 1 slideInFromright;
+  }
+
+  .row-0 {
+    padding: 0 15px;
   }

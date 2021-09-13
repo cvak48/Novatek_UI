@@ -1,3 +1,4 @@
+import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
 import { NgModule } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -69,6 +70,9 @@ const materialModulesList = [
     MatNativeDateModule,
     CdkTreeModule,
     MatTreeModule,
+    NgxMatDatetimePickerModule,
+    NgxMatTimepickerModule,
+    NgxMatNativeDateModule, 
 ]
 
 @NgModule({

@@ -20,6 +20,7 @@ export enum NvComponent {
   NvSliderToggle,
   NvRadioBut,
   NvDatePicker,
+  NvTimePicker,
   NvButton
 }
 
@@ -57,6 +58,12 @@ export class DemoPageComponent implements OnInit {
   loginFieldStatusType = FieldStatusType.Error;
   // checkbox
   checkBoxLabel = 'Im a new Checkbox';
+
+  /**
+   * timePicker
+   * 12 or 24
+   */
+  timeFormat: number = 12;
   constructor() { }
 
   ngOnInit(): void {

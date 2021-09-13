@@ -283,7 +283,6 @@ export class NVLoginComponent implements OnInit {
   }
 
   onDomainChange(item: string): void {
-    console.log('selected item ' + +item);
   }
 
   mockMenuDropdown(): any {
@@ -297,6 +296,5 @@ export class NVLoginComponent implements OnInit {
   }
 
   login() {
-    console.log('TODO - login');
   }
 }

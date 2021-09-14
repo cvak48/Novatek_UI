@@ -1,13 +1,13 @@
 {
     "cardHeading":"Utilisateur en ligne",
     "userName": "Nom d'utilisateur",
-    "Domain": "Domaine",
+    "domain": "Domaine",
+    "domainTxt": "Sélectionnez le domaine",
     "usernamePlaceholder": "Saisissez votre nom d'utilisateur",
     "usernameLabel": "Nom d'utilisateur",
-    "Next": "Prochaine",
+    "next": "Prochaine",
     "forgotUserName": "identifiant oublié",
     "forgotPassword": "Mot de passe oublié",
-    "btnText": "Prochaine",
     "isValid": "is-valid",
     "isInValid": "is-invalid",
     "passwordLabel": "Mot de passe",
@@ -18,10 +18,9 @@
     "loginInformation": "Veuillez vérifier votre courrier électronique pour obtenir des instructions pour réinitialiser votre mot de passe",
     "success": "Succès",
     "error": "Erreur",
-    "Cancel": "Annuler",
-    "Login": "Connexion",
-    "Submit": "nous",
-    "Resend": "Renvoyer",
-    "Password": "Mot de passe",
-    "ConfirmationText":"Confirmation"
+    "cancel": "Annuler",
+    "login": "Connexion",
+    "submit": "nous",
+    "resend": "Renvoyer",
+    "confirmationText":"Confirmation-fr"
 }

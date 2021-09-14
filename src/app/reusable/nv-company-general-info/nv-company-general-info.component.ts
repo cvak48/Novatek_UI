@@ -13,10 +13,8 @@ export class NvCompanyGeneralInfoComponent implements OnInit {
   }
 
   uploadFile(event: any): void{
-    console.log('in upload', event.target.files[0].name);
   }
 
   dragAndDropFile(file: any): void{
-    console.log('in drag', file.name);
   }
 }

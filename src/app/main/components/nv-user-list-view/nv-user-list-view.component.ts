@@ -2,11 +2,11 @@ import { Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-user-list-view',
-  templateUrl: './user-list-view.component.html',
-  styleUrls: ['./user-list-view.component.scss']
+  selector: 'nv-app-user-list-view',
+  templateUrl: './nv-user-list-view.component.html',
+  styleUrls: ['./nv-user-list-view.component.scss']
 })
-export class UserListViewComponent implements OnInit {
+export class NvUserListViewComponent implements OnInit {
   isLeftVisible = true;
 
   showPanel: string = '1';
@@ -28,7 +28,6 @@ export class UserListViewComponent implements OnInit {
           this.showPanel='1';
         break;
     }
-    console.log('panel clicked', panel);
   }
 
 }

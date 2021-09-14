@@ -119,7 +119,6 @@ export class UserListTableComponent implements OnInit {
  */
   onItemSelect(item: string): void {
     if (item) {
-      console.log('selectedItem >>>> ' + +item);
       this.page = +item;
     }
 

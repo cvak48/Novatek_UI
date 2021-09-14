@@ -13,6 +13,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular-material-components/datetime-picker": "^6.0.3",
     "@angular/animations": "~11.2.10",
     "@angular/cdk": "^11.2.10",
     "@angular/common": "~11.2.10",
@@ -30,6 +31,7 @@
     "file-saver": "^2.0.5",
     "font-awesome": "^4.7.0",
     "moment": "^2.29.1",
+    "ngx-material-timepicker": "^5.5.3",
     "ngx-pagination": "^5.1.1",
     "rxjs": "~6.6.0",
     "sonarqube-scanner": "^2.8.1",

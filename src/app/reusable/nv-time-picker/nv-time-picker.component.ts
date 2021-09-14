@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 /**
  * Inspired by: https://www.freakyjolly.com/angular-material-109-datepicker-timepicker-tutorial/
+ * & https://openbase.com/js/ngx-material-timepicker/documentation
  */
 
 @Component({

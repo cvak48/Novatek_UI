@@ -3,7 +3,7 @@ import {
   TodoItemNode,
   ArrowIcon,
 } from './../../model/data-model';
-import { TreeViewChecklistService } from './../../services/local-data/tree-view-checklist.service';
+import { TreeViewChecklistService } from '../../services/local-data/tree-view-checklist/tree-view-checklist.service';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import {
   MatTreeFlatDataSource,

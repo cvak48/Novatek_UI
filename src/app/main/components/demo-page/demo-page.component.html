@@ -72,9 +72,11 @@
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.NvDatePicker)">
         {{nvComponentType[nvComponentType.NvDatePicker]}}
       </div>
-
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.NvButton)">
         {{nvComponentType[nvComponentType.NvButton]}}
+      </div>
+      <div class="menu-item h40" (click)="onItemClick(nvComponentType.NvDownload)">
+        {{nvComponentType[nvComponentType.NvDownload]}}
       </div>
     </div>
     <div class="preview-panel" [ngSwitch]="selectedItem">
@@ -146,6 +148,9 @@
         </div>
         <app-nv-button [label]="buttonLabel" [color]="themeColor" class="body-item"
           *ngSwitchCase="nvComponentType.NvButton"></app-nv-button>
+
+        <app-nv-download  class="body-item" *ngSwitchCase="nvComponentType.NvDownload"
+          ></app-nv-download>
 
       </div>
     </div>

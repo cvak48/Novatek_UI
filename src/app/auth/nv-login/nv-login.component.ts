@@ -1,3 +1,4 @@
+import { FieldStatusType } from './../../model/data-model';
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { DropdownFieldType } from 'src/app/model/data-model';
@@ -288,9 +289,11 @@ export class NVLoginComponent implements OnInit {
   mockMenuDropdown(): any {
     const dropdownInputs = {
       items: ['Doctor', 'Pharma', 'Nurse'],
-      textTrimNumber: 2, //5
+      textTrimNumber: 2,
       selectedItemDefault: this.variableList.domainTxt, //'Select Domain',
       dropDownFieldType: DropdownFieldType.Input,
+      fieldStatusType: FieldStatusType.Normal,
+      isDisable: false,
     };
     return dropdownInputs;
   }

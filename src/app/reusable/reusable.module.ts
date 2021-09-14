@@ -1,3 +1,4 @@
+import { NvTimePickerComponent } from './nv-time-picker/nv-time-picker.component';
 import { NvChecklistDropdownComponent } from './nv-checklist-dropdown/nv-checklist-dropdown.component';
 import { NvMultiSelectDropdownComponent } from './nv-multiselect-dropdown/nv-multiselect-dropdown.component';
 import { NvDatePickerComponent } from './nv-date-picker/nv-date-picker.component';
@@ -108,6 +109,7 @@ const sharedComponents = [
   NvInputComponent,
   NvAvatarComponent,
   NvUploadComponent,
+  NvTimePickerComponent,
 ];
 
 @NgModule({

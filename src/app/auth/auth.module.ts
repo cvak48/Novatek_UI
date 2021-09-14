@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoginComponent } from './login/login.component';
+import { NVLoginComponent } from './nv-login/nv-login.component';
 import { MaterialModule } from '../material.module';
 import { ReusableModule } from '../reusable/reusable.module';
 import { RouterModule } from '@angular/router';
@@ -18,7 +18,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 }
 @NgModule({
   declarations: [
-    LoginComponent
+    NVLoginComponent
   ],
   imports: [
     CommonModule,
@@ -31,7 +31,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
       * On application load, when user navigated to auth module it will point the login page
       */
       { path: '', redirectTo: 'login', pathMatch: 'full' },
-      { path: 'login', component: LoginComponent }
+      { path: 'login', component: NVLoginComponent }
     ]),
     TranslateModule.forRoot({
       loader: {

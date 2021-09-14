@@ -77,6 +77,8 @@
       </div>
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.NvDownload)">
         {{nvComponentType[nvComponentType.NvDownload]}}
+      <div class="menu-item h40" (click)="onItemClick(nvComponentType.NvTimePicker)">
+        {{nvComponentType[nvComponentType.NvTimePicker]}}
       </div>
     </div>
     <div class="preview-panel" [ngSwitch]="selectedItem">
@@ -90,7 +92,7 @@
           </app-nv-search>
         </div>
 
-        <app-novatek-logo class="body-item" *ngSwitchCase="nvComponentType.NvLogo"></app-novatek-logo>
+        <app-nv-logo class="body-item" *ngSwitchCase="nvComponentType.NvLogo"></app-nv-logo>
 
         <div class="body-header-container" *ngSwitchCase="nvComponentType.Header">
           <app-nv-header *ngIf="person" [person]="person"></app-nv-header>
@@ -145,6 +147,9 @@
         </div>
         <div class="date-single-picker-container" *ngSwitchCase="nvComponentType.NvDatePicker">
           <app-nv-date-picker [isDateRangePicker]="false" class="body-item"></app-nv-date-picker>
+        </div>
+        <div class="date-single-picker-container" *ngSwitchCase="nvComponentType.NvTimePicker">
+          <app-nv-time-picker [timeFormat]="timeFormat" class="body-item"></app-nv-time-picker>
         </div>
         <app-nv-button [label]="buttonLabel" [color]="themeColor" class="body-item"
           *ngSwitchCase="nvComponentType.NvButton"></app-nv-button>

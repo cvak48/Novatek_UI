@@ -1,0 +1,4 @@
+<div class="image-container">
+  <img class="image" *ngIf="avatarUrl" [src]="avatarUrl" />
+  <div class="label h30" *ngIf="!avatarUrl && name"> {{name!  | nvInitials}} </div>
+</div>

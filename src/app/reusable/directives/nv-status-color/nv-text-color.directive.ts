@@ -1,10 +1,10 @@
 import { FieldStatusType } from './../../../model/data-model';
-import { Directive, Input, Renderer2, ElementRef } from '@angular/core';
+import { Directive, Input, Renderer2, ElementRef, OnInit, OnDestroy } from '@angular/core';
 
 @Directive({
   selector: '[nvTextColor]'
 })
-export class NvTextColorDirective {
+export class NvTextColorDirective implements OnInit, OnDestroy {
   /**
    * changes the color of text based on dynamic class selector generated using FieldStatusType enum
    */

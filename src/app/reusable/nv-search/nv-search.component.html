@@ -1,19 +1,17 @@
  <div class="dropdown" [class.container-width]="isFocus">
-  <div class="form-outline h50 label" data-toggle="dropdown" >
-    <img class="icon-search" src="../../../assets/icons/search.icon.svg">
-    <div *ngIf="inputKeywordLabel" class="input-keyword-label label">{{inputKeywordLabel}}</div>
-    <textarea class="form-control label" [class.indented-label]="inputKeywordLabel" type="search" id="form1" rows="1"
-      placeholder="Search..." [formControl]="queryFormControl" (input)="onInput($event)" (keyup)="onKeyUp($event)"
-      (keydown)="onKeyDown($event)" (focus)="onSearchFocus($event)" (blur)="onSearchBlur($event)"> </textarea>
-    <img class="icon cancel" *ngIf="!searchIcon" src="../../../assets/icons/circular-cancel.icon.svg"
-      (click)="onCancelClick($event)">
-    <img class="icon setting" src="../../../assets/icons/search-setting.icon.svg" (click)="onSettingClick()">
-  </div>
-  <div class="dropdown-menu" [ngClass]="{'display-toggle-menu': !showMenuToggle, 'display-menu': hideMenu}">
-    <div class="dropdown-item h50 label" *ngFor="let item of filteredList;
+   <div class="form-outline h50 label" data-toggle="dropdown">
+     <img class="icon-search" src="../../../assets/icons/search.icon.svg">
+     <div *ngIf="inputKeywordLabel" class="input-keyword-label label">{{inputKeywordLabel}}</div>
+     <textarea class="form-control label" [class.indented-label]="inputKeywordLabel" type="search" id="form1" rows="1"
+       placeholder="Search..." [formControl]="queryFormControl" (input)="onInput($event)" (keyup)="onKeyUp($event)"
+       (keydown)="onKeyDown($event)" (focus)="onSearchFocus($event)" (blur)="onSearchBlur($event)"> </textarea>
+     <img class="icon cancel" *ngIf="!searchIcon" src="../../../assets/icons/circular-cancel.icon.svg"
+       (click)="onCancelClick($event)">
+     <img class="icon setting" src="../../../assets/icons/search-setting.icon.svg" (click)="onSettingClick()">
+   </div>
+   <div class="dropdown-menu" [ngClass]="{'display-toggle-menu': !showMenuToggle, 'display-menu': hideMenu}">
+     <div class="dropdown-item h50 label" *ngFor="let item of filteredList;
        let i = index" (click)="onItemSelect(i)" [ngClass]="{'selected-item': i==selectedIndex}">
-      {{item.name}} ({{item.age}}) ({{item.email}}) ({{item.date}})</div>
-  </div>
-</div> 
-
-
+       {{item.name}} ({{item.age}}) ({{item.email}}) ({{item.date}})</div>
+   </div>
+ </div>

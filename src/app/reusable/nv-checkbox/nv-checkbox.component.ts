@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-
+/**
+ * This component is generated based on Angular material
+ * https://v7.material.angular.io/components/checkbox/api
+ */
 @Component({
   selector: 'app-nv-checkbox',
   templateUrl: './nv-checkbox.component.html',

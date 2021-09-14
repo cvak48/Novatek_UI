@@ -123,6 +123,7 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
     private filter: NvFilterPipe,
     private nvTextTrim: NvTrimPipe
   ) {
+    this._initializeDropdown();
     this._initializeSvgIconStyles();
   }
 
@@ -252,7 +253,12 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
       this.fieldStyle.text = statusType;
     }
   }
-
+  /**
+   * If the user does not pass input
+   */
+  private _initializeDropdown(): void {
+    this.fieldStatusType = FieldStatusType.Normal;
+  }
   /**
    * Importing svg icon id and status colors to change the color of svg Icon
    */

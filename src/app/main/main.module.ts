@@ -6,11 +6,13 @@ import { ReusableModule } from '../reusable/reusable.module';
 import { MaterialModule } from '../material.module';
 import { MainRoutingModule } from './main-routing.module';
 import { LayoutComponentModule } from '../layout';
+import { NvMenuComponent } from './components/nv-menu/nv-menu.component';
 
 @NgModule({
   declarations: [
     DashboardComponent,
-    DemoPageComponent
+    DemoPageComponent,
+    NvMenuComponent
   ],
   imports: [
     CommonModule,

@@ -1,7 +1,7 @@
 @import "./../../reusable/theme/base.scss";
 
 .form-control:focus {
-    border-color: #727272;
+    border-color: $color-dark-gray-72;
     -webkit-box-shadow: none;
     box-shadow: none;
 }
@@ -23,17 +23,17 @@
 }
 
 ::ng-deep .is-valid {
-    border-color:#A8C599;
-    background-color: #FCFFF5;
+    border-color:$color-green-a8;
+    background-color: $color-white-fc;
 }
 
 .is-notValid {
-    color: #DB2828;
+    color: $color-red;
 }
 
 ::ng-deep .is-invalid {
-    border-color: #973937 !important;
-    background-color: #FFF6F6;
+    border-color: $color-red-97 !important;
+    background-color: $color-white-ff;
 }
 
 .icon {
@@ -60,9 +60,9 @@
 }
 
 .sucess-check {
-    color: #198515
+    color: $color-green;
 }
 
 .danger-check {
-    color: #DB2828
+    color: $color-red;
 }

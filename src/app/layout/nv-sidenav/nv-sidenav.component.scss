@@ -1,0 +1,110 @@
+@import '../../reusable/theme/base.scss';
+
+::ng-deep .mat-drawer.mat-drawer-side {
+    background-color: #F0F0F0;
+}
+
+::ng-deep .mat-list-item :hover {
+    .hoverColor {
+        background: #fab31c;
+        width: 5px;
+        height: 32px;
+        float: left;
+        position: fixed;
+        margin-left: -8px;
+        margin-top: 0px;
+    }
+}
+
+.color-main {
+    color: $color-dark-gray;
+}
+
+::ng-deep .mat-list-base .mat-list-item.mat-list-item-with-avatar,
+.mat-list-base .mat-list-option.mat-list-item-with-avatar {
+    height: 35px !important;
+}
+
+::ng-deep .mat-list-base .mat-list-item .mat-list-text>*,
+.mat-list-base .mat-list-option .mat-list-text>* {
+    font-size: smaller !important;
+}
+
+::ng-deep .mat-drawer-inner-container {
+    overflow-x: hidden !important;
+}
+
+.sidenav-icon {
+    margin-left: 10%;
+    margin-top: 5px;
+    color: #5D5D5D;
+}
+
+.sidenav-closeicon {
+    margin-left: 38%;
+}
+
+.sidenav-txt {
+    margin-left: 11px;
+}
+
+.sidenav-content {
+    margin-top: 2vh !important;
+    font-weight: 500 !important;
+}
+
+.sidenav-menuicon {
+    width: 18px;
+}
+
+.sidenav-height {
+    height: 100vh;
+}
+
+.sidenav-menuicon2 {
+    width: 16px;
+}
+
+::ng-deep .mat-list-base .mat-list-item .mat-divider,
+.mat-list-base .mat-list-option .mat-divider {
+    position: absolute;
+    bottom: 0;
+    right: 0 !important;
+    left: 45px !important;
+    width: 75% !important;
+    margin: 0;
+    top: 35px !important;
+    border: 1px solid #dfdfdf;
+}
+
+
+::ng-deep .mat-list-base .mat-list-item .mat-list-item-content, .mat-list-base .mat-list-option .mat-list-item-content {
+    padding:  0 8px !important;
+}
+
+.custom-height {
+    height: 20px;
+}
+
+.notificationBar {
+    position: absolute;
+    float: right;
+    right: 0px;
+    top: -25px;
+    margin-right: 10px;
+}
+
+::ng-deep .mat-list-base .mat-list-item.mat-list-item-with-avatar .mat-list-item-content .mat-list-text, .mat-list-base .mat-list-item.mat-list-option .mat-list-item-content .mat-list-text, .mat-list-base .mat-list-option.mat-list-item-with-avatar .mat-list-item-content .mat-list-text, .mat-list-base .mat-list-option.mat-list-option .mat-list-item-content .mat-list-text {
+    padding-left: 5px !important;
+}
+
+.notificationDot {
+    position: absolute;
+    background: #FCB520;
+    border: 1px solid #946A12;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    top: -23px;
+    left: 22px;
+}

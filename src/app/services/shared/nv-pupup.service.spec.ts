@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { NvIconService } from './nv-icon.service';
+import { NvPopupService } from './nv-pupup.service';
 
-describe('NvIconService', () => {
-  let service: NvIconService;
+describe('NvPupupService', () => {
+  let service: NvPopupService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(NvIconService);
+    service = TestBed.inject(NvPopupService);
   });
 
   it('should be created', () => {

@@ -17,7 +17,7 @@ import {
   ViewChild,
   ElementRef,
   AfterViewInit,
-  Renderer2,
+  OnChanges,
 } from '@angular/core';
 import {
   SVG_ICON_IDS_DIC,
@@ -41,7 +41,7 @@ import {
   templateUrl: './nv-dropdown.component.html',
   styleUrls: ['./nv-dropdown.component.scss'],
 })
-export class NvDropdownComponent implements OnInit, AfterViewInit {
+export class NvDropdownComponent implements OnInit, AfterViewInit, OnChanges {
   /**
    * The selected item as an output
    */
@@ -53,34 +53,25 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   @ViewChild('PlusIconRef') PlusIconRef!: ElementRef<HTMLElement>;
   @ViewChild('ButtonRef') ButtonRef!: ElementRef<HTMLElement>;
 
-  @Input() set items(list: string[]) {
-    this._items = list ? list : [];
-    // Initializing the menu items
-    this.filteredItems = this._items;
-  }
-  get items(): string[] {
-    return this._items;
-  }
-  private _items!: string[];
+  @Input() items!: string[];
   /**
    * It keeps first "textTrimNumber" number and ignore the rest, adding . . . instead.
    */
-  @Input() textTrimNumber: number = 2;
+  @Input() textTrimNumber!: number;
   /**
    * The default value shown in the field comes as an input but it will be updated as soon as user select new item
    */
-  @Input() selectedItem: string = 'Select item';
+  @Input() selectedItem!: string;
   /**
    * There are three types: Button, Icon, and Default, which is a simple field.
    */
-  @Input() fieldType: DropdownFieldType = DropdownFieldType.Input;
-  @Input() extensionDirection: MenuExtensionDirection =
-    MenuExtensionDirection.ToRight;
+  @Input() fieldType!: DropdownFieldType;
+  @Input() extensionDirection!: MenuExtensionDirection;
   /**
    * Disables the fields
    * All the styles will be automatically changed
    */
-  @Input() isFieldDisable: boolean = false;
+  @Input() isFieldDisable!: boolean;
   /**
    * Sets styles base on the status of the field
    * The inputs of directives in html
@@ -94,23 +85,19 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
     return this._fieldStatusType;
   }
   private _fieldStatusType!: FieldStatusType;
-  hideMenu: boolean = false;
+  hideMenu!: boolean;
   selectedIndex!: number;
-  isItemSelected: boolean = false;
+  isItemSelected!: boolean;
   /**
    * the default style for selectedItem
    */
-  isDefaultStyle: boolean = true;
-  isArrowDownIcon: boolean = true;
+  isDefaultStyle!: boolean;
+  isArrowDownIcon!: boolean;
   dropDownFieldType = DropdownFieldType;
-  readonly arrowIcons: ArrowIcon = {
-    upward: '../../../assets/icons/ico.arrow.up.svg',
-    downward: '../../../assets/icons/ico.arrow.down.svg',
-  };
+  arrowIcons!: ArrowIcon;
   menuExtensionDirection = MenuExtensionDirection;
-  // initial value: this.selectedItem
-  queryFormControl = new FormControl(`${this.selectedItem}`); // initial value
-  filteredItems: string[] = this.items;
+  queryFormControl = new FormControl(null);
+  filteredItems!: string[];
   /**
    * Input for nvStyleColor directive
    */
@@ -119,15 +106,20 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   svgIconIdsDic!: { [name: string]: string };
   fieldStatusColorDic!: { [name: string]: string };
   constructor(
-    private renderer: Renderer2,
     private filter: NvFilterPipe,
     private nvTextTrim: NvTrimPipe
   ) {
-    this._initializeDropdown();
-    this._initializeSvgIconStyles();
+    console.log('constructor selectedItem' + this.selectedItem);
+    console.log('constructor hidMenu' + this.hideMenu);
+  }
+  ngOnChanges(): void {
+    console.log('ngOnChanges ' + this.selectedItem);
   }
 
   ngOnInit(): void {
+    this._initializeDropdown();
+    this._initializeSvgIconStyles();
+    console.log('ngOnInit ' + this.selectedItem);
     /**
      * filtering items in case of input field otherwise it returns items for showing in menu
      */
@@ -259,7 +251,23 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
    * If the user does not pass input
    */
   private _initializeDropdown(): void {
+    this.textTrimNumber = 2;
+    this.fieldType = DropdownFieldType.Input;
     this.fieldStatusType = FieldStatusType.Normal;
+    this.isFieldDisable = false;
+    this.extensionDirection = MenuExtensionDirection.ToRight;
+    this.hideMenu = false;
+    this.isItemSelected = false;
+    this.isDefaultStyle = true;
+    this.isArrowDownIcon = true;
+    // this item is populate in it's setter
+    this.filteredItems = this.items;
+    // default value
+    this.queryFormControl.setValue(this.selectedItem);
+    this.arrowIcons = {
+      upward: '../../../assets/icons/ico.arrow.up.svg',
+      downward: '../../../assets/icons/ico.arrow.down.svg',
+    };
   }
   /**
    * Importing svg icon id and status colors to change the color of svg Icon

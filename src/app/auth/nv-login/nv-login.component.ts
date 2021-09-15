@@ -1,4 +1,4 @@
-import { FieldStatusType } from './../../model/data-model';
+import { FieldStatusType, MenuExtensionDirection } from './../../model/data-model';
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { DropdownFieldType } from 'src/app/model/data-model';
@@ -292,6 +292,7 @@ export class NVLoginComponent implements OnInit {
       textTrimNumber: 2,
       selectedItemDefault: this.variableList.domainTxt, //'Select Domain',
       dropDownFieldType: DropdownFieldType.Input,
+      menuExtensionDir: MenuExtensionDirection.ToRight,
       fieldStatusType: FieldStatusType.Normal,
       isDisable: false,
     };

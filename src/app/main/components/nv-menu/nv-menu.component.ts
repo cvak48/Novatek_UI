@@ -20,47 +20,52 @@ export class NvMenuComponent implements OnInit {
   showSecondLevelMenu: boolean = false;
   showSideNav: boolean = false;
 
+  firstLevelMenu: string = "Menu Item L1";
+
+  showL12: boolean = true;
+  showL22: boolean = false;
+  showL32: boolean = false;
+
   /**
    * Side Menu list items
    */
   sidenavItems = [
     { icon: '../../../assets/icons/ico.masterlist.svg', name: 'Menu Item L1' },
-    { icon: '../../../assets/icons/ico.masterlist.svg', name: 'Menu Item L1' },
-    { icon: '../../../assets/icons/ico.masterlist.svg', name: 'Menu Item L1' },
-    { icon: '../../../assets/icons/ico.masterlist.svg', name: 'Menu Item L1' },
-    { icon: '../../../assets/icons/ico.masterlist.svg', name: 'Menu Item L1' },
-    { icon: '../../../assets/icons/ico.masterlist.svg', name: 'Menu Item L1' },
-    { icon: '../../../assets/icons/ico.masterlist.svg', name: 'Menu Item L1' },
-    { icon: '../../../assets/icons/ico.masterlist.svg', name: 'Menu Item L1' },
-    { icon: '../../../assets/icons/ico.masterlist.svg', name: 'Menu Item L1' },
-    { icon: '../../../assets/icons/ico.masterlist.svg', name: 'Menu Item L1' },
+    { icon: '../../../assets/icons/ico.masterlist.svg', name: 'Menu Item L2' },
+    { icon: '../../../assets/icons/ico.masterlist.svg', name: 'Menu Item L3' }
   ];
 
-  items = [
+  itemsL12 = [
     {
       name: 'Menu Grouping',
       subItems: [
-        { name: 'Menu Item L2' },
-        { name: 'Menu Item L2' },
-        { name: 'Menu Item L2' },
+        { name: 'Menu Item L12' },
+        { name: 'Menu Item L12' },
+        { name: 'Menu Item L12' },
       ],
-    },
+    }
+  ];
+
+  itemsL22 = [
     {
       name: 'Menu Grouping',
       subItems: [
-        { name: 'Menu Item L2' },
-        { name: 'Menu Item L2' },
-        { name: 'Menu Item L2' },
+        { name: 'Menu Item L22' },
+        { name: 'Menu Item L22' },
+        { name: 'Menu Item L22' },
       ],
-    },
+    }
+  ];
+
+  itemsL32 = [
     {
       name: 'Menu Grouping',
       subItems: [
-        { name: 'Menu Item L2' },
-        { name: 'Menu Item L2' },
-        { name: 'Menu Item L2' },
+        { name: 'Menu Item L32' },
+        { name: 'Menu Item L32' },
+        { name: 'Menu Item L32' },
       ],
-    },
+    }
   ];
 
   selectedItem = '';
@@ -105,7 +110,7 @@ export class NvMenuComponent implements OnInit {
 
   mockMenuDropdown(): any {
     const dropdownInputs = {
-      items: ['menu item 1', 'menu item 2'],
+      items: ['Menu Item L12', 'Menu Item L12', 'Menu Item L12'],
       textTrimNumber: 5,
       selectedItemDefault: 'Level 2 Menu Name ',
       dropDownFieldType: DropdownFieldType.Input,
@@ -160,6 +165,25 @@ export class NvMenuComponent implements OnInit {
   }
 
   openSecondLevelMenu(selectedItem: any) {
+    if(selectedItem.name.indexOf("L1") > 1){
+      this.showL12 = true;
+      this.showL22 = false
+      this.showL32 = false;
+      this.firstLevelMenu = "Menu Item L1";
+      this.dropdownItemsMenu = ['Menu Item L12', 'Menu Item L12', 'Menu Item L12'];
+    }else if((selectedItem.name.indexOf("L2") > 1)){
+      this.showL12 = false;
+      this.showL22 = true
+      this.showL32 = false;
+      this.firstLevelMenu = "Menu Item L2";
+      this.dropdownItemsMenu = ['Menu Item L22', 'Menu Item L22', 'Menu Item L22'];
+    }else if((selectedItem.name.indexOf("L3") > 1)){
+      this.showL12 = false;
+      this.showL22 = false
+      this.showL32 = true;
+      this.firstLevelMenu = "Menu Item L3";
+      this.dropdownItemsMenu = ['Menu Item L32', 'Menu Item L32', 'Menu Item L32'];
+    }
     this.showSecondLevelMenu = true;
     this.showSideNav = true;
     this.isHamburger = false;

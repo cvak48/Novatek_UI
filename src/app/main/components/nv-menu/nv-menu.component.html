@@ -14,14 +14,17 @@
       <mat-icon *ngIf="isHamburger" class="hamburger-icon" mat-list-icon
         ><img
           (click)="closeSideNav()"
-          src="../../../assets/icons/ico.hamburger.svg" alt="icon"
+          src="../../../assets/icons/ico.hamburger.svg"
+          alt="icon"
       /></mat-icon>
 
       <!-- 2nd level icon -->
       <mat-icon *ngIf="isSecondLevelIcon" class="left-icon" mat-list-icon
         ><img
           (click)="openFirstLevelMenu()"
-          src="../../../assets/icons/left-square-arrow.icon.svg"  alt="flag" alt="icon"
+          src="../../../assets/icons/left-square-arrow.icon.svg"
+          alt="flag"
+          alt="icon"
       /></mat-icon>
 
       <mat-label class="mr-lt-3">MAIN MENU </mat-label>
@@ -33,7 +36,7 @@
       /></mat-icon>
     </div>
     <div class="col-md-5 dp-flex">
-      <mat-label class="label-submenu">LEVEL 1 MENU</mat-label>
+      <mat-label class="label-submenu">{{firstLevelMenu}}</mat-label>
       <app-nv-dropdown
         class="dropdown-levelMenu-container"
         [items]="dropdownItemsMenu"
@@ -70,7 +73,8 @@
 </div>
 <!-- <div class="container-fluid">side</div>
 <div class="container">side 2</div> -->
-<mat-drawer-container *ngIf="showSideNav"
+<mat-drawer-container
+  *ngIf="showSideNav"
   class="mat-typography"
   autosize
   class="sidenav-height"
@@ -97,20 +101,55 @@
     </mat-nav-list>
 
     <mat-list *ngIf="showSecondLevelMenu">
-      <ng-container *ngFor="let item of items">
-        <div class="hoverColor"></div>
-        <h4 class="sidenav-content color-main" mat-line>
-          {{ item.name }}
-        </h4>
-        <mat-list style="margin-left: 15px">
-          <div *ngFor="let subItem of item.subItems">
-            <h5 class="sidenav-content color-main"  style="margin-bottom: 0px">{{ subItem.name }}</h5>
-            <mat-divider></mat-divider>
-          </div>
-        </mat-list>
-      </ng-container>
+      <div *ngIf="showL12">
+        <ng-container *ngFor="let item of itemsL12">
+          <div class="hoverColor"></div>
+          <h4 class="sidenav-content color-main" mat-line>
+            {{ item.name }}
+          </h4>
+          <mat-list style="margin-left: 15px">
+            <div *ngFor="let subItem of item.subItems">
+              <h5 class="sidenav-content color-main" style="margin-bottom: 0px">
+                {{ subItem.name }}
+              </h5>
+              <mat-divider></mat-divider>
+            </div>
+          </mat-list>
+        </ng-container>
+      </div>
+      <div *ngIf="showL22">
+        <ng-container *ngFor="let item of itemsL22">
+          <div class="hoverColor"></div>
+          <h4 class="sidenav-content color-main" mat-line>
+            {{ item.name }}
+          </h4>
+          <mat-list style="margin-left: 15px">
+            <div *ngFor="let subItem of item.subItems">
+              <h5 class="sidenav-content color-main" style="margin-bottom: 0px">
+                {{ subItem.name }}
+              </h5>
+              <mat-divider></mat-divider>
+            </div>
+          </mat-list>
+        </ng-container>
+      </div>
+      <div *ngIf="showL32">
+        <ng-container *ngFor="let item of itemsL32">
+          <div class="hoverColor"></div>
+          <h4 class="sidenav-content color-main" mat-line>
+            {{ item.name }}
+          </h4>
+          <mat-list style="margin-left: 15px">
+            <div *ngFor="let subItem of item.subItems">
+              <h5 class="sidenav-content color-main" style="margin-bottom: 0px">
+                {{ subItem.name }}
+              </h5>
+              <mat-divider></mat-divider>
+            </div>
+          </mat-list>
+        </ng-container>
+      </div>
     </mat-list>
-
   </mat-drawer>
 
   <div class="example-sidenav-content">

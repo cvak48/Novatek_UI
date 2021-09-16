@@ -15,7 +15,7 @@
                 <mat-icon mat-list-icon *ngIf='i!==8'><img class="sidenav-menuicon" src="{{item.icon}}" alt="menu1"></mat-icon>
                 <mat-icon mat-list-icon *ngIf='i==8'><img class="sidenav-menuicon2" src="{{item.icon}}" alt="menu2"></mat-icon>
                 <h4 class="sidenav-content color-main" mat-line *ngIf="isExpanded">{{item.name}}</h4>
-                <app-notification class="notificationBar" *ngIf='i==1 && isExpanded' [number]="totalNotifications"></app-notification>
+                <app-nv-notification-icon class="notificationBar" *ngIf='i==1 && isExpanded' [number]="totalNotifications"></app-nv-notification-icon>
                 <div class="notificationDot" *ngIf='i==1 && !isExpanded'></div>
                 <mat-divider *ngIf="isExpanded"></mat-divider>
             </mat-list-item>

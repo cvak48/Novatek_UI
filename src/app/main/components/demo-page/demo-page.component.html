@@ -75,6 +75,9 @@
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.NvPanel)">
         {{nvComponentType[nvComponentType.NvPanel]}}
       </div>
+      <div class="menu-item h40" (click)="onItemClick(nvComponentType.NvPopupMsg)">
+        {{nvComponentType[nvComponentType.NvPopupMsg]}}
+      </div>
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.NvButton)">
         {{nvComponentType[nvComponentType.NvButton]}}
       </div>
@@ -160,6 +163,9 @@
           <app-nova-panel *ngSwitchCase="nvComponentType.NvPanel">
             <!-- <app-test></app-test> -->
           </app-nova-panel>
+          <app-nv-popup-message *ngSwitchCase="nvComponentType.NvPopupMsg">
+            <!-- <app-test></app-test> -->
+          </app-nv-popup-message>
 
       </div>
     </div>

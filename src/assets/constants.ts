@@ -19,6 +19,10 @@ SVG_ICON_IDS_DIC.addPlus = 'Plus_Sign';
 SVG_ICON_IDS_DIC.arrowDownG = 'ico.arrow.down';
 SVG_ICON_IDS_DIC.arrowDownPath = 'ico.arrow.down-2';
 
+SVG_ICON_IDS_DIC.cancelElement = 'ico.item.deleted';
+SVG_ICON_IDS_DIC.cancelPath = 'cancel-path';
+
+
 const FIELD_STATUS_COLOR_DIC: { [name: string]: string } = {};
 /**
  * TODO: when we use enum to generate globally class selector for svg element, they does not recognize scss class existing in the base.scss.

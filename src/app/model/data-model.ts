@@ -50,6 +50,11 @@ export enum FieldStatusType {
     Help,
     Normal
 }
+export interface Message {
+    header: string;
+    content: string;
+    icon: string;
+}
 /**
  * These style props are used to create style class name
  * The style classes are located in base.scss

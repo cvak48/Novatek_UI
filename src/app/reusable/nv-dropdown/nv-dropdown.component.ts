@@ -109,21 +109,20 @@ export class NvDropdownComponent implements OnInit, AfterViewInit, OnChanges {
     private filter: NvFilterPipe,
     private nvTextTrim: NvTrimPipe
   ) {
-    console.log('constructor selectedItem' + this.selectedItem);
-    console.log('constructor hidMenu' + this.hideMenu);
+    this._initializeDropdownProps();
   }
-  ngOnChanges(): void {
-    console.log('ngOnChanges ' + this.selectedItem);
-  }
+  ngOnChanges(): void {  }
 
   ngOnInit(): void {
-    this._initializeDropdown();
-    this._initializeSvgIconStyles();
-    console.log('ngOnInit ' + this.selectedItem);
+
+    this._populateDropdownPropsWithInput();
+    this._filterInputQuery();
+  }
+  private _filterInputQuery(): void {
     /**
      * filtering items in case of input field otherwise it returns items for showing in menu
      */
-    if (this.fieldType === this.dropDownFieldType.Input) {
+     if (this.fieldType === this.dropDownFieldType.Input) {
       this.queryFormControl.valueChanges.subscribe((query) => {
         /**
          * if the item is selected from menu, it should not be filtered again
@@ -131,25 +130,25 @@ export class NvDropdownComponent implements OnInit, AfterViewInit, OnChanges {
         if (this.isItemSelected) {
           this.isItemSelected = false;
         } else {
-          this.filteredItems = query
-            ? this.filter.transform(this.items, query)
-              ? this.filter.transform(this.items, query)
-              : this.items.slice()
-            : this.items.slice();
+          this.filteredItems = query  ?
+           ( this.filter.transform(this.items, query) ? this.filter.transform(this.items, query) : this.items.slice() )
+           : this.items.slice();
         }
       });
     }
   }
 
   ngAfterViewInit(): void {
-    /**
-     * opening and closing the dropdown menu in case of plus-button TODO: adding object element
-     */
     if (this.isFieldDisable) {
+      this._disableDropdownMenu();
+    }
+  }
+
+  private _disableDropdownMenu(): void {
       /**
        * Remove toggle to disable the dropdown menu
        */
-      if (this.fieldType === this.dropDownFieldType.Input) {
+       if (this.fieldType === this.dropDownFieldType.Input) {
         this.inputFieldRef?.nativeElement.removeAttribute('data-toggle');
         // this._changeArrowIconStyleToDisable();
       } else if (this.fieldType === this.dropDownFieldType.Button) {
@@ -161,7 +160,6 @@ export class NvDropdownComponent implements OnInit, AfterViewInit, OnChanges {
          * data-toggle does not work in Object element So the click and blur events handle the open and close functionalities
          */
       }
-    }
   }
 
 
@@ -250,7 +248,8 @@ export class NvDropdownComponent implements OnInit, AfterViewInit, OnChanges {
   /**
    * If the user does not pass input
    */
-  private _initializeDropdown(): void {
+  private _initializeDropdownProps(): void {
+    this._initializeSvgIconStyles();
     this.textTrimNumber = 2;
     this.fieldType = DropdownFieldType.Input;
     this.fieldStatusType = FieldStatusType.Normal;
@@ -260,14 +259,19 @@ export class NvDropdownComponent implements OnInit, AfterViewInit, OnChanges {
     this.isItemSelected = false;
     this.isDefaultStyle = true;
     this.isArrowDownIcon = true;
-    // this item is populate in it's setter
-    this.filteredItems = this.items;
+    this.filteredItems = [];
     // default value
-    this.queryFormControl.setValue(this.selectedItem);
+    this.queryFormControl.setValue(null);
     this.arrowIcons = {
       upward: '../../../assets/icons/ico.arrow.up.svg',
       downward: '../../../assets/icons/ico.arrow.down.svg',
     };
+  }
+  private _populateDropdownPropsWithInput(): void {
+    // this item is populate in it's setter
+    this.filteredItems = this.items;
+    // default value
+    this.queryFormControl.setValue(this.selectedItem);
   }
   /**
    * Importing svg icon id and status colors to change the color of svg Icon

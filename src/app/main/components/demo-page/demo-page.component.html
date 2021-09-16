@@ -82,82 +82,81 @@
         {{nvComponentType[nvComponentType.NvTimePicker]}}
       </div>
     </div>
-    
-      <div class="preview-panel" [ngSwitch]="selectedItem">
-        <div class="panel-body">
 
-          <!-- Forth: Call your reusable component here and pass input data if needed  -->
+    <div class="preview-panel" [ngSwitch]="selectedItem">
+      <div class="panel-body">
 
-          <div class="search-item-container" *ngSwitchCase="nvComponentType.Search">
-            <app-nv-search [isAdvance]="isAdvance" [hideMenu]="showMenu" [list]="list"
-              [searchableRefList]="searchableRefList" (filteredItems)="onItemsFilter($event)" class="body-item">
-            </app-nv-search>
-          </div>
+        <!-- Forth: Call your reusable component here and pass input data if needed  -->
 
-          <app-nv-logo class="body-item" *ngSwitchCase="nvComponentType.NvLogo"></app-nv-logo>
-
-          <div class="body-header-container" *ngSwitchCase="nvComponentType.Header">
-            <app-nv-header *ngIf="person" [person]="person"></app-nv-header>
-          </div>
-          <app-nv-notification-icon class="body-item" *ngSwitchCase="nvComponentType.Notification">
-          </app-nv-notification-icon>
-
-          <ng-container *ngSwitchCase="nvComponentType.Avatar">
-            <app-nv-avatar class="body-item" *ngIf="person?.imageUrl && person?.name" [avatarUrl]="person.imageUrl!"
-              [name]="person.name!"></app-nv-avatar>
-          </ng-container>
-
-          <app-nv-user-profile-menu class="body-item" [person]="person" *ngSwitchCase="nvComponentType.ProfileMenu">
-          </app-nv-user-profile-menu>
-
-          <div class="dropdown-container" *ngSwitchCase="nvComponentType.Dropdown">
-            <app-nv-dropdown class="body-item" [extensionDirection]="menuExtensionDir" [items]="dropdownItems"
-              [selectedItem]="defaultSelectedItem" [textTrimNumber]="textTrimNumber" [isFieldDisable]="isDisable"
-              [fieldStatusType]="fieldStatusType" [fieldType]="dropDownFieldType" (itemSelect)="onItemSelect($event)">
-            </app-nv-dropdown>
-          </div>
-          <div class="dropdown-container" *ngSwitchCase="nvComponentType.LoginDropdown">
-            <div id="dropdown" nvTextColor [color]="loginFieldStatusType"> Field Validation Field</div>
-            <br>
-            <app-nv-dropdown class="body-item" [extensionDirection]="menuExtensionDir" [items]="dropdownItems"
-              [selectedItem]="defaultSelectedItem" [textTrimNumber]="textTrimNumber" [isFieldDisable]="isDisable"
-              [fieldStatusType]="fieldStatusType" [fieldType]="dropDownFieldType" (itemSelect)="onItemSelect($event)">
-            </app-nv-dropdown>
-          </div>
-          <div class="search-item-container" *ngSwitchCase="nvComponentType.MultiSelectDropdown">
-            <app-nv-multiselect-dropdown (filteredItems)="onItemsFilter($event)" class="body-item">
-            </app-nv-multiselect-dropdown>
-          </div>
-          <div class="search-item-container" *ngSwitchCase="nvComponentType.TreeViewDropdown">
-            <app-nv-checklist-dropdown class="body-item"> </app-nv-checklist-dropdown>
-          </div>
-
-          <div class="upload-file-container" *ngSwitchCase="nvComponentType.DropToUpload">
-            <app-nv-upload class="body-item"></app-nv-upload>
-          </div>
-          <div class="custom-component-container" *ngSwitchCase="nvComponentType.NvCheckBox">
-            <app-nv-checkbox class="body-item" [label]="checkBoxLabel"></app-nv-checkbox>
-          </div>
-          <div class="custom-component-container" *ngSwitchCase="nvComponentType.NvSliderBar">
-            <app-nv-slider-bar class="body-item"></app-nv-slider-bar>
-          </div>
-          <div class="custom-component-container" *ngSwitchCase="nvComponentType.NvSliderToggle">
-            <app-nv-slider-toggle class="body-item"></app-nv-slider-toggle>
-          </div>
-          <div class="custom-component-container" *ngSwitchCase="nvComponentType.NvRadioBut">
-            <app-nv-slider-radio-button class="body-item"></app-nv-slider-radio-button>
-          </div>
-          <div class="date-single-picker-container" *ngSwitchCase="nvComponentType.NvDatePicker">
-            <app-nv-date-picker [isDateRangePicker]="false" class="body-item"></app-nv-date-picker>
-          </div>
-          <div class="date-single-picker-container" *ngSwitchCase="nvComponentType.NvTimePicker">
-            <app-nv-time-picker [timeFormat]="timeFormat" class="body-item"></app-nv-time-picker>
-          </div>
-          <app-nv-button [label]="buttonLabel" [color]="themeColor" class="body-item"
-            *ngSwitchCase="nvComponentType.NvButton"></app-nv-button>
-
-          <app-nv-download class="body-item" *ngSwitchCase="nvComponentType.NvDownload"></app-nv-download>
-
+        <div class="search-item-container" *ngSwitchCase="nvComponentType.Search">
+          <app-nv-search [isAdvance]="isAdvance" [hideMenu]="showMenu" [list]="list"
+            [searchableRefList]="searchableRefList" (filteredItems)="onItemsFilter($event)" class="body-item">
+          </app-nv-search>
         </div>
+
+        <app-nv-logo class="body-item" *ngSwitchCase="nvComponentType.NvLogo"></app-nv-logo>
+
+        <div class="body-header-container" *ngSwitchCase="nvComponentType.Header">
+          <app-nv-header *ngIf="person" [person]="person"></app-nv-header>
+        </div>
+        <app-nv-notification-icon class="body-item" *ngSwitchCase="nvComponentType.Notification">
+        </app-nv-notification-icon>
+
+        <ng-container *ngSwitchCase="nvComponentType.Avatar">
+          <app-nv-avatar class="body-item" *ngIf="person?.imageUrl && person?.name" [avatarUrl]="person.imageUrl!"
+            [name]="person.name!"></app-nv-avatar>
+        </ng-container>
+
+        <app-nv-user-profile-menu class="body-item" [person]="person" *ngSwitchCase="nvComponentType.ProfileMenu">
+        </app-nv-user-profile-menu>
+
+        <div class="dropdown-container" *ngSwitchCase="nvComponentType.Dropdown">
+          <app-nv-dropdown class="body-item" [extensionDirection]="menuExtensionDir" [items]="dropdownItems"
+            [selectedItem]="defaultSelectedItem" [textTrimNumber]="textTrimNumber" [isFieldDisable]="isDisable"
+            [fieldStatusType]="fieldStatusType" [fieldType]="dropDownFieldType" (itemSelect)="onItemSelect($event)">
+          </app-nv-dropdown>
+        </div>
+        <div class="dropdown-container" *ngSwitchCase="nvComponentType.LoginDropdown">
+          <div id="dropdown" nvTextColor [color]="loginFieldStatusType"> Field Validation Field</div>
+          <br>
+          <app-nv-dropdown class="body-item" [extensionDirection]="menuExtensionDir" [items]="dropdownItems"
+            [selectedItem]="defaultSelectedItem" [textTrimNumber]="textTrimNumber" [isFieldDisable]="isDisable"
+            [fieldStatusType]="fieldStatusType" [fieldType]="dropDownFieldType" (itemSelect)="onItemSelect($event)">
+          </app-nv-dropdown>
+        </div>
+        <div class="search-item-container" *ngSwitchCase="nvComponentType.MultiSelectDropdown">
+          <app-nv-multiselect-dropdown (filteredItems)="onItemsFilter($event)" class="body-item">
+          </app-nv-multiselect-dropdown>
+        </div>
+        <div class="search-item-container" *ngSwitchCase="nvComponentType.TreeViewDropdown">
+          <app-nv-checklist-dropdown class="body-item"> </app-nv-checklist-dropdown>
+        </div>
+
+        <div class="upload-file-container" *ngSwitchCase="nvComponentType.DropToUpload">
+          <app-nv-upload class="body-item"></app-nv-upload>
+        </div>
+        <div class="custom-component-container" *ngSwitchCase="nvComponentType.NvCheckBox">
+          <app-nv-checkbox class="body-item" [label]="checkBoxLabel"></app-nv-checkbox>
+        </div>
+        <div class="custom-component-container" *ngSwitchCase="nvComponentType.NvSliderBar">
+          <app-nv-slider-bar class="body-item"></app-nv-slider-bar>
+        </div>
+        <div class="custom-component-container" *ngSwitchCase="nvComponentType.NvSliderToggle">
+          <app-nv-slider-toggle class="body-item"></app-nv-slider-toggle>
+        </div>
+        <div class="custom-component-container" *ngSwitchCase="nvComponentType.NvRadioBut">
+          <app-nv-slider-radio-button class="body-item"></app-nv-slider-radio-button>
+        </div>
+        <div class="date-single-picker-container" *ngSwitchCase="nvComponentType.NvDatePicker">
+          <app-nv-date-picker [isDateRangePicker]="false" class="body-item"></app-nv-date-picker>
+        </div>
+        <div class="date-single-picker-container" *ngSwitchCase="nvComponentType.NvTimePicker">
+          <app-nv-time-picker [timeFormat]="timeFormat" class="body-item"></app-nv-time-picker>
+        </div>
+        <app-nv-button [label]="buttonLabel" [color]="themeColor" class="body-item"
+          *ngSwitchCase="nvComponentType.NvButton"></app-nv-button>
+        <app-nv-download class="body-item" *ngSwitchCase="nvComponentType.NvDownload"></app-nv-download>
+
       </div>
     </div>
+  </div>

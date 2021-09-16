@@ -109,7 +109,7 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   };
   menuExtensionDirection = MenuExtensionDirection;
   // initial value: this.selectedItem
-  queryFormControl = new FormControl(`${this.selectedItem}`); // initial value
+  queryFormControl = new FormControl(null);
   filteredItems: string[] = this.items;
   /**
    * Input for nvStyleColor directive
@@ -119,7 +119,6 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   svgIconIdsDic!: { [name: string]: string };
   fieldStatusColorDic!: { [name: string]: string };
   constructor(
-    private renderer: Renderer2,
     private filter: NvFilterPipe,
     private nvTextTrim: NvTrimPipe
   ) {
@@ -128,6 +127,7 @@ export class NvDropdownComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+    this.queryFormControl.setValue(this.selectedItem);
     /**
      * filtering items in case of input field otherwise it returns items for showing in menu
      */

@@ -1,12 +1,10 @@
 <div class="container">
-  <div class="popup-card-container row" style="color: rgb(160, 137, 137); background-color: rgb(200, 177, 177);">
-    <div class="col-2 message-icon border border-primary">
+  <div class="popup-card-container" >
+    <div class="card-content">
+      <div class="message-header h30"> {{message?.header}} </div>
+      <div class="message-content sub-h30"> {{message?.content}} </div>
     </div>
-    <div class="col-9 border border-primary">
-      <div class="message-header" style="font-weight: bold;"> {{message?.header}} </div>
-      <div class="message-content"> {{message?.content}} </div>
-    </div>
-    <object class="col-1 cancel-icon border border-primary" data="./../../../assets/icons/circular-cancel.icon.svg"
+    <object class="cancel-icon" data="./../../../assets/icons/circular-cancel.icon.svg"
       type="image/svg+xml" nvSvgColor [svgElementId]="svgIconIdsDic.cancelPath"
       [color]="fieldStatusColorDic.accept"></object>
   </div>

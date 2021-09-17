@@ -1,6 +1,6 @@
-<div class="container">
-  <div class="card custom-card" *ngIf="!showPanel">
-      <div class="card-header">
+<div class="container" >
+  <div class="card custom-card" *ngIf="!showPanel" cdk-overlay-origin #origin="cdkOverlayOrigin" >
+      <div class="card-header" (click)="onHeaderClick()">
         <span class="panel-titleTxt">Panel Table</span>  
         
         <button type="button" (click)="showPanel=!showPanel" class="close mg-15" aria-label="Close">

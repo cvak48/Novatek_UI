@@ -6,7 +6,7 @@ import { NvDatePickerComponent } from './nv-date-picker/nv-date-picker.component
 import { NvAvatarComponent } from './nv-avatar/nv-avatar.component';
 import { NvUploadComponent } from './nv-upload/nv-upload.component';
 
-import { NvSvgColorDirective } from './directives/nv-svg-decorator/nv-svg-color.directive';
+import { NvSvgColorDirective } from './directives/nv-svg/svg-decorators/nv-svg-color.directive';
 import { NvDropdownComponent } from './nv-dropdown/nv-dropdown.component';
 import { NvStyleColorDirective } from './directives/nv-status-color/nv-style-color.directive';
 import { NvSliderToggleComponent } from './nv-slider-toggle/nv-slider-toggle.component';
@@ -61,6 +61,7 @@ import { NVProgressiveBarComponent } from './nv-progressive-bar/nv-progressive-b
 import { NvInputComponent } from './nv-input/nv-input.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { NvTextColorDirective } from './directives/nv-status-color/nv-text-color.directive';
+import { TextFieldModule } from '@angular/cdk/text-field';
 
 const sharedComponents = [
   NvInitialsPipe,
@@ -130,6 +131,7 @@ const sharedComponents = [
     MaterialModule,
     MatCheckboxModule,
     NgxPaginationModule,
+    TextFieldModule,
     MDBBootstrapModule.forRoot(),
   ],
   exports: sharedComponents,

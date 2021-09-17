@@ -1,11 +1,13 @@
-<div class="container">
-  <div class="popup-card-container" >
+<div #popupMsgCardRef class="container" *ngIf="showPopupMsgCard" (click)="onCancelClick()">
+  <div class="popup-card-container"  nvStyleColor [style]="fieldStyleType">
     <div class="card-content">
-      <div class="message-header h30"> {{message?.header}} </div>
-      <div class="message-content sub-h30"> {{message?.content}} </div>
+      <div class="message-header "> {{message?.header}} </div>
+      <div class="message-content "> {{message?.content}} </div>
     </div>
+    <div>
     <object class="cancel-icon" data="./../../../assets/icons/circular-cancel.icon.svg"
       type="image/svg+xml" nvSvgColor [svgElementId]="svgIconIdsDic.cancelPath"
-      [color]="fieldStatusColorDic.accept"></object>
+      [color]="svgIconStatusColor" ></object>
+      
   </div>
 </div>

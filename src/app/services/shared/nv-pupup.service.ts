@@ -13,6 +13,8 @@ export class NvPopupService {
   openRelativePopup(origin: CdkOverlayOrigin,
     overlay: TemplateRef<HTMLElement>, viewContainerRef: ViewContainerRef, close$: Observable<boolean> | undefined): OverlayRef {
     let config = new OverlayConfig();
+    // origin , overlay, boolean
+
     config.positionStrategy = this.overLay.position()
       .flexibleConnectedTo(origin.elementRef)
       .withPositions(this.getPositions())

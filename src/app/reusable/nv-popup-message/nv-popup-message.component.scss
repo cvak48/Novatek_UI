@@ -17,25 +17,35 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    border: 1px solid black;
+    // border: 1px solid black;
+    border-radius: 4px;
 
     .card-content {
       display: flex;
       flex-direction: column;
-      border: 1px solid red;
-      padding-top: 12px;
-      padding-left: 12px;
-      .message-header {
+    //   border: 1px solid red;
+      padding: 12px 100px 12px 12px;
 
+      font-style: $font-style-normal;
+      line-height: $line-height-medium;
+      font-family: $nv-font;
+      .message-header {
+        font-weight: $font-weight-bold;
+        font-size: $font-size-medium;
       }
       .message-content {
+        font-size: $font-size-x-small;
+        font-weight: $font-weight-normal;
 
+        padding-top: 10px;
       }
     }
 
     .cancel-icon {
       width: 12.6px;
       height: 12.6px;
+      margin-top: 12px;
+      margin-right: 12px;
     }
   }
 }

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { NvPopupService } from './../../services/shared/nv-pupup.service';
+import { CdkOverlayOrigin } from '@angular/cdk/overlay';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-nova-panel',
@@ -8,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 export class PanelComponent implements OnInit {
 
   showPanel: boolean = false;
-  constructor() { }
+  @ViewChild('origin')  origin!: CdkOverlayOrigin;
+  constructor(private popupService: NvPopupService) { }
 
   ngOnInit(): void {
+  }
+
+  onHeaderClick(): void {
+    // click to open popup message card
+    this.popupService.openRelativePopup(this.origin);
   }
 
 }

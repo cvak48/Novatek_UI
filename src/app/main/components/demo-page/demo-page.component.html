@@ -163,8 +163,7 @@
           <app-nova-panel *ngSwitchCase="nvComponentType.NvPanel">
             <!-- <app-test></app-test> -->
           </app-nova-panel>
-          <app-nv-popup-message *ngSwitchCase="nvComponentType.NvPopupMsg">
-            <!-- <app-test></app-test> -->
+          <app-nv-popup-message *ngSwitchCase="nvComponentType.NvPopupMsg" [message]="popupMsg" [statusType]="popupStatusType">
           </app-nv-popup-message>
 
       </div>

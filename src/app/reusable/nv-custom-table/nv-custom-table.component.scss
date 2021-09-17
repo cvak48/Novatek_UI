@@ -30,7 +30,7 @@ mat-paginator {
 
 .table-scroll {
   overflow: auto;
-  max-height: 200px;
+  max-height: 300px;
   margin-top: 11px;
 }
 
@@ -47,10 +47,6 @@ mat-paginator {
 
 ::ng-deep .search-placeholder-align .mat-form-field-label-wrapper {
   margin-top: 4px;
-}
-
-.padding-3 {
-  padding: 4px;
 }
 
 .status-gr {
@@ -235,10 +231,6 @@ tr.mat-row.cdk-row:nth-child(odd) {
   padding-top: 1.5%;
 }
 
-.pd-lt-2 {
-  padding-left: 2.5%;
-}
-
 .table-check {
   display: inline-block;
   height: 16px;
@@ -290,4 +282,11 @@ table.table td {
     margin-left: 5px;
 }
 
+.rotateimg180 {
+  -webkit-transform:rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
 

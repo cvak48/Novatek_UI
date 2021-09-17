@@ -1,0 +1,312 @@
+@import "../../../reusable/theme/base.scss";   
+  .body {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    font-family: "Lato", "Roboto", "sans-serif";
+    line-height: 23px;
+    color: $color-dark-gray;
+  }
+  .body:link {
+    line-height: 18px;
+    color: $color-dark-blue-12;
+  }
+  .body:visited {
+    line-height: 18px;
+    color: $color-dark-blue;
+  }
+  .body:hover {
+    line-height: 18px;
+    color: $color-dark-blue-20;
+  }
+ 
+  
+  mat-paginator {
+    margin-bottom: 47px !important;
+  }
+  
+  .search-box {
+    border: 1px solid $color-white-10;
+    margin: 1%;
+    border-radius: 4px;
+    height: 40px;
+    background: $color-white-20;
+    color: $color-light-gray-70;
+  }
+  
+  .search-field {
+    width: 97%;
+    padding-left: 1%;
+  }
+  
+  ::ng-deep .mat-icon {
+    fill: $color-white !important;
+  }
+  
+  .data-table {
+    border: 1px solid $color-white;
+    margin: 1% 0;
+  }
+  
+  .table-scroll {
+    overflow: auto;
+    max-height: 200px;
+    margin-top: 11px;
+  }
+  
+  .drop-container {
+    width: 60px;
+    float: left;
+    display: inline-block;
+  }
+  
+  ::ng-deep .search-placeholder-align .mat-form-field-infix {
+    position: relative;
+    top: -6px;
+  }
+  
+  ::ng-deep .search-placeholder-align .mat-form-field-label-wrapper {
+    margin-top: 4px;
+  }
+
+  
+  .status-gr {
+    background-color: $color-light-green;
+  }
+  
+  .status-rd {
+    background-color: $color-light-red;
+  }
+  
+  .status-yl {
+    background-color: $color-light-blue-20;
+  }
+  
+  th {
+    font-weight: bold;
+  }
+  
+  ::ng-deep .mat-form-field-underline {
+    display: none;
+  }
+  
+  ::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+    background-color: $color-black-10 !important;
+  }
+  
+  ::ng-deep .mat-checkbox .mat-accent .mat-checkbox-indeterminate {
+    background-color: $color-black-10 !important;
+  }
+  
+  ::ng-deep .mat-sort-header-container:not(.mat-sort-header-sorted) .mat-sort-header-arrow {
+    opacity: 0.54 !important;
+    transform: translateY(0px) !important;
+  }
+  
+ 
+  thead {
+    background: $color-light-gray-25 !important;
+  }
+  
+  tr.mat-header-row {
+    height: 40px !important;
+    background-color: $color-white-20 !important;
+    height: 50px !important;
+  }
+  
+  .mat-header-cell {
+    font-size: 14px !important;
+    font-weight: 500;
+    text-transform: capitalize !important;
+    color: $color-dark-gray !important;
+  }
+  
+  .mat-cell,
+  .mat-footer-cell {
+    color: $color-dark-gray !important;
+    font-size: 12px;
+    text-transform: capitalize !important;
+  }
+  
+  tr.mat-header-row > .mat-checkbox-layout {
+    margin-top: 8px !important;
+  }
+  
+ .mat-table {
+    background: $color-white-20;
+    width: 100%;
+  }
+  
+  tr.mat-row.cdk-row:nth-child(odd) {
+    background: $color-light-green;
+  }
+  
+  .mat-chip {
+    background-color: $color-light-gray-20 !important;
+    color: $color-light-gray-40 !important;
+  }
+  
+  .more-opt-icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 15%;
+  }
+  
+  .paging-space-arrow {
+    display: inline-block;
+    position: relative;
+    float: left;
+  }
+  
+  .paging-space {
+    display: inline-block;
+    position: relative;
+    float: left;
+    margin: 5px 0 0 0;
+  }
+  
+  .page-size-title {
+    font-weight: bold;
+    margin-right: 9px;
+    display: inline-block;
+    float: left;
+    margin-top: 10px;
+  }
+  
+  .img {
+    margin-left: 4px;
+    margin-top: 2px;
+  }
+  
+  .page-size::-ms-expand {
+    display: none;
+  }
+  
+  .page-size {
+    width: 59px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    background: $color-white-20;
+    background-image: none;
+    position: relative;
+    height: 3em;
+    line-height: 3;
+    overflow: hidden;
+    border-radius: 0.25em;
+    padding: 0 0.5em;
+    color: $color-dark-gray;
+    cursor: pointer;
+    border: 1px solid $color-light-gray-35;
+  }
+  
+  /* Arrow */
+  /* Transition */
+  .page-size:hover::after {
+    color: $color-orange-10;
+  }
+  
+  .container-pagination {
+    float: right;
+  }
+  
+  .ft-rt {
+    width: 100%;
+    height: 60px;
+    text-align: end;
+    padding-top: 1.5%;
+  }
+  
+  .pd-lt-2 {
+    padding-left: 2.5%;
+  }
+  
+  .table-check {
+    display: inline-block;
+    height: 16px;
+    line-height: 0;
+    margin: 0 auto;
+    margin-right: 8px;
+    order: 0;
+    position: relative;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 16px;
+    flex-shrink: 0;
+    top: 4px;
+  }
+  
+  .table th,
+  .table td {
+    vertical-align: middle !important;
+  }
+  
+  table.table th {
+    padding: 0rem 16px 0.55rem !important;
+  }
+  
+  table.table td {
+    padding: 0rem 16px 0rem;
+  }
+  
+  .checkbox-column {
+    padding: 0rem 16px 0.55rem !important;
+  }
+  
+  .mail-link {
+    text-decoration: underline !important;
+    color: $color-blue-10 !important;
+  }
+  
+  ::ng-deep .ngx-pagination .current {
+    background: $color-table-pagination !important;
+    font-size: 12px;
+  }
+  
+  ::ng-deep .ngx-pagination a,
+  .ngx-pagination button {
+    color: $color-light-gray-30 !important;
+    color: $color-light-gray-90 !important;
+    font-size: 16px;
+    margin-left: 5px;
+  }
+
+  .style-right {
+    margin-right: 0px;
+    padding-right: 0px;
+  }
+  .style-left {
+    margin-left: -10px;
+    padding-left: 0;
+  }
+  .mg-0 {
+    margin: 0px !important;
+  }
+:host {
+    display: block;
+  }
+  
+  button {
+    font-size: 24px;
+    margin-top: 16px;
+  }
+  
+  .wth-100{
+      width:100%;
+  }
+
+  @keyframes slideInFromright {
+    0% {
+      transform: translateX(+100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  .panel-slide{
+    animation: 1s ease-out 0s 1 slideInFromright;
+  }

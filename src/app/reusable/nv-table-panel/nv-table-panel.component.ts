@@ -8,6 +8,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class NvTablePanelComponent implements OnInit {
   @Input() panelNum!: string;
   @Output() panelClick: EventEmitter<boolean> = new EventEmitter();
+  @Output() close = new EventEmitter();
   showPanel: boolean = false;
   page = 1;
   count = 0;
@@ -34,5 +35,10 @@ export class NvTablePanelComponent implements OnInit {
   buttonClick(): void{
     this.panelClick.emit();
   }
+
+  closePanel() {
+    this.showPanel = !this.showPanel;
+    this.close.emit();
+  } 
 
 }

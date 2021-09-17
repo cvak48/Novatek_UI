@@ -30,4 +30,19 @@ export class NvUserListViewComponent implements OnInit {
     }
   }
 
+  closePanel(panel: string): void{
+    switch(panel){
+      case '1':
+        this.showPanel='0';
+        this.isLeftVisible = !this.isLeftVisible
+        break;
+      case '2':
+        this.showPanel='1';
+        break;
+      case '3':
+          this.showPanel='2';
+        break;
+    }
+  }
+
 }

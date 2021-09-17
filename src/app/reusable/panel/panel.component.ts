@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 
 
 @Component({
@@ -8,7 +8,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class PanelComponent implements OnInit {
   @Input() title: string = '';
-  @Output() close = new EventEmitter();
+  
   showPanel: boolean = false;
   panelTitle: string = '';
   constructor() { }
@@ -19,6 +19,5 @@ export class PanelComponent implements OnInit {
 
   closePanel() {
     this.showPanel = !this.showPanel;
-    this.close.emit();
   } 
 }

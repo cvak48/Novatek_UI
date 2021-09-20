@@ -1,4 +1,3 @@
-import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import {
   DropdownFieldType,
@@ -20,51 +19,52 @@ export class NvMenuComponent implements OnInit {
   showSecondLevelMenu: boolean = false;
   showSideNav: boolean = false;
 
-  firstLevelMenu: string = 'Menu Item L1';
-
-  showL12: boolean = true;
-  showL22: boolean = false;
-  showL32: boolean = false;
+  firstLevelSelectedIndex: number = 0;
 
   /**
    * Side Menu list items
    */
-  sidenavItems = [
-    { icon: '../../../assets/icons/ico.masterlist.svg', name: 'Menu Item L1' },
-    { icon: '../../../assets/icons/ico.masterlist.svg', name: 'Menu Item L2' },
-    { icon: '../../../assets/icons/ico.masterlist.svg', name: 'Menu Item L3' },
-    { icon: '../../../assets/icons/ico.masterlist.svg', name: 'Menu Item L4' },
+  firstLevelMenuItems = [
+    { icon: '../../../assets/icons/ico.masterlist.svg', name: 'Master List' },
+    {
+      icon: '../../../assets/icons/ico.masterlist.svg',
+      name: 'System Administation',
+    },
+    { icon: '../../../assets/icons/ico.masterlist.svg', name: 'Inventory' },
+    {
+      icon: '../../../assets/icons/ico.masterlist.svg',
+      name: 'Events / Operations',
+    },
+    { icon: '../../../assets/icons/ico.masterlist.svg', name: 'Usage Logs' },
+    {
+      icon: '../../../assets/icons/ico.masterlist.svg',
+      name: 'Adult Trail/Activity',
+    },
+    {
+      icon: '../../../assets/icons/ico.masterlist.svg',
+      name: 'Report Manager',
+    },
+    { icon: '../../../assets/icons/ico.masterlist.svg', name: 'Analytics' },
   ];
 
-  itemsL12 = [
+  firstLevelMenu: string = this.firstLevelMenuItems[0].name;
+
+  masterList = [
     {
       name: 'Menu Grouping',
       subItems: [
-        { name: 'Menu Item Level2 1st item' },
-        { name: 'Menu Item Level2 2nd item' },
-        { name: 'Menu Item Level2 3rd item' },
-        { name: 'Menu Item Level2 4th item' },
-        { name: 'Menu Item Level2 5th item' },
-        { name: 'Menu Item Level2 6th item' },
+        { name: 'Equipment Assets' },
+        { name: 'Equipment Train' },
+        { name: 'Equipment Group' },
       ],
     },
     {
       name: 'Menu Grouping',
-      subItems: [
-        { name: 'Menu Item Level21 1st item' },
-        { name: 'Menu Item Level21 2nd item' },
-        { name: 'Menu Item Level21 3rd item' },
-        { name: 'Menu Item Level21 4th item' },
-        { name: 'Menu Item Level21 5th item' },
-      ],
+      subItems: [{ name: 'Auto ' }, { name: 'Product' }],
     },
     {
       name: 'Menu Grouping',
-      subItems: [
-        { name: 'Menu Item L2' },
-        { name: 'Menu Item L2' },
-        { name: 'Menu Item L2' },
-      ],
+      subItems: [{ name: 'Protocol' }],
     },
   ];
 
@@ -91,23 +91,100 @@ export class NvMenuComponent implements OnInit {
 
   itemsL32 = [
     {
-      name: 'Menu Grouping',
+      name: '',
       subItems: [
-        { name: 'Menu Item L32' },
-        { name: 'Menu Item L32' },
-        { name: 'Menu Item L32' },
+        { name: 'Equipment Assets' },
+        { name: 'Equipment Train' },
+        { name: 'Equipment Group' },
+        { name: 'Auto Claves' },
+        { name: 'Product' },
       ],
     },
   ];
 
-  selectedItem = '';
+  seconndLevelMenuItems = [
+    {
+      name: 'Master List',
+      subItems: [
+        { name: 'Equipment Assets' },
+        { name: 'Equipment Train' },
+        { name: 'Equipment Group' },
+        { name: 'Auto Claves' },
+        { name: 'Product' },
+        { name: 'Single Use Equipment' },
+        { name: 'Protocol' },
+        { name: 'Specifications' },
+        { name: 'Controlled Areas' },
+      ],
+    },
+    {
+      name: 'System Administration',
+      subItems: [
+        { name: 'User Management' },
+        { name: 'Global Options(Locale,Logo,etc' },
+        { name: 'Site Management' },
+        { name: 'Roles Management' },
+      ],
+    },
+    {
+      name: 'Inventory',
+      subItems: [
+        { name: 'Consumables' },
+        { name: 'Assets' },
+        { name: 'Lot Registrations' },
+        { name: 'Sparo Parts' },
+        { name: 'Cleaning Agents' },
+        { name: 'Single Use Standards' },
+      ],
+    },
+    {
+      name: 'Events/Operations',
+      subItems: [
+        { name: 'Events List' },
+        { name: 'scheduler' },
+        { name: 'Deviations' },
+      ],
+    },
+    {
+      name: 'Usage Logs',
+      subItems: [
+        { name: 'Equipment Assets' },
+        { name: 'Equipment Train' },
+        { name: 'Auto Claves/Part Washers' },
+        { name: 'Products' },
+      ],
+    },
+    {
+      name: 'Adult Trail/Activity',
+      subItems: [
+        { name: 'Data Activity Logs' },
+        { name: 'Data Adult Trail' },
+        { name: 'User Management Adult Trail' },
+        { name: 'User Management Activity Log' },
+      ],
+    },
+    {
+      name: 'Report Manager',
+      subItems: [
+        { name: 'Report Selection' },
+        { name: 'Filter Management' },
+        { name: 'Adhoc Reports(Part2)' },
+      ],
+    },
+    {
+      name: 'Analytics',
+      subItems: [
+        { name: 'Trends' },
+        { name: 'Charts/Metrics' },
+        { name: 'KPIs' },
+      ],
+    },
+  ];
 
   person: Person = this.mockProfileMenu();
-  menuItems = ['menu item 1', 'menu item 2'];
-  siteItems = ['site item 1', 'site item 2'];
-  actionItems = ['action 1', 'action 2'];
+
   // dropDown Menu
-  dropdownItemsMenu = this.getSubMenuItemFOrDropdown(this.itemsL12);
+  dropdownItemsMenu = this.getSubMenuItemForDropdown(0); //masterList//seconndLevelMenuItems
   textTrimNumberMenu = this.mockMenuDropdown().textTrimNumber;
   selectedItemDefaultMenu = this.mockMenuDropdown().selectedItemDefault;
   dropDownFieldTypeMenu = this.mockMenuDropdown().dropDownFieldType;
@@ -130,24 +207,24 @@ export class NvMenuComponent implements OnInit {
   /**
    * DropDowns event handlers
    */
-  onMenuItemSelect(item: string): void {
-    console.log('selectedMenuItem >>>> ' + +item);
-  }
-  onSiteItemSelect(item: string): void {
-    console.log('selectedSiteItem >>>> ' + +item);
-  }
-  onPlusItemSelect(item: string): void {
-    console.log('selectedPlusItem >>>> ' + +item);
-  }
+  onMenuItemSelect(item: string): void {}
+  onSiteItemSelect(item: string): void {}
+  onPlusItemSelect(item: string): void {}
 
   mockMenuDropdown(): any {
     const dropdownInputs = {
-      items: ['Menu Item L12', 'Menu Item L12', 'Menu Item L12'],
+      items: this.getMenuItemsForDropdown(), //['Menu Item L12', 'Menu Item L12', 'Menu Item L12'],
       textTrimNumber: 5,
       selectedItemDefault: 'Level 2 Menu Name ',
       dropDownFieldType: DropdownFieldType.Input,
     };
     return dropdownInputs;
+  }
+
+  private getMenuItemsForDropdown() {
+    let menuItem: string[] = [];
+    this.firstLevelMenuItems.forEach((n) => menuItem.push(n.name));
+    return menuItem;
   }
 
   mockSiteDropdown(): any {
@@ -196,29 +273,18 @@ export class NvMenuComponent implements OnInit {
     this.showCloseIcon = true;
   }
 
-  openSecondLevelMenu(selectedItem: any) {
-    if (selectedItem.name.indexOf('L1') > 1) {
-      this.showL12 = true;
-      this.showL22 = false;
-      this.showL32 = false;
-      this.firstLevelMenu = 'Menu Item L1';
-      this.dropdownItemsMenu = this.getSubMenuItemFOrDropdown(this.itemsL12);
-      this.selectedItemDefaultMenu = this.mockMenuDropdown().selectedItemDefault;
-    } else if (selectedItem.name.indexOf('L2') > 1) {
-      this.showL12 = false;
-      this.showL22 = true;
-      this.showL32 = false;
-      this.firstLevelMenu = 'Menu Item L2';
-      this.dropdownItemsMenu = this.getSubMenuItemFOrDropdown(this.itemsL22);
-      this.selectedItemDefaultMenu = this.mockMenuDropdown().selectedItemDefault;
-    } else if (selectedItem.name.indexOf('L3') > 1) {
-      this.showL12 = false;
-      this.showL22 = false;
-      this.showL32 = true;
-      this.firstLevelMenu = 'Menu Item L3';
-      this.dropdownItemsMenu = this.getSubMenuItemFOrDropdown(this.itemsL32);
-      this.selectedItemDefaultMenu = this.mockMenuDropdown().selectedItemDefault;
-    }
+  openSecondLevelMenu(index: number) {
+    // if (index === 0) {
+    //   this.dropdownItemsMenu = this.getSubMenuItemForDropdown(this.seconndLevelMenuItems);//masterList
+    // } else if (index === 1) {
+    //   this.dropdownItemsMenu = this.getSubMenuItemForDropdown(this.seconndLevelMenuItems);//itemsL22
+    // } else if (index === 2) {
+    //   this.dropdownItemsMenu = this.getSubMenuItemForDropdown(this.seconndLevelMenuItems);//itemsL32
+    // }
+    this.dropdownItemsMenu = this.getSubMenuItemForDropdown(index); //masterList
+    this.firstLevelSelectedIndex = index;
+    this.firstLevelMenu = this.firstLevelMenuItems[index].name;
+    this.selectedItemDefaultMenu = this.mockMenuDropdown().selectedItemDefault;
     this.showSecondLevelMenu = true;
     this.showSideNav = true;
     this.isHamburger = false;
@@ -226,14 +292,14 @@ export class NvMenuComponent implements OnInit {
     this.showCloseIcon = true;
     this.isSecondLevelIcon = true;
     this.isFirstLevelIcon = false;
-    this.selectedItem = selectedItem;
   }
 
-  private getSubMenuItemFOrDropdown(items:any) {
+  private getSubMenuItemForDropdown(index: number) {
+    //items: any
     let tempArr: string[] = [];
-    items.forEach((s: { subItems: any[]; }) => {
-      s.subItems.forEach((n) => tempArr.push(n.name));
-    });
+    this.seconndLevelMenuItems[index].subItems.forEach((item) =>
+      tempArr.push(item.name)
+    );
     return tempArr;
   }
 

@@ -80,16 +80,6 @@
   transform: translate3d(-140px, 45px, 0px) !important;
 }
 
-// .sidenav-icon {
-//   margin-left: 10%;
-//   margin-top: 5px;
-//   color: #5D5D5D;
-// }
-
-// .sidenav-closeicon {
-//   margin-left: 38%;
-// }
-
 .close-icon{
   margin-left: 50px;
   margin-top: -10px;
@@ -106,7 +96,6 @@
 
 ::ng-deep .mat-list-item :hover {
     .hoverColor {
-        //background: #fab31c;
         width: 5px;
         height: 32px;
         float: left;
@@ -135,16 +124,6 @@
     width: 200px !important;
 }
 
-// .sidenav-icon {
-//     margin-left: 10%;
-//     margin-top: 5px;
-//     color: #5D5D5D;
-// }
-
-// .sidenav-closeicon {
-//     margin-left: 38%;
-// }
-
 .sidenav-txt {
     margin-left: 11px;
 }
@@ -159,7 +138,7 @@
 }
 
 .sidenav-height {
-    height: 100vh;
+    height: 90vh;
 }
 
 .sidenav-menuicon2 {

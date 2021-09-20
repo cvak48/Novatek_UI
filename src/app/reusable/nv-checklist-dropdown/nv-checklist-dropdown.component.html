@@ -5,7 +5,7 @@
         {{item}}
         <mat-icon matChipRemove *ngIf="removable"></mat-icon>
       </mat-chip>
-      <input multiline #itemInput [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+      <input multiline #itemInput [matChipInputFor]="chipList" [formControl]="itemCtrl" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
         [matChipInputAddOnBlur]="addOnBlur" (click)="onFieldClick()" (blur)="onBlur()">
     </mat-chip-list>
     <ng-container [ngTemplateOutlet]="arrowTemplate" [ngTemplateOutletContext]="{isArrowDown:isArrowDown}">

@@ -1,6 +1,7 @@
 import { TodoItemNode } from '../../../model/data-model';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+
 /**
  * The Json object for to-do list data.
  */
@@ -43,6 +44,8 @@ export class TreeViewChecklistService {
     // Build the tree nodes from Json object. The result is a list of `TodoItemNode` with nested
     //     file node as children.
     const data = this.buildFileTree(TREE_DATA, 0);
+    console.log();
+    
 
     // Notify the change.
     this.dataChange.next(data);

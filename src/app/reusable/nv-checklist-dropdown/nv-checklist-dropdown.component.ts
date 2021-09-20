@@ -1,3 +1,4 @@
+import { FormControl } from '@angular/forms';
 import {
   TodoItemFlatNode,
   TodoItemNode,
@@ -14,7 +15,6 @@ import { FlatTreeControl } from '@angular/cdk/tree';
 import { Observable, of } from 'rxjs';
 import { MatAutocomplete } from '@angular/material/autocomplete';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
-import { MatChipInputEvent } from '@angular/material/chips';
 /**
  * This component is generated based on Angular material
  * https://v7.material.angular.io/components/tree/api
@@ -72,6 +72,8 @@ export class NvChecklistDropdownComponent implements OnInit {
     downward: '../../../assets/icons/ico.arrow.down.svg',
   };
   hasItem = true;
+  //
+  itemCtrl = new FormControl();
 
   constructor(private _database: TreeViewChecklistService) {
     this.treeFlattener = new MatTreeFlattener(

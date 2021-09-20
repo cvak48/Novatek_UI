@@ -21,7 +21,7 @@ export class NvDownloadComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  download(): void {
+  downloadFile(): void {
     this.fileService.downloadFile().pipe(catchError(this.handleError)).subscribe((response: any) => {
       // expecting the file of JSON type.
       let blob: any = new Blob([response], { type: 'text/json; charset=utf-8' });

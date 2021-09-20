@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { Feed } from 'src/app/model/feed';
+import { FeedModel } from 'src/app/model/feed-model';
 
 @Component({
-  selector: 'app-feed',
-  templateUrl: './feed.component.html',
-  styleUrls: ['./feed.component.scss']
+  selector: 'nv-app-feed',
+  templateUrl: './nv-feed.component.html',
+  styleUrls: ['./nv-feed.component.scss']
 })
-export class FeedComponent implements OnInit {
+export class NvFeedComponent implements OnInit {
   commentText: any;
   imageURL = 'https://tse1.mm.bing.net/th?id=OIP.E45HCyveqDL44p8lmvQL9AAAAA&pid=Api&P=0';
-  feedData: Feed[] = [{
+  feedData: FeedModel[] = [{
           'authorName': 'User1',
           'authorLink': '',
           'action': 'added you as friend',
@@ -47,7 +47,7 @@ export class FeedComponent implements OnInit {
 
   addComment():void{
     if (this.commentText) {
-      const commentObj: Feed = {
+      const commentObj: FeedModel = {
         'authorName': 'User5',
         'authorLink': '',
         'action': 'posted on page',

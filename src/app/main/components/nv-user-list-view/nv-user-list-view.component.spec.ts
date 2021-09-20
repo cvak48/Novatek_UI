@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NovaFooterComponent } from './nova-footer.component';
+import { NvUserListViewComponent } from './nv-user-list-view.component';
 
-describe('NovaFooterComponent', () => {
-  let component: NovaFooterComponent;
-  let fixture: ComponentFixture<NovaFooterComponent>;
+describe('UserListViewComponent', () => {
+  let component: NvUserListViewComponent;
+  let fixture: ComponentFixture<NvUserListViewComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NovaFooterComponent ]
+      declarations: [ NvUserListViewComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NovaFooterComponent);
+    fixture = TestBed.createComponent(NvUserListViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -37,7 +37,7 @@ import { TabWrapper } from './nv-tabs/nv-tabs-wrapper.component';
 import { NVInvertedTabsComponent } from './nv-inverted-tabs/nv-inverted-tabs.component';
 import { NVLeftTabComponent } from './nv-left-tab/nv-left-tab.component';
 import { NVRightTabComponent } from './nv-right-tab/nv-right-tab.component';
-import { FeedComponent } from './feed/feed.component';
+import { NvFeedComponent } from './nv-feed/nv-feed.component';
 import { NvPlaceholderCardComponent } from './placeholder/nv-placeholder-card/nv-placeholder-card.component';
 import { NvPlaceholderListComponent } from './placeholder/nv-placeholder-list/nv-placeholder-list.component';
 import { NvPlaceholderBannerComponent } from './placeholder/nv-placeholder-banner/nv-placeholder-banner.component';
@@ -61,6 +61,15 @@ import { NVProgressiveBarComponent } from './nv-progressive-bar/nv-progressive-b
 import { NvInputComponent } from './nv-input/nv-input.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { NvTextColorDirective } from './directives/nv-status-color/nv-text-color.directive';
+import { NvEditPanelComponent } from './nv-edit-panel/nv-edit-panel.component';
+import { NvTablePanelComponent } from './nv-table-panel/nv-table-panel.component';
+import { NvGeneralSettingsComponent } from './nv-general-settings/nv-general-settings.component';
+import { NvCompanyGeneralInfoComponent } from './nv-company-general-info/nv-company-general-info.component';
+import { NvDragAndDropDirective } from './directives/drag-drop/drag-and-drop.directive';
+import { UserListTableComponent } from './user-list-table/user-list-table.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
+import { SlidePanelComponent } from './slide-panel/slide-panel.component';
+
 
 const sharedComponents = [
   NvInitialsPipe,
@@ -91,7 +100,7 @@ const sharedComponents = [
   NVInvertedTabsComponent,
   NVLeftTabComponent,
   NVRightTabComponent,
-  FeedComponent,
+  NvFeedComponent,
   NvPlaceholderCardComponent,
   NvPlaceholderListComponent,
   NvPlaceholderBannerComponent,
@@ -112,6 +121,16 @@ const sharedComponents = [
   NvUploadComponent,
   NvDownloadComponent,
   NvTimePickerComponent,
+  NvDatePickerComponent,
+  NvButtonComponent,
+  NvEditPanelComponent,
+  NvTablePanelComponent,
+  NvGeneralSettingsComponent,
+  NvCompanyGeneralInfoComponent,
+  NvDragAndDropDirective,
+  UserListTableComponent,
+  EditUserComponent,
+  SlidePanelComponent
 ];
 
 @NgModule({

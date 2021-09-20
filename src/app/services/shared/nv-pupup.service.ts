@@ -21,17 +21,17 @@ export class NvPopupService {
       .flexibleConnectedTo(origin.elementRef)
       .withPositions(this.getPositions())
       .withPush(true);
-    config.hasBackdrop = false;
+    config.hasBackdrop = true;
     config.scrollStrategy = this.overLay.scrollStrategies.reposition();
     let overLayRef = this.overLay.create(config);
-    // overLayRef.backdropClick().subscribe(() => overLayRef.dispose());
+     overLayRef.backdropClick().subscribe(() => overLayRef.dispose());
     // if (close$) {
     //   close$.subscribe(() =>
     //     overLayRef.dispose()
     //   );
     // }
     if (close) {
-        overLayRef.dispose();
+        // overLayRef.dispose();
     }
     overLayRef.attach(new TemplatePortal(overlay, viewContainerRef));
     return overLayRef;
@@ -50,14 +50,14 @@ export class NvPopupService {
       originY: 'center',
       overlayX: 'start',
       overlayY: 'center',
-      offsetX: 100
+      offsetX: 50
     };
     const bottom: ConnectedPosition = {
       originX: 'center',
       originY: 'bottom',
       overlayX: 'center',
       overlayY: 'top',
-      offsetY: -24,
+      offsetY: -150,
     };
 
     const left: ConnectedPosition = {
@@ -65,9 +65,9 @@ export class NvPopupService {
       originY: 'center',
       overlayX: 'end',
       overlayY: 'center',
-      offsetX: 24
+      offsetX: -50
     };
-    return [right];
+    return [bottom];
   }
 
 }

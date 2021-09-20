@@ -19,7 +19,7 @@
 </div>
 
 <ng-template #popupMsgCardRef>
-  <app-nv-popup-message [message]="popupMsg" [statusType]="popupStatusType">
+  <app-nv-popup-message [message]="popupMsg" [statusType]="popupStatusType" (cancelClick)="onMsgCancel($event)">
   </app-nv-popup-message>
 </ng-template>
 

@@ -1,11 +1,10 @@
-import { Observable } from 'rxjs';
 import { NvStoreService } from '../../services/core-logic/store.service';
 import {
   Message,
   FieldStatusType,
   FieldStatusStyle,
 } from './../../model/data-model';
-import { Component, Input, OnInit, ViewChild, TemplateRef, ViewContainerRef, AfterViewInit } from '@angular/core';
+import { Component, Input, OnInit, AfterViewInit, Output, EventEmitter } from '@angular/core';
 import { FIELD_STATUS_COLOR_DIC, SVG_ICON_IDS_DIC } from 'src/assets/constants';
 // TODO: adding the data attr using svg
 // TODO: for now the panel is the parent of message but it should not show it because we need to sent OriginRef and CardRef as soon as 
@@ -22,6 +21,7 @@ import { FIELD_STATUS_COLOR_DIC, SVG_ICON_IDS_DIC } from 'src/assets/constants';
   styleUrls: ['./nv-popup-message.component.scss'],
 })
 export class NvPopupMessageComponent implements OnInit, AfterViewInit {
+  @Output() cancelClick = new EventEmitter<boolean>(false);
   @Input() message!: Message;
   /**
    * Sets styles base on the status of the field
@@ -51,8 +51,7 @@ export class NvPopupMessageComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
   }
   onCancelClick(): void {
-    this.showPopupMsgCard = false;
-    this.storeService.closePopupWindow(true);
+    this.cancelClick.emit(true);
   }
   private _initializeMessage(): void {
     this.message = {

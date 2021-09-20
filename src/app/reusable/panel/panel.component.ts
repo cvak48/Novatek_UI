@@ -2,15 +2,20 @@ import { NvStoreService } from './../../services/core-logic/store.service';
 import { Message, FieldStatusType } from './../../model/data-model';
 import { NvPopupService } from './../../services/shared/nv-pupup.service';
 import { CdkOverlayOrigin } from '@angular/cdk/overlay';
-import { Component, OnInit, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  TemplateRef,
+  ViewChild,
+  ViewContainerRef,
+} from '@angular/core';
 
 @Component({
   selector: 'app-nova-panel',
   templateUrl: './panel.component.html',
-  styleUrls: ['./panel.component.scss']
+  styleUrls: ['./panel.component.scss'],
 })
 export class PanelComponent implements OnInit {
-
   showPanel: boolean = false;
   @ViewChild('origin') origin!: CdkOverlayOrigin;
   // popup message window
@@ -18,25 +23,36 @@ export class PanelComponent implements OnInit {
   popupMsg = mockPopupMsg().message;
 
   @ViewChild('popupMsgCardRef') popupMsgCardRef!: TemplateRef<HTMLElement>;
-  @ViewChild('popupMsgCardRef', { read: ViewContainerRef }) viewContainerRef!: ViewContainerRef;
+  @ViewChild('popupMsgCardRef', { read: ViewContainerRef })
+  viewContainerRef!: ViewContainerRef;
   isCancelClicked: boolean = false;
 
-  constructor(private popupService: NvPopupService, private storeService: NvStoreService) { }
+  constructor(
+    private popupService: NvPopupService,
+  ) {}
 
-  ngOnInit(): void {  }
+  ngOnInit(): void {}
 
-  ngAfterViewInit(): void {
-    this.storeService.isPopupWindowCancelClicked$.subscribe(isClicked => {
-      this.isCancelClicked = isClicked;
-      console.log('hi is closed');
-      this.popupService.openRelativePopup(this.origin, this.popupMsgCardRef, this.viewContainerRef, this.isCancelClicked);
-    });
-   }
+  ngAfterViewInit(): void {}
 
   onHeaderClick(): void {
-     this.popupService.openRelativePopup(this.origin, this.popupMsgCardRef, this.viewContainerRef, this.isCancelClicked);
+    this.isCancelClicked = false;
+    this.popupService.openRelativePopup(
+      this.origin,
+      this.popupMsgCardRef,
+      this.viewContainerRef,
+      this.isCancelClicked
+    );
   }
-
+  onMsgCancel(isCancel: boolean): void {
+    this.isCancelClicked = isCancel;
+    this.popupService.openRelativePopup(
+      this.origin,
+      this.popupMsgCardRef,
+      this.viewContainerRef,
+      this.isCancelClicked
+    );
+  }
 }
 
 function mockPopupMsg(): any {

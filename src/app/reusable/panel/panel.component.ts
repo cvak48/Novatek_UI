@@ -17,14 +17,13 @@ import {
 })
 export class PanelComponent implements OnInit {
   showPanel: boolean = false;
-  @ViewChild('origin') origin!: CdkOverlayOrigin;
+
   // popup message window
+  @ViewChild('origin') origin!: CdkOverlayOrigin;
+  @ViewChild('popupMsgCardRef') popupMsgCardRef!: TemplateRef<HTMLElement>;
+  @ViewChild('popupMsgCardRef', { read: ViewContainerRef }) viewContainerRef!: ViewContainerRef;
   popupStatusType = mockPopupMsg().fieldStatusType;
   popupMsg = mockPopupMsg().message;
-
-  @ViewChild('popupMsgCardRef') popupMsgCardRef!: TemplateRef<HTMLElement>;
-  @ViewChild('popupMsgCardRef', { read: ViewContainerRef })
-  viewContainerRef!: ViewContainerRef;
   isCancelClicked: boolean = false;
 
   constructor(

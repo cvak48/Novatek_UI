@@ -1,4 +1,3 @@
-import { NvStoreService } from '../../services/core-logic/store.service';
 import {
   Message,
   FieldStatusType,
@@ -6,15 +5,7 @@ import {
 } from './../../model/data-model';
 import { Component, Input, OnInit, AfterViewInit, Output, EventEmitter } from '@angular/core';
 import { FIELD_STATUS_COLOR_DIC, SVG_ICON_IDS_DIC } from 'src/assets/constants';
-// TODO: adding the data attr using svg
-// TODO: for now the panel is the parent of message but it should not show it because we need to sent OriginRef and CardRef as soon as 
-// the user click on the MsgCard; eventValue from MsgCard ==> Panel Then panel send everything to service; in Future => Observable
-/**
- *  inspired by : https://netbasal.com/creating-powerful-components-with-angular-cdk-2cef53d81cea
- *  https://www.decodedfrontend.io/angular-cdk-overlay-module/
- *  https://codinglatte.com/posts/angular/reusable-modal-overlay-using-angular-cdk-overlay/
- *  https://stackblitz.com/edit/overlay-demo?file=app%2Fapp.component.ts
- */
+
 @Component({
   selector: 'app-nv-popup-message',
   templateUrl: './nv-popup-message.component.html',
@@ -41,7 +32,7 @@ export class NvPopupMessageComponent implements OnInit, AfterViewInit {
   fieldStatusColorDic!: { [name: string]: string };
   showPopupMsgCard: boolean = true;
 
-  constructor(private storeService: NvStoreService) {
+  constructor() {
     this._initializeSvgIconStyles();
     this._initializeMessage();
   }

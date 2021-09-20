@@ -4,8 +4,14 @@ import { CdkOverlayOrigin, ConnectedPosition, Overlay, OverlayConfig, OverlayRef
 import { TemplatePortal } from '@angular/cdk/portal';
 import { Injectable, TemplateRef, ViewContainerRef } from '@angular/core';
 /**
- * https://www.decodedfrontend.io/angular-cdk-overlay-module/
+ *  inspired by :
+ *  https://www.decodedfrontend.io/angular-cdk-overlay-module/
+ *  https://netbasal.com/creating-powerful-components-with-angular-cdk-2cef53d81cea
+ *  https://www.decodedfrontend.io/angular-cdk-overlay-module/
+ *  https://codinglatte.com/posts/angular/reusable-modal-overlay-using-angular-cdk-overlay/
+ *  https://stackblitz.com/edit/overlay-demo?file=app%2Fapp.component.ts
  */
+
 @Injectable({
   providedIn: 'root',
 

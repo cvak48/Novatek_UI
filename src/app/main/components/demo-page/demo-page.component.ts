@@ -178,7 +178,7 @@ function mockDropdown(): any {
     selectedItemDefault: '',
     menuExtensionDir: MenuExtensionDirection.ToRight,
     dropDownFieldType: DropdownFieldType.Input,
-    fieldStatusType: FieldStatusType.Accept,
+    fieldStatusType: FieldStatusType.Normal,
     isDisable: true,
   };
   return dropdownInputs;
@@ -191,7 +191,7 @@ function mockPopupMsg(): any {
     icon: './../../../assets/icons/circular-cancel.icon.svg',
   } as Message;
   const popupMsgInputs = {
-    fieldStatusType: FieldStatusType.Accept,
+    fieldStatusType: FieldStatusType.Error,
     message: message,
   };
   return popupMsgInputs;

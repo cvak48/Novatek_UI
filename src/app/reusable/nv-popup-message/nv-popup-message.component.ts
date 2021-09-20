@@ -1,10 +1,11 @@
-import { StoreContextService } from './../../services/logic/store-state.service';
+import { Observable } from 'rxjs';
+import { NvStoreService } from '../../services/core-logic/store.service';
 import {
   Message,
   FieldStatusType,
   FieldStatusStyle,
 } from './../../model/data-model';
-import { Component, Input, OnInit, ViewChild, TemplateRef, ViewContainerRef } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, TemplateRef, ViewContainerRef, AfterViewInit } from '@angular/core';
 import { FIELD_STATUS_COLOR_DIC, SVG_ICON_IDS_DIC } from 'src/assets/constants';
 // TODO: adding the data attr using svg
 // TODO: for now the panel is the parent of message but it should not show it because we need to sent OriginRef and CardRef as soon as 
@@ -20,7 +21,7 @@ import { FIELD_STATUS_COLOR_DIC, SVG_ICON_IDS_DIC } from 'src/assets/constants';
   templateUrl: './nv-popup-message.component.html',
   styleUrls: ['./nv-popup-message.component.scss'],
 })
-export class NvPopupMessageComponent implements OnInit {
+export class NvPopupMessageComponent implements OnInit, AfterViewInit {
   @Input() message!: Message;
   /**
    * Sets styles base on the status of the field
@@ -40,18 +41,18 @@ export class NvPopupMessageComponent implements OnInit {
   fieldStatusColorDic!: { [name: string]: string };
   showPopupMsgCard: boolean = true;
 
-  @ViewChild('popupMsgCardRef') popupMsgCardRef!: TemplateRef<HTMLElement>;
-  @ViewChild('popupMsgCardRef', { read: ViewContainerRef }) viewContainerRef!: ViewContainerRef;
-
-  constructor(private storeService: StoreContextService) {
+  constructor(private storeService: NvStoreService) {
     this._initializeSvgIconStyles();
     this._initializeMessage();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
+  ngAfterViewInit(): void {
+  }
   onCancelClick(): void {
     this.showPopupMsgCard = false;
-    this.storeService.cancelPopupMsgCard(true);
+    this.storeService.closePopupWindow(true);
   }
   private _initializeMessage(): void {
     this.message = {

@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { StoreContextService } from './store-state.service';
+import { NvStoreService } from './store.service';
 
 describe('StoreContextService', () => {
-  let service: StoreContextService;
+  let service: NvStoreService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(StoreContextService);
+    service = TestBed.inject(NvStoreService);
   });
 
   it('should be created', () => {

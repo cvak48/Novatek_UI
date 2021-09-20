@@ -1,5 +1,5 @@
 <div class="container" >
-  <div class="card custom-card" *ngIf="!showPanel" cdk-overlay-origin #origin="cdkOverlayOrigin" >
+  <div class="card custom-card" *ngIf="!showPanel" cdk-overlay-origin  #origin="cdkOverlayOrigin" >
       <div class="card-header" (click)="onHeaderClick()">
         <span class="panel-titleTxt">Panel Table</span>  
         
@@ -17,5 +17,10 @@
       </div>
     </div>
 </div>
+
+<ng-template #popupMsgCardRef>
+  <app-nv-popup-message [message]="popupMsg" [statusType]="popupStatusType">
+  </app-nv-popup-message>
+</ng-template>
 
 

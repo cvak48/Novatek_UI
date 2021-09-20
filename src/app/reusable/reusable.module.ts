@@ -62,6 +62,7 @@ import { NvInputComponent } from './nv-input/nv-input.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { NvTextColorDirective } from './directives/nv-status-color/nv-text-color.directive';
 import { TextFieldModule } from '@angular/cdk/text-field';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 const sharedComponents = [
   NvInitialsPipe,
@@ -132,6 +133,7 @@ const sharedComponents = [
     MatCheckboxModule,
     NgxPaginationModule,
     TextFieldModule,
+    OverlayModule,
     MDBBootstrapModule.forRoot(),
   ],
   exports: sharedComponents,

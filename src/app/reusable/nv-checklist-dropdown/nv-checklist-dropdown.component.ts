@@ -92,6 +92,7 @@ export class NvChecklistDropdownComponent implements OnInit {
     );
     this.counter = 0;
     _database.dataChange.subscribe((data) => {
+      // console.log('data' + JSON.stringify(data) );
       this.dataSource.data = data;
     });
   }
@@ -149,6 +150,10 @@ export class NvChecklistDropdownComponent implements OnInit {
    * Transformer to convert nested node to flat node. Record the nodes in maps for later use.
    */
   transformer = (node: TodoItemNode, level: number) => {
+    console.log('item' + node.item);
+    console.log('children' + node.children);
+    console.log('level' + level);
+    
     const existingNode = this.nestedNodeMap.get(node);
     const flatNode =
       existingNode && existingNode.item === node.item
@@ -214,6 +219,7 @@ export class NvChecklistDropdownComponent implements OnInit {
     }
     //  save the children items to be used as chips
     this.filteredItems = this._toChips(this.checklistSelection.selected);
+
   }
 
   /** Check root node checked state and change it accordingly */
@@ -261,6 +267,7 @@ export class NvChecklistDropdownComponent implements OnInit {
     let newList: string[] = [];
     list.forEach((value) => newList.push(value.item));
     this.selected(newList);
+
     return of(newList);
   }
 

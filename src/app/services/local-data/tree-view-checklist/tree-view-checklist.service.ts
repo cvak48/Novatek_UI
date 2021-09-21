@@ -46,12 +46,9 @@ export class TreeViewChecklistService {
 
   initialize(): void {
     // Build the tree nodes from Json object. The result is a list of `TodoItemNode` with nested
-    //     file node as children.
+    // file node as children.
     const data = this.buildFileTree(TREE_DATA, 0);
-    console.log(JSON.stringify(data));
-    
-
-    // Notify the change.
+  // Notify the change.
     this.dataChange.next(data);
   }
 
@@ -64,7 +61,6 @@ export class TreeViewChecklistService {
       const value = obj[key];
       const node = new TodoItemNode();
       node.item = key;
-
       if (value != null) {
         if (typeof value === 'object') {
           node.children = this.buildFileTree(value, level + 1);
@@ -72,7 +68,6 @@ export class TreeViewChecklistService {
           node.item = value;
         }
       }
-
       return accumulator.concat(node);
     }, []);
   }

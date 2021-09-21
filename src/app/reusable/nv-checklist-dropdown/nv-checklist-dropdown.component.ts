@@ -15,6 +15,7 @@ import { FlatTreeControl } from '@angular/cdk/tree';
 import { Observable, of } from 'rxjs';
 import { MatAutocomplete } from '@angular/material/autocomplete';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { NvFilterPipe } from '../pipes/filters/nv-filter/nv-filter.pipe';
 /**
  * This component is generated based on Angular material
  * https://v7.material.angular.io/components/tree/api
@@ -74,8 +75,12 @@ export class NvChecklistDropdownComponent implements OnInit {
   hasItem = true;
   //
   itemCtrl = new FormControl();
+  dataRef!: TodoItemNode[];
 
-  constructor(private _database: TreeViewChecklistService) {
+  constructor(
+    private _database: TreeViewChecklistService,
+    private filter: NvFilterPipe
+  ) {
     this.treeFlattener = new MatTreeFlattener(
       this.transformer,
       this.getLevel,
@@ -92,8 +97,18 @@ export class NvChecklistDropdownComponent implements OnInit {
     );
     this.counter = 0;
     _database.dataChange.subscribe((data) => {
-      // console.log('data' + JSON.stringify(data) );
+      console.log('data' + JSON.stringify(data));
       this.dataSource.data = data;
+      // for filter
+      this.dataRef = data;
+    });
+    this.itemCtrl.valueChanges.subscribe((query) => {
+      if (query && query !== '') {
+        const filteredItems = this.filter.transform(this.dataSource.data, query);
+        this.dataSource.data = filteredItems ? (filteredItems.length !== 0 ? filteredItems : this.dataRef) : this.dataRef;
+      } else if (query === '') {
+        this.dataSource.data = this.dataRef;
+      }
     });
   }
   /**
@@ -123,14 +138,6 @@ export class NvChecklistDropdownComponent implements OnInit {
     }
   }
 
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-    const filteredFruits = this.referenceItems.filter(
-      (item) => item.toLowerCase().indexOf(filterValue) === 0
-    );
-    return filteredFruits;
-  }
-
   // end of chips component
 
   ngOnInit(): void {}
@@ -150,10 +157,6 @@ export class NvChecklistDropdownComponent implements OnInit {
    * Transformer to convert nested node to flat node. Record the nodes in maps for later use.
    */
   transformer = (node: TodoItemNode, level: number) => {
-    console.log('item' + node.item);
-    console.log('children' + node.children);
-    console.log('level' + level);
-    
     const existingNode = this.nestedNodeMap.get(node);
     const flatNode =
       existingNode && existingNode.item === node.item
@@ -219,7 +222,6 @@ export class NvChecklistDropdownComponent implements OnInit {
     }
     //  save the children items to be used as chips
     this.filteredItems = this._toChips(this.checklistSelection.selected);
-
   }
 
   /** Check root node checked state and change it accordingly */
@@ -247,7 +249,6 @@ export class NvChecklistDropdownComponent implements OnInit {
     }
 
     const startIndex = this.treeControl.dataNodes.indexOf(node) - 1;
-
     for (let i = startIndex; i >= 0; i--) {
       const currentNode = this.treeControl.dataNodes[i];
 
@@ -267,7 +268,6 @@ export class NvChecklistDropdownComponent implements OnInit {
     let newList: string[] = [];
     list.forEach((value) => newList.push(value.item));
     this.selected(newList);
-
     return of(newList);
   }
 
@@ -280,8 +280,6 @@ export class NvChecklistDropdownComponent implements OnInit {
     /**
      * removing the selected chip from filteredList
      */
-    // this.filteredItems = this.filteredItems.pipe(map(values =>
-    //   values.filter(item => item !== event.option.viewValue)));
     this.itemInput.nativeElement.value = '';
     // this.itemCtrl.setValue(null);
     if (!this.isArrowDown) {

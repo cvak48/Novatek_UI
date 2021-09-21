@@ -121,7 +121,7 @@ export class NvMenuComponent implements OnInit {
       name: 'System Administration',
       subItems: [
         { name: 'User Management' },
-        { name: 'Global Options(Locale,Logo,etc' },
+        { name: 'Global Options(Locale,Logo,etc)' },
         { name: 'Site Management' },
         { name: 'Roles Management' },
       ],
@@ -292,6 +292,13 @@ export class NvMenuComponent implements OnInit {
     this.showCloseIcon = true;
     this.isSecondLevelIcon = true;
     this.isFirstLevelIcon = false;
+  }
+
+  selectedSecondLevelMenuItem(index: number, item: any){
+    console.log(index);
+    console.log(item);
+    this.selectedItemDefaultMenu = item.name;
+    //this.onMenuItemSelect(item.name);
   }
 
   private getSubMenuItemForDropdown(index: number) {

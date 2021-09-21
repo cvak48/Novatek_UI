@@ -106,7 +106,8 @@
 }
 
 .color-main {
-    color: $color-dark-gray;
+  // font-family: Lato !important;
+  color: $color-black-20 !important; // $color-dark-gray;
 }
 
 ::ng-deep .mat-list-base .mat-list-item.mat-list-item-with-avatar,
@@ -116,7 +117,7 @@
 
 ::ng-deep .mat-list-base .mat-list-item .mat-list-text>*,
 .mat-list-base .mat-list-option .mat-list-text>* {
-    font-size: smaller !important;
+    font-size: 12px !important;
 }
 
 ::ng-deep .mat-drawer-inner-container {

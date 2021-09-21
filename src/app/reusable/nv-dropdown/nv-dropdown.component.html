@@ -1,15 +1,43 @@
-<div class="dropdown">
+<div #dropdown class="dropdown">
+  <input #inputFieldRef type="text" *ngIf="fieldType === dropDownFieldType.Input"
+    class="btn dropdown-input body20 label" data-toggle="dropdown" [ngClass]="{'default': isDefaultStyle}"
+    (click)="onFieldClick()" (blur)="onBlur()" [formControl]="queryFormControl" nvStyleColor [style]="fieldStyle">
+  <ng-container *ngIf="fieldType === dropDownFieldType.Input" [ngTemplateOutlet]="iconTemplate"
+    [ngTemplateOutletContext]="{isArrowDown:isArrowDownIcon}">
+  </ng-container>
+  <img #PlusIconRef *ngIf="(fieldType === dropDownFieldType.Icon) &&  !isFieldDisable" class="dropdown-icon"
+    data-toggle="dropdown" src="./../../../assets/icons/plus-button.icon.svg" alt="The Plus Icon">
+  <img #PlusIconRef *ngIf="(fieldType === dropDownFieldType.Icon) &&  isFieldDisable" class="dropdown-icon"
+    data-toggle="dropdown" src="./../../../assets/icons/plus-button--disabled.icon.svg" alt="The Plus Icon">
+  <button #ButtonRef *ngIf="fieldType === dropDownFieldType.Button" type="button" (click)="onFieldClick()"
+    class="btn dropdown-button body20 label" data-toggle="dropdown" (blur)="onBlur()" nvStyleColor [style]="fieldStyle">
+    {{'Dropdown Button'}}
+    <ng-container [ngTemplateOutlet]="iconTemplate" [ngTemplateOutletContext]="{isArrowDown:isArrowDownIcon}">
+    </ng-container>
+  </button>
 
-    <button type="button" class="btn dropdown-toggle body20 label" data-toggle="dropdown" [ngClass]="{'default': isFirst}"
-      (click)="isArrowDown=!isArrowDown" (blur)="onBlur()">
-      {{selectedItem | nvTrim: textTrimNumber}}
-      <img *ngIf="isArrowDown" class="arrow-icon"  src="../../../assets/icons/ico.arrow.down.svg">
-      <img *ngIf="!isArrowDown" class="arrow-icon" src="../../../assets/icons/ico.arrow.up.svg">
-    </button>
-
-  <div class="dropdown-menu">
-    <div class="dropdown-item body20" *ngFor="let item of items; let i = index" (click)="onItemSelect(i)"
+  <div #menu class="dropdown-menu" [ngClass]="{'display-menu': hideMenu}"
+    [ngClass]=" (extensionDirection === menuExtensionDirection.ToLeft) ? 'dropdown-menu-right': '' ">
+    <div class="dropdown-item body20" *ngFor="let item of filteredItems; let i = index" (click)="onItemSelect(i)"
       [ngClass]="{'selected-item': i==selectedIndex}"> {{item}}</div>
   </div>
 </div>
 
+
+<ng-template #iconTemplate let-item="isArrowDown">
+  <object #arrowDownRef *ngIf="isArrowDownIcon && (fieldStatusType === statusType.Normal)" class="icon arrow"
+    data="../../../assets/icons/ico.arrow.down.svg" type="image/svg+xml" nvSvgColor
+    [svgElementId]="svgIconIdsDic.arrowDownPath" [color]="fieldStatusColorDic.disable"
+    [isDirectiveEnable]="isFieldDisable"></object>
+  <object *ngIf="!isArrowDownIcon && !isFieldDisable && (fieldStatusType === statusType.Normal)" class="icon arrow"
+    data="../../../assets/icons/ico.arrow.up.svg" type="image/svg+xml"></object>
+  <object #questionIconRef *ngIf=" !isFieldDisable && (fieldStatusType === statusType.Help)" class="icon status-icon"
+    data="../../../assets/icons/question.icon.svg" type="image/svg+xml" nvSvgColor
+    [svgElementId]="svgIconIdsDic.questionPath" [color]="fieldStatusColorDic.help"></object>
+  <object #exclamationIconRef *ngIf=" !isFieldDisable && (fieldStatusType === statusType.Error)"
+    class="icon status-icon" data="../../../assets/icons/exclamation.icon.svg" type="image/svg+xml" nvSvgColor
+    [svgElementId]="svgIconIdsDic.exclamationPath" [color]="fieldStatusColorDic.error"></object>
+  <object #checkMarkIconRef *ngIf=" !isFieldDisable && (fieldStatusType === statusType.Accept)" class="icon status-icon"
+    data="../../../assets/icons/checkmark.icon.svg" type="image/svg+xml" nvSvgColor
+    [svgElementId]="svgIconIdsDic.checkMarkPath" [color]="fieldStatusColorDic.accept"></object>
+</ng-template>

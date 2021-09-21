@@ -6,14 +6,19 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class NvTrimPipe implements PipeTransform {
 
   transform(text: string, length = 0): string {
-    const threeDots = '...';
-    const newValue = text.trim().split(' ');
-    if (newValue.length > length) {
-        const splittedValue = text.split(newValue[length]);
-        return splittedValue[0].concat(threeDots.toString());
+    const threeDots = '. . .';
+    let modifiedValue: string = '';
+    const splittedValue = text.trim().split(' ');
+    if (splittedValue.length > length && length !== 0) {
+      for (let i = 0; i < length; i++) {
+        modifiedValue += splittedValue[i] + ' ';
+      }
+      return modifiedValue.concat(threeDots);
     }
-    else {
-        return text;
+    else if (length === 0) {
+      return '';
+    } else {
+      return text;
     }
   }
 

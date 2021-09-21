@@ -7,10 +7,18 @@ $color-yellow: #FBD890;
 $color-light-yellow: #FFF5E1;
 $color-green: #198515;
 $color-light-green: #C1E9C1;
+$color-green-a8: #A8C599;
+$color-green-1e: #1E561F;
+$color-light-green-10: #FCFFF5;
 $color-red: #DB2828;
+$color-red-20: #973937;
+$color-light-red-10: #FFF6F6;
 $color-light-red: #FFD7D7;
+$color-red-97:#973937;
+$color-light-red-f5:#f5c6cb;
 $color-light-blue-40: #0366d6;
 $color-dark-blue: #004463;
+$color-dark-blue-1F: #1F78B4;
 $color-dark-blue-10: #1F78B4;
 $color-dark-blue-11: #0F5787;
 $color-dark-blue-12: #1791F1;
@@ -20,6 +28,10 @@ $color-light-blue-10: #C9E2F5;
 $color-light-blue-20: #F6FCFE;
 $color-black-10: #000000;
 $color-black: #1B1C1D;
+
+$color-black-10: #0000001a;
+$color-black-00: #0000001a;
+
 $color-black-12: #00000066;
 $color-black-09 : #00000099;
 $color-black-14: #0000001A;
@@ -27,12 +39,16 @@ $color-black-18: #131313;
 $color-black-27 : #272626;
 $color-black-20: #333333;
 $color-dark-gray: #5D5D5D;
+$color-dark-gray-72:#727272;
 $color-dark-gray-02: #4D4D4D;
+$color-dark-gray-4d: #4D4D4D;
+
 $color-dark-gray-10: #5D5D5D99;
 $color-dark-gray-12: #5D5D5DCC;
 $color-dark-gray-13: #5D5D5DDE;
 $color-dark-gray-20: #999C9E ;
 $color-dark-gray-30: #B5B5B5;
+$color-dark-gray-70:#5D5D5D;
 $color-light-gray: #f0f0f0;
 $colo-light1-gray: #dddddd;
 $color-light-gray-20: #e6e6e6;
@@ -40,18 +56,31 @@ $color-light-gray-22: #E0E1E2;
 $color-light-gray-28: #C7C7C7;
 $color-light-gray-30: #CACACA;
 $color-light-gray-40: #595959;
-$color-light-gray-80: #8a8a8a;
+$color-light-gray-50: #666666;
 $color-light-gray-60: #333333DE;
+$color-light-gray-70: #9A9A9A;
+$color-light-gray-80: #8a8a8a;
+$color-light-gray-90: #999C9E;
+$color-light-gray-60: #333333DE;
+
 $color-white-10: #DEDEDF;
+$color-white-de: #DEDEDF;
+
 $color-white-12: #DFDFDF;
+$color-white-13: #F3F3F3;
 $color-white: #D9D9DA;
+$color-white-18: #FAFAFB;
+
 $color-white-20: #FFFFFF;
+$color-white-ff: #FFFFFF;
+$color-white-fff6: #FFF6F6;
+
+$color-white-fc: #FCFFF5;
 
 
 
-
-$color-progressive-first-block : #ADADAD;
-$color-progressive-second-block : #888888;
+$color-grey-ad : #ADADAD;
+$color-grey-88 : #888888;
 $color-grey-de: #dee2e6;
 $color-grey-c7 : #c7c7c7;
 $color-grey-star: #D9D9D9;
@@ -59,16 +88,18 @@ $color-grey-b6 : #b6b6b6;
 $color-grey-d5 : #D5D5D5;
 $color-grey-ff : #FFFCFC;
 $color-grey-ea : #EAEAEA;
+$color-blue-10: #7badd4;
+$color-table-pagination: #1d75b8;
+
 $btn-color : #207FC7;
-$color-red-heart: #D62323;
-$color-gold-star: #DEC60A;
+$color-red-d6: #D62323;
+$color-yellow-de: #DEC60A;
 $color-black-1f : #1f1d1d;
 $color-white-f3 : #F3F3F3;
 $color-white-f6 : #f6f7f8;
 $color-white-fa: #fafafa;
 // rgba
 $color-black-rgba : rgba(11, 10, 11, 0.40);
-
 
 // font
 $nv-font: "Lato",
@@ -111,6 +142,9 @@ $no-margin: 0px;
 
 //padding
 $padding-16: 16px;
+$padding-18: 18px;
+$padding-12: 12px;
+
 $padding-large: 18;
 $padding-medium: 16;
 $padding-small: 12px;
@@ -124,7 +158,6 @@ $background-color-500: $color-white;
 $border-color-100: $color-black;
 $border-color-200: $color-dark-blue-10;
 $border-color-500: $color-white;
-
 
 
 .h10 {
@@ -240,3 +273,73 @@ $border-color-500: $color-white;
   line-height: $line-height-x-small;
   color: $color-black-18;
 }
+
+
+
+
+/** 
+* all the classes that can be used along side custom-color directives added in the html elements
+* the background/ border/ text color can be change using the custom-color directives
+* the different statuses are defined by enum " StatusColor " which is the second part of the class name
+*/
+.background-Active {
+  background-color:  $color-white-20 !important;
+  }
+  .background-Required {
+    background-color:  $color-white-20 !important;
+  }
+  .background-Error {
+    background-color:  $color-light-red-10 !important;
+  }
+  .background-Accept {
+    background-color:  $color-light-green-10 !important;
+  }
+  .background-Modified {
+    background-color:  $color-light-yellow !important;
+  }
+  .background-Disabled {
+    background-color:  $color-light-gray !important;
+  }
+  
+  
+  .border-Active {
+  border: 1px solid $color-light-gray-80 !important;
+  }
+  .border-Required {
+    border: 1px solid $color-white-10 !important;
+  }
+  .border-Error {
+    border: 1px solid $color-red-20 !important;
+  }
+  .border-Accept {
+    border: 1px solid $color-green !important;
+  }
+  .border-Modified {
+    border: 1px solid $color-orange !important;
+  }
+  .border-Disabled {
+    border: 1px solid $color-white-10 !important;
+  }
+  
+  .text-Active {
+  color: $color-dark-gray-13 !important;
+  }
+  .text-Required {
+    color: $color-red !important;
+  
+  }
+  .text-Error {
+    color: $color-red !important;
+  }
+  .text-Accept {
+    color: $color-green !important;
+  }
+  .text-Modified {
+    color: $color-orange !important;
+  }
+  .text-Disabled {
+    color: $color-dark-gray-30 !important;
+  }
+
+  
+  

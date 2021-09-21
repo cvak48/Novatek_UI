@@ -1,0 +1,197 @@
+@import "../../../reusable/theme/base.scss";
+.container {
+  font-weight: 500;
+  max-width: 100% !important;
+}
+
+.container-background{
+  max-width: 100% !important;
+  line-height: 40px;
+  font-size: 14px;
+  height: 56px;
+  padding: 8px 12px;
+  background-color: $color-light-gray;
+  border-bottom: 2px solid $color-light-gray-28;
+}
+
+::ng-deep .dropdown-levelMenu-container {
+  width: 70%;
+  height: 40px !important;
+  margin-left: 10px;
+  .dropdown {
+    border: none !important;
+  }
+  .dropdown-menu {
+    max-width: 100% !important;
+    width: 600px;
+  }
+}
+::ng-deep .dropdown-site-container {
+  width: 90%;
+  height: 40px !important;
+  margin-left: 10px;
+  .dropdown {
+    border: none !important;
+  }
+  .dropdown-menu {
+    max-width: 100% !important;
+    width: 600px;
+  }
+}
+.dp-flex {
+  display: flex;
+  align-items: center;
+}
+
+.wd-70 {
+  width: 70% !important;
+}
+
+.wd-100 {
+  width: 100% !important;
+}
+
+.mr-lt-3 {
+  margin-left: 3%;
+}
+
+.ht-70 {
+  height: 81%;
+  padding: 0 1% 2.5% 1%;
+}
+
+.add-btn {
+  height: 65% !important;
+  border-radius: 5px;
+  background-color: $color-light-gray-30;
+  border: 2px solid $color-light-gray-28;
+  color: $color-light-gray-60;
+}
+
+::ng-deep .mat-select {
+  background-color: $color-white-20;
+}
+
+.dropdown-toggle::after {
+  content: none;
+}
+
+.dropdown-menu {
+  transform: translate3d(-140px, 45px, 0px) !important;
+}
+
+.close-icon{
+  margin-left: 50px;
+  margin-top: -10px;
+}
+
+.hamburger-icon{
+  margin-top: -12px;
+  margin-left: 7px;
+}
+
+::ng-deep .mat-drawer.mat-drawer-side {
+    background-color: #F0F0F0;
+}
+
+::ng-deep .mat-list-item :hover {
+    .hoverColor {
+        width: 5px;
+        height: 32px;
+        float: left;
+        position: fixed;
+        margin-left: -8px;
+        margin-top: 0px;
+    }
+}
+
+.color-main {
+  // font-family: Lato !important;
+  color: $color-black-20 !important; // $color-dark-gray;
+}
+
+::ng-deep .mat-list-base .mat-list-item.mat-list-item-with-avatar,
+.mat-list-base .mat-list-option.mat-list-item-with-avatar {
+    height: 35px !important;
+}
+
+::ng-deep .mat-list-base .mat-list-item .mat-list-text>*,
+.mat-list-base .mat-list-option .mat-list-text>* {
+    font-size: 12px !important;
+}
+
+::ng-deep .mat-drawer-inner-container {
+    overflow-x: hidden !important;
+    width: 200px !important;
+}
+
+.sidenav-txt {
+    margin-left: 11px;
+}
+
+.sidenav-content {
+    margin-top: 2vh !important;
+    font-weight: 500 !important;
+}
+
+.sidenav-menuicon {
+    width: 18px;
+}
+
+.sidenav-height {
+    height: 90vh;
+}
+
+.sidenav-menuicon2 {
+    width: 16px;
+}
+
+::ng-deep .mat-list-base .mat-list-item .mat-divider,
+.mat-list-base .mat-list-option .mat-divider {
+    position: absolute;
+    bottom: 0;
+    right: 0 !important;
+    left: 45px !important;
+    width: 75% !important;
+    margin: 0;
+    top: 35px !important;
+    border: 1px solid #dfdfdf;
+}
+
+::ng-deep .mat-list-base .mat-list-item .mat-list-item-content, .mat-list-base .mat-list-option .mat-list-item-content {
+    padding:  0 8px !important;
+}
+
+.custom-height {
+    height: 20px;
+}
+
+::ng-deep .mat-list-base .mat-list-item.mat-list-item-with-avatar .mat-list-item-content .mat-list-text, .mat-list-base .mat-list-item.mat-list-option .mat-list-item-content .mat-list-text, .mat-list-base .mat-list-option.mat-list-item-with-avatar .mat-list-item-content .mat-list-text, .mat-list-base .mat-list-option.mat-list-option .mat-list-item-content .mat-list-text {
+    padding-left: 5px !important;
+}
+
+.mat-list-base {
+    padding-top: 0px !important;
+    padding-left: 10px !important;
+}
+
+.left-icon {
+  margin-top: -11px;
+}
+
+::ng-deep .mat-list .mat-list-base :hover {
+  color:green;
+  .hoverColor {
+      color:red;
+      width: 5px;
+      height: 32px;
+      float: left;
+      position: fixed;
+      margin-left: -8px;
+      margin-top: 0px;
+  }
+}
+
+.test1:hover{
+  background-color: $color-light-gray-28 !important;
+}

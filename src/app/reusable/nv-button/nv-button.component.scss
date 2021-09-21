@@ -9,60 +9,46 @@
   height: 40px;
   cursor: pointer;
 
-  &.type-Raised {
-    box-shadow: 0px 1px 1px;
-    .button {
-      .label {
-      }
-    }
-  }
-
-  &.type-Stroked {
-    .button {
-      .label {
-      }
-    }
-  }
 
   &.theme-color-Basic {
     background-color: $color-light-gray-22;
     border: 1px solid $color-dark-gray;
+
     .button {
       .label {
         color: $color-black-09;
         background-color: transparent;
       }
     }
+
     &:hover {
-        background-color: $color-light-gray-28;
+      background-color: $color-light-gray-28;
     }
+
     &:active {
-        background-color:  $color-white-f6;
+      background-color: $color-white-f6;
     }
   }
 
   &.theme-color-Primary {
-    background-color: $color-dark-blue-10;
+    background-color: $color-dark-blue-1F;
     border: 1px solid $color-dark-blue;
+
     .button {
       .label {
         color: $color-white-20;
         background-color: transparent;
       }
     }
+
     &:hover {
-        background-color: $color-dark-blue-11;
+      background-color: $color-dark-blue-11;
     }
+
     &:active {
-        background-color: $color-dark-blue-18;
+      background-color: $color-dark-blue-18;
     }
   }
 
-  &.theme-color-Secondary {
-    .button {
-      .label {
-      }
-    }
-  }
 
 }

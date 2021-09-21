@@ -1,91 +1,115 @@
-import { NvDataPickerComponent } from './nv-data-picker/nv-data-picker.component';
+import { NvTimePickerComponent } from './nv-time-picker/nv-time-picker.component';
+import { NvChecklistDropdownComponent } from './nv-checklist-dropdown/nv-checklist-dropdown.component';
+import { NvMultiSelectDropdownComponent } from './nv-multiselect-dropdown/nv-multiselect-dropdown.component';
+import { NvDatePickerComponent } from './nv-date-picker/nv-date-picker.component';
+import { NvAvatarComponent } from './nv-avatar/nv-avatar.component';
+import { NvUploadComponent } from './nv-upload/nv-upload.component';
+
+import { NvSvgColorDirective } from './directives/nv-svg-decorator/nv-svg-color.directive';
+import { NvDropdownComponent } from './nv-dropdown/nv-dropdown.component';
+import { NvStyleColorDirective } from './directives/nv-status-color/nv-style-color.directive';
+import { NvSliderToggleComponent } from './nv-slider-toggle/nv-slider-toggle.component';
+import { NvSliderRadioButtonComponent } from './nv-slider-radio-button/nv-slider-radio-button.component';
+import { NvSliderComponent } from './nv-slider-bar/nv-slider-bar.component';
+import { NvCheckboxComponent } from './nv-checkbox/nv-checkbox.component';
+
 import { NvTrimPipe } from './pipes/nv-trim/nv-trim.pipe';
 import { NvButtonComponent } from './nv-button/nv-button.component';
-import { FilterAllPipe } from './pipes/filters/filterAll/filter-all.pipe';
-import { AdvanceFilterPipe } from './pipes/filters/advance-filter/advance-filter.pipe';
+import { NvFilterPipe } from './pipes/filters/nv-filter/nv-filter.pipe';
+import { NvAdvanceFilterPipe } from './pipes/filters/nv-advance-filter/nv-advance-filter.pipe';
 import { NvInitialsPipe } from './pipes/nv-initials/nv-initials.pipe';
-import { RattingComponent } from './ratting/ratting.component';
-import { NvCustomComponentComponent } from './nv-custom-component/nv-custom-component.component';
-import { UploadComponent } from './upload/upload.component';
+import { NVRatingComponent } from './nv-rating/nv-rating.component';
 import { NvFileUploadDirective } from './directives/file-upload/nv-file-upload.directive';
-import { NvDropdownComponent } from './nv-dropdown/nv-dropdown.component';
 import { UserProfileMenuComponent } from './user-profile-menu/user-profile-menu.component';
-import { NotificationComponent } from './notification/notification.component';
-import { AvatarComponent } from './avatar/avatar.component';
-import { SearchComponent } from './search/search.component';
+import { NvNotificationIconComponent } from './nv-notification-icon/nv-notification-icon.component';
+import { NvSearchComponent } from './nv-search/nv-search.component';
 import { MaterialModule } from './../material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FooterComponent } from './footer/footer.component';
-import { SideNavComponent } from './side-nav/side-nav.component';
-import { NovatekLogoComponent } from './novatek-logo/novatek-logo.component';
+import { NVLogoComponent } from './nv-logo/nv-logo.component';
 import { PanelComponent } from './panel/panel.component';
-import { TextAreaComponent } from './text-area/text-area.component';
-import { CommentBoxComponent } from './comment-box/comment-box.component';
-import { TabsComponent } from './tabs/tabs.component';
-import { TabWrapper } from './tabs/tabs-wrapper.component';
-import { InvertedTabsComponent } from './inverted-tabs/inverted-tabs.component';
-import { LeftTabComponent } from './left-tab/left-tab.component';
-import { RightTabComponent } from './right-tab/right-tab.component';
+import { NVTextAreaComponent } from './nv-text-area/nv-text-area.component';
+import { NVCommentBoxComponent } from './nv-comment-box/nv-comment-box.component';
+import { NVTabsComponent } from './nv-tabs/nv-tabs.component';
+import { TabWrapper } from './nv-tabs/nv-tabs-wrapper.component';
+import { NVInvertedTabsComponent } from './nv-inverted-tabs/nv-inverted-tabs.component';
+import { NVLeftTabComponent } from './nv-left-tab/nv-left-tab.component';
+import { NVRightTabComponent } from './nv-right-tab/nv-right-tab.component';
 import { FeedComponent } from './feed/feed.component';
-import { PlaceholderCardComponent } from './placeholder/placeholder-card/placeholder-card.component';
-import { PlaceholderListComponent } from './placeholder/placeholder-list/placeholder-list.component';
-import { PlaceholderBannerComponent } from './placeholder/placeholder-banner/placeholder-banner.component';
-import { PlaceholderBigCardComponent } from './placeholder/placeholderBigCard/placeholderBigCard.component';
+import { NvPlaceholderCardComponent } from './placeholder/nv-placeholder-card/nv-placeholder-card.component';
+import { NvPlaceholderListComponent } from './placeholder/nv-placeholder-list/nv-placeholder-list.component';
+import { NvPlaceholderBannerComponent } from './placeholder/nv-placeholder-banner/nv-placeholder-banner.component';
+import { NvPlaceholderBigCardComponent } from './placeholder/nv-placeholderBigCard/nv-placeholderBigCard.component';
 import { MatTableModule } from '@angular/material/table';
-import { CustomDatatableComponent } from './custom-datatable/custom-datatable.component';
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatInputModule} from "@angular/material/input";
-import {MatPaginatorModule} from "@angular/material/paginator";
-import {MatSortModule} from "@angular/material/sort";
-import {MatIconModule} from "@angular/material/icon";
-import {MatButtonModule} from "@angular/material/button";
-import { DataPropertyGetterPipe } from './custom-datatable/data-property-getter-pipe/data-property-getter.pipe';
-import { TestComponent } from '../main/test/test.component';
-import { ProgressiveBarComponent } from './progressive-bar/progressive-bar.component';
-
+import { NvCustomDatatableComponent } from './nv-custom-datatable/nv-custom-datatable.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { DataPropertyGetterPipe } from './pipes/data-property-getter-pipe/data-property-getter.pipe';
+import { TestComponent } from './test/test.component';
+import { NvPlaceholderTextCardComponent } from './placeholder/nv-placeholder-text-card/nv-placeholder-text-card.component';
+import { NvPlaceholderSmallCardComponent } from './placeholder/nv-placeholder-small-card/nv-placeholder-small-card.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { NvCustomTableComponent } from './nv-custom-table/nv-custom-table.component';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { NVProgressiveBarComponent } from './nv-progressive-bar/nv-progressive-bar.component';
+import { NvInputComponent } from './nv-input/nv-input.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { NvTextColorDirective } from './directives/nv-status-color/nv-text-color.directive';
 
 const sharedComponents = [
   NvInitialsPipe,
-  AdvanceFilterPipe,
-  FilterAllPipe,
+  NvAdvanceFilterPipe,
+  NvFilterPipe,
   NvTrimPipe,
   NvFileUploadDirective,
-  FooterComponent,
-  SideNavComponent,
-  NovatekLogoComponent,
-  CustomDatatableComponent,
+  NvStyleColorDirective,
+  NvTextColorDirective,
+  NvSvgColorDirective,
+  NVLogoComponent,
+  NvCustomDatatableComponent,
+  NvDatePickerComponent,
   DataPropertyGetterPipe,
   PanelComponent,
-  SearchComponent,
-  TextAreaComponent,
-  AvatarComponent,
-  NotificationComponent,
+  NvMultiSelectDropdownComponent,
+  NvChecklistDropdownComponent,
+  NVTextAreaComponent,
+  NvNotificationIconComponent,
   UserProfileMenuComponent,
   PanelComponent,
-  SearchComponent,
-  CommentBoxComponent,
-  TextAreaComponent,
+  NvSearchComponent,
+  NVCommentBoxComponent,
   NvDropdownComponent,
-  UploadComponent,
   TestComponent,
-  TabsComponent,
+  NVTabsComponent,
   TabWrapper,
-  InvertedTabsComponent,
-  LeftTabComponent,
-  RightTabComponent,
+  NVInvertedTabsComponent,
+  NVLeftTabComponent,
+  NVRightTabComponent,
   FeedComponent,
-  PlaceholderCardComponent,
-  PlaceholderListComponent,
-  PlaceholderBannerComponent,
-  PlaceholderBigCardComponent,
-  NvCustomComponentComponent,
-  UploadComponent,
-  RattingComponent,
-  ProgressiveBarComponent,
-  NvDataPickerComponent,
-  NvButtonComponent
+  NvPlaceholderCardComponent,
+  NvPlaceholderListComponent,
+  NvPlaceholderBannerComponent,
+  NvPlaceholderBigCardComponent,
+  NvCheckboxComponent,
+  NvSliderComponent,
+  NvSliderRadioButtonComponent,
+  NvSliderToggleComponent,
+  NVRatingComponent,
+  NvPlaceholderTextCardComponent,
+  NvPlaceholderSmallCardComponent,
+  NvCustomTableComponent,
+  NVProgressiveBarComponent,
+  NvDatePickerComponent,
+  NvButtonComponent,
+  NvInputComponent,
+  NvAvatarComponent,
+  NvUploadComponent,
+  NvTimePickerComponent,
 ];
 
 @NgModule({
@@ -102,8 +126,11 @@ const sharedComponents = [
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
+    MatCheckboxModule,
+    NgxPaginationModule,
+    MDBBootstrapModule.forRoot(),
   ],
   exports: sharedComponents,
-  providers: [FilterAllPipe, AdvanceFilterPipe ]
+  providers: [NvFilterPipe, NvAdvanceFilterPipe, NvTrimPipe],
 })
-export class ReusableModule { }
+export class ReusableModule {}

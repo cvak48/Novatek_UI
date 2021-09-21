@@ -1,0 +1,204 @@
+<app-nv-header *ngIf="person" [person]="person"></app-nv-header>
+<div class="container container-background">
+  <div class="row">
+    <div class="col-md-2 dp-flex">
+      <!-- openFirstLevelMenu function will open first level menu items -->
+      <mat-icon
+        *ngIf="isFirstLevelIcon"
+        class="sidenav-icon"
+        aria-label="Menu"
+        (click)="openFirstLevelMenu()"
+        >menu</mat-icon
+      >
+      <!-- closeSideNav function close sidenav -->
+      <mat-icon *ngIf="isHamburger" class="hamburger-icon" mat-list-icon
+        ><img
+          (click)="closeSideNav()"
+          src="../../../assets/icons/ico.hamburger.svg"
+          alt="icon"
+      /></mat-icon>
+
+      <!-- 2nd level icon -->
+      <mat-icon *ngIf="isSecondLevelIcon" class="left-icon" mat-list-icon
+        ><img
+          (click)="openFirstLevelMenu()"
+          src="../../../assets/icons/left-square-arrow.icon.svg"
+          alt="flag"
+          alt="icon"
+      /></mat-icon>
+
+      <mat-label class="mr-lt-3">MAIN MENU </mat-label>
+      <!-- close icon -->
+      <mat-icon *ngIf="showCloseIcon" class="close-icon"
+        ><img
+          (click)="closeSideNav()"
+          src="../../../assets/icons/ico.close.svg"
+      /></mat-icon>
+    </div>
+    <div class="col-md-5 dp-flex">
+      <mat-label class="label-submenu">{{ firstLevelMenu }}</mat-label>
+      <app-nv-dropdown
+        class="dropdown-levelMenu-container"
+        [items]="dropdownItemsMenu"
+        [textTrimNumber]="textTrimNumberMenu"
+        [selectedItem]="selectedItemDefaultMenu"
+        [fieldType]="dropDownFieldTypeMenu"
+        (itemSelect)="onMenuItemSelect($event)"
+      ></app-nv-dropdown>
+    </div>
+
+    <div class="col-md-4 dp-flex">
+      <mat-label class="label-submenu">SITE</mat-label>
+      <app-nv-dropdown
+        class="dropdown-site-container"
+        [items]="dropdownItemsSite"
+        [textTrimNumber]="textTrimNumberSite"
+        [selectedItem]="selectedItemDefaultSite"
+        [fieldType]="dropDownFieldTypeSite"
+        (itemSelect)="onPlusItemSelect($event)"
+      ></app-nv-dropdown>
+    </div>
+
+    <div class="col-md-1 dp-flex">
+      <app-nv-dropdown
+        class="dropdown-plus-container"
+        [items]="dropdownItemsPlus"
+        [textTrimNumber]="textTrimNumberPlus"
+        [selectedItem]="selectedItemDefaultPlus"
+        [fieldType]="dropDownFieldTypePlus"
+        (itemSelect)="onPlusItemSelect($event)"
+      ></app-nv-dropdown>
+    </div>
+  </div>
+</div>
+<mat-drawer-container
+  *ngIf="showSideNav"
+  class="mat-typography"
+  autosize
+  class="sidenav-height"
+>
+  <mat-drawer #drawer mode="side" disableClose="true" opened="true">
+    <mat-nav-list *ngIf="showFirstLevelMenu">
+      <!-- Itterrating all the menu items in the side menu -->
+      <mat-list-item
+        *ngFor="let item of firstLevelMenuItems; let i = index"
+        (click)="openSecondLevelMenu(i)"
+      >
+        <div class="hoverColor"></div>
+        <mat-icon mat-list-icon
+          ><img class="sidenav-menuicon" src="{{ item.icon }}"
+        /></mat-icon>
+        <h4 class="sidenav-content color-main" mat-line>
+          {{ item.name }}
+        </h4>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+    </mat-nav-list>
+
+    <mat-list *ngIf="showSecondLevelMenu">
+      <!-- <div *ngIf="firstLevelSelectedIndex === 0">
+        <ng-container *ngFor="let item of masterList">
+          <div class="hoverColor"></div>
+          <h4 class="sidenav-content color-main" mat-line>
+            {{ item.name }}
+          </h4>
+          <mat-list style="margin-left: 15px">
+            <div *ngFor="let subItem of item.subItems">
+              <h5 class="sidenav-content color-main" style="margin-bottom: 0px">
+                {{ subItem.name }}
+              </h5>
+              <mat-divider></mat-divider>
+            </div>
+          </mat-list>
+        </ng-container>
+      </div>
+      <div *ngIf="firstLevelSelectedIndex === 1">
+        <ng-container *ngFor="let item of itemsL22">
+          <div class="hoverColor"></div>
+          <h4 class="sidenav-content color-main" mat-line>
+            {{ item.name }}
+          </h4>
+          <mat-list style="margin-left: 15px">
+            <div *ngFor="let subItem of item.subItems">
+              <h5 class="sidenav-content color-main" style="margin-bottom: 0px">
+                {{ subItem.name }}
+              </h5>
+              <mat-divider></mat-divider>
+            </div>
+          </mat-list>
+        </ng-container>
+      </div>
+      <div *ngIf="firstLevelSelectedIndex === 2">
+        <ng-container *ngFor="let item of itemsL32">
+          <div class="hoverColor"></div>
+          <h4 class="sidenav-content color-main" mat-line>
+            {{ item.name }}
+          </h4>
+          <mat-list style="margin-left: 15px">
+            <div *ngFor="let subItem of item.subItems">
+              <h5 class="sidenav-content color-main" style="margin-bottom: 0px">
+                {{ subItem.name }}
+              </h5>
+              <mat-divider></mat-divider>
+            </div>
+          </mat-list>
+        </ng-container>
+      </div>
+      <div *ngIf="firstLevelSelectedIndex === 3">
+        <ng-container *ngFor="let item of itemsL32">
+          <div class="hoverColor"></div>
+          <h4 class="sidenav-content color-main" mat-line>
+            {{ item.name }}
+          </h4>
+          <mat-list style="margin-left: 15px">
+            <div *ngFor="let subItem of item.subItems">
+              <h5 class="sidenav-content color-main" style="margin-bottom: 0px">
+                {{ subItem.name }}
+              </h5>
+              <mat-divider></mat-divider>
+            </div>
+          </mat-list>
+        </ng-container>
+      </div>
+      <div *ngIf="firstLevelSelectedIndex === 4">
+        <ng-container *ngFor="let item of itemsL32">
+          <div class="hoverColor"></div>
+          <h4 class="sidenav-content color-main" mat-line>
+            {{ item.name }}
+          </h4>
+          <mat-list style="margin-left: 15px">
+            <div *ngFor="let subItem of item.subItems">
+              <h5 class="sidenav-content color-main" style="margin-bottom: 0px">
+                {{ subItem.name }}
+              </h5>
+              <mat-divider></mat-divider>
+            </div>
+          </mat-list>
+        </ng-container>
+      </div>  -->
+
+      <ng-container *ngFor="let item of seconndLevelMenuItems; let j = index">
+        <div *ngIf="firstLevelSelectedIndex === j">
+          <div class="hoverColor"></div>
+          <h4 class="sidenav-content color-main" mat-line>
+            {{ item.name }}
+          </h4>
+          <mat-list class="" style="margin-left: 15px;cursor: pointer;">
+            <div *ngFor="let subItem of item.subItems; let k=index" (click)="selectedSecondLevelMenuItem(k, subItem)">
+              <h5 class="sidenav-content color-main test1" style="margin-bottom: 0px">
+                {{ subItem.name }}
+              </h5>
+              <mat-divider></mat-divider>
+            </div>
+          </mat-list>
+        </div>
+      </ng-container>
+
+    </mat-list>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <ng-content></ng-content>
+    <p>Side Nav Content</p>
+  </div>
+</mat-drawer-container>

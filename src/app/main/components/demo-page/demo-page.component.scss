@@ -4,13 +4,51 @@
   box-sizing: border-box;
 }
 
+@mixin inputLabel {
+
+  font-family: $nv-font;
+  font-size: $font-size-x-small;
+  font-weight: $font-weight-normal;
+  color: $color-dark-gray-12;
+
+&:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+&::-webkit-input-placeholder {
+  font-family: $nv-font;
+  font-size: $font-size-x-small;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-x-small;
+  color: $color-dark-gray-30;
+}
+
+&:-moz-placeholder {
+  font-family: $nv-font;
+  font-size: $font-size-x-small;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-x-small;
+  color: $color-dark-gray-30;
+}
+
+&::-moz-placeholder {
+  font-family: $nv-font;
+  font-size: $font-size-x-small;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-x-small;
+  color: $color-dark-gray-30;
+}
+}
 .demo-page-container {
   display: grid;
   grid-template-rows: 70px 1fr;
   width: 100%;
   height: calc(100vh);
-  background-color: #FFFFFF;
-  background-color: #fafafa;
+  background-color: $color-white-20;
+  background-color: $color-white-fa;
 
   .toolbar {
     position: relative;
@@ -18,7 +56,7 @@
     left: 0;
     right: 0;
     height: 70px;
-    background-color: #4361EE;
+    background-color: $color-light-blue-40;
     color: white;
     font-weight: $font-weight-heavy;
     display: flex;
@@ -37,14 +75,14 @@
       margin-left: -32px;
       font-size: $font-size-large;
       font-weight: $font-weight-heavy;
-      color: #E2A200;
+      color: $color-orange;
     }
 
     .demo-label {
       padding-left: 25px;
       font-size: $font-size-large;
-      // font-weight: $font-weight-medium;
-      color: #EFEFF2;
+      font-weight: $font-weight-normal;
+      color: $color-white-10;
     }
 
     .spacer {
@@ -61,26 +99,26 @@
     position: relative;
     display: grid;
     grid-template-columns: 200px 1fr;
-    font-family: Roboto, Helvetica Neue, sans-serif;
-    background-color: rgb(228, 224, 224);
+    font-family: $nv-font;
+    background-color: $color-white-10;
 
     .side-menu {
       position: relative;
       display: flex;
       flex-direction: column;
-      border-right: 1px solid rgba(0, 0, 0, .12);
+      border-right: 1px solid $color-black;
       overflow-y: hidden;
 
       .menu-header {
         text-align: center;
-        color: rgba(0, 0, 0, .65);
+        color: $color-black;
         padding-top: 8px;
         padding-bottom: 8px;
       }
 
       .menu-item {
         position: relative;
-        color: rgba(0, 0, 0, .65);
+        color: $color-black;
         vertical-align: middle;
         height: 50px;
         line-height: 50px;
@@ -88,8 +126,8 @@
 
         &:hover {
           cursor: pointer;
-          background: rgba(63, 81, 181, .15);
-          color: #3f51b5;
+          background: $color-dark-gray-30;
+          color: $color-dark-gray-02;
         }
       }
     }
@@ -99,20 +137,21 @@
       padding-top: 50px;
       display: flex;
       flex-direction: column;
-
+      background-color: rgb(235, 235, 235);
+      @include inputLabel;
       .panel-header {
 
         padding-top: 8px;
         padding-bottom: 8px;
 
         .header-title {
-          color: rgba(0, 0, 0, .65);
+          color: $color-black;
           font-size: larger;
           font-weight: 700;
         }
 
         .header-description {
-          color: rgba(54, 54, 54, 0.65);
+          color: $color-black-18;
           font-size: large;
           font-weight: 500;
         }
@@ -139,7 +178,7 @@
           height: 64px;
         }
         .dropdown-container {
-          width: 10%;
+          width: 15%;
         }
 
         .upload-file-container {

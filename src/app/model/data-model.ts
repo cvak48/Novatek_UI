@@ -31,7 +31,6 @@ export interface Notification {
 export class TodoItemNode {
     children!: TodoItemNode[];
     item!: string;
-    code!: string;
 }
 
 /** Flat to-do item node with expandable and level information */
@@ -39,7 +38,6 @@ export class TodoItemFlatNode {
     item!: string;
     level!: number;
     expandable!: boolean;
-    code!: string;
 }
  /** data model related to Theme/skin */
 export enum FieldStatusType {

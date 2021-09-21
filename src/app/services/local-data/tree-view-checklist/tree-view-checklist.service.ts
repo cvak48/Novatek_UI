@@ -6,13 +6,17 @@ import { BehaviorSubject } from 'rxjs';
  * The Json object for to-do list data.
  */
 const TREE_DATA = {
+  // lev0
   Groceries: {
+    // lev1
     'Almond Meal flour': null,
     'Organic eggs': null,
     'Protein Powder': null,
+     // lev1
     Fruits: {
+      // lev2
       Apple: null,
-      Berries: ['Blueberry', 'Raspberry'],
+      Berries: ['Blueberry', 'Raspberry'], // lev3
       Orange: null
     }
   },
@@ -44,7 +48,7 @@ export class TreeViewChecklistService {
     // Build the tree nodes from Json object. The result is a list of `TodoItemNode` with nested
     //     file node as children.
     const data = this.buildFileTree(TREE_DATA, 0);
-    console.log();
+    console.log(JSON.stringify(data));
     
 
     // Notify the change.

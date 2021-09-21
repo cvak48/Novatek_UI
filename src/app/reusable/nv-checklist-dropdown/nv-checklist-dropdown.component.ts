@@ -21,7 +21,6 @@ import { NvFilterPipe } from '../pipes/filters/nv-filter/nv-filter.pipe';
  * https://v7.material.angular.io/components/tree/api
  * https://stackoverflow.com/questions/50611686/how-to-filter-a-mat-tree-component-angular-material-6-0-1
  */
-
 @Component({
   selector: 'app-nv-checklist-dropdown',
   templateUrl: './nv-checklist-dropdown.component.html',
@@ -75,7 +74,7 @@ export class NvChecklistDropdownComponent implements OnInit {
   hasItem = true;
   //
   itemCtrl = new FormControl();
-  dataRef!: TodoItemNode[];
+  dataSourceRef!: TodoItemNode[];
 
   constructor(
     private _database: TreeViewChecklistService,
@@ -100,16 +99,28 @@ export class NvChecklistDropdownComponent implements OnInit {
       console.log('data' + JSON.stringify(data));
       this.dataSource.data = data;
       // for filter
-      this.dataRef = data;
+      this.dataSourceRef = data;
     });
+    // As soon as user make query, we need to filter the data
     this.itemCtrl.valueChanges.subscribe((query) => {
-      if (query && query !== '') {
-        const filteredItems = this.filter.transform(this.dataSource.data, query);
-        this.dataSource.data = filteredItems ? (filteredItems.length !== 0 ? filteredItems : this.dataRef) : this.dataRef;
-      } else if (query === '') {
-        this.dataSource.data = this.dataRef;
-      }
+      this.dataSource.data = this._filterDataSource(query);
     });
+  }
+  /**
+   * filter the input query
+   */
+  _filterDataSource(query: string): TodoItemNode[] {
+    if (query && query !== '') {
+      const filteredItems = this.filter.transform(this.dataSource.data, query);
+      this.dataSource.data = filteredItems
+        ? filteredItems.length !== 0
+          ? filteredItems
+          : this.dataSourceRef
+        : this.dataSourceRef;
+    } else if (query === '') {
+      this.dataSource.data = this.dataSourceRef;
+    }
+    return this.dataSource.data;
   }
   /**
    * blur and click eventHandler are responsible for changing the triangle icon direction
@@ -121,7 +132,6 @@ export class NvChecklistDropdownComponent implements OnInit {
     }
   }
   onFieldClick(): void {}
-
   /**
    * triggered after removing chip
    *
@@ -152,7 +162,6 @@ export class NvChecklistDropdownComponent implements OnInit {
 
   hasNoContent = (_: number, _nodeData: TodoItemFlatNode) =>
     _nodeData.item === '';
-
   /**
    * Transformer to convert nested node to flat node. Record the nodes in maps for later use.
    */

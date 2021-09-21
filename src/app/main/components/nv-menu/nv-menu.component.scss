@@ -178,3 +178,20 @@
 .left-icon {
   margin-top: -11px;
 }
+
+::ng-deep .mat-list .mat-list-base :hover {
+  color:green;
+  .hoverColor {
+      color:red;
+      width: 5px;
+      height: 32px;
+      float: left;
+      position: fixed;
+      margin-left: -8px;
+      margin-top: 0px;
+  }
+}
+
+.test1:hover{
+  background-color: $color-light-gray-28 !important;
+}

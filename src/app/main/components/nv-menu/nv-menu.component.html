@@ -183,9 +183,9 @@
           <h4 class="sidenav-content color-main" mat-line>
             {{ item.name }}
           </h4>
-          <mat-list style="margin-left: 15px">
+          <mat-list class="" style="margin-left: 15px;cursor: pointer;">
             <div *ngFor="let subItem of item.subItems; let k=index" (click)="selectedSecondLevelMenuItem(k, subItem)">
-              <h5 class="sidenav-content color-main" style="margin-bottom: 0px">
+              <h5 class="sidenav-content color-main test1" style="margin-bottom: 0px">
                 {{ subItem.name }}
               </h5>
               <mat-divider></mat-divider>

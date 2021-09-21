@@ -19,6 +19,8 @@ export class NvMenuComponent implements OnInit {
   showSecondLevelMenu: boolean = false;
   showSideNav: boolean = false;
 
+  initialHistoryDropDownItems: string[] = [];
+
   firstLevelSelectedIndex: number = 0;
 
   /**
@@ -47,7 +49,7 @@ export class NvMenuComponent implements OnInit {
     { icon: '../../../assets/icons/ico.masterlist.svg', name: 'Analytics' },
   ];
 
-  firstLevelMenu: string = this.firstLevelMenuItems[0].name;
+  firstLevelMenu: string = 'History'; //this.firstLevelMenuItems[0].name;
 
   masterList = [
     {
@@ -184,7 +186,7 @@ export class NvMenuComponent implements OnInit {
   person: Person = this.mockProfileMenu();
 
   // dropDown Menu
-  dropdownItemsMenu = this.getSubMenuItemForDropdown(0); //masterList//seconndLevelMenuItems
+  dropdownItemsMenu = this.initialHistoryDropDownItems; //this.getSubMenuItemForDropdown(0);
   textTrimNumberMenu = this.mockMenuDropdown().textTrimNumber;
   selectedItemDefaultMenu = this.mockMenuDropdown().selectedItemDefault;
   dropDownFieldTypeMenu = this.mockMenuDropdown().dropDownFieldType;
@@ -213,7 +215,7 @@ export class NvMenuComponent implements OnInit {
 
   mockMenuDropdown(): any {
     const dropdownInputs = {
-      items: this.getMenuItemsForDropdown(), //['Menu Item L12', 'Menu Item L12', 'Menu Item L12'],
+      items: this.initialHistoryDropDownItems, //this.getMenuItemsForDropdown(),
       textTrimNumber: 5,
       selectedItemDefault: 'Level 2 Menu Name ',
       dropDownFieldType: DropdownFieldType.Input,
@@ -274,16 +276,9 @@ export class NvMenuComponent implements OnInit {
   }
 
   openSecondLevelMenu(index: number) {
-    // if (index === 0) {
-    //   this.dropdownItemsMenu = this.getSubMenuItemForDropdown(this.seconndLevelMenuItems);//masterList
-    // } else if (index === 1) {
-    //   this.dropdownItemsMenu = this.getSubMenuItemForDropdown(this.seconndLevelMenuItems);//itemsL22
-    // } else if (index === 2) {
-    //   this.dropdownItemsMenu = this.getSubMenuItemForDropdown(this.seconndLevelMenuItems);//itemsL32
-    // }
-    this.dropdownItemsMenu = this.getSubMenuItemForDropdown(index); //masterList
+    //this.dropdownItemsMenu = this.getSubMenuItemForDropdown(index); //masterList
     this.firstLevelSelectedIndex = index;
-    this.firstLevelMenu = this.firstLevelMenuItems[index].name;
+    //this.firstLevelMenu = this.firstLevelMenuItems[index].name;
     this.selectedItemDefaultMenu = this.mockMenuDropdown().selectedItemDefault;
     this.showSecondLevelMenu = true;
     this.showSideNav = true;
@@ -294,15 +289,22 @@ export class NvMenuComponent implements OnInit {
     this.isFirstLevelIcon = false;
   }
 
-  selectedSecondLevelMenuItem(index: number, item: any){
+  selectedSecondLevelMenuItem(index: number, item: any) {
     console.log(index);
     console.log(item);
     this.selectedItemDefaultMenu = item.name;
+    this.dropdownItemsMenu = this.setHistoryDropdownItems(item.name);
     //this.onMenuItemSelect(item.name);
   }
 
+  setHistoryDropdownItems(item: any) {
+    if(this.initialHistoryDropDownItems.indexOf(item)<0){
+      this.initialHistoryDropDownItems.unshift(item);
+    }
+    return this.initialHistoryDropDownItems;
+  }
+
   private getSubMenuItemForDropdown(index: number) {
-    //items: any
     let tempArr: string[] = [];
     this.seconndLevelMenuItems[index].subItems.forEach((item) =>
       tempArr.push(item.name)

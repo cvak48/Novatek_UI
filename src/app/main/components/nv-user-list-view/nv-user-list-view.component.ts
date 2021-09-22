@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NvUserListViewComponent implements OnInit {
   isLeftVisible = true;
-
+  
   showPanel: string = '1';
   constructor() { }
 

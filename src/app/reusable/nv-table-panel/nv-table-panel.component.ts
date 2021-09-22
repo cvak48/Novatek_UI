@@ -9,6 +9,8 @@ export class NvTablePanelComponent implements OnInit {
   @Input() panelNum!: string;
   @Output() panelClick: EventEmitter<boolean> = new EventEmitter();
   @Output() close = new EventEmitter();
+  
+  dropdownDefault = '5';
   showPanel: boolean = false;
   page = 1;
   count = 0;

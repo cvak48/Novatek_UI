@@ -11,7 +11,7 @@
   height: 56px;
   padding: 8px 12px;
   background-color: $color-light-gray;
-  border-bottom: 2px solid $color-light-gray-28;
+  border-bottom: 1px solid $color-dark-gray-20;
 }
 
 ::ng-deep .dropdown-levelMenu-container {
@@ -85,13 +85,26 @@
   margin-top: -10px;
 }
 
+.close-icon-left{
+  margin-left: -4px;
+}
+
 .hamburger-icon{
   margin-top: -12px;
   margin-left: 7px;
 }
 
+.hamburger-icon-top {
+  margin-top: -9px;
+}
+
+.hamburger-size {
+  height: 24px;
+  width: 24px;
+}
+
 ::ng-deep .mat-drawer.mat-drawer-side {
-    background-color: #F0F0F0;
+    background-color: $color-light-gray;
 }
 
 ::ng-deep .mat-list-item :hover {
@@ -106,8 +119,10 @@
 }
 
 .color-main {
-  // font-family: Lato !important;
-  color: $color-black-20 !important; // $color-dark-gray;
+  font-family: Lato !important;
+  font-size: 13px !important;
+  font-weight: 900 !important;
+  color: $color-dark-gray !important;
 }
 
 ::ng-deep .mat-list-base .mat-list-item.mat-list-item-with-avatar,
@@ -117,12 +132,12 @@
 
 ::ng-deep .mat-list-base .mat-list-item .mat-list-text>*,
 .mat-list-base .mat-list-option .mat-list-text>* {
-    font-size: 12px !important;
+    //font-size: 12px !important;
 }
 
 ::ng-deep .mat-drawer-inner-container {
     overflow-x: hidden !important;
-    width: 200px !important;
+    width: 220px !important;
 }
 
 .sidenav-txt {
@@ -131,7 +146,7 @@
 
 .sidenav-content {
     margin-top: 2vh !important;
-    font-weight: 500 !important;
+   // font-weight: 500 !important;
 }
 
 .sidenav-menuicon {
@@ -176,7 +191,7 @@
 }
 
 .left-icon {
-  margin-top: -11px;
+  margin-top: -12px;
 }
 
 ::ng-deep .mat-list .mat-list-base :hover {
@@ -194,4 +209,13 @@
 
 .test1:hover{
   background-color: $color-light-gray-28 !important;
+}
+
+.main-menu-text{
+  font: normal normal bold 16px/20px Lato;
+  color: $color-dark-gray;
+}
+
+.second-level-menu-text{
+  margin-left: 12px;
 }

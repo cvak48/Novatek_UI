@@ -298,10 +298,11 @@ export class NvMenuComponent implements OnInit {
   }
 
   setHistoryDropdownItems(item: any) {
-    if(this.initialHistoryDropDownItems.indexOf(item)<0){
-      this.initialHistoryDropDownItems.unshift(item);
-    }
-    return this.initialHistoryDropDownItems;
+    this.initialHistoryDropDownItems.unshift(item);
+    const uniqueHistoryDropDownItems = new Set(
+      this.initialHistoryDropDownItems
+    );
+    return Array.from(new Set(this.initialHistoryDropDownItems));
   }
 
   private getSubMenuItemForDropdown(index: number) {

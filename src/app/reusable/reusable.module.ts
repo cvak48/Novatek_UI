@@ -1,3 +1,4 @@
+import { NvDownloadComponent } from './nv-download/nv-download.component';
 import { NvTimePickerComponent } from './nv-time-picker/nv-time-picker.component';
 import { NvChecklistDropdownComponent } from './nv-checklist-dropdown/nv-checklist-dropdown.component';
 import { NvMultiSelectDropdownComponent } from './nv-multiselect-dropdown/nv-multiselect-dropdown.component';
@@ -118,6 +119,7 @@ const sharedComponents = [
   NvInputComponent,
   NvAvatarComponent,
   NvUploadComponent,
+  NvDownloadComponent,
   NvTimePickerComponent,
   NvDatePickerComponent,
   NvButtonComponent,

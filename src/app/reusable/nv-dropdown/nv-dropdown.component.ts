@@ -111,10 +111,12 @@ export class NvDropdownComponent implements OnInit, AfterViewInit, OnChanges {
   ) {
     this._initializeDropdownProps();
   }
-  ngOnChanges(): void {  }
+  ngOnChanges(): void {
+    this._populateDropdownPropsWithInput();
+    this.filteredItems = this.items;
+   }
 
   ngOnInit(): void {
-
     this._populateDropdownPropsWithInput();
     this._filterInputQuery();
   }

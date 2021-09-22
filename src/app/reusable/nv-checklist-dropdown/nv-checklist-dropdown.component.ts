@@ -21,6 +21,10 @@ import { NvFilterPipe } from '../pipes/filters/nv-filter/nv-filter.pipe';
  * https://v7.material.angular.io/components/tree/api
  * https://stackoverflow.com/questions/50611686/how-to-filter-a-mat-tree-component-angular-material-6-0-1
  */
+// TODO: the arrow icon need to be fixed
+//  when we filter by input query the result items in menu need to be open
+//  when we delete a chip the corresponding check box need to be uncheck
+// the dstance between menu and field should be updated
 @Component({
   selector: 'app-nv-checklist-dropdown',
   templateUrl: './nv-checklist-dropdown.component.html',
@@ -230,7 +234,9 @@ export class NvChecklistDropdownComponent implements OnInit {
       parent = this.getParentNode(parent);
     }
     //  save the children items to be used as chips
+    //TODO: need to be deleted
     this.filteredItems = this._toChips(this.checklistSelection.selected);
+    
   }
 
   /** Check root node checked state and change it accordingly */

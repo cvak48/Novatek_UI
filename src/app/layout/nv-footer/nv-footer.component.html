@@ -12,7 +12,7 @@
         </li>
       </ul>-->
      
-        <ul class="list-inlin pad_0">
+        <ul class="list-inlin pad_0 rTop">
           <li>@2021 All Rights Reserved <a href="#">ntint@com</a></li>
          
         </ul>
@@ -21,14 +21,17 @@
     <div class="col-3">
       <ul class="list-inlin pad_0">
         <li>
-          Language
+          Language  : &nbsp; &nbsp;
+         
+        </li>
+        <li>
           <app-nv-dropdown class="lang-item" [items]="Domain" [selectedItem]="selectedItems" (itemSelect)='onChange($event)'>
           </app-nv-dropdown>
         </li>
       </ul>
     </div>
     <div class="col-6">
-      <ul class="list-inlin" style="float: right">
+      <ul class="list-inlin rTop" style="float: right">
         <li>User:<a href="#">John Smith </a></li>
         <li>| Site: <a href="#">New Jersey</a></li>
         <li>

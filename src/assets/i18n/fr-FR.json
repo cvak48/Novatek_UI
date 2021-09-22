@@ -22,5 +22,6 @@
     "login": "Connexion",
     "submit": "nous",
     "resend": "Renvoyer",
-    "confirmationText":"Confirmation-fr"
+    "confirmationText":"Confirmation-fr",
+    "comments": "Comments FR"
 }

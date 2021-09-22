@@ -1,7 +1,7 @@
 <div class="container-fluid" id="myNavbar">
   <div class="row mg_0">
-    <div class="col-6">
-      <ul class="list-inlin pad_0">
+    <div class="col-3">
+     <!-- <ul class="list-inlin pad_0">
         <li>@2021 All Rights Reserved <a href="#">ntint@com</a></li>
         <li class="lang-style">
           Language:
@@ -9,6 +9,21 @@
             ><img src="{{ flagIcon }}" alt="flag"/>
             <span class="link-txt">English</span></a
           >
+        </li>
+      </ul>-->
+     
+        <ul class="list-inlin pad_0">
+          <li>@2021 All Rights Reserved <a href="#">ntint@com</a></li>
+         
+        </ul>
+     
+    </div>
+    <div class="col-3">
+      <ul class="list-inlin pad_0">
+        <li>
+          Language
+          <app-nv-dropdown class="lang-item" [items]="Domain" [selectedItem]="selectedItems" (itemSelect)='onChange($event)'>
+          </app-nv-dropdown>
         </li>
       </ul>
     </div>

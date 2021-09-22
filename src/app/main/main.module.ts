@@ -7,12 +7,14 @@ import { MaterialModule } from '../material.module';
 import { MainRoutingModule } from './main-routing.module';
 import { LayoutComponentModule } from '../layout';
 import { NvMenuComponent } from './components/nv-menu/nv-menu.component';
+import { NvUserListViewComponent } from './components/nv-user-list-view/nv-user-list-view.component';
 
 @NgModule({
   declarations: [
     DashboardComponent,
     DemoPageComponent,
-    NvMenuComponent
+    NvMenuComponent,
+    NvUserListViewComponent
   ],
   imports: [
     CommonModule,

@@ -1,4 +1,4 @@
-export interface PlaceholderBigCard{
+export interface PlaceholderBigCardModel{
     img: string,
     text1: string,
     text2: string,

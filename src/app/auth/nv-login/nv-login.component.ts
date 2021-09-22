@@ -1,4 +1,4 @@
-import { MenuExtensionDirection, FieldStatusType } from './../../model/data-model';
+import { FieldStatusType, MenuExtensionDirection } from './../../model/data-model';
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { DropdownFieldType } from 'src/app/model/data-model';

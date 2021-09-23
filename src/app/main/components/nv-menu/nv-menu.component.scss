@@ -108,6 +108,7 @@
 }
 
 ::ng-deep .mat-list-item :hover {
+  //background-color: #fafafa !important; 
     .hoverColor {
         width: 5px;
         height: 32px;
@@ -194,19 +195,6 @@
   margin-top: -12px;
 }
 
-::ng-deep .mat-list .mat-list-base :hover {
-  color:green;
-  .hoverColor {
-      color:red;
-      width: 5px;
-      height: 32px;
-      float: left;
-      position: fixed;
-      margin-left: -8px;
-      margin-top: 0px;
-  }
-}
-
 .test1:hover{
   background-color: $color-light-gray-28 !important;
 }
@@ -218,4 +206,11 @@
 
 .second-level-menu-text{
   margin-left: 12px;
+  font: normal normal bold 15px/19px Lato !important;
+  color: #333333DE !important;
+}
+
+.mat-divider-right{
+  margin-right: 8px !important;
+  border: 1px solid #dfdfdf;
 }

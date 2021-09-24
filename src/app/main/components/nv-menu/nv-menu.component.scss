@@ -104,7 +104,8 @@
 }
 
 ::ng-deep .mat-drawer.mat-drawer-side {
-    background-color: $color-light-gray;
+  background-color: $color-light-gray;
+  box-shadow: 2px 0 8px -2px #888 !important;
 }
 
 ::ng-deep .mat-list-item :hover {

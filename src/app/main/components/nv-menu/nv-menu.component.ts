@@ -19,6 +19,7 @@ export class NvMenuComponent implements OnInit {
   showSecondLevelMenu: boolean = false;
   showSideNav: boolean = false;
 
+  selectedIndex: number = 0;
   initialHistoryDropDownItems: string[] = [];
 
   firstLevelSelectedIndex: number = 0;
@@ -209,7 +210,12 @@ export class NvMenuComponent implements OnInit {
   /**
    * DropDowns event handlers
    */
-  onMenuItemSelect(item: string): void {}
+  onMenuItemSelect(item: string): void {
+    console.log(item);
+    this.dropdownItemsMenu = this.setHistoryDropdownItems(item);
+    //this.selectedItemDefaultMenu = item;
+    this.selectedIndex = 0;
+  }
   onSiteItemSelect(item: string): void {}
   onPlusItemSelect(item: string): void {}
 
@@ -217,7 +223,7 @@ export class NvMenuComponent implements OnInit {
     const dropdownInputs = {
       items: this.initialHistoryDropDownItems, //this.getMenuItemsForDropdown(),
       textTrimNumber: 5,
-      selectedItemDefault: 'Level 2 Menu Name ',
+      selectedItemDefault: 'Dashboard',
       dropDownFieldType: DropdownFieldType.Input,
     };
     return dropdownInputs;
@@ -290,8 +296,6 @@ export class NvMenuComponent implements OnInit {
   }
 
   selectedSecondLevelMenuItem(index: number, item: any) {
-    console.log(index);
-    console.log(item);
     this.selectedItemDefaultMenu = item.name;
     this.dropdownItemsMenu = this.setHistoryDropdownItems(item.name);
     //this.onMenuItemSelect(item.name);

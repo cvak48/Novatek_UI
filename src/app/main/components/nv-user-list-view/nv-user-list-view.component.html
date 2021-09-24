@@ -4,12 +4,10 @@
 
   <div class="row">
       
-            <div class="panel-slide"  [ngClass]="{'col-md-12':showPanel == '1', 'col-md-8':showPanel == '2', 'col-md-4':showPanel == '3'}" >
+            <div *ngIf="isFirstPanel" [ngClass]="{'col-md-12':showPanel == '1', 'col-md-8':showPanel == '2', 'col-md-4':showPanel == '3', 'panel-slide' : !isLastPanelClicked, 'panel-slide-to-right' : isLastPanelClicked}" >
               <app-nv-table-panel (close)="closePanel('1')" panelNum="1" (panelClick)="panelClicked('1')"></app-nv-table-panel>
           </div>
-          
-          
-            
+       
             <div class="style-right panel-slide col-md-4" *ngIf="showPanel == '2' || showPanel == '3' " >
               <app-nv-table-panel panelNum="2" (close)="closePanel('2')" (panelClick)="panelClicked('2')"></app-nv-table-panel>
             </div>

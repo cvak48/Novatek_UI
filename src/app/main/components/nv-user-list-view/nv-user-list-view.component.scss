@@ -307,6 +307,19 @@
     }
   }
 
+  @keyframes slideInFromleft {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
   .panel-slide{
     animation: 1s ease-out 0s 1 slideInFromright;
+  }
+
+  .panel-slide-to-right{
+    animation: 1s ease-out 0s 1 slideInFromleft;
   }

@@ -1,8 +1,7 @@
 <div class="profile-container" [matMenuTriggerFor]="beforeMenu">
-  <app-nv-avatar class="avatar" *ngIf="person.imageUrl && person.name" [avatarUrl]="person.imageUrl!"
-    [name]="person.name!"></app-nv-avatar>
+  <app-nv-avatar class="avatar" [person]="person"></app-nv-avatar>
   <div class="profile-stats">
-    <div class="notification-container" *ngIf="person.notification?.number">
+    <div class="notification-container" >
       <app-nv-notification-icon [number]="person.notification?.number"></app-nv-notification-icon>
     </div>
     <div class="spacer"></div>

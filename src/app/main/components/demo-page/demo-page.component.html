@@ -103,8 +103,7 @@
         </app-nv-notification-icon>
 
         <ng-container *ngSwitchCase="nvComponentType.Avatar">
-          <app-nv-avatar class="body-item" *ngIf="person?.imageUrl && person?.name" [avatarUrl]="person.imageUrl!"
-            [name]="person.name!"></app-nv-avatar>
+          <app-nv-avatar class="body-item" [person]="person"></app-nv-avatar>
         </ng-container>
 
         <app-nv-user-profile-menu class="body-item" [person]="person" *ngSwitchCase="nvComponentType.ProfileMenu">

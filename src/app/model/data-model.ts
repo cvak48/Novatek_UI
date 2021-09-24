@@ -13,7 +13,7 @@ export enum DropdownFieldType {
 }
 
 export interface Person {
-    id: number;
+    id?: number;
     name: string;
     imageUrl: string;
     notification?: Notification;

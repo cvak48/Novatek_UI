@@ -1,29 +1,29 @@
+import { Person } from './../../model/data-model';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-nv-avatar',
   templateUrl: './nv-avatar.component.html',
-  styleUrls: ['./nv-avatar.component.scss']
+  styleUrls: ['./nv-avatar.component.scss'],
 })
 export class NvAvatarComponent implements OnInit {
-  // TODO: the person object should be received
-  @Input() set avatarUrl(value: string) {
-    this._avatarUrl = value ? value : '';
+  private _person!: Person;
+  @Input() set person(value: Person) {
+    this._person.name = value?.name ? value.name : 'NN';
+    this._person.imageUrl = value?.imageUrl ? value.imageUrl : '';
   }
-  @Input() set name(value: string) {
-    this._name = value ? value : '';
+  get person(): Person {
+    return this._person;
+  }
+  constructor() {
+    this._initialize();
   }
 
-  get avatarUrl(): string {
-    return this._avatarUrl;
-  }
-  get name(): string {
-    return this._name;
-  }
-  private _avatarUrl!: string;
-  private _name!: string;
-  constructor() { }
-
-  ngOnInit(): void {
+  ngOnInit(): void {}
+  private _initialize(): void {
+    this._person = {
+      name: '',
+      imageUrl: '',
+    };
   }
 }

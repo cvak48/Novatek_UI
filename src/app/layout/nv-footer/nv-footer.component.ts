@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-nv-footer',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NvFooterComponent implements OnInit {
   flagIcon = "../../../assets/icons/ico.flag.svg";
-  constructor() { }
+  public Domain =[
+    'English',
+    'French',
+    'Chinese'
+  ];
+  public selectedItems = 'English';
+  constructor(public translate: TranslateService) { }
 
   ngOnInit(): void {
   }
 
+  onChange(e: any): void{
+    const lang = e == 'English' ? 'en-US' : (e == 'French' ? 'fr-FR' : 'zh-CN');
+    this.translate.use(lang);
+  }
 }

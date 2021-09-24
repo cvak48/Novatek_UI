@@ -8,6 +8,7 @@ import { PlaceHolderCardModel } from 'src/app/model/placeHolderCard-model';
 import { PlaceHolderBannerModel } from 'src/app/model/placeHolderBanner-model';
 import { PlaceholderBigCardModel } from 'src/app/model/PlaceholderBigCard-model';
 import { Notification, Person } from 'src/app/model/data-model';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-dashboard',
@@ -58,7 +59,13 @@ export class DashboardComponent implements OnInit {
   warningTxt: string = "Your file don't meet the minimum resolution";
   errorTxt: string = 'Tere was an error';
   textColor: string = 'red';
-  constructor() {}
+  constructor(
+    public translate: TranslateService
+  ) {
+    translate.addLangs(['en-US', 'fr-FR', 'zh-CN']);
+    translate.setDefaultLang('en-US');
+  }
+
 
   ngOnInit(): void {
     this.comments = [

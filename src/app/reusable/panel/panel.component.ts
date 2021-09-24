@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
+
 
 @Component({
   selector: 'app-nova-panel',
@@ -7,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class PanelComponent implements OnInit {
   @Input() title: string = '';
+  
   showPanel: boolean = false;
   panelTitle: string = '';
   constructor() { }
@@ -15,4 +17,7 @@ export class PanelComponent implements OnInit {
     this.panelTitle = this.title ? this.title : 'Panel Table'
   }
 
+  closePanel() {
+    this.showPanel = !this.showPanel;
+  } 
 }

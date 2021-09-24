@@ -6,14 +6,14 @@ div#myNavbar {
   bottom: 0px;
   width: 100%;
   background: $color-light-gray;
-  padding: 15px;
+  padding: 7px 15px;
   margin-bottom: 0;
   border: 1px solid $color-light-gray-80;
   font-style: normal normal normal 14px/17px Lato;
   .list-inlin li {
     display: inline-block;
     margin-bottom: 0 !important;
-    font-size: $font-size-xx-small;
+    font-size: $font-size-x-small;
     font-weight: 400;
     color: $color-light-gray-40;
     a {
@@ -44,3 +44,7 @@ div#myNavbar {
 ul.list-inlin {
   margin-bottom: 0px;
 }
+.rTop {
+  top: 9px;
+  position: relative;
+} 

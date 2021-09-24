@@ -8,6 +8,9 @@ import { MainRoutingModule } from './main-routing.module';
 import { LayoutComponentModule } from '../layout';
 import { NvMenuComponent } from './components/nv-menu/nv-menu.component';
 import { NvUserListViewComponent } from './components/nv-user-list-view/nv-user-list-view.component';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,18 @@ import { NvUserListViewComponent } from './components/nv-user-list-view/nv-user-
     MaterialModule,
     MainRoutingModule,
     LayoutComponentModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: httpTranslateLoader,
+        deps: [HttpClient]
+      }
+    })
   ],
   exports:[]
 })
 export class MainModule { }
+export function httpTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}

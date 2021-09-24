@@ -22,5 +22,6 @@
     "login": "登录",
     "submit": "提交",
     "resend": "重发",
-    "confirmationText":"确认"
+    "confirmationText":"确认",
+    "comments": "Comments CN"
 }

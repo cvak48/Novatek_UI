@@ -1,7 +1,7 @@
 <app-nv-header *ngIf="person" [person]="person"></app-nv-header>
 <app-nv-sub-menu></app-nv-sub-menu>
 <app-nv-sidenav>
-   <h1 class="comments-header"><strong>Comments</strong></h1>
+   <h1 class="comments-header"><strong>{{'comments' | translate }}</strong></h1>
    <app-nv-comment-box [comments]="comments"></app-nv-comment-box>
    <br>
    <app-nova-panel>

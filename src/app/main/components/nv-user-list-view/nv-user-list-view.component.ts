@@ -8,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NvUserListViewComponent implements OnInit {
   isLeftVisible = true;
-  
+  isLastPanelClicked = false;
+  isFirstPanel = true;
   showPanel: string = '1';
   constructor() { }
 
@@ -16,6 +17,7 @@ export class NvUserListViewComponent implements OnInit {
   }
 
   panelClicked(panel: string): void{
+    this.isLastPanelClicked = false;
     switch(panel){
       case '1':
         this.showPanel='2';
@@ -26,6 +28,9 @@ export class NvUserListViewComponent implements OnInit {
         break;
       case '3':
           this.showPanel='1';
+          this.isLastPanelClicked = true;
+          this.isFirstPanel = false;
+          setTimeout(() => {this.isFirstPanel = true;}, 10)
         break;
     }
   }

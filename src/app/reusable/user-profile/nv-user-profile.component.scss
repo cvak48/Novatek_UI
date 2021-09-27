@@ -1,0 +1,28 @@
+.container {
+    .user-profile-container {
+
+    .row {
+        flex-direction: column;
+        height: 175px;
+        width: 100%;
+        .avatar {
+            height: 100%;
+            width: 175px;
+            border: 1px solid black;
+
+            .icon {
+                position: absolute;
+                margin-top: -169px;
+                margin-left: 147px;
+            }
+
+        }
+        .content {
+            height: 100%;
+            width: 100%;
+            border: 1px solid red;
+
+        }
+    }
+    }
+}

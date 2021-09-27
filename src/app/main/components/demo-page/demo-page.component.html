@@ -42,8 +42,8 @@
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.Notification)">
         {{nvComponentType[nvComponentType.Notification]}}
       </div>
-      <div class="menu-item h40" (click)="onItemClick(nvComponentType.ProfileMenu)">
-        {{nvComponentType[nvComponentType.ProfileMenu]}}
+      <div class="menu-item h40" (click)="onItemClick(nvComponentType.NvProfileMenu)">
+        {{nvComponentType[nvComponentType.NvProfileMenu]}}
       </div>
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.Header)">
         {{nvComponentType[nvComponentType.Header]}}
@@ -81,6 +81,9 @@
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.NvTimePicker)">
         {{nvComponentType[nvComponentType.NvTimePicker]}}
       </div>
+      <div class="menu-item h40" (click)="onItemClick(nvComponentType.NvProfile)">
+        {{nvComponentType[nvComponentType.NvProfile]}}
+      </div>
     </div>
 
     <div class="preview-panel" [ngSwitch]="selectedItem">
@@ -102,12 +105,16 @@
         <app-nv-notification-icon class="body-item" *ngSwitchCase="nvComponentType.Notification">
         </app-nv-notification-icon>
 
-        <ng-container *ngSwitchCase="nvComponentType.Avatar">
-          <app-nv-avatar class="body-item" [person]="person"></app-nv-avatar>
-        </ng-container>
+          <div class="image-container" *ngSwitchCase="nvComponentType.Avatar">
+            <app-nv-avatar class="body-item" [person]="person"></app-nv-avatar>
+          </div>
 
-        <app-nv-user-profile-menu class="body-item" [person]="person" *ngSwitchCase="nvComponentType.ProfileMenu">
+        <app-nv-user-profile-menu class="body-item" [person]="person" *ngSwitchCase="nvComponentType.NvProfileMenu">
         </app-nv-user-profile-menu>
+        <div class="nv-user-profile">
+          <app-nv-user-profile class="body-item" [person]="person" *ngSwitchCase="nvComponentType.NvProfile"></app-nv-user-profile>
+
+        </div>
 
         <div class="dropdown-container" *ngSwitchCase="nvComponentType.Dropdown">
           <app-nv-dropdown class="body-item" [extensionDirection]="menuExtensionDir" [items]="dropdownItems"

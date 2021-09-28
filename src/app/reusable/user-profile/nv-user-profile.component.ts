@@ -1,5 +1,8 @@
-import { Person, Notification } from './../../model/data-model';
+import { UserProfileService } from './../../services/local-data/user-profile/user-profile.service';
+import { Person, Notification, User } from './../../model/data-model';
 import { Component, Input, OnInit } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-nv-user-profile',
@@ -9,17 +12,28 @@ import { Component, Input, OnInit } from '@angular/core';
 export class NvUserProfileComponent implements OnInit {
   // Avatar
   @Input() person!: Person;
-  constructor() { }
+  userProfiles!: User[];
+  constructor(private _dataService: UserProfileService) { }
 
   ngOnInit(): void {
-    this._initializeComp();
+    this._initialize();
+
   }
   onIconClick(): void {
-    
+
   }
-private _initializeComp(): void {
-this.person = mockProfileMenu();
-}
+    /**
+   * event handler; receive file as the user choose it from local folder
+   */
+     fileBrowseHandler(event: any): void {
+      console.log((event?.target?.files));
+          }
+  private _initialize(): void {
+    this.person = mockProfileMenu();
+    this._dataService.userProfileData$.subscribe(users =>
+      this.userProfiles = users
+    );
+  }
 }
 
 

@@ -13,13 +13,13 @@ export class NvUploadComponent implements OnInit {
   dropItemType = DropItemType;
   label!: string;
   constructor() {
-    this._initializeProps();
+    this._initialize();
   }
 
   ngOnInit(): void {
     this._populatePropsUponInput();
   }
-  private _initializeProps(): void {
+  private _initialize(): void {
     this.droppedToUploadItemType = DropItemType.File;
     this.label = 'Drag And Drop Your File in This Area';
   }

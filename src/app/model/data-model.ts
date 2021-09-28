@@ -24,6 +24,16 @@ export interface Notification {
     hasAttachment?: boolean;
 }
 
+export interface User {
+    name: string;
+    userName: string;
+    jobPosition: string;
+    uniqueID: string;
+    passwordExpiryDate: string;
+    accountExpiryDate: string;
+    lastLogin: string;
+  }
+
 /**
  * dropdown tree-view
  * Node for to-do item

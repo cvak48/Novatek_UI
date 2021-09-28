@@ -1,14 +1,27 @@
+@import './../../reusable/theme/base.scss';
+@mixin label {
+    font-style: $font-style-normal;
+    font-weight: $font-weight-normal;
+    font-size: $font-size-xx-small;
+    font-family: $nv-font;
+    line-height: $line-height-xx-small;
+    color: $color-black-06;
+}
 .container {
     .user-profile-container {
-
-    .row {
-        flex-direction: column;
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
         height: 175px;
         width: 100%;
+        border: 1px solid #DFDFDF;
+        border-radius: 4px;
         .avatar {
+            position: relative;
             height: 100%;
             width: 175px;
-            border: 1px solid black;
+            // border: 1px solid black;
 
             .icon {
                 position: absolute;
@@ -18,11 +31,57 @@
 
         }
         .content {
+            position: relative;
             height: 100%;
-            width: 100%;
-            border: 1px solid red;
+            padding-left: 8px;
+            padding-right: 130px;
 
+
+            .header {
+                position: relative;
+                height: 62px;
+                width: 100%;
+
+                border: 1px solid black;
+                .header-name {
+                    color: $color-black-33;
+                    padding-top: 8px;
+                }
+                .header-job-position {
+                    color:  $color-gray-d99;
+                    font-size: $font-size-small;
+                    font-family: $nv-font;
+                    line-height: $line-height-medium;
+                    // padding-bottom: 4px;
+                    padding-top: 4px;
+                    &::after {
+                        content: ""; 
+                        display: block; 
+                        margin: 0 auto; 
+                        width: 100%; 
+                        padding-top: 4px; 
+                        border-bottom: 1px solid #DFDFDF; 
+                    }
+                }
+            }
+            .body {
+                @include label;
+                padding-top: 14px;
+                padding-bottom: 8px;
+                .field-row {
+                    display: flex;
+                    flex-direction: row;
+                    padding-bottom: 4px;
+                    .label {
+
+                    }
+                    .value {
+                        padding-left: 21px;
+                    }
+
+                }
+            }
         }
-    }
+
     }
 }

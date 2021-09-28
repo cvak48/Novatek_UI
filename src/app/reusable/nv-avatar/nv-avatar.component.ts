@@ -15,12 +15,14 @@ export class NvAvatarComponent implements OnInit, OnChanges {
   get person(): Person {
     return this._person;
   }
+  @Input() imgUrl!: string;
   constructor() {
     this._initialize();
   }
   ngOnChanges(): void {
 
-    console.log('hi avatar');
+    console.log('hi avatar' + this.person.imageUrl);
+    this.person.imageUrl = this.imgUrl;
    }
 
   ngOnInit(): void {}

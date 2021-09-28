@@ -1,7 +1,7 @@
 <div class="container">
 <div class="user-profile-container">
         <div class="avatar">
-            <app-nv-avatar [person]="person"></app-nv-avatar>
+            <app-nv-avatar [imgUrl]="person.imageUrl" [person]="person"></app-nv-avatar>
             <img class="icon" src="./../../../assets/icons/circular-item-menu.icon.svg"
              (click)="onIconClick()">
              <input class="hidden-input" type="file" #fileDropRef id="fileDropRef"

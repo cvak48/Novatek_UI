@@ -84,7 +84,6 @@ export class DemoPageComponent implements OnInit {
 }
 
 
-
 function mockProfileMenu(): Person {
   const avatarProps = {
     id: 1,

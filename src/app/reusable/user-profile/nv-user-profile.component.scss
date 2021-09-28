@@ -29,6 +29,12 @@
                 margin-left: 147px;
             }
 
+            .hidden-input {
+                visibility: hidden;
+                width: 1px;
+                height: 1px;
+            }
+
         }
         .content {
             position: relative;

@@ -2,9 +2,10 @@
 <div class="user-profile-container">
         <div class="avatar">
             <app-nv-avatar [person]="person"></app-nv-avatar>
-            <!-- <img class="icon" src="./../../../assets/icons/circular-item-menu.icon.svg"
-             (click)="onIconClick()" (change)="fileBrowseHandler($event)"> -->
-             <input type="file" #fileDropRef id="fileDropRef" multiple (change)="fileBrowseHandler($event)" />
+            <img class="icon" src="./../../../assets/icons/circular-item-menu.icon.svg"
+             (click)="onIconClick()">
+             <input class="hidden-input" type="file" #fileDropRef id="fileDropRef"
+             accept="image/*" (change)="fileBrowseHandler($event)" />
         </div>
         <div class="content">
             <div class="header">

@@ -1,12 +1,12 @@
 import { Person } from './../../model/data-model';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-nv-avatar',
   templateUrl: './nv-avatar.component.html',
   styleUrls: ['./nv-avatar.component.scss'],
 })
-export class NvAvatarComponent implements OnInit {
+export class NvAvatarComponent implements OnInit, OnChanges {
   private _person!: Person;
   @Input() set person(value: Person) {
     this._person.name = value?.name ? value.name : 'NN';
@@ -18,6 +18,10 @@ export class NvAvatarComponent implements OnInit {
   constructor() {
     this._initialize();
   }
+  ngOnChanges(): void {
+
+    console.log('hi avatar');
+   }
 
   ngOnInit(): void {}
   private _initialize(): void {

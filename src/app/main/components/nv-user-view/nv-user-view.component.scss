@@ -1,0 +1,11 @@
+.user-list{
+    margin:1% 0 1% 0;
+}
+
+hr{
+    margin-top: unset !important;
+}
+
+::ng-deep .card-body{
+    overflow-x: hidden !important;
+}

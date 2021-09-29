@@ -1,11 +1,24 @@
-.user-list{
+.user-list-left{
     margin:1% 0 1% 0;
+    padding-right: 0px !important;
 }
-
+.user-list-right{
+    margin:1% 0 1% 0;
+    padding-left: 0px !important;
+}
+.left0 {
+    padding-left:0px ;
+}
 hr{
     margin-top: unset !important;
 }
 
 ::ng-deep .card-body{
     overflow-x: hidden !important;
+}
+
+.table-scroll {
+    overflow: auto;
+   height: 300px;
+    margin-top: 11px;
 }

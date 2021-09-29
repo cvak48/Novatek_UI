@@ -20,12 +20,15 @@ export class NvAvatarComponent implements OnInit, OnChanges {
     this._initialize();
   }
   ngOnChanges(): void {
-
-    console.log('hi avatar' + this.person.imageUrl);
-    this.person.imageUrl = this.imgUrl;
+    if (this.imgUrl) {
+      this.person.imageUrl = this.imgUrl;
+    }
    }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.person.imageUrl );
+    
+  }
   private _initialize(): void {
     this._person = {
       name: '',
@@ -33,3 +36,4 @@ export class NvAvatarComponent implements OnInit, OnChanges {
     };
   }
 }
+ 

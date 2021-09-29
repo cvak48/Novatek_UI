@@ -20,7 +20,7 @@ export class NvUserProfileComponent implements OnInit {
   }
   /**
    * The img element and input is internally linked with onIconClick event handler;
-   * because the input style got hidden and we use menu svg icon instead
+   * because the input style became hidden and we use menu svg icon instead
    */
   onIconClick(): void {
     // click on input

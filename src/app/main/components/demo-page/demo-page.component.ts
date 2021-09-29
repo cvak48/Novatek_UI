@@ -23,7 +23,7 @@ export enum NvComponent {
   NvButton,
   NvDownload,
   NvTimePicker,
-
+  NvField
 }
 
 @Component({
@@ -32,7 +32,7 @@ export enum NvComponent {
   styleUrls: ['./demo-page.component.scss']
 })
 export class DemoPageComponent implements OnInit {
-  public selectedItem: NvComponent = NvComponent.NvTimePicker;
+  public selectedItem: NvComponent = NvComponent.NvField;
   public nvComponentType = NvComponent;
   // Second: Provide input data for your reusable component here if needed
   // Search
@@ -53,14 +53,16 @@ export class DemoPageComponent implements OnInit {
   textTrimNumber = mockDropdown().textTrimNumber;
   defaultSelectedItem = mockDropdown().selectedItemDefault;
   dropDownFieldType = mockDropdown().dropDownFieldType;
-  menuExtensionDir = mockDropdown().menuExtensionDir;
-  isDisable = mockDropdown().isDisable;
-  fieldStatusType = mockDropdown().fieldStatusType;
+  dropdownMenuExtensionDir = mockDropdown().menuExtensionDir;
+  isDropdownDisable = mockDropdown().isDisable;
+  dropdownFieldStatusType = mockDropdown().fieldStatusType;
   //  LoginDropdown
   loginFieldStatusType = FieldStatusType.Error;
   // checkbox
   checkBoxLabel = 'Im a new Checkbox';
-
+  // field
+  fieldStatusType = FieldStatusType.Accept;
+  fieldLabel = 'Label';
   /**
    * timePicker
    * 12 or 24

@@ -1,0 +1,66 @@
+@import './../theme/base.scss';
+
+$height: 40px;
+$border-thickness: 1px;
+$icon-width: 16px;
+$padding: 12px;
+$icons-distance: 8px;
+
+@mixin dropdownFieldSharedStyles {
+
+  &.label {
+    color: $color-dark-gray-12;
+  }
+
+  &.btn {
+    text-align: left;
+  }
+
+  &:focus {
+    box-shadow: none;
+  }
+
+  &::after {
+    margin-left: 10px;
+    display: none !important;
+  }
+}
+
+.field-container {
+  position: relative;
+  width: 100%;
+  height: $height;
+  border-radius: 4px;
+
+  .field-label {
+    color: $color-dark-gray-dde;
+  }
+  .field-input {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: $color-white-20;
+    border: 1px solid $color-white-10;
+    border-radius: 4px;
+    @include dropdownFieldSharedStyles;
+  }
+
+  .icon {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    // right: 12.7px;
+    // top: 0px;
+    // bottom: 0px;
+    fill: $color-dark-gray-02;
+    opacity: 1;
+  }
+
+}

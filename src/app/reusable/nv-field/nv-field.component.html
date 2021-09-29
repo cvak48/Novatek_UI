@@ -1,0 +1,18 @@
+<div class="field-container">
+  <label for="input" class="field-label h50" nvTextColor [color]="fieldStyle.text">{{label}}</label>
+  <input type="text" class="btn field-input body20 label" (click)="onFieldClick()"
+   [formControl]="queryFormControl" nvStyleColor [style]="fieldStyle">
+  <ng-container [ngTemplateOutlet]="iconTemplate"> </ng-container>
+</div>
+
+<ng-template #iconTemplate>
+  <object #questionIconRef *ngIf="fieldStatusType === statusType.Help" class="icon"
+    data="../../../assets/icons/question.icon.svg" type="image/svg+xml" nvSvgColor
+    [svgElementId]="svgIconIdsDic.questionPath" [color]="fieldStatusColorDic.help"></object>
+  <object #exclamationIconRef *ngIf="fieldStatusType === statusType.Error"
+    class="icon" data="../../../assets/icons/exclamation.icon.svg" type="image/svg+xml" nvSvgColor
+    [svgElementId]="svgIconIdsDic.exclamationPath" [color]="fieldStatusColorDic.error"></object>
+  <object #checkMarkIconRef *ngIf="fieldStatusType === statusType.Accept" class="icon"
+    data="../../../assets/icons/checkmark.icon.svg" type="image/svg+xml" nvSvgColor
+    [svgElementId]="svgIconIdsDic.checkMarkPath" [color]="fieldStatusColorDic.accept"></object>
+</ng-template>

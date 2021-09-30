@@ -61,6 +61,10 @@ export class NvFieldComponent implements OnInit, AfterViewInit, OnChanges {
 
   ngAfterViewInit(): void {}
   onFieldClick(): void {}
+  onBlur(): void {
+    this._resetStyle();
+    this.fieldStatusType = FieldStatusType.Normal;
+  }
   /**
    * update the style based on the received status color type;
    * generating scss class name
@@ -88,6 +92,14 @@ export class NvFieldComponent implements OnInit, AfterViewInit, OnChanges {
       this.labelStatus = FieldStatusType.Error;
     }
     this.fieldStyle = style;
+  }
+  private _resetStyle(): void {
+  this.labelStatus = FieldStatusType.Normal;
+  this.fieldStyle = {
+    border: FieldStatusType.Normal,
+    background: FieldStatusType.Normal,
+    text: FieldStatusType.Normal,
+    } as FieldStatusStyle;
   }
   /**
    * If the user does not pass input

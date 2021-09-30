@@ -51,16 +51,16 @@
                     <td class="pd-lt-2 checkbox-column" >
                        <input class="table-check" type="checkbox" value="{{order.id}}" [(ngModel)]="orders[i].checked">
                     </td>
-                   <td>{{order.name}}</td>
+                    <td>{{order.name}}</td>
                     <td>{{order.date}}</td>
                     <td class="mail-link">{{order.email}}</td>
                     <td>{{order.status}}</td>
-                    <td>
-                        <div>
-                            <mat-chip-list >
-                              <mat-chip *ngFor="let attachment of order.attachments">{{attachment.name}} <img src="./assets/images/dots.png" class="more-opt-icon" alt="chip icon" /></mat-chip>
-                            </mat-chip-list>
-                          </div>
+                    <td> Multi Item <a (click)="showAttachments(i, order.attachments)"><span class="mail-link attachment-link">({{order.attachments.length}})</span></a>
+                      <div *ngIf="isAttachmentVisibleAllowed(i)">
+                           <hr/>
+                        <span style="display: block;" *ngFor="let attachment of attachmentList">{{attachment.name}} </span>
+                    
+                    </div>
                     </td>
                    
                 </tr>

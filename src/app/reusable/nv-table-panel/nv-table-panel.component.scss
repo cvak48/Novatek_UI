@@ -358,7 +358,8 @@ tr.mat-row.cdk-row:nth-child(odd) {
 
 .table th,
 .table td {
-  vertical-align: middle !important;
+  vertical-align: top !important;
+  padding-top: 0.5% !important;
 }
 
 table.table th {
@@ -397,4 +398,18 @@ table.table td {
   -ms-transform: rotate(180deg);
   -o-transform: rotate(180deg);
   transform: rotate(180deg);
+}
+
+table td { 
+  display: table-cell;
+  vertical-align: top; 
+}
+
+hr{
+  margin-top: unset;
+  margin-bottom: unset;
+}
+
+.attachment-link{
+  cursor: pointer;
 }

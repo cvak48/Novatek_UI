@@ -35,6 +35,8 @@ export class NvTablePanelComponent implements OnInit {
     screenReaderPageLabel: 'page',
     screenReaderCurrentLabel: `You're on page`
   };
+  selectedAttachmentRow: number = -1;
+  attachmentList: any = [];
 
   @Input() isPageable = false;
   @Input() isSortable = false;
@@ -194,6 +196,15 @@ export class NvTablePanelComponent implements OnInit {
 
   rowImgClicked(event: any): void{
     event.stopPropagation();
+  }
+
+  showAttachments(index: number, attachments: any[]): void{
+    this.selectedAttachmentRow = (this.selectedAttachmentRow == index) ? -1 : index;
+    this.attachmentList = attachments;
+  }
+
+  isAttachmentVisibleAllowed(index: number): boolean {
+    return this.selectedAttachmentRow == index;
   }
 }
 

@@ -61,7 +61,7 @@ export class DemoPageComponent implements OnInit {
   // checkbox
   checkBoxLabel = 'Im a new Checkbox';
   // field
-  fieldStatusType = FieldStatusType.Accept;
+  fieldStatusType = FieldStatusType.MoreInf;
   fieldLabel = 'Label';
   /**
    * timePicker

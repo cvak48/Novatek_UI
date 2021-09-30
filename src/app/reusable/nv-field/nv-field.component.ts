@@ -47,6 +47,7 @@ export class NvFieldComponent implements OnInit, AfterViewInit, OnChanges {
    */
   fieldStyle!: FieldStatusStyle;
   statusType = FieldStatusType;
+  labelStatus!: FieldStatusType;
   svgIconIdsDic!: { [name: string]: string };
   fieldStatusColorDic!: { [name: string]: string };
   constructor() {
@@ -76,11 +77,16 @@ export class NvFieldComponent implements OnInit, AfterViewInit, OnChanges {
      * setting style based on status type; style is input for directive nv-style-color directive
      * these styles are used to create style class name using enum type; the style classes are located in base.scss
      */
-    const style: FieldStatusStyle = {
+    let style: FieldStatusStyle = {
       border: statusType,
       background: statusType,
-      text: statusType,
+      // The label is not affected by status instead we use labelStatus
+      text: FieldStatusType.Normal,
     };
+    this.labelStatus = statusType;
+    if (type === FieldStatusType.Required) {
+      this.labelStatus = FieldStatusType.Error;
+    }
     this.fieldStyle = style;
   }
   /**
@@ -90,6 +96,7 @@ export class NvFieldComponent implements OnInit, AfterViewInit, OnChanges {
     this._initializeSvgIconStyles();
     this.label = 'label';
     this.fieldStatusType = FieldStatusType.Normal;
+    this.labelStatus = FieldStatusType.Normal;
     // default value
     this.queryFormControl.setValue(null);
   }

@@ -6,26 +6,6 @@ $icon-width: 16px;
 $padding: 12px;
 $icons-distance: 8px;
 
-@mixin dropdownFieldSharedStyles {
-
-  &.label {
-    color: $color-dark-gray-12;
-  }
-
-  &.btn {
-    text-align: left;
-  }
-
-  &:focus {
-    box-shadow: none;
-  }
-
-  &::after {
-    margin-left: 10px;
-    display: none !important;
-  }
-}
-
 .field-container {
   position: relative;
   width: 100%;
@@ -37,12 +17,23 @@ $icons-distance: 8px;
   }
   .field-input {
     position: relative;
+    text-align: left;
     width: 100%;
     height: 100%;
     background: $color-white-20;
+    color: $color-dark-gray-12;
     border: 1px solid $color-white-10;
     border-radius: 4px;
-    @include dropdownFieldSharedStyles;
+    padding-left: $padding-12;
+
+    &:focus {
+      box-shadow: none;
+      outline-color: #727272;
+    }
+    &::after {
+      margin-left: 10px;
+      display: none !important;
+    }
   }
 
   .icon {
@@ -56,11 +47,10 @@ $icons-distance: 8px;
     cursor: pointer;
     width: 16px;
     height: 16px;
-    // right: 12.7px;
-    // top: 0px;
-    // bottom: 0px;
+    right: 12.7px;
+    top: 37px;
     fill: $color-dark-gray-02;
-    opacity: 1;
+    z-index: 5px;
   }
 
 }

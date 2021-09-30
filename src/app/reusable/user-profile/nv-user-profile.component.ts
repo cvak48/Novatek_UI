@@ -34,6 +34,7 @@ export class NvUserProfileComponent implements OnInit {
     console.log(files);
     this.person.imageUrl = files[0].name;
   }
+  // TODO: using imageService we need to send the image to the backend
   private _initialize(): void {
     this.person = mockProfileMenu();
     this._dataService.userProfileData$.subscribe(

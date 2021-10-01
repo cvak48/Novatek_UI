@@ -11,10 +11,12 @@
           
             
             <div class="style-right panel-slide col-md-4" *ngIf="showPanel == '2' || showPanel == '3' " >
-              <app-nv-table-panel panelNum="2" (close)="closePanel('2')" (panelClick)="panelClicked('2')"></app-nv-table-panel>
+              <app-nv-slider-panel panelNum="2" (close)="closePanel('2')" (panelClick)="panelClicked('2')">
+                <app-nv-search class="search" ></app-nv-search> 
+              </app-nv-slider-panel>
             </div>
             <div class="col-md-4 style-left panel-slide" *ngIf="showPanel == '3'">
-              <app-nv-table-panel panelNum="3" (close)="closePanel('3')" (panelClick)="panelClicked('3')"></app-nv-table-panel>
+              <app-nv-slider-panel panelNum="3" (close)="closePanel('3')" (panelClick)="panelClicked('3')"></app-nv-slider-panel>
             </div>
       
      

@@ -69,6 +69,7 @@ import { NvDragAndDropDirective } from './directives/drag-drop/drag-and-drop.dir
 import { UserListTableComponent } from './user-list-table/user-list-table.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { SlidePanelComponent } from './slide-panel/slide-panel.component';
+import { NvSliderPanelComponent } from './nv-slider-panel/nv-slider-panel.component';
 
 
 const sharedComponents = [
@@ -130,7 +131,8 @@ const sharedComponents = [
   NvDragAndDropDirective,
   UserListTableComponent,
   EditUserComponent,
-  SlidePanelComponent
+  SlidePanelComponent,
+  NvSliderPanelComponent
 ];
 
 @NgModule({

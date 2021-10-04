@@ -1,3 +1,4 @@
+import { NvStyleColorDirective } from './../directives/nv-status-color/nv-style-color.directive';
 import {
   FieldStatusType,
   FieldStatusStyle,
@@ -9,6 +10,8 @@ import {
   OnInit,
   AfterViewInit,
   OnChanges,
+  ViewChild,
+  ElementRef,
 } from '@angular/core';
 import {
   SVG_ICON_IDS_DIC,
@@ -50,6 +53,9 @@ export class NvFieldComponent implements OnInit, AfterViewInit, OnChanges {
   labelStatus!: FieldStatusType;
   svgIconIdsDic!: { [name: string]: string };
   fieldStatusColorDic!: { [name: string]: string };
+  @ViewChild('inputRef') inputRef!: ElementRef<HTMLElement>;
+  @ViewChild(NvStyleColorDirective) nvStyleColorDirective: any;
+  @ViewChild(NvStyleColorDirective) nvTextColorDirective: any;
   constructor() {
     this._initialize();
   }
@@ -62,8 +68,11 @@ export class NvFieldComponent implements OnInit, AfterViewInit, OnChanges {
   ngAfterViewInit(): void {}
   onFieldClick(): void {}
   onBlur(): void {
+
+    this.nvStyleColorDirective.ngOnDestroy();
     this._resetStyle();
-    this.fieldStatusType = FieldStatusType.Normal;
+    this.nvStyleColorDirective.ngOnInit();
+
   }
   /**
    * update the style based on the received status color type;
@@ -94,6 +103,7 @@ export class NvFieldComponent implements OnInit, AfterViewInit, OnChanges {
     this.fieldStyle = style;
   }
   private _resetStyle(): void {
+  this.fieldStatusType = FieldStatusType.Normal;
   this.labelStatus = FieldStatusType.Normal;
   this.fieldStyle = {
     border: FieldStatusType.Normal,

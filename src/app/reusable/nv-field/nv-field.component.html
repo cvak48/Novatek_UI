@@ -1,6 +1,6 @@
 <div class="field-container">
   <label for="input" class="field-label h50" nvTextColor [color]="labelStatus">{{label}}</label>
-  <input type="text" class="field-input body20" (click)="onFieldClick()" (blur)="onBlur()"
+  <input #inputRef type="text" class="field-input body20" (click)="onFieldClick()" (blur)="onBlur()"
    [formControl]="queryFormControl" nvStyleColor [style]="fieldStyle">
   <ng-container [ngTemplateOutlet]="iconTemplate"> </ng-container>
 </div>

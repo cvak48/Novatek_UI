@@ -47,7 +47,7 @@ export enum FieldStatusType {
     Accept,
     Modified,
     Disabled,
-    Help,
+    MoreInf,
     Normal
 }
 /**

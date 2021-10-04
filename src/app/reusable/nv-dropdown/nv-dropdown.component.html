@@ -31,7 +31,7 @@
     [isDirectiveEnable]="isFieldDisable"></object>
   <object *ngIf="!isArrowDownIcon && !isFieldDisable && (fieldStatusType === statusType.Normal)" class="icon arrow"
     data="../../../assets/icons/ico.arrow.up.svg" type="image/svg+xml"></object>
-  <object #questionIconRef *ngIf=" !isFieldDisable && (fieldStatusType === statusType.Help)" class="icon status-icon"
+  <object #questionIconRef *ngIf=" !isFieldDisable && (fieldStatusType === statusType.MoreInf)" class="icon status-icon"
     data="../../../assets/icons/question.icon.svg" type="image/svg+xml" nvSvgColor
     [svgElementId]="svgIconIdsDic.questionPath" [color]="fieldStatusColorDic.help"></object>
   <object #exclamationIconRef *ngIf=" !isFieldDisable && (fieldStatusType === statusType.Error)"

@@ -81,6 +81,9 @@
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.NvTimePicker)">
         {{nvComponentType[nvComponentType.NvTimePicker]}}
       </div>
+      <div class="menu-item h40" (click)="onItemClick(nvComponentType.NvField)">
+        {{nvComponentType[nvComponentType.NvField]}}
+      </div>
     </div>
 
     <div class="preview-panel" [ngSwitch]="selectedItem">
@@ -111,17 +114,24 @@
         </app-nv-user-profile-menu>
 
         <div class="dropdown-container" *ngSwitchCase="nvComponentType.Dropdown">
-          <app-nv-dropdown class="body-item" [extensionDirection]="menuExtensionDir" [items]="dropdownItems"
-            [selectedItem]="defaultSelectedItem" [textTrimNumber]="textTrimNumber" [isFieldDisable]="isDisable"
-            [fieldStatusType]="fieldStatusType" [fieldType]="dropDownFieldType" (itemSelect)="onItemSelect($event)">
+          <app-nv-dropdown class="body-item" [extensionDirection]="dropdownMenuExtensionDir" [items]="dropdownItems"
+            [selectedItem]="defaultSelectedItem" [textTrimNumber]="textTrimNumber" [isFieldDisable]="isDropdownDisable"
+            [fieldStatusType]="dropdownFieldStatusType" [fieldType]="dropDownFieldType"
+            (itemSelect)="onItemSelect($event)">
           </app-nv-dropdown>
         </div>
+        <div class="field-container" *ngSwitchCase="nvComponentType.NvField">
+          <app-nv-field class="body-item" [label]="fieldLabel" [fieldStatusType]="fieldStatusType"
+            (itemSelect)="onItemSelect($event)"></app-nv-field>
+        </div>
+
         <div class="dropdown-container" *ngSwitchCase="nvComponentType.LoginDropdown">
           <div id="dropdown" nvTextColor [color]="loginFieldStatusType"> Field Validation Field</div>
           <br>
-          <app-nv-dropdown class="body-item" [extensionDirection]="menuExtensionDir" [items]="dropdownItems"
-            [selectedItem]="defaultSelectedItem" [textTrimNumber]="textTrimNumber" [isFieldDisable]="isDisable"
-            [fieldStatusType]="fieldStatusType" [fieldType]="dropDownFieldType" (itemSelect)="onItemSelect($event)">
+          <app-nv-dropdown class="body-item" [extensionDirection]="dropdownMenuExtensionDir" [items]="dropdownItems"
+            [selectedItem]="defaultSelectedItem" [textTrimNumber]="textTrimNumber" [isFieldDisable]="isDropdownDisable"
+            [fieldStatusType]="dropdownFieldStatusType" [fieldType]="dropDownFieldType"
+            (itemSelect)="onItemSelect($event)">
           </app-nv-dropdown>
         </div>
         <div class="search-item-container" *ngSwitchCase="nvComponentType.MultiSelectDropdown">

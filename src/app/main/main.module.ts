@@ -11,13 +11,15 @@ import { NvUserListViewComponent } from './components/nv-user-list-view/nv-user-
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { NvUserViewComponent } from './components/nv-user-view/nv-user-view.component';
 
 @NgModule({
   declarations: [
     DashboardComponent,
     DemoPageComponent,
     NvMenuComponent,
-    NvUserListViewComponent
+    NvUserListViewComponent,
+    NvUserViewComponent
   ],
   imports: [
     CommonModule,

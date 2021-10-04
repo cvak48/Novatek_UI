@@ -276,10 +276,11 @@
 
   .style-right {
     margin-right: 0px;
-    padding-right: 0px;
+    padding-right: 15px !important;
+    padding-left: 0px;
   }
   .style-left {
-    margin-left: -10px;
+    // margin-left: -10px;
     padding-left: 0;
   }
   .mg-0 {

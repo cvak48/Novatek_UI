@@ -1,3 +1,4 @@
+import { NvFieldComponent } from './nv-field/nv-field.component';
 import { NvDownloadComponent } from './nv-download/nv-download.component';
 import { NvTimePickerComponent } from './nv-time-picker/nv-time-picker.component';
 import { NvChecklistDropdownComponent } from './nv-checklist-dropdown/nv-checklist-dropdown.component';
@@ -132,7 +133,8 @@ const sharedComponents = [
   UserListTableComponent,
   EditUserComponent,
   SlidePanelComponent,
-  NvSliderPanelComponent
+  NvSliderPanelComponent,
+  NvFieldComponent
 ];
 
 @NgModule({

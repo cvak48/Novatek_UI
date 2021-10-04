@@ -1,8 +1,6 @@
+import { NvTextColorDirective } from './../directives/nv-status-color/nv-text-color.directive';
 import { NvStyleColorDirective } from './../directives/nv-status-color/nv-style-color.directive';
-import {
-  FieldStatusType,
-  FieldStatusStyle,
-} from '../../model/data-model';
+import { FieldStatusType, FieldStatusStyle } from '../../model/data-model';
 import { FormControl } from '@angular/forms';
 import {
   Component,
@@ -53,9 +51,11 @@ export class NvFieldComponent implements OnInit, AfterViewInit, OnChanges {
   labelStatus!: FieldStatusType;
   svgIconIdsDic!: { [name: string]: string };
   fieldStatusColorDic!: { [name: string]: string };
-  @ViewChild('inputRef') inputRef!: ElementRef<HTMLElement>;
+  /**
+   * References to call directives
+   */
   @ViewChild(NvStyleColorDirective) nvStyleColorDirective: any;
-  @ViewChild(NvStyleColorDirective) nvTextColorDirective: any;
+  @ViewChild(NvTextColorDirective) nvTextColorDirective: any;
   constructor() {
     this._initialize();
   }
@@ -66,13 +66,13 @@ export class NvFieldComponent implements OnInit, AfterViewInit, OnChanges {
   }
 
   ngAfterViewInit(): void {}
-  onFieldClick(): void {}
-  onBlur(): void {
-
-    this.nvStyleColorDirective.ngOnDestroy();
+  /**
+   * Call directive here to reset the style
+   */
+  onFieldClick(): void {
     this._resetStyle();
-    this.nvStyleColorDirective.ngOnInit();
-
+    this.nvStyleColorDirective.ngOnDestroy();
+    this.nvTextColorDirective.ngOnDestroy();
   }
   /**
    * update the style based on the received status color type;
@@ -82,10 +82,9 @@ export class NvFieldComponent implements OnInit, AfterViewInit, OnChanges {
     let statusType = FieldStatusType.Normal;
     if (!!type) {
       statusType = type;
-      console.log(type);
     } else if (type === 0) {
-        statusType = FieldStatusType.Active;
-      }
+      statusType = FieldStatusType.Active;
+    }
     /**
      * setting style based on status type; style is input for directive nv-style-color directive
      * these styles are used to create style class name using enum type; the style classes are located in base.scss
@@ -103,13 +102,7 @@ export class NvFieldComponent implements OnInit, AfterViewInit, OnChanges {
     this.fieldStyle = style;
   }
   private _resetStyle(): void {
-  this.fieldStatusType = FieldStatusType.Normal;
-  this.labelStatus = FieldStatusType.Normal;
-  this.fieldStyle = {
-    border: FieldStatusType.Normal,
-    background: FieldStatusType.Normal,
-    text: FieldStatusType.Normal,
-    } as FieldStatusStyle;
+    this.fieldStatusType = FieldStatusType.Normal;
   }
   /**
    * If the user does not pass input

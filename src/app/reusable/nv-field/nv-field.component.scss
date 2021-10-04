@@ -15,6 +15,7 @@ $icons-distance: 8px;
   .field-label {
     color: $color-dark-gray-dde;
   }
+
   .field-input {
     position: relative;
     text-align: left;
@@ -30,6 +31,7 @@ $icons-distance: 8px;
       box-shadow: none;
       outline-color: #727272;
     }
+
     &::after {
       margin-left: 10px;
       display: none !important;

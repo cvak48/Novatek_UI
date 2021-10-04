@@ -116,12 +116,13 @@
         <div class="dropdown-container" *ngSwitchCase="nvComponentType.Dropdown">
           <app-nv-dropdown class="body-item" [extensionDirection]="dropdownMenuExtensionDir" [items]="dropdownItems"
             [selectedItem]="defaultSelectedItem" [textTrimNumber]="textTrimNumber" [isFieldDisable]="isDropdownDisable"
-            [fieldStatusType]="dropdownFieldStatusType" [fieldType]="dropDownFieldType" (itemSelect)="onItemSelect($event)">
+            [fieldStatusType]="dropdownFieldStatusType" [fieldType]="dropDownFieldType"
+            (itemSelect)="onItemSelect($event)">
           </app-nv-dropdown>
         </div>
         <div class="field-container" *ngSwitchCase="nvComponentType.NvField">
           <app-nv-field class="body-item" [label]="fieldLabel" [fieldStatusType]="fieldStatusType"
-           (itemSelect)="onItemSelect($event)"></app-nv-field>
+            (itemSelect)="onItemSelect($event)"></app-nv-field>
         </div>
 
         <div class="dropdown-container" *ngSwitchCase="nvComponentType.LoginDropdown">
@@ -129,7 +130,8 @@
           <br>
           <app-nv-dropdown class="body-item" [extensionDirection]="dropdownMenuExtensionDir" [items]="dropdownItems"
             [selectedItem]="defaultSelectedItem" [textTrimNumber]="textTrimNumber" [isFieldDisable]="isDropdownDisable"
-            [fieldStatusType]="dropdownFieldStatusType" [fieldType]="dropDownFieldType" (itemSelect)="onItemSelect($event)">
+            [fieldStatusType]="dropdownFieldStatusType" [fieldType]="dropDownFieldType"
+            (itemSelect)="onItemSelect($event)">
           </app-nv-dropdown>
         </div>
         <div class="search-item-container" *ngSwitchCase="nvComponentType.MultiSelectDropdown">

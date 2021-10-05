@@ -24,9 +24,13 @@ hr{
 }
 .row {
     .profile-header {
-
+        position: relative;
+        width: 100%;
     }
     .body {
+        position: relative;
+        width: 100%;
+        margin-left: -15px;
         .field-row {
 
         }

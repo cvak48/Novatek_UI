@@ -15,6 +15,10 @@ export class NvAvatarComponent implements OnInit, OnChanges {
   get person(): Person {
     return this._person;
   }
+  // issue: the OnChanges does not fire when the input property 
+  // is an array/object (here props of person) because Angular uses dirty checking to compare the properties; so here we considered a separate input 
+  // for imgUrl. 
+  // TODO: applying ngDoCheck as  Ref: https://www.tektutorialshub.com/angular/angular-ngdocheck-life-cycle-hook/
   @Input() imgUrl!: string;
   constructor() {
     this._initialize();

@@ -1,0 +1,41 @@
+<div class="container">
+<div class="user-profile-container">
+        <div class="avatar">
+            <app-nv-avatar [imgUrl]="person.imageUrl" [person]="person"></app-nv-avatar>
+            <img class="icon" src="./../../../assets/icons/circular-item-menu.icon.svg"
+             (click)="onIconClick()">
+             <input class="hidden-input" type="file" #fileDropRef id="fileDropRef"
+             accept="image/*" (change)="fileBrowseHandler($event)" />
+        </div>
+        <div class="content">
+            <div class="header">
+                <div class="header-name h20">{{userProfiles[0].name}}</div>
+                <div class="header-job-position">{{userProfiles[0].jobPosition}}</div>
+            </div>
+            <div class="body">
+                <div class="field-row">
+                    <div class="label">User Name</div>
+                    <div class="value">{{userProfiles[0].userName}}</div>
+                </div>
+                <div class="field-row">
+                    <div class="label">Unique ID</div>
+                    <div class="value">{{userProfiles[0].uniqueID}}</div>
+                </div>
+                <div class="field-row">
+                    <div class="label">Password Expiry</div>
+                    <div class="value">{{userProfiles[0].passwordExpiryDate}}</div>
+                </div>
+                <div class="field-row">
+                    <div class="label">Account Expiry</div>
+                    <div class="value">{{userProfiles[0].accountExpiryDate}}</div>
+                </div>
+                <div class="field-row">
+                    <div class="label">Last Login</div>
+                    <div class="value">{{userProfiles[0].lastLogin}}</div>
+                </div>
+            </div>
+        </div>
+</div>
+  </div>
+
+  

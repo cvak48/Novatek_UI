@@ -1,3 +1,4 @@
+import { NvUserProfileComponent } from './user-profile/nv-user-profile.component';
 import { NvFieldComponent } from './nv-field/nv-field.component';
 import { NvDownloadComponent } from './nv-download/nv-download.component';
 import { NvTimePickerComponent } from './nv-time-picker/nv-time-picker.component';
@@ -125,7 +126,6 @@ const sharedComponents = [
   NvDownloadComponent,
   NvTimePickerComponent,
   NvDatePickerComponent,
-  NvButtonComponent,
   NvEditPanelComponent,
   NvTablePanelComponent,
   NvGeneralSettingsComponent,
@@ -135,8 +135,9 @@ const sharedComponents = [
   EditUserComponent,
   SlidePanelComponent,
   NvSliderPanelComponent,
-  NvAttachmentListComponent,
-  NvFieldComponent
+  NvFieldComponent,
+  NvUserProfileComponent,
+  NvAttachmentListComponent
 ];
 
 @NgModule({

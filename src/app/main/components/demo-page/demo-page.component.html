@@ -84,6 +84,9 @@
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.NvField)">
         {{nvComponentType[nvComponentType.NvField]}}
       </div>
+      <div class="menu-item h40" (click)="onItemClick(nvComponentType.NvProfile)">
+        {{nvComponentType[nvComponentType.NvProfile]}}
+      </div>
     </div>
 
     <div class="preview-panel" [ngSwitch]="selectedItem">
@@ -112,6 +115,10 @@
 
         <app-nv-user-profile-menu class="body-item" [person]="person" *ngSwitchCase="nvComponentType.ProfileMenu">
         </app-nv-user-profile-menu>
+        
+        <div class="nv-user-profile">
+          <app-nv-user-profile class="body-item" [person]="person" *ngSwitchCase="nvComponentType.NvProfile"></app-nv-user-profile>
+        </div>
 
         <div class="dropdown-container" *ngSwitchCase="nvComponentType.Dropdown">
           <app-nv-dropdown class="body-item" [extensionDirection]="dropdownMenuExtensionDir" [items]="dropdownItems"

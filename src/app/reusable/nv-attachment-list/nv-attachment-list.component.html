@@ -1,0 +1,69 @@
+<div class="mr-div-2 card-wd">
+    <div class="card custom-card" *ngIf="!showPanel">
+      <div class="card-header">
+        <span class="panel-titleTxt">Attachments</span>
+  
+        <button
+          type="button"
+          (click)="closePanel()"
+          class="close mg-15"
+          aria-label="Close"
+        >
+          <span aria-hidden="true"
+            ><img src="../../../assets/icons/ico.close.svg"
+          /></span>
+        </button>
+        <button type="button" class="close" aria-label="drop">
+          <span aria-hidden="true"
+            ><img src="../../../assets/icons/threeDots.icon.svg"
+          /></span>
+        </button>
+      </div>
+      <div class="search-container">
+        <div class="card-body">
+          
+          <div>
+            <div class="table-scroll">
+              <table class="data-table" mdbTable>
+                <tr class="mat-header-row">
+                  <th class="mat-header-cell">
+                    <input
+                      class="table-check"
+                      type="checkbox"
+                      [checked]="isAllCheckBoxChecked()"
+                      (change)="checkAllCheckBox($event)"
+                    />
+                  </th>
+                  <th 
+                  *ngFor="let column of columns; let i = index"
+                  scope="col"
+                  class="mat-header-cell">
+                    {{ column }}
+                  </th>
+                </tr>
+                <ng-container  *ngFor="let attachment of attachments ">
+              <tr class="mat-row">
+              <td class="pd-lt-2 checkbox-column">
+                <input
+                  class="table-check"
+                  type="checkbox"
+                  value="{{ attachment.id }}"
+                  [(ngModel)]="attachment.checked"
+                />      
+               
+              </td>
+              <td>{{ attachment.name }}</td>
+            </tr>
+          
+               
+              </ng-container>
+              </table>
+            </div>
+  
+           
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

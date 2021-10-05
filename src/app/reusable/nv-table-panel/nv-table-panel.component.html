@@ -116,6 +116,11 @@
                 value="{{ order.id }}"
                 [(ngModel)]="orders[i].checked"
               />
+              <button *ngIf="order.attachments.length > 0" class="attach-btn" (click)="showAttachments(order.attachments)">
+                <mat-icon> attach_file</mat-icon>
+        </button>
+      
+             
             </td>
             <td>{{ order.name }}</td>
             <td>{{ order.date }}</td>

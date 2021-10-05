@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Sort } from '@angular/material/sort';
 import { DataService } from 'src/app/services/data.service';
+import { NvAttachmentListComponent } from '../nv-attachment-list/nv-attachment-list.component';
 import { TableColumn } from '../nv-custom-datatable/table-column.model';
 import { Order } from '../test/order';
 
@@ -60,7 +62,8 @@ export class NvTablePanelComponent implements OnInit {
   textTrimNumber = mockDropdown().textTrimNumber;
   selectedItemDefault = mockDropdown().selectedItemDefault;
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService,
+              private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.dataService.getTableData()
@@ -199,8 +202,17 @@ export class NvTablePanelComponent implements OnInit {
   }
 
   showExtendedRow(index: number): void{
-    this.selectedRow = (this.selectedRow == index) ? -1 : index;
-   // this.attachmentList = attachments;
+   // this.selectedRow = (this.selectedRow == index) ? -1 : index;
+  }
+
+  showAttachments(attachments: any): void{
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.closeOnNavigation = true;
+    dialogConfig.data = attachments;
+    const dialogRef = this.dialog.open(NvAttachmentListComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe((email: string) => {
+    });
   }
 
   isRowVisibleAllowed(index: number): boolean {

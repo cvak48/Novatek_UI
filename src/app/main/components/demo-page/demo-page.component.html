@@ -42,8 +42,8 @@
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.Notification)">
         {{nvComponentType[nvComponentType.Notification]}}
       </div>
-      <div class="menu-item h40" (click)="onItemClick(nvComponentType.ProfileMenu)">
-        {{nvComponentType[nvComponentType.ProfileMenu]}}
+      <div class="menu-item h40" (click)="onItemClick(nvComponentType.NvProfileMenu)">
+        {{nvComponentType[nvComponentType.NvProfileMenu]}}
       </div>
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.Header)">
         {{nvComponentType[nvComponentType.Header]}}
@@ -108,12 +108,11 @@
         <app-nv-notification-icon class="body-item" *ngSwitchCase="nvComponentType.Notification">
         </app-nv-notification-icon>
 
-        <ng-container *ngSwitchCase="nvComponentType.Avatar">
-          <app-nv-avatar class="body-item" *ngIf="person?.imageUrl && person?.name" [avatarUrl]="person.imageUrl!"
-            [name]="person.name!"></app-nv-avatar>
-        </ng-container>
+          <div class="image-container" *ngSwitchCase="nvComponentType.Avatar">
+            <app-nv-avatar class="body-item" [person]="person"></app-nv-avatar>
+          </div>
 
-        <app-nv-user-profile-menu class="body-item" [person]="person" *ngSwitchCase="nvComponentType.ProfileMenu">
+        <app-nv-user-profile-menu class="body-item" [person]="person" *ngSwitchCase="nvComponentType.NvProfileMenu">
         </app-nv-user-profile-menu>
         
         <div class="nv-user-profile">

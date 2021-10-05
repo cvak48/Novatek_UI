@@ -138,6 +138,7 @@ const sharedComponents = [
   NvFieldComponent,
   NvUserProfileComponent,
   NvAttachmentListComponent
+  
 ];
 
 @NgModule({

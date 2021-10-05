@@ -1,8 +1,8 @@
 @import "../../reusable/theme/base.scss";
 
 .custom-card {
-    border-radius: 8px !important;
-    
+  border-radius: 8px !important;
+
   .card-header {
     font-size: 12px;
     padding: 0px 12px 0px 10px;
@@ -12,7 +12,7 @@
     height: 40px;
   }
   .card-body {
-      min-height: 25%;
+    min-height: 25%;
     padding: 0px;
     padding: 10px;
     background: $color-light-gray;
@@ -40,7 +40,7 @@
     left: -9px;
   }
 
-  .mr-rt-1{
+  .mr-rt-1 {
     margin-right: 1%;
   }
 
@@ -49,39 +49,39 @@
     top: 5px;
     left: 0px;
     margin-left: 4px;
-}
-
-  .dp-inline{
-    float:left;
   }
 
-  .paging-position{
-   display:inline-block;
-}
+  .dp-inline {
+    float: left;
+  }
 
-.mr-bt-4{
+  .paging-position {
+    display: inline-block;
+  }
+
+  .mr-bt-4 {
     margin-bottom: 4.5%;
-}
-
-  .btn-right{
-      float: right;
-      display: flex;
   }
 
-  .card-content-box{
+  .btn-right {
+    float: right;
+    display: flex;
+  }
+
+  .card-content-box {
     background-color: $color-white-20;
     padding: 10px;
     min-height: 60px;
   }
 
-  .card-footer{
-    padding:0;
-    height:50px;
+  .card-footer {
+    padding: 0;
+    height: 50px;
     border-top: none !important;
-    background-color:$color-light-gray;
+    background-color: $color-light-gray;
   }
 
-  .footer-btn{
+  .footer-btn {
     margin: 0 auto;
     width: 100%;
     text-align: end;
@@ -101,13 +101,10 @@
     padding-left: 0;
     padding-right: 5px;
   }
-
- 
 }
-.mr-div-2{
+.mr-div-2 {
   // margin: 0 10px !important;
 }
-
 
 mat-paginator {
   margin-bottom: 47px !important;
@@ -126,7 +123,6 @@ mat-paginator {
   width: 97%;
   padding-left: 1%;
 }
-
 
 ::ng-deep .mat-icon {
   fill: $color-white !important;
@@ -387,29 +383,29 @@ table.table td {
 ::ng-deep .ngx-pagination a,
 .ngx-pagination button {
   color: $color-light-gray-30 !important;
-  color: #999C9E !important;
-    font-size: 16px;
-    margin-left: 5px;
+  color: #999c9e !important;
+  font-size: 16px;
+  margin-left: 5px;
 }
 
 .rotateimg180 {
-  -webkit-transform:rotate(180deg);
+  -webkit-transform: rotate(180deg);
   -moz-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   -o-transform: rotate(180deg);
   transform: rotate(180deg);
 }
 
-table td { 
+table td {
   display: table-cell;
-  vertical-align: top; 
+  vertical-align: top;
 }
 
-hr{
+hr {
   margin-top: unset;
   margin-bottom: unset;
 }
 
-.attachment-link{
+.attachment-link {
   cursor: pointer;
 }

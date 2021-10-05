@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import { MatDrawer } from '@angular/material/sidenav';
 import {
   DropdownFieldType,
   Notification,
@@ -11,6 +12,22 @@ import {
   styleUrls: ['./nv-menu.component.scss'],
 })
 export class NvMenuComponent implements OnInit {
+  @ViewChild('drawer')
+  public drawer!: MatDrawer;
+  path : string = '';
+
+  @HostListener('click', ['$event']) clickedInside($event : any) {
+    if($event.target.outerHTML.indexOf('hamburger') < 0 && $event.target.outerHTML.indexOf('sidenav-content') < 0
+    && $event.target.outerHTML.indexOf('ico.menu.back') < 0){
+      this.closeSideNav();
+     }
+  }
+  reason = '';
+
+  close(reason: string) {
+    this.reason = reason;
+  }
+
   isFirstLevelIcon: boolean = true;
   isSecondLevelIcon: boolean = false;
   showCloseIcon: boolean = false;
@@ -23,17 +40,21 @@ export class NvMenuComponent implements OnInit {
   initialHistoryDropDownItems: string[] = [];
 
   firstLevelSelectedIndex: number = 0;
+  showMenu: boolean = false;
 
   /**
    * Side Menu list items
    */
   firstLevelMenuItems = [
+    { icon: '../../../assets/icons/ico.masterlist.svg', name: 'Dashboard' },
     { icon: '../../../assets/icons/ico.masterlist.svg', name: 'Master List' },
+    { icon: '../../../assets/icons/ico.masterlist.svg', name: 'Dropdown List' },
     {
       icon: '../../../assets/icons/ico.masterlist.svg',
       name: 'System Administation',
     },
     { icon: '../../../assets/icons/ico.masterlist.svg', name: 'Inventory' },
+    { icon: '../../../assets/icons/ico.masterlist.svg', name: 'Worklist' },
     {
       icon: '../../../assets/icons/ico.masterlist.svg',
       name: 'Events / Operations',
@@ -107,6 +128,10 @@ export class NvMenuComponent implements OnInit {
 
   seconndLevelMenuItems = [
     {
+      name: '',
+      subItems: []
+    },
+    {
       name: 'Master List',
       subItems: [
         { name: 'Equipment Assets' },
@@ -119,6 +144,10 @@ export class NvMenuComponent implements OnInit {
         { name: 'Specifications' },
         { name: 'Controlled Areas' },
       ],
+    },
+    {
+      name: '',
+      subItems: []
     },
     {
       name: 'System Administration',
@@ -139,6 +168,10 @@ export class NvMenuComponent implements OnInit {
         { name: 'Cleaning Agents' },
         { name: 'Single Use Standards' },
       ],
+    },
+    {
+      name: '',
+      subItems: []
     },
     {
       name: 'Events/Operations',
@@ -279,12 +312,14 @@ export class NvMenuComponent implements OnInit {
     this.showFirstLevelMenu = true;
     this.showSideNav = true;
     this.showCloseIcon = true;
+    this.showMenu = true;
   }
 
   openSecondLevelMenu(index: number) {
-    //this.dropdownItemsMenu = this.getSubMenuItemForDropdown(index); //masterList
+     if(index === 0 || index === 2 || index === 5){
+     return;
+     }
     this.firstLevelSelectedIndex = index;
-    //this.firstLevelMenu = this.firstLevelMenuItems[index].name;
     this.selectedItemDefaultMenu = this.mockMenuDropdown().selectedItemDefault;
     this.showSecondLevelMenu = true;
     this.showSideNav = true;

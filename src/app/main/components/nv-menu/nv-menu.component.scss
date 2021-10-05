@@ -91,7 +91,7 @@
 
 .hamburger-icon{
   margin-top: -12px;
-  margin-left: 7px;
+  margin-left: 10px;
 }
 
 .hamburger-icon-top {
@@ -105,7 +105,6 @@
 
 ::ng-deep .mat-drawer.mat-drawer-side {
   background-color: $color-light-gray;
-  box-shadow: 2px 0 8px -2px #888 !important;
 }
 
 ::ng-deep .mat-list-item :hover {
@@ -155,9 +154,7 @@
     width: 18px;
 }
 
-.sidenav-height {
-    height: 90vh;
-}
+
 
 .sidenav-menuicon2 {
     width: 16px;
@@ -168,7 +165,7 @@
     position: absolute;
     bottom: 0;
     right: 0 !important;
-    left: 45px !important;
+    left: 37px !important;
     width: 75% !important;
     margin: 0;
     top: 35px !important;
@@ -176,7 +173,7 @@
 }
 
 ::ng-deep .mat-list-base .mat-list-item .mat-list-item-content, .mat-list-base .mat-list-option .mat-list-item-content {
-    padding:  0 8px !important;
+    padding:  0 0px !important;
 }
 
 .custom-height {
@@ -194,6 +191,7 @@
 
 .left-icon {
   margin-top: -12px;
+  margin-left: 7px;
 }
 
 .test1:hover{
@@ -214,4 +212,39 @@
 .mat-divider-right{
   margin-right: 8px !important;
   border: 1px solid #dfdfdf;
+}
+
+.display-menu{
+  margin-top: -56px;
+}
+
+.pt-3{
+  padding-top: 3px;
+}
+
+.pb-16{
+  padding-bottom: 16px !important;
+}
+
+.mat-divider-menu{
+  border-bottom: 1px solid #999C9E;
+  box-shadow: 1px 0 6px -2px #888 !important;
+}
+
+::ng-deep .mat-drawer-container {
+  background-color: rgba(0,0,0,.4);
+}
+
+::ng-deep .mat-drawer-backdrop.mat-drawer-shown {
+background-color: rgba(0,0,0,.6) !important;
+}
+
+.sidenav-height {
+  height: 92vh;
+  width: 1600px;
+  //box-shadow: 5px 0 6px -2px #888 !important;
+}
+
+mat-drawer.mat-drawer.mat-drawer-side.mat-drawer-opened{
+  box-shadow: 2px -1px 4px 1px #888 !important;
 }

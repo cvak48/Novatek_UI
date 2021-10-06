@@ -202,7 +202,7 @@ export class NvTablePanelComponent implements OnInit {
   }
 
   showExtendedRow(index: number): void{
-   // this.selectedRow = (this.selectedRow == index) ? -1 : index;
+    this.selectedRow = (this.selectedRow == index) ? -1 : index;
   }
 
   showAttachments(attachments: any): void{

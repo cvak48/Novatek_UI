@@ -1,3 +1,4 @@
+@import "../../reusable/theme/base.scss";
 .card-wd{
     width:600px;
 }
@@ -6,3 +7,34 @@ th{
     text-transform: uppercase;
     font-weight: bold;
 }
+
+.card-body {
+    min-height: 25%;
+    padding: 0px;
+    padding: 10px;
+    background: $color-light-gray;
+  }
+
+  .shadow-sm-dark {
+    width: 25%;
+    min-height: 50px;
+    border-bottom-left-radius: 8px !important;
+    border-bottom-right-radius: 8px !important;
+  }
+
+  .dp-inline {
+    float: right;
+  }
+
+  .btn-right {
+    float: right;
+    display: flex;
+  }
+
+  .mr-rt-1 {
+    margin-right: 1%;
+  }
+
+  .mr-tp-2{
+      margin-top: 2%;
+  }

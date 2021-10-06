@@ -53,17 +53,27 @@
                
               </td>
               <td>{{ attachment.name }}</td>
-            </tr>
-          
-               
+            </tr>            
               </ng-container>
               </table>
             </div>
-  
-           
           </div>
         </div>
-      </div>
+      </div> 
     </div>
+    <div class="shadow-sm-dark dp-inline mr-tp-2">
+          
+        <div class="dp-inline btn-right">
+          <app-nv-button
+            label="Download"
+            class="mr-rt-1"
+            (buttonClick)="buttonClick()"
+          ></app-nv-button>
+          <app-nv-button
+            label="Cancel"
+            (buttonClick)="buttonClick()"
+          ></app-nv-button>
+        </div>
+      </div>
   </div>
   

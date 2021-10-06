@@ -53,7 +53,7 @@ export class NvMultiSelectDropdownComponent implements OnInit {
   // field
   // TODO: What is the default
 
-  items: string[] = ['Multiple Select'];
+  items: string[] = [];
   isArrowDown: boolean = true;
   readonly arrowIcons: ArrowIcon = {
     upward: '../../../assets/icons/ico.arrow.up.svg',

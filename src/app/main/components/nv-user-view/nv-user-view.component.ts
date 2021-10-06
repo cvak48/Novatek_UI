@@ -1,3 +1,4 @@
+import { DropdownFieldType, MenuExtensionDirection} from 'src/app/model/data-model';
 import {
   Person,
   Notification,
@@ -17,9 +18,19 @@ export class NvUserViewComponent implements OnInit {
   // field
   fieldStatusType = FieldStatusType.Error;
   fieldLabel = 'Label';
+    // dropDown 
+    dropdownItems = mockDropdown().items;
+    textTrimNumber = mockDropdown().textTrimNumber;
+    defaultSelectedItem = mockDropdown().selectedItemDefault;
+    dropDownFieldType = mockDropdown().dropDownFieldType;
+    dropdownMenuExtensionDir = mockDropdown().menuExtensionDir;
+    isDropdownDisable = mockDropdown().isDisable;
+    dropdownFieldStatusType = mockDropdown().fieldStatusType;
   constructor() {}
   ngOnInit(): void {}
   onItemSelect(item: any): void {}
+    // search output
+    onItemsFilter(list: any): void {}
 }
 
 function mockProfileMenu(): Person {
@@ -35,4 +46,27 @@ function mockProfileMenu(): Person {
     } as Notification,
   } as Person;
   return avatarProps;
+}
+
+
+function mockDropdown(): any {
+  const dropdownInputs = {
+    items: [
+      'item1',
+      'item2 which is longer',
+      'item3 which is longer and ',
+      'item4',
+      'item5',
+      'item6',
+      'item7',
+    ],
+    itemsNumber: ['1', '2', '3', '4', '5', '11', '22', '33', '44', '55'],
+    textTrimNumber: 3,
+    selectedItemDefault: '',
+    menuExtensionDir: MenuExtensionDirection.ToLeft,
+    dropDownFieldType: DropdownFieldType.Icon,
+    fieldStatusType: FieldStatusType.Normal,
+    isDisable: false,
+  };
+  return dropdownInputs;
 }

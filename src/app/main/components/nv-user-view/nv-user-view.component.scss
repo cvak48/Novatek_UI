@@ -1,59 +1,79 @@
-.user-list-left{
-    margin:1% 0 1% 0;
-    padding-right: 0px !important;
-}
-.user-list-right{
-    margin:1% 0 1% 0;
-    padding-left: 0px !important;
-}
-.left0 {
-    padding-left:0px ;
-}
-hr{
-    margin-top: unset !important;
+@import './../../../reusable/theme/base.scss';
+
+.user-list-left {
+  margin: 1% 0 1% 0;
+  padding-right: 0px !important;
 }
 
-::ng-deep .card-body{
-    overflow-x: hidden !important;
+.user-list-right {
+  margin: 1% 0 1% 0;
+  padding-left: 0px !important;
+}
+
+.left0 {
+  padding-left: 0px;
+}
+
+hr {
+  margin-top: unset !important;
+}
+
+::ng-deep .card-body {
+  overflow-x: hidden !important;
 }
 
 .table-scroll {
-    overflow: auto;
-   height: 300px;
-    margin-top: 11px;
+  overflow: auto;
+  height: 300px;
+  margin-top: 11px;
 }
+
 .row {
-    .profile-header {
-        position: relative;
-        width: 100%;
-        padding-bottom: 16px;
-    }
-    .body {
-        position: relative;
-        width: 100%;
-        margin-right: 14px;
-        margin-left: 14px;
-        max-height: 325px;
-        .field-row {
-        padding-bottom: 16px;
-        }
-        .multi-select-row {
-            position:relative;
-            display: flex;
-            flex-direction: row;
+  .profile-header {
+    position: relative;
+    width: 100%;
+    padding-bottom: 16px;
+  }
 
-            .multi-select-field-row {
-                padding-bottom: 16px;
-                width: 90%;
-                }
-                .dropdown-plus-container {
-                    margin-left: 8px;
-                }
-                
-        }
-        .date-row {
-            
-        }
+  .body {
+    position: relative;
+    width: 100%;
+    margin-right: 14px;
+    margin-left: 14px;
+    max-height: 325px;
+
+    .field-row {
+      width: 100%;
+      padding-bottom: 16px;
+    }
+
+    .multi-select-row {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      padding-bottom: 16px;
+
+      .multi-select-field-row {
+        padding-bottom: 16px;
+        width: 100%;
+      }
+
+      .dropdown-plus-container {
+        margin-left: 8px;
+      }
 
     }
+
+    .date-row {
+      height: 63px;
+      width: 35%;
+
+      .field-label {
+        color: $color-dark-gray-dde;
+        height: 18px;
+      }
+    }
+
+  }
 }

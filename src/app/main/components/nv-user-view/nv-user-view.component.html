@@ -60,7 +60,62 @@
         </app-nv-dropdown>
       </div>
     </div>
-    <div class="date-row"></div>
+    <div class="multi-select-row">
+      <div id="mobilePhone" class="multi-select-field-row">
+          <app-nv-multiselect-dropdown (filteredItems)="onItemsFilter($event)" >
+          </app-nv-multiselect-dropdown>
+      </div>
+      <div class="dropdown-plus-container">
+        <app-nv-dropdown [extensionDirection]="dropdownMenuExtensionDir" [items]="dropdownItems"
+          [selectedItem]="defaultSelectedItem" [isFieldDisable]="isDropdownDisable"
+          [fieldStatusType]="dropdownFieldStatusType" [fieldType]="dropDownFieldType"
+          (itemSelect)="onItemSelect($event)">
+        </app-nv-dropdown>
+      </div>
+    </div>
+    <div class="multi-select-row">
+      <div id="mobilePhone" class="multi-select-field-row">
+          <app-nv-multiselect-dropdown (filteredItems)="onItemsFilter($event)" >
+          </app-nv-multiselect-dropdown>
+      </div>
+      <div class="dropdown-plus-container">
+        <app-nv-dropdown [extensionDirection]="dropdownMenuExtensionDir" [items]="dropdownItems"
+          [selectedItem]="defaultSelectedItem" [isFieldDisable]="isDropdownDisable"
+          [fieldStatusType]="dropdownFieldStatusType" [fieldType]="dropDownFieldType"
+          (itemSelect)="onItemSelect($event)">
+        </app-nv-dropdown>
+      </div>
+    </div>
+    <div class="multi-select-row">
+      <div id="mobilePhone" class="multi-select-field-row">
+          <app-nv-multiselect-dropdown (filteredItems)="onItemsFilter($event)" >
+          </app-nv-multiselect-dropdown>
+      </div>
+      <div class="dropdown-plus-container">
+        <app-nv-dropdown [extensionDirection]="dropdownMenuExtensionDir" [items]="dropdownItems"
+          [selectedItem]="defaultSelectedItem" [isFieldDisable]="isDropdownDisable"
+          [fieldStatusType]="dropdownFieldStatusType" [fieldType]="dropDownFieldType"
+          (itemSelect)="onItemSelect($event)">
+        </app-nv-dropdown>
+      </div>
+    </div>
+    <div class="multi-select-row">
+      <div id="mobilePhone" class="multi-select-field-row">
+          <app-nv-multiselect-dropdown (filteredItems)="onItemsFilter($event)" >
+          </app-nv-multiselect-dropdown>
+      </div>
+      <div class="dropdown-plus-container">
+        <app-nv-dropdown [extensionDirection]="dropdownMenuExtensionDir" [items]="dropdownItems"
+          [selectedItem]="defaultSelectedItem" [isFieldDisable]="isDropdownDisable"
+          [fieldStatusType]="dropdownFieldStatusType" [fieldType]="dropDownFieldType"
+          (itemSelect)="onItemSelect($event)">
+        </app-nv-dropdown>
+      </div>
+    </div>
+    <div class="date-row">
+      <label for="input" class="field-label h50" > Account Expiry </label>
+        <app-nv-date-picker [isDateRangePicker]="false" ></app-nv-date-picker>
+    </div>
 </div>
 
 

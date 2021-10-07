@@ -64,7 +64,7 @@ export interface FieldStatusStyle {
     background: number;
     text: number;
 }
-
+// for dropdown
 export enum MenuExtensionDirection {
     ToLeft,
     ToRight,

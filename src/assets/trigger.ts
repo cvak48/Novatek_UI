@@ -76,19 +76,6 @@ import { animate, animation, AnimationReferenceMetadata, AnimationTriggerMetadat
     ])
   ]);
 
-  export const SidebarOpenAnimation1 = animation([
-    style({ left: "-{{menuWidth}}" }),
-    query(".sidenav-content", [style({ transform: "translateX(-{{menuWidth}})" })]),
-    sequence([
-      animate("200ms", style({ left: "0" })),
-      query(".sidenav-content", [
-        stagger(50, [animate("{{animationStyle}}", style({ transform: "none" }))])
-      ])
-    ])
-  ]);
-
-
-
   export const SidebarCloseAnimation = animation([
     style({ left: "0" }),
     query(".mat-list-item", [style({ transform: "none" })]),

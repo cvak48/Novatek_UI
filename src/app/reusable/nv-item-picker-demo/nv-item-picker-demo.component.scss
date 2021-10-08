@@ -1,0 +1,202 @@
+@import './../theme/base.scss';
+$field-height-large: 48px;
+$field-height-medium: 38px;
+$field-height-small: 28px;
+$padding-medium: 8px;
+$padding-large: 12px;
+$image-dim: 28px;
+// Neutrals
+$neutral-1-100: #757575;
+$neutral-1-200: #C0BFCC;
+$neutral-2-600: #E0DFE5;
+// 
+$issue-state-color01: #6086f0;
+$issue-state-color01--hover : #3064f5;
+$issue-state-color-02: #9e9c9c;
+$issue-state-color-02--hover: #777575;
+$issue-state-color-03: #278d15;
+$issue-state-color-03--hover: #166808;
+
+$text-color-100:  rgb(0, 0, 0);    
+$font-weight-medium:  500;
+$background-color-500: rgb(244, 245, 247);
+
+$icon-width: $field-height-medium - $padding-medium;
+
+.item-picker-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+
+  &.large {
+    min-width: $field-height-large;
+    min-height: $field-height-large;
+  }
+
+  &.medium {
+    min-width: $field-height-medium;
+    min-height: $field-height-medium;
+  }
+
+  &.small {
+    min-width: $field-height-small;
+    min-height: $field-height-small;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  .item-picker-select-box-container {
+    position: relative;
+    flex-grow: 1;
+    min-height: 100%;
+    width: 100%;
+    height: 100%;
+    background-color: $neutral-1-200;
+
+    &.compacted-view {
+      width: $field-height-large;
+    }
+
+    &:hover {
+      background-color: $neutral-2-600;
+    }
+
+    .item {
+      position: relative;
+
+      &.background-StateColor01 {
+        background-color: $issue-state-color01;
+
+        &:hover {
+          background-color: $issue-state-color01--hover;
+        }
+      }
+
+      &.background-StateColor02 {
+        background-color: $issue-state-color-02;
+
+        &:hover {
+          background-color: $issue-state-color-02--hover;
+        }
+      }
+
+      &.background-StateColor03 {
+        background-color: $issue-state-color-03;
+
+        &:hover {
+          background-color: $issue-state-color-03--hover;
+        }
+      }
+      .item-label {
+        position: relative;
+        font-weight: $font-weight-medium;
+        color: $background-color-500;
+      }
+    }
+
+
+    .box-arrow {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      align-self: center;
+      justify-content: center;
+      margin-top: auto;
+      margin-bottom: auto;
+      right: 0px;
+      top: 0px;
+      bottom: 0px;
+      width: 18px;
+      height: 8px;
+      fill: none;
+      padding-right: 9px;
+    }
+  }
+
+  .menu-container {
+    position: relative;
+    margin-top: 6px;
+    min-width: 150px;
+    border-radius: 2px;
+    background-color: $background-color-500;
+
+    .menu-item-container {
+      display: flex;
+      flex-direction: column;
+      border-radius: 1px;
+
+      &.selected-item {
+        display: none;
+        background-color: $neutral-1-100 !important;
+      }
+
+      &:hover {
+        background-color: $neutral-2-600;
+        margin: 2px;
+      }
+      .item {
+            padding-top: 5px;
+            padding-bottom: 5px;
+      }
+    }
+  }
+
+  .item {
+    position: relative;
+    display: grid;
+    grid-template-columns: $icon-width min-content;
+    cursor: pointer;
+    height: 100%;
+
+    &.menu {
+      white-space: nowrap;
+    }
+
+    .item-image {
+      position: relative;
+      margin: 2px;
+      padding-left:  $padding-medium;
+      height: 32px;
+      width: 32px;
+      .image {
+        position: relative;
+        display: flex;
+        align-items: center;
+        align-self: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+      }
+
+      .image-holder {
+        position: relative;
+        display: flex;
+        align-items: center;
+        align-self: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: transparent;
+      }
+    }
+
+    .item-label {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-self: center;
+      align-items: center;
+      height: 100%;
+      width: min-content;
+      color: $text-color-100;
+      padding-left: $padding-medium;
+    }
+  }
+}

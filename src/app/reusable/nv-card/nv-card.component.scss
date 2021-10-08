@@ -1,0 +1,59 @@
+
+.card-container {
+
+    position: relative;
+    min-width: 100%;
+    min-height: 100%;
+    border-radius: 8px;
+    background-color: #d0d0da;
+    display: flex;
+    flex-direction: row;
+
+    .card-left-section {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        margin-right: 62px;
+        
+        .left-content {
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            height: 48px;
+            .left-color-picker {
+                margin-left: 4px;
+                margin-top: 4px;
+            }
+            .left-icon-picker {
+                position: absolute;
+                left: 50px;
+                margin-top: 4px;
+                margin-left: 4px;
+            }
+
+        }
+        .left-footer {
+            position: absolute;
+            top: 95px;
+            left: 255px;
+            .footer-avatar {
+            }
+        }
+    }
+    .card-right-section {
+        display: flex;
+        flex-direction: column;
+        margin-top: 4px;
+        position: absolute;
+        right: 4px;
+
+        .right-status {
+            width: 130px;
+            height: 38px;
+
+        }
+    }
+
+}
+
+

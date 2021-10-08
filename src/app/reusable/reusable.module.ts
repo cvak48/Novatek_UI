@@ -1,3 +1,9 @@
+import { NvColorPickerDemoComponent } from './nv-color-picker-demo/nv-color-picker-demo.component';
+import { NvItemPickerDemoComponent } from './nv-item-picker-demo/nv-item-picker-demo.component';
+import { NvIconPickerDemoComponent } from './nv-icon-picker-demo/nv-icon-picker-demo.component';
+import { NvCardComponent } from './nv-card/nv-card.component';
+// import { BackgroundColorDirective } from './directives/background-color/background-color.directive';
+import { DragAndDropComponent } from './drag-and-drop/drag-and-drop.component';
 import { NvFieldComponent } from './nv-field/nv-field.component';
 import { NvDownloadComponent } from './nv-download/nv-download.component';
 import { NvTimePickerComponent } from './nv-time-picker/nv-time-picker.component';
@@ -6,7 +12,6 @@ import { NvMultiSelectDropdownComponent } from './nv-multiselect-dropdown/nv-mul
 import { NvDatePickerComponent } from './nv-date-picker/nv-date-picker.component';
 import { NvAvatarComponent } from './nv-avatar/nv-avatar.component';
 import { NvUploadComponent } from './nv-upload/nv-upload.component';
-
 import { NvSvgColorDirective } from './directives/nv-svg-decorator/nv-svg-color.directive';
 import { NvDropdownComponent } from './nv-dropdown/nv-dropdown.component';
 import { NvStyleColorDirective } from './directives/nv-status-color/nv-style-color.directive';
@@ -29,6 +34,7 @@ import { MaterialModule } from './../material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+// import { FooterComponent } from './footer/footer.component';
 import { NVLogoComponent } from './nv-logo/nv-logo.component';
 import { PanelComponent } from './panel/panel.component';
 import { NVTextAreaComponent } from './nv-text-area/nv-text-area.component';
@@ -96,6 +102,11 @@ const sharedComponents = [
   NvSearchComponent,
   NVCommentBoxComponent,
   NvDropdownComponent,
+  DragAndDropComponent,
+  NvCardComponent,
+  NvIconPickerDemoComponent,
+  NvItemPickerDemoComponent,
+  NvColorPickerDemoComponent,
   TestComponent,
   NVTabsComponent,
   TabWrapper,

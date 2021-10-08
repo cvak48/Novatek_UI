@@ -1,0 +1,22 @@
+<div class="card-container">
+  <div class=" card-left-section">
+    <div class=" left-content">
+      <app-nv-color-picker-demo class="left-color-picker" [items]="colorItems" [compactedView]="colorCompactedView" [size]="'large'">
+      </app-nv-color-picker-demo>
+      <app-nv-icon-picker-demo class="left-icon-picker" [items]="IconItems" [showTitle]="IconShowTitle" [compactedView]="IconCompactedView" [size]="'large'">
+      </app-nv-icon-picker-demo>
+    </div>
+    <div class=" left-footer d-flex">
+      <app-nv-avatar class="footer-avatar" *ngIf="person?.imageUrl && person?.name" [avatarUrl]="person.imageUrl!"
+      [name]="person.name!"></app-nv-avatar>
+    </div>
+  </div>
+  <div class="card-right-section ">
+    <div class=" right-status">
+      <app-nv-item-picker-demo [items]="items01" [showImage]="showImage" [showTitle]="showTitle"
+      [compactedView]="compactedView" [size]="'medium'"></app-nv-item-picker-demo>
+    </div>
+    <div class=" right-data"></div>
+    <div class=" right-footer"></div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="{{'item-picker-container ' + size}}" tabindex="0" (focus)="onHideListStateToggle(false)"
+  (blur)="onHideListStateToggle(true)" (keydown)="onKeyDown($event)">
+  <div class="item-picker-select-box-container" 
+  [class.compacted-view]="compactedView" (click)="onSelectBoxClick()">
+    <ng-container [ngTemplateOutlet]="selectedItemTemplate ? selectedItemTemplate: internalItemTemplate" [ngTemplateOutletContext]="{item:selectedItem}"></ng-container>
+    <svg class="box-arrow" *ngIf="!compactedView" viewBox="0 0 16 10" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0H14L7 8L0 0Z" fill="white"/>
+      </svg>
+  </div>
+
+  <div class="menu-container" *ngIf="!hiddenDropDown">
+    <div class="menu-item-container" *ngFor="let item of items; let i=index" (click)="onItemSelect(i)"
+      [class.selected-item]="i===selectedIndex">
+      <ng-container [ngTemplateOutlet]=" menuItemTemplate ? menuItemTemplate: internalItemTemplate" [ngTemplateOutletContext]="{item:item}"></ng-container>
+    </div>
+  </div>
+</div>
+
+<ng-template #internalItemTemplate let-item="item">
+  <div class="{{'item menu background-'+ userColors[item?.color]}}">
+    <div class="item-image" *ngIf="showImage">
+    <img class="image" *ngIf="item?.imageUrl" [src]="item?.imageUrl" />
+    <div class="image-holder" *ngIf="!item?.imageUrl"> </div>
+  </div>
+    <div class="item-label h500" *ngIf="showTitle"> {{item?.title}} </div>
+  </div>
+</ng-template>

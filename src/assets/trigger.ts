@@ -1,5 +1,5 @@
 import { animate, animation, AnimationReferenceMetadata, AnimationTriggerMetadata, group,
-    keyframes, query, state, style, transition, trigger, useAnimation } from '@angular/animations';
+    keyframes, query, sequence, stagger, state, style, transition, trigger, useAnimation } from '@angular/animations';
   import * as animations from './animation';
   
   /**
@@ -31,7 +31,7 @@ import { animate, animation, AnimationReferenceMetadata, AnimationTriggerMetadat
    */
   export const enterAndLeaveFromLeft = trigger('enterAndLeaveFromLeft', [
     transition(':enter', animations.useSlideFadeInAnimation(undefined, '-100%')),
-    transition(':leave', animations.useSlideFadeOutAnimation(undefined, '-100%')),
+    //transition(':leave', animations.useSlideFadeOutAnimation(undefined, '-100%')),
   ]);
   
   /**
@@ -62,5 +62,46 @@ import { animate, animation, AnimationReferenceMetadata, AnimationTriggerMetadat
       animate('200ms', style({ opacity: 1 })),
       animate('500ms 1s ease-out', style({ opacity: 0 })),
     ]),
+  ]);
+
+
+  export const SidebarOpenAnimation = animation([
+    style({ left: "-{{menuWidth}}" }),
+    query(".mat-list-item", [style({ transform: "translateX(-{{menuWidth}})" })]),
+    sequence([
+      animate("50ms", style({ left: "0" })),
+      query(".mat-list-item", [
+        stagger(30, [animate("{{animationStyle}}", style({ transform: "none" }))])
+      ])
+    ])
+  ]);
+
+  export const SidebarOpenAnimation1 = animation([
+    style({ left: "-{{menuWidth}}" }),
+    query(".sidenav-content", [style({ transform: "translateX(-{{menuWidth}})" })]),
+    sequence([
+      animate("200ms", style({ left: "0" })),
+      query(".sidenav-content", [
+        stagger(50, [animate("{{animationStyle}}", style({ transform: "none" }))])
+      ])
+    ])
+  ]);
+
+
+
+  export const SidebarCloseAnimation = animation([
+    style({ left: "0" }),
+    query(".mat-list-item", [style({ transform: "none" })]),
+    sequence([
+      query(".mat-list-item", [
+        stagger(-50, [
+          animate(
+            "{{animationStyle}}",
+            style({ transform: "translateX(-{{menuWidth}})" })
+          )
+        ])
+      ]),
+      animate("200ms", style({ left: "-{{menuWidth}}" }))
+    ])
   ]);
   

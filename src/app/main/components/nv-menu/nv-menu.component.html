@@ -10,32 +10,8 @@
           src="../../../assets/icons/ico.hamburger-horizontal.svg"
           alt="icon"
       /></mat-icon>
-      <!-- closeSideNav function close sidenav -->
-      <mat-icon *ngIf="isHamburger" class="hamburger-icon" mat-list-icon
-        ><img
-          (click)="closeSideNav()"
-          class="hamburger-size"
-          src="../../../assets/icons/ico.hamburger.svg"
-          alt="icon"
-      /></mat-icon>
-
-      <!-- 2nd level icon -->
-      <mat-icon *ngIf="isSecondLevelIcon" class="left-icon" mat-list-icon
-        ><img
-          (click)="openFirstLevelMenu()"
-          src="../../../assets/icons/ico.menu.back.svg"
-          alt="icon"
-      /></mat-icon>
 
       <mat-label class="mr-lt-3 main-menu-text">MAIN MENU </mat-label>
-      <!-- close icon -->
-      <mat-icon *ngIf="showCloseIcon" class="close-icon"
-        ><img
-          (click)="closeSideNav()"
-          class="close-icon-left"
-          src="../../../assets/icons/ico.close.svg"
-          alt="close"
-      /></mat-icon>
     </div>
     <div class="col-md-5 dp-flex">
       <mat-label class="label-submenu">{{ firstLevelMenu }}</mat-label>
@@ -76,16 +52,22 @@
 </div>
 
 <div class="row">
-  <div class="col-md-2 test-side-menu" style="margin-right:-50px;">
-    <!-- <div class="col-md-2 test-side-menu"> -->
+  <div class="col-md-2 test-side-menu">
+    <!-- Added mat-drawer for left side bar -->
     <mat-drawer-container
       *ngIf="showSideNav"
       [ngClass]="{ 'display-menu': showMenu }"
       class="mat-typography sidenav-height"
-(backdropClick)="close('backdrop')"
+      (backdropClick)="close('backdrop')"
       [hasBackdrop]="true"
     >
-      <mat-drawer #drawer mode="side" disableClose="true" opened="true">
+      <mat-drawer
+        #drawer
+        mode="side"
+        disableClose="true"
+        opened="true"
+        [@sideMenu]
+      >
         <div class="pt-3 pb-16">
           <!-- openFirstLevelMenu function will open first level menu items -->
           <mat-icon *ngIf="isFirstLevelIcon" class="sidenav-icon" mat-list-icon
@@ -98,7 +80,7 @@
           <!-- closeSideNav function close sidenav -->
           <mat-icon *ngIf="isHamburger" class="hamburger-icon" mat-list-icon
             ><img
-              (click)="closeSideNav()"
+              (click)="closingsideNav()"
               class="hamburger-size"
               src="../../../assets/icons/ico.hamburger.svg"
               alt="icon"
@@ -113,10 +95,11 @@
           /></mat-icon>
 
           <mat-label class="mr-lt-3 main-menu-text">MAIN MENU </mat-label>
+
           <!-- close icon -->
           <mat-icon *ngIf="showCloseIcon" class="close-icon"
             ><img
-              (click)="closeSideNav()"
+              (click)="closingsideNav()"
               class="close-icon-left"
               src="../../../assets/icons/ico.close.svg"
               alt="close"
@@ -124,14 +107,14 @@
         </div>
         <mat-divider class="mat-divider-menu"></mat-divider>
         <mat-nav-list *ngIf="showFirstLevelMenu">
-          <!-- Itterrating all the menu items in the side menu -->
+          <!-- Iterating all the first level menu items in the side menu -->
           <mat-list-item
             *ngFor="let item of firstLevelMenuItems; let i = index"
             (click)="openSecondLevelMenu(i)"
           >
             <div class="hoverColor"></div>
             <mat-icon mat-list-icon
-              ><img class="sidenav-menuicon" src="{{ item.icon }}"
+              ><img class="sidenav-menuicon" src="{{ item.icon }}" alt="icon"
             /></mat-icon>
             <h4 class="sidenav-content color-main" mat-line>
               {{ item.name }}
@@ -140,7 +123,9 @@
           </mat-list-item>
         </mat-nav-list>
 
-        <div *ngIf="showSecondLevelMenu">
+        <!-- Showing second level whenever user clicks first level menu item -->
+        <div *ngIf="showSecondLevelMenu" [@enterAndLeaveFromLeft]>
+          <!-- Iterating all the second level menu items in the side menu -->
           <ng-container
             *ngFor="let item of seconndLevelMenuItems; let j = index"
           >
@@ -173,7 +158,8 @@
     </mat-drawer-container>
   </div>
 
+  <!-- Render the elements of sidenav in right side after selecting it -->
   <div class="col-md-10" *ngIf="isHamburger || showSecondLevelMenu">
-    <div>side nav content</div>
+    <div></div>
   </div>
 </div>

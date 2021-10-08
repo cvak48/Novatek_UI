@@ -9,18 +9,15 @@ import {
   AfterViewInit,
   OnChanges,
   ViewChild,
-  ElementRef,
 } from '@angular/core';
 import {
   SVG_ICON_IDS_DIC,
   FIELD_STATUS_COLOR_DIC,
 } from '../../../assets/constants';
 /**
- * Functionalities:
- * 1: It can be disabled based on need => isFieldDisable
  * Note:
  * The parent component need to provide proper container (width and height) for dropdown field
- * nvSvgColor are nvStyleColor directives are used in html file for changing styles
+ * nvSvgColor ( nvStyleColor directives ) are used in html file for changing styles
  */
 @Component({
   selector: 'app-nv-field',
@@ -32,8 +29,7 @@ export class NvFieldComponent implements OnInit, AfterViewInit, OnChanges {
   /**
    * Sets styles base on the status of the field
    * The inputs of directives in html
-   * If isFieldDisable is true, the styles will be updated upon it
-   */
+    */
   @Input() set fieldStatusType(type: FieldStatusType) {
     this._fieldStatusType = type;
     this._setStyles(this.fieldStatusType);
@@ -109,7 +105,6 @@ export class NvFieldComponent implements OnInit, AfterViewInit, OnChanges {
    */
   private _initialize(): void {
     this._initializeSvgIconStyles();
-    this.label = 'label';
     this.fieldStatusType = FieldStatusType.Normal;
     this.labelStatus = FieldStatusType.Normal;
     // default value

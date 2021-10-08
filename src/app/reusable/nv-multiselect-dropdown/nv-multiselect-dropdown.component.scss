@@ -28,6 +28,17 @@ $height: 40px;
   fill: $color-dark-gray-02;
   opacity: 1;
 }
+.multiselect-dropdown-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .field-label {
+    color: $color-dark-gray-dde;
+    height: 18px;
+    margin-bottom: 4px !important;
+  }
 
 .multiselect-dropdown {
   position: relative;
@@ -48,7 +59,7 @@ $height: 40px;
     }
   }
 }
-
+}
 .multiselect-dropdown {
 
   // the size of field

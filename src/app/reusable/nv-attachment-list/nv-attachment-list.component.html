@@ -1,5 +1,5 @@
 <div class="mr-div-2 card-wd">
-    <div class="card custom-card" *ngIf="!showPanel">
+    <div class="card custom-card">
       <div class="card-header">
         <span class="panel-titleTxt">Attachments</span>
   
@@ -34,11 +34,37 @@
                       (change)="checkAllCheckBox($event)"
                     />
                   </th>
-                  <th 
+                  <th (click)="rowClicked($event)"
                   *ngFor="let column of columns; let i = index"
                   scope="col"
+                  scope="col"
+                  [mdbTableSort]="attachments"
+                  [sortBy]="columns[i]"
                   class="mat-header-cell">
                     {{ column }}
+                    <span
+                    >
+                    <mat-icon
+                      class="img"
+                      *ngIf="sortColumn != column"
+                      ><img
+                        src="../../../assets/icons/table-shorting.icon.svg"
+                        (click)="rowImgClicked($event)"
+                    /></mat-icon>
+                    <mat-icon
+                      class="img"
+                      *ngIf="sortColumn == column && sortPreference == 'ascending'"
+                      ><img
+                        src="../../../assets/icons/table-shorting.icon.svg"
+                        (click)="rowImgClicked($event)"
+                    /></mat-icon>
+                    <mat-icon
+                      class="img rotateimg180"
+                      *ngIf="sortColumn == column && sortPreference == 'descending'"
+                      ><img
+                        src="../../../assets/icons/table-shorting.icon.svg"
+                        (click)="rowImgClicked($event)" /></mat-icon
+                  ></span>
                   </th>
                 </tr>
                 <ng-container  *ngFor="let attachment of attachments ">
@@ -53,6 +79,9 @@
                
               </td>
               <td>{{ attachment.name }}</td>
+              <td></td>
+              <td></td>
+              <td></td>
             </tr>            
               </ng-container>
               </table>

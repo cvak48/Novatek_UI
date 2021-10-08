@@ -9,14 +9,16 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class NvAttachmentListComponent implements OnInit {
   showPanel: boolean = false;
   attachments: any[] = [];
-  columns = ['name'];
+  columns = ['name', 'type', 'description', 'size'];
+  
+  sortColumn: string = '';
+  sortPreference: string = '';
   constructor(public dialogRef: MatDialogRef<any>,
     
     @Inject(MAT_DIALOG_DATA) public attachment: any[]) { }
 
   ngOnInit(): void {
     this.attachments = this.attachment;
-    console.log('in popup', this.attachments)
   }
 
   closePanel() {
@@ -24,6 +26,14 @@ export class NvAttachmentListComponent implements OnInit {
     this.dialogRef.close();
   } 
 
+  rowImgClicked(event: any): void{
+    event.stopPropagation();
+  }
+
+  rowClicked(event: any): void{
+    this.sortColumn = event.target.innerText.trim().toLowerCase();
+    this.sortPreference = event.target.ariaSort;
+  }
   /**
    * 
    * @param ev 

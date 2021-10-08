@@ -29,7 +29,7 @@ $height: 40px;
   opacity: 1;
 }
 
-.multiselect-dropdown-container {
+.multiselect-dropdown {
   position: relative;
   border: 1px solid $color-white-10;
   background: $color-white-20;
@@ -49,7 +49,7 @@ $height: 40px;
   }
 }
 
-.multiselect-dropdown-container {
+.multiselect-dropdown {
 
   // the size of field
   ::ng-deep .mat-chip-list-wrapper {

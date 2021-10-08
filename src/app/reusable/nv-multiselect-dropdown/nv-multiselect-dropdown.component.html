@@ -1,4 +1,6 @@
-<mat-form-field class="multiselect-dropdown-container">
+<div class="multiselect-dropdown-container">
+<label for="input" class="field-label h50" >label</label>
+<mat-form-field class="multiselect-dropdown">
   <mat-chip-list #chipList>
     <mat-chip *ngFor="let item of items" [selectable]="selectable" [removable]="removable" (removed)="remove(item)">
       {{item}}
@@ -15,7 +17,7 @@
     </mat-option>
   </mat-autocomplete>
 </mat-form-field>
-
+</div>
 <ng-template #arrowTemplate let-item="isArrowDown">
   <div class="arrow-icon-container" [ngClass]="{'no-item': !hasItem}">
     <img *ngIf="isArrowDown" class="arrow-icon" src="{{arrowIcons?.downward}}" alt='Arrow'>

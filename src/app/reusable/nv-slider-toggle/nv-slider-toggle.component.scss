@@ -1,0 +1,48 @@
+@import './../theme/base.scss';
+.slide-toggle-container {
+.mat-label {
+  font-style: $font-style-normal;
+  font-weight: $font-weight-normal;
+  font-size: $font-size-x-small;
+  font-family: $nv-font;
+  line-height: $line-height-medium;
+  color: $color-dark-gray-70;
+  opacity: 1;
+}
+
+::ng-deep .mat-ripple-element {
+    display: none !important;
+  }
+  
+  ::ng-deep .mat-slide-toggle-thumb {
+    height: 20px !important;
+    width: 20px !important;
+    border-radius: 50% !important;
+  }
+  
+  ::ng-deep .mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+    background-color: $color-dark-gray-10 !important;
+    border-radius: 20px;
+    opacity: 1;
+  }
+  
+  ::ng-deep .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+    background: transparent radial-gradient(closest-side at 50% 50%, $color-white-20 0%, #FCFCFC 100%) 0% 0% no-repeat padding-box !important;
+    box-shadow: 0px 1px 3px $color-black-10 !important;
+    border: 1px solid $color-white-10 !important;
+  }
+  ::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+      background-color: $color-dark-blue-1F !important;
+  }
+  ::ng-deep .mat-slide-toggle-bar {
+      background-color: $color-dark-gray-10 !important;
+  }
+  ::ng-deep .mat-slide-toggle-content { 
+    font-style: $font-style-normal;
+    font-weight: $font-weight-normal;
+    font-size: $font-size-x-small;
+    font-family: $nv-font !important;
+    line-height: $line-height-medium;
+    color: $color-dark-gray-10;
+  }
+}

@@ -1,0 +1,28 @@
+@import "../../reusable/theme/base.scss";
+
+.main-container{
+    min-height: 500px;
+    width: 100%;
+    background-color: $color-white-20;
+    margin-top: 1%;
+}
+
+.heading{
+    font-size: 17px;
+    padding: 1.5%;
+    font-weight: 500;
+}
+
+.description{
+    font-size: 11px;
+    padding-left: 1.5%;
+    margin-top: -1.5%;
+}
+
+.link-text{
+    font-size: 14px;
+    padding-left: 1.5%;
+    color:$color-dark-blue-10;
+    text-decoration: underline;
+    font-weight: 500;
+}

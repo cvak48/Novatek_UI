@@ -1,0 +1,16 @@
+<!-- <custom-table
+  [tableData]="customers"
+  [tableColumns]="customersTableColumns">
+</custom-table> -->
+<app-nv-custom-datatable
+              [tableData]="orders"
+              [tableColumns]="ordersTableColumns"
+              [isFilterable]="true"
+              [isPageable]="true"
+              [paginationSizes]="[10,20,50,100]"
+              [defaultPageSize]="10"
+              (sort)="sortData($event)"
+              (rowAction)="removeOrder($event)"
+              >
+              <!-- [rowActionIcon]="'remove_shopping_cart'" -->
+</app-nv-custom-datatable>

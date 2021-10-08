@@ -1,10 +1,10 @@
-import { Person } from '../../main/components/demo-page/demo-page.component';
 import { Component, Input, OnInit } from '@angular/core';
+import { Person } from 'src/app/model/data-model';
 
 @Component({
-  selector: 'app-user-profile-menu',
+  selector: 'app-nv-user-profile-menu',
   templateUrl: './user-profile-menu.component.html',
-  styleUrls: ['./user-profile-menu.component.scss']
+  styleUrls: ['./user-profile-menu.component.scss'],
 })
 export class UserProfileMenuComponent implements OnInit {
   @Input() set person(value: Person) {
@@ -16,9 +16,7 @@ export class UserProfileMenuComponent implements OnInit {
     return this._person;
   }
   private _person!: Person;
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

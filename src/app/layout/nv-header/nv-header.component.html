@@ -1,13 +1,14 @@
 <div class="container-fluid">
-    <div class="d-flex flex-row-reverse">
-        <div class=" order-3 mr-auto flex-row-reverse d-flex align-items-center nova-icon">
-            <app-novatek-logo class="icon"></app-novatek-logo>
+    <div class="d-flex flex-row">
+        <div class="d-flex align-items-center nova-icon">
+            <app-nv-logo class="icon" [logosize]="logoSize"></app-nv-logo>
         </div>
-        <div class="flex-grow-1 order-2 flex-row-reverse d-flex align-items-center search-container">
-            <app-search class="search"></app-search>
+        <div class="d-flex align-items-center search-container">
+            <app-nv-search class="search" [isAdvance]="isAdvance" [hideMenu]="hideMenu" [list]="list"
+          [searchableRefList]="searchableRefList" (filteredItems)="onItemsFilter($event)"></app-nv-search>
         </div>
-        <div class="float-right order-1 flex-row-reverse d-flex align-items-center avatar-container">
-            <app-user-profile-menu *ngIf="person" [person]="person" ></app-user-profile-menu>
+        <div class="float-right ml-auto d-flex align-items-center avatar-container">
+            <app-nv-user-profile-menu *ngIf="person" [person]="person" ></app-nv-user-profile-menu>
         </div>
     </div>
 </div>

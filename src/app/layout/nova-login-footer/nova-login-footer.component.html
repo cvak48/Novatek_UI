@@ -1,15 +1,24 @@
 <div class="container-fluid" id="myNavbar">
-    <div class="row">
-        <div class="col-7 footer-pad">
-            <ul class="list-inlin login-txt">
-                <li>@2021 All Rights Reserved <a href="#">ntint@com</a></li>
-            </ul>
-        </div>
-        <div class="col-5">
-            <ul class="list-inlin login-txt pad-0">
-                <li>Language: <a href="#" class="language"><i class="fab fa-youtube"></i> English</a></li>
-
-            </ul>
-        </div>
+  <div class="row">
+    <div class="col-7 footer-pad">
+      <ul class="list-inlin login-txt">
+        <li>@2021 All Rights Reserved <a href="#">ntint@com</a></li>
+      </ul>
     </div>
-</div> 
+    <div class="col-5" style="top:-8px">
+      <ul class="list-inlin login-txt pad-0">
+        <li>
+          Language
+          <!-- <a href="#" class="language">
+            <img src="{{ flagIcon }}" alt="icon" />
+          </a> -->
+          <app-nv-dropdown class="lang-item" [items]="Domain" [selectedItem]="selectedItems" (itemSelect)='onChange($event)'>
+          </app-nv-dropdown>
+          <!-- <select class="form-control form-control-lg" [ngModel]="selectedItem" (ngModelChange)="onChange($event)">
+            <option *ngFor='let item of Domain'>{{item.item}}</option>
+          </select> -->
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

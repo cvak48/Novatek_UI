@@ -1,34 +1,51 @@
 @import './../../reusable/theme/base.scss';
 
 .container-fluid {
+  width: 100%;
+  height: 64px;
   padding: 0;
+  padding-top: 6px;
   margin: 0;
   border-bottom: 4px solid $color-dark-gray;
 
   .nova-icon {
-    padding-left: $padding-16;
-    width: 160px;
-    height: 40px;
+    margin-left: $padding-16;
+    padding-bottom: 4px;
+    
+    .icon {
+      width: 160px;
+      height: 40px;
+    }
   }
 
   .search-container {
-    width: 40%;
-
+    position: relative;
+    width: 60%;
+    padding-bottom: 6px;
+    padding-left: 300px;
     .search {
-      width: 50%;
+      width: 100%;
     }
   }
 
   .avatar-container {
     padding-right: 16px;
     padding-left: 24px;
+    padding-top: 3px;
     border: 4px solid transparent;
   }
 
 }
 
+
 @media (max-width: 576px) {
   .search {
+    display: none;
+   }
+}
+
+@media (max-width: 300px) {
+  .icon {
     display: none;
    }
 }

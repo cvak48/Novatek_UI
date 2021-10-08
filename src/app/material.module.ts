@@ -1,6 +1,6 @@
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
 import { NgModule } from '@angular/core';
-
-//Angular Material Components
 import { MatInputModule } from '@angular/material/input';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -31,7 +31,11 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 import { CommonModule } from '@angular/common';
+import { MatNativeDateModule } from '@angular/material/core';
+import { CdkTreeModule } from '@angular/cdk/tree';
+import { MatTreeModule } from '@angular/material/tree';
 
 const materialModulesList = [
     CommonModule,
@@ -64,8 +68,16 @@ const materialModulesList = [
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
-    DragDropModule
-];
+    DragDropModule,
+    MatCheckboxModule,
+    MatNativeDateModule,
+    CdkTreeModule,
+    MatTreeModule,
+    NgxMatDatetimePickerModule,
+    NgxMatTimepickerModule,
+    NgxMatNativeDateModule,
+    NgxMaterialTimepickerModule,
+]
 
 @NgModule({
     declarations: [

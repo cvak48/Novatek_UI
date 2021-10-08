@@ -1,0 +1,77 @@
+@import "./../../theme/base.scss";
+
+.mg-15 {
+  margin: 15px 10px;
+  border-radius: 4px;
+  background: #fff;
+
+}
+.small-round {
+    width: 60px !important;
+    height: 60px;
+    background: $color-light-gray-20 0% 0% no-repeat padding-box;
+    opacity: 1;
+  }
+  
+  .xs-small-round {
+    width: 40px !important;
+    height: 40px;
+    background: $color-light-gray-20 0% 0% no-repeat padding-box;
+    opacity: 1;
+  }
+  .large-round {
+      width: 150px !important;
+      height: 150px;
+      background: $color-light-gray-20 0% 0% no-repeat padding-box;
+      opacity: 1;
+    }
+
+
+  .banner-text {
+      padding: 3% 4% 0 2%;
+  } 
+  p {
+    color: $color-dark-gray-70;
+  }
+
+  .user-img{
+    background-color:$color-light-gray-20;
+    height: 130px;
+    width:130px;
+    margin: 1% 2% 1% 2%;
+}
+
+.card-text{
+    position: absolute;
+    background-color:$color-light-gray-20;
+    height:15px;
+    width:70%;
+    margin-top: 1.5%;
+}
+.card-text-1{
+    position: absolute;
+    background-color:$color-light-gray-20;
+    height:15px;
+    width:65%;
+    margin-top: 3.5%;
+}
+
+.card-text-2{
+  position: absolute;
+  background-color:$color-light-gray-20;
+  height:15px;
+  width: 72% ;
+  margin-top: 5.5%;
+}
+
+.card-text-3{
+  position: absolute;
+  background-color:$color-light-gray-20;
+  height:15px;
+  width: 30% ;
+  margin-top: 7.5%;
+}
+
+div.card-border{
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+}

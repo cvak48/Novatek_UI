@@ -1,0 +1,193 @@
+<div class="mr-div-2">
+  <div class="card custom-card" *ngIf="!showPanel">
+    <div class="card-header">
+      <span class="panel-titleTxt">Panel Table{{ panelNum }}</span>
+
+      <button
+        type="button"
+        (click)="closePanel()"
+        class="close mg-15"
+        aria-label="Close"
+      >
+        <span aria-hidden="true"
+          ><img src="../../../assets/icons/ico.close.svg"
+        /></span>
+      </button>
+      <button type="button" class="close" aria-label="drop">
+        <span aria-hidden="true"
+          ><img src="../../../assets/icons/threeDots.icon.svg"
+        /></span>
+      </button>
+    </div>
+    <div class="search-container">
+      <div class="card-body">
+        <div class="card-content-box">
+          <div class="shadow-sm-dark dp-inline">
+            <app-nv-search
+              class="search"
+              [isAdvance]="isAdvance"
+              [hideMenu]="hideMenu"
+              [list]="tableTestData"
+              [searchableRefList]="searchableRefList"
+              (filteredItems)="onItemsFilter($event)"
+            ></app-nv-search>
+          </div>
+          <div class="shadow-sm-dark dp-inline mr-lt-1">
+            <app-nv-dropdown></app-nv-dropdown>
+          </div>
+          <div class="dp-inline btn-right">
+            <app-nv-button
+              label="New"
+              class="mr-rt-1"
+              (buttonClick)="buttonClick()"
+            ></app-nv-button>
+            <app-nv-button
+              label="Edit"
+              (buttonClick)="buttonClick()"
+            ></app-nv-button>
+          </div>
+        </div>
+        <div>
+          <div class="table-scroll">
+            <table class="data-table" mdbTable>
+              <tr class="mat-header-row">
+                <th class="mat-header-cell">
+                  <input
+                    class="table-check"
+                    type="checkbox"
+                    [checked]="isAllCheckBoxChecked()"
+                    (change)="checkAllCheckBox($event)"
+                  />
+                </th>
+                <th
+                  (click)="rowClicked($event)"
+                  *ngFor="let column of columns; let i = index"
+                  scope="col"
+                  [mdbTableSort]="orders"
+                  [sortBy]="columns[i]"
+                  class="mat-header-cell"
+                >
+                  {{ column }}
+                  <span
+                    ><mat-icon
+                      class="img"
+                      *ngIf="
+                        sortColumn == column && sortPreference == 'ascending'
+                      "
+                      ><img
+                        src="../../../assets/icons/table-shorting.icon.svg"
+                        (click)="rowImgClicked($event)"
+                    /></mat-icon>
+                    <mat-icon
+                      class="img rotateimg180"
+                      *ngIf="
+                        sortColumn == column && sortPreference == 'descending'
+                      "
+                      ><img
+                        src="../../../assets/icons/table-shorting.icon.svg"
+                        (click)="rowImgClicked($event)" /></mat-icon
+                  ></span>
+                </th>
+              </tr>
+              <ng-container
+                *ngFor="
+                  let order of orders
+                    | paginate
+                      : {
+                          id: 'orderList',
+                          itemsPerPage: pageSize,
+                          currentPage: page,
+                          totalItems: count
+                        };
+                  let i = index
+                "
+              >
+                <tr
+                  class="mat-row"
+                  [ngClass]="{
+                    'status-gr': order.status === 'Completed',
+                    'status-rd': order.status === 'No',
+                    'status-yl': order.status === 'Pending'
+                  }"
+                  (click)="showExtendedRow(i)"
+                >
+                  <td class="pd-lt-2 checkbox-column">
+                    <input
+                      class="table-check"
+                      type="checkbox"
+                      value="{{ order.id }}"
+                      [(ngModel)]="orders[i].checked"
+                    />
+                  </td>
+                  <td>{{ order.name }}</td>
+                  <td>{{ order.date }}</td>
+                  <td class="mail-link">{{ order.email }}</td>
+                  <td>{{ order.status }}</td>
+                  <td>
+                    Multi Item
+                    <a
+                      ><span class="mail-link attachment-link"
+                        >({{ order.attachments.length }})</span
+                      ></a
+                    >
+                  </td>
+                </tr>
+
+                <ng-container *ngIf="isRowVisibleAllowed(i)">
+                  <tr class="mat-row status-yl">
+                    <td class="pd-lt-2 checkbox-column">&nbsp;</td>
+                    <td>Name</td>
+                    <td>Date</td>
+                    <td>Email</td>
+                    <td>Status</td>
+                    <td>
+                      <div>
+                        <span
+                          style="display: block"
+                          *ngFor="let attachment of order.attachments"
+                          >{{ attachment.name }}
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+                </ng-container>
+              </ng-container>
+            </table>
+          </div>
+
+          <div class="ft-rt">
+            <div class="container-pagination">
+              <div class="paging-space-arrow">
+                <span class="page-size-title">Items Per Page:&nbsp;&nbsp;</span>
+                <div class="drop-container">
+                  <app-nv-dropdown
+                    [items]="pageNewSizes"
+                    (itemSelect)="handlePageSizeChange($event)"
+                  >
+                  </app-nv-dropdown>
+                </div>
+              </div>
+              <div class="paging-space">
+                <pagination-controls
+                  id="orderList"
+                  [maxSize]="maxSize"
+                  [directionLinks]="directionLinks"
+                  [autoHide]="autoHide"
+                  [responsive]="responsive"
+                  [previousLabel]="labels.previousLabel"
+                  [nextLabel]="labels.nextLabel"
+                  [screenReaderPaginationLabel]="
+                    labels.screenReaderPaginationLabel
+                  "
+                  [screenReaderPageLabel]="labels.screenReaderPageLabel"
+                  [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel"
+                  (pageChange)="handlePageChange($event)"
+                ></pagination-controls>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

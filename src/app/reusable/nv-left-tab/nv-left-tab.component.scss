@@ -1,0 +1,53 @@
+@import "./../theme/base.scss";
+
+.nav.nav-tabs {
+  float: left;
+  display: block;
+  margin-right: 20px;
+  padding-right: 15px;
+}
+.nav-tabs .nav-link {
+  border-right: 1px solid $color-white !important;
+}
+
+.nav-tabs .nav-link.active {
+  border: 1px solid $color-white !important;
+  border-right: 0px !important;
+  background: $color-white-fa !important;
+}
+.nav-tabs .nav-link {
+  border: 1px solid transparent;
+  border-top-left-radius: 0rem!important;
+  border-top-right-radius: 0rem!important;
+}
+.tab-content>.active {
+  display: block;
+  min-height: 165px;
+  border-right:0;
+  width: 90%;
+  margin-left: 10%;
+  border: 1px solid $color-white;
+}
+.nav.nav-tabs {
+  float: left;
+  display: block;
+  margin-right: 20px;
+  border-right: 1px solid transparent;
+  padding-right: 15px;
+}
+
+.custom-container {
+  max-width: 100%;
+}
+
+a {
+  color: $color-dark-gray;
+}
+
+.nav-tabs {
+   border-bottom: 0px !important;
+}
+
+.tabs-below .nav-link {
+  background-color: $color-white-fa !important;
+}

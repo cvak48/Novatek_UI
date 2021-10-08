@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row ">
+        <div class="col-md-2 dp-flex">
+            <mat-icon>menu</mat-icon>
+            <mat-label class="ml3">MAIN MENU</mat-label>
+        </div>
+        <div class="col-md-5 dp-flex">
+            <mat-label class="label-submenu">LEVEL 1 MENU</mat-label>
+            <app-nv-dropdown class="dropdown-levelMenu-container" [items]="dropdownItemsMenu" [textTrimNumber]="textTrimNumberMenu" 
+            [selectedItem]="selectedItemDefaultMenu" [fieldType]="dropDownFieldTypeMenu" (itemSelect)="onMenuItemSelect($event)"></app-nv-dropdown>
+        </div>
+
+        <div class="col-md-4 dp-flex">
+            <mat-label class="label-submenu">SITE</mat-label>
+            <app-nv-dropdown class="dropdown-site-container" [items]="dropdownItemsSite" [textTrimNumber]="textTrimNumberSite" 
+            [selectedItem]="selectedItemDefaultSite" [fieldType]="dropDownFieldTypeSite" (itemSelect)="onPlusItemSelect($event)"></app-nv-dropdown>
+        </div>
+
+        <div class="col-md-1 dp-flex">
+                <app-nv-dropdown class="dropdown-plus-container" [items]="dropdownItemsPlus" [textTrimNumber]="textTrimNumberPlus" 
+                [selectedItem]="selectedItemDefaultPlus" [fieldType]="dropDownFieldTypePlus" 
+              
+                 (itemSelect)="onPlusItemSelect($event)"></app-nv-dropdown>
+        </div>
+        
+    </div>
+</div>

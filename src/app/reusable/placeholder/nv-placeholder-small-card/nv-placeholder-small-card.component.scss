@@ -1,0 +1,86 @@
+@import "../../../reusable/theme/base.scss";
+
+.card-style{
+    margin: 1%;
+    border-radius: 5px;
+    border-radius: 4px;
+    background: #fff;
+}
+
+.section-style{
+    padding-top: 1%;
+    color:rgb(206, 180, 180);
+    border-radius:5px;
+}
+
+.row-style{
+    width: 98% !important;
+    margin: 0 auto !important;
+    display: inline-block !important;
+}
+
+.card-border{
+    min-height:150px;
+    border: 3px solid $color-light-gray-20;
+    border-radius:5px;
+    padding: 3%;
+    background: #fff;
+}
+
+.pd-lt-5{
+    padding-left: 2.5%;
+    margin-top: -1%;
+}
+.mg_0_10 {
+    margin: 5px 20px !important;
+}
+
+h5{
+    font-size: 14px !important;
+    color:$color-dark-gray-70;
+}
+
+p{
+    color: $color-dark-gray-70;
+}
+
+.user-img{
+    background-color:$color-light-gray-20;
+    height: 60px;
+    width:60px;
+    margin-left: 3.5%;
+}
+
+.card-text{
+    position: absolute;
+    background-color:$color-light-gray-20;
+    height:12px;
+    width:65%;
+    margin-top: 1%;
+}
+.card-text-1{
+    position: absolute;
+    background-color:$color-light-gray-20;
+    height:12px;
+    width:30%;
+    margin-top: 6%;
+}
+
+.card-text-2{
+    position: absolute;
+    background-color:$color-light-gray-20;
+    height:12px;
+    width:50%;
+}
+
+.card-text-3{
+    position: absolute;
+    background-color:$color-light-gray-20;
+    height:12px;
+    width:50%;
+    margin-top:5%;
+}
+
+div.card-border{
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+  }

@@ -1,123 +1,349 @@
 <div class="demo-page-container">
   <div class="toolbar">
-
-    <img class="novatek-logo" alt="Novatek Logo"
-      src="http://dwglogo.com/wp-content/uploads/2016/06/1700px_Novartis_logo.png" />
+    <img
+      class="novatek-logo"
+      alt="Novatek Logo"
+      src="http://dwglogo.com/wp-content/uploads/2016/06/1700px_Novartis_logo.png"
+    />
     <span class="novatek-label">Novatek Inc.</span>
     <span class="demo-label">Design System</span>
     <div class="spacer"></div>
-    <a aria-label="Angular on twitter" target="_blank" rel="noopener" href="https://twitter.com/angular"
-      title="Twitter">
-      <svg class="twitter-logo" id="twitter-logo" height="54" data-name="Logo" xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 400 400">
+    <a
+      aria-label="Angular on twitter"
+      target="_blank"
+      rel="noopener"
+      href="https://twitter.com/angular"
+      title="Twitter"
+    >
+      <svg
+        class="twitter-logo"
+        id="twitter-logo"
+        height="54"
+        data-name="Logo"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 400 400"
+      >
         <rect width="400" height="400" fill="none" />
         <path
           d="M153.62,301.59c94.34,0,145.94-78.16,145.94-145.94,0-2.22,0-4.43-.15-6.63A104.36,104.36,0,0,0,325,122.47a102.38,102.38,0,0,1-29.46,8.07,51.47,51.47,0,0,0,22.55-28.37,102.79,102.79,0,0,1-32.57,12.45,51.34,51.34,0,0,0-87.41,46.78A145.62,145.62,0,0,1,92.4,107.81a51.33,51.33,0,0,0,15.88,68.47A50.91,50.91,0,0,1,85,169.86c0,.21,0,.43,0,.65a51.31,51.31,0,0,0,41.15,50.28,51.21,51.21,0,0,1-23.16.88,51.35,51.35,0,0,0,47.92,35.62,102.92,102.92,0,0,1-63.7,22A104.41,104.41,0,0,1,75,278.55a145.21,145.21,0,0,0,78.62,23"
-          fill="#fff" />
+          fill="#fff"
+        />
       </svg>
     </a>
   </div>
   <!-- body -->
   <div class="body">
     <div class="side-menu">
-      <div class="menu-header h20">
-        Components
-      </div>
+      <div class="menu-header h20">Components</div>
       <!-- Third: Add the name of your reusable component to the left side bar here  -->
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.Search)">
-        {{nvComponentType[nvComponentType.Search]}}
+        {{ nvComponentType[nvComponentType.Search] }}
       </div>
-      <div class="menu-item h40" (click)="onItemClick(nvComponentType.NovaLogo)">
-        {{nvComponentType[nvComponentType.NovaLogo]}}
+      <div
+        class="menu-item h40"
+        (click)="onItemClick(nvComponentType.MultiSelectDropdown)"
+      >
+        {{ nvComponentType[nvComponentType.MultiSelectDropdown] }}
+      </div>
+      <div
+        class="menu-item h40"
+        (click)="onItemClick(nvComponentType.TreeViewDropdown)"
+      >
+        {{ nvComponentType[nvComponentType.TreeViewDropdown] }}
+      </div>
+      <div class="menu-item h40" (click)="onItemClick(nvComponentType.NvLogo)">
+        {{ nvComponentType[nvComponentType.NvLogo] }}
       </div>
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.Avatar)">
-        {{nvComponentType[nvComponentType.Avatar]}}
+        {{ nvComponentType[nvComponentType.Avatar] }}
       </div>
-      <div class="menu-item h40" (click)="onItemClick(nvComponentType.Notification)">
-        {{nvComponentType[nvComponentType.Notification]}}
+      <div
+        class="menu-item h40"
+        (click)="onItemClick(nvComponentType.Notification)"
+      >
+        {{ nvComponentType[nvComponentType.Notification] }}
       </div>
-      <div class="menu-item h40" (click)="onItemClick(nvComponentType.ProfileMenu)">
-        {{nvComponentType[nvComponentType.ProfileMenu]}}
+      <div
+        class="menu-item h40"
+        (click)="onItemClick(nvComponentType.ProfileMenu)"
+      >
+        {{ nvComponentType[nvComponentType.ProfileMenu] }}
       </div>
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.Header)">
-        {{nvComponentType[nvComponentType.Header]}}
+        {{ nvComponentType[nvComponentType.Header] }}
       </div>
-      <div class="menu-item h40" (click)="onItemClick(nvComponentType.Dropdown)">
-        {{nvComponentType[nvComponentType.Dropdown]}}
+      <div
+        class="menu-item h40"
+        (click)="onItemClick(nvComponentType.Dropdown)"
+      >
+        {{ nvComponentType[nvComponentType.Dropdown] }}
       </div>
-      <div class="menu-item h40" (click)="onItemClick(nvComponentType.DragDrop)">
-        {{nvComponentType[nvComponentType.DragDrop]}}
+      <div
+        class="menu-item h40"
+        (click)="onItemClick(nvComponentType.DragDrop)"
+      >
+        {{ nvComponentType[nvComponentType.DragDrop] }}
       </div>
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.Panel)">
-        {{nvComponentType[nvComponentType.Panel]}}
+        {{ nvComponentType[nvComponentType.Panel] }}
       </div>
 
-      <div class="menu-item h40" (click)="onItemClick(nvComponentType.DropToUpload)">
-        {{nvComponentType[nvComponentType.DropToUpload]}}
+      <div
+        class="menu-item h40"
+        (click)="onItemClick(nvComponentType.DropToUpload)"
+      >
+        {{ nvComponentType[nvComponentType.DropToUpload] }}
       </div>
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.Card)">
-        {{nvComponentType[nvComponentType.Card]}}
+        {{ nvComponentType[nvComponentType.Card] }}
       </div>
-      <div class="menu-item h40" (click)="onItemClick(nvComponentType.ItemPickerDemo)">
-        {{nvComponentType[nvComponentType.ItemPickerDemo]}}
+      <div
+        class="menu-item h40"
+        (click)="onItemClick(nvComponentType.ItemPickerDemo)"
+      >
+        {{ nvComponentType[nvComponentType.ItemPickerDemo] }}
       </div>
-      <div class="menu-item h40" (click)="onItemClick(nvComponentType.ColorPickerDemo)">
-        {{nvComponentType[nvComponentType.ColorPickerDemo]}}
+      <div
+        class="menu-item h40"
+        (click)="onItemClick(nvComponentType.ColorPickerDemo)"
+      >
+        {{ nvComponentType[nvComponentType.ColorPickerDemo] }}
       </div>
-      <div class="menu-item h40" (click)="onItemClick(nvComponentType.IconPickerDemo)">
-        {{nvComponentType[nvComponentType.IconPickerDemo]}}
+      <div
+        class="menu-item h40"
+        (click)="onItemClick(nvComponentType.IconPickerDemo)"
+      >
+        {{ nvComponentType[nvComponentType.IconPickerDemo] }}
       </div>
 
+      <div
+        class="menu-item h40"
+        (click)="onItemClick(nvComponentType.DropToUpload)"
+      >
+        {{ nvComponentType[nvComponentType.DropToUpload] }}
+      </div>
+      <div
+        class="menu-item h40"
+        (click)="onItemClick(nvComponentType.NvCheckBox)"
+      >
+        {{ nvComponentType[nvComponentType.NvCheckBox] }}
+      </div>
+      <div
+        class="menu-item h40"
+        (click)="onItemClick(nvComponentType.NvSliderBar)"
+      >
+        {{ nvComponentType[nvComponentType.NvSliderBar] }}
+      </div>
+      <div
+        class="menu-item h40"
+        (click)="onItemClick(nvComponentType.NvSliderToggle)"
+      >
+        {{ nvComponentType[nvComponentType.NvSliderToggle] }}
+      </div>
+      <div
+        class="menu-item h40"
+        (click)="onItemClick(nvComponentType.NvRadioBut)"
+      >
+        {{ nvComponentType[nvComponentType.NvRadioBut] }}
+      </div>
+      <div
+        class="menu-item h40"
+        (click)="onItemClick(nvComponentType.NvDatePicker)"
+      >
+        {{ nvComponentType[nvComponentType.NvDatePicker] }}
+      </div>
+      <div
+        class="menu-item h40"
+        (click)="onItemClick(nvComponentType.NvButton)"
+      >
+        {{ nvComponentType[nvComponentType.NvButton] }}
+      </div>
+      <div
+        class="menu-item h40"
+        (click)="onItemClick(nvComponentType.NvDownload)"
+      >
+        {{ nvComponentType[nvComponentType.NvDownload] }}
+      </div>
+      <div
+        class="menu-item h40"
+        (click)="onItemClick(nvComponentType.NvTimePicker)"
+      >
+        {{ nvComponentType[nvComponentType.NvTimePicker] }}
+      </div>
+      <div class="menu-item h40" (click)="onItemClick(nvComponentType.NvField)">
+        {{ nvComponentType[nvComponentType.NvField] }}
+      </div>
     </div>
+
     <div class="preview-panel" [ngSwitch]="selectedItem">
       <div class="panel-body">
         <!-- Forth: Call your reusable component here and pass input data if needed  -->
 
-        <div class="body-item-container" *ngSwitchCase="nvComponentType.Search">
-          <app-search class="body-item"></app-search>
-          <!-- <app-nova-footer class="body-item" *ngSwitchCase="nvComponentType.Footer"></app-nova-footer> -->
+        <div
+          class="search-item-container"
+          *ngSwitchCase="nvComponentType.Search"
+        >
+          <app-nv-search
+            [isAdvance]="isAdvance"
+            [hideMenu]="showMenu"
+            [list]="list"
+            [searchableRefList]="searchableRefList"
+            (filteredItems)="onItemsFilter($event)"
+            class="body-item"
+          >
+          </app-nv-search>
         </div>
-        <app-novatek-logo class="body-item" *ngSwitchCase="nvComponentType.NovaLogo"></app-novatek-logo>
-        <div class="body-header-container" *ngSwitchCase="nvComponentType.Header">
+
+        <app-nv-logo
+          class="body-item"
+          *ngSwitchCase="nvComponentType.NvLogo"
+        ></app-nv-logo>
+
+        <div
+          class="body-header-container"
+          *ngSwitchCase="nvComponentType.Header"
+        >
           <app-nv-header *ngIf="person" [person]="person"></app-nv-header>
         </div>
-        <app-notification class="body-item" *ngSwitchCase="nvComponentType.Notification"></app-notification>
-        <ng-container *ngSwitchCase="nvComponentType.Avatar">
-          <app-avatar class="body-item" *ngIf="person?.imageUrl && person?.name" [avatarUrl]="person.imageUrl!"
-            [name]="person.name!"></app-avatar>
-        </ng-container>
 
         <div class="widget-container" *ngSwitchCase="nvComponentType.DragDrop">
           <app-drag-and-drop></app-drag-and-drop>
-        </div>
-        <div class="panel-container" *ngSwitchCase="nvComponentType.Panel">
-          <app-nova-panel class="body-item" *ngSwitchCase="nvComponentType.Panel"></app-nova-panel>
-        </div>
-
-        <app-user-profile-menu class="body-item" [person]="person" *ngSwitchCase="nvComponentType.ProfileMenu">
-        </app-user-profile-menu>
-
-        <app-nv-dropdown class="body-item" *ngSwitchCase="nvComponentType.Dropdown"></app-nv-dropdown>
-
-        <div class="upload-file-container" *ngSwitchCase="nvComponentType.DropToUpload">
-          <app-upload class="body-item"></app-upload>
         </div>
 
         <div class="card-container" *ngSwitchCase="nvComponentType.Card">
           <app-nv-card class="body-item"></app-nv-card>
         </div>
-        <div class="pickers-container" *ngSwitchCase="nvComponentType.ItemPickerDemo">
-          <app-nv-item-picker-demo [items]="items01" [showImage]="showImage" [showTitle]="showTitle"
-            [compactedView]="compactedView" [size]="'medium'"></app-nv-item-picker-demo>
+
+        <app-nv-notification-icon
+          class="body-item"
+          *ngSwitchCase="nvComponentType.Notification"
+        >
+        </app-nv-notification-icon>
+
+        <ng-container *ngSwitchCase="nvComponentType.Avatar">
+          <app-nv-avatar
+            class="body-item"
+            *ngIf="person?.imageUrl && person?.name"
+            [avatarUrl]="person.imageUrl!"
+            [name]="person.name!"
+          ></app-nv-avatar>
+        </ng-container>
+
+        <app-nv-user-profile-menu
+          class="body-item"
+          [person]="person"
+          *ngSwitchCase="nvComponentType.ProfileMenu"
+        >
+        </app-nv-user-profile-menu>
+
+        <div
+          class="dropdown-container"
+          *ngSwitchCase="nvComponentType.Dropdown"
+        >
+          <app-nv-dropdown
+            class="body-item"
+            [extensionDirection]="dropdownMenuExtensionDir"
+            [items]="dropdownItems"
+            [selectedItem]="defaultSelectedItem"
+            [textTrimNumber]="textTrimNumber"
+            [isFieldDisable]="isDropdownDisable"
+            [fieldStatusType]="dropdownFieldStatusType"
+            [fieldType]="dropDownFieldType"
+            (itemSelect)="onItemSelect($event)"
+          >
+          </app-nv-dropdown>
         </div>
-        <div class="pickers-container" *ngSwitchCase="nvComponentType.IconPickerDemo">
-          <app-nv-icon-picker-demo [items]="iconItems" [showTitle]="iconShowTitle" [compactedView]="iconCompactedView" [size]="'large'">
-          </app-nv-icon-picker-demo>
+        <div class="field-container" *ngSwitchCase="nvComponentType.NvField">
+          <app-nv-field
+            class="body-item"
+            [label]="fieldLabel"
+            [fieldStatusType]="fieldStatusType"
+            (itemSelect)="onItemSelect($event)"
+          ></app-nv-field>
         </div>
-        <div class="pickers-container" *ngSwitchCase="nvComponentType.ColorPickerDemo">
-          <app-nv-color-picker-demo [items]="colorItems" [compactedView]="colorCompactedView" [size]="'large'">
-          </app-nv-color-picker-demo>
+
+        <div
+          class="search-item-container"
+          *ngSwitchCase="nvComponentType.MultiSelectDropdown"
+        >
+          <app-nv-multiselect-dropdown
+            (filteredItems)="onItemsFilter($event)"
+            class="body-item"
+          >
+          </app-nv-multiselect-dropdown>
         </div>
+        <div
+          class="search-item-container"
+          *ngSwitchCase="nvComponentType.TreeViewDropdown"
+        >
+          <app-nv-checklist-dropdown class="body-item">
+          </app-nv-checklist-dropdown>
+        </div>
+
+        <div
+          class="upload-file-container"
+          *ngSwitchCase="nvComponentType.DropToUpload"
+        >
+          <app-nv-upload class="body-item"></app-nv-upload>
+        </div>
+        <div
+          class="custom-component-container"
+          *ngSwitchCase="nvComponentType.NvCheckBox"
+        >
+          <app-nv-checkbox
+            class="body-item"
+            [label]="checkBoxLabel"
+          ></app-nv-checkbox>
+        </div>
+        <div
+          class="custom-component-container"
+          *ngSwitchCase="nvComponentType.NvSliderBar"
+        >
+          <app-nv-slider-bar class="body-item"></app-nv-slider-bar>
+        </div>
+        <div
+          class="custom-component-container"
+          *ngSwitchCase="nvComponentType.NvSliderToggle"
+        >
+          <app-nv-slider-toggle class="body-item"></app-nv-slider-toggle>
+        </div>
+        <div
+          class="custom-component-container"
+          *ngSwitchCase="nvComponentType.NvRadioBut"
+        >
+          <app-nv-slider-radio-button
+            class="body-item"
+          ></app-nv-slider-radio-button>
+        </div>
+        <div
+          class="date-single-picker-container"
+          *ngSwitchCase="nvComponentType.NvDatePicker"
+        >
+          <app-nv-date-picker
+            [isDateRangePicker]="false"
+            class="body-item"
+          ></app-nv-date-picker>
+        </div>
+        <div
+          class="date-single-picker-container"
+          *ngSwitchCase="nvComponentType.NvTimePicker"
+        >
+          <app-nv-time-picker
+            [timeFormat]="timeFormat"
+            class="body-item"
+          ></app-nv-time-picker>
+        </div>
+        <app-nv-button
+          [label]="buttonLabel"
+          [color]="themeColor"
+          class="body-item"
+          *ngSwitchCase="nvComponentType.NvButton"
+        ></app-nv-button>
+        <app-nv-download
+          class="body-item"
+          *ngSwitchCase="nvComponentType.NvDownload"
+        ></app-nv-download>
       </div>
     </div>
   </div>
+</div>

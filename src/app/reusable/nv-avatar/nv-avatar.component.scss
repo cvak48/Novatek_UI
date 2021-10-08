@@ -1,0 +1,30 @@
+
+@import './../theme/base.scss';
+
+
+.image-container {
+  position: relative;
+  background: transparent;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .image {
+    position: relative;
+    width: 40px;
+    height: 40px;
+  }
+
+  .label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 2px solid $color-dark-gray-10;
+    color: $color-dark-gray-10;
+
+  }
+}

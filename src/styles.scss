@@ -9,3 +9,60 @@ html {
   }
 html, body { height: 100%; }
 body { margin: 0; font-family: "Lato", Roboto, "Helvetica Neue", sans-serif; }
+
+.ngx-pagination .pagination-previous a::before, .ngx-pagination .pagination-previous.disabled::before {
+    
+    content: url(./assets/icons/paginationLeft.icon.svg) !important;
+    font-size: 25px !important;
+    position: relative;
+    top: 1px;
+  }
+  
+  .ngx-pagination .pagination-next a::after, .ngx-pagination .pagination-next.disabled::after {
+    
+    content: url(./assets/icons/paginationRight.icon.svg) !important;
+    font-size: 25px !important;
+    position: relative;
+    top: 1px;
+}
+
+.ngx-pagination .disabled {
+  padding: 0.1875rem 0.625rem;
+  color: #999C9E !important;
+  cursor: default;
+  font-size: 16px;
+  margin-right: 17px;
+}
+
+ul.ngx-pagination.responsive {
+  padding-left: 17px;
+}
+
+.mb3 {
+  margin-bottom: 3px;
+}
+.padding-3 {
+  padding: 4px;
+}
+
+.pd-lt-2 {
+  padding-left: 2.5%;
+}
+
+.mt3{
+  margin-top: 3%;
+}
+
+.wd-70{
+  width:70% !important;
+}
+
+.wd-100{
+  width:100% !important;
+}
+
+
+.ml3{
+  margin-left: 3%;
+}
+

@@ -4,14 +4,14 @@
   max-width: 100% !important;
 }
 
-.container-background{
+.container-background {
   max-width: 100% !important;
   line-height: 40px;
   font-size: 14px;
   height: 56px;
   padding: 8px 12px;
   background-color: $color-light-gray;
-  border-bottom: 2px solid $color-light-gray-28;
+  border-bottom: 1px solid $color-dark-gray-20;
 }
 
 ::ng-deep .dropdown-levelMenu-container {
@@ -80,121 +80,171 @@
   transform: translate3d(-140px, 45px, 0px) !important;
 }
 
-// .sidenav-icon {
-//   margin-left: 10%;
-//   margin-top: 5px;
-//   color: #5D5D5D;
-// }
-
-// .sidenav-closeicon {
-//   margin-left: 38%;
-// }
-
-.close-icon{
+.close-icon {
   margin-left: 50px;
   margin-top: -10px;
 }
 
-.hamburger-icon{
+.close-icon-left {
+  margin-left: -4px;
+}
+
+.hamburger-icon {
   margin-top: -12px;
-  margin-left: 7px;
+  margin-left: 10px;
+}
+
+.hamburger-icon-top {
+  margin-top: -9px;
+}
+
+.hamburger-size {
+  height: 24px;
+  width: 24px;
 }
 
 ::ng-deep .mat-drawer.mat-drawer-side {
-    background-color: #F0F0F0;
+  background-color: $color-light-gray;
 }
 
 ::ng-deep .mat-list-item :hover {
-    .hoverColor {
-        //background: #fab31c;
-        width: 5px;
-        height: 32px;
-        float: left;
-        position: fixed;
-        margin-left: -8px;
-        margin-top: 0px;
-    }
+  .hoverColor {
+    width: 5px;
+    height: 32px;
+    float: left;
+    position: fixed;
+    margin-left: -8px;
+    margin-top: 0px;
+  }
 }
 
 .color-main {
-    color: $color-dark-gray;
+  font-family: Lato !important;
+  font-size: 13px !important;
+  font-weight: 900 !important;
+  color: $color-dark-gray !important;
 }
 
 ::ng-deep .mat-list-base .mat-list-item.mat-list-item-with-avatar,
 .mat-list-base .mat-list-option.mat-list-item-with-avatar {
-    height: 35px !important;
-}
-
-::ng-deep .mat-list-base .mat-list-item .mat-list-text>*,
-.mat-list-base .mat-list-option .mat-list-text>* {
-    font-size: smaller !important;
+  height: 35px !important;
 }
 
 ::ng-deep .mat-drawer-inner-container {
-    overflow-x: hidden !important;
-    width: 200px !important;
+  overflow: hidden !important;
+  width: 220px !important;
 }
 
-// .sidenav-icon {
-//     margin-left: 10%;
-//     margin-top: 5px;
-//     color: #5D5D5D;
-// }
-
-// .sidenav-closeicon {
-//     margin-left: 38%;
-// }
-
 .sidenav-txt {
-    margin-left: 11px;
+  margin-left: 11px;
 }
 
 .sidenav-content {
-    margin-top: 2vh !important;
-    font-weight: 500 !important;
+  margin-top: 2vh !important;
 }
 
 .sidenav-menuicon {
-    width: 18px;
-}
-
-.sidenav-height {
-    height: 100vh;
+  width: 18px;
 }
 
 .sidenav-menuicon2 {
-    width: 16px;
+  width: 16px;
 }
 
 ::ng-deep .mat-list-base .mat-list-item .mat-divider,
 .mat-list-base .mat-list-option .mat-divider {
-    position: absolute;
-    bottom: 0;
-    right: 0 !important;
-    left: 45px !important;
-    width: 75% !important;
-    margin: 0;
-    top: 35px !important;
-    border: 1px solid #dfdfdf;
+  position: absolute;
+  bottom: 0;
+  right: 0 !important;
+  left: 37px !important;
+  width: 75% !important;
+  margin: 0;
+  top: 35px !important;
+  border: 1px solid #dfdfdf;
 }
 
-::ng-deep .mat-list-base .mat-list-item .mat-list-item-content, .mat-list-base .mat-list-option .mat-list-item-content {
-    padding:  0 8px !important;
+::ng-deep .mat-list-base .mat-list-item .mat-list-item-content,
+.mat-list-base .mat-list-option .mat-list-item-content {
+  padding: 0 0px !important;
 }
 
 .custom-height {
-    height: 20px;
+  height: 20px;
 }
 
-::ng-deep .mat-list-base .mat-list-item.mat-list-item-with-avatar .mat-list-item-content .mat-list-text, .mat-list-base .mat-list-item.mat-list-option .mat-list-item-content .mat-list-text, .mat-list-base .mat-list-option.mat-list-item-with-avatar .mat-list-item-content .mat-list-text, .mat-list-base .mat-list-option.mat-list-option .mat-list-item-content .mat-list-text {
-    padding-left: 5px !important;
+::ng-deep
+  .mat-list-base
+  .mat-list-item.mat-list-item-with-avatar
+  .mat-list-item-content
+  .mat-list-text,
+.mat-list-base
+  .mat-list-item.mat-list-option
+  .mat-list-item-content
+  .mat-list-text,
+.mat-list-base
+  .mat-list-option.mat-list-item-with-avatar
+  .mat-list-item-content
+  .mat-list-text,
+.mat-list-base
+  .mat-list-option.mat-list-option
+  .mat-list-item-content
+  .mat-list-text {
+  padding-left: 5px !important;
 }
 
 .mat-list-base {
-    padding-top: 0px !important;
-    padding-left: 10px !important;
+  padding-top: 0px !important;
+  padding-left: 10px !important;
 }
 
 .left-icon {
-  margin-top: -11px;
+  margin-top: -12px;
+  margin-left: 7px;
+}
+
+.test1:hover {
+  background-color: $color-light-gray-28 !important;
+}
+
+.main-menu-text {
+  font: normal normal bold 16px/20px Lato;
+  color: $color-dark-gray;
+}
+
+.second-level-menu-text {
+  margin-left: 12px;
+  font: normal normal bold 15px/19px Lato !important;
+  color: $color-light-gray-60 !important;
+}
+
+.mat-divider-right {
+  margin-right: 8px !important;
+  border: 1px solid $color-white-12;
+}
+
+.display-menu {
+  margin-top: -56px;
+}
+
+.mat-divider-menu {
+  border-bottom: 1px solid $color-light-gray-90;
+  box-shadow: 1px 0 6px -2px $color-grey-88 !important;
+}
+
+::ng-deep .mat-drawer-container {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+::ng-deep .mat-drawer-backdrop.mat-drawer-shown {
+  background-color: rgba(0, 0, 0, 0.6) !important;
+  opacity: 0.5;
+}
+
+.sidenav-height {
+  height: 92vh;
+  width: 1600px;
+}
+
+mat-drawer.mat-drawer.mat-drawer-side.mat-drawer-opened {
+  box-shadow: 2px -1px 4px 1px $color-grey-88 !important;
 }

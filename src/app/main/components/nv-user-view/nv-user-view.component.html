@@ -1,56 +1,58 @@
-<div class="row">
-<div class="profile-header">
-  <app-nv-user-profile [person]="person" ></app-nv-user-profile>
-</div>
-<div class="body">
+<div class="profile-container">
+
+  <div class="profile-header">
+    <app-nv-user-profile [person]="person"></app-nv-user-profile>
+  </div>
+  <div class="body">
     <div id="firstName" class="field-row">
-      <app-nv-field [label]="fieldLabel" [fieldStatusType]="fieldStatusType"
-      (itemSelect)="onItemSelect($event)"></app-nv-field>
+      <app-nv-field [label]="fieldLabel" [fieldStatusType]="fieldStatusType" (itemSelect)="onItemSelect($event)">
+      </app-nv-field>
     </div>
     <div id="lastName" class="field-row">
-      <app-nv-field [label]="fieldLabel" [fieldStatusType]="fieldStatusType"
-      (itemSelect)="onItemSelect($event)"></app-nv-field>
+      <app-nv-field [label]="fieldLabel" [fieldStatusType]="fieldStatusType" (itemSelect)="onItemSelect($event)">
+      </app-nv-field>
     </div>
     <div id="UserName" class="field-row">
-      <app-nv-field [label]="fieldLabel" [fieldStatusType]="fieldStatusType"
-      (itemSelect)="onItemSelect($event)"></app-nv-field>
+      <app-nv-field [label]="fieldLabel" [fieldStatusType]="fieldStatusType" (itemSelect)="onItemSelect($event)">
+      </app-nv-field>
     </div>
     <div id="email" class="field-row">
-      <app-nv-field [label]="fieldLabel" [fieldStatusType]="fieldStatusType"
-      (itemSelect)="onItemSelect($event)"></app-nv-field>
+      <app-nv-field [label]="fieldLabel" [fieldStatusType]="fieldStatusType" (itemSelect)="onItemSelect($event)">
+      </app-nv-field>
     </div>
     <div id="id" class="field-row">
-      <app-nv-field [label]="fieldLabel" [fieldStatusType]="fieldStatusType"
-      (itemSelect)="onItemSelect($event)"></app-nv-field>
+      <app-nv-field [label]="fieldLabel" [fieldStatusType]="fieldStatusType" (itemSelect)="onItemSelect($event)">
+      </app-nv-field>
     </div>
     <div id="title" class="field-row">
-      <app-nv-field [label]="fieldLabel" [fieldStatusType]="fieldStatusType"
-      (itemSelect)="onItemSelect($event)"></app-nv-field>
+      <app-nv-field [label]="fieldLabel" [fieldStatusType]="fieldStatusType" (itemSelect)="onItemSelect($event)">
+      </app-nv-field>
     </div>
     <div id="title" class="field-row">
-      <app-nv-field [label]="fieldLabel" [fieldStatusType]="fieldStatusType"
-      (itemSelect)="onItemSelect($event)"></app-nv-field>
+      <app-nv-field [label]="fieldLabel" [fieldStatusType]="fieldStatusType" (itemSelect)="onItemSelect($event)">
+      </app-nv-field>
     </div>
     <div id="position" class="field-row">
-      <app-nv-field [label]="fieldLabel" [fieldStatusType]="fieldStatusType"
-      (itemSelect)="onItemSelect($event)"></app-nv-field>
+      <app-nv-field [label]="fieldLabel" [fieldStatusType]="fieldStatusType" (itemSelect)="onItemSelect($event)">
+      </app-nv-field>
     </div>
     <div id="EmployeeNumber" class="field-row">
-      <app-nv-field [label]="fieldLabel" [fieldStatusType]="fieldStatusType"
-      (itemSelect)="onItemSelect($event)"></app-nv-field>
+      <app-nv-field [label]="fieldLabel" [fieldStatusType]="fieldStatusType" (itemSelect)="onItemSelect($event)">
+      </app-nv-field>
     </div>
     <div id="officePhone" class="field-row">
-      <app-nv-field [label]="fieldLabel" [fieldStatusType]="fieldStatusType"
-      (itemSelect)="onItemSelect($event)"></app-nv-field>
+      <app-nv-field [label]="fieldLabel" [fieldStatusType]="fieldStatusType" (itemSelect)="onItemSelect($event)">
+      </app-nv-field>
     </div>
     <div id="mobilePhone" class="field-row">
-      <app-nv-field [label]="fieldLabel" [fieldStatusType]="fieldStatusType"
-      (itemSelect)="onItemSelect($event)"></app-nv-field>
+      <app-nv-field [label]="fieldLabel" [fieldStatusType]="fieldStatusType" (itemSelect)="onItemSelect($event)">
+      </app-nv-field>
     </div>
     <div class="multi-select-row">
       <div id="mobilePhone" class="multi-select-field-row">
-          <app-nv-multiselect-dropdown (filteredItems)="onItemsFilter($event)" >
-          </app-nv-multiselect-dropdown>
+        <app-nv-multiselect-dropdown (filteredItems)="onMultiselectItemsFilter($event)" class="body-item"
+          [label]="multiselectFieldLabel" [fieldStatusType]="multiselectFieldStatusType">
+        </app-nv-multiselect-dropdown>
       </div>
       <div class="dropdown-plus-container">
         <app-nv-dropdown [extensionDirection]="dropdownMenuExtensionDir" [items]="dropdownItems"
@@ -62,8 +64,9 @@
     </div>
     <div class="multi-select-row">
       <div id="mobilePhone" class="multi-select-field-row">
-          <app-nv-multiselect-dropdown (filteredItems)="onItemsFilter($event)" >
-          </app-nv-multiselect-dropdown>
+        <app-nv-multiselect-dropdown (filteredItems)="onMultiselectItemsFilter($event)" class="body-item"
+          [label]="multiselectFieldLabel" [fieldStatusType]="multiselectFieldStatusType">
+        </app-nv-multiselect-dropdown>
       </div>
       <div class="dropdown-plus-container">
         <app-nv-dropdown [extensionDirection]="dropdownMenuExtensionDir" [items]="dropdownItems"
@@ -75,8 +78,9 @@
     </div>
     <div class="multi-select-row">
       <div id="mobilePhone" class="multi-select-field-row">
-          <app-nv-multiselect-dropdown (filteredItems)="onItemsFilter($event)" >
-          </app-nv-multiselect-dropdown>
+        <app-nv-multiselect-dropdown (filteredItems)="onMultiselectItemsFilter($event)" class="body-item"
+          [label]="multiselectFieldLabel" [fieldStatusType]="multiselectFieldStatusType">
+        </app-nv-multiselect-dropdown>
       </div>
       <div class="dropdown-plus-container">
         <app-nv-dropdown [extensionDirection]="dropdownMenuExtensionDir" [items]="dropdownItems"
@@ -88,8 +92,9 @@
     </div>
     <div class="multi-select-row">
       <div id="mobilePhone" class="multi-select-field-row">
-          <app-nv-multiselect-dropdown (filteredItems)="onItemsFilter($event)" >
-          </app-nv-multiselect-dropdown>
+        <app-nv-multiselect-dropdown (filteredItems)="onMultiselectItemsFilter($event)" class="body-item"
+          [label]="multiselectFieldLabel" [fieldStatusType]="multiselectFieldStatusType">
+        </app-nv-multiselect-dropdown>
       </div>
       <div class="dropdown-plus-container">
         <app-nv-dropdown [extensionDirection]="dropdownMenuExtensionDir" [items]="dropdownItems"
@@ -101,8 +106,9 @@
     </div>
     <div class="multi-select-row">
       <div id="mobilePhone" class="multi-select-field-row">
-          <app-nv-multiselect-dropdown (filteredItems)="onItemsFilter($event)" >
-          </app-nv-multiselect-dropdown>
+        <app-nv-multiselect-dropdown (filteredItems)="onMultiselectItemsFilter($event)" class="body-item"
+          [label]="multiselectFieldLabel" [fieldStatusType]="multiselectFieldStatusType">
+        </app-nv-multiselect-dropdown>
       </div>
       <div class="dropdown-plus-container">
         <app-nv-dropdown [extensionDirection]="dropdownMenuExtensionDir" [items]="dropdownItems"
@@ -113,11 +119,13 @@
       </div>
     </div>
     <div class="date-row">
-      <label for="input" class="field-label h50" > Account Expiry </label>
-        <app-nv-date-picker [isDateRangePicker]="false" ></app-nv-date-picker>
+      <label for="input" class="field-label h50"> Account Expiry </label>
+      <app-nv-date-picker [isDateRangePicker]="false"></app-nv-date-picker>
     </div>
-</div>
+  </div>
+  <div class="footer">
+    <app-nv-button class="save-button" label="Save" (buttonClick)="onSaveClick()"></app-nv-button>
+    <app-nv-button class="cancel-button" label="Cancel" (buttonClick)="onCancelClick()"></app-nv-button>
+  </div>
 
-
 </div>
-<!-- <app-nv-footer></app-nv-footer> -->

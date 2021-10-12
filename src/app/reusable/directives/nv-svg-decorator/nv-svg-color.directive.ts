@@ -31,6 +31,6 @@ export class NvSvgColorDirective implements OnInit{
       if (checkMarkElement && this.color) {
         this.renderer.setStyle(checkMarkElement, 'fill', `${this.color}`);
       }
-    }, 100);
+    }, 80);
   }
 }

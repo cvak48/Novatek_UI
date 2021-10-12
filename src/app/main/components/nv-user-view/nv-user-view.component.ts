@@ -1,4 +1,7 @@
-import { DropdownFieldType, MenuExtensionDirection} from 'src/app/model/data-model';
+import {
+  DropdownFieldType,
+  MenuExtensionDirection,
+} from 'src/app/model/data-model';
 import {
   Person,
   Notification,
@@ -18,19 +21,27 @@ export class NvUserViewComponent implements OnInit {
   // field
   fieldStatusType = FieldStatusType.Error;
   fieldLabel = 'Label';
-    // dropDown 
-    dropdownItems = mockDropdown().items;
-    textTrimNumber = mockDropdown().textTrimNumber;
-    defaultSelectedItem = mockDropdown().selectedItemDefault;
-    dropDownFieldType = mockDropdown().dropDownFieldType;
-    dropdownMenuExtensionDir = mockDropdown().menuExtensionDir;
-    isDropdownDisable = mockDropdown().isDisable;
-    dropdownFieldStatusType = mockDropdown().fieldStatusType;
+  // dropDown
+  dropdownItems = mockDropdown().items;
+  textTrimNumber = mockDropdown().textTrimNumber;
+  defaultSelectedItem = mockDropdown().selectedItemDefault;
+  dropDownFieldType = mockDropdown().dropDownFieldType;
+  dropdownMenuExtensionDir = mockDropdown().menuExtensionDir;
+  isDropdownDisable = mockDropdown().isDisable;
+  dropdownFieldStatusType = mockDropdown().fieldStatusType;
+  // Multiselect dropdown field
+  multiselectFieldStatusType = FieldStatusType.Accept;
+  multiselectFieldLabel = 'Label';
   constructor() {}
   ngOnInit(): void {}
   onItemSelect(item: any): void {}
-    // search output
-    onItemsFilter(list: any): void {}
+  // search output
+  onItemsFilter(list: any): void {}
+  // Multiselect dropDown selected item
+  onMultiselectItemsFilter(item: any): void {}
+
+  onSaveClick(): void { }
+  onCancelClick(): void { }
 }
 
 function mockProfileMenu(): Person {
@@ -47,7 +58,6 @@ function mockProfileMenu(): Person {
   } as Person;
   return avatarProps;
 }
-
 
 function mockDropdown(): any {
   const dropdownInputs = {

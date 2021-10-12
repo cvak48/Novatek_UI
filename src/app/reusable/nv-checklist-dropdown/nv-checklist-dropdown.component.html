@@ -5,7 +5,7 @@
         {{item}}
         <mat-icon matChipRemove *ngIf="removable"></mat-icon>
       </mat-chip>
-      <input multiline #itemInput [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+      <input multiline #itemInput [matChipInputFor]="chipList" [formControl]="itemCtrl" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
         [matChipInputAddOnBlur]="addOnBlur" (click)="onFieldClick()" (blur)="onBlur()">
     </mat-chip-list>
     <ng-container [ngTemplateOutlet]="arrowTemplate" [ngTemplateOutletContext]="{isArrowDown:isArrowDown}">
@@ -19,22 +19,12 @@
 </div>
 
 
-
 <ng-template #treeViewTemplate>
   <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
     <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle matTreeNodePadding>
       <button mat-icon-button disabled></button>
       <mat-checkbox class="checklist-leaf-node" [checked]="checklistSelection.isSelected(node)"
         (change)="todoLeafItemSelectionToggle(node)">{{node.item}}</mat-checkbox>
-    </mat-tree-node>
-
-    <mat-tree-node *matTreeNodeDef="let node; when: hasNoContent" matTreeNodePadding>
-      <button mat-icon-button disabled></button>
-      <mat-form-field appearance="fill">
-        <mat-label>New item...</mat-label>
-        <input matInput #itemValue placeholder="Ex. Lettuce">
-      </mat-form-field>
-
     </mat-tree-node>
 
     <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding>
@@ -57,12 +47,3 @@
   </div>
 </ng-template>
 
-<!-- TODO: It does not recognize auto  [matAutocomplete]="auto"-->
-<!-- TODO: <ng-container [ngTemplateOutlet]="flatMenuTemplate" [ngTemplateOutletContext]="{filteredItems:filteredItems, matAutocomplete:matAutocomplete}"></ng-container> -->
-<ng-template #flatMenuTemplate let-items=filteredItems let-matAutocomplete=matAutocomplete>
-  <mat-autocomplete #auto="matAutocomplete">
-    <mat-option *ngFor="let item of items.filteredItems | async" [value]="item">
-      {{item}}
-    </mat-option>
-  </mat-autocomplete>
-</ng-template>

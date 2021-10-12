@@ -30,6 +30,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { CommonModule } from '@angular/common';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -67,6 +68,7 @@ const materialModulesList = [
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
+    DragDropModule,
     MatCheckboxModule,
     MatNativeDateModule,
     CdkTreeModule,

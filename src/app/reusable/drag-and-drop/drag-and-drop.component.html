@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <div class="row border border-secondary" cdkDropListGroup>
+    <div class="col-2 border border-secondary side-nav">
+      <div class="example-container">
+        <div cdkDropList 
+        [cdkDropListData]="sourceCardList"
+        (cdkDropListExited)="exited($event)"
+         class="example-list">
+          <div class="example-box" cdkDrag [cdkDragData]="sourceCardList[0]"
+            (cdkDragStarted)="onDragStarted($event)">
+            <div class="example-custom-drag-placeholder pl-4 pt-4" *cdkDragPlaceholder>Drag to Generate New Card</div>
+            {{sourceCardList[0].title}}</div>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-10 border border-danger preview-panel d-flex flex-column">
+     <div class="example-container" *ngFor="let row of widgetCardLists; index">
+      <div cdkDropList
+       [cdkDropListData]="row.list"
+        class="example-list-drop"
+         cdkDropListOrientation="horizontal"
+         [cdkDropListEnterPredicate]="specialUseCase"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box-drop" *ngFor="let item of row.list" cdkDrag>
+          <div class="example-custom-drop-placeholder pl-4 pt-4" 
+          *cdkDragPlaceholder>Drop Here</div>
+          {{item.title}}
+        </div>
+      </div>
+
+
+  </div>
+    </div>
+  </div>
+</div>
+
+

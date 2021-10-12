@@ -1,17 +1,80 @@
-import { ThrowStmt } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
+import { transition, trigger, useAnimation } from '@angular/animations';
+import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import { MatDrawer } from '@angular/material/sidenav';
 import {
   DropdownFieldType,
   Notification,
   Person,
 } from 'src/app/model/data-model';
+import {
+  bounceInAndOut,
+  enterAndLeaveFromLeft,
+  enterAndLeaveFromRight,
+  fadeInAndOut,
+  fadeInThenOut,
+  growInShrinkOut,
+  SidebarCloseAnimation,
+  SidebarOpenAnimation,
+  swingInAndOut,
+} from 'src/assets/trigger';
 
+const animationParams = {
+  menuWidth: '250px',
+  animationStyle: '300ms ease',
+};
 @Component({
   selector: 'app-nv-menu',
   templateUrl: './nv-menu.component.html',
   styleUrls: ['./nv-menu.component.scss'],
+  animations: [
+    // The following are pre-built triggers - Use these to add animations with the least work
+    fadeInAndOut,
+    enterAndLeaveFromLeft,
+    enterAndLeaveFromRight,
+    bounceInAndOut,
+    growInShrinkOut,
+    swingInAndOut,
+    fadeInThenOut,
+
+    trigger('sideMenu', [
+      transition(':enter', [
+        useAnimation(SidebarOpenAnimation, {
+          params: {
+            ...animationParams,
+          },
+        }),
+      ]),
+      transition(':leave', [
+        useAnimation(SidebarCloseAnimation, {
+          params: {
+            ...animationParams,
+          },
+        }),
+      ]),
+    ]),
+  ],
 })
 export class NvMenuComponent implements OnInit {
+  @ViewChild('drawer')
+  public drawer!: MatDrawer;
+  path: string = '';
+
+  @HostListener('click', ['$event']) clickedInside($event: any) {
+    if (
+      $event.target.outerHTML.indexOf('hamburger') < 0 &&
+      $event.target.outerHTML.indexOf('sidenav-content') < 0 &&
+      $event.target.outerHTML.indexOf('ico.menu.back') < 0
+    ) {
+      this.closingsideNav();
+    }
+  }
+
+  reason = '';
+
+  close(reason: string) {
+    this.reason = reason;
+  }
+
   isFirstLevelIcon: boolean = true;
   isSecondLevelIcon: boolean = false;
   showCloseIcon: boolean = false;
@@ -20,57 +83,138 @@ export class NvMenuComponent implements OnInit {
   showSecondLevelMenu: boolean = false;
   showSideNav: boolean = false;
 
+  selectedIndex: number = 0;
+  initialHistoryDropDownItems: string[] = [];
+
+  firstLevelSelectedIndex: number = 0;
+  showMenu: boolean = false;
+
   /**
    * Side Menu list items
    */
-  sidenavItems = [
-    { icon: '../../../assets/icons/ico.masterlist.svg', name: 'Menu Item L1' },
-    { icon: '../../../assets/icons/ico.masterlist.svg', name: 'Menu Item L1' },
-    { icon: '../../../assets/icons/ico.masterlist.svg', name: 'Menu Item L1' },
-    { icon: '../../../assets/icons/ico.masterlist.svg', name: 'Menu Item L1' },
-    { icon: '../../../assets/icons/ico.masterlist.svg', name: 'Menu Item L1' },
-    { icon: '../../../assets/icons/ico.masterlist.svg', name: 'Menu Item L1' },
-    { icon: '../../../assets/icons/ico.masterlist.svg', name: 'Menu Item L1' },
-    { icon: '../../../assets/icons/ico.masterlist.svg', name: 'Menu Item L1' },
-    { icon: '../../../assets/icons/ico.masterlist.svg', name: 'Menu Item L1' },
-    { icon: '../../../assets/icons/ico.masterlist.svg', name: 'Menu Item L1' },
+  firstLevelMenuItems = [
+    { icon: '../../../assets/icons/ico.masterlist.svg', name: 'Dashboard' },
+    { icon: '../../../assets/icons/ico.masterlist.svg', name: 'Master List' },
+    { icon: '../../../assets/icons/ico.masterlist.svg', name: 'Dropdown List' },
+    {
+      icon: '../../../assets/icons/ico.masterlist.svg',
+      name: 'System Administation',
+    },
+    { icon: '../../../assets/icons/ico.masterlist.svg', name: 'Inventory' },
+    { icon: '../../../assets/icons/ico.masterlist.svg', name: 'Worklist' },
+    {
+      icon: '../../../assets/icons/ico.masterlist.svg',
+      name: 'Events / Operations',
+    },
+    { icon: '../../../assets/icons/ico.masterlist.svg', name: 'Usage Logs' },
+    {
+      icon: '../../../assets/icons/ico.masterlist.svg',
+      name: 'Adult Trail/Activity',
+    },
+    {
+      icon: '../../../assets/icons/ico.masterlist.svg',
+      name: 'Report Manager',
+    },
+    { icon: '../../../assets/icons/ico.masterlist.svg', name: 'Analytics' },
   ];
 
-  items = [
+  firstLevelMenu: string = 'History'; //this.firstLevelMenuItems[0].name;
+
+  seconndLevelMenuItems = [
     {
-      name: 'Menu Grouping',
+      name: '',
+      subItems: [],
+    },
+    {
+      name: 'Master List',
       subItems: [
-        { name: 'Menu Item L2' },
-        { name: 'Menu Item L2' },
-        { name: 'Menu Item L2' },
+        { name: 'Equipment Assets' },
+        { name: 'Equipment Train' },
+        { name: 'Equipment Group' },
+        { name: 'Auto Claves' },
+        { name: 'Product' },
+        { name: 'Single Use Equipment' },
+        { name: 'Protocol' },
+        { name: 'Specifications' },
+        { name: 'Controlled Areas' },
       ],
     },
     {
-      name: 'Menu Grouping',
+      name: '',
+      subItems: [],
+    },
+    {
+      name: 'System Administration',
       subItems: [
-        { name: 'Menu Item L2' },
-        { name: 'Menu Item L2' },
-        { name: 'Menu Item L2' },
+        { name: 'User Management' },
+        { name: 'Global Options(Locale,Logo,etc)' },
+        { name: 'Site Management' },
+        { name: 'Roles Management' },
       ],
     },
     {
-      name: 'Menu Grouping',
+      name: 'Inventory',
       subItems: [
-        { name: 'Menu Item L2' },
-        { name: 'Menu Item L2' },
-        { name: 'Menu Item L2' },
+        { name: 'Consumables' },
+        { name: 'Assets' },
+        { name: 'Lot Registrations' },
+        { name: 'Sparo Parts' },
+        { name: 'Cleaning Agents' },
+        { name: 'Single Use Standards' },
+      ],
+    },
+    {
+      name: '',
+      subItems: [],
+    },
+    {
+      name: 'Events/Operations',
+      subItems: [
+        { name: 'Events List' },
+        { name: 'scheduler' },
+        { name: 'Deviations' },
+      ],
+    },
+    {
+      name: 'Usage Logs',
+      subItems: [
+        { name: 'Equipment Assets' },
+        { name: 'Equipment Train' },
+        { name: 'Auto Claves/Part Washers' },
+        { name: 'Products' },
+      ],
+    },
+    {
+      name: 'Adult Trail/Activity',
+      subItems: [
+        { name: 'Data Activity Logs' },
+        { name: 'Data Adult Trail' },
+        { name: 'User Management Adult Trail' },
+        { name: 'User Management Activity Log' },
+      ],
+    },
+    {
+      name: 'Report Manager',
+      subItems: [
+        { name: 'Report Selection' },
+        { name: 'Filter Management' },
+        { name: 'Adhoc Reports(Part2)' },
+      ],
+    },
+    {
+      name: 'Analytics',
+      subItems: [
+        { name: 'Trends' },
+        { name: 'Charts/Metrics' },
+        { name: 'KPIs' },
       ],
     },
   ];
-
-  selectedItem = '';
 
   person: Person = this.mockProfileMenu();
-  menuItems = ['menu item 1', 'menu item 2'];
-  siteItems = ['site item 1', 'site item 2'];
-  actionItems = ['action 1', 'action 2'];
+
   // dropDown Menu
-  dropdownItemsMenu = this.mockMenuDropdown().items;
+  dropdownItemsMenu = this.initialHistoryDropDownItems; //this.getSubMenuItemForDropdown(0);
   textTrimNumberMenu = this.mockMenuDropdown().textTrimNumber;
   selectedItemDefaultMenu = this.mockMenuDropdown().selectedItemDefault;
   dropDownFieldTypeMenu = this.mockMenuDropdown().dropDownFieldType;
@@ -94,48 +238,48 @@ export class NvMenuComponent implements OnInit {
    * DropDowns event handlers
    */
   onMenuItemSelect(item: string): void {
-    console.log('selectedMenuItem >>>> ' + +item);
+    this.dropdownItemsMenu = this.setHistoryDropdownItems(item);
+    this.selectedIndex = 0;
   }
-  onSiteItemSelect(item: string): void {
-    console.log('selectedSiteItem >>>> ' + +item);
-  }
-  onPlusItemSelect(item: string): void {
-    console.log('selectedPlusItem >>>> ' + +item);
-  }
+  onSiteItemSelect(item: string): void {}
+  onPlusItemSelect(item: string): void {}
 
   mockMenuDropdown(): any {
-    const dropdownInputs = {
-      items: ['menu item 1', 'menu item 2'],
+    return {
+      items: this.initialHistoryDropDownItems, //this.getMenuItemsForDropdown(),
       textTrimNumber: 5,
-      selectedItemDefault: 'Level 2 Menu Name ',
+      selectedItemDefault: 'Dashboard',
       dropDownFieldType: DropdownFieldType.Input,
     };
-    return dropdownInputs;
+  }
+
+  private getMenuItemsForDropdown() {
+    let menuItem: string[] = [];
+    this.firstLevelMenuItems.forEach((item) => menuItem.push(item.name));
+    return menuItem;
   }
 
   mockSiteDropdown(): any {
-    const dropdownInputs = {
+    return {
       items: ['site item 1', 'site item 2'],
       textTrimNumber: 5,
       selectedItemDefault: 'Current Site',
       dropDownFieldType: DropdownFieldType.Input,
     };
-    return dropdownInputs;
   }
 
   mockPlusDropdown(): any {
-    const dropdownInputs = {
+    return {
       items: ['action 1', 'action 2'],
       textTrimNumber: 3,
       selectedItemDefault: 'Page',
       dropDownFieldType: DropdownFieldType.Icon,
       // isRightToLeft: true,
     };
-    return dropdownInputs;
   }
 
   mockProfileMenu(): Person {
-    const avatarProps = {
+    return {
       id: 1,
       name: 'Alex Green',
       imageUrl:
@@ -146,9 +290,9 @@ export class NvMenuComponent implements OnInit {
         hasAttachment: false,
       } as Notification,
     } as Person;
-    return avatarProps;
   }
 
+  //opens the first level menu
   openFirstLevelMenu() {
     this.isHamburger = true;
     this.isFirstLevelIcon = false;
@@ -157,9 +301,17 @@ export class NvMenuComponent implements OnInit {
     this.showFirstLevelMenu = true;
     this.showSideNav = true;
     this.showCloseIcon = true;
+    this.showMenu = true;
   }
 
-  openSecondLevelMenu(selectedItem: any) {
+  ////opens the second level menu
+  openSecondLevelMenu(index: number) {
+    //As few first level menu items don't have second level menu data, added this tweak
+    if (index === 0 || index === 2 || index === 5) {
+      return;
+    }
+    this.firstLevelSelectedIndex = index;
+    this.selectedItemDefaultMenu = this.mockMenuDropdown().selectedItemDefault;
     this.showSecondLevelMenu = true;
     this.showSideNav = true;
     this.isHamburger = false;
@@ -167,11 +319,39 @@ export class NvMenuComponent implements OnInit {
     this.showCloseIcon = true;
     this.isSecondLevelIcon = true;
     this.isFirstLevelIcon = false;
-    console.log(selectedItem);
-    this.selectedItem = selectedItem;
   }
 
+  //adds selectedSecondLevelMenuItem to history drop down
+  selectedSecondLevelMenuItem(index: number, item: any) {
+    this.selectedItemDefaultMenu = item.name;
+    this.dropdownItemsMenu = this.setHistoryDropdownItems(item.name);
+  }
+
+  //removing duplicates in selectedSecondLevelMenuItem
+  setHistoryDropdownItems(item: any) {
+    this.initialHistoryDropDownItems.unshift(item);
+    return Array.from(new Set(this.initialHistoryDropDownItems));
+  }
+
+  private getSubMenuItemForDropdown(index: number) {
+    let tempArr: string[] = [];
+    this.seconndLevelMenuItems[index].subItems.forEach((item) =>
+      tempArr.push(item.name)
+    );
+    return tempArr;
+  }
+
+  closingsideNav() {
+    this.drawer.close();
+    //for animation effect kept timeout 300ms
+    setTimeout(() => {
+      this.closeSideNav();
+    }, 300);
+  }
+
+  //closing the left side bar
   closeSideNav() {
+    this.drawer.close();
     this.isFirstLevelIcon = true;
     this.showCloseIcon = false;
     this.isSecondLevelIcon = false;

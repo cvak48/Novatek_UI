@@ -86,6 +86,7 @@ export class NvDropdownComponent implements OnInit, AfterViewInit, OnChanges {
   }
   private _fieldStatusType!: FieldStatusType;
   hideMenu!: boolean;
+  @Input() selectedIndexx!: number;
   selectedIndex!: number;
   isItemSelected!: boolean;
   /**
@@ -111,10 +112,13 @@ export class NvDropdownComponent implements OnInit, AfterViewInit, OnChanges {
   ) {
     this._initializeDropdownProps();
   }
-  ngOnChanges(): void {  }
+  ngOnChanges(): void {
+    this._populateDropdownPropsWithInput();
+    this.filteredItems = this.items;
+    this.selectedIndex = this.selectedIndexx;
+   }
 
   ngOnInit(): void {
-
     this._populateDropdownPropsWithInput();
     this._filterInputQuery();
   }

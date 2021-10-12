@@ -397,13 +397,13 @@ table.table td {
   margin-left: 5px;
 }
 
-// .rotateimg180 {
-//   -webkit-transform: rotate(180deg);
-//   -moz-transform: rotate(180deg);
-//   -ms-transform: rotate(180deg);
-//   -o-transform: rotate(180deg);
-//   transform: rotate(180deg);
-// }
+ .rotateimg180 {
+   -webkit-transform: rotate(180deg);
+   -moz-transform: rotate(180deg);
+   -ms-transform: rotate(180deg);
+   -o-transform: rotate(180deg);
+   transform: rotate(180deg);
+ }
 
 table td {
   display: table-cell;
@@ -427,4 +427,19 @@ hr {
 .mat-icon {
   top: 2px;
   position: relative;
+}
+
+.expand-btn{
+  border-radius: 4px;
+  background-color: $color-light-gray-22;
+  border: 1px solid $color-dark-gray;
+}
+
+.btn-bg-clr{
+  background-color: $color-light-gray-22;
+}
+
+::ng-deep .btn-bg-clr.mat-button, .mat-icon-button, .mat-stroked-button, .mat-flat-button{
+  min-width:unset !important;
+  padding: 0 10px !important;
 }

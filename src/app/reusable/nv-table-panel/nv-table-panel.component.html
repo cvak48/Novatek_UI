@@ -35,7 +35,23 @@
           <div class="shadow-sm-dark dp-inline mr-lt-1">
             <app-nv-dropdown></app-nv-dropdown>
           </div>
-          <div class="dp-inline btn-right">
+          <div class="dp-inline btn-right expand-btn">
+            <mat-button-toggle-group>
+              <button  mat-flat-button class="btn-bg-clr" [matMenuTriggerFor]="dropdownMenuOne">More</button>
+              <button   mat-flat-button class="btn-bg-clr" [matMenuTriggerFor]="dropdownMenuOne">
+                <mat-icon style="vertical-align: middle;">keyboard_arrow_down</mat-icon>
+              </button>
+            </mat-button-toggle-group>
+            
+            <mat-menu #dropdownMenuOne="matMenu">
+              <button class="nav-button" mat-menu-item >Print</button>
+              <button class="nav-button" mat-menu-item >Copy</button>
+              <button class="nav-button" mat-menu-item >Disable</button>
+              <button class="nav-button" mat-menu-item >Import</button>
+              <button class="nav-button" mat-menu-item >View Audit Trail</button>
+            </mat-menu>
+          </div>
+          <div class="dp-inline btn-right mr-rt-1">
             <app-nv-button
               label="New"
               class="mr-rt-1"
@@ -43,9 +59,13 @@
             ></app-nv-button>
             <app-nv-button
               label="Edit"
+              
               (buttonClick)="buttonClick()"
             ></app-nv-button>
+           
           </div>
+        
+        
         </div>
         <div>
           <div class="table-scroll">
@@ -65,11 +85,18 @@
                   scope="col"
                   [mdbTableSort]="orders"
                   [sortBy]="columns[i]"
-                  class="mat-header-cell"
-                >
+                  class="mat-header-cell">
                   {{ column }}
                   <span
-                    ><mat-icon
+                    >
+                    <mat-icon
+                      class="img"
+                      *ngIf="sortColumn != column"
+                      ><img
+                        src="../../../assets/icons/table-shorting.icon.svg"
+                        (click)="rowImgClicked($event)"
+                    /></mat-icon>
+                    <mat-icon
                       class="img"
                       *ngIf="sortColumn == column && sortPreference == 'ascending'"
                       ><img

@@ -1,4 +1,4 @@
-@import './../theme/base.scss';
+@import "./../theme/base.scss";
 $height: 40px;
 
 @mixin label {
@@ -30,7 +30,16 @@ $height: 40px;
 
 // dropdown
 .dropdown {
+  position: relative;
+  display: flex;
+  flex-direction: column;
   width: 100%;
+
+  .field-label {
+    color: $color-dark-gray-dde;
+    height: 18px;
+    margin-bottom: 6px !important;
+  }
 
   .dropdown-toggle {
     &::after {
@@ -53,7 +62,6 @@ $height: 40px;
 
 // dropdown end
 
-
 // chips
 .form-field {
   border: 1px solid $color-white-10;
@@ -63,21 +71,18 @@ $height: 40px;
   min-height: $height;
 
   .arrow-icon-container {
-
     &.no-item {
-      margin-top: 10px;
+      margin-top: 11px;
     }
 
     .arrow-icon {
       @include triangleArrow;
-      top: 6px;
+      top: 8px;
     }
   }
-
 }
 
 .checklist-dropdown-container {
-
   // the size of field
   // the color has been changed but it works!
   ::ng-deep .mat-chip-list-wrapper {
@@ -163,7 +168,7 @@ $height: 40px;
     font-size: 18px !important;
   }
 
-  // icon color 
+  // icon color
   ::ng-deep .mat-chip.mat-standard-chip .mat-chip-remove {
     background-image: url("./../../../assets/icons/circular-cancel.icon.svg") !important;
     background-size: 16px 16px !important;
@@ -196,7 +201,7 @@ $height: 40px;
     top: 20px !important;
   }
 
-  ::ng-deep .mat-autocomplete-panel:not([class*=mat-elevation-z]) {
+  ::ng-deep .mat-autocomplete-panel:not([class*="mat-elevation-z"]) {
     box-shadow: 0px 1px 4px $color-black-14 !important;
   }
 

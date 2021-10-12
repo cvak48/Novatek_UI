@@ -267,8 +267,10 @@
           *ngSwitchCase="nvComponentType.MultiSelectDropdown"
         >
           <app-nv-multiselect-dropdown
-            (filteredItems)="onItemsFilter($event)"
+            (filteredItems)="onMultiselectItemsFilter($event)"
             class="body-item"
+            [label]="multiselectFieldLabel"
+            [fieldStatusType]="multiselectFieldStatusType"
           >
           </app-nv-multiselect-dropdown>
         </div>
@@ -276,7 +278,10 @@
           class="search-item-container"
           *ngSwitchCase="nvComponentType.TreeViewDropdown"
         >
-          <app-nv-checklist-dropdown class="body-item">
+          <app-nv-checklist-dropdown (filteredItems)="onTreeViewItemsFilter($event)"
+          class="body-item"
+          [label]="treeViewFieldLabel"
+          [fieldStatusType]="treeViewFieldStatusType">
           </app-nv-checklist-dropdown>
         </div>
 

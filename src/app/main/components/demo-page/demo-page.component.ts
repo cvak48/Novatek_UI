@@ -96,6 +96,12 @@ export class DemoPageComponent implements OnInit {
   // field
   fieldStatusType = FieldStatusType.Error;
   fieldLabel = 'Label';
+  // Multiselect dropdown field
+  multiselectFieldStatusType = FieldStatusType.Accept;
+  multiselectFieldLabel = 'Label';
+  // Tree View dropdown
+  treeViewFieldStatusType = FieldStatusType.Accept;
+  treeViewFieldLabel = 'Label';
   /**
    * timePicker
    * 12 or 24
@@ -111,6 +117,9 @@ export class DemoPageComponent implements OnInit {
   onItemsFilter(list: any): void {}
   // dropDown selected item
   onItemSelect(item: any): void {}
+  // Multiselect dropDown selected item
+  onMultiselectItemsFilter(item: any): void {}
+  onTreeViewItemsFilter(item: any): void {}
 }
 
 function mockProfileMenu(): Person {

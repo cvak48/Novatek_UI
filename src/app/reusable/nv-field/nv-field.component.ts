@@ -48,7 +48,7 @@ export class NvFieldComponent implements OnInit, AfterViewInit, OnChanges {
   svgIconIdsDic!: { [name: string]: string };
   fieldStatusColorDic!: { [name: string]: string };
   /**
-   * References to call directives
+   * References to call directives in the component
    */
   @ViewChild(NvStyleColorDirective) nvStyleColorDirective: any;
   @ViewChild(NvTextColorDirective) nvTextColorDirective: any;
@@ -67,6 +67,8 @@ export class NvFieldComponent implements OnInit, AfterViewInit, OnChanges {
    */
   onFieldClick(): void {
     this._resetStyle();
+    // TODO: the directive in the html does not get updated as we update its input in the component with as an event get triggered
+    // so here we call directive to call its method
     this.nvStyleColorDirective.ngOnDestroy();
     this.nvTextColorDirective.ngOnDestroy();
   }

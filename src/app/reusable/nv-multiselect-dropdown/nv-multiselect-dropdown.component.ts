@@ -1,3 +1,5 @@
+import { NvTextColorDirective } from './../directives/nv-status-color/nv-text-color.directive';
+import { NvStyleColorDirective } from './../directives/nv-status-color/nv-style-color.directive';
 import { FieldStatusType, FieldStatusStyle } from './../../model/data-model';
 import { ArrowIcon } from '../../model/data-model';
 import { Observable } from 'rxjs';
@@ -46,8 +48,8 @@ export class NvMultiSelectDropdownComponent implements OnInit {
   /**
    * Sets styles base on the status of the field
    * The inputs of directives in html
-    */
-   @Input() set fieldStatusType(type: FieldStatusType) {
+   */
+  @Input() set fieldStatusType(type: FieldStatusType) {
     this._fieldStatusType = type;
     this._setStyles(this.fieldStatusType);
   }
@@ -55,15 +57,20 @@ export class NvMultiSelectDropdownComponent implements OnInit {
     return this._fieldStatusType;
   }
   private _fieldStatusType!: FieldStatusType;
-    /**
-   * Input for nvStyleColor directive
-   */
-     fieldStyle!: FieldStatusStyle;
-     statusType = FieldStatusType;
-     labelStatus!: FieldStatusType;
-     isFieldDisable!: boolean;
-     svgIconIdsDic!: { [name: string]: string };
-     fieldStatusColorDic!: { [name: string]: string };
+/**
+ * Input for nvStyleColor directive
+ */
+  fieldStyle!: FieldStatusStyle;
+  statusType = FieldStatusType;
+  labelStatus!: FieldStatusType;
+  isFieldDisable!: boolean;
+  svgIconIdsDic!: { [name: string]: string };
+  fieldStatusColorDic!: { [name: string]: string };
+  /**
+* References to call directives in the component
+*/
+  @ViewChild(NvStyleColorDirective) nvStyleColorDirective: any;
+  @ViewChild(NvTextColorDirective) nvTextColorDirective: any;
   @ViewChild('itemInput') itemInput!: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete!: MatAutocomplete;
   visible = true;
@@ -77,13 +84,13 @@ export class NvMultiSelectDropdownComponent implements OnInit {
   // field
   // TODO: What is the default
 
-  items: string[] = ['Multiple Select'];
+  items: string[] = [];
   isArrowDown: boolean = true;
   readonly arrowIcons: ArrowIcon = {
     upward: '../../../assets/icons/ico.arrow.up.svg',
     downward: '../../../assets/icons/ico.arrow.down.svg',
   };
-  hasItem = true;
+  hasItem = false;
   constructor() {
     this._initialize();
     /**
@@ -96,7 +103,7 @@ export class NvMultiSelectDropdownComponent implements OnInit {
       )
     );
   }
-  ngOnInit(): void {}
+  ngOnInit(): void { }
   /**
    * blur and click eventHandler are responsible for changing the triangle icon direction
    */
@@ -111,12 +118,10 @@ export class NvMultiSelectDropdownComponent implements OnInit {
     } else {
       this.isArrowDown = true;
     }
-   /**
-   * Call directive here to reset the style
-   */
-    // this._resetStyle();
-    // this.nvStyleColorDirective.ngOnDestroy();
-    // this.nvTextColorDirective.ngOnDestroy();
+    // TODO: the directive in the html does not get updated as we update its input in the component with as an event get triggered
+    // so here we call directive to call its method
+    this.nvStyleColorDirective.ngOnDestroy();
+    this.nvTextColorDirective.ngOnDestroy();
   }
 
   add(event: MatChipInputEvent): void {
@@ -197,39 +202,38 @@ export class NvMultiSelectDropdownComponent implements OnInit {
     return filteredItems;
   }
 
-   /**
-     * update the style based on the received status color type;
-     * generating scss class name
-     */
-    private _setStyles(type: FieldStatusType): void {
-      let statusType = FieldStatusType.Normal;
-      if (!!type) {
-        statusType = type;
-      } else if (type === 0) {
-        statusType = FieldStatusType.Active;
-      }
-      /**
-       * setting style based on status type; style is input for directive nv-style-color directive
-       * these styles are used to create style class name using enum type; the style classes are located in base.scss
-       */
-      let style: FieldStatusStyle = {
-        border: statusType,
-        background: statusType,
-        // The label is not affected by status and  we use labelStatus for that purpose
-        text: FieldStatusType.Normal,
-      };
-      this.labelStatus = statusType;
-      if (type === FieldStatusType.Disabled) {
-        this.isFieldDisable = true;
-      } else {
-        this.isFieldDisable = false;
-      }
-      if (type === FieldStatusType.Required) {
-        this.labelStatus = FieldStatusType.Error;
-      }
-      this.fieldStyle = style;
+  /**
+   * update the style based on the received status color type;
+   * generating scss class name
+   */
+  private _setStyles(type: FieldStatusType): void {
+    let statusType = FieldStatusType.Normal;
+    if (!!type) {
+      statusType = type;
+    } else if (type === 0) {
+      statusType = FieldStatusType.Active;
     }
-
+    /**
+     * setting style based on status type; style is input for directive nv-style-color directive
+     * these styles are used to create style class name using enum type; the style classes are located in base.scss
+     */
+    let style: FieldStatusStyle = {
+      border: statusType,
+      background: statusType,
+      // The label is not affected by status and  we use labelStatus for that purpose
+      text: FieldStatusType.Normal,
+    };
+    this.labelStatus = statusType;
+    if (type === FieldStatusType.Disabled) {
+      this.isFieldDisable = true;
+    } else {
+      this.isFieldDisable = false;
+    }
+    if (type === FieldStatusType.Required) {
+      this.labelStatus = FieldStatusType.Error;
+    }
+    this.fieldStyle = style;
+  }
 
   private _initialize(): void {
     this._initializeSvgIconStyles();
@@ -237,12 +241,11 @@ export class NvMultiSelectDropdownComponent implements OnInit {
     this.labelStatus = FieldStatusType.Normal;
     this.isFieldDisable = false;
   }
-
-    /**
-   * Importing svg icon id and status colors to change the color of svg Icon
-   */
-     private _initializeSvgIconStyles(): void {
-      this.svgIconIdsDic = SVG_ICON_IDS_DIC;
-      this.fieldStatusColorDic = FIELD_STATUS_COLOR_DIC;
-    }
+/**
+ * Importing svg icon id and status colors to change the color of svg Icon
+ */
+  private _initializeSvgIconStyles(): void {
+    this.svgIconIdsDic = SVG_ICON_IDS_DIC;
+    this.fieldStatusColorDic = FIELD_STATUS_COLOR_DIC;
+  }
 }

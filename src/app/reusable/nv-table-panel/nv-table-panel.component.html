@@ -22,7 +22,7 @@
     <div class="search-container">
       <div class="card-body">
         <div class="card-content-box">
-          <div class="shadow-sm-dark dp-inline">
+          <div class="shadow-sm-dark-40 dp-inline">
             <app-nv-search
               class="search"
               [isAdvance]="isAdvance"
@@ -52,12 +52,12 @@
             <table class="data-table" mdbTable>
               <tr class="mat-header-row">
                 <th class="mat-header-cell">
-                  <input
+                  <!-- <input
                     class="table-check"
                     type="checkbox"
                     [checked]="isAllCheckBoxChecked()"
                     (change)="checkAllCheckBox($event)"
-                  />
+                  /> -->
                 </th>
                 <th
                   (click)="rowClicked($event)"
@@ -71,88 +71,90 @@
                   <span
                     ><mat-icon
                       class="img"
-                      *ngIf="
-                        sortColumn == column && sortPreference == 'ascending'
-                      "
+                      *ngIf="sortColumn == column && sortPreference == 'ascending'"
                       ><img
                         src="../../../assets/icons/table-shorting.icon.svg"
                         (click)="rowImgClicked($event)"
                     /></mat-icon>
                     <mat-icon
                       class="img rotateimg180"
-                      *ngIf="
-                        sortColumn == column && sortPreference == 'descending'
-                      "
+                      *ngIf="sortColumn == column && sortPreference == 'descending'"
                       ><img
                         src="../../../assets/icons/table-shorting.icon.svg"
                         (click)="rowImgClicked($event)" /></mat-icon
                   ></span>
                 </th>
               </tr>
-              <ng-container
-                *ngFor="
-                  let order of orders
-                    | paginate
-                      : {
-                          id: 'orderList',
-                          itemsPerPage: pageSize,
-                          currentPage: page,
-                          totalItems: count
-                        };
-                  let i = index
-                "
+              <ng-container  *ngFor="
+              let order of orders
+                | paginate
+                  : {
+                      id: 'orderList',
+                      itemsPerPage: pageSize,
+                      currentPage: page,
+                      totalItems: count
+                    };
+              let i = index
+            ">
+              <tr
+                class="mat-row"
+                [ngClass]="{
+                  'status-gr': order.status === 'Completed',
+                  'status-rd': order.status === 'No',
+                  'status-yl': order.status === 'Pending'
+                }"
+                (click)="showExtendedRow(i)"
               >
-                <tr
-                  class="mat-row"
-                  [ngClass]="{
-                    'status-gr': order.status === 'Completed',
-                    'status-rd': order.status === 'No',
-                    'status-yl': order.status === 'Pending'
-                  }"
-                  (click)="showExtendedRow(i)"
-                >
-                  <td class="pd-lt-2 checkbox-column">
-                    <input
-                      class="table-check"
-                      type="checkbox"
-                      value="{{ order.id }}"
-                      [(ngModel)]="orders[i].checked"
-                    />
-                  </td>
-                  <td>{{ order.name }}</td>
-                  <td>{{ order.date }}</td>
-                  <td class="mail-link">{{ order.email }}</td>
-                  <td>{{ order.status }}</td>
+                <td class="pd-lt-2 checkbox-column">
+                  <input
+                    class="table-check"
+                    type="checkbox"
+                    value="{{ order.id }}"
+                    [(ngModel)]="orders[i].checked"
+                  />
+                  <button *ngIf="order.attachments.length > 0" class="attach-btn" (click)="showAttachments(order.attachments)">
+                    <mat-icon> attach_file</mat-icon>
+            </button>
+                </td>
+                <td>{{ order.name }}</td>
+                <td>{{ order.date }}</td>
+                <td class="mail-link">{{ order.email }}</td>
+                <td>{{ order.status }}</td>
+                <td>
+                  <div>
+                    <mat-chip-list>
+                      <mat-chip *ngFor="let attachment of order.attachments"
+                        >{{ attachment.name }}
+                        <img
+                          src="./assets/images/dots.png"
+                          class="more-opt-icon"
+                          alt="chip icon"
+                      /></mat-chip>
+                    </mat-chip-list>
+                  </div>
+                </td>
+              </tr>
+              <ng-container *ngIf="isRowVisibleAllowed(i)">
+                <tr class="mat-row status-yl">
+                  <td class="pd-lt-2 checkbox-column">&nbsp;</td>
+                  <td>Name</td>
+                  <td>Date</td>
+                  <td>Email</td>
+                  <td>Status</td>
                   <td>
-                    Multi Item
-                    <a
-                      ><span class="mail-link attachment-link"
-                        >({{ order.attachments.length }})</span
-                      ></a
-                    >
+                    <div>
+                      <span
+                        style="display: block"
+                        *ngFor="let attachment of order.attachments"
+                        >{{ attachment.name }}
+                      </span>
+                    </div>
                   </td>
                 </tr>
-
-                <ng-container *ngIf="isRowVisibleAllowed(i)">
-                  <tr class="mat-row status-yl">
-                    <td class="pd-lt-2 checkbox-column">&nbsp;</td>
-                    <td>Name</td>
-                    <td>Date</td>
-                    <td>Email</td>
-                    <td>Status</td>
-                    <td>
-                      <div>
-                        <span
-                          style="display: block"
-                          *ngFor="let attachment of order.attachments"
-                          >{{ attachment.name }}
-                        </span>
-                      </div>
-                    </td>
-                  </tr>
-                </ng-container>
               </ng-container>
+            </ng-container>
             </table>
+         
           </div>
 
           <div class="ft-rt">

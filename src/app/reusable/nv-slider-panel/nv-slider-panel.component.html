@@ -19,32 +19,26 @@
         /></span>
       </button>
     </div>
-    <div *ngIf= "panelNum === 'Users'">
+    <div *ngIf="panelNum === 'Users'">
       <div class="dp-inline btn-right">
         <app-nv-button
           label="New"
           class="mr-rt-1"
           (buttonClick)="buttonClick()"
         ></app-nv-button>
+      </div>
     </div>
-    </div>
-    <div class="search-container" *ngIf = "panelNum === 'Teams'">
+    <div class="search-container" *ngIf="panelNum === 'Teams'">
       <div class="card-body">
         <div class="card-content-box">
-          <div class="shadow-sm-dark dp-inline">
-            <app-nv-search
-              class="search"
-              (filteredItems)="onItemsFilter($event)"
-            ></app-nv-search>
-          </div>
           <div class="dp-inline btn-right">
             <app-nv-button
-              label="Add"
+              label="Unlock"
               class="mr-rt-1"
               (buttonClick)="buttonClick()"
             ></app-nv-button>
             <app-nv-button
-              label="Edit"
+              label="Disable"
               (buttonClick)="buttonClick()"
             ></app-nv-button>
             <app-nv-button
@@ -54,6 +48,7 @@
             ></app-nv-button>
           </div>
         </div>
+
         <div>
           <ng-content></ng-content>
         </div>

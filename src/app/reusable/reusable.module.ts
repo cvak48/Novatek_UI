@@ -77,6 +77,7 @@ import { UserListTableComponent } from './user-list-table/user-list-table.compon
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { SlidePanelComponent } from './slide-panel/slide-panel.component';
 import { NvSliderPanelComponent } from './nv-slider-panel/nv-slider-panel.component';
+import { NvAttachmentListComponent } from './nv-attachment-list/nv-attachment-list.component';
 
 
 const sharedComponents = [
@@ -145,6 +146,7 @@ const sharedComponents = [
   EditUserComponent,
   SlidePanelComponent,
   NvSliderPanelComponent,
+  NvAttachmentListComponent,
   NvFieldComponent
 ];
 

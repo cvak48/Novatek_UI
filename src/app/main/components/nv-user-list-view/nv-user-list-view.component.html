@@ -23,7 +23,7 @@
     *ngIf="showPanel == '2' || showPanel == '3'"
   >
     <app-nv-slider-panel
-      panelNum="2"
+      panelNum="Users"
       (close)="closePanel('2')"
       (panelClick)="panelClicked('2')"
     >
@@ -32,10 +32,10 @@
   </div>
   <div class="col-md-4 style-left panel-slide" *ngIf="showPanel == '3'">
     <app-nv-slider-panel
-      panelNum="3"
+      panelNum="Teams"
       (close)="closePanel('3')"
       (panelClick)="panelClicked('3')"
-    ></app-nv-slider-panel>
+    ><app-nv-third-panel></app-nv-third-panel></app-nv-slider-panel>
   </div>
 </div>
 <br />

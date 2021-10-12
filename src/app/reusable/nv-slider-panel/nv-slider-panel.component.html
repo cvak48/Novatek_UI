@@ -1,7 +1,7 @@
 <div class="mr-div-2">
   <div class="card custom-card" *ngIf="!showPanel">
     <div class="card-header">
-      <span class="panel-titleTxt">Panel Table{{ panelNum }}</span>
+      <span class="panel-titleTxt" (click)="buttonClick()">{{ panelNum }}</span>
 
       <button
         type="button"
@@ -19,7 +19,16 @@
         /></span>
       </button>
     </div>
-    <div class="search-container">
+    <div *ngIf= "panelNum === 'Users'">
+      <div class="dp-inline btn-right">
+        <app-nv-button
+          label="New"
+          class="mr-rt-1"
+          (buttonClick)="buttonClick()"
+        ></app-nv-button>
+    </div>
+    </div>
+    <div class="search-container" *ngIf = "panelNum === 'Teams'">
       <div class="card-body">
         <div class="card-content-box">
           <div class="shadow-sm-dark dp-inline">
@@ -28,17 +37,19 @@
               (filteredItems)="onItemsFilter($event)"
             ></app-nv-search>
           </div>
-          <div class="shadow-sm-dark dp-inline mr-lt-1">
-            <app-nv-dropdown></app-nv-dropdown>
-          </div>
           <div class="dp-inline btn-right">
             <app-nv-button
-              label="New"
+              label="Add"
               class="mr-rt-1"
               (buttonClick)="buttonClick()"
             ></app-nv-button>
             <app-nv-button
               label="Edit"
+              (buttonClick)="buttonClick()"
+            ></app-nv-button>
+            <app-nv-button
+              label="Delete"
+              class="mr-rt-1"
               (buttonClick)="buttonClick()"
             ></app-nv-button>
           </div>

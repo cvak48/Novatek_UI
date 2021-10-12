@@ -16,8 +16,9 @@ export class NvAvatarComponent implements OnInit, OnChanges {
     return this._person;
   }
   // issue: the OnChanges does not fire when the input property 
-  // is an array/object (here props of person) because Angular uses dirty checking to compare the properties; so here we considered a separate input 
-  // for imgUrl. 
+  // is an array/object (here props of person) because Angular
+  // uses dirty checking to compare the properties; so here we considered a separate input 
+  // for imgUrl.
   // TODO: applying ngDoCheck as  Ref: https://www.tektutorialshub.com/angular/angular-ngdocheck-life-cycle-hook/
   @Input() imgUrl!: string;
   constructor() {
@@ -27,11 +28,11 @@ export class NvAvatarComponent implements OnInit, OnChanges {
     if (this.imgUrl) {
       this.person.imageUrl = this.imgUrl;
     }
-   }
+  }
 
   ngOnInit(): void {
-    console.log(this.person.imageUrl );
-    
+    console.log(this.person.imageUrl);
+
   }
   private _initialize(): void {
     this._person = {
@@ -40,4 +41,3 @@ export class NvAvatarComponent implements OnInit, OnChanges {
     };
   }
 }
- 

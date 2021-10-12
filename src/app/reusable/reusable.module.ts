@@ -148,7 +148,8 @@ const sharedComponents = [
   NvSliderPanelComponent,
   NvFieldComponent,
   NvUserProfileComponent,
-  NvAttachmentListComponent
+  NvAttachmentListComponent,
+  
 ];
 
 @NgModule({

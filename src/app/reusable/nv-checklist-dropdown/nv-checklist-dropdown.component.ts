@@ -1,11 +1,16 @@
+import { SVG_ICON_IDS_DIC, FIELD_STATUS_COLOR_DIC } from 'src/assets/constants';
+import { NvTextColorDirective } from './../directives/nv-status-color/nv-text-color.directive';
+import { NvStyleColorDirective } from './../directives/nv-status-color/nv-style-color.directive';
 import { FormControl } from '@angular/forms';
 import {
   TodoItemFlatNode,
   TodoItemNode,
   ArrowIcon,
+  FieldStatusType,
+  FieldStatusStyle,
 } from './../../model/data-model';
 import { TreeViewChecklistService } from '../../services/local-data/tree-view-checklist/tree-view-checklist.service';
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input, AfterViewInit } from '@angular/core';
 import {
   MatTreeFlatDataSource,
   MatTreeFlattener,
@@ -31,7 +36,8 @@ import { NvFilterPipe } from '../pipes/filters/nv-filter/nv-filter.pipe';
   styleUrls: ['./nv-checklist-dropdown.component.scss'],
   providers: [TreeViewChecklistService],
 })
-export class NvChecklistDropdownComponent implements OnInit {
+export class NvChecklistDropdownComponent implements OnInit, AfterViewInit {
+
   /** Map from flat node to nested node. This helps us finding the nested node to be modified */
   flatNodeMap = new Map<TodoItemFlatNode, TodoItemNode>();
 
@@ -65,7 +71,7 @@ export class NvChecklistDropdownComponent implements OnInit {
   // menu
   filteredItems!: Observable<string[]>;
   // field
-  items: string[] = ['Multiple Select'];
+  items: string[] = [];
   referenceItems: string[] = ['Apple'];
   @ViewChild('itemInput') itemInput!: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete!: MatAutocomplete;
@@ -75,15 +81,45 @@ export class NvChecklistDropdownComponent implements OnInit {
     upward: '../../../assets/icons/ico.arrow.up.svg',
     downward: '../../../assets/icons/ico.arrow.down.svg',
   };
-  hasItem = true;
+  hasItem = false;
   //
   itemCtrl = new FormControl();
   dataSourceRef!: TodoItemNode[];
+  /**
+   * Input for nvStyleColor directive
+   */
 
+  @Input() label!: string;
+  /**
+   * Sets styles base on the status of the field
+   * The inputs of directives in html
+   */
+  @Input() set fieldStatusType(type: FieldStatusType) {
+    this._fieldStatusType = type;
+    this._setStyles(this.fieldStatusType);
+  }
+  get fieldStatusType(): FieldStatusType {
+    return this._fieldStatusType;
+  }
+  private _fieldStatusType!: FieldStatusType;
+  fieldStyle!: FieldStatusStyle;
+  statusType = FieldStatusType;
+  labelStatus!: FieldStatusType;
+  isFieldDisable!: boolean;
+  svgIconIdsDic!: { [name: string]: string };
+  fieldStatusColorDic!: { [name: string]: string };
+  /**
+   * References to call directives in the component
+   */
+  @ViewChild(NvStyleColorDirective) nvStyleColorDirective: any;
+  @ViewChild(NvTextColorDirective) nvTextColorDirective: any;
+
+  @ViewChild('default') inputFieldRef!: ElementRef<HTMLElement>;
   constructor(
     private _database: TreeViewChecklistService,
     private filter: NvFilterPipe
   ) {
+    this._initialize();
     this.treeFlattener = new MatTreeFlattener(
       this.transformer,
       this.getLevel,
@@ -135,7 +171,12 @@ export class NvChecklistDropdownComponent implements OnInit {
       this.isArrowDown = true;
     }
   }
-  onFieldClick(): void {}
+  onFieldClick(): void {
+    // TODO: the directive in the html does not get updated as we update its input in the component with as an event get triggered
+    // so here we call directive to call its method
+    this.nvStyleColorDirective.ngOnDestroy();
+    this.nvTextColorDirective.ngOnDestroy();
+  }
   /**
    * triggered after removing chip
    *
@@ -151,10 +192,65 @@ export class NvChecklistDropdownComponent implements OnInit {
       this.hasItem = false;
     }
   }
-
+  ngAfterViewInit(): void {
+    if (this.isFieldDisable) {
+      this._disableDropdownMenu();
+    }
+  }
+  private _disableDropdownMenu(): void {
+    /**
+     * Remove toggle to disable the dropdown menu
+     */
+    this.inputFieldRef?.nativeElement.removeAttribute('data-toggle');
+  }
+  /**
+   * update the style based on the received status color type;
+   * generating scss class name
+   */
+  private _setStyles(type: FieldStatusType): void {
+    let statusType = FieldStatusType.Normal;
+    if (!!type) {
+      statusType = type;
+    } else if (type === 0) {
+      statusType = FieldStatusType.Active;
+    }
+    /**
+     * setting style based on status type; style is input for directive nv-style-color directive
+     * these styles are used to create style class name using enum type; the style classes are located in base.scss
+     */
+    let style: FieldStatusStyle = {
+      border: statusType,
+      background: statusType,
+      // The label is not affected by status and  we use labelStatus for that purpose
+      text: FieldStatusType.Normal,
+    };
+    this.labelStatus = statusType;
+    if (type === FieldStatusType.Disabled) {
+      this.isFieldDisable = true;
+    } else {
+      this.isFieldDisable = false;
+    }
+    if (type === FieldStatusType.Required) {
+      this.labelStatus = FieldStatusType.Error;
+    }
+    this.fieldStyle = style;
+  }
+  private _initialize(): void {
+    this._initializeSvgIconStyles();
+    this.fieldStatusType = FieldStatusType.Normal;
+    this.labelStatus = FieldStatusType.Normal;
+    this.isFieldDisable = false;
+  }
+  /**
+ * Importing svg icon id and status colors to change the color of svg Icon
+ */
+  private _initializeSvgIconStyles(): void {
+    this.svgIconIdsDic = SVG_ICON_IDS_DIC;
+    this.fieldStatusColorDic = FIELD_STATUS_COLOR_DIC;
+  }
   // end of chips component
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   getLevel = (node: TodoItemFlatNode) => node.level;
 
@@ -236,7 +332,7 @@ export class NvChecklistDropdownComponent implements OnInit {
     //  save the children items to be used as chips
     //TODO: need to be deleted
     this.filteredItems = this._toChips(this.checklistSelection.selected);
-    
+
   }
 
   /** Check root node checked state and change it accordingly */

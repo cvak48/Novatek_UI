@@ -1,5 +1,5 @@
 <div class="field-container">
-  <label for="input" class="field-label h50" nvTextColor [color]="labelStatus">{{label}}</label>
+  <label *ngIf="label" for="input" class="field-label h50" nvTextColor [color]="labelStatus">{{label}}</label>
   <input #inputRef type="text" class="field-input body20" (click)="onFieldClick()" [formControl]="queryFormControl"
     nvStyleColor [style]="fieldStyle">
   <ng-container [ngTemplateOutlet]="iconTemplate"> </ng-container>

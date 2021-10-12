@@ -1,3 +1,4 @@
+import { NvFrontendSearchComponent } from 'src/app/reusable/nv-search-frontend/nv-search-front.component';
 import { NvUserProfileComponent } from './user-profile/nv-user-profile.component';
 import { NvColorPickerDemoComponent } from './nv-color-picker-demo/nv-color-picker-demo.component';
 import { NvItemPickerDemoComponent } from './nv-item-picker-demo/nv-item-picker-demo.component';
@@ -102,6 +103,7 @@ const sharedComponents = [
   UserProfileMenuComponent,
   PanelComponent,
   NvSearchComponent,
+  NvFrontendSearchComponent,
   NVCommentBoxComponent,
   NvDropdownComponent,
   DragAndDropComponent,

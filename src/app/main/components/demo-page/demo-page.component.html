@@ -39,6 +39,9 @@
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.Search)">
         {{ nvComponentType[nvComponentType.Search] }}
       </div>
+      <div class="menu-item h40" (click)="onItemClick(nvComponentType.FrontendSearch)">
+        {{ nvComponentType[nvComponentType.FrontendSearch] }}
+      </div>
       <div
         class="menu-item h40"
         (click)="onItemClick(nvComponentType.MultiSelectDropdown)"
@@ -192,6 +195,18 @@
             class="body-item"
           >
           </app-nv-search>
+        </div>
+        <div
+          class="search-item-container"
+          *ngSwitchCase="nvComponentType.FrontendSearch"
+        >
+          <app-nv-search-frontend
+            [hideMenu]="showFrontEndSearchMenu"
+            [filteredItems]="frontendFilteredList"
+            (query)="onFrontSearchFieldQuery($event)"
+            class="body-item"
+          >
+          </app-nv-search-frontend>
         </div>
 
         <app-nv-logo

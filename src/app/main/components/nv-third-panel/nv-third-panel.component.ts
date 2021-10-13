@@ -7,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NvThirdPanelComponent implements OnInit {
 
+  name ='';
+  placeholder = '';
+  nameLabel = 'Name';
+  id = '';
+  idLabel = 'ID';
+
   constructor() { }
 
   ngOnInit(): void {

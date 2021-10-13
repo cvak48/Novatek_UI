@@ -55,37 +55,11 @@
             ></app-nv-button>
           </div>
         </div>
-      </div>
-    </div>
 
-    <!-- <div class="row" *ngIf="panelNum === 'Teams'">
-      <div class="col-sm-6">
-        <div class="">
-          <app-nv-search
-            class="search"
-            (filteredItems)="onItemsFilter($event)"
-          ></app-nv-search>
+        <div>
+          <ng-content></ng-content>
         </div>
       </div>
-      <div class="col-sm-2">
-        <app-nv-button
-          label="Add"
-          (buttonClick)="buttonClick()"
-        ></app-nv-button>
-      </div>
-      <div class="col-sm-2">
-        <app-nv-button
-          label="Edit"
-          (buttonClick)="buttonClick()"
-        ></app-nv-button>
-      </div>
-      <div class="col-sm-2">
-        <app-nv-button
-          label="Delete"
-          (buttonClick)="buttonClick()"
-        ></app-nv-button>
-      </div>
-    </div> -->
-
+    </div>
   </div>
 </div>

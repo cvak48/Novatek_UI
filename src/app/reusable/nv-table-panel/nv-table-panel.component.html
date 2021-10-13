@@ -35,21 +35,13 @@
           <div class="shadow-sm-dark dp-inline mr-lt-1">
             <app-nv-dropdown></app-nv-dropdown>
           </div>
-          <div class="dp-inline btn-right expand-btn">
-            <mat-button-toggle-group>
-              <button  mat-flat-button class="btn-bg-clr" [matMenuTriggerFor]="dropdownMenuOne">More</button>
-              <button   mat-flat-button class="btn-bg-clr" [matMenuTriggerFor]="dropdownMenuOne">
-                <mat-icon style="vertical-align: middle;">keyboard_arrow_down</mat-icon>
-              </button>
-            </mat-button-toggle-group>
-            
-            <mat-menu #dropdownMenuOne="matMenu">
-              <button class="nav-button" mat-menu-item >Print</button>
-              <button class="nav-button" mat-menu-item >Copy</button>
-              <button class="nav-button" mat-menu-item >Disable</button>
-              <button class="nav-button" mat-menu-item >Import</button>
-              <button class="nav-button" mat-menu-item >View Audit Trail</button>
-            </mat-menu>
+         
+        
+            <div class="dp-flex dp-inline btn-right expand-btn">
+              <app-nv-dropdown class="dropdown-plus-container"  [items]="dropdownItemsPlus" [textTrimNumber]="textTrimNumberPlus" 
+              [fieldType]="dropDownFieldTypePlus" 
+            ></app-nv-dropdown>
+     
           </div>
           <div class="dp-inline btn-right mr-rt-1">
             <app-nv-button

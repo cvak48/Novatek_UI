@@ -81,9 +81,8 @@ export class DemoPageComponent implements OnInit {
   list: any = mockAdvanceSearchInput().list;
   searchableRefList = mockAdvanceSearchInput().searchableRefList;
   // frontend search
-  showFrontEndSearchMenu: boolean = true;
+  hideFrontEndSearchMenu: boolean = false;
   frontendFilteredList: string[] = ['Tablet', 'Phone', 'Laptop', 'Keyboard'];
-
   // button
   buttonLabel = 'Default';
   themeColor = ButtonThemeColor.Basic;
@@ -123,7 +122,7 @@ export class DemoPageComponent implements OnInit {
   onItemsFilter(list: any): void {}
   // front end search
   onFrontSearchFieldQuery(query: string): void {
-    console.log('front end search query' + query);
+    this.frontendFilteredList = ['new 1', 'new 2', 'new 3'];
   }
   // dropDown selected item
   onItemSelect(item: any): void {}

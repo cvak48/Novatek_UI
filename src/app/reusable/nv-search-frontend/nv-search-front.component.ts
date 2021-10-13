@@ -20,7 +20,7 @@ export class NvFrontendSearchComponent implements OnInit {
    * In some case we do not need the menu popping up like table.
    */
   @Input() hideMenu = false;
-  @Input() set filteredItems(list: any) {
+  @Input() set filteredItems(list: string[]) {
     if (list && list?.length > 0) {
       this._filteredItems = list;
     } else {
@@ -28,9 +28,12 @@ export class NvFrontendSearchComponent implements OnInit {
       this.hideMenu = true;
     }
   }
-  private _filteredItems: any;
+  get filteredItems(): string[] {
+    return this._filteredItems;
+  }
+  private _filteredItems!: string[];
   queryFormControl = new FormControl('');
-  selectedItem!: any;
+  selectedItem!: string;
   selectedIndex!: number;
   arrowUpEventCounter = 0;
   searchIcon = true;
@@ -40,6 +43,7 @@ export class NvFrontendSearchComponent implements OnInit {
   constructor(  ) {}
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes);
+    console.log('returned' + this.filteredItems);
   }
 
   ngOnInit(): void {
@@ -67,7 +71,7 @@ export class NvFrontendSearchComponent implements OnInit {
     if (this._filteredItems) {
       this.selectedIndex = index;
       this.selectedItem = this._filteredItems[this.selectedIndex];
-      this.queryFormControl.setValue(this.selectedItem?.name);
+      this.queryFormControl.setValue(this.selectedItem);
     }
     this.showMenuToggle = false;
     this.searchIcon = false;

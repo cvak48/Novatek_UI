@@ -201,7 +201,7 @@
           *ngSwitchCase="nvComponentType.FrontendSearch"
         >
           <app-nv-search-frontend
-            [hideMenu]="showFrontEndSearchMenu"
+            [hideMenu]="hideFrontEndSearchMenu"
             [filteredItems]="frontendFilteredList"
             (query)="onFrontSearchFieldQuery($event)"
             class="body-item"

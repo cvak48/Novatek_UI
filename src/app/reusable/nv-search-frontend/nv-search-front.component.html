@@ -9,8 +9,8 @@
      <img class="icon setting" src="../../../assets/icons/search-setting.icon.svg" (click)="onSettingClick()">
    </div>
    <div class="dropdown-menu" [ngClass]="{'display-toggle-menu': !showMenuToggle, 'display-menu': hideMenu}">
-     <div class="dropdown-item h50 label" *ngFor="let item of _filteredItems;
+     <div class="dropdown-item h50 label" *ngFor="let item of filteredItems;
        let i = index" (click)="onItemSelect(i)" [ngClass]="{'selected-item': i==selectedIndex}">
-       {{item.name}} ({{item.age}}) ({{item.email}}) ({{item.date}})</div>
+       {{item}} </div>
    </div>
  </div>

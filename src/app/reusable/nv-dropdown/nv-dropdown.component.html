@@ -11,7 +11,7 @@
     data-toggle="dropdown" src="./../../../assets/icons/plus-button--disabled.icon.svg" alt="The Plus Icon">
   <button #ButtonRef *ngIf="fieldType === dropDownFieldType.Button" type="button" (click)="onFieldClick()"
     class="btn dropdown-button body20 label" data-toggle="dropdown" (blur)="onBlur()" nvStyleColor [style]="fieldStyle">
-    {{'Dropdown Button'}}
+    {{'More'}}
     <ng-container [ngTemplateOutlet]="iconTemplate" [ngTemplateOutletContext]="{isArrowDown:isArrowDownIcon}">
     </ng-container>
   </button>

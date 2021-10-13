@@ -39,7 +39,7 @@ export class DataService {
           },
           {
             'id': 3,
-            'name': 'Tom Cruise',
+            'name': 'Tom Cruis2',
             'date': "04-27-2001",
             'email': 'tomcruise@yahoo.com',
             'status': 'Pending',
@@ -185,7 +185,7 @@ export class DataService {
           },
           {
             'id': 3,
-            'name': 'Tom Cruise',
+            'name': 'Tom Cruise3',
             'date': "04-27-2001",
             'email': 'tomcruise@yahoo.com',
             'status': 'Pending',
@@ -258,7 +258,7 @@ export class DataService {
           },
           {
             'id': 3,
-            'name': 'Tom Cruise',
+            'name': 'Tom Cruise4',
             'date': "04-27-2001",
             'email': 'tomcruise@yahoo.com',
             'status': 'Pending',
@@ -331,7 +331,7 @@ export class DataService {
           },
           {
             'id': 3,
-            'name': 'Tom Cruise',
+            'name': 'Tom Cruise5',
             'date': "04-27-2001",
             'email': 'tomcruise@yahoo.com',
             'status': 'Pending',
@@ -403,7 +403,7 @@ export class DataService {
           },
           {
             'id': 3,
-            'name': 'Tom Cruise',
+            'name': 'Tom Cruise6',
             'date': "04-27-2001",
             'email': 'tomcruise@yahoo.com',
             'status': 'Pending',
@@ -476,7 +476,7 @@ export class DataService {
           },
           {
             'id': 3,
-            'name': 'Tom Cruise',
+            'name': 'Tom Cruise7',
             'date': "04-27-2001",
             'email': 'tomcruise@yahoo.com',
             'status': 'Pending',
@@ -549,7 +549,7 @@ export class DataService {
           },
           {
             'id': 3,
-            'name': 'Tom Cruise',
+            'name': 'Tom Cruise8',
             'date': "04-27-2001",
             'email': 'tomcruise@yahoo.com',
             'status': 'Pending',
@@ -622,7 +622,7 @@ export class DataService {
           },
           {
             'id': 3,
-            'name': 'Tom Cruise',
+            'name': 'Tom Cruise9',
             'date': "04-27-2001",
             'email': 'tomcruise@yahoo.com',
             'status': 'Pending',
@@ -695,7 +695,7 @@ export class DataService {
           },
           {
             'id': 3,
-            'name': 'Tom Cruise',
+            'name': 'Tom Cruise10',
             'date': "04-27-2001",
             'email': 'tomcruise@yahoo.com',
             'status': 'Pending',

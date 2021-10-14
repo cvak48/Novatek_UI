@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24.002" height="14" viewBox="0 0 24.002 14">
+  <g id="ico.hamburger" transform="translate(0 0)">
+    <path id="ico.hamburger-2" data-name="ico.hamburger" d="M1.617,14a1.615,1.615,0,1,1,0-3.231H22.387a1.615,1.615,0,0,1,0,3.231Zm0-5.385a1.615,1.615,0,1,1,0-3.231H22.387a1.615,1.615,0,0,1,0,3.231Zm0-5.385A1.616,1.616,0,0,1,1.617,0H22.387a1.616,1.616,0,0,1,0,3.231Z" transform="translate(24.002 14) rotate(180)" fill="#5d5d5d"/>
+  </g>
+</svg>

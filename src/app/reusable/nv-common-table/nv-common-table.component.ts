@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Sort } from '@angular/material/sort';
-import { DataService } from 'src/app/services/data.service';
 @Component({
   selector: 'app-nv-common-table',
   templateUrl: './nv-common-table.component.html',
@@ -46,7 +45,7 @@ export class NvCommonTableComponent implements OnInit {
   textTrimNumber = mockDropdown().textTrimNumber;
   selectedItemDefault = mockDropdown().selectedItemDefault;
 
-  constructor(private dataService: DataService) { }
+  constructor() { }
 
   ngOnInit(): void {
     this.tableTestData = this.oData;

@@ -7,18 +7,7 @@ import { of } from 'rxjs';
 export class DataService {
     constructor() {}
     getData(): Observable<any> {
-      const data = [  {
-        'id': 0,
-        'name': 'ame',
-        'date': "12-25-1995",
-        'email': 'john@yahoo.com',
-        'status': 'No',
-        'checked': false,
-        'attachments': [{
-          'id': '1',
-          'name': 'file1'
-        }]
-      },
+      const data = [  
         {
           'id': 1,
           'name': 'John Liiki',

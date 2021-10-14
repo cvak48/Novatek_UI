@@ -1,5 +1,5 @@
 @import "../../reusable/theme/base.scss";
-.container{
+.container-width{
     max-width:100% !important;
     line-height: 40px;
     background-color: $color-light-gray;
@@ -8,6 +8,11 @@
     font-weight: 500;
     height: 56px;
     padding: 8px 12px;
+}
+
+.container-fluid-width {
+    padding-right: 3px !important;
+    padding-left: 3px !important;
 }
 
 ::ng-deep .dropdown-levelMenu-container {

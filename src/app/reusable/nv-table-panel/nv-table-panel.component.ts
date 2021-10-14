@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Sort } from '@angular/material/sort';
+import { DropdownFieldType } from 'src/app/model/data-model';
 import { DataService } from 'src/app/services/data.service';
 import { NvAttachmentListComponent } from '../nv-attachment-list/nv-attachment-list.component';
 import { TableColumn } from '../nv-custom-datatable/table-column.model';
@@ -61,6 +62,11 @@ export class NvTablePanelComponent implements OnInit {
   // dropDown
   textTrimNumber = mockDropdown().textTrimNumber;
   selectedItemDefault = mockDropdown().selectedItemDefault;
+
+  
+  dropDownFieldTypePlus = mockPlusDropdown().dropDownFieldType;
+  dropdownItemsPlus = mockPlusDropdown().items;
+  textTrimNumberPlus = mockPlusDropdown().textTrimNumber;
 
   constructor(private dataService: DataService,
               private dialog: MatDialog) { }
@@ -202,7 +208,7 @@ export class NvTablePanelComponent implements OnInit {
   }
 
   showExtendedRow(index: number): void{
-   // this.selectedRow = (this.selectedRow == index) ? -1 : index;
+    this.selectedRow = (this.selectedRow == index) ? -1 : index;
   }
 
   showAttachments(attachments: any): void{
@@ -240,6 +246,26 @@ function mockDropdown(): any {
     itemsNumber: ['1', '2', '3', '4', '5', '11', '22', '33', '44', '55'],
     textTrimNumber: 1,
     selectedItemDefault: '',
+  };
+  return dropdownInputs;
+}
+
+function mockSiteDropdown(): any {
+  const dropdownInputs = {
+    items: ['site item 1', 'site item 2'],
+    textTrimNumber: 5,
+    selectedItemDefault: 'Current Site',
+    dropDownFieldType: DropdownFieldType.Input,
+  };
+  return dropdownInputs;
+}
+
+function mockPlusDropdown(): any {
+  const dropdownInputs = {
+    items: ['Print', 'Copy', 'Disable', 'Import', 'View Audit Trail'],
+    textTrimNumber: 3,
+    selectedItemDefault: 'Page',
+    dropDownFieldType: DropdownFieldType.Button
   };
   return dropdownInputs;
 }

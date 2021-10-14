@@ -65,10 +65,12 @@ ul.ngx-pagination.responsive {
   margin-left: 3%;
 }
 
-.pt-3 {
-  padding-top: 3px;
+.mat-dialog-container {
+  box-shadow: 0px 11px 15px -7px rgb(0 0 0 / 20%), 0px 24px 38px 3px rgb(0 0 0 / 14%), 0px 9px 46px 8px rgb(0 0 0 / 12%);
+  background: #f0f0f0 !important;
+  color: rgba(0,0,0,.87);
 }
 
-.pb-16 {
-  padding-bottom: 16px !important;
+.dropdown .dropdown-menu {
+  left: -20px !important;
 }

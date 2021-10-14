@@ -1,24 +1,21 @@
-<div class="mr-div-2 card-wd">
-    <div class="card custom-card" *ngIf="!showPanel">
-      <div class="card-header">
-        <span class="panel-titleTxt">Attachments</span>
+<div class="card-header title-bar" mat-dialog-title>
+  <span class="panel-titleTxt">Attachments</span>
+
+  <button
+    type="button"
+    (click)="closePanel()"
+    class="close mg-15"
+    aria-label="Close"
+  >
+    <span aria-hidden="true"
+      ><img src="../../../assets/icons/ico.close.svg"
+    /></span>
+  </button>
   
-        <button
-          type="button"
-          (click)="closePanel()"
-          class="close mg-15"
-          aria-label="Close"
-        >
-          <span aria-hidden="true"
-            ><img src="../../../assets/icons/ico.close.svg"
-          /></span>
-        </button>
-        <button type="button" class="close" aria-label="drop">
-          <span aria-hidden="true"
-            ><img src="../../../assets/icons/threeDots.icon.svg"
-          /></span>
-        </button>
-      </div>
+</div>
+<div class="mr-div-2 card-wd">
+    <div class="card custom-card">
+      
       <div class="search-container">
         <div class="card-body">
           
@@ -27,18 +24,43 @@
               <table class="data-table" mdbTable>
                 <tr class="mat-header-row">
                   <th class="mat-header-cell">
-                    <input
+                    <!-- <input
                       class="table-check"
                       type="checkbox"
                       [checked]="isAllCheckBoxChecked()"
                       (change)="checkAllCheckBox($event)"
-                    />
+                    /> -->
                   </th>
-                  <th 
+                  <th (click)="rowClicked($event)"
                   *ngFor="let column of columns; let i = index"
                   scope="col"
+                  [mdbTableSort]="attachments"
+                  [sortBy]="columns[i]"
                   class="mat-header-cell">
                     {{ column }}
+                    <span
+                    >
+                    <mat-icon
+                      class="img"
+                      *ngIf="sortColumn != column"
+                      ><img
+                        src="../../../assets/icons/table-shorting.icon.svg"
+                        (click)="rowImgClicked($event)"
+                    /></mat-icon>
+                    <mat-icon
+                      class="img"
+                      *ngIf="sortColumn == column && sortPreference == 'ascending'"
+                      ><img
+                        src="../../../assets/icons/table-shorting.icon.svg"
+                        (click)="rowImgClicked($event)"
+                    /></mat-icon>
+                    <mat-icon
+                      class="img rotateimg180"
+                      *ngIf="sortColumn == column && sortPreference == 'descending'"
+                      ><img
+                        src="../../../assets/icons/table-shorting.icon.svg"
+                        (click)="rowImgClicked($event)" /></mat-icon
+                  ></span>
                   </th>
                 </tr>
                 <ng-container  *ngFor="let attachment of attachments ">
@@ -53,18 +75,31 @@
                
               </td>
               <td>{{ attachment.name }}</td>
-            </tr>
-          
-               
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>            
               </ng-container>
               </table>
             </div>
-  
-           
           </div>
         </div>
-      </div>
+      </div> 
     </div>
+    <div class="shadow-sm-dark dp-inline mr-tp-2">
+          
+        <div class="dp-inline btn-right">
+          <app-nv-button
+            label="Download"
+            class="mr-rt-1"
+            (buttonClick)="buttonClick()"
+          ></app-nv-button>
+          <app-nv-button
+            label="Cancel"
+            (buttonClick)="buttonClick()"
+          ></app-nv-button>
+        </div>
+      </div>
   </div>
 
   

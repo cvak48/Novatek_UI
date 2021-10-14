@@ -35,7 +35,9 @@
       panelNum="3"
       (close)="closePanel('3')"
       (panelClick)="panelClicked('3')"
-    ></app-nv-slider-panel>
+    >
+  <app-nv-common-table [columns]="columns" [oData]="orders"></app-nv-common-table>
+  </app-nv-slider-panel>
   </div>
 </div>
 <br />

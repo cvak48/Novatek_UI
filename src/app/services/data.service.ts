@@ -6,9 +6,63 @@ import { of } from 'rxjs';
 @Injectable({providedIn: 'root'})
 export class DataService {
     constructor() {}
-
+    getData(): Observable<any> {
+      const data = [  {
+        'id': 0,
+        'name': 'ame',
+        'date': "12-25-1995",
+        'email': 'john@yahoo.com',
+        'status': 'No',
+        'checked': false,
+        'attachments': [{
+          'id': '1',
+          'name': 'file1'
+        }]
+      },
+        {
+          'id': 1,
+          'name': 'John Liiki',
+          'date': "12-25-1995",
+          'email': 'john@yahoo.com',
+          'status': 'No',
+          'checked': false,
+          'attachments': [{
+            'id': '1',
+            'name': 'file1'
+          }]
+        },
+        {
+          'id': 2,
+          'name': 'Rock',
+          'date': "06-13-1999",
+          'email': 'rock@gmail.com',
+          'status': 'Past Due',
+          'checked': false,
+          'attachments': [{
+            'id': '1',
+            'name': 'file1'
+          },
+          {
+            'id': '2',
+            'name': 'file2'
+          }]
+        }]
+        return of(data);
+      }
+    
     getTableData(): Observable<any> {
-        const data = [ 
+        const data = [  {
+          'id': 0,
+          'name': 'ame',
+          'date': "12-25-1995",
+          'email': 'john@yahoo.com',
+          'status': 'No',
+          'checked': false,
+          'attachments': [{
+            'id': '1',
+            'name': 'file1'
+          }]
+        },
           {
             'id': 1,
             'name': 'John Liiki',

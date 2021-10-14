@@ -1,0 +1,292 @@
+@import "../../reusable/theme/base.scss";
+
+mat-paginator {
+  margin-bottom: 47px !important;
+}
+
+.search-box {
+  border: 1px solid #dededf;
+  margin: 1%;
+  border-radius: 4px;
+  height: 40px;
+  background: #fff;
+  color: #9a9a9a;
+}
+
+.search-field {
+  width: 97%;
+  padding-left: 1%;
+}
+
+
+::ng-deep .mat-icon {
+  fill: $color-white !important;
+}
+
+.data-table {
+  border: 1px solid $color-white;
+  margin: 1% 0;
+}
+
+.table-scroll {
+  overflow: auto;
+  max-height: 300px;
+  margin-top: 11px;
+}
+
+.drop-container {
+  width: 60px;
+  float: left;
+  display: inline-block;
+}
+
+::ng-deep .search-placeholder-align .mat-form-field-infix {
+  position: relative;
+  top: -6px;
+}
+
+::ng-deep .search-placeholder-align .mat-form-field-label-wrapper {
+  margin-top: 4px;
+}
+
+.status-gr {
+  background-color: $color-light-green;
+}
+
+.status-rd {
+  background-color: $color-light-red;
+}
+
+.status-yl {
+  background-color: $color-light-blue-20;
+}
+
+th {
+  font-weight: bold;
+}
+
+::ng-deep .mat-form-field-underline {
+  display: none;
+}
+
+.mat-cell,
+.mat-footer-cell {
+  color: $color-dark-gray-70 !important;
+}
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+  background-color: $color-black-10 !important;
+}
+
+::ng-deep .mat-checkbox .mat-accent .mat-checkbox-indeterminate {
+  background-color: $color-black-10 !important;
+}
+
+::ng-deep
+  .mat-sort-header-container:not(.mat-sort-header-sorted)
+  .mat-sort-header-arrow {
+  opacity: 0.54 !important;
+  transform: translateY(0px) !important;
+}
+table {
+  font-family: "Lato";
+}
+
+thead {
+  background: hsl(240, 8%, 97%) !important;
+}
+tr.mat-header-row {
+  height: 40px !important;
+  background-color: #fff !important;
+  height: 50px !important;
+}
+.mat-header-cell {
+  text-transform: capitalize !important;
+  color: $color-dark-gray-70 !important;
+}
+.mat-cell,
+.mat-footer-cell {
+  font-size: 12px;
+  text-transform: capitalize !important;
+}
+tr.mat-header-row > .mat-checkbox-layout {
+  margin-top: 8px !important;
+}
+
+.mat-header-cell {
+  font-size: 14px !important;
+  font-weight: 500;
+}
+
+.mat-table {
+  background: #fff;
+  width: 100%;
+}
+
+tr.mat-row.cdk-row:nth-child(odd) {
+  background: $color-light-green;
+}
+
+.mat-chip {
+  background-color: $color-light-gray-20 !important;
+  color: $color-light-gray-40 !important;
+}
+
+.more-opt-icon {
+  width: 20px;
+  height: 20px;
+  margin-left: 15%;
+}
+
+.paging-space-arrow {
+  display: inline-block;
+  position: relative;
+  float: left;
+}
+
+.paging-space {
+  display: inline-block;
+  position: relative;
+  float: left;
+  margin: 5px 0 0 0;
+}
+
+.page-size-title {
+  font-family: "Lato";
+  font-weight: bold;
+  margin-right: 9px;
+  display: inline-block;
+  float: left;
+  margin-top: 10px;
+}
+
+.img {
+  margin-left: 4px;
+  margin-top: 2px;
+}
+
+.page-size::-ms-expand {
+  display: none;
+}
+
+.page-size {
+  // height: 30px;
+  // border-color: $color-light-gray-20;
+  width: 59px;
+  // text-align: center;
+  font-family: "LATO";
+  // font-weight: bolder;
+  // border-radius: 4px;
+  // border-width: 2px;
+  // padding-left: 11px;
+  // font-size: 14px;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  background: #fff;
+  background-image: none;
+
+  position: relative;
+  // width: 20em;
+  height: 3em;
+  line-height: 3;
+  overflow: hidden;
+  border-radius: 0.25em;
+
+  padding: 0 0.5em;
+  color: #5d5d5d;
+  cursor: pointer;
+  border: 1px solid #ccc;
+}
+
+/* Arrow */
+// .paging-space-arrow::after {
+//   content: '\25BC';
+//   position: absolute;
+//   top: 13px;
+//   right: 0;
+//   padding: 0 1em;
+//   color: #34495e;
+//   cursor: pointer;
+//   pointer-events: none;
+//   -webkit-transition: .25s all ease;
+//   -o-transition: .25s all ease;
+//   transition: .25s all ease;
+// }
+/* Transition */
+.page-size:hover::after {
+  color: #f39c12;
+}
+
+.container-pagination {
+  float: right;
+}
+.ft-rt {
+  width: 100%;
+  height: 60px;
+  text-align: end;
+  padding-top: 1.5%;
+}
+
+.table-check {
+  display: inline-block;
+  height: 16px;
+  line-height: 0;
+  margin: 0 auto;
+  margin-right: 8px;
+  order: 0;
+  position: relative;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: 16px;
+  flex-shrink: 0;
+  position: relative;
+  top: 4px;
+}
+
+.table th,
+.table td {
+  vertical-align: middle !important;
+}
+
+table.table th {
+  padding: 0rem 16px 0.55rem !important;
+}
+
+table.table td {
+  padding: 0rem 16px 0rem;
+}
+
+.checkbox-column {
+  padding: 0rem 16px 0.55rem !important;
+}
+
+.mail-link {
+  text-decoration: underline !important;
+  color: $color-blue-10 !important;
+}
+
+::ng-deep .ngx-pagination .current {
+  background: $color-table-pagination !important;
+  font-size: 12px;
+}
+
+::ng-deep .ngx-pagination a,
+.ngx-pagination button {
+  color: $color-light-gray-30 !important;
+  color: #999C9E !important;
+    font-size: 16px;
+    margin-left: 5px;
+}
+
+// .rotateimg180 {
+//   -webkit-transform:rotate(180deg);
+//   -moz-transform: rotate(180deg);
+//   -ms-transform: rotate(180deg);
+//   -o-transform: rotate(180deg);
+//   transform: rotate(180deg);
+// }
+

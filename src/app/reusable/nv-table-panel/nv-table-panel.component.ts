@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Sort } from '@angular/material/sort';
+import { Subscription } from 'rxjs';
 import { DropdownFieldType } from 'src/app/model/data-model';
 import { DataService } from 'src/app/services/data.service';
 import { NvAttachmentListComponent } from '../nv-attachment-list/nv-attachment-list.component';
@@ -67,18 +68,19 @@ export class NvTablePanelComponent implements OnInit {
   dropDownFieldTypePlus = mockPlusDropdown().dropDownFieldType;
   dropdownItemsPlus = mockPlusDropdown().items;
   textTrimNumberPlus = mockPlusDropdown().textTrimNumber;
-
+  sub = new Subscription();
   constructor(private dataService: DataService,
               private dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.dataService.getTableData()
+    this.sub = this.dataService.getTableData()
       .subscribe(data => {
         this.tableTestData = data;
         this.orders = data;
         this.ordersData = data;
         this.count = this.orders.length;
       });
+      this.sub.unsubscribe();
   }
 
   buttonClick(): void{

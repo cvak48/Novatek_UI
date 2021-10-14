@@ -48,7 +48,7 @@ export enum NvComponent {
   styleUrls: ['./demo-page.component.scss'],
 })
 export class DemoPageComponent implements OnInit {
-  public selectedItem: NvComponent = NvComponent.Header;
+  public selectedItem: NvComponent = NvComponent.FrontendSearch;
   public nvComponentType = NvComponent;
   // Second: Provide input data for your reusable component here if needed
   // Search
@@ -82,7 +82,7 @@ export class DemoPageComponent implements OnInit {
   searchableRefList = mockAdvanceSearchInput().searchableRefList;
   // frontend search
   hideFrontEndSearchMenu: boolean = false;
-  frontendFilteredList: string[] = ['Tablet', 'Phone', 'Laptop', 'Keyboard'];
+  frontendFilteredList!: string[];
   // button
   buttonLabel = 'Default';
   themeColor = ButtonThemeColor.Basic;

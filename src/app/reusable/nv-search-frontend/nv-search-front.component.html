@@ -1,6 +1,6 @@
  <div class="dropdown" [class.container-width]="isFocus">
    <div class="form-outline h50 label" data-toggle="dropdown">
-     <img class="icon-search" src="../../../assets/icons/search.icon.svg">
+     <img class="icon-search" src="../../../assets/icons/search.icon.svg" (click)="onSearchIconClick()">
      <textarea class="form-control label"  type="search" id="form1" rows="1"
        placeholder="Search..." [formControl]="queryFormControl" (input)="onInput($event)" (keyup)="onKeyUp($event)"
        (keydown)="onKeyDown($event)" (focus)="onSearchFocus($event)" (blur)="onSearchBlur($event)"> </textarea>

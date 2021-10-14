@@ -1,12 +1,10 @@
-import { NvAdvanceFilterPipe } from '../pipes/filters/nv-advance-filter/nv-advance-filter.pipe';
-import { NvFilterPipe } from '../pipes/filters/nv-filter/nv-filter.pipe';
-import { Component, Input, OnInit, Output, EventEmitter, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
 /**
  * USAGE:
  * Note that the parent component need to provide proper container (set width and height);
- * This component receives a list and provide filteredItems
- * items so the parent is responsible for providing input data (list);
+ * This component send user query to parent component and receive filteredItems
+ * The nv-search-front component ask parent for filtering although the nv-search filter the user query
  */
 
 @Component({
@@ -22,10 +20,14 @@ export class NvFrontendSearchComponent implements OnInit {
   @Input() hideMenu = false;
   @Input() set filteredItems(list: string[]) {
     if (list && list?.length > 0) {
-      this._filteredItems = list;
+      if (this.isSearchable) {
+        this._filteredItems = list;
+        this.isSearchable = false;
+        this.showMenuToggle = true;
+      }
     } else {
       this._filteredItems = [];
-      this.hideMenu = true;
+      this.showMenuToggle = false;
     }
   }
   get filteredItems(): string[] {
@@ -39,19 +41,17 @@ export class NvFrontendSearchComponent implements OnInit {
   searchIcon = true;
   showMenuToggle = false;
   isFocus = false;
+  isSearchable: boolean = false;
+  inputQuery!: string;
 
-  constructor(  ) {}
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
-    console.log('returned' + this.filteredItems);
-  }
+  constructor() {}
 
   ngOnInit(): void {
-    this.queryFormControl.valueChanges.subscribe(query => {
-      if (!!query) {
-        this.query.emit(query);
+    this.queryFormControl.valueChanges.subscribe((query) => {
+      if (!!query || query === '') {
+        this.inputQuery = query;
       }
-      });
+    });
   }
 
   onSearchFocus(event: any) {
@@ -63,6 +63,12 @@ export class NvFrontendSearchComponent implements OnInit {
     this.isFocus = false;
     event.preventDefault();
     event.stopPropagation();
+  }
+  onSearchIconClick(): void {
+    if (this.inputQuery) {
+      this.query.emit(this.inputQuery);
+      this.isSearchable = true;
+    }
   }
   /**
    * selecting item from pop up menu containing the filtered items
@@ -79,11 +85,11 @@ export class NvFrontendSearchComponent implements OnInit {
   }
   onInput(event: any): void {
     const search = event?.target?.value;
-    // TODO:We need change detector tu update html as fast as the variable changes
+    // TODO:We need change detector to update html as fast as the variable changes
     if (this._filteredItems?.length !== 0) {
-      this.showMenuToggle = true;
+      // this.showMenuToggle = true;
     } else {
-      this.showMenuToggle = false;
+      // this.showMenuToggle = false;
     }
     this.searchIcon = !search ? true : false;
   }
@@ -101,6 +107,9 @@ export class NvFrontendSearchComponent implements OnInit {
     if (this.queryFormControl.value?.length) {
       if (event.key === 'Enter') {
         event.preventDefault();
+        this.query.emit(this.inputQuery);
+        this.isSearchable = true;
+        this.showMenuToggle = true;
       }
       if (event.key === 'Backspace') {
         if (this.queryFormControl.value === '') {
@@ -130,6 +139,7 @@ export class NvFrontendSearchComponent implements OnInit {
       this.searchIcon = true;
     } else if (event.key === 'Enter') {
       this.onItemSelect(this.selectedIndex);
+      event.preventDefault();
     } else if (event.key === 'Tab') {
       this.onItemSelect(0);
     } else if (event.key === 'ArrowDown') {
@@ -144,9 +154,8 @@ export class NvFrontendSearchComponent implements OnInit {
       if (this.selectedIndex <= 0) {
         this.selectedIndex = this._filteredItems.length;
       }
-      this.selectedIndex = (this.selectedIndex - 1) % this._filteredItems.length;
+      this.selectedIndex =
+        (this.selectedIndex - 1) % this._filteredItems.length;
     }
   }
-
 }
-

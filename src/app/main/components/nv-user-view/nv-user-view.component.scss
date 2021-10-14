@@ -1,51 +1,29 @@
 @import './../../../reusable/theme/base.scss';
 
-.user-list-left {
-  margin: 1% 0 1% 0;
-  padding-right: 0px !important;
-}
-
-.user-list-right {
-  margin: 1% 0 1% 0;
-  padding-left: 0px !important;
-}
-
-.left0 {
-  padding-left: 0px;
-}
-
-hr {
-  margin-top: unset !important;
-}
-
-::ng-deep .card-body {
-  overflow-x: hidden !important;
-}
-
-.table-scroll {
-  overflow: auto;
-  height: 300px;
-  margin-top: 11px;
-}
 
 .profile-container {
   position: relative;
-  max-height: 400px;
+  display: flex;
+  flex-direction: column;
+  max-height: 500px;
   padding-bottom: 16px;
   margin-bottom: 16px;
+  padding-top: 16px;
+  background-color: white;
+  overflow-y: scroll;
+  overflow-x: none;
 
   .profile-header {
     position: relative;
     width: 100%;
     padding-bottom: 16px;
+    margin: auto;
   }
 
   .body {
     position: relative;
-    width: 96%;
-    margin-right: 14px;
-    margin-left: 14px;
-
+    width: 95%;
+    margin: auto;
     .field-row {
       width: 100%;
       padding-bottom: 16px;
@@ -57,6 +35,7 @@ hr {
       display: flex;
       flex-direction: row;
       width: 100%;
+      margin-right: 14px;
 
       .multi-select-field-row {
         padding-bottom: 16px;
@@ -73,9 +52,10 @@ hr {
 
     .date-row {
       position: relative;
-      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
       height: 63px;
-      width: 35%;
+      width: 30%;
 
       .field-label {
         color: $color-dark-gray-dde;

@@ -19,7 +19,7 @@ export class NvUserViewComponent implements OnInit {
   // Avatar
   person: Person = mockProfileMenu();
   // field
-  fieldStatusType = FieldStatusType.Error;
+  fieldStatusType = FieldStatusType.Normal;
   fieldLabel = 'Label';
   // dropDown
   dropdownItems = mockDropdown().items;
@@ -30,7 +30,7 @@ export class NvUserViewComponent implements OnInit {
   isDropdownDisable = mockDropdown().isDisable;
   dropdownFieldStatusType = mockDropdown().fieldStatusType;
   // Multiselect dropdown field
-  multiselectFieldStatusType = FieldStatusType.Accept;
+  multiselectFieldStatusType = FieldStatusType.Normal;
   multiselectFieldLabel = 'Label';
   constructor() {}
   ngOnInit(): void {}

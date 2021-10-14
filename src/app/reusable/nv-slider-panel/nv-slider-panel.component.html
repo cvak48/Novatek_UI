@@ -3,44 +3,29 @@
     <div class="card-header">
       <span class="panel-titleTxt">Panel Table{{ panelNum }}</span>
 
-      <button
-        type="button"
-        (click)="closePanel()"
-        class="close mg-15"
-        aria-label="Close"
-      >
-        <span aria-hidden="true"
-          ><img src="../../../assets/icons/ico.close.svg"
-        /></span>
+      <button type="button" (click)="closePanel()" class="close mg-15" aria-label="Close">
+        <span aria-hidden="true"><img src="../../../assets/icons/ico.close.svg" /></span>
       </button>
       <button type="button" class="close" aria-label="drop">
-        <span aria-hidden="true"
-          ><img src="../../../assets/icons/threeDots.icon.svg"
-        /></span>
+        <span aria-hidden="true"><img src="../../../assets/icons/threeDots.icon.svg" /></span>
       </button>
     </div>
-    <div class="search-container">
       <div class="card-body">
         <div class="card-content-box">
-          
-         
+
+
           <div class="dp-inline btn-right">
-            <app-nv-button
-              label="Unlock"
-              class="mr-rt-1"
-              (buttonClick)="buttonClick()"
-            ></app-nv-button>
-            <app-nv-button
-              label="Disable"
-              (buttonClick)="buttonClick()"
-            ></app-nv-button>
+            <app-nv-button label="Unlock" class="mr-rt-1" (buttonClick)="buttonClick()"></app-nv-button>
+            <app-nv-button label="Disable" (buttonClick)="buttonClick()"></app-nv-button>
           </div>
         </div>
-         <br />
         <div>
           <ng-content></ng-content>
         </div>
-      
-    </div>
+        <div class="dp-inline btn-right">
+          <app-nv-button label="Save" class="mr-rt-1" (buttonClick)="buttonClick()"></app-nv-button>
+          <app-nv-button label="Cancel" (buttonClick)="buttonClick()"></app-nv-button>
+        </div>
+
+      </div>
   </div>
-</div>

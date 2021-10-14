@@ -82,6 +82,7 @@ export class NvMultiSelectDropdownComponent implements OnInit {
   // menu
   filteredItems!: Observable<string[]>;
   // field
+  isFieldFocused: boolean = false;
   // TODO: What is the default
 
   items: string[] = [];
@@ -112,6 +113,7 @@ export class NvMultiSelectDropdownComponent implements OnInit {
       this.isArrowDown = true;
     }
   }
+
   onFieldClick(): void {
     if (this.matAutocomplete.isOpen) {
       this.isArrowDown = false;
@@ -122,6 +124,8 @@ export class NvMultiSelectDropdownComponent implements OnInit {
     // so here we call directive to call its method
     this.nvStyleColorDirective.ngOnDestroy();
     this.nvTextColorDirective.ngOnDestroy();
+
+    // focus
   }
 
   add(event: MatChipInputEvent): void {

@@ -48,6 +48,9 @@ $height: 40px;
     width: 100%;
     min-height: $height;
 
+    &.focus {
+      border: 1px solid black;
+    }
     .arrow-icon-container {
       &.no-item {
         margin-top: 9px;

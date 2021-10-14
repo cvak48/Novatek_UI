@@ -1,7 +1,7 @@
 import { NvCardComponent } from './../nv-card/nv-card.component';
 import { NvUserColor } from './view-model';
 
-
+// TODO: In the re-usable folder we do not need local-data => please move it into model folder, data-model
 export enum CardType {
     Task,
     Report

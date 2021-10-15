@@ -82,6 +82,8 @@ export class NvChecklistDropdownComponent implements OnInit, AfterViewInit {
     downward: '../../../assets/icons/ico.arrow.down.svg',
   };
   hasItem = false;
+  // field
+  isFieldFocused: boolean = false;
   //
   itemCtrl = new FormControl();
   dataSourceRef!: TodoItemNode[];
@@ -170,12 +172,17 @@ export class NvChecklistDropdownComponent implements OnInit, AfterViewInit {
     if (!this.isArrowDown) {
       this.isArrowDown = true;
     }
+    this.isFieldFocused = false;
   }
   onFieldClick(): void {
     // TODO: the directive in the html does not get updated as we update its input in the component with as an event get triggered
     // so here we call directive to call its method
     this.nvStyleColorDirective.ngOnDestroy();
     this.nvTextColorDirective.ngOnDestroy();
+  }
+  onFormClick(): void {
+    // focus
+    this.isFieldFocused = true;
   }
   /**
    * triggered after removing chip

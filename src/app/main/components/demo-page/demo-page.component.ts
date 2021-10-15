@@ -95,17 +95,17 @@ export class DemoPageComponent implements OnInit {
   isDropdownDisable = mockDropdown().isDisable;
   dropdownFieldStatusType = mockDropdown().fieldStatusType;
   //  LoginDropdown
-  loginFieldStatusType = FieldStatusType.Error;
+  loginFieldStatusType = FieldStatusType.Normal;
   // checkbox
   checkBoxLabel = 'Im a new Checkbox';
   // field
-  fieldStatusType = FieldStatusType.Error;
+  fieldStatusType = FieldStatusType.Normal;
   fieldLabel = 'Label';
   // Multiselect dropdown field
-  multiselectFieldStatusType = FieldStatusType.Accept;
+  multiselectFieldStatusType = FieldStatusType.Normal;
   multiselectFieldLabel = 'Label';
   // Tree View dropdown
-  treeViewFieldStatusType = FieldStatusType.Accept;
+  treeViewFieldStatusType = FieldStatusType.Normal;
   treeViewFieldLabel = 'Label';
   /**
    * timePicker

@@ -1,7 +1,7 @@
 <div class="dropdown checklist-dropdown-container">
   <label *ngIf="label" for="input" class="field-label h50" nvTextColor [color]="labelStatus">{{label}}</label>
-  <mat-form-field #default class="form-field dropdown-toggle" data-toggle="dropdown" nvStyleColor
-  [style]="fieldStyle">
+  <mat-form-field #default class="form-field dropdown-toggle" [class.focus]="isFieldFocused"
+   data-toggle="dropdown" nvStyleColor   [style]="fieldStyle" (click)="onFormClick()">
     <mat-chip-list #chipList>
       <mat-chip *ngFor="let item of items" [selectable]="selectable" [removable]="removable" (removed)="remove(item)">
         {{item}}

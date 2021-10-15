@@ -1,7 +1,7 @@
 <div class="multiselect-dropdown-container">
   <label *ngIf="label" for="input" class="field-label h50" nvTextColor [color]="labelStatus">{{label}}</label>
   <mat-form-field class="multiselect-dropdown" [class.focus]="isFieldFocused"
-   nvStyleColor  [style]="fieldStyle" >
+   nvStyleColor  [style]="fieldStyle"(click)="onFormClick()">
     <mat-chip-list #chipList>
       <mat-chip *ngFor="let item of items" [selectable]="selectable" [removable]="removable" (removed)="remove(item)">
         {{item}}

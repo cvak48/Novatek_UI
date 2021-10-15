@@ -112,6 +112,7 @@ export class NvMultiSelectDropdownComponent implements OnInit {
     if (this.matAutocomplete.isOpen) {
       this.isArrowDown = true;
     }
+    this.isFieldFocused = false;
   }
 
   onFieldClick(): void {
@@ -124,8 +125,10 @@ export class NvMultiSelectDropdownComponent implements OnInit {
     // so here we call directive to call its method
     this.nvStyleColorDirective.ngOnDestroy();
     this.nvTextColorDirective.ngOnDestroy();
-
-    // focus
+  }
+  onFormClick(): void {
+    // focus on form field
+    this.isFieldFocused = true;
   }
 
   add(event: MatChipInputEvent): void {

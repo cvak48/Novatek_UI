@@ -41,7 +41,11 @@ $height: 40px;
     margin-bottom: 4px !important;
   }
 
+
   .dropdown-toggle {
+    &.focus {
+      border: 2px solid #727272;
+    }
     &::after {
       display: none !important;
     }

@@ -1,0 +1,86 @@
+@import './../theme/base.scss';
+$field-height-large: 48px;
+$field-height-medium: 38px;
+$field-height-small: 28px;
+$font-size-large: 24px;
+
+$padding-medium: 8px;
+$padding-large: 12px;
+$image-dim: 28px;
+// Neutrals
+$neutral-1-100: #757575;
+$neutral-1-200: #C0BFCC;
+$neutral-2-600: #E0DFE5;
+
+
+$background-color-priority-highest: #E5493A;
+$background-color-priority-high: #63BA3C;
+$background-color-priority-low: #4BADE8;
+$background-color-priority-lowest: #904EE2;
+
+$text-color-100:  rgb(0, 0, 0);    
+$font-weight-medium:  500;
+$background-color-500: rgb(244, 245, 247);
+
+$icon-width: $field-height-medium - $padding-medium;
+.item {
+  position: relative;
+  display: grid;
+  grid-template-columns: $icon-width min-content;
+  flex-direction: row;
+  cursor: pointer;
+
+  &.menu {
+    white-space: nowrap;
+  }
+  .item-image {
+    margin: $padding-medium;
+    height: 32px;
+    width: 32px;
+    .icon {
+      display: flex;
+      align-items: center;
+      align-self: center;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+      border-radius: 5px;
+      background-color: transparent;
+    }
+    .color {
+      display: flex;
+      align-items: center;
+      align-self: center;
+      justify-content: center;
+      border-radius: 5px;
+      height: 100%;
+      width: 100%;
+      background-color: transparent;
+
+      &.background-PriorityColor01 {
+        background-color: $background-color-priority-highest;
+      }
+      &.background-PriorityColor02 {
+        background-color: $background-color-priority-high;
+      }
+      &.background-PriorityColor03 {
+        background-color: $background-color-priority-low;
+      }
+      &.background-PriorityColor04 {
+        background-color: $background-color-priority-lowest;
+      }
+    }
+  }
+
+  .item-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    height: 100%;
+    color: $text-color-100;
+    padding-left: $padding-medium;
+
+   }
+}
+

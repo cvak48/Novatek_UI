@@ -10,7 +10,7 @@ export class DataService {
       const data = [  
         {
           'id': 1,
-          'name': 'John Liiki',
+          'name': 'Veera',
           'date': "12-25-1995",
           'email': 'john@yahoo.com',
           'status': 'No',
@@ -22,7 +22,7 @@ export class DataService {
         },
         {
           'id': 2,
-          'name': 'Rock',
+          'name': 'Sina',
           'date': "06-13-1999",
           'email': 'rock@gmail.com',
           'status': 'Past Due',

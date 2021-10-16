@@ -1,5 +1,7 @@
-<mat-slide-toggle  class="slide-toggle-container mat-label"
+<div class="slide-toggle-container">
+<mat-slide-toggle  class="mat-label"
 [checked]="checked"
  (change)="checked=!checked" >
  <span *ngIf="checked">     On   </span>
  <span *ngIf="!checked">    Off    </span></mat-slide-toggle>
+</div>

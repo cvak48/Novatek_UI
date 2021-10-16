@@ -1,7 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "./../src/app/reusable/theme/base.scss";
-
+html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
 html, body { height: 100%; }
 body { margin: 0; font-family: "Lato", Roboto, "Helvetica Neue", sans-serif; }
 
@@ -56,7 +61,6 @@ ul.ngx-pagination.responsive {
   width:100% !important;
 }
 
-
 .ml3{
   margin-left: 3%;
 }
@@ -69,4 +73,11 @@ ul.ngx-pagination.responsive {
 
 .dropdown .dropdown-menu {
   left: -20px !important;
+}
+.pt-3 {
+  padding-top: 3px;
+}
+
+.pb-16 {
+  padding-bottom: 16px !important;
 }

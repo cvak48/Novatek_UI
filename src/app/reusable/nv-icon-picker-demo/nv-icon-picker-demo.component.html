@@ -1,0 +1,30 @@
+<app-nv-item-picker-demo [items]="items" [showImage]="true" [showTitle]="showTitle" [compactedView]="compactedView"
+[size]="size" [selectedItemTemplate]="selectedItemTemplate" [menuItemTemplate]="menuItemTemplate">
+</app-nv-item-picker-demo>
+
+<ng-template #selectedItemTemplate let-item="item">
+    <div class="item">
+        <div class="item-image">
+            <img class="icon" *ngIf=" item?.imageUrl" src="{{item?.imageUrl}}" />
+            <div class="{{'color background-' + userColors[item?.color]}}" *ngIf=" !item?.imageUrl"> </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #menuItemTemplate let-item="item">
+    <div class="{{'item menu background-'+ userColors[item?.color]}}">
+        <div class="item-image">
+            <img class="icon" *ngIf=" item?.imageUrl" src="{{item?.imageUrl}}" />
+            <div class="{{'color background-' + userColors[item?.color]}}" *ngIf="!item?.imageUrl"> </div>
+        </div>
+        <div class="item-label h500" *ngIf="item?.title"> {{item?.title}}</div>
+    </div>
+</ng-template>
+
+
+
+
+
+
+
+

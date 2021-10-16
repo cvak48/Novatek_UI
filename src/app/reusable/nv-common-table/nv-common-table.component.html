@@ -30,7 +30,15 @@
           >
             {{ column }}
             <span
-              ><mat-icon
+              >
+              <mat-icon
+                      class="img"
+                      *ngIf="sortColumn != column"
+                      ><img
+                        src="../../../assets/icons/table-shorting.icon.svg"
+                        (click)="rowImgClicked($event)"
+                    /></mat-icon>
+                    <mat-icon
                 class="img"
                 *ngIf="sortColumn == column && sortPreference == 'ascending'"
                 ><img

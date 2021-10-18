@@ -333,7 +333,7 @@ export class NvChecklistDropdownComponent implements OnInit, AfterViewInit {
     this.checkAllParentsSelection(node);
 
     //  save the children items to be used as chips
-    this.filteredItems = this._toChips(this.checklistSelection.selected);
+    this._toSelectedChips(this.checklistSelection.selected);
   }
 
   /* Checks all the parents when a leaf node is selected/unselected */
@@ -344,9 +344,7 @@ export class NvChecklistDropdownComponent implements OnInit, AfterViewInit {
       parent = this.getParentNode(parent);
     }
     //  save the children items to be used as chips
-    //TODO: need to be deleted
-    this.filteredItems = this._toChips(this.checklistSelection.selected);
-    // this.selected();
+    this._toSelectedChips(this.checklistSelection.selected);
 
   }
 
@@ -390,11 +388,10 @@ export class NvChecklistDropdownComponent implements OnInit, AfterViewInit {
    * convert them into Observable List
    */
 
-  private _toChips(list: TodoItemFlatNode[]): Observable<string[]> {
+  private _toSelectedChips(list: TodoItemFlatNode[]): void {
     let newList: string[] = [];
     list.forEach((value) => newList.push(value.item));
     this.selected(newList);
-    return of(newList);
   }
 
   /**

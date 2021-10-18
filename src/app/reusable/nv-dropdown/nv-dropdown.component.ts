@@ -165,9 +165,7 @@ export class NvDropdownComponent implements OnInit, AfterViewInit, OnChanges {
          */
       }
   }
-
-
-
+ 
   onFieldClick(): void {
     if (this.isArrowDownIcon && !this.isFieldDisable) {
       this.isArrowDownIcon = false;

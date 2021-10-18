@@ -138,7 +138,7 @@ export class NvChecklistDropdownComponent implements OnInit, AfterViewInit {
     );
     this.counter = 0;
     _database.dataChange.subscribe((data) => {
-      console.log('data' + JSON.stringify(data));
+      // console.log('data' + JSON.stringify(data));
       this.dataSource.data = data;
       // for filter
       this.dataSourceRef = data;
@@ -179,10 +179,17 @@ export class NvChecklistDropdownComponent implements OnInit, AfterViewInit {
     // so here we call directive to call its method
     this.nvStyleColorDirective.ngOnDestroy();
     this.nvTextColorDirective.ngOnDestroy();
+
   }
   onFormClick(): void {
     // focus
     this.isFieldFocused = true;
+    // to change the arrow icon direction
+    if (this.isArrowDown && !this.isFieldDisable) {
+      this.isArrowDown = false;
+    } else if (!this.isArrowDown && !this.isFieldDisable) {
+      this.isArrowDown = true;
+    }
   }
   /**
    * triggered after removing chip
@@ -249,8 +256,8 @@ export class NvChecklistDropdownComponent implements OnInit, AfterViewInit {
     this.isFieldDisable = false;
   }
   /**
- * Importing svg icon id and status colors to change the color of svg Icon
- */
+   * Importing svg icon id and status colors to change the color of svg Icon
+   */
   private _initializeSvgIconStyles(): void {
     this.svgIconIdsDic = SVG_ICON_IDS_DIC;
     this.fieldStatusColorDic = FIELD_STATUS_COLOR_DIC;
@@ -339,6 +346,7 @@ export class NvChecklistDropdownComponent implements OnInit, AfterViewInit {
     //  save the children items to be used as chips
     //TODO: need to be deleted
     this.filteredItems = this._toChips(this.checklistSelection.selected);
+    // this.selected();
 
   }
 

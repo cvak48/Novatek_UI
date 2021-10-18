@@ -1,5 +1,8 @@
 import { Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
+import { Subscriber, Subscription } from 'rxjs';
+import { Order } from 'src/app/reusable/test/order';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'nv-app-user-list-view',
@@ -8,11 +11,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NvUserListViewComponent implements OnInit {
   isLeftVisible = true;
-
+  orders: Order[] = [];
   showPanel: string = '1';
-  constructor() { }
+  columns: string[] = ['name', 'date', 'email'];
+  sub = new Subscription();
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
+    this.sub = this.dataService.getData().subscribe((data) => { 
+      this.orders = data;
+    });
+    this.sub.unsubscribe();
   }
 
   panelClicked(panel: string): void{

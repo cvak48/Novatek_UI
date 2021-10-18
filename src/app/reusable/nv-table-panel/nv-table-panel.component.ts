@@ -1,6 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Sort } from '@angular/material/sort';
+import { Subscription } from 'rxjs';
+import { DropdownFieldType } from 'src/app/model/data-model';
 import { DataService } from 'src/app/services/data.service';
+import { NvAttachmentListComponent } from '../nv-attachment-list/nv-attachment-list.component';
 import { TableColumn } from '../nv-custom-datatable/table-column.model';
 import { Order } from '../test/order';
 
@@ -60,16 +64,23 @@ export class NvTablePanelComponent implements OnInit {
   textTrimNumber = mockDropdown().textTrimNumber;
   selectedItemDefault = mockDropdown().selectedItemDefault;
 
-  constructor(private dataService: DataService) { }
+  
+  dropDownFieldTypePlus = mockPlusDropdown().dropDownFieldType;
+  dropdownItemsPlus = mockPlusDropdown().items;
+  textTrimNumberPlus = mockPlusDropdown().textTrimNumber;
+  sub = new Subscription();
+  constructor(private dataService: DataService,
+              private dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.dataService.getTableData()
+    this.sub = this.dataService.getTableData()
       .subscribe(data => {
         this.tableTestData = data;
         this.orders = data;
         this.ordersData = data;
         this.count = this.orders.length;
       });
+      this.sub.unsubscribe();
   }
 
   buttonClick(): void{
@@ -200,7 +211,16 @@ export class NvTablePanelComponent implements OnInit {
 
   showExtendedRow(index: number): void{
     this.selectedRow = (this.selectedRow == index) ? -1 : index;
-   // this.attachmentList = attachments;
+  }
+
+  showAttachments(attachments: any): void{
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.closeOnNavigation = true;
+    dialogConfig.data = attachments;
+    const dialogRef = this.dialog.open(NvAttachmentListComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe((email: string) => {
+    });
   }
 
   isRowVisibleAllowed(index: number): boolean {
@@ -228,6 +248,26 @@ function mockDropdown(): any {
     itemsNumber: ['1', '2', '3', '4', '5', '11', '22', '33', '44', '55'],
     textTrimNumber: 1,
     selectedItemDefault: '',
+  };
+  return dropdownInputs;
+}
+
+function mockSiteDropdown(): any {
+  const dropdownInputs = {
+    items: ['site item 1', 'site item 2'],
+    textTrimNumber: 5,
+    selectedItemDefault: 'Current Site',
+    dropDownFieldType: DropdownFieldType.Input,
+  };
+  return dropdownInputs;
+}
+
+function mockPlusDropdown(): any {
+  const dropdownInputs = {
+    items: ['Print', 'Copy', 'Disable', 'Import', 'View Audit Trail'],
+    textTrimNumber: 3,
+    selectedItemDefault: 'Page',
+    dropDownFieldType: DropdownFieldType.Button
   };
   return dropdownInputs;
 }

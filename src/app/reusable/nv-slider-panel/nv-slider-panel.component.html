@@ -22,31 +22,25 @@
     <div class="search-container">
       <div class="card-body">
         <div class="card-content-box">
-          <div class="shadow-sm-dark dp-inline">
-            <app-nv-search
-              class="search"
-              (filteredItems)="onItemsFilter($event)"
-            ></app-nv-search>
-          </div>
-          <div class="shadow-sm-dark dp-inline mr-lt-1">
-            <app-nv-dropdown></app-nv-dropdown>
-          </div>
+          
+         
           <div class="dp-inline btn-right">
             <app-nv-button
-              label="New"
+              label="Unlock"
               class="mr-rt-1"
               (buttonClick)="buttonClick()"
             ></app-nv-button>
             <app-nv-button
-              label="Edit"
+              label="Disable"
               (buttonClick)="buttonClick()"
             ></app-nv-button>
           </div>
         </div>
+         <br />
         <div>
           <ng-content></ng-content>
         </div>
-      </div>
+      
     </div>
   </div>
 </div>

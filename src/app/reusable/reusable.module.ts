@@ -78,6 +78,7 @@ import { EditUserComponent } from './edit-user/edit-user.component';
 import { SlidePanelComponent } from './slide-panel/slide-panel.component';
 import { NvSliderPanelComponent } from './nv-slider-panel/nv-slider-panel.component';
 import { NvAttachmentListComponent } from './nv-attachment-list/nv-attachment-list.component';
+import { NvCommonTableComponent } from './nv-common-table/nv-common-table.component';
 
 
 const sharedComponents = [
@@ -147,7 +148,8 @@ const sharedComponents = [
   SlidePanelComponent,
   NvSliderPanelComponent,
   NvAttachmentListComponent,
-  NvFieldComponent
+  NvFieldComponent,
+  NvCommonTableComponent
 ];
 
 @NgModule({

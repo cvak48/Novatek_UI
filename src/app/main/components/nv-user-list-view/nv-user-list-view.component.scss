@@ -311,3 +311,9 @@
   .panel-slide{
     animation: 1s ease-out 0s 1 slideInFromright;
   }
+
+  .footer{
+    position: fixed;
+    width:100%;
+    bottom: 0px;
+  }

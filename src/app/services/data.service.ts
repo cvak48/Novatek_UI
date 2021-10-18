@@ -6,9 +6,52 @@ import { of } from 'rxjs';
 @Injectable({providedIn: 'root'})
 export class DataService {
     constructor() {}
-
+    getData(): Observable<any> {
+      const data = [  
+        {
+          'id': 1,
+          'name': 'Veera',
+          'date': "12-25-1995",
+          'email': 'john@yahoo.com',
+          'status': 'No',
+          'checked': false,
+          'attachments': [{
+            'id': '1',
+            'name': 'file1'
+          }]
+        },
+        {
+          'id': 2,
+          'name': 'Sina',
+          'date': "06-13-1999",
+          'email': 'rock@gmail.com',
+          'status': 'Past Due',
+          'checked': false,
+          'attachments': [{
+            'id': '1',
+            'name': 'file1'
+          },
+          {
+            'id': '2',
+            'name': 'file2'
+          }]
+        }]
+        return of(data);
+      }
+    
     getTableData(): Observable<any> {
-        const data = [ 
+        const data = [  {
+          'id': 0,
+          'name': 'ame',
+          'date': "12-25-1995",
+          'email': 'john@yahoo.com',
+          'status': 'No',
+          'checked': false,
+          'attachments': [{
+            'id': '1',
+            'name': 'file1'
+          }]
+        },
           {
             'id': 1,
             'name': 'John Liiki',
@@ -39,7 +82,7 @@ export class DataService {
           },
           {
             'id': 3,
-            'name': 'Tom Cruise',
+            'name': 'Tom Cruis2',
             'date': "04-27-2001",
             'email': 'tomcruise@yahoo.com',
             'status': 'Pending',
@@ -185,7 +228,7 @@ export class DataService {
           },
           {
             'id': 3,
-            'name': 'Tom Cruise',
+            'name': 'Tom Cruise3',
             'date': "04-27-2001",
             'email': 'tomcruise@yahoo.com',
             'status': 'Pending',
@@ -258,7 +301,7 @@ export class DataService {
           },
           {
             'id': 3,
-            'name': 'Tom Cruise',
+            'name': 'Tom Cruise4',
             'date': "04-27-2001",
             'email': 'tomcruise@yahoo.com',
             'status': 'Pending',
@@ -331,7 +374,7 @@ export class DataService {
           },
           {
             'id': 3,
-            'name': 'Tom Cruise',
+            'name': 'Tom Cruise5',
             'date': "04-27-2001",
             'email': 'tomcruise@yahoo.com',
             'status': 'Pending',
@@ -403,7 +446,7 @@ export class DataService {
           },
           {
             'id': 3,
-            'name': 'Tom Cruise',
+            'name': 'Tom Cruise6',
             'date': "04-27-2001",
             'email': 'tomcruise@yahoo.com',
             'status': 'Pending',
@@ -476,7 +519,7 @@ export class DataService {
           },
           {
             'id': 3,
-            'name': 'Tom Cruise',
+            'name': 'Tom Cruise7',
             'date': "04-27-2001",
             'email': 'tomcruise@yahoo.com',
             'status': 'Pending',
@@ -549,7 +592,7 @@ export class DataService {
           },
           {
             'id': 3,
-            'name': 'Tom Cruise',
+            'name': 'Tom Cruise8',
             'date': "04-27-2001",
             'email': 'tomcruise@yahoo.com',
             'status': 'Pending',
@@ -622,7 +665,7 @@ export class DataService {
           },
           {
             'id': 3,
-            'name': 'Tom Cruise',
+            'name': 'Tom Cruise9',
             'date': "04-27-2001",
             'email': 'tomcruise@yahoo.com',
             'status': 'Pending',
@@ -695,7 +738,7 @@ export class DataService {
           },
           {
             'id': 3,
-            'name': 'Tom Cruise',
+            'name': 'Tom Cruise10',
             'date': "04-27-2001",
             'email': 'tomcruise@yahoo.com',
             'status': 'Pending',

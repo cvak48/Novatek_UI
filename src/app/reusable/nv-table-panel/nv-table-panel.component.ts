@@ -69,6 +69,7 @@ export class NvTablePanelComponent implements OnInit {
   dropDownFieldTypePlus = mockPlusDropdown().dropDownFieldType;
   dropdownItemsPlus = mockPlusDropdown().items;
   textTrimNumberPlus = mockPlusDropdown().textTrimNumber;
+  selectedUser: any  = {};
   sub = new Subscription();
   constructor(private dataService: DataService,
               private dialog: MatDialog,
@@ -87,6 +88,11 @@ export class NvTablePanelComponent implements OnInit {
 
   buttonClick(): void{
     this.panelClick.emit();
+  }
+
+  buttonEditClick(): void{
+    this.panelClick.emit();
+    this.applicationService.setSelectedUserData(this.selectedUser);
   }
 
   closePanel() {
@@ -231,7 +237,7 @@ export class NvTablePanelComponent implements OnInit {
 
   selectUser(event: any, userData: any): void{
     if (event.target.checked) {
-      this.applicationService.setSelectedUserData(userData);
+      this.selectedUser = userData;
     }
     
   }

@@ -130,6 +130,7 @@
                     type="checkbox"
                     value="{{ order.id }}"
                     [(ngModel)]="orders[i].checked"
+                    (change)="selectUser($event, orders[i])"
                   />
                   <button *ngIf="order.attachments.length > 0" class="attach-btn" (click)="showAttachments(order.attachments)">
                     <mat-icon> attach_file</mat-icon>

@@ -3,6 +3,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Sort } from '@angular/material/sort';
 import { Subscription } from 'rxjs';
 import { DropdownFieldType } from 'src/app/model/data-model';
+import { ApplicationService } from 'src/app/services/application.service';
 import { DataService } from 'src/app/services/data.service';
 import { NvAttachmentListComponent } from '../nv-attachment-list/nv-attachment-list.component';
 import { TableColumn } from '../nv-custom-datatable/table-column.model';
@@ -70,7 +71,8 @@ export class NvTablePanelComponent implements OnInit {
   textTrimNumberPlus = mockPlusDropdown().textTrimNumber;
   sub = new Subscription();
   constructor(private dataService: DataService,
-              private dialog: MatDialog) { }
+              private dialog: MatDialog,
+              private applicationService: ApplicationService) { }
 
   ngOnInit(): void {
     this.sub = this.dataService.getTableData()
@@ -225,6 +227,13 @@ export class NvTablePanelComponent implements OnInit {
 
   isRowVisibleAllowed(index: number): boolean {
     return this.selectedRow == index;
+  }
+
+  selectUser(event: any, userData: any): void{
+    if (event.target.checked) {
+      this.applicationService.setSelectedUserData(userData);
+    }
+    
   }
 }
 

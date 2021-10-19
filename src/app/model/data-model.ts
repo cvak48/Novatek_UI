@@ -13,7 +13,7 @@ export enum DropdownFieldType {
 }
 
 export interface Person {
-    id: number;
+    id?: number;
     name: string;
     imageUrl: string;
     notification?: Notification;
@@ -23,6 +23,16 @@ export interface Notification {
     content?: string;
     hasAttachment?: boolean;
 }
+
+export interface User {
+    name: string;
+    userName: string;
+    jobPosition: string;
+    uniqueID: string;
+    passwordExpiryDate: string;
+    accountExpiryDate: string;
+    lastLogin: string;
+  }
 
 /**
  * dropdown tree-view

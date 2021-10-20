@@ -4,6 +4,7 @@ import { Component, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { ApplicationService } from 'src/app/services/application.service';
 import { Subscription } from 'rxjs';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-nv-user-profile',
@@ -18,13 +19,20 @@ export class NvUserProfileComponent implements OnInit {
   personData: any = {};
   @ViewChild('fileDropRef') fileDropRef!: ElementRef<HTMLElement>;
   constructor(private _dataService: UserProfileService,
-    private applicationService: ApplicationService) {}
+    private applicationService: ApplicationService,
+    private dataService: DataService) {}
   ngOnInit(): void {
     this.sub = this.applicationService.selectedUserData
               .subscribe(res => {
-                  this.personData = res;
+                //  this.personData = res;
+                console.log(res)
+                  this.getSelectedUserData(res.id);
               })
               this._initialize();
+  }
+
+  getSelectedUserData(id: number): void{
+    this.personData = this.dataService.getUserData(id)[0];
   }
   
   /**

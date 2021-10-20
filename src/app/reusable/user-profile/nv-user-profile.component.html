@@ -10,28 +10,28 @@
         <div class="content">
             <div class="header">
                 <div class="header-name h20">{{personData.name}}</div>
-                <div class="header-job-position">{{userProfiles[0].jobPosition}}</div>
+                <div class="header-job-position">{{personData.jobPosition}}</div>
             </div>
             <div class="body">
                 <div class="field-row">
                     <div class="label">User Name</div>
-                    <div class="value">{{userProfiles[0].userName}}</div>
+                    <div class="value">{{personData.userName}}</div>
                 </div>
                 <div class="field-row">
                     <div class="label">Unique ID</div>
-                    <div class="value">{{userProfiles[0].uniqueID}}</div>
+                    <div class="value">{{personData.id}}</div>
                 </div>
                 <div class="field-row">
                     <div class="label">Password Expiry</div>
-                    <div class="value">{{userProfiles[0].passwordExpiryDate}}</div>
+                    <div class="value">{{personData.passwordExpiry}}</div>
                 </div>
                 <div class="field-row">
                     <div class="label">Account Expiry</div>
-                    <div class="value">{{userProfiles[0].accountExpiryDate}}</div>
+                    <div class="value">{{personData.accountExpiry}}</div>
                 </div>
                 <div class="field-row">
                     <div class="label">Last Login</div>
-                    <div class="value">{{userProfiles[0].lastLogin}}</div>
+                    <div class="value">{{personData.lastLogin}}</div>
                 </div>
             </div>
         </div>

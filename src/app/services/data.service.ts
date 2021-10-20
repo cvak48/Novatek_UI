@@ -40,18 +40,7 @@ export class DataService {
       }
     
     getTableData(): Observable<any> {
-        const data = [  {
-          'id': 0,
-          'name': 'ame',
-          'date': "12-25-1995",
-          'email': 'john@yahoo.com',
-          'status': 'No',
-          'checked': false,
-          'attachments': [{
-            'id': '1',
-            'name': 'file1'
-          }]
-        },
+        const data = [ 
           {
             'id': 1,
             'name': 'John Liiki',
@@ -784,4 +773,61 @@ export class DataService {
         ];
         return of(data);
      }
+
+     getUserData(id: number): any {
+      const data = [  
+        {
+          'id': 1,
+          'name': 'John Liiki',
+          'userName': "John-Liiki",
+          'passwordExpiry': '12-25-2025',
+          'accountExpiry': '12-25-2025',
+          'lastLogin': '09-25-2021',
+          'jobPosition': 'Team Lead'
+        },
+        {
+          'id': 2,
+          'name': 'Rock',
+          'userName': "Rock",
+          'passwordExpiry': '12-25-2025',
+          'accountExpiry': '12-25-2025',
+          'lastLogin': '09-25-2021',
+          'jobPosition': 'QA Lead'
+        },
+      {
+        'id': 3,
+        'name': 'Tom Cruis2',
+        'userName': "Tom-Cruis2",
+        'passwordExpiry': '12-25-2023',
+        'accountExpiry': '12-25-2024',
+        'lastLogin': '09-25-2021',
+        'jobPosition': 'Manager'
+      },
+      {
+        'id': 4,
+        'name': 'Sumit Gupta',
+        'userName': "Sumit-Gupta",
+        'passwordExpiry': '12-25-2022',
+        'accountExpiry': '12-25-2023',
+        'lastLogin': '09-25-2020',
+        'jobPosition': 'Developer'
+      },
+      {
+        'id': 5,
+        'name': 'Nicole Kidman',
+        'userName': "Nicole-Kidman",
+        'passwordExpiry': '12-25-2022',
+        'accountExpiry': '12-25-2023',
+        'lastLogin': '09-25-2020',
+        'jobPosition': 'Tester'
+      }
+
+      ];
+
+      const user = data.filter(ele => {
+        return ele.id == id;
+      });
+      return user;
+        //return of(data);
+      }
     }

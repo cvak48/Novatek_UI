@@ -35,7 +35,8 @@
       panelNum="Teams"
       (close)="closePanel('3')"
       (panelClick)="panelClicked('3')"
-    ><app-nv-third-panel></app-nv-third-panel></app-nv-slider-panel>
+    ><app-nv-third-panel [columns]="columns" [oData]="orders"></app-nv-third-panel>
+  </app-nv-slider-panel>
   </div>
 </div>
 <br />

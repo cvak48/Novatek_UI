@@ -13,7 +13,7 @@ export class NvUserListViewComponent implements OnInit {
   isLeftVisible = true;
   orders: Order[] = [];
   showPanel: string = '1';
-  columns: string[] = ['name', 'date', 'email'];
+  columns: string[] = ['name', 'id'];
   sub = new Subscription();
   constructor(private dataService: DataService) { }
 

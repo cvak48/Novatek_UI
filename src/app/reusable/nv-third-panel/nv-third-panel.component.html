@@ -1,0 +1,142 @@
+<div class="">
+  <div class="row" style="margin-left: -3px;">
+    <div class="cpl-sm-6">
+      <div class="search-container">
+        <app-nv-search
+          class="search"
+          [isAdvance]="isAdvance"
+          [hideMenu]="hideMenu"
+          [list]="tableTestData"
+          [searchableRefList]="searchableRefList"
+          (filteredItems)="onItemsFilter($event)"
+        ></app-nv-search>
+      </div>
+    </div>
+    <div class="cpl-sm-2" *ngIf="showAddEditBtns">
+      <app-nv-button
+        label="Add"
+        class="mr-rt-1"
+        (buttonClick)="add()"
+      ></app-nv-button>
+    </div>
+    <div class="cpl-sm-2" *ngIf="showAddEditBtns">
+      <app-nv-button
+        label="Edit"
+        class="mr-rt-1"
+        (buttonClick)="edit()"
+      ></app-nv-button>
+    </div>
+    <div class="cpl-sm-2" *ngIf="showDeleteBtn">
+      <app-nv-button
+        label="Delete"
+        class="mr-rt-1"
+        (buttonClick)="delete()"
+      ></app-nv-button>
+    </div>
+    <div class="cpl-sm-2" *ngIf="!showDeleteBtn">
+      <app-nv-button
+        label="Undo"
+        class="mr-rt-1"
+        (buttonClick)="undo()"
+      ></app-nv-button>
+    </div>
+  </div>
+</div>
+
+<div class="header">
+  <app-nv-input
+    class="text-color"
+    [(sharedVar)]="name"
+    [inputPlaceHolder]="placeholder"
+    [label]="nameLabel"
+  ></app-nv-input>
+
+  <app-nv-input
+    class="text-color"
+    [(sharedVar)]="id"
+    [inputPlaceHolder]="placeholder"
+    [label]="idLabel"
+  ></app-nv-input>
+</div>
+
+<div>
+  <div class="table-scroll">
+    <table class="data-table" mdbTable>
+      <tr class="mat-header-row">
+        <th class="mat-header-cell">
+          <input
+            class="table-check"
+            type="checkbox"
+            [checked]="isAllCheckBoxChecked()"
+            (change)="checkAllCheckBox($event)"
+          />
+        </th>
+        <th
+          (click)="rowClicked($event)"
+          *ngFor="let column of columns; let i = index"
+          scope="col"
+          [mdbTableSort]="orders"
+          [sortBy]="columns[i]"
+          class="mat-header-cell"
+        >
+          {{ column }}
+          <span>
+            <mat-icon class="img" *ngIf="sortColumn != column"
+              ><img
+                src="../../../assets/icons/table-shorting.icon.svg"
+                (click)="rowImgClicked($event)"
+            /></mat-icon>
+            <mat-icon
+              class="img"
+              *ngIf="sortColumn == column && sortPreference == 'ascending'"
+              ><img
+                src="../../../assets/icons/table-shorting.icon.svg"
+                (click)="rowImgClicked($event)"
+            /></mat-icon>
+            <mat-icon
+              class="img rotateimg180"
+              *ngIf="sortColumn == column && sortPreference == 'descending'"
+              ><img
+                src="../../../assets/icons/table-shorting.icon.svg"
+                (click)="rowImgClicked($event)" /></mat-icon
+          ></span>
+        </th>
+      </tr>
+      <tr
+        class="mat-row"
+        [ngClass]="{
+          'status-gr': order.status === 'Completed',
+          'status-rd': order.status === 'No',
+          'status-white': order.status === 'Pending',
+          'status-ed': order.status === 'Edited',
+          'status-clicked': order.status === 'Clicked'
+        }"
+        (click)="clickedRow(order, i)"
+        *ngFor="
+          let order of orders
+            | paginate
+              : {
+                  id: 'oList',
+                  itemsPerPage: pageSize,
+                  currentPage: page,
+                  totalItems: count
+                };
+          let i = index
+        "
+      >
+        <td class="pd-lt-2 checkbox-column">
+          <input
+            class="table-check"
+            type="checkbox"
+            value="{{ order.id }}"
+            [(ngModel)]="orders[i].checked"
+            (click)="checkBoxClicked(order, i)"
+          />
+        </td>
+        <td *ngFor="let column of columns; let i = index">
+          {{ order[column] }}
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

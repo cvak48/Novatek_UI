@@ -11,31 +11,34 @@ export class DataService {
         {
           'id': 1,
           'name': 'Veera',
-          'date': "12-25-1995",
-          'email': 'john@yahoo.com',
-          'status': 'No',
+          'status': 'Pending',
           'checked': false,
-          'attachments': [{
-            'id': '1',
-            'name': 'file1'
-          }]
         },
         {
           'id': 2,
           'name': 'Sina',
-          'date': "06-13-1999",
-          'email': 'rock@gmail.com',
-          'status': 'Past Due',
+          'status': 'Pending',
           'checked': false,
-          'attachments': [{
-            'id': '1',
-            'name': 'file1'
-          },
-          {
-            'id': '2',
-            'name': 'file2'
-          }]
-        }]
+        },
+        {
+          'id': 3,
+          'name': 'Amir',
+          'status': 'Pending',
+          'checked': false,
+        },
+        {
+          'id': 4,
+          'name': 'Payam',
+          'status': 'Pending',
+          'checked': false,
+        },
+        {
+          'id': 5,
+          'name': 'Dhaval',
+          'status': 'Pending',
+          'checked': false
+        }        
+      ]
         return of(data);
       }
     

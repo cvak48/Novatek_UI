@@ -30,12 +30,8 @@
     </div>
     <div class="search-container" *ngIf="panelNum === 'Teams'">
       <div class="card-body">
-        <div class="card-content-box">
+        <!-- <div class="card-content-box">
           <div class="shadow-sm-dark dp-inline">
-            <app-nv-search
-              class="search"
-              (filteredItems)="onItemsFilter($event)"
-            ></app-nv-search>
           </div>
           <div class="dp-inline btn-right">
             <app-nv-button
@@ -43,24 +39,24 @@
               class="mr-rt-1"
               (buttonClick)="buttonClick()"
             ></app-nv-button>
-            <app-nv-button
-              label="Edit"
-              class="mr-rt-1"
-              (buttonClick)="buttonClick()"
-            ></app-nv-button>
-            <app-nv-button
-              label="Delete"
-              class="mr-rt-1"
-              (buttonClick)="buttonClick()"
-            ></app-nv-button>
           </div>
-        </div>
+        </div> -->
         <div>
           <ng-content></ng-content>
         </div>
+        <div class="dp-inline btn-right">
+          <app-nv-button
+            label="Save"
+            class="mr-rt-1"
+            (buttonClick)="buttonClick()"
+          ></app-nv-button>
+          <app-nv-button
+            label="Cancel"
+            class="mr-rt-1"
+            (buttonClick)="buttonClick()"
+          ></app-nv-button>
+        </div>
       </div>
     </div>
-
-
   </div>
 </div>

@@ -28,6 +28,12 @@ export class NvUserProfileComponent implements OnInit {
                   this.getSelectedUserData(res.id);
               })
               this._initialize();
+    this.applicationService.btnClickData
+         .subscribe(res => {
+           if (res == 'updateUserData') {
+              this.saveuserData();
+           }
+         })
   }
 
   getSelectedUserData(id: number): void{
@@ -50,7 +56,7 @@ export class NvUserProfileComponent implements OnInit {
     this.person.imageUrl = files[0].name;
   }
 
-  SaveuserData(): void{
+  saveuserData(): void{
     this.applicationService.setUpdatedUserData(this.personData);
   }
 

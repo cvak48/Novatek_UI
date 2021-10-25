@@ -6,6 +6,7 @@ import { of } from 'rxjs';
 export class ApplicationService {
     selectedUserData: BehaviorSubject<any> = new BehaviorSubject({});
     updatedUserData: BehaviorSubject<any> = new BehaviorSubject({});
+    btnClickData: BehaviorSubject<any> = new BehaviorSubject(null);
     constructor() {}
 
     setSelectedUserData(data: any): void{
@@ -14,5 +15,9 @@ export class ApplicationService {
 
     setUpdatedUserData(data: any): void{
         this.updatedUserData.next(data);
+    }
+
+    setBtnClickedData(btnData: any): void{
+        this.btnClickData.next(btnData);
     }
 }

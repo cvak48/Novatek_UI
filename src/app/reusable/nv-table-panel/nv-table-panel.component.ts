@@ -84,6 +84,12 @@ export class NvTablePanelComponent implements OnInit {
         this.count = this.orders.length;
       });
       this.sub.unsubscribe();
+
+      this.applicationService.updatedUserData
+           .subscribe(res => {
+            let result = this.orders.map(el => el.id == res.id ? {...el, name: res.name} : el);
+            this.orders = [... result];
+      })
   }
 
   buttonClick(): void{

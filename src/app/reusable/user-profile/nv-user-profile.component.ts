@@ -25,7 +25,6 @@ export class NvUserProfileComponent implements OnInit {
     this.sub = this.applicationService.selectedUserData
               .subscribe(res => {
                 //  this.personData = res;
-                console.log(res)
                   this.getSelectedUserData(res.id);
               })
               this._initialize();
@@ -48,9 +47,13 @@ export class NvUserProfileComponent implements OnInit {
    */
   fileBrowseHandler(event: any): void {
     const files = event?.target?.files;
-    console.log(files);
     this.person.imageUrl = files[0].name;
   }
+
+  SaveuserData(): void{
+    this.applicationService.setUpdatedUserData(this.personData);
+  }
+
   // TODO: using imageService we need to send the image to the backend
   private _initialize(): void {
     this.person = mockProfileMenu();

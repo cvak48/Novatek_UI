@@ -89,6 +89,18 @@ export class NvTablePanelComponent implements OnInit {
            .subscribe(res => {
             let result = this.orders.map(el => el.id == res.id ? {...el, name: res.name} : el);
             this.orders = [... result];
+      });
+
+      this.applicationService.newUserData
+           .subscribe(res => {
+             console.log('new', res)
+             if (res.name) {
+              this.orders.splice(0,0,res);
+             }
+          //  res.id ? this.orders.unshift(res) : '';
+           
+            this.orders = [... this.orders];
+            console.log('orders', this.orders)
       })
   }
 
@@ -96,8 +108,15 @@ export class NvTablePanelComponent implements OnInit {
     this.panelClick.emit();
   }
 
+  buttonNewClick(): void{
+    this.panelClick.emit();
+    this.applicationService.setUserBtnAction('new');
+    this.applicationService.setSelectedUserData({});
+  }
+
   buttonEditClick(): void{
     this.panelClick.emit();
+    this.applicationService.setUserBtnAction('edit');
     this.applicationService.setSelectedUserData(this.selectedUser);
   }
 

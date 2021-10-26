@@ -25,7 +25,12 @@ export class NvUserProfileComponent implements OnInit {
     this.sub = this.applicationService.selectedUserData
               .subscribe(res => {
                 //  this.personData = res;
+                 if (res.id) {
                   this.getSelectedUserData(res.id);
+                 } else {
+                  this.personData = {attachments: [], checked: true, date: "", email: "", id: 0, name: "",status: ""};
+                 }
+                  
               })
               this._initialize();
     this.applicationService.btnClickData
@@ -57,7 +62,12 @@ export class NvUserProfileComponent implements OnInit {
   }
 
   saveuserData(): void{
-    this.applicationService.setUpdatedUserData(this.personData);
+    if (this.personData.id > 0) {
+      this.applicationService.setUpdatedUserData(this.personData);
+    } else {
+      this.applicationService.setNewUserData(this.personData);
+    }
+    
   }
 
   // TODO: using imageService we need to send the image to the backend

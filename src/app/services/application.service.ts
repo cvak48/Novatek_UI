@@ -4,8 +4,10 @@ import { of } from 'rxjs';
 
 @Injectable({providedIn: 'root'})
 export class ApplicationService {
+    userBtnAction: BehaviorSubject<any> = new BehaviorSubject('new');
     selectedUserData: BehaviorSubject<any> = new BehaviorSubject({});
     updatedUserData: BehaviorSubject<any> = new BehaviorSubject({});
+    newUserData: BehaviorSubject<any> = new BehaviorSubject({});
     btnClickData: BehaviorSubject<any> = new BehaviorSubject(null);
     constructor() {}
 
@@ -17,7 +19,15 @@ export class ApplicationService {
         this.updatedUserData.next(data);
     }
 
+    setNewUserData(data: any): void{
+        this.newUserData.next(data);
+    }
+
     setBtnClickedData(btnData: any): void{
         this.btnClickData.next(btnData);
+    }
+
+    setUserBtnAction(btnAction: string): void{
+        this.userBtnAction.next(btnAction);
     }
 }

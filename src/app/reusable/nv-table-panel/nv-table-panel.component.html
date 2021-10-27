@@ -124,7 +124,7 @@
                 }"
                 (click)="showExtendedRow(i)"
               >
-                <td class="pd-lt-2 checkbox-column">
+                <td class="pd-lt-2 checkbox-column" [ngClass]="{'active': orders[i].checked}">
                   <input
                     class="table-check"
                     type="checkbox"
@@ -136,11 +136,11 @@
                     <mat-icon> attach_file</mat-icon>
             </button>
                 </td>
-                <td>{{ order.name }}</td>
-                <td>{{ order.date }}</td>
-                <td class="mail-link">{{ order.email }}</td>
-                <td>{{ order.status }}</td>
-                <td>
+                <td [ngClass]="{'active': orders[i].checked}">{{ order.name }}</td>
+                <td [ngClass]="{'active': orders[i].checked}">{{ order.date }}</td>
+                <td class="mail-link" [ngClass]="{'active': orders[i].checked}">{{ order.email }}</td>
+                <td [ngClass]="{'active': orders[i].checked}">{{ order.status }}</td>
+                <td [ngClass]="{'active': orders[i].checked}">
                   <div>
                     <mat-chip-list>
                       <mat-chip *ngFor="let attachment of order.attachments"

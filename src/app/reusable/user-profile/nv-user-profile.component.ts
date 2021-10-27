@@ -5,6 +5,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { ApplicationService } from 'src/app/services/application.service';
 import { Subscription } from 'rxjs';
 import { DataService } from 'src/app/services/data.service';
+import { DropItemType } from '../nv-upload/nv-upload.component';
 
 @Component({
   selector: 'app-nv-user-profile',
@@ -17,6 +18,9 @@ export class NvUserProfileComponent implements OnInit {
   userProfiles!: User[];
   sub = new Subscription();
   personData: any = {};
+  userAction: string = 'new';
+  dropItemType = DropItemType;
+  label!: string;
   @ViewChild('fileDropRef') fileDropRef!: ElementRef<HTMLElement>;
   constructor(private _dataService: UserProfileService,
     private applicationService: ApplicationService,
@@ -39,6 +43,11 @@ export class NvUserProfileComponent implements OnInit {
               this.saveuserData();
            }
          })
+
+      this.applicationService.userBtnAction
+           .subscribe(res => {
+              this.userAction = res;
+           });
   }
 
   getSelectedUserData(id: number): void{
@@ -68,6 +77,19 @@ export class NvUserProfileComponent implements OnInit {
       this.applicationService.setNewUserData(this.personData);
     }
     
+  }
+
+  onFileDropped(files: any): void {
+    this.prepareFilesList(files);
+  }
+
+  prepareFilesList(value: any): void {
+    const files = value;
+    const file = files[0];
+    // TODO: Need to be uploaded by doing an http post with the payload instead of log in console
+    // TODO: console.log(file.name) alternative for test
+    const payload = new FormData();
+    payload.append('data', file);
   }
 
   // TODO: using imageService we need to send the image to the backend

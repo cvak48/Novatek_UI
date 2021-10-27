@@ -1,58 +1,58 @@
 @import "../../reusable/theme/base.scss";
-.header{
-    background-color: white;
+.header {
+  background-color: white;
 }
 
-.text-color{
-    color: red;
+.text-color {
+  color: red;
 }
 
 table.my-table {
-    border: none;
-    border-collapse: collapse;
-    width: 100%;
-    text-align: center;
-  }
-  
-  thead.my-table.headers tr th {
-    border: white solid 3px;
-    background-color: darkblue;
-    color: white;
-    height: 25px;
-  }
-  
-  tbody.my-table.body tr td {
-    border: black solid 1px;
-    border-left: none;
-    height: 25px;
-  }
-  
-  tbody.my-table.body tr td.last {
-    border-right: none;
-  }
-  
-  tbody.my-table.body tr.active {
-    background-color: gainsboro;
-    cursor: pointer;
-  }
-  
-  div.pag-space {
-    margin-top: 10px;
-    display: flex;
-    justify-content: space-around;
-  }
-  
-  button.pag-button {
-    width: 50px;
-    height: 20px;
-    cursor: pointer;
-  }
-  
-  select.size-page {
-    width: 100px;
-    text-align-last: center;
-    cursor: pointer;
-  }
+  border: none;
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+}
+
+thead.my-table.headers tr th {
+  border: white solid 3px;
+  background-color: darkblue;
+  color: white;
+  height: 25px;
+}
+
+tbody.my-table.body tr td {
+  border: black solid 1px;
+  border-left: none;
+  height: 25px;
+}
+
+tbody.my-table.body tr td.last {
+  border-right: none;
+}
+
+tbody.my-table.body tr.active {
+  background-color: gainsboro;
+  cursor: pointer;
+}
+
+div.pag-space {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+button.pag-button {
+  width: 50px;
+  height: 20px;
+  cursor: pointer;
+}
+
+select.size-page {
+  width: 100px;
+  text-align-last: center;
+  cursor: pointer;
+}
 
 mat-paginator {
   margin-bottom: 47px !important;
@@ -71,7 +71,6 @@ mat-paginator {
   width: 97%;
   padding-left: 1%;
 }
-
 
 ::ng-deep .mat-icon {
   fill: $color-white !important;
@@ -343,16 +342,33 @@ table.table td {
 ::ng-deep .ngx-pagination a,
 .ngx-pagination button {
   color: $color-light-gray-30 !important;
-  color: #999C9E !important;
-    font-size: 16px;
-    margin-left: 5px;
+  color: #999c9e !important;
+  font-size: 16px;
+  margin-left: 5px;
 }
 
 .rotateimg180 {
-  -webkit-transform:rotate(180deg);
+  -webkit-transform: rotate(180deg);
   -moz-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   -o-transform: rotate(180deg);
   transform: rotate(180deg);
 }
 
+::ng-deep .custom-tooltip {
+  margin-top: -8px !important;
+  margin-left: -15px !important;
+  // height: 20px !important;
+}
+
+.mat-tooltip-panel-below {
+  //margin-top: -100px !important;
+}
+
+.tooltip-size {
+  display: inline-block;
+  width: 180px;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+}

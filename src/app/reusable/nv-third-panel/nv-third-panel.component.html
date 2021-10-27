@@ -1,5 +1,5 @@
 <div class="">
-  <div class="row" style="margin-left: -3px;">
+  <div class="row" style="margin-left: -3px">
     <div class="cpl-sm-6">
       <div class="search-container">
         <app-nv-search
@@ -12,14 +12,14 @@
         ></app-nv-search>
       </div>
     </div>
-    <div class="cpl-sm-2" *ngIf="showAddEditBtns">
+    <div class="cpl-sm-2">
       <app-nv-button
         label="Add"
         class="mr-rt-1"
         (buttonClick)="add()"
       ></app-nv-button>
     </div>
-    <div class="cpl-sm-2" *ngIf="showAddEditBtns">
+    <div class="cpl-sm-2">
       <app-nv-button
         label="Edit"
         class="mr-rt-1"
@@ -49,6 +49,7 @@
     [(sharedVar)]="name"
     [inputPlaceHolder]="placeholder"
     [label]="nameLabel"
+    [status]='nameValidation'
   ></app-nv-input>
 
   <app-nv-input
@@ -56,6 +57,7 @@
     [(sharedVar)]="id"
     [inputPlaceHolder]="placeholder"
     [label]="idLabel"
+    [status]='idValidation'
   ></app-nv-input>
 </div>
 
@@ -111,7 +113,6 @@
           'status-ed': order.status === 'Edited',
           'status-clicked': order.status === 'Clicked'
         }"
-        (click)="clickedRow(order, i)"
         *ngFor="
           let order of orders
             | paginate
@@ -133,8 +134,16 @@
             (click)="checkBoxClicked(order, i)"
           />
         </td>
-        <td *ngFor="let column of columns; let i = index">
-          {{ order[column] }}
+        <td
+          (click)="clickedRow(order, i)"
+          [matTooltip]="order.tooltipText"
+          matTooltipPosition="below"
+          matTooltipClass="custom-tooltip"
+        >
+          {{ order.name }}
+        </td>
+        <td (click)="clickedRow(order, i)">
+          {{ order.id }}
         </td>
       </tr>
     </table>

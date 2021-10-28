@@ -22,6 +22,8 @@ export class NvThirdPanelComponent implements OnInit {
   showDeleteBtn: boolean = true;
   nameValidation = '';
   idValidation = '';
+  button = 'button';
+  disableInput = false;
 
   orders: any[] = [];
   ordersData: any[] = [];
@@ -62,11 +64,11 @@ export class NvThirdPanelComponent implements OnInit {
   ngOnInit(): void {
     this.tableTestData = this.oData;
     this.orders = this.oData;
-    this.orders.map(data => {
-      if(data.name.length >= 10){
+    this.orders.map((data) => {
+      if (data.name.length >= 10) {
         data.tooltipText = data.name;
-        data.name = data.name.substr(0,9) + '....';
-      }else {
+        data.name = data.name.substr(0, 9) + '....';
+      } else {
         data.tooltipText = '';
       }
     });
@@ -212,14 +214,14 @@ export class NvThirdPanelComponent implements OnInit {
         ds.id = this.id;
       }
       this.addData(ds, status);
-      this.nameValidation= '';
-      this.idValidation= '';
-    }else if(!this.name && !this.id){
-      this.nameValidation= 'is-invalid';
+      this.nameValidation = '';
+      this.idValidation = '';
+    } else if (!this.name && !this.id) {
+      this.nameValidation = 'is-invalid';
       this.idValidation = 'is-invalid';
-    }else if(!this.id){
+    } else if (!this.id) {
       this.idValidation = 'is-invalid';
-    }else if(!this.name){
+    } else if (!this.name) {
       this.nameValidation = 'is-invalid';
     }
   }
@@ -230,7 +232,7 @@ export class NvThirdPanelComponent implements OnInit {
       name: data.name,
       status: status,
       checked: false,
-      isUpdated: true
+      isUpdated: true,
     });
     this.name = '';
     this.id = '';
@@ -238,7 +240,7 @@ export class NvThirdPanelComponent implements OnInit {
 
   edit() {
     if (this.name && this.id) {
-     // let tooltip = '';
+      // let tooltip = '';
       const tempName = this.name;
       this.orders.splice(this.selectedItemIndex, 1);
       // if(this.name.length >= 10){
@@ -248,24 +250,25 @@ export class NvThirdPanelComponent implements OnInit {
       //   tooltip = '';
       // }
       this.updateData('Edited');
-      this.nameValidation= '';
-      this.idValidation= '';
+      this.nameValidation = '';
+      this.idValidation = '';
       // this.orders[this.selectedItemIndex].name = this.name;
-    }else if(!this.name && !this.id){
-      this.nameValidation= 'is-invalid';
+    } else if (!this.name && !this.id) {
+      this.nameValidation = 'is-invalid';
       this.idValidation = 'is-invalid';
-    }else if(!this.id){
+    } else if (!this.id) {
       this.idValidation = 'is-invalid';
-    }else if(!this.name){
+    } else if (!this.name) {
       this.nameValidation = 'is-invalid';
     }
   }
 
   delete() {
+    this.disableInput = false;
     if (this.getCheckedDataCount() >= 2) {
       this.deleteCheckedData();
       return;
-    }else if(!this.name) {
+    } else if (!this.name) {
       this.deleteCheckedData();
     }
     if (this.name && this.id) {
@@ -294,11 +297,12 @@ export class NvThirdPanelComponent implements OnInit {
       name: rowData.name,
       status: status,
       checked: false,
-      isUpdated: true
+      isUpdated: true,
     });
   }
 
   undo() {
+    this.disableInput = false;
     this.showDeleteBtn = true;
     this.showAddEditBtns = true;
     this.name = '';
@@ -321,16 +325,18 @@ export class NvThirdPanelComponent implements OnInit {
       name: this.name,
       status: status,
       checked: false,
-      isUpdated: true
+      isUpdated: true,
     });
     this.name = '';
     this.id = '';
   }
 
-  checkBoxClicked(data: any, index: number){
+  checkBoxClicked(data: any, index: number) {
     this.selectedItemIndex = index;
     this.name = data.name;
     this.id = data.id;
+
+    this.disableInput = true;
 
     if (this.orders[index].status === 'No') {
       this.showDeleteBtn = false;
@@ -348,13 +354,15 @@ export class NvThirdPanelComponent implements OnInit {
     }, 10);
   }
 
-  updateStatus(data: any){
-    if(this.orders[this.selectedItemIndex].status !== 'No' &&
-    this.orders[this.selectedItemIndex].status !== 'Edited' &&
-    this.orders[this.selectedItemIndex].status !== 'Completed'){
-      if(data.checked){
+  updateStatus(data: any) {
+    if (
+      this.orders[this.selectedItemIndex].status !== 'No' &&
+      this.orders[this.selectedItemIndex].status !== 'Edited' &&
+      this.orders[this.selectedItemIndex].status !== 'Completed'
+    ) {
+      if (data.checked) {
         this.orders[this.selectedItemIndex].status = 'Clicked';
-      }else{
+      } else {
         this.orders[this.selectedItemIndex].status = 'Pending';
         this.id = '';
         this.name = '';
@@ -363,7 +371,6 @@ export class NvThirdPanelComponent implements OnInit {
   }
 
   clickedRow(data: any, index: number) {
-
     this.selectedItemIndex = index;
     this.name = data.name;
     this.id = data.id;
@@ -385,7 +392,7 @@ export class NvThirdPanelComponent implements OnInit {
     ) {
       this.orders[index].status = 'Clicked';
     }
-    
+
     setTimeout(() => {
       this.updateShowAddEditBtns();
       //this.updateSelectedData(data);

@@ -52,13 +52,136 @@
 </div>
   </div>
   <div class="body">
+    <ng-container *ngIf="userAction == 'new'">
+        <div class="field-block">
+            <label  class="field-label h50 label" >First Name</label>
+            <input class="field-user" type="text" [(ngModel)]="personData.name" name="name" />
+        </div>
+        <div class="field-block">
+            <label  class="field-label h50 label" >Last Name</label>
+            <input class="field-user" type="text" [(ngModel)]="personData.name" name="name" />
+        </div>
+        <div class="field-block">
+            <label  class="field-label h50 label" >User Name</label>
+            <input class="field-user" type="text" [(ngModel)]="personData.name" name="name" />
+        </div>
+        <div class="field-block">
+            <label  class="field-label h50 label" >E Mail</label>
+            <input class="field-user" type="text" [(ngModel)]="personData.name" name="name" />
+        </div>
+        <div class="field-block">
+            <label  class="field-label h50 label" >Unique ID</label>
+            <input class="field-user" type="text" [(ngModel)]="personData.name" name="name" />
+        </div>
+        <div class="field-block">
+            <label  class="field-label h50 label" >Title</label>
+            <input class="field-user" type="text" [(ngModel)]="personData.name" name="name" />
+        </div>
+        <div class="field-block">
+            <label  class="field-label h50 label" >Position</label>
+            <input class="field-user" type="text" [(ngModel)]="personData.name" name="name" />
+        </div>
+        <div class="field-block">
+            <label  class="field-label h50 label" >Employee Number</label>
+            <input class="field-user" type="text" [(ngModel)]="personData.name" name="name" />
+        </div>
+        <div class="field-block">
+            <label  class="field-label h50 label" >Office Phone</label>
+            <input class="field-user" type="text" [(ngModel)]="personData.name" name="name" />
+        </div>
+        <div class="field-block">
+            <label  class="field-label h50 label" >Mobile Phone</label>
+            <input class="field-user" type="text" [(ngModel)]="personData.name" name="name" />
+        </div>
+        <div class="field-block">
+            <label  class="field-label h50 label" >Departments</label>
+            <input class="field-user" type="text" [(ngModel)]="personData.name" name="name" />
+        </div>
+        <div class="field-block">
+            <div class="multi-select-row">
+                <div id="mobilePhone" class="multi-select-field-row">
+                  <app-nv-multiselect-dropdown (filteredItems)="onMultiselectItemsFilter($event)" class="body-item"
+                    label="Sites" [fieldStatusType]="multiselectFieldStatusType">
+                  </app-nv-multiselect-dropdown>
+                </div>
+                <div class="dropdown-plus-container">
+                  <app-nv-dropdown [extensionDirection]="dropdownMenuExtensionDir" [items]="dropdownItems"
+                    [selectedItem]="defaultSelectedItem" [isFieldDisable]="isDropdownDisable"
+                    [fieldStatusType]="dropdownFieldStatusType" [fieldType]="dropDownFieldType"
+                    (itemSelect)="onItemSelect($event)">
+                  </app-nv-dropdown>
+                </div>
+              </div>
+        </div>
+        <div class="field-block">
+            <div class="multi-select-row">
+                <div id="mobilePhone" class="multi-select-field-row">
+                  <app-nv-multiselect-dropdown (filteredItems)="onMultiselectItemsFilter($event)" class="body-item"
+                    label="Teams" [fieldStatusType]="multiselectFieldStatusType">
+                  </app-nv-multiselect-dropdown>
+                </div>
+                <div class="dropdown-plus-container">
+                  <app-nv-dropdown [extensionDirection]="dropdownMenuExtensionDir" [items]="dropdownItems"
+                    [selectedItem]="defaultSelectedItem" [isFieldDisable]="isDropdownDisable"
+                    [fieldStatusType]="dropdownFieldStatusType" [fieldType]="dropDownFieldType"
+                    (itemSelect)="onItemSelect($event)">
+                  </app-nv-dropdown>
+                </div>
+              </div>
+        </div>
+        <div class="field-block">
+            <div class="multi-select-row">
+                <div id="mobilePhone" class="multi-select-field-row">
+                  <app-nv-multiselect-dropdown (filteredItems)="onMultiselectItemsFilter($event)" class="body-item"
+                    label="Roles" [fieldStatusType]="multiselectFieldStatusType">
+                  </app-nv-multiselect-dropdown>
+                </div>
+                <div class="dropdown-plus-container">
+                  <app-nv-dropdown [extensionDirection]="dropdownMenuExtensionDir" [items]="dropdownItems"
+                    [selectedItem]="defaultSelectedItem" [isFieldDisable]="isDropdownDisable"
+                    [fieldStatusType]="dropdownFieldStatusType" [fieldType]="dropDownFieldType"
+                    (itemSelect)="onItemSelect($event)">
+                  </app-nv-dropdown>
+                </div>
+              </div>
+        </div>
+        <div class="field-block">
+            <div class="multi-select-row">
+                <div id="mobilePhone" class="multi-select-field-row">
+                  <app-nv-multiselect-dropdown (filteredItems)="onMultiselectItemsFilter($event)" class="body-item"
+                    label="Module Licenses" [fieldStatusType]="multiselectFieldStatusType">
+                  </app-nv-multiselect-dropdown>
+                </div>
+                <div class="dropdown-plus-container">
+                  <app-nv-dropdown [extensionDirection]="dropdownMenuExtensionDir" [items]="dropdownItems"
+                    [selectedItem]="defaultSelectedItem" [isFieldDisable]="isDropdownDisable"
+                    [fieldStatusType]="dropdownFieldStatusType" [fieldType]="dropDownFieldType"
+                    (itemSelect)="onItemSelect($event)">
+                  </app-nv-dropdown>
+                </div>
+              </div>
+        </div>
+        <div class="date-row">
+            <label for="input" class="field-label h50"> Account Expiry </label>
+            <app-nv-date-picker [isDateRangePicker]="false"></app-nv-date-picker>
+          </div>
+    </ng-container>
+      <ng-container *ngIf="userAction == 'edit'">
     <div class="field-block">
         <label  class="field-label h50 label" >Name</label>
         <input class="field-user" type="text" [(ngModel)]="personData.name" name="name" />
     </div>
+    <div class="field-block">
+        <label  class="field-label h50 label" >Departments</label>
+        <input class="field-user" type="text" [(ngModel)]="personData.name" name="name" />
+    </div>
      <div class="field-block">
-            <label  class="field-label h50 label" >Job Position</label>
+            <label  class="field-label h50 label" >Position</label>
             <input class="field-user" type="text" [(ngModel)]="personData.jobPosition" name="jobPosition" />
+    </div>
+    <div class="field-block">
+        <label  class="field-label h50 label" >Title</label>
+        <input class="field-user" type="text" [(ngModel)]="personData.name" name="name" />
     </div>
     <div class="field-block">
     <label  class="field-label h50 label" >User Name</label>
@@ -69,18 +192,81 @@
         <input class="field-user" type="text" [(ngModel)]="personData.passwordExpiry" name="passwordExpiry" />
     </div>
     <div class="field-block">
-        <label  class="field-label h50 label" >Account Expiry</label>
-        <input class="field-user" type="text" [(ngModel)]="personData.accountExpiry" name="accountExpiry" />
-    </div>
-    <div class="field-block">
         <label  class="field-label h50 label" >Last Login</label>
         <input class="field-user" type="text" [(ngModel)]="personData.lastLogin" name="lastLogin" />
     </div>
-   <!-- <app-nv-button
-    label="Save"
-    
-    (buttonClick)="saveuserData()"
-  ></app-nv-button>-->
+    <div class="field-block">
+        <div class="multi-select-row">
+            <div id="mobilePhone" class="multi-select-field-row">
+              <app-nv-multiselect-dropdown (filteredItems)="onMultiselectItemsFilter($event)" class="body-item"
+                label="Sites" [fieldStatusType]="multiselectFieldStatusType">
+              </app-nv-multiselect-dropdown>
+            </div>
+            <div class="dropdown-plus-container">
+              <app-nv-dropdown [extensionDirection]="dropdownMenuExtensionDir" [items]="dropdownItems"
+                [selectedItem]="defaultSelectedItem" [isFieldDisable]="isDropdownDisable"
+                [fieldStatusType]="dropdownFieldStatusType" [fieldType]="dropDownFieldType"
+                (itemSelect)="onItemSelect($event)">
+              </app-nv-dropdown>
+            </div>
+          </div>
+    </div>
+    <div class="field-block">
+        <div class="multi-select-row">
+            <div id="mobilePhone" class="multi-select-field-row">
+              <app-nv-multiselect-dropdown (filteredItems)="onMultiselectItemsFilter($event)" class="body-item"
+                label="Teams" [fieldStatusType]="multiselectFieldStatusType">
+              </app-nv-multiselect-dropdown>
+            </div>
+            <div class="dropdown-plus-container">
+              <app-nv-dropdown [extensionDirection]="dropdownMenuExtensionDir" [items]="dropdownItems"
+                [selectedItem]="defaultSelectedItem" [isFieldDisable]="isDropdownDisable"
+                [fieldStatusType]="dropdownFieldStatusType" [fieldType]="dropDownFieldType"
+                (itemSelect)="onItemSelect($event)">
+              </app-nv-dropdown>
+            </div>
+          </div>
+    </div>
+    <div class="field-block">
+        <div class="multi-select-row">
+            <div id="mobilePhone" class="multi-select-field-row">
+              <app-nv-multiselect-dropdown (filteredItems)="onMultiselectItemsFilter($event)" class="body-item"
+                label="Roles" [fieldStatusType]="multiselectFieldStatusType">
+              </app-nv-multiselect-dropdown>
+            </div>
+            <div class="dropdown-plus-container">
+              <app-nv-dropdown [extensionDirection]="dropdownMenuExtensionDir" [items]="dropdownItems"
+                [selectedItem]="defaultSelectedItem" [isFieldDisable]="isDropdownDisable"
+                [fieldStatusType]="dropdownFieldStatusType" [fieldType]="dropDownFieldType"
+                (itemSelect)="onItemSelect($event)">
+              </app-nv-dropdown>
+            </div>
+          </div>
+    </div>
+    <div class="field-block">
+        <div class="multi-select-row">
+            <div id="mobilePhone" class="multi-select-field-row">
+              <app-nv-multiselect-dropdown (filteredItems)="onMultiselectItemsFilter($event)" class="body-item"
+                label="Module Licenses" [fieldStatusType]="multiselectFieldStatusType">
+              </app-nv-multiselect-dropdown>
+            </div>
+            <div class="dropdown-plus-container">
+              <app-nv-dropdown [extensionDirection]="dropdownMenuExtensionDir" [items]="dropdownItems"
+                [selectedItem]="defaultSelectedItem" [isFieldDisable]="isDropdownDisable"
+                [fieldStatusType]="dropdownFieldStatusType" [fieldType]="dropDownFieldType"
+                (itemSelect)="onItemSelect($event)">
+              </app-nv-dropdown>
+            </div>
+          </div>
+    </div>
+    <div class="field-block">
+        <div class="date-row">
+            <label for="input" class="field-label h50"> Account Expiry </label>
+            <app-nv-date-picker [isDateRangePicker]="false" [(ngModel)]="personData.accountExpiry"></app-nv-date-picker>
+          </div>
+        
+    </div>
+</ng-container>
   </div>
 
   

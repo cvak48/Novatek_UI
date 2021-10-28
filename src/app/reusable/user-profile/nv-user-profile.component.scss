@@ -136,6 +136,19 @@
       color: $color-black-20;
     }
   
+    .date-row {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        height: 63px;
+        width: 30%;
+  
+        .field-label {
+          color: $color-dark-gray-dde;
+          height: 18px;
+        }
+      }
+
     label {
       position: relative;
       display: flex;
@@ -148,4 +161,8 @@
       border-radius: 4px;
       opacity: 1;
     }
+}
+
+.label-red{
+    color: red;
 }

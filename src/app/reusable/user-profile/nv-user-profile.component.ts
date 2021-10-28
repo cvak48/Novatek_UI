@@ -1,5 +1,5 @@
 import { UserProfileService } from './../../services/local-data/user-profile/user-profile.service';
-import { Person, Notification, User } from './../../model/data-model';
+import { Person, Notification, User, MenuExtensionDirection, DropdownFieldType, FieldStatusType } from './../../model/data-model';
 import { Component, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { ApplicationService } from 'src/app/services/application.service';
@@ -21,6 +21,14 @@ export class NvUserProfileComponent implements OnInit {
   userAction: string = 'new';
   dropItemType = DropItemType;
   label!: string;
+  dropdownItems = mockDropdown().items;
+  defaultSelectedItem = mockDropdown().selectedItemDefault;
+  dropDownFieldType = mockDropdown().dropDownFieldType;
+  dropdownMenuExtensionDir = mockDropdown().menuExtensionDir;
+  dropdownFieldStatusType = mockDropdown().fieldStatusType;
+  isDropdownDisable = mockDropdown().isDisable;
+  multiselectFieldStatusType = FieldStatusType.Normal;
+  multiselectFieldLabel = 'Label';
   @ViewChild('fileDropRef') fileDropRef!: ElementRef<HTMLElement>;
   constructor(private _dataService: UserProfileService,
     private applicationService: ApplicationService,
@@ -54,6 +62,7 @@ export class NvUserProfileComponent implements OnInit {
     this.personData = this.dataService.getUserData(id)[0];
   }
   
+  onMultiselectItemsFilter(item: any): void {}
   /**
    * The img element and input is internally linked with onIconClick event handler;
    * because the input style became hidden and we use menu svg icon instead
@@ -82,6 +91,8 @@ export class NvUserProfileComponent implements OnInit {
   onFileDropped(files: any): void {
     this.prepareFilesList(files);
   }
+
+  onItemSelect(item: any): void {}
 
   prepareFilesList(value: any): void {
     const files = value;
@@ -114,4 +125,26 @@ function mockProfileMenu(): Person {
     } as Notification,
   } as Person;
   return avatarProps;
+}
+
+function mockDropdown(): any {
+  const dropdownInputs = {
+    items: [
+      'item1',
+      'item2 which is longer',
+      'item3 which is longer and ',
+      'item4',
+      'item5',
+      'item6',
+      'item7',
+    ],
+    itemsNumber: ['1', '2', '3', '4', '5', '11', '22', '33', '44', '55'],
+    textTrimNumber: 3,
+    selectedItemDefault: '',
+    menuExtensionDir: MenuExtensionDirection.ToLeft,
+    dropDownFieldType: DropdownFieldType.Icon,
+    fieldStatusType: FieldStatusType.Normal,
+    isDisable: false,
+  };
+  return dropdownInputs;
 }

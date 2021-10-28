@@ -54,19 +54,19 @@
   <div class="body">
     <ng-container *ngIf="userAction == 'new'">
         <div class="field-block">
-            <label  class="field-label h50 label" >First Name</label>
+            <label  class="field-label h50 label label-red" >First Name</label>
             <input class="field-user" type="text" [(ngModel)]="personData.name" name="name" />
         </div>
         <div class="field-block">
-            <label  class="field-label h50 label" >Last Name</label>
+            <label  class="field-label h50 label label-red" >Last Name</label>
             <input class="field-user" type="text" [(ngModel)]="personData.name" name="name" />
         </div>
         <div class="field-block">
-            <label  class="field-label h50 label" >User Name</label>
+            <label  class="field-label h50 label label-red" >User Name</label>
             <input class="field-user" type="text" [(ngModel)]="personData.name" name="name" />
         </div>
         <div class="field-block">
-            <label  class="field-label h50 label" >E Mail</label>
+            <label  class="field-label h50 label label-red" >E Mail</label>
             <input class="field-user" type="text" [(ngModel)]="personData.name" name="name" />
         </div>
         <div class="field-block">
@@ -148,7 +148,7 @@
         <div class="field-block">
             <div class="multi-select-row">
                 <div id="mobilePhone" class="multi-select-field-row">
-                  <app-nv-multiselect-dropdown (filteredItems)="onMultiselectItemsFilter($event)" class="body-item"
+                  <app-nv-multiselect-dropdown  (filteredItems)="onMultiselectItemsFilter($event)" class="body-item"
                     label="Module Licenses" [fieldStatusType]="multiselectFieldStatusType">
                   </app-nv-multiselect-dropdown>
                 </div>
@@ -184,7 +184,7 @@
         <input class="field-user" type="text" [(ngModel)]="personData.name" name="name" />
     </div>
     <div class="field-block">
-    <label  class="field-label h50 label" >User Name</label>
+    <label  class="field-label h50 label" label-red>User Name</label>
     <input class="field-user" type="text" [(ngModel)]="personData.userName" name="userName" />
     </div>
     <div class="field-block">

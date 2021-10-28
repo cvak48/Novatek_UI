@@ -140,19 +140,7 @@
                 <td [ngClass]="{'active': orders[i].checked}">{{ order.date }}</td>
                 <td class="mail-link" [ngClass]="{'active': orders[i].checked}">{{ order.email }}</td>
                 <td [ngClass]="{'active': orders[i].checked}">{{ order.status }}</td>
-                <td [ngClass]="{'active': orders[i].checked}">
-                  <div>
-                    <mat-chip-list>
-                      <mat-chip *ngFor="let attachment of order.attachments"
-                        >{{ attachment.name }}
-                        <img
-                          src="./assets/images/dots.png"
-                          class="more-opt-icon"
-                          alt="chip icon"
-                      /></mat-chip>
-                    </mat-chip-list>
-                  </div>
-                </td>
+               
               </tr>
               <ng-container *ngIf="isRowVisibleAllowed(i)">
                 <tr class="mat-row status-yl">
@@ -161,15 +149,7 @@
                   <td>Date</td>
                   <td>Email</td>
                   <td>Status</td>
-                  <td>
-                    <div>
-                      <span
-                        style="display: block"
-                        *ngFor="let attachment of order.attachments"
-                        >{{ attachment.name }}
-                      </span>
-                    </div>
-                  </td>
+                  
                 </tr>
               </ng-container>
             </ng-container>

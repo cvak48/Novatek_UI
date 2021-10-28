@@ -8,6 +8,7 @@ import { ApplicationService } from 'src/app/services/application.service';
 })
 export class NvSliderPanelComponent implements OnInit {
   @Input() panelNum!: string;
+  @Input() panelTitle!: string;
   @Input() panelSaveBtn!: string;
   @Output() panelClick: EventEmitter<boolean> = new EventEmitter();
   @Output() close = new EventEmitter();

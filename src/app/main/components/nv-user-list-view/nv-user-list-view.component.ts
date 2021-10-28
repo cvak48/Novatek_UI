@@ -2,6 +2,7 @@ import { Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { Subscriber, Subscription } from 'rxjs';
 import { Order } from 'src/app/reusable/test/order';
+import { ApplicationService } from 'src/app/services/application.service';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
@@ -15,13 +16,19 @@ export class NvUserListViewComponent implements OnInit {
   showPanel: string = '1';
   columns: string[] = ['name', 'date', 'email'];
   sub = new Subscription();
-  constructor(private dataService: DataService) { }
+  title: string = '';
+  constructor(private dataService: DataService,
+              private applicationService: ApplicationService) { }
 
   ngOnInit(): void {
     this.sub = this.dataService.getData().subscribe((data) => { 
       this.orders = data;
     });
     this.sub.unsubscribe();
+    this.applicationService.userBtnAction
+           .subscribe(res => {
+              this.title = (res == 'new' ? 'New User' : 'Edit User') ;
+           });
   }
 
   panelClicked(panel: string): void{

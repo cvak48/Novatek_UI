@@ -1,7 +1,7 @@
 <div class="container">
 <div class="user-profile-container">
         <div class="avatar">
-            <span *ngIf="userAction == 'new'">
+            <span *ngIf="userAction == 'new' && !imageSrc">
                 <div class="container-new" appNvFileUpload (fileDropped)="onFileDropped($event)">
                     <div class="d-flex flex-column  align-items-center">
                       <input type="file" #fileDropRef1 id="fileDropRef" multiple (change)="fileBrowseHandler($event)" />
@@ -12,6 +12,16 @@
                     </div>
                   </div>
             </span>
+            <span *ngIf="userAction == 'new' && imageSrc">
+              <div class="container-new" appNvFileUpload (fileDropped)="onFileDropped($event)">
+                  <div class="d-flex flex-column  align-items-center">
+                    <input type="file" #fileDropRef1 id="fileDropRef" multiple (change)="fileBrowseHandler($event)" />
+                    <img class="align-self-center" height="120px" width="120px" [src]="imageSrc || 'http://placehold.it/180'">
+                    <label for="fileDropRef1 h50 d-flex justify-content-center">
+                      <span class="d-flex align-self-center">Upload</span></label>
+                  </div>
+                </div>
+          </span>
             <span *ngIf="userAction == 'edit'">
                 <app-nv-avatar [imgUrl]="person.imageUrl" [person]="person"></app-nv-avatar>
                 <img class="icon" src="./../../../assets/icons/circular-item-menu.icon.svg"
@@ -59,43 +69,43 @@
         </div>
         <div class="field-block">
             <label  class="field-label h50 label label-red" >Last Name</label>
-            <input class="field-user" type="text" [(ngModel)]="personData.name" name="name" />
+            <input class="field-user" type="text" [(ngModel)]="personData.lastName" name="name" />
         </div>
         <div class="field-block">
             <label  class="field-label h50 label label-red" >User Name</label>
-            <input class="field-user" type="text" [(ngModel)]="personData.name" name="name" />
+            <input class="field-user" type="text" [(ngModel)]="personData.userName" name="name" />
         </div>
         <div class="field-block">
             <label  class="field-label h50 label label-red" >E Mail</label>
-            <input class="field-user" type="text" [(ngModel)]="personData.name" name="name" />
+            <input class="field-user" type="text" [(ngModel)]="personData.email" name="name" />
         </div>
         <div class="field-block">
             <label  class="field-label h50 label" >Unique ID</label>
-            <input class="field-user" type="text" [(ngModel)]="personData.name" name="name" />
+            <input class="field-user" type="text" [(ngModel)]="personData.id" name="name" />
         </div>
         <div class="field-block">
             <label  class="field-label h50 label" >Title</label>
-            <input class="field-user" type="text" [(ngModel)]="personData.name" name="name" />
+            <input class="field-user" type="text" [(ngModel)]="personData.title" name="name" />
         </div>
         <div class="field-block">
             <label  class="field-label h50 label" >Position</label>
-            <input class="field-user" type="text" [(ngModel)]="personData.name" name="name" />
+            <input class="field-user" type="text" [(ngModel)]="personData.position" name="name" />
         </div>
         <div class="field-block">
             <label  class="field-label h50 label" >Employee Number</label>
-            <input class="field-user" type="text" [(ngModel)]="personData.name" name="name" />
+            <input class="field-user" type="text" [(ngModel)]="personData.empNumber" name="name" />
         </div>
         <div class="field-block">
             <label  class="field-label h50 label" >Office Phone</label>
-            <input class="field-user" type="text" [(ngModel)]="personData.name" name="name" />
+            <input class="field-user" type="text" [(ngModel)]="personData.officePhone" name="name" />
         </div>
         <div class="field-block">
             <label  class="field-label h50 label" >Mobile Phone</label>
-            <input class="field-user" type="text" [(ngModel)]="personData.name" name="name" />
+            <input class="field-user" type="text" [(ngModel)]="personData.mobile" name="name" />
         </div>
         <div class="field-block">
             <label  class="field-label h50 label" >Departments</label>
-            <input class="field-user" type="text" [(ngModel)]="personData.name" name="name" />
+            <input class="field-user" type="text" [(ngModel)]="personData.department" name="name" />
         </div>
         <div class="field-block">
             <div class="multi-select-row">

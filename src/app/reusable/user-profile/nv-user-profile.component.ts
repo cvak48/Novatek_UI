@@ -6,6 +6,7 @@ import { ApplicationService } from 'src/app/services/application.service';
 import { Subscription } from 'rxjs';
 import { DataService } from 'src/app/services/data.service';
 import { DropItemType } from '../nv-upload/nv-upload.component';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-nv-user-profile',
@@ -29,10 +30,14 @@ export class NvUserProfileComponent implements OnInit {
   isDropdownDisable = mockDropdown().isDisable;
   multiselectFieldStatusType = FieldStatusType.Normal;
   multiselectFieldLabel = 'Label';
+  imageSelected: any;
+  imageSrc: any;
+  selecetdFile!: File;
   @ViewChild('fileDropRef') fileDropRef!: ElementRef<HTMLElement>;
   constructor(private _dataService: UserProfileService,
     private applicationService: ApplicationService,
-    private dataService: DataService) {}
+    private dataService: DataService,
+    private http: HttpClient) {}
   ngOnInit(): void {
     this.sub = this.applicationService.selectedUserData
               .subscribe(res => {
@@ -77,6 +82,15 @@ export class NvUserProfileComponent implements OnInit {
   fileBrowseHandler(event: any): void {
     const files = event?.target?.files;
     this.person.imageUrl = files[0].name;
+    this.selecetdFile = event.target.files[0];
+this.imageSelected = this.selecetdFile.name;
+if (event.target.files && event.target.files[0]) {
+  const reader = new FileReader();
+  reader.onload = (e: any) => {
+    this.imageSrc = e.target.result;
+  };
+  reader.readAsDataURL(event.target.files[0]);
+}
   }
 
   saveuserData(): void{

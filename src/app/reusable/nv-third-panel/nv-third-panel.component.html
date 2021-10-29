@@ -13,17 +13,11 @@
       </div>
     </div>
     <div class="cpl-sm-2">
-      <!-- <app-nv-input
-      class="mr-rt-1"
-      [label]="Add"
-      [inputType]="button"
-      [disableInput]="true"
-    ></app-nv-input> -->
-
       <app-nv-button
         label="Add"
         class="mr-rt-1"
         (buttonClick)="add()"
+        [disableButton]="disableAddButton"
       ></app-nv-button>
     </div>
     <div class="cpl-sm-2">
@@ -31,6 +25,7 @@
         label="Edit"
         class="mr-rt-1"
         (buttonClick)="edit()"
+        [disableButton]="disableEditButton"
       ></app-nv-button>
     </div>
     <div class="cpl-sm-2" *ngIf="showDeleteBtn">

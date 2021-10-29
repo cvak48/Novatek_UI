@@ -1,4 +1,4 @@
-@import './../theme/base.scss';
+@import "./../theme/base.scss";
 
 .button-container {
   display: flex;
@@ -8,7 +8,6 @@
   width: 98px;
   height: 40px;
   cursor: pointer;
-
 
   &.theme-color-Basic {
     background-color: $color-light-gray-22;
@@ -49,6 +48,9 @@
       background-color: $color-dark-blue-18;
     }
   }
+}
 
-
+.disable-button {
+  pointer-events: none;
+  opacity: 0.5;
 }

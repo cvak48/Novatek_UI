@@ -1,9 +1,11 @@
-<div   class="{{'button-container theme-color-' + themeColors[color]}}"
-(click)="onClick();">
-<div class="button">
-    <div class="h50 label">
-        {{label}}
+<div
+  class="{{ 'button-container theme-color-' + themeColors[color] }}"
+  [ngClass]="{ 'disable-button': disableButton }"
+  (click)="onClick()"
+>
+    <div class="button">
+      <div class="h50 label">
+        {{ label }}
+      </div>
     </div>
-</div>
-   
 </div>

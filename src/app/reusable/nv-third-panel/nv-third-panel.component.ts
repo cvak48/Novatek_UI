@@ -24,6 +24,8 @@ export class NvThirdPanelComponent implements OnInit {
   idValidation = '';
   button = 'button';
   disableInput = false;
+  disableAddButton = false;
+  disableEditButton = false;
 
   orders: any[] = [];
   ordersData: any[] = [];
@@ -289,6 +291,8 @@ export class NvThirdPanelComponent implements OnInit {
     this.name = '';
     this.id = '';
     this.showDeleteBtn = false;
+    this.disableAddButton = false;
+    this.disableEditButton = false;
   }
 
   updateRowData(status: string, rowData: any) {
@@ -305,6 +309,7 @@ export class NvThirdPanelComponent implements OnInit {
     this.disableInput = false;
     this.showDeleteBtn = true;
     this.showAddEditBtns = true;
+    this.disableAddButton = false;
     this.name = '';
     this.id = '';
     //if(this.name){
@@ -320,6 +325,7 @@ export class NvThirdPanelComponent implements OnInit {
   }
 
   updateData(status: string) {
+    this.disableAddButton = false;
     this.orders.unshift({
       id: this.id,
       name: this.name,
@@ -333,10 +339,8 @@ export class NvThirdPanelComponent implements OnInit {
 
   checkBoxClicked(data: any, index: number) {
     this.selectedItemIndex = index;
-    this.name = data.name;
-    this.id = data.id;
-
-    this.disableInput = true;
+    this.name = '';// data.name;
+    this.id = '';//data.id;
 
     if (this.orders[index].status === 'No') {
       this.showDeleteBtn = false;
@@ -350,7 +354,9 @@ export class NvThirdPanelComponent implements OnInit {
     });
     setTimeout(() => {
       this.updateShowAddEditBtns();
+      this.disableButtons();
       this.updateStatus(data);
+      this.updateDisableInput(data);
     }, 10);
   }
 
@@ -364,16 +370,27 @@ export class NvThirdPanelComponent implements OnInit {
         this.orders[this.selectedItemIndex].status = 'Clicked';
       } else {
         this.orders[this.selectedItemIndex].status = 'Pending';
-        this.id = '';
-        this.name = '';
+        //this.id = '';
+        //this.name = '';
       }
     }
+    // if(data.checked == false){
+    //   this.id = '';
+    //   this.name = '';
+    // }
   }
 
   clickedRow(data: any, index: number) {
     this.selectedItemIndex = index;
     this.name = data.name;
     this.id = data.id;
+
+    this.disableAddButton = true;
+    if(data.status == 'No'){
+      this.disableEditButton = true;
+    }else {
+      this.disableEditButton = false;
+    }
 
     this.orders.forEach((item) => {
       if (item.status === 'Clicked' && item.checked == false) {
@@ -410,14 +427,37 @@ export class NvThirdPanelComponent implements OnInit {
   }
 
   private updateShowAddEditBtns() {
+    //remove this code
     if (this.getCheckedDataCount() >= 2) {
       this.showAddEditBtns = false;
     } else {
       this.showAddEditBtns = true;
     }
+    // till here
+
   }
 
-  getCheckedDataCount() {
+  private disableButtons(){
+    //console.log(this.orders.every(item => item.checked === false));
+    
+    if(this.orders.every(item => item.checked === false)){
+      this.disableAddButton = false;
+      this.disableEditButton = false;
+    }else {
+      this.disableAddButton = true;
+      this.disableEditButton = true;
+    }
+  }
+
+  private updateDisableInput(data : any){
+    if(data.checked == true){
+      this.disableInput = true;
+    }else {
+      this.disableInput = false;
+    }
+  }
+
+  private getCheckedDataCount() {
     let count = 0;
     this.orders.forEach((item) => {
       if (item.checked) {

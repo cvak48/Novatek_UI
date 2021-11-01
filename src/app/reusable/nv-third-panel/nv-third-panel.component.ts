@@ -211,9 +211,19 @@ export class NvThirdPanelComponent implements OnInit {
         this.orders.splice(index, 1);
         status = 'Clicked';
       } else if (ds === undefined) {
+
+        let tooltip = '';
+        const tempName = this.name;
+        if(this.name.length >= 10){
+          tooltip = tempName;
+          this.name = this.name.substr(0,9) + '....';
+        }else {
+          tooltip = '';
+        }
         ds = {};
         ds.name = this.name;
         ds.id = this.id;
+        ds.tooltip = tooltip;
       }
       this.addData(ds, status);
       this.nameValidation = '';
@@ -234,7 +244,8 @@ export class NvThirdPanelComponent implements OnInit {
       name: data.name,
       status: status,
       checked: false,
-      isUpdated: true,
+      tempStatus: status,
+      tooltipText: data.tooltip
     });
     this.name = '';
     this.id = '';
@@ -242,16 +253,16 @@ export class NvThirdPanelComponent implements OnInit {
 
   edit() {
     if (this.name && this.id) {
-      // let tooltip = '';
-      const tempName = this.name;
       this.orders.splice(this.selectedItemIndex, 1);
-      // if(this.name.length >= 10){
-      //   tooltip = tempName;
-      //   this.name = this.name.substr(0,9) + '....';
-      // }else {
-      //   tooltip = '';
-      // }
-      this.updateData('Edited');
+      let tooltip = '';
+      const tempName = this.name;
+      if(this.name.length >= 10){
+        tooltip = tempName;
+        this.name = this.name.substr(0,9) + '....';
+      }else {
+        tooltip = '';
+      }
+      this.updateData('Edited', tooltip);
       this.nameValidation = '';
       this.idValidation = '';
       // this.orders[this.selectedItemIndex].name = this.name;
@@ -275,7 +286,15 @@ export class NvThirdPanelComponent implements OnInit {
     }
     if (this.name && this.id) {
       this.orders.splice(this.selectedItemIndex, 1);
-      this.updateData('No');
+      let tooltip = '';
+      const tempName = this.name;
+      if(this.name.length >= 10){
+        tooltip = tempName;
+        this.name = this.name.substr(0,9) + '....';
+      }else {
+        tooltip = '';
+      }
+      this.updateData('No', tooltip);
       this.showDeleteBtn = false;
       this.selectedItemIndex = 0;
     }
@@ -301,7 +320,7 @@ export class NvThirdPanelComponent implements OnInit {
       name: rowData.name,
       status: status,
       checked: false,
-      isUpdated: true,
+      tempStatus: status
     });
   }
 
@@ -314,24 +333,27 @@ export class NvThirdPanelComponent implements OnInit {
     this.id = '';
     //if(this.name){
     this.orders[this.selectedItemIndex].status = 'Pending';
+    this.orders[this.selectedItemIndex].tempStatus = 'Pending';
     //}
     this.orders.forEach((item, index) => {
       if (item.checked) {
         this.orders[index].status = 'Pending';
+        this.orders[index].tempStatus = 'Pending';
         this.orders[index].checked = false;
         //this.updateRowData('No', item);
       }
     });
   }
 
-  updateData(status: string) {
+  updateData(status: string, tooltipText: string) {
     this.disableAddButton = false;
     this.orders.unshift({
       id: this.id,
       name: this.name,
       status: status,
       checked: false,
-      isUpdated: true,
+      tempStatus: status,
+      tooltipText: tooltipText
     });
     this.name = '';
     this.id = '';
@@ -361,28 +383,43 @@ export class NvThirdPanelComponent implements OnInit {
   }
 
   updateStatus(data: any) {
-    if (
-      this.orders[this.selectedItemIndex].status !== 'No' &&
-      this.orders[this.selectedItemIndex].status !== 'Edited' &&
-      this.orders[this.selectedItemIndex].status !== 'Completed'
-    ) {
-      if (data.checked) {
-        this.orders[this.selectedItemIndex].status = 'Clicked';
-      } else {
-        this.orders[this.selectedItemIndex].status = 'Pending';
-        //this.id = '';
-        //this.name = '';
-      }
-    }
-    // if(data.checked == false){
-    //   this.id = '';
-    //   this.name = '';
+    // if (
+    //   this.orders[this.selectedItemIndex].status !== 'No' &&
+    //   this.orders[this.selectedItemIndex].status !== 'Edited' &&
+    //   this.orders[this.selectedItemIndex].status !== 'Completed'
+    // ) {
+    //   if (data.checked) {
+    //     this.orders[this.selectedItemIndex].status = 'Clicked';
+    //   } else {
+    //     this.orders[this.selectedItemIndex].status = 'Pending';
+    //   }
     // }
+
+    if (data.checked == false ) {
+      this.orders[this.selectedItemIndex].status = this.orders[this.selectedItemIndex].tempStatus;
+    }else {
+      this.orders.map(item => {
+        if(item.checked){
+          item.status = 'Clicked';
+        }
+      });  
+      // this.orders[this.selectedItemIndex].status = 'Clicked';
+    }
+    // this.orders.forEach((data, index) => {
+    //   if(this.selectedItemIndex !== index){
+    //     data.status = data.tempStatus;
+    //   }
+    // });
   }
 
-  clickedRow(data: any, index: number) {
-    this.selectedItemIndex = index;
+  clickedRow(data: any, indexx: number) {
+    this.selectedItemIndex = indexx;
     this.name = data.name;
+    if( this.orders[this.selectedItemIndex].tooltipText != undefined && this.orders[this.selectedItemIndex].tooltipText.length > 0){
+      this.name = this.orders[this.selectedItemIndex].tooltipText;
+    }else {
+      this.name = data.name;
+    }
     this.id = data.id;
 
     this.disableAddButton = true;
@@ -397,18 +434,25 @@ export class NvThirdPanelComponent implements OnInit {
         item.status = 'Pending';
       }
     });
-    if (this.orders[index].status === 'No') {
+    if (this.orders[indexx].status === 'No') {
       this.showDeleteBtn = false;
     } else {
       this.showDeleteBtn = true;
     }
-    if (
-      this.orders[index].status !== 'No' &&
-      this.orders[index].status !== 'Edited' &&
-      this.orders[index].status !== 'Completed'
-    ) {
-      this.orders[index].status = 'Clicked';
-    }
+
+    this.orders[indexx].status = 'Clicked';
+    this.orders.forEach((data, index) => {
+      if(indexx !== index){
+        data.status = data.tempStatus;
+      }
+    });
+    // if (
+    //   this.orders[index].status !== 'No' &&
+    //   this.orders[index].status !== 'Edited' &&
+    //   this.orders[index].status !== 'Completed'
+    // ) {
+    //   this.orders[index].status = 'Clicked';
+    // }
 
     setTimeout(() => {
       this.updateShowAddEditBtns();

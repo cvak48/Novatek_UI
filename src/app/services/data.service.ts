@@ -13,42 +13,42 @@ export class DataService {
           'name': 'Veera',
           'status': 'Pending',
           'checked': false,
-          'isUpdated': false
+          'tempStatus': 'Pending'
         },
         {
           'id': 2,
           'name': 'Sina',
           'status': 'Pending',
           'checked': false,
-          'isUpdated': false
+          'tempStatus': 'Pending'
         },
         {
           'id': 3,
           'name': 'Amir',
           'status': 'Pending',
           'checked': false,
-          'isUpdated': false
+          'tempStatus': 'Pending'
         },
         {
           'id': 4,
           'name': 'Payam',
           'status': 'Pending',
           'checked': false,
-          'isUpdated': false
+          'tempStatus': 'Pending'
         },
         {
           'id': 5,
           'name': 'Dhaval',
           'status': 'Pending',
           'checked': false,
-          'isUpdated': false
+          'tempStatus': 'Pending'
         },  
         {
           'id': 6,
           'name': 'Very very very very long long name ',
           'status': 'Pending',
           'checked': false,
-          'isUpdated': false
+          'tempStatus': 'Pending'
         }      
       ]
         return of(data);

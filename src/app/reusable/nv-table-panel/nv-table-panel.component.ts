@@ -26,7 +26,7 @@ export class NvTablePanelComponent implements OnInit {
   pageSize = 10;
   pageSizes = [5, 10, 20, 50, 100];
   pageNewSizes = ['5', '10', '20', '50', '100'];
-  columns = ['name', 'date', 'email', 'status'];
+  columns = ['name', 'title', 'position', 'date', 'email', 'status'];
   directionLinks: boolean = true;
   autoHide: boolean = false;
   responsive: boolean = true;

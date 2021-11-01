@@ -45,7 +45,7 @@ export class NvUserProfileComponent implements OnInit {
                  if (res.id) {
                   this.getSelectedUserData(res.id);
                  } else {
-                  this.personData = {attachments: [], checked: true, date: "", email: "", id: 0, name: "",status: ""};
+                  this.personData = {attachments: [], checked: false, date: "", email: "", id: 0, name: "",status: "", title:"", position: ""};
                  }
                   
               })

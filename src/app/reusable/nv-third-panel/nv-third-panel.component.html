@@ -89,22 +89,22 @@
           <span>
             <mat-icon class="img" *ngIf="sortColumn != column"
               ><img
-                src="../../../assets/icons/table-shorting.icon.svg"
-                (click)="rowImgClicked($event)"
+                src="../../../assets/icons/table-sorting-ascending.icon.svg"
+                (click)="rowImgClicked($event, 'ascending')"
             /></mat-icon>
             <mat-icon
               class="img"
               *ngIf="sortColumn == column && sortPreference == 'ascending'"
               ><img
-                src="../../../assets/icons/table-shorting.icon.svg"
-                (click)="rowImgClicked($event)"
+                src="../../../assets/icons/table-sorting-ascending.icon.svg"
+                (click)="rowImgClicked($event, 'ascending')"
             /></mat-icon>
             <mat-icon
-              class="img rotateimg180"
+              class="img"
               *ngIf="sortColumn == column && sortPreference == 'descending'"
               ><img
                 src="../../../assets/icons/table-shorting.icon.svg"
-                (click)="rowImgClicked($event)" /></mat-icon
+                (click)="rowImgClicked($event, 'descending')" /></mat-icon
           ></span>
         </th>
       </tr>

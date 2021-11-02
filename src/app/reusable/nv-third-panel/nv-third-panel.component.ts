@@ -172,13 +172,13 @@ export class NvThirdPanelComponent implements OnInit {
   }
 
   rowClicked(event: any): void {
+    event.stopPropagation();
+  }
+
+  rowImgClicked(event: any, sortingOrder: string): void {
     this.sortColumn = event.target.innerText.trim().toLowerCase();
     this.sortPreference = event.target.ariaSort;
     console.log('event', event.target, event.target.ariaSort);
-  }
-
-  rowImgClicked(event: any): void {
-    event.stopPropagation();
   }
 
   /**

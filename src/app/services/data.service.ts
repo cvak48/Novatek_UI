@@ -49,7 +49,28 @@ export class DataService {
           'status': 'Pending',
           'checked': false,
           'tempStatus': 'Pending'
-        }      
+        },
+        {
+          'id': 9,
+          'name': 'John',
+          'status': 'Pending',
+          'checked': false,
+          'tempStatus': 'Pending'
+        },
+        {
+          'id': 6,
+          'name': 'Hommi ',
+          'status': 'Pending',
+          'checked': false,
+          'tempStatus': 'Pending' 
+        }, 
+        {
+          'id': 11,
+          'name': 'Hello',
+          'status': 'Pending',
+          'checked': false,
+          'tempStatus': 'Pending' 
+        },    
       ]
         return of(data);
       }

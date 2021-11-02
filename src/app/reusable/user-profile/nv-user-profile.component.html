@@ -1,5 +1,5 @@
 <div class="container">
-<div class="user-profile-container">
+<div class="user-profile-container" *ngIf="!multiUser">
         <div class="avatar">
             <span *ngIf="userAction == 'new' && !imageSrc">
                 <div class="container-new" appNvFileUpload (fileDropped)="onFileDropped($event)">
@@ -183,15 +183,15 @@
     </div>
     <div class="field-block">
         <label  class="field-label h50 label" >Departments</label>
-        <input class="field-user" type="text" [(ngModel)]="personData.name" name="name" />
+        <input class="field-user" type="text" [(ngModel)]="personData.departmant" name="name" />
     </div>
      <div class="field-block">
             <label  class="field-label h50 label" >Position</label>
-            <input class="field-user" type="text" [(ngModel)]="personData.jobPosition" name="jobPosition" />
+            <input class="field-user" type="text" [(ngModel)]="personData.position" name="jobPosition" />
     </div>
     <div class="field-block">
         <label  class="field-label h50 label" >Title</label>
-        <input class="field-user" type="text" [(ngModel)]="personData.name" name="name" />
+        <input class="field-user" type="text" [(ngModel)]="personData.title" name="name" />
     </div>
     <div class="field-block">
     <label  class="field-label h50 label" label-red>User Name</label>

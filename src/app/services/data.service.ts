@@ -386,7 +386,8 @@ export class DataService {
           'passwordExpiry': '12-25-2025',
           'accountExpiry': '12-25-2025',
           'lastLogin': '09-25-2021',
-          'jobPosition': 'Team Lead'
+          'position': 'Team Lead',
+          'title': 'Lead1'
         },
         {
           'id': 2,
@@ -395,7 +396,8 @@ export class DataService {
           'passwordExpiry': '12-25-2025',
           'accountExpiry': '12-25-2025',
           'lastLogin': '09-25-2021',
-          'jobPosition': 'QA Lead'
+          'position': 'QA Lead',
+          'title': 'Lead2'
         },
       {
         'id': 3,
@@ -404,7 +406,8 @@ export class DataService {
         'passwordExpiry': '12-25-2023',
         'accountExpiry': '12-25-2024',
         'lastLogin': '09-25-2021',
-        'jobPosition': 'Manager'
+        'position': 'Manager',
+        'title': 'Lead3'
       },
       {
         'id': 4,
@@ -413,7 +416,8 @@ export class DataService {
         'passwordExpiry': '12-25-2022',
         'accountExpiry': '12-25-2023',
         'lastLogin': '09-25-2020',
-        'jobPosition': 'Developer'
+        'position': 'Developer',
+        'title': 'Lead4'
       },
       {
         'id': 5,
@@ -422,7 +426,8 @@ export class DataService {
         'passwordExpiry': '12-25-2022',
         'accountExpiry': '12-25-2023',
         'lastLogin': '09-25-2020',
-        'jobPosition': 'Tester'
+        'position': 'Tester',
+        'title': 'Lead5'
       }
 
       ];

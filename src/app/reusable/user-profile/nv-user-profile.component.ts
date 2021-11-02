@@ -33,6 +33,8 @@ export class NvUserProfileComponent implements OnInit {
   imageSelected: any;
   imageSrc: any;
   selecetdFile!: File;
+  multiUser: boolean = false;
+  multiUserList: any = [];
   @ViewChild('fileDropRef') fileDropRef!: ElementRef<HTMLElement>;
   constructor(private _dataService: UserProfileService,
     private applicationService: ApplicationService,
@@ -42,8 +44,15 @@ export class NvUserProfileComponent implements OnInit {
     this.sub = this.applicationService.selectedUserData
               .subscribe(res => {
                 //  this.personData = res;
-                 if (res.id) {
-                  this.getSelectedUserData(res.id);
+                 if (res.length) {
+                   if (res.length == 1) {
+                    this.multiUser = false;
+                    this.getSelectedUserData(res[0].id);
+                   } else {
+                      this.multiUser = true;
+                      this.multiUserList = res;
+                   }
+                  
                  } else {
                   this.personData = {attachments: [], checked: false, date: "", email: "", id: 0, name: "",status: "", title:"", position: ""};
                  }
@@ -94,10 +103,17 @@ if (event.target.files && event.target.files[0]) {
   }
 
   saveuserData(): void{
-    if (this.personData.id > 0) {
+    console.log('update', this.personData)
+    if (this.personData.id && this.personData.id > 0) {
       this.applicationService.setUpdatedUserData(this.personData);
-    } else {
+    } else if (this.personData.id && this.personData.id == 0) {
       this.applicationService.setNewUserData(this.personData);
+    } else {
+       this.multiUserList.map((user: any) => {
+         user.title = this.personData.title;
+         user.position = this.personData.position;
+       });
+       this.applicationService.setNewUserData(this.multiUserList);
     }
     
   }

@@ -28,6 +28,8 @@ export class NvThirdPanelComponent implements OnInit {
   disableEditButton = false;
   sortDir = 1;//1= 'ASE' -1= DSC
 
+  private collator = new Intl.Collator(undefined, {numeric: true, sensitivity: "base"});
+
   orders: any[] = [];
   ordersData: any[] = [];
   page = 1;
@@ -77,9 +79,7 @@ export class NvThirdPanelComponent implements OnInit {
     });
     this.ordersData = this.oData;
     this.count = this.orders.length;
-    // this.teams.push({name: "John", id:'123', status: "true", checked: true});
-    // this.teams.push({name: "Tom", id:'345', status: "true", checked: true});
-    // this.teamsData.push({name: "Ram", id:'123', status: "true", checked: true});
+    //this.sortArr('name');
   }
 
   buttonClick() {}
@@ -176,12 +176,12 @@ export class NvThirdPanelComponent implements OnInit {
     event.stopPropagation();
   }
 
-  rowImgClicked(event: any, sortingOrder: string): void {
-    this.sortColumn = event.target.innerText.trim().toLowerCase();
-    this.sortPreference = event.target.ariaSort;
-    console.log('event', event.target, event.target.ariaSort);
+  rowImgClicked(event: any, sortingOrder: string, column: string): void {
+    //this.sortColumn = event.target.innerText.trim().toLowerCase();
+    //this.sortPreference = event.target.ariaSort;
+    console.log(event.target.outerHTML.indexOf('sort.down'));
 
-    this.sortColumn = "name";
+    this.sortColumn = column; //"name";
     
     if(sortingOrder === 'descending'){
       this.sortDir= -1;
@@ -190,13 +190,19 @@ export class NvThirdPanelComponent implements OnInit {
       this.sortDir= 1;
       this.sortPreference = 'descending';
     }
-    this.sortArr('name');
+    this.sortArr(this.sortColumn);
   }
 
   sortArr(colName:any){
     this.orders.sort((a,b)=>{
-      a= a[colName].toLowerCase();
-      b= b[colName].toLowerCase();
+      if(colName == 'id'){
+        // a= a[colName].toString();
+        // b= b[colName].toString();
+        return this.collator.compare(a[colName],b[colName])* this.sortDir;
+      }else {
+        a= a[colName].toLowerCase();
+        b= b[colName].toLowerCase();
+      }
       return a.localeCompare(b) * this.sortDir;
     });
   }
@@ -217,9 +223,15 @@ export class NvThirdPanelComponent implements OnInit {
   add() {
     if (this.name && this.id) {
       let status = 'Completed';
-      let ds = this.orders.find(
-        (data) => data.name.toLowerCase() === this.name.toLowerCase()
-      );
+      let ds: any;
+      this.orders.forEach(data => {
+        if( data.name.toLowerCase() === this.name.toLowerCase() && data.id == this.id){
+          ds = data;
+        }
+      });
+    //  ds = this.orders.find(
+    //     (data) => data.name.toLowerCase() === this.name.toLowerCase()
+    //   );
       if (
         ds !== undefined &&
         ds.name.toLowerCase() === this.name.toLowerCase() &&

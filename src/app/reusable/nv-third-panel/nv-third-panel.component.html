@@ -84,8 +84,7 @@
           class="mat-header-cell"
         >
           {{ column }} 
-
-          <span>
+          <!-- <span>
             <i
               class="material-icons"
               *ngIf="sortColumn != column"
@@ -107,27 +106,27 @@
             >
               arrow_downward</i
             >
-            </span>
-                  <!-- <span>
+            </span> -->
+                  <span>
             <mat-icon class="img" *ngIf="sortColumn != column"
               ><img
-                src="../../../assets/icons/table-sorting-ascending.icon.svg"
-                (click)="rowImgClicked($event, 'ascending')"
+                src="../../../assets/icons/ico.table.sort.up.svg" style="width: 11px;"
+                (click)="rowImgClicked($event, 'ascending', column)"
             /></mat-icon>
             <mat-icon
               class="img"
               *ngIf="sortColumn == column && sortPreference == 'ascending'"
               ><img
-                src="../../../assets/icons/table-sorting-ascending.icon.svg"
-                (click)="rowImgClicked($event, 'ascending')"
+                src="../../../assets/icons/ico.table.sort.up.svg" style="width: 11px;"
+                (click)="rowImgClicked($event, 'ascending', column)"
             /></mat-icon>
             <mat-icon
               class="img"
               *ngIf="sortColumn == column && sortPreference == 'descending'"
               ><img
-                src="../../../assets/icons/table-shorting.icon.svg"
-                (click)="rowImgClicked($event, 'descending')" /></mat-icon
-          ></span> -->
+                src="../../../assets/icons/ico.table.sort.down.svg" style="width: 11px;"
+                (click)="rowImgClicked($event, 'descending', column)" /></mat-icon
+          ></span>
         </th>
       </tr>
       <tr

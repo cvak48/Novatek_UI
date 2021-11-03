@@ -26,6 +26,7 @@ export class NvThirdPanelComponent implements OnInit {
   disableInput = false;
   disableAddButton = false;
   disableEditButton = false;
+  sortDir = 1;//1= 'ASE' -1= DSC
 
   orders: any[] = [];
   ordersData: any[] = [];
@@ -179,6 +180,25 @@ export class NvThirdPanelComponent implements OnInit {
     this.sortColumn = event.target.innerText.trim().toLowerCase();
     this.sortPreference = event.target.ariaSort;
     console.log('event', event.target, event.target.ariaSort);
+
+    this.sortColumn = "name";
+    
+    if(sortingOrder === 'descending'){
+      this.sortDir= -1;
+      this.sortPreference = 'ascending';
+    }else {
+      this.sortDir= 1;
+      this.sortPreference = 'descending';
+    }
+    this.sortArr('name');
+  }
+
+  sortArr(colName:any){
+    this.orders.sort((a,b)=>{
+      a= a[colName].toLowerCase();
+      b= b[colName].toLowerCase();
+      return a.localeCompare(b) * this.sortDir;
+    });
   }
 
   /**

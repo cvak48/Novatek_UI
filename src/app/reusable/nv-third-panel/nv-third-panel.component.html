@@ -51,7 +51,7 @@
     [(sharedVar)]="name"
     [inputPlaceHolder]="placeholder"
     [label]="nameLabel"
-    [status]='nameValidation'
+    [status]="nameValidation"
     [disableInput]="disableInput"
   ></app-nv-input>
 
@@ -60,7 +60,7 @@
     [(sharedVar)]="id"
     [inputPlaceHolder]="placeholder"
     [label]="idLabel"
-    [status]='idValidation'
+    [status]="idValidation"
     [disableInput]="disableInput"
   ></app-nv-input>
 </div>
@@ -81,12 +81,34 @@
           (click)="rowClicked($event)"
           *ngFor="let column of columns; let i = index"
           scope="col"
-          [mdbTableSort]="orders"
-          [sortBy]="columns[i]"
           class="mat-header-cell"
         >
-          {{ column }}
+          {{ column }} 
+
           <span>
+            <i
+              class="material-icons"
+              *ngIf="sortColumn != column"
+              (click)="rowImgClicked($event, 'ascending')"
+            >
+              arrow_upward</i
+            >
+            <i
+              class="material-icons"
+              *ngIf="sortColumn == column && sortPreference == 'ascending'"
+              (click)="rowImgClicked($event, 'ascending')"
+            >
+              arrow_upward</i
+            >
+            <i
+              class="material-icons"
+              *ngIf="sortColumn == column && sortPreference == 'descending'"
+              (click)="rowImgClicked($event, 'descending')"
+            >
+              arrow_downward</i
+            >
+            </span>
+                  <!-- <span>
             <mat-icon class="img" *ngIf="sortColumn != column"
               ><img
                 src="../../../assets/icons/table-sorting-ascending.icon.svg"
@@ -105,7 +127,7 @@
               ><img
                 src="../../../assets/icons/table-shorting.icon.svg"
                 (click)="rowImgClicked($event, 'descending')" /></mat-icon
-          ></span>
+          ></span> -->
         </th>
       </tr>
       <tr

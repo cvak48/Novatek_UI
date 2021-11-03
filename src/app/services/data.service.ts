@@ -66,7 +66,7 @@ export class DataService {
         }, 
         {
           'id': 11,
-          'name': 'Hello',
+          'name': 'hello',
           'status': 'Pending',
           'checked': false,
           'tempStatus': 'Pending' 

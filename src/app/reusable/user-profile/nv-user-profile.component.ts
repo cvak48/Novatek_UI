@@ -103,7 +103,7 @@ if (event.target.files && event.target.files[0]) {
   }
 
   saveuserData(): void{
-    console.log('update', this.personData)
+ 
     if (this.personData.id && this.personData.id > 0) {
       this.applicationService.setUpdatedUserData(this.personData);
     } else if (this.personData.id && this.personData.id == 0) {
@@ -131,6 +131,10 @@ if (event.target.files && event.target.files[0]) {
     // TODO: console.log(file.name) alternative for test
     const payload = new FormData();
     payload.append('data', file);
+  }
+
+  onClose(): void {
+    this.imageSrc = '';
   }
 
   // TODO: using imageService we need to send the image to the backend

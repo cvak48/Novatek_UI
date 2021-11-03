@@ -12,16 +12,24 @@
                     </div>
                   </div>
             </span>
-            <span *ngIf="userAction == 'new' && imageSrc">
+            <!--<span *ngIf="userAction == 'new' && !imageSrc">
               <div class="container-new" appNvFileUpload (fileDropped)="onFileDropped($event)">
                   <div class="d-flex flex-column  align-items-center">
                     <input type="file" #fileDropRef1 id="fileDropRef" multiple (change)="fileBrowseHandler($event)" />
-                    <img class="align-self-center" height="120px" width="120px" [src]="imageSrc || 'http://placehold.it/180'">
+                    <img class="align-self-center" height="170px" width="170px" [src]="imageSrc || 'http://placehold.it/180'">
+                    <img class="icon" src="./../../../assets/icons/circular-cancel.icon.svg">
                     <label for="fileDropRef1 h50 d-flex justify-content-center">
                       <span class="d-flex align-self-center">Upload</span></label>
                   </div>
                 </div>
-          </span>
+          </span>-->
+          <span *ngIf="userAction == 'new' && imageSrc">
+            <app-nv-avatar [imgUrl]="imageSrc || 'http://placehold.it/180'" [person]="person"></app-nv-avatar>
+            <img class="icon" src="./../../../assets/icons/circular-cancel.icon.svg"
+             (click)="onClose()">
+             <input class="hidden-input" type="file" #fileDropRef id="fileDropRef"
+             accept="image/*" (change)="onFileDropped($event)" />
+        </span>
             <span *ngIf="userAction == 'edit'">
                 <app-nv-avatar [imgUrl]="person.imageUrl" [person]="person"></app-nv-avatar>
                 <img class="icon" src="./../../../assets/icons/circular-item-menu.icon.svg"

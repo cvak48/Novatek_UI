@@ -13,9 +13,7 @@ export class NvThirdPanelComponent implements OnInit {
   nameLabel = 'Name';
   id = '';
   idLabel = 'ID';
-  //columns = ['Name', 'ID'];
-  sortColumn: string = '';
-  sortPreference: string = '';
+  sortPreference: string = 'descending';
   teams: Team[] = [];
   teamsData: Team[] = [];
   showAddEditBtns: boolean = true;
@@ -26,9 +24,13 @@ export class NvThirdPanelComponent implements OnInit {
   disableInput = false;
   disableAddButton = false;
   disableEditButton = false;
-  sortDir = 1;//1= 'ASE' -1= DSC
-
-  private collator = new Intl.Collator(undefined, {numeric: true, sensitivity: "base"});
+  sortDir = 1; //1= 'ASE' -1= DSC
+  isNameSorted: boolean = false;
+  isIdSorted: boolean = false;
+  private collator = new Intl.Collator(undefined, {
+    numeric: true,
+    sensitivity: 'base',
+  });
 
   orders: any[] = [];
   ordersData: any[] = [];
@@ -79,7 +81,7 @@ export class NvThirdPanelComponent implements OnInit {
     });
     this.ordersData = this.oData;
     this.count = this.orders.length;
-    //this.sortArr('name');
+    this.sortArr('name', 'onload');
   }
 
   buttonClick() {}
@@ -177,31 +179,36 @@ export class NvThirdPanelComponent implements OnInit {
   }
 
   rowImgClicked(event: any, sortingOrder: string, column: string): void {
-    //this.sortColumn = event.target.innerText.trim().toLowerCase();
-    //this.sortPreference = event.target.ariaSort;
-    console.log(event.target.outerHTML.indexOf('sort.down'));
-
-    this.sortColumn = column; //"name";
-    
-    if(sortingOrder === 'descending'){
-      this.sortDir= -1;
+    if (sortingOrder === 'descending') {
+      this.sortDir = -1;
       this.sortPreference = 'ascending';
-    }else {
-      this.sortDir= 1;
+    } else {
+      this.sortDir = 1;
       this.sortPreference = 'descending';
     }
-    this.sortArr(this.sortColumn);
+    this.sortArr(column, 'onClick');
   }
 
-  sortArr(colName:any){
-    this.orders.sort((a,b)=>{
-      if(colName == 'id'){
-        // a= a[colName].toString();
-        // b= b[colName].toString();
-        return this.collator.compare(a[colName],b[colName])* this.sortDir;
-      }else {
-        a= a[colName].toLowerCase();
-        b= b[colName].toLowerCase();
+  sortArr(colName: any, event: string) {
+    if (event === 'onload') {
+      this.orders.sort((a, b) => {
+        a = a[colName].toLowerCase();
+        b = b[colName].toLowerCase();
+        return a.localeCompare(b) * this.sortDir;
+      });
+      return;
+    }
+
+    this.orders.sort((a, b) => {
+      if (colName == 'id') {
+        this.isNameSorted = false;
+        this.isIdSorted = true;
+        return this.collator.compare(a[colName], b[colName]) * this.sortDir;
+      } else {
+        this.isNameSorted = true;
+        this.isIdSorted = false;
+        a = a[colName].toLowerCase();
+        b = b[colName].toLowerCase();
       }
       return a.localeCompare(b) * this.sortDir;
     });
@@ -220,18 +227,29 @@ export class NvThirdPanelComponent implements OnInit {
     };
   }
 
+  keyPress() {
+    setTimeout(() => {
+      this.updateValidations();
+    }, 10);
+  }
+
+  updateValidations() {
+    this.nameValidation = this.name.length > 0 ? 'is-normal' : 'is-invalid';
+    this.idValidation = this.id.length > 0 ? 'is-normal' : 'is-invalid';
+  }
+
   add() {
     if (this.name && this.id) {
       let status = 'Completed';
       let ds: any;
-      this.orders.forEach(data => {
-        if( data.name.toLowerCase() === this.name.toLowerCase() && data.id == this.id){
+      this.orders.forEach((data) => {
+        if (
+          data.name.toLowerCase() === this.name.toLowerCase() &&
+          data.id == this.id
+        ) {
           ds = data;
         }
       });
-    //  ds = this.orders.find(
-    //     (data) => data.name.toLowerCase() === this.name.toLowerCase()
-    //   );
       if (
         ds !== undefined &&
         ds.name.toLowerCase() === this.name.toLowerCase() &&
@@ -395,6 +413,8 @@ export class NvThirdPanelComponent implements OnInit {
     this.selectedItemIndex = index;
     this.name = ''; // data.name;
     this.id = ''; //data.id;
+    this.nameValidation = 'is-normal';
+    this.idValidation = 'is-normal';
 
     if (this.orders[index].status === 'No') {
       this.showDeleteBtn = false;
@@ -415,18 +435,6 @@ export class NvThirdPanelComponent implements OnInit {
   }
 
   updateStatus(data: any) {
-    // if (
-    //   this.orders[this.selectedItemIndex].status !== 'No' &&
-    //   this.orders[this.selectedItemIndex].status !== 'Edited' &&
-    //   this.orders[this.selectedItemIndex].status !== 'Completed'
-    // ) {
-    //   if (data.checked) {
-    //     this.orders[this.selectedItemIndex].status = 'Clicked';
-    //   } else {
-    //     this.orders[this.selectedItemIndex].status = 'Pending';
-    //   }
-    // }
-
     if (data.checked == false) {
       this.orders[this.selectedItemIndex].status =
         this.orders[this.selectedItemIndex].tempStatus;
@@ -436,13 +444,7 @@ export class NvThirdPanelComponent implements OnInit {
           item.status = 'Clicked';
         }
       });
-      // this.orders[this.selectedItemIndex].status = 'Clicked';
     }
-    // this.orders.forEach((data, index) => {
-    //   if(this.selectedItemIndex !== index){
-    //     data.status = data.tempStatus;
-    //   }
-    // });
   }
 
   clickedRow(data: any, indexx: number) {
@@ -457,6 +459,9 @@ export class NvThirdPanelComponent implements OnInit {
       this.name = data.name;
     }
     this.id = data.id;
+
+    this.nameValidation = 'is-normal';
+    this.idValidation = 'is-normal';
 
     this.disableAddButton = true;
     if (data.status == 'No') {
@@ -482,17 +487,9 @@ export class NvThirdPanelComponent implements OnInit {
         data.status = data.tempStatus;
       }
     });
-    // if (
-    //   this.orders[index].status !== 'No' &&
-    //   this.orders[index].status !== 'Edited' &&
-    //   this.orders[index].status !== 'Completed'
-    // ) {
-    //   this.orders[index].status = 'Clicked';
-    // }
 
     setTimeout(() => {
       this.updateShowAddEditBtns();
-      //this.updateSelectedData(data);
     }, 10);
   }
 
@@ -517,8 +514,6 @@ export class NvThirdPanelComponent implements OnInit {
   }
 
   private disableButtons() {
-    //console.log(this.orders.every(item => item.checked === false));
-
     if (this.orders.every((item) => item.checked === false)) {
       this.disableAddButton = false;
       this.disableEditButton = false;

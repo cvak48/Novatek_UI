@@ -53,6 +53,7 @@
     [label]="nameLabel"
     [status]="nameValidation"
     [disableInput]="disableInput"
+    (keypress)="keyPress()"
   ></app-nv-input>
 
   <app-nv-input
@@ -62,6 +63,7 @@
     [label]="idLabel"
     [status]="idValidation"
     [disableInput]="disableInput"
+    (keypress)="keyPress()"
   ></app-nv-input>
 </div>
 
@@ -77,55 +79,40 @@
             (change)="checkAllCheckBox($event)"
           />
         </th>
-        <th
-          (click)="rowClicked($event)"
-          *ngFor="let column of columns; let i = index"
-          scope="col"
-          class="mat-header-cell"
-        >
-          {{ column }} 
-          <!-- <span>
-            <i
-              class="material-icons"
-              *ngIf="sortColumn != column"
-              (click)="rowImgClicked($event, 'ascending')"
-            >
-              arrow_upward</i
-            >
-            <i
-              class="material-icons"
-              *ngIf="sortColumn == column && sortPreference == 'ascending'"
-              (click)="rowImgClicked($event, 'ascending')"
-            >
-              arrow_upward</i
-            >
-            <i
-              class="material-icons"
-              *ngIf="sortColumn == column && sortPreference == 'descending'"
-              (click)="rowImgClicked($event, 'descending')"
-            >
-              arrow_downward</i
-            >
-            </span> -->
-                  <span>
-            <mat-icon class="img" *ngIf="sortColumn != column"
+        <th (click)="rowClicked($event)" scope="col" class="mat-header-cell" class="table-header" [ngClass]="{ 'sorted-text': isNameSorted }" >
+          {{ columns[0] }}
+          <span>
+            <mat-icon class="img" *ngIf="sortPreference == 'ascending'"
               ><img
-                src="../../../assets/icons/ico.table.sort.up.svg" style="width: 11px;"
-                (click)="rowImgClicked($event, 'ascending', column)"
+                src="../../../assets/icons/ico.table.sort.up.svg"
+                class="sort-icon-width"
+                (click)="rowImgClicked($event, 'ascending', 'name')"
+                alt="asc"
             /></mat-icon>
-            <mat-icon
-              class="img"
-              *ngIf="sortColumn == column && sortPreference == 'ascending'"
+            <mat-icon class="img" *ngIf="sortPreference == 'descending'"
               ><img
-                src="../../../assets/icons/ico.table.sort.up.svg" style="width: 11px;"
-                (click)="rowImgClicked($event, 'ascending', column)"
+                src="../../../assets/icons/ico.table.sort.down.svg"
+                class="sort-icon-width"
+                (click)="rowImgClicked($event, 'descending', 'name')"
+                alt="dec" /></mat-icon
+          ></span>
+        </th>
+        <th (click)="rowClicked($event)" scope="col" class="mat-header-cell"  class="table-header" [ngClass]="{ 'sorted-text': isIdSorted }">
+          {{ columns[1] }}
+          <span>
+            <mat-icon class="img" *ngIf="sortPreference == 'ascending'"
+              ><img
+                src="../../../assets/icons/ico.table.sort.up.svg"
+                class="sort-icon-width"
+                (click)="rowImgClicked($event, 'ascending', 'id')"
+                alt="asc"
             /></mat-icon>
-            <mat-icon
-              class="img"
-              *ngIf="sortColumn == column && sortPreference == 'descending'"
+            <mat-icon class="img" *ngIf="sortPreference == 'descending'"
               ><img
-                src="../../../assets/icons/ico.table.sort.down.svg" style="width: 11px;"
-                (click)="rowImgClicked($event, 'descending', column)" /></mat-icon
+                src="../../../assets/icons/ico.table.sort.down.svg"
+                class="sort-icon-width"
+                (click)="rowImgClicked($event, 'descending', 'id')"
+                alt="dec" /></mat-icon
           ></span>
         </th>
       </tr>

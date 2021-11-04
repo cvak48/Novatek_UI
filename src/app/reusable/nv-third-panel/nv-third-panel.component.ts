@@ -460,7 +460,7 @@ export class NvThirdPanelComponent implements OnInit {
     this.idValidation = 'is-normal';
 
     this.disableAddButton = true;
-    if (data.status == 'No') {
+    if (data.status == 'No' || this.getCheckedDataCount() >= 1) {
       this.disableEditButton = true;
     } else {
       this.disableEditButton = false;
@@ -480,7 +480,7 @@ export class NvThirdPanelComponent implements OnInit {
     this.orders[indexx].status = 'Clicked';
     console.log(this.orders);
     this.orders.forEach((da, index) => {
-      if (indexx !== index) {
+      if (indexx !== index && !da.checked) {
         da.status = da.tempStatus;
       }
     });

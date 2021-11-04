@@ -16,7 +16,6 @@ export class NvThirdPanelComponent implements OnInit {
   sortPreference: string = 'descending';
   teams: Team[] = [];
   teamsData: Team[] = [];
-  showAddEditBtns: boolean = true;
   showDeleteBtn: boolean = true;
   nameValidation = '';
   idValidation = '';
@@ -151,7 +150,6 @@ export class NvThirdPanelComponent implements OnInit {
    */
   checkAllCheckBox(ev: any) {
     this.orders.forEach((x) => (x.checked = ev.target.checked));
-    this.updateShowAddEditBtns();
   }
 
   /**
@@ -376,7 +374,6 @@ export class NvThirdPanelComponent implements OnInit {
   undo() {
     this.disableInput = false;
     this.showDeleteBtn = true;
-    this.showAddEditBtns = true;
     this.disableAddButton = false;
     this.disableEditButton = false;
     this.name = '';
@@ -427,7 +424,6 @@ export class NvThirdPanelComponent implements OnInit {
       }
     });
     setTimeout(() => {
-      this.updateShowAddEditBtns();
       this.disableButtons();
       this.updateStatus(data);
       this.updateDisableInput(data);
@@ -471,7 +467,7 @@ export class NvThirdPanelComponent implements OnInit {
     }
 
     this.orders.forEach((item) => {
-      if (item.status === 'Clicked' && item.checked == false) {
+      if (item.status === 'Clicked' && !item.checked) {
         item.status = 'Pending';
       }
     });
@@ -482,15 +478,12 @@ export class NvThirdPanelComponent implements OnInit {
     }
 
     this.orders[indexx].status = 'Clicked';
-    this.orders.forEach((data, index) => {
+    console.log(this.orders);
+    this.orders.forEach((da, index) => {
       if (indexx !== index) {
-        data.status = data.tempStatus;
+        da.status = da.tempStatus;
       }
     });
-
-    setTimeout(() => {
-      this.updateShowAddEditBtns();
-    }, 10);
   }
 
   private updateSelectedData(data: any) {
@@ -501,16 +494,6 @@ export class NvThirdPanelComponent implements OnInit {
       this.name = data.name;
       this.id = data.id;
     }
-  }
-
-  private updateShowAddEditBtns() {
-    //remove this code
-    if (this.getCheckedDataCount() >= 2) {
-      this.showAddEditBtns = false;
-    } else {
-      this.showAddEditBtns = true;
-    }
-    // till here
   }
 
   private disableButtons() {

@@ -37,6 +37,9 @@ export class NvMultiSelectDropdownComponent implements OnInit {
   @Output() itemSelect = new EventEmitter<any>();
   // TODO: The arrow need to shift to the right out of the field
 
+  // TODO: The arrow need to shift to the right out of the field
+  @Input()
+  inputData!: string[];
   @Input() referenceItems: string[] = [
     'Apple',
     'Lemon',
@@ -104,7 +107,11 @@ export class NvMultiSelectDropdownComponent implements OnInit {
       )
     );
   }
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    if (this.inputData) {
+      this.items = this.inputData;
+    }
+  }
   /**
    * blur and click eventHandler are responsible for changing the triangle icon direction
    */

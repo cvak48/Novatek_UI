@@ -29,17 +29,7 @@
           </div>
         </div>
       </span>
-      <!--<span *ngIf="userAction == 'new' && !imageSrc">
-              <div class="container-new" appNvFileUpload (fileDropped)="onFileDropped($event)">
-                  <div class="d-flex flex-column  align-items-center">
-                    <input type="file" #fileDropRef1 id="fileDropRef" multiple (change)="fileBrowseHandler($event)" />
-                    <img class="align-self-center" height="170px" width="170px" [src]="imageSrc || 'http://placehold.it/180'">
-                    <img class="icon" src="./../../../assets/icons/circular-cancel.icon.svg">
-                    <label for="fileDropRef1 h50 d-flex justify-content-center">
-                      <span class="d-flex align-self-center">Upload</span></label>
-                  </div>
-                </div>
-          </span>-->
+     
       <span *ngIf="userAction == 'new' && imageSrc">
         <app-nv-avatar
           [imgUrl]="imageSrc || 'http://placehold.it/180'"
@@ -110,6 +100,7 @@
   </div>
 </div>
 <div class="body">
+  <form #userForm="ngForm" novalidate>
   <ng-container *ngIf="userAction == 'new'">
     <div class="field-block">
       <label class="field-label h50 label label-red">First Name</label>
@@ -117,7 +108,10 @@
         class="field-user"
         type="text"
         [(ngModel)]="personData.firstName"
-        name="name"
+        name="firstName"
+        required
+        #firstName="ngModel"
+        [ngClass]="{'error':!firstName?.valid && (firstName?.dirty || firstName?.touched)}"
       />
     </div>
     <div class="field-block">
@@ -126,7 +120,10 @@
         class="field-user"
         type="text"
         [(ngModel)]="personData.LastName"
-        name="name"
+        name="lastName"
+        required
+        #lastName="ngModel"
+        [ngClass]="{'error':!lastName?.valid && (lastName?.dirty || lastName?.touched)}"
       />
     </div>
     <div class="field-block">
@@ -135,7 +132,10 @@
         class="field-user"
         type="text"
         [(ngModel)]="personData.name"
-        name="name"
+        name="userName"
+        required
+        #userName="ngModel"
+        [ngClass]="{'error':!userName?.valid && (userName?.dirty || userName?.touched)}"
       />
     </div>
     <div class="field-block">
@@ -144,7 +144,10 @@
         class="field-user"
         type="text"
         [(ngModel)]="personData.email"
-        name="name"
+        name="email"
+        required
+        #email="ngModel"
+        [ngClass]="{'error':!email?.valid && (email?.dirty || email?.touched)}"
       />
     </div>
     <div class="field-block">
@@ -318,7 +321,7 @@
     </div>
   </ng-container>
   <ng-container *ngIf="userAction == 'edit'">
-    <div class="field-block">
+    <div class="field-block" *ngIf="!multiUser">
       <label class="field-label h50 label">Name</label>
       <input
         class="field-user"
@@ -328,11 +331,11 @@
       />
     </div>
     <div class="field-block">
-      <label class="field-label h50 label">Departments</label>
+      <label class="field-label h50 label">Title</label>
       <input
         class="field-user"
         type="text"
-        [(ngModel)]="personData.departmant"
+        [(ngModel)]="personData.title"
         name="name"
       />
     </div>
@@ -346,15 +349,17 @@
       />
     </div>
     <div class="field-block">
-      <label class="field-label h50 label">Title</label>
+      <label class="field-label h50 label">Departments</label>
       <input
         class="field-user"
         type="text"
-        [(ngModel)]="personData.title"
+        [(ngModel)]="personData.departmant"
         name="name"
       />
     </div>
-    <div class="field-block">
+    
+   
+    <div class="field-block" *ngIf="!multiUser">
       <label class="field-label h50 label" label-red>User Name</label>
       <input
         class="field-user"
@@ -363,7 +368,7 @@
         name="userName"
       />
     </div>
-    <div class="field-block">
+    <div class="field-block" *ngIf="!multiUser">
       <label class="field-label h50 label">Password Expiry</label>
       <input
         class="field-user"
@@ -372,7 +377,7 @@
         name="passwordExpiry"
       />
     </div>
-    <div class="field-block">
+    <div class="field-block" *ngIf="!multiUser">
       <label class="field-label h50 label">Last Login</label>
       <input
         class="field-user"
@@ -384,7 +389,7 @@
     <div class="field-block">
       <div class="multi-select-row">
         <div id="mobilePhone" class="multi-select-field-row">
-          <app-nv-multiselect-dropdown
+          <app-nv-multiselect-dropdown [inputData]="['Site 1', 'Site 2']"
             (filteredItems)="onMultiselectItemsFilter($event)"
             class="body-item"
             label="Sites"
@@ -410,6 +415,7 @@
       <div class="multi-select-row">
         <div id="mobilePhone" class="multi-select-field-row">
           <app-nv-multiselect-dropdown
+          [inputData]="['Team 1', 'Team 2']"
             (filteredItems)="onMultiselectItemsFilter($event)"
             class="body-item"
             label="Teams"
@@ -435,6 +441,7 @@
       <div class="multi-select-row">
         <div id="mobilePhone" class="multi-select-field-row">
           <app-nv-multiselect-dropdown
+          [inputData]="['Role 1']"
             (filteredItems)="onMultiselectItemsFilter($event)"
             class="body-item"
             label="Roles"
@@ -460,6 +467,7 @@
       <div class="multi-select-row">
         <div id="mobilePhone" class="multi-select-field-row">
           <app-nv-multiselect-dropdown
+            [inputData]="['License 1', 'License 2']"
             (filteredItems)="onMultiselectItemsFilter($event)"
             class="body-item"
             label="Module Licenses"
@@ -491,4 +499,5 @@
       </div>
     </div>
   </ng-container>
+</form>
 </div>

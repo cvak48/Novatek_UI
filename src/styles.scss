@@ -81,6 +81,22 @@ ul.ngx-pagination.responsive {
 .pb-16 {
   padding-bottom: 16px !important;
 }
+
+.multi-select-field-row {
+  padding-bottom: 16px;
+  // width: 100%;
+  float: left ;
+  width: 92% ;
+}
+
+.dropdown-plus-container {
+  // margin-left: 8px;
+  // 18px (label height) + 4px (margin-top) =  22px
+  // margin-top: 22px;
+  float: right ;
+  // top: 22px ;
+  position: relative ;
+}
 // .dropdown .dropdown-menu {
 //   left: -20px !important;
 // }

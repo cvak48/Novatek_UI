@@ -387,7 +387,8 @@ export class DataService {
           'accountExpiry': '12-25-2025',
           'lastLogin': '09-25-2021',
           'position': 'Team Lead',
-          'title': 'Lead1'
+          'title': 'Lead1',
+          'email': 'john@yahoo.com'
         },
         {
           'id': 2,
@@ -397,7 +398,8 @@ export class DataService {
           'accountExpiry': '12-25-2025',
           'lastLogin': '09-25-2021',
           'position': 'QA Lead',
-          'title': 'Lead2'
+          'title': 'Lead2',
+          'email': 'rock@gmail.com'
         },
       {
         'id': 3,
@@ -407,7 +409,8 @@ export class DataService {
         'accountExpiry': '12-25-2024',
         'lastLogin': '09-25-2021',
         'position': 'Manager',
-        'title': 'Lead3'
+        'title': 'Lead3',
+        'email': 'tomcruise@yahoo.com'
       },
       {
         'id': 4,
@@ -417,7 +420,8 @@ export class DataService {
         'accountExpiry': '12-25-2023',
         'lastLogin': '09-25-2020',
         'position': 'Developer',
-        'title': 'Lead4'
+        'title': 'Lead4',
+        'email': 'sumit@gmail.com',
       },
       {
         'id': 5,
@@ -427,7 +431,8 @@ export class DataService {
         'accountExpiry': '12-25-2023',
         'lastLogin': '09-25-2020',
         'position': 'Tester',
-        'title': 'Lead5'
+        'title': 'Lead5',
+        'email': 'nicole@redifmail.com'
       }
 
       ];

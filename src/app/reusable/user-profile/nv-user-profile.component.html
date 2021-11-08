@@ -103,7 +103,7 @@
   <form #userForm="ngForm" novalidate>
   <ng-container *ngIf="userAction == 'new'">
     <div class="field-block">
-      <label class="field-label h50 label label-red">First Name</label>
+      <label class="field-label h50 label "  [ngClass]="{'label-red':!firstName?.valid }">First Name</label>
       <input
         class="field-user"
         type="text"
@@ -111,11 +111,11 @@
         name="firstName"
         required
         #firstName="ngModel"
-        [ngClass]="{'error':!firstName?.valid && (firstName?.dirty || firstName?.touched)}"
+        [ngClass]="{'error':!firstName?.valid }"
       />
     </div>
     <div class="field-block">
-      <label class="field-label h50 label label-red">Last Name</label>
+      <label class="field-label h50 label" [ngClass]="{'label-red':!lastName?.valid}">Last Name</label>
       <input
         class="field-user"
         type="text"
@@ -123,11 +123,11 @@
         name="lastName"
         required
         #lastName="ngModel"
-        [ngClass]="{'error':!lastName?.valid && (lastName?.dirty || lastName?.touched)}"
+        [ngClass]="{'error':!lastName?.valid}"
       />
     </div>
     <div class="field-block">
-      <label class="field-label h50 label label-red">User Name</label>
+      <label class="field-label h50 label" [ngClass]="{'label-red':!userName?.valid}">User Name</label>
       <input
         class="field-user"
         type="text"
@@ -135,19 +135,19 @@
         name="userName"
         required
         #userName="ngModel"
-        [ngClass]="{'error':!userName?.valid && (userName?.dirty || userName?.touched)}"
+        [ngClass]="{'error':!userName?.valid}"
       />
     </div>
     <div class="field-block">
-      <label class="field-label h50 label label-red">E-Mail</label>
+      <label class="field-label h50 label " [ngClass]="{'label-red':!email?.valid}">E-Mail</label>
       <input
         class="field-user"
-        type="text"
+        type="email"
         [(ngModel)]="personData.email"
         name="email"
         required
         #email="ngModel"
-        [ngClass]="{'error':!email?.valid && (email?.dirty || email?.touched)}"
+        [ngClass]="{'error':!email?.valid}"
       />
     </div>
     <div class="field-block">
@@ -322,11 +322,59 @@
   </ng-container>
   <ng-container *ngIf="userAction == 'edit'">
     <div class="field-block" *ngIf="!multiUser">
-      <label class="field-label h50 label">Name</label>
+      <label class="field-label h50 label "  [ngClass]="{'label-red':!firstName?.valid }">First Name</label>
+      <input
+        class="field-user"
+        type="text"
+        [(ngModel)]="personData.firstName"
+        name="firstName"
+        required
+        #firstName="ngModel"
+        [ngClass]="{'error':!firstName?.valid }"
+      />
+    </div>
+    <div class="field-block" *ngIf="!multiUser">
+      <label class="field-label h50 label" [ngClass]="{'label-red':!lastName?.valid}">Last Name</label>
+      <input
+        class="field-user"
+        type="text"
+        [(ngModel)]="personData.LastName"
+        name="lastName"
+        required
+        #lastName="ngModel"
+        [ngClass]="{'error':!lastName?.valid}"
+      />
+    </div>
+    <div class="field-block" *ngIf="!multiUser">
+      <label class="field-label h50 label" [ngClass]="{'label-red':!userName?.valid}">User Name</label>
       <input
         class="field-user"
         type="text"
         [(ngModel)]="personData.name"
+        name="userName"
+        required
+        #userName="ngModel"
+        [ngClass]="{'error':!userName?.valid}"
+      />
+    </div>
+    <div class="field-block" *ngIf="!multiUser">
+      <label class="field-label h50 label " [ngClass]="{'label-red':!email?.valid}">E-Mail</label>
+      <input
+        class="field-user"
+        type="email"
+        [(ngModel)]="personData.email"
+        name="email"
+        required
+        #email="ngModel"
+        [ngClass]="{'error':!email?.valid}"
+      />
+    </div>
+    <div class="field-block" *ngIf="!multiUser">
+      <label class="field-label h50 label">Unique ID</label>
+      <input
+        class="field-user"
+        type="text"
+        [(ngModel)]="personData.id"
         name="name"
       />
     </div>
@@ -348,6 +396,33 @@
         name="jobPosition"
       />
     </div>
+    <div class="field-block"  *ngIf="!multiUser">
+      <label class="field-label h50 label">Employee Number</label>
+      <input
+        class="field-user"
+        type="text"
+        [(ngModel)]="personData.empNumber"
+        name="name"
+      />
+    </div>
+    <div class="field-block"  *ngIf="!multiUser">
+      <label class="field-label h50 label">Office Phone</label>
+      <input
+        class="field-user"
+        type="text"
+        [(ngModel)]="personData.officePhone"
+        name="name"
+      />
+    </div>
+    <div class="field-block"  *ngIf="!multiUser">
+      <label class="field-label h50 label">Mobile Phone</label>
+      <input
+        class="field-user"
+        type="text"
+        [(ngModel)]="personData.mobile"
+        name="name"
+      />
+    </div>
     <div class="field-block">
       <label class="field-label h50 label">Departments</label>
       <input
@@ -358,16 +433,6 @@
       />
     </div>
     
-   
-    <div class="field-block" *ngIf="!multiUser">
-      <label class="field-label h50 label" label-red>User Name</label>
-      <input
-        class="field-user"
-        type="text"
-        [(ngModel)]="personData.userName"
-        name="userName"
-      />
-    </div>
     <div class="field-block" *ngIf="!multiUser">
       <label class="field-label h50 label">Password Expiry</label>
       <input

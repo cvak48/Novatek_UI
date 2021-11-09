@@ -41,6 +41,9 @@ export class NvUserListViewComponent implements OnInit {
         this.showPanel='3';
         break;
       case '3':
+          this.showPanel='4';
+        break;
+      case '4':
           this.showPanel='1';
         break;
     }
@@ -57,6 +60,9 @@ export class NvUserListViewComponent implements OnInit {
         break;
       case '3':
           this.showPanel='2';
+        break;
+      case '4':
+          this.showPanel='3';
         break;
     }
   }

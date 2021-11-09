@@ -111,7 +111,7 @@
         name="firstName"
         required
         #firstName="ngModel"
-        [ngClass]="{'error':!firstName?.valid }"
+        [ngClass]="{'error':!firstName?.valid && (firstName?.dirty || firstName?.touched)}"
       />
     </div>
     <div class="field-block">
@@ -123,7 +123,7 @@
         name="lastName"
         required
         #lastName="ngModel"
-        [ngClass]="{'error':!lastName?.valid}"
+        [ngClass]="{'error':!lastName?.valid && (lastName?.dirty || lastName?.touched)}"
       />
     </div>
     <div class="field-block">
@@ -135,7 +135,7 @@
         name="userName"
         required
         #userName="ngModel"
-        [ngClass]="{'error':!userName?.valid}"
+        [ngClass]="{'error':!userName?.valid && (userName?.dirty || userName?.touched)}"
       />
     </div>
     <div class="field-block">
@@ -147,7 +147,7 @@
         name="email"
         required
         #email="ngModel"
-        [ngClass]="{'error':!email?.valid}"
+        [ngClass]="{'error':!email?.valid && (email?.dirty || email?.touched)}"
       />
     </div>
     <div class="field-block">
@@ -330,7 +330,7 @@
         name="firstName"
         required
         #firstName="ngModel"
-        [ngClass]="{'error':!firstName?.valid }"
+        [ngClass]="{'error':!firstName?.valid && (firstName?.dirty || firstName?.touched)}"
       />
     </div>
     <div class="field-block" *ngIf="!multiUser">
@@ -342,7 +342,7 @@
         name="lastName"
         required
         #lastName="ngModel"
-        [ngClass]="{'error':!lastName?.valid}"
+        [ngClass]="{'error':!lastName?.valid && (lastName?.dirty || lastName?.touched)}"
       />
     </div>
     <div class="field-block" *ngIf="!multiUser">
@@ -354,7 +354,7 @@
         name="userName"
         required
         #userName="ngModel"
-        [ngClass]="{'error':!userName?.valid}"
+        [ngClass]="{'error':!userName?.valid && (userName?.dirty || userName?.touched)}"
       />
     </div>
     <div class="field-block" *ngIf="!multiUser">
@@ -366,7 +366,7 @@
         name="email"
         required
         #email="ngModel"
-        [ngClass]="{'error':!email?.valid}"
+        [ngClass]="{'error':!email?.valid && (email?.dirty || email?.touched)}"
       />
     </div>
     <div class="field-block" *ngIf="!multiUser">
@@ -414,7 +414,7 @@
         name="name"
       />
     </div>
-    <div class="field-block"  *ngIf="!multiUser">
+    <div class="field-block" >
       <label class="field-label h50 label">Mobile Phone</label>
       <input
         class="field-user"
@@ -433,6 +433,16 @@
       />
     </div>
     
+   
+    <div class="field-block" *ngIf="!multiUser">
+      <label class="field-label h50 label" label-red>User Name</label>
+      <input
+        class="field-user"
+        type="text"
+        [(ngModel)]="personData.userName"
+        name="userName"
+      />
+    </div>
     <div class="field-block" *ngIf="!multiUser">
       <label class="field-label h50 label">Password Expiry</label>
       <input

@@ -103,7 +103,7 @@
   <form #userForm="ngForm" novalidate>
   <ng-container *ngIf="userAction == 'new'">
     <div class="field-block">
-      <label class="field-label h50 label "  [ngClass]="{'label-red':!firstName?.valid }">First Name</label>
+      <label class="field-label h50 label label-red">First Name</label>
       <input
         class="field-user"
         type="text"
@@ -115,7 +115,7 @@
       />
     </div>
     <div class="field-block">
-      <label class="field-label h50 label" [ngClass]="{'label-red':!lastName?.valid}">Last Name</label>
+      <label class="field-label h50 label label-red">Last Name</label>
       <input
         class="field-user"
         type="text"
@@ -127,7 +127,7 @@
       />
     </div>
     <div class="field-block">
-      <label class="field-label h50 label" [ngClass]="{'label-red':!userName?.valid}">User Name</label>
+      <label class="field-label h50 label label-red">User Name</label>
       <input
         class="field-user"
         type="text"
@@ -139,7 +139,7 @@
       />
     </div>
     <div class="field-block">
-      <label class="field-label h50 label " [ngClass]="{'label-red':!email?.valid}">E-Mail</label>
+      <label class="field-label h50 label label-red">E-Mail</label>
       <input
         class="field-user"
         type="email"
@@ -322,7 +322,7 @@
   </ng-container>
   <ng-container *ngIf="userAction == 'edit'">
     <div class="field-block" *ngIf="!multiUser">
-      <label class="field-label h50 label "  [ngClass]="{'label-red':!firstName?.valid }">First Name</label>
+      <label class="field-label h50 label label-red">First Name</label>
       <input
         class="field-user"
         type="text"
@@ -330,11 +330,12 @@
         name="firstName"
         required
         #firstName="ngModel"
+        [ngModelOptions]="{standalone: true}"
         [ngClass]="{'error':!firstName?.valid && (firstName?.dirty || firstName?.touched)}"
       />
     </div>
     <div class="field-block" *ngIf="!multiUser">
-      <label class="field-label h50 label" [ngClass]="{'label-red':!lastName?.valid}">Last Name</label>
+      <label class="field-label h50 label label-red">Last Name</label>
       <input
         class="field-user"
         type="text"
@@ -346,7 +347,7 @@
       />
     </div>
     <div class="field-block" *ngIf="!multiUser">
-      <label class="field-label h50 label" [ngClass]="{'label-red':!userName?.valid}">User Name</label>
+      <label class="field-label h50 label label-red">User Name</label>
       <input
         class="field-user"
         type="text"
@@ -358,7 +359,7 @@
       />
     </div>
     <div class="field-block" *ngIf="!multiUser">
-      <label class="field-label h50 label " [ngClass]="{'label-red':!email?.valid}">E-Mail</label>
+      <label class="field-label h50 label label-red">E-Mail</label>
       <input
         class="field-user"
         type="email"
@@ -435,7 +436,7 @@
     
    
     <div class="field-block" *ngIf="!multiUser">
-      <label class="field-label h50 label" label-red>User Name</label>
+      <label class="field-label h50 label">User Name</label>
       <input
         class="field-user"
         type="text"
@@ -468,6 +469,7 @@
             (filteredItems)="onMultiselectItemsFilter($event)"
             class="body-item"
             label="Sites"
+            type="Required"
             [fieldStatusType]="multiselectFieldStatusType"
           >
           </app-nv-multiselect-dropdown>

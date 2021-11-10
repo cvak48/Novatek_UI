@@ -53,7 +53,7 @@
     [label]="nameLabel"
     [status]="nameValidation"
     [disableInput]="disableInput"
-    (keypress)="keyPress()"
+    (keypress)="keyPress('name')"
   ></app-nv-input>
 
   <app-nv-input
@@ -63,7 +63,7 @@
     [label]="idLabel"
     [status]="idValidation"
     [disableInput]="disableInput"
-    (keypress)="keyPress()"
+    (keypress)="keyPress('id')"
   ></app-nv-input>
 </div>
 
@@ -136,6 +136,7 @@
                 };
           let i = index
         "
+        [id]="'team' + i"
       >
         <td class="pd-lt-2 checkbox-column">
           <input

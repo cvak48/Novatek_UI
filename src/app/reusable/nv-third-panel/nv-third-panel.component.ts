@@ -210,6 +210,13 @@ export class NvThirdPanelComponent implements OnInit {
       }
       return a.localeCompare(b) * this.sortDir;
     });
+
+    // this.orders.map((da, index) => {
+    //   if (da.status === 'No') {
+    //     this.orders.splice(index, 1);
+    //     this.orders.unshift(da);
+    //   }
+    // });
   }
 
   /**
@@ -225,15 +232,18 @@ export class NvThirdPanelComponent implements OnInit {
     };
   }
 
-  keyPress() {
+  keyPress(column: string) {
     setTimeout(() => {
-      this.updateValidations();
+      this.updateValidations(column);
     }, 10);
   }
 
-  updateValidations() {
-    this.nameValidation = this.name.length > 0 ? 'is-normal' : 'is-invalid';
-    this.idValidation = this.id.length > 0 ? 'is-normal' : 'is-invalid';
+  updateValidations(column: string) {
+    if(column == 'name'){
+      this.nameValidation = this.name.length > 0 ? 'is-normal' : 'is-invalid';
+    }else if(column == 'id'){
+      this.idValidation = this.id.toString().length > 0 ? 'is-normal' : 'is-invalid';
+    }
   }
 
   add() {
@@ -286,6 +296,13 @@ export class NvThirdPanelComponent implements OnInit {
   }
 
   addData(data: any, status: string) {
+    // this.orders[this.selectedItemIndex].name = data.name;
+    // this.orders[this.selectedItemIndex].id = data.id;
+    // this.orders[this.selectedItemIndex].status = status;
+    // this.orders[this.selectedItemIndex].checked = false;
+    // this.orders[this.selectedItemIndex].tempStatus = status;
+    // this.orders[this.selectedItemIndex].tooltipText = data.tooltip;
+
     this.orders.unshift({
       id: data.id,
       name: data.name,
@@ -294,13 +311,42 @@ export class NvThirdPanelComponent implements OnInit {
       tempStatus: status,
       tooltipText: data.tooltip,
     });
+    this.sortArr('name', 'onClick');
+    let selectedIndex = 0;
+    this.orders.forEach((data, index) => {
+      if (
+        data.name.toLowerCase() === this.name.toLowerCase() &&
+        data.id == this.id
+      ) {
+        selectedIndex = index;
+      }
+    });
+    setTimeout(() => {
+      this.onScrollToGeofence(selectedIndex);
+    }, 100);
     this.name = '';
     this.id = '';
   }
 
+  onScrollToGeofence(onScrollToGeofence: number) {
+    // if (
+    //   this.setDetailsView.nativeElement.scrollHeight >
+    //   this.setDetailsView.nativeElement.clientHeight
+    // ) {
+     // document.querySelector('#team' + onScrollToGeofence).scrollIntoView();
+    //}
+    //document.querySelector('.fenceset-side-nav').scrollTop = 0;
+    if(onScrollToGeofence >= 0){
+      //onScrollToGeofence = onScrollToGeofence == 0 ? onScrollToGeofence : onScrollToGeofence-1;
+     // console.log(this.orders);
+      //console.log(document.querySelector('#team' + onScrollToGeofence));
+      document.querySelector('#team' + onScrollToGeofence)?.scrollIntoView();
+    }
+  }
+
   edit() {
     if (this.name && this.id) {
-      this.orders.splice(this.selectedItemIndex, 1);
+      //this.orders.splice(this.selectedItemIndex, 1);
       let tooltip = '';
       const tempName = this.name;
       if (this.name.length >= 10) {
@@ -309,10 +355,28 @@ export class NvThirdPanelComponent implements OnInit {
       } else {
         tooltip = '';
       }
-      this.updateData('Edited', tooltip);
       this.nameValidation = '';
       this.idValidation = '';
-      // this.orders[this.selectedItemIndex].name = this.name;
+      this.orders[this.selectedItemIndex].name = this.name;
+      this.orders[this.selectedItemIndex].id = this.id;
+      this.orders[this.selectedItemIndex].status = 'Edited';
+      this.orders[this.selectedItemIndex].checked = false;
+      this.orders[this.selectedItemIndex].tempStatus = 'Edited';
+      this.orders[this.selectedItemIndex].tooltipText = tooltip;
+      this.updateData('Edited', tooltip);
+      this.sortArr('name', 'onClick');
+      let selectedIndex = 0;
+      this.orders.forEach((data, index) => {
+        if (
+          data.name.toLowerCase() === this.name.toLowerCase() &&
+          data.id == this.id
+        ) {
+          selectedIndex = index;
+        }
+      });
+      setTimeout(() => {
+        this.onScrollToGeofence(selectedIndex);
+      }, 100);
     } else if (!this.name && !this.id) {
       this.nameValidation = 'is-invalid';
       this.idValidation = 'is-invalid';
@@ -332,7 +396,7 @@ export class NvThirdPanelComponent implements OnInit {
       this.deleteCheckedData();
     }
     if (this.name && this.id) {
-      this.orders.splice(this.selectedItemIndex, 1);
+      //this.orders.splice(this.selectedItemIndex, 1);
       let tooltip = '';
       const tempName = this.name;
       if (this.name.length >= 10) {
@@ -341,6 +405,12 @@ export class NvThirdPanelComponent implements OnInit {
       } else {
         tooltip = '';
       }
+      this.orders[this.selectedItemIndex].name = this.name;
+      this.orders[this.selectedItemIndex].id = this.id;
+      this.orders[this.selectedItemIndex].status = 'No';
+      this.orders[this.selectedItemIndex].checked = false;
+      this.orders[this.selectedItemIndex].tempStatus = 'No';
+      this.orders[this.selectedItemIndex].tooltipText = tooltip;
       this.updateData('No', tooltip);
       this.showDeleteBtn = false;
       this.selectedItemIndex = 0;
@@ -350,8 +420,11 @@ export class NvThirdPanelComponent implements OnInit {
   deleteCheckedData() {
     this.orders.forEach((item, index) => {
       if (item.checked) {
-        this.orders.splice(index, 1);
-        this.updateRowData('No', item);
+        //this.orders.splice(index, 1);
+        //this.updateRowData('No', item);
+        this.orders[index].status = 'No';
+        this.orders[index].checked = false;
+        this.orders[index].tempStatus = 'No';
       }
     });
     this.name = '';
@@ -376,32 +449,32 @@ export class NvThirdPanelComponent implements OnInit {
     this.showDeleteBtn = true;
     this.disableAddButton = false;
     this.disableEditButton = false;
-    this.name = '';
-    this.id = '';
     if (this.name) {
       this.orders[this.selectedItemIndex].status = 'Pending';
       this.orders[this.selectedItemIndex].tempStatus = 'Pending';
     }
+    this.name = '';
+    this.id = '';
     this.orders.forEach((item, index) => {
       if (item.checked) {
         this.orders[index].status = 'Pending';
         this.orders[index].tempStatus = 'Pending';
         this.orders[index].checked = false;
-        //this.updateRowData('No', item);
       }
     });
+    //this.sortArr('name', 'onClick');
   }
 
   updateData(status: string, tooltipText: string) {
     this.disableAddButton = false;
-    this.orders.unshift({
-      id: this.id,
-      name: this.name,
-      status: status,
-      checked: false,
-      tempStatus: status,
-      tooltipText: tooltipText,
-    });
+    // this.orders.unshift({
+    //   id: this.id,
+    //   name: this.name,
+    //   status: status,
+    //   checked: false,
+    //   tempStatus: status,
+    //   tooltipText: tooltipText,
+    // });
     this.name = '';
     this.id = '';
   }
@@ -478,7 +551,6 @@ export class NvThirdPanelComponent implements OnInit {
     }
 
     this.orders[indexx].status = 'Clicked';
-    console.log(this.orders);
     this.orders.forEach((da, index) => {
       if (indexx !== index && !da.checked) {
         da.status = da.tempStatus;

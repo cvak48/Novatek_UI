@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   /**
-  * On application load it will navigate to the Auth module
+  * On application load it will navigate to the Auth    module
   */
   {
     path: '',

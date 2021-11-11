@@ -19,57 +19,41 @@ export class NvThirdPanelComponent implements OnInit {
   showDeleteBtn: boolean = true;
   nameValidation = '';
   idValidation = '';
-  button = 'button';
   disableInput = false;
   disableAddButton = false;
   disableEditButton = false;
   sortDir = 1; //1= 'ASE' -1= DSC
   isNameSorted: boolean = false;
   isIdSorted: boolean = false;
+  //collator used for number sorting
   private collator = new Intl.Collator(undefined, {
     numeric: true,
     sensitivity: 'base',
   });
+  selectedItemIndex: number = 0; // using to get the current selected item in a table
 
   orders: any[] = [];
   ordersData: any[] = [];
-  page = 1;
   count = 0;
-  pageSize = 10;
-  pageSizes = [5, 10, 20, 50, 100];
-  pageNewSizes = ['5', '10', '20', '50', '100'];
-  directionLinks: boolean = true;
-  autoHide: boolean = false;
-  responsive: boolean = true;
-  maxSize: number = 7;
-  public labels: any = {
-    previousLabel: '❮',
-    nextLabel: '❯',
-    screenReaderPaginationLabel: 'Pagination',
-    screenReaderPageLabel: 'page',
-    screenReaderCurrentLabel: `You're on page`,
-  };
   @Input() columns: string[] = [];
   @Input() oData: any;
-
-  @Input() rowActionIcon: string = '';
-  @Input() paginationSizes: number[] = [5, 10, 15];
-  @Input() defaultPageSize = this.paginationSizes[1];
-
   @Output() sort: EventEmitter<Sort> = new EventEmitter();
   @Output() rowAction: EventEmitter<any> = new EventEmitter<any>();
-  // search
-  tableTestData: any[] = this.mockSearchComponent().tableTestData;
+  // searching table data
+  tableSearchData: any[] = this.mockSearchComponent().tableSearchData;
   isAdvance: boolean = this.mockSearchComponent().isAdvance;
   hideMenu: boolean = this.mockSearchComponent().hideMenu;
   searchableRefList: any[] = this.mockSearchComponent().searchableRefList;
-  selectedItemIndex: number = 0;
 
   constructor() {}
 
   ngOnInit(): void {
-    this.tableTestData = this.oData;
+    // setting search data for table
+    this.tableSearchData = this.oData;
+    this.ordersData = this.oData;
     this.orders = this.oData;
+
+    //as tooltip data not coming from backend, so tweaked here
     this.orders.map((data) => {
       if (data.name.length >= 10) {
         data.tooltipText = data.name;
@@ -78,69 +62,9 @@ export class NvThirdPanelComponent implements OnInit {
         data.tooltipText = '';
       }
     });
-    this.ordersData = this.oData;
+
     this.count = this.orders.length;
-    this.sortArr('name', 'onload');
-  }
-
-  buttonClick() {}
-
-  /**
-   *
-   * @param event
-   * This method is getting executed when user enter any value in search box
-   */
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value
-      .trim()
-      .toLowerCase();
-    this.orders = this.ordersData.filter((order) => {
-      let hasData = false;
-      for (let i = 0; i < this.columns.length; i++) {
-        if (
-          String((<any>order)[this.columns[i]])
-            .toLowerCase()
-            .includes(filterValue)
-        ) {
-          hasData = true;
-          break;
-        }
-      }
-      return hasData ? order : '';
-    });
-    this.count = this.orders.length;
-  }
-
-  /**
-   *
-   * @param event
-   * This method is getting executed when user moves to any page using pagination
-   * dropDown selected item
-   */
-  onItemSelect(item: string): void {
-    if (item) {
-      console.log('selectedItem >>>> ' + +item);
-      this.page = +item;
-    }
-  }
-
-  /**
-   *
-   * @param event
-   * This method is getting executed when user moves to any page using pagination
-   */
-  handlePageChange(event: any): void {
-    this.page = event;
-  }
-
-  /**
-   *
-   * @param event
-   * This method is getting executed when user changes page size using Ites per page option
-   */
-  handlePageSizeChange(value: any): void {
-    this.pageSize = value;
-    this.page = 1;
+    this.sortArr('name', 'onload'); // as onload sorted on name & underline shouldn't be there
   }
 
   /**
@@ -176,18 +100,18 @@ export class NvThirdPanelComponent implements OnInit {
     event.stopPropagation();
   }
 
-  rowImgClicked(event: any, sortingOrder: string, column: string): void {
+  sortImgClicked(sortingOrder: string, column: string): void {
     if (sortingOrder === 'descending') {
       this.sortDir = -1;
-      this.sortPreference = 'ascending';
+      this.sortPreference = 'ascending'; // used to show sort img up
     } else {
       this.sortDir = 1;
-      this.sortPreference = 'descending';
+      this.sortPreference = 'descending'; // used to show sort img down
     }
     this.sortArr(column, 'onClick');
   }
 
-  sortArr(colName: any, event: string) {
+  private sortArr(colName: any, event: string) {
     if (event === 'onload') {
       this.orders.sort((a, b) => {
         a = a[colName].toLowerCase();
@@ -210,13 +134,6 @@ export class NvThirdPanelComponent implements OnInit {
       }
       return a.localeCompare(b) * this.sortDir;
     });
-
-    // this.orders.map((da, index) => {
-    //   if (da.status === 'No') {
-    //     this.orders.splice(index, 1);
-    //     this.orders.unshift(da);
-    //   }
-    // });
   }
 
   /**
@@ -225,64 +142,61 @@ export class NvThirdPanelComponent implements OnInit {
    */
   mockSearchComponent() {
     return {
-      tableTestData: [],
+      tableSearchData: [],
       isAdvance: true,
       hideMenu: true,
       searchableRefList: ['name', 'id', 'status', 'checked'],
     };
   }
 
+  //used this function to update name & id field validations
   keyPress(column: string) {
     setTimeout(() => {
       this.updateValidations(column);
     }, 10);
   }
 
-  updateValidations(column: string) {
-    if(column == 'name'){
+  private updateValidations(column: string) {
+    if (column == 'name') {
       this.nameValidation = this.name.length > 0 ? 'is-normal' : 'is-invalid';
-    }else if(column == 'id'){
-      this.idValidation = this.id.toString().length > 0 ? 'is-normal' : 'is-invalid';
+    } else if (column == 'id') {
+      this.idValidation =
+        this.id.toString().length > 0 ? 'is-normal' : 'is-invalid';
     }
   }
 
+  //when ever user clicks add button, it will invoke
   add() {
     if (this.name && this.id) {
       let status = 'Completed';
-      let ds: any;
+      let userData: any;
+      //getting user data if already exists
       this.orders.forEach((data) => {
         if (
           data.name.toLowerCase() === this.name.toLowerCase() &&
           data.id == this.id
         ) {
-          ds = data;
+          userData = data;
         }
       });
       if (
-        ds !== undefined &&
-        ds.name.toLowerCase() === this.name.toLowerCase() &&
-        ds.id == Number(this.id)
+        userData !== undefined &&
+        userData.name.toLowerCase() === this.name.toLowerCase() &&
+        userData.id == Number(this.id)
       ) {
         const index = this.orders.findIndex(
           (data) => data.name.toLowerCase() === this.name.toLowerCase()
         );
         this.orders.splice(index, 1);
         status = 'Clicked';
-      } else if (ds === undefined) {
-        let tooltip = '';
-        const tempName = this.name;
-        if (this.name.length >= 10) {
-          tooltip = tempName;
-          this.name = this.name.substr(0, 9) + '....';
-        } else {
-          tooltip = '';
-        }
-        ds = {};
-        ds.name = this.name;
-        ds.id = this.id;
-        ds.tooltip = tooltip;
+      } else if (userData === undefined) {
+        let tooltip = this.getTooltip();
+        userData = {};
+        userData.name = this.name;
+        userData.id = this.id;
+        userData.tooltip = tooltip;
       }
-      this.addData(ds, status);
+      this.addData(userData, status);
       this.nameValidation = '';
       this.idValidation = '';
     } else if (!this.name && !this.id) {
@@ -296,14 +210,7 @@ export class NvThirdPanelComponent implements OnInit {
   }
 
   addData(data: any, status: string) {
-    // this.orders[this.selectedItemIndex].name = data.name;
-    // this.orders[this.selectedItemIndex].id = data.id;
-    // this.orders[this.selectedItemIndex].status = status;
-    // this.orders[this.selectedItemIndex].checked = false;
-    // this.orders[this.selectedItemIndex].tempStatus = status;
-    // this.orders[this.selectedItemIndex].tooltipText = data.tooltip;
-
-    this.orders.unshift({
+    this.orders.push({
       id: data.id,
       name: data.name,
       status: status,
@@ -312,71 +219,24 @@ export class NvThirdPanelComponent implements OnInit {
       tooltipText: data.tooltip,
     });
     this.sortArr('name', 'onClick');
-    let selectedIndex = 0;
-    this.orders.forEach((data, index) => {
-      if (
-        data.name.toLowerCase() === this.name.toLowerCase() &&
-        data.id == this.id
-      ) {
-        selectedIndex = index;
-      }
-    });
-    setTimeout(() => {
-      this.onScrollToGeofence(selectedIndex);
-    }, 100);
+    this.scrollToUpdatedData();
     this.name = '';
     this.id = '';
   }
 
+  //scroll to currently updated data
   onScrollToGeofence(onScrollToGeofence: number) {
-    // if (
-    //   this.setDetailsView.nativeElement.scrollHeight >
-    //   this.setDetailsView.nativeElement.clientHeight
-    // ) {
-     // document.querySelector('#team' + onScrollToGeofence).scrollIntoView();
-    //}
-    //document.querySelector('.fenceset-side-nav').scrollTop = 0;
-    if(onScrollToGeofence >= 0){
-      //onScrollToGeofence = onScrollToGeofence == 0 ? onScrollToGeofence : onScrollToGeofence-1;
-     // console.log(this.orders);
-      //console.log(document.querySelector('#team' + onScrollToGeofence));
+    if (onScrollToGeofence >= 0) {
       document.querySelector('#team' + onScrollToGeofence)?.scrollIntoView();
     }
   }
 
+  //when ever user clicks edit button, it will invoke
   edit() {
     if (this.name && this.id) {
-      //this.orders.splice(this.selectedItemIndex, 1);
-      let tooltip = '';
-      const tempName = this.name;
-      if (this.name.length >= 10) {
-        tooltip = tempName;
-        this.name = this.name.substr(0, 9) + '....';
-      } else {
-        tooltip = '';
-      }
-      this.nameValidation = '';
-      this.idValidation = '';
-      this.orders[this.selectedItemIndex].name = this.name;
-      this.orders[this.selectedItemIndex].id = this.id;
-      this.orders[this.selectedItemIndex].status = 'Edited';
-      this.orders[this.selectedItemIndex].checked = false;
-      this.orders[this.selectedItemIndex].tempStatus = 'Edited';
-      this.orders[this.selectedItemIndex].tooltipText = tooltip;
-      this.updateData('Edited', tooltip);
+      this.updateData('Edited', this.getTooltip());
       this.sortArr('name', 'onClick');
-      let selectedIndex = 0;
-      this.orders.forEach((data, index) => {
-        if (
-          data.name.toLowerCase() === this.name.toLowerCase() &&
-          data.id == this.id
-        ) {
-          selectedIndex = index;
-        }
-      });
-      setTimeout(() => {
-        this.onScrollToGeofence(selectedIndex);
-      }, 100);
+      this.scrollToUpdatedData();
     } else if (!this.name && !this.id) {
       this.nameValidation = 'is-invalid';
       this.idValidation = 'is-invalid';
@@ -387,41 +247,30 @@ export class NvThirdPanelComponent implements OnInit {
     }
   }
 
+  //when ever user clicks delete button, it will invoke
   delete() {
     this.disableInput = false;
+    // calling this whenever user checks more than 2 check boxes
     if (this.getCheckedDataCount() >= 2) {
       this.deleteCheckedData();
       return;
     } else if (!this.name) {
+      // calling this whenever user checks only 1 check box
       this.deleteCheckedData();
     }
+    //if user selected 1 row then executing below code
     if (this.name && this.id) {
-      //this.orders.splice(this.selectedItemIndex, 1);
-      let tooltip = '';
-      const tempName = this.name;
-      if (this.name.length >= 10) {
-        tooltip = tempName;
-        this.name = this.name.substr(0, 9) + '....';
-      } else {
-        tooltip = '';
-      }
-      this.orders[this.selectedItemIndex].name = this.name;
-      this.orders[this.selectedItemIndex].id = this.id;
-      this.orders[this.selectedItemIndex].status = 'No';
-      this.orders[this.selectedItemIndex].checked = false;
-      this.orders[this.selectedItemIndex].tempStatus = 'No';
-      this.orders[this.selectedItemIndex].tooltipText = tooltip;
-      this.updateData('No', tooltip);
-      this.showDeleteBtn = false;
+      let tooltip = this.getTooltip();
+      this.updateData('No', tooltip); // deleting selected row data
+      this.showDeleteBtn = false; // to show undo button
       this.selectedItemIndex = 0;
     }
   }
 
+  //deleting the data whatever checked
   deleteCheckedData() {
     this.orders.forEach((item, index) => {
       if (item.checked) {
-        //this.orders.splice(index, 1);
-        //this.updateRowData('No', item);
         this.orders[index].status = 'No';
         this.orders[index].checked = false;
         this.orders[index].tempStatus = 'No';
@@ -434,27 +283,20 @@ export class NvThirdPanelComponent implements OnInit {
     this.disableEditButton = false;
   }
 
-  updateRowData(status: string, rowData: any) {
-    this.orders.unshift({
-      id: rowData.id,
-      name: rowData.name,
-      status: status,
-      checked: false,
-      tempStatus: status,
-    });
-  }
-
+  //when ever user clicks undo button, it will invoke
   undo() {
     this.disableInput = false;
     this.showDeleteBtn = true;
     this.disableAddButton = false;
     this.disableEditButton = false;
+    //undo selected row data
     if (this.name) {
       this.orders[this.selectedItemIndex].status = 'Pending';
       this.orders[this.selectedItemIndex].tempStatus = 'Pending';
     }
     this.name = '';
     this.id = '';
+    //undo checked data
     this.orders.forEach((item, index) => {
       if (item.checked) {
         this.orders[index].status = 'Pending';
@@ -462,35 +304,17 @@ export class NvThirdPanelComponent implements OnInit {
         this.orders[index].checked = false;
       }
     });
-    //this.sortArr('name', 'onClick');
   }
 
-  updateData(status: string, tooltipText: string) {
-    this.disableAddButton = false;
-    // this.orders.unshift({
-    //   id: this.id,
-    //   name: this.name,
-    //   status: status,
-    //   checked: false,
-    //   tempStatus: status,
-    //   tooltipText: tooltipText,
-    // });
-    this.name = '';
-    this.id = '';
-  }
-
+  //whenever user clicks on check box invoking this
   checkBoxClicked(data: any, index: number) {
     this.selectedItemIndex = index;
-    this.name = ''; // data.name;
-    this.id = ''; //data.id;
+    this.name = '';
+    this.id = '';
     this.nameValidation = 'is-normal';
     this.idValidation = 'is-normal';
+    this.showDeleteBtn = this.orders[index].status != 'No';
 
-    if (this.orders[index].status === 'No') {
-      this.showDeleteBtn = false;
-    } else {
-      this.showDeleteBtn = true;
-    }
     this.orders.forEach((item) => {
       if (item.status === 'Clicked' && item.checked == false) {
         item.status = 'Pending';
@@ -503,19 +327,7 @@ export class NvThirdPanelComponent implements OnInit {
     }, 10);
   }
 
-  updateStatus(data: any) {
-    if (data.checked == false) {
-      this.orders[this.selectedItemIndex].status =
-        this.orders[this.selectedItemIndex].tempStatus;
-    } else {
-      this.orders.map((item) => {
-        if (item.checked) {
-          item.status = 'Clicked';
-        }
-      });
-    }
-  }
-
+  //when ever user clicks on a row, invoking this
   clickedRow(data: any, indexx: number) {
     this.selectedItemIndex = indexx;
     this.name = data.name;
@@ -558,16 +370,20 @@ export class NvThirdPanelComponent implements OnInit {
     });
   }
 
-  private updateSelectedData(data: any) {
-    if (data.checked) {
-      this.name = '';
-      this.id = '';
-    } else {
-      this.name = data.name;
-      this.id = data.id;
-    }
+  //updating table data as per user changes
+  private updateData(status: string, tooltipText: string) {
+    this.disableAddButton = false;
+    this.orders[this.selectedItemIndex].name = this.name;
+    this.orders[this.selectedItemIndex].id = this.id;
+    this.orders[this.selectedItemIndex].status = status;
+    this.orders[this.selectedItemIndex].checked = false;
+    this.orders[this.selectedItemIndex].tempStatus = status;
+    this.orders[this.selectedItemIndex].tooltipText = tooltipText;
+    this.name = '';
+    this.id = '';
   }
 
+  //disabling add or edit buttons
   private disableButtons() {
     if (this.orders.every((item) => item.checked === false)) {
       this.disableAddButton = false;
@@ -578,6 +394,7 @@ export class NvThirdPanelComponent implements OnInit {
     }
   }
 
+  //disabling name & id user fields
   private updateDisableInput(data: any) {
     if (data.checked == true) {
       this.disableInput = true;
@@ -586,6 +403,21 @@ export class NvThirdPanelComponent implements OnInit {
     }
   }
 
+  //checked data showing in blue color
+  private updateStatus(data: any) {
+    if (data.checked == false) {
+      this.orders[this.selectedItemIndex].status =
+        this.orders[this.selectedItemIndex].tempStatus;
+    } else {
+      this.orders.map((item) => {
+        if (item.checked) {
+          item.status = 'Clicked';
+        }
+      });
+    }
+  }
+
+  //gets the count of checked boxes
   private getCheckedDataCount() {
     let count = 0;
     this.orders.forEach((item) => {
@@ -594,5 +426,32 @@ export class NvThirdPanelComponent implements OnInit {
       }
     });
     return count;
+  }
+
+  //updating the tooltip for name field
+  private getTooltip() {
+    let tooltip = '';
+    const tempName = this.name;
+    if (this.name.length >= 10) {
+      tooltip = tempName;
+      this.name = this.name.substr(0, 9) + '....';
+    }
+    return tooltip;
+  }
+
+  //scrolling to the selected index
+  private scrollToUpdatedData() {
+    let selectedIndex = 0;
+    this.orders.forEach((data, index) => {
+      if (
+        data.name.toLowerCase() === this.name.toLowerCase() &&
+        data.id == this.id
+      ) {
+        selectedIndex = index;
+      }
+    });
+    setTimeout(() => {
+      this.onScrollToGeofence(selectedIndex);
+    }, 100);
   }
 }

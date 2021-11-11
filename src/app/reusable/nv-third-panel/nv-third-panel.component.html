@@ -6,7 +6,7 @@
           class="search"
           [isAdvance]="isAdvance"
           [hideMenu]="hideMenu"
-          [list]="tableTestData"
+          [list]="tableSearchData"
           [searchableRefList]="searchableRefList"
           (filteredItems)="onItemsFilter($event)"
         ></app-nv-search>
@@ -86,14 +86,14 @@
               ><img
                 src="../../../assets/icons/ico.table.sort.up.svg"
                 class="sort-icon-width"
-                (click)="rowImgClicked($event, 'ascending', 'name')"
+                (click)="sortImgClicked('ascending', 'name')"
                 alt="asc"
             /></mat-icon>
             <mat-icon class="img" *ngIf="sortPreference == 'descending'"
               ><img
                 src="../../../assets/icons/ico.table.sort.down.svg"
                 class="sort-icon-width"
-                (click)="rowImgClicked($event, 'descending', 'name')"
+                (click)="sortImgClicked('descending', 'name')"
                 alt="dec" /></mat-icon
           ></span>
         </th>
@@ -104,14 +104,14 @@
               ><img
                 src="../../../assets/icons/ico.table.sort.up.svg"
                 class="sort-icon-width"
-                (click)="rowImgClicked($event, 'ascending', 'id')"
+                (click)="sortImgClicked('ascending', 'id')"
                 alt="asc"
             /></mat-icon>
             <mat-icon class="img" *ngIf="sortPreference == 'descending'"
               ><img
                 src="../../../assets/icons/ico.table.sort.down.svg"
                 class="sort-icon-width"
-                (click)="rowImgClicked($event, 'descending', 'id')"
+                (click)="sortImgClicked('descending', 'id')"
                 alt="dec" /></mat-icon
           ></span>
         </th>
@@ -126,14 +126,7 @@
           'status-clicked': order.status === 'Clicked'
         }"
         *ngFor="
-          let order of orders
-            | paginate
-              : {
-                  id: 'oList',
-                  itemsPerPage: pageSize,
-                  currentPage: page,
-                  totalItems: count
-                };
+          let order of orders;
           let i = index
         "
         [id]="'team' + i"

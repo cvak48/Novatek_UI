@@ -103,8 +103,17 @@
   <form #userForm="ngForm" novalidate>
   <ng-container *ngIf="userAction == 'new'">
     <div class="field-block">
-      <label class="field-label h50 label label-red">First Name</label>
-      <input
+      <app-nv-input
+    class="text-color"
+    [(sharedVar)]="personData.firstName"
+    inputPlaceHolder="First Name"
+    label="First Name"
+    [status]="updateValidations(personData.firstName)"
+    (keypress)="keyPress(personData.firstName)"
+  ></app-nv-input>
+
+      <!-- <label class="field-label h50 label label-red">First Name</label>
+     <input
         class="field-user"
         type="text"
         [(ngModel)]="personData.firstName"
@@ -112,10 +121,18 @@
         required
         #firstName="ngModel"
         [ngClass]="{'error':!firstName?.valid && (firstName?.dirty || firstName?.touched)}"
-      />
+      />-->
     </div>
     <div class="field-block">
-      <label class="field-label h50 label label-red">Last Name</label>
+      <app-nv-input
+    class="text-color"
+    [(sharedVar)]="personData.lastName"
+    inputPlaceHolder="Last Name"
+    label="Last Name"
+    [status]="updateValidations(personData.lastName)"
+    (keypress)="keyPress(personData.lastName)"
+  ></app-nv-input>
+      <!--<label class="field-label h50 label label-red">Last Name</label>
       <input
         class="field-user"
         type="text"
@@ -124,10 +141,18 @@
         required
         #lastName="ngModel"
         [ngClass]="{'error':!lastName?.valid && (lastName?.dirty || lastName?.touched)}"
-      />
+      />-->
     </div>
     <div class="field-block">
-      <label class="field-label h50 label label-red">User Name</label>
+      <app-nv-input
+    class="text-color"
+    [(sharedVar)]="personData.name"
+    inputPlaceHolder="User Name"
+    label="User Name"
+    [status]="updateValidations(personData.name)"
+    (keypress)="keyPress(personData.name)"
+  ></app-nv-input>
+      <!--<label class="field-label h50 label label-red">User Name</label>
       <input
         class="field-user"
         type="text"
@@ -136,10 +161,18 @@
         required
         #userName="ngModel"
         [ngClass]="{'error':!userName?.valid && (userName?.dirty || userName?.touched)}"
-      />
+      />-->
     </div>
     <div class="field-block">
-      <label class="field-label h50 label label-red">E-Mail</label>
+      <app-nv-input
+    class="text-color"
+    [(sharedVar)]="personData.email"
+    inputPlaceHolder="E-Mail"
+    label="E-Mail"
+    [status]="updateValidations(personData.email)"
+    (keypress)="keyPress(personData.email)"
+  ></app-nv-input>
+      <!--<label class="field-label h50 label label-red">E-Mail</label>
       <input
         class="field-user"
         type="email"
@@ -148,7 +181,7 @@
         required
         #email="ngModel"
         [ngClass]="{'error':!email?.valid && (email?.dirty || email?.touched)}"
-      />
+      />-->
     </div>
     <div class="field-block">
       <label class="field-label h50 label">Unique ID</label>

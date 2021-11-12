@@ -54,7 +54,7 @@ export class NvUserProfileComponent implements OnInit {
                    }
                   
                  } else {
-                  this.personData = {attachments: [], checked: false, date: "", email: "", id: 0, name: "",status: "", title:"", position: ""};
+                  this.personData = {attachments: [], checked: false, date: "", email: "", id: 0, lastName: "", firstName: "", name: "",status: "", title:"", position: ""};
                  }
                   
               })
@@ -135,6 +135,18 @@ if (event.target.files && event.target.files[0]) {
 
   onClose(): void {
     this.imageSrc = '';
+  }
+
+  keyPress(column: string) {
+    setTimeout(() => {
+      this.updateValidations(column);
+    }, 10);
+  }
+
+   updateValidations(column: string) {
+  
+      return column.length > 0 ? 'is-normal' : 'is-invalid';
+   
   }
 
   // TODO: using imageService we need to send the image to the backend

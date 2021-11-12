@@ -330,6 +330,23 @@ export class NvThirdPanelComponent implements OnInit {
   //when ever user clicks on a row, invoking this
   clickedRow(data: any, indexx: number) {
     this.selectedItemIndex = indexx;
+    this.updateName(data);
+    this.id = data.id;
+    this.nameValidation = 'is-normal';
+    this.idValidation = 'is-normal';
+    this.updateDisableButtons(data);
+    this.updateRowStatus();
+    this.showDeleteBtn = this.orders[indexx].status != 'No';
+    this.orders[indexx].status = 'Clicked';
+    this.orders.forEach((da, index) => {
+      if (indexx !== index && !da.checked) {
+        da.status = da.tempStatus;
+      }
+    });
+  }
+
+  //updating name for tooltip
+  private updateName(data:any){
     this.name = data.name;
     if (
       this.orders[this.selectedItemIndex].tooltipText != undefined &&
@@ -339,33 +356,23 @@ export class NvThirdPanelComponent implements OnInit {
     } else {
       this.name = data.name;
     }
-    this.id = data.id;
+  }
 
-    this.nameValidation = 'is-normal';
-    this.idValidation = 'is-normal';
-
+  //add & edit disable buttons 
+  private updateDisableButtons(data:any){
     this.disableAddButton = true;
     if (data.status == 'No' || this.getCheckedDataCount() >= 1) {
       this.disableEditButton = true;
     } else {
       this.disableEditButton = false;
     }
+  }
 
+  //updating row status
+  private updateRowStatus(){
     this.orders.forEach((item) => {
       if (item.status === 'Clicked' && !item.checked) {
         item.status = 'Pending';
-      }
-    });
-    if (this.orders[indexx].status === 'No') {
-      this.showDeleteBtn = false;
-    } else {
-      this.showDeleteBtn = true;
-    }
-
-    this.orders[indexx].status = 'Clicked';
-    this.orders.forEach((da, index) => {
-      if (indexx !== index && !da.checked) {
-        da.status = da.tempStatus;
       }
     });
   }

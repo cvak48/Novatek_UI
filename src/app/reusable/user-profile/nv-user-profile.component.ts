@@ -1,5 +1,12 @@
 import { UserProfileService } from './../../services/local-data/user-profile/user-profile.service';
-import { Person, Notification, User, MenuExtensionDirection, DropdownFieldType, FieldStatusType } from './../../model/data-model';
+import {
+  Person,
+  Notification,
+  User,
+  MenuExtensionDirection,
+  DropdownFieldType,
+  FieldStatusType,
+} from './../../model/data-model';
 import { Component, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { ApplicationService } from 'src/app/services/application.service';
@@ -36,10 +43,12 @@ export class NvUserProfileComponent implements OnInit {
   multiUser: boolean = false;
   multiUserList: any = [];
   @ViewChild('fileDropRef') fileDropRef!: ElementRef<HTMLElement>;
-  constructor(private _dataService: UserProfileService,
+  constructor(
+    private _dataService: UserProfileService,
     private applicationService: ApplicationService,
     private dataService: DataService,
-    private http: HttpClient) {}
+    private http: HttpClient
+  ) {}
   ngOnInit(): void {
     this.sub = this.applicationService.selectedUserData
               .subscribe(res => {
@@ -66,16 +75,15 @@ export class NvUserProfileComponent implements OnInit {
            }
          })
 
-      this.applicationService.userBtnAction
-           .subscribe(res => {
-              this.userAction = res;
-           });
+    this.applicationService.userBtnAction.subscribe((res) => {
+      this.userAction = res;
+    });
   }
 
-  getSelectedUserData(id: number): void{
+  getSelectedUserData(id: number): void {
     this.personData = this.dataService.getUserData(id)[0];
   }
-  
+
   onMultiselectItemsFilter(item: any): void {}
   /**
    * The img element and input is internally linked with onIconClick event handler;
@@ -92,30 +100,28 @@ export class NvUserProfileComponent implements OnInit {
     const files = event?.target?.files;
     this.person.imageUrl = files[0].name;
     this.selecetdFile = event.target.files[0];
-this.imageSelected = this.selecetdFile.name;
-if (event.target.files && event.target.files[0]) {
-  const reader = new FileReader();
-  reader.onload = (e: any) => {
-    this.imageSrc = e.target.result;
-  };
-  reader.readAsDataURL(event.target.files[0]);
-}
+    this.imageSelected = this.selecetdFile.name;
+    if (event.target.files && event.target.files[0]) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.imageSrc = e.target.result;
+      };
+      reader.readAsDataURL(event.target.files[0]);
+    }
   }
 
-  saveuserData(): void{
- 
+  saveuserData(): void {
     if (this.personData.id && this.personData.id > 0) {
       this.applicationService.setUpdatedUserData(this.personData);
     } else if (this.personData.id && this.personData.id == 0) {
       this.applicationService.setNewUserData(this.personData);
     } else {
-       this.multiUserList.map((user: any) => {
-         user.title = this.personData.title;
-         user.position = this.personData.position;
-       });
-       this.applicationService.setNewUserData(this.multiUserList);
+      this.multiUserList.map((user: any) => {
+        user.title = this.personData.title;
+        user.position = this.personData.position;
+      });
+      this.applicationService.setNewUserData(this.multiUserList);
     }
-    
   }
 
   onFileDropped(files: any): void {

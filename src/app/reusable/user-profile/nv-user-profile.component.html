@@ -355,7 +355,7 @@
   </ng-container>
   <ng-container *ngIf="userAction == 'edit'">
     <div class="field-block" *ngIf="!multiUser">
-      <label class="field-label h50 label label-red">First Name</label>
+      <!--<label class="field-label h50 label label-red">First Name</label>
       <input
         class="field-user"
         type="text"
@@ -365,10 +365,18 @@
         #firstName="ngModel"
         [ngModelOptions]="{standalone: true}"
         [ngClass]="{'error':!firstName?.valid && (firstName?.dirty || firstName?.touched)}"
-      />
+      />-->
+      <app-nv-input
+      class="text-color"
+      [(sharedVar)]="personData.firstName"
+      inputPlaceHolder="First Name"
+      label="First Name"
+      [status]="updateValidations(personData.firstName)"
+      (keypress)="keyPress(personData.firstName)"
+    ></app-nv-input>
     </div>
     <div class="field-block" *ngIf="!multiUser">
-      <label class="field-label h50 label label-red">Last Name</label>
+    <!--  <label class="field-label h50 label label-red">Last Name</label>
       <input
         class="field-user"
         type="text"
@@ -377,10 +385,18 @@
         required
         #lastName="ngModel"
         [ngClass]="{'error':!lastName?.valid && (lastName?.dirty || lastName?.touched)}"
-      />
+      />-->
+      <app-nv-input
+      class="text-color"
+      [(sharedVar)]="personData.LastName"
+      inputPlaceHolder="Last Name"
+      label="Last Name"
+      [status]="updateValidations(personData.LastName)"
+      (keypress)="keyPress(personData.LastName)"
+    ></app-nv-input>
     </div>
     <div class="field-block" *ngIf="!multiUser">
-      <label class="field-label h50 label label-red">User Name</label>
+      <!--<label class="field-label h50 label label-red">User Name</label>
       <input
         class="field-user"
         type="text"
@@ -389,10 +405,18 @@
         required
         #userName="ngModel"
         [ngClass]="{'error':!userName?.valid && (userName?.dirty || userName?.touched)}"
-      />
+      />-->
+      <app-nv-input
+      class="text-color"
+      [(sharedVar)]="personData.name"
+      inputPlaceHolder="User Name"
+      label="User Name"
+      [status]="updateValidations(personData.name)"
+      (keypress)="keyPress(personData.name)"
+    ></app-nv-input>
     </div>
     <div class="field-block" *ngIf="!multiUser">
-      <label class="field-label h50 label label-red">E-Mail</label>
+     <!-- <label class="field-label h50 label label-red">E-Mail</label>
       <input
         class="field-user"
         type="email"
@@ -401,7 +425,15 @@
         required
         #email="ngModel"
         [ngClass]="{'error':!email?.valid && (email?.dirty || email?.touched)}"
-      />
+      />-->
+      <app-nv-input
+      class="text-color"
+      [(sharedVar)]="personData.email"
+      inputPlaceHolder="E-Mail"
+      label="E-Mail"
+      [status]="updateValidations(personData.email)"
+      (keypress)="keyPress(personData.email)"
+    ></app-nv-input>
     </div>
     <div class="field-block" *ngIf="!multiUser">
       <label class="field-label h50 label">Unique ID</label>

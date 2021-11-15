@@ -151,7 +151,7 @@ export class NvUserProfileComponent implements OnInit {
 
    updateValidations(column: string) {
   
-      return column.length > 0 ? 'is-normal' : 'is-invalid';
+      return column?.length > 0 ? 'is-normal' : 'is-invalid';
    
   }
 

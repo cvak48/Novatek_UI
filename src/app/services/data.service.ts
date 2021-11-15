@@ -382,6 +382,8 @@ export class DataService {
         {
           'id': 1,
           'name': 'John Liiki',
+          'firstname': 'John',
+          'LatsName' : 'Likki',
           'userName': "John-Liiki",
           'passwordExpiry': '12-25-2025',
           'accountExpiry': '12-25-2025',

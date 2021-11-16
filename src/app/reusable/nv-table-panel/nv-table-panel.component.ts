@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { DropdownFieldType } from 'src/app/model/data-model';
 import { ApplicationService } from 'src/app/services/application.service';
 import { DataService } from 'src/app/services/data.service';
+import { SharedService } from 'src/app/services/shared.service';
 import { NvAttachmentListComponent } from '../nv-attachment-list/nv-attachment-list.component';
 import { TableColumn } from '../nv-custom-datatable/table-column.model';
 import { Order } from '../test/order';
@@ -73,7 +74,8 @@ export class NvTablePanelComponent implements OnInit {
   sub = new Subscription();
   constructor(private dataService: DataService,
               private dialog: MatDialog,
-              private applicationService: ApplicationService) { }
+              private applicationService: ApplicationService,
+              private sharedService: SharedService) { }
 
   ngOnInit(): void {
     this.sub = this.dataService.getTableData()
@@ -246,14 +248,16 @@ export class NvTablePanelComponent implements OnInit {
     this.selectedRow = (this.selectedRow == index) ? -1 : index;
   }
 
-  showAttachments(attachments: any): void{
-    const dialogConfig = new MatDialogConfig();
+  showAttachments(data: any): void{
+    /*const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.closeOnNavigation = true;
-    dialogConfig.data = attachments;
+    dialogConfig.data = data;
     const dialogRef = this.dialog.open(NvAttachmentListComponent, dialogConfig);
     dialogRef.afterClosed().subscribe((email: string) => {
-    });
+    });*/
+
+    this.sharedService.getGenericDialogRef(NvAttachmentListComponent, data);
   }
 
   isRowVisibleAllowed(index: number): boolean {

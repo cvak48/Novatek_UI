@@ -42,6 +42,10 @@ export class NvUserProfileComponent implements OnInit {
   selecetdFile!: File;
   multiUser: boolean = false;
   multiUserList: any = [];
+  firstNameStatus = '';
+  lastNameStatus = '';
+  userNameStatus = '';
+  emailStatus = '';
   @ViewChild('fileDropRef') fileDropRef!: ElementRef<HTMLElement>;
   constructor(
     private _dataService: UserProfileService,
@@ -143,14 +147,27 @@ export class NvUserProfileComponent implements OnInit {
     this.imageSrc = '';
   }
 
-  keyPress(column: string) {
+  keyPress(column: string, columnName: string) {
     setTimeout(() => {
-      this.updateValidations(column);
+      this.updateValidations(column, columnName);
     }, 10);
   }
 
-   updateValidations(column: string) {
-  
+   updateValidations(column: string, columnName: string) {
+      switch(columnName) {
+        case 'firstName':
+          this.firstNameStatus = column?.length > 0 ? 'is-normal' : 'is-invalid';
+          break;
+        case 'lastName':
+          this.lastNameStatus = column?.length > 0 ? 'is-normal' : 'is-invalid';
+          break;
+        case 'userName':
+          this.userNameStatus = column?.length > 0 ? 'is-normal' : 'is-invalid';
+          break;
+        case 'email':
+          this.emailStatus = column?.length > 0 ? 'is-normal' : 'is-invalid';
+          break;
+      }
       return column?.length > 0 ? 'is-normal' : 'is-invalid';
    
   }

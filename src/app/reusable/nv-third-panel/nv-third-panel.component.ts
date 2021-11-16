@@ -2,6 +2,14 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Sort } from '@angular/material/sort';
 import { Team } from 'src/app/model/teams-model';
 
+const Status = {
+  NO_CHANGE: 0,
+  EDIT: 1,
+  NEW: 2,
+  DELETE: 4,
+  CLICKED: 8,
+} as const;
+
 @Component({
   selector: 'app-nv-third-panel',
   templateUrl: './nv-third-panel.component.html',
@@ -168,35 +176,7 @@ export class NvThirdPanelComponent implements OnInit {
   //when ever user clicks add button, it will invoke
   add() {
     if (this.name && this.id) {
-      let status = 'Completed';
-      let userData: any;
-      //getting user data if already exists
-      this.orders.forEach((data) => {
-        if (
-          data.name.toLowerCase() === this.name.toLowerCase() &&
-          data.id == this.id
-        ) {
-          userData = data;
-        }
-      });
-      if (
-        userData !== undefined &&
-        userData.name.toLowerCase() === this.name.toLowerCase() &&
-        userData.id == Number(this.id)
-      ) {
-        const index = this.orders.findIndex(
-          (data) => data.name.toLowerCase() === this.name.toLowerCase()
-        );
-        this.orders.splice(index, 1);
-        status = 'Clicked';
-      } else if (userData === undefined) {
-        let tooltip = this.getTooltip();
-        userData = {};
-        userData.name = this.name;
-        userData.id = this.id;
-        userData.tooltip = tooltip;
-      }
-      this.addData(userData, status);
+      this.addData(this.checkEnteredData());
       this.nameValidation = '';
       this.idValidation = '';
     } else if (!this.name && !this.id) {
@@ -209,13 +189,13 @@ export class NvThirdPanelComponent implements OnInit {
     }
   }
 
-  addData(data: any, status: string) {
+  addData(data: any) {
     this.orders.push({
       id: data.id,
       name: data.name,
-      status: status,
+      status: data.status,
       checked: false,
-      tempStatus: status,
+      tempStatus: data.status,
       tooltipText: data.tooltip,
     });
     this.sortArr('name', 'onClick');
@@ -234,7 +214,17 @@ export class NvThirdPanelComponent implements OnInit {
   //when ever user clicks edit button, it will invoke
   edit() {
     if (this.name && this.id) {
-      this.updateData('Edited', this.getTooltip());
+      //For updating proper status for multiple edits tweaking this
+      let status;
+      if (
+        this.orders[this.selectedItemIndex].tempStatus == 1 ||
+        this.orders[this.selectedItemIndex].tempStatus == 3
+      ) {
+        status = this.orders[this.selectedItemIndex].tempStatus;
+      } else {
+        status = this.orders[this.selectedItemIndex].tempStatus + Status.EDIT;
+      }
+      this.updateData(status, this.getTooltip());
       this.sortArr('name', 'onClick');
       this.scrollToUpdatedData();
     } else if (!this.name && !this.id) {
@@ -261,19 +251,26 @@ export class NvThirdPanelComponent implements OnInit {
     //if user selected 1 row then executing below code
     if (this.name && this.id) {
       let tooltip = this.getTooltip();
-      this.updateData('No', tooltip); // deleting selected row data
+      this.updateData(
+        this.orders[this.selectedItemIndex].tempStatus + Status.DELETE,
+        tooltip
+      ); // deleting selected row data
       this.showDeleteBtn = false; // to show undo button
       this.selectedItemIndex = 0;
     }
   }
 
   //deleting the data whatever checked
-  deleteCheckedData() {
+  private deleteCheckedData() {
     this.orders.forEach((item, index) => {
       if (item.checked) {
-        this.orders[index].status = 'No';
+        this.orders[index].status =
+          this.orders[index].tempStatus + Status.DELETE;
         this.orders[index].checked = false;
-        this.orders[index].tempStatus = 'No';
+        this.orders[index].tempStatus =
+          this.orders[index].tempStatus + Status.DELETE;
+      } else {
+        this.orders[index].status = this.orders[index].tempStatus;
       }
     });
     this.name = '';
@@ -289,18 +286,22 @@ export class NvThirdPanelComponent implements OnInit {
     this.showDeleteBtn = true;
     this.disableAddButton = false;
     this.disableEditButton = false;
-    //undo selected row data
+    //undo selected single row data
     if (this.name) {
-      this.orders[this.selectedItemIndex].status = 'Pending';
-      this.orders[this.selectedItemIndex].tempStatus = 'Pending';
+      this.orders[this.selectedItemIndex].status =
+        this.orders[this.selectedItemIndex].tempStatus - Status.DELETE;
+      this.orders[this.selectedItemIndex].tempStatus =
+        this.orders[this.selectedItemIndex].status;
+      this.name = '';
+      this.id = '';
     }
-    this.name = '';
-    this.id = '';
     //undo checked data
     this.orders.forEach((item, index) => {
       if (item.checked) {
-        this.orders[index].status = 'Pending';
-        this.orders[index].tempStatus = 'Pending';
+        this.orders[this.selectedItemIndex].status =
+          this.orders[this.selectedItemIndex].tempStatus - Status.DELETE;
+        this.orders[this.selectedItemIndex].tempStatus =
+          this.orders[this.selectedItemIndex].status;
         this.orders[index].checked = false;
       }
     });
@@ -313,11 +314,11 @@ export class NvThirdPanelComponent implements OnInit {
     this.id = '';
     this.nameValidation = 'is-normal';
     this.idValidation = 'is-normal';
-    this.showDeleteBtn = this.orders[index].status != 'No';
-
+    //this.showDeleteBtn = this.orders[index].status != Status.DELETE;
+    this.updateShowDeleteButton(index);
     this.orders.forEach((item) => {
-      if (item.status === 'Clicked' && item.checked == false) {
-        item.status = 'Pending';
+      if (item.status == Status.CLICKED && item.checked == false) {
+        item.status = Status.NO_CHANGE;
       }
     });
     setTimeout(() => {
@@ -336,8 +337,18 @@ export class NvThirdPanelComponent implements OnInit {
     this.idValidation = 'is-normal';
     this.updateDisableButtons(data);
     this.updateRowStatus();
-    this.showDeleteBtn = this.orders[indexx].status != 'No';
-    this.orders[indexx].status = 'Clicked';
+    if (
+      this.orders[indexx].status != Status.DELETE &&
+      this.orders[indexx].status != 5 &&
+      this.orders[indexx].status != 6 &&
+      this.orders[indexx].status != 7
+    ) {
+      this.showDeleteBtn = true;
+    } else {
+      this.showDeleteBtn = false;
+    }
+    //this.showDeleteBtn =this.orders[indexx].status != 'No';
+    this.orders[indexx].status = Status.CLICKED;
     this.orders.forEach((da, index) => {
       if (indexx !== index && !da.checked) {
         da.status = da.tempStatus;
@@ -346,7 +357,7 @@ export class NvThirdPanelComponent implements OnInit {
   }
 
   //updating name for tooltip
-  private updateName(data:any){
+  private updateName(data: any) {
     this.name = data.name;
     if (
       this.orders[this.selectedItemIndex].tooltipText != undefined &&
@@ -358,10 +369,10 @@ export class NvThirdPanelComponent implements OnInit {
     }
   }
 
-  //add & edit disable buttons 
-  private updateDisableButtons(data:any){
+  //add & edit disable buttons
+  private updateDisableButtons(data: any) {
     this.disableAddButton = true;
-    if (data.status == 'No' || this.getCheckedDataCount() >= 1) {
+    if (data.status == Status.DELETE || this.getCheckedDataCount() >= 1) {
       this.disableEditButton = true;
     } else {
       this.disableEditButton = false;
@@ -369,16 +380,16 @@ export class NvThirdPanelComponent implements OnInit {
   }
 
   //updating row status
-  private updateRowStatus(){
+  private updateRowStatus() {
     this.orders.forEach((item) => {
-      if (item.status === 'Clicked' && !item.checked) {
-        item.status = 'Pending';
+      if (item.status == Status.CLICKED && !item.checked) {
+        item.status = Status.NO_CHANGE;
       }
     });
   }
 
   //updating table data as per user changes
-  private updateData(status: string, tooltipText: string) {
+  private updateData(status: number, tooltipText: string) {
     this.disableAddButton = false;
     this.orders[this.selectedItemIndex].name = this.name;
     this.orders[this.selectedItemIndex].id = this.id;
@@ -418,7 +429,7 @@ export class NvThirdPanelComponent implements OnInit {
     } else {
       this.orders.map((item) => {
         if (item.checked) {
-          item.status = 'Clicked';
+          item.status = Status.CLICKED;
         }
       });
     }
@@ -460,5 +471,54 @@ export class NvThirdPanelComponent implements OnInit {
     setTimeout(() => {
       this.onScrollToGeofence(selectedIndex);
     }, 100);
+  }
+
+  //updating to show Delete or Undo button
+  private updateShowDeleteButton(index: number) {
+    if (
+      this.orders[index].status != Status.DELETE &&
+      this.orders[index].status != 5 &&
+      this.orders[index].status != 6 &&
+      this.orders[index].status != 7
+    ) {
+      this.showDeleteBtn = true;
+    } else {
+      this.showDeleteBtn = false;
+    }
+  }
+
+  //getting user data if already exists
+  private checkEnteredData() {
+    let userData: any;
+    this.orders.forEach((data) => {
+      if (
+        data.name.toLowerCase() === this.name.toLowerCase() &&
+        data.id == this.id
+      ) {
+        userData = data;
+      }
+    });
+    if (
+      userData !== undefined &&
+      userData.name.toLowerCase() === this.name.toLowerCase() &&
+      userData.id == Number(this.id)
+    ) {
+      const index = this.orders.findIndex(
+        (data) => data.name.toLowerCase() === this.name.toLowerCase()
+      );
+      this.orders.splice(index, 1);
+      userData.status = Status.CLICKED;
+      // status = Status.CLICKED;
+      return userData;
+    } else if (userData === undefined) {
+      let tooltip = this.getTooltip();
+      userData = {};
+      userData.name = this.name;
+      userData.id = this.id;
+      userData.tooltip = tooltip;
+      userData.status = Status.NEW;
+      //status = Status.NEW;
+      return userData;
+    }
   }
 }

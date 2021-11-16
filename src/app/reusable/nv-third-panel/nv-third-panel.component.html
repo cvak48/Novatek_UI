@@ -119,11 +119,11 @@
       <tr
         class="mat-row"
         [ngClass]="{
-          'status-gr': order.status === 'Completed',
-          'status-rd': order.status === 'No',
-          'status-white': order.status === 'Pending',
-          'status-ed': order.status === 'Edited',
-          'status-clicked': order.status === 'Clicked'
+          'status-gr': order.status == 2,
+          'status-rd': order.status == 4 || order.status == 5 || order.status == 6 ||  order.status == 7,
+          'status-white': order.status == 0,
+          'status-ed': order.status == 1 || order.status == 3,
+          'status-clicked': order.status == 8
         }"
         *ngFor="
           let order of orders;
@@ -131,6 +131,7 @@
         "
         [id]="'team' + i"
       >
+    
         <td class="pd-lt-2 checkbox-column">
           <input
             class="table-check"

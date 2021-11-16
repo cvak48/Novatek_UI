@@ -71,6 +71,10 @@ select {
     width: 21.5vw !important;
 }
 
+::ng-deep .dropdown .dropdown-menu.show {
+    margin-left: 20px !important;
+}
+
 .login-items {
     padding: $padding-16;
     background-color: $color-white-f3;

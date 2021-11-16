@@ -11,65 +11,65 @@ export class DataService {
         {
           'id': 1,
           'name': 'Veera',
-          'status': 'Pending',
+          'status': 0,
           'checked': false,
-          'tempStatus': 'Pending'
+          'tempStatus': 0
         },
         {
           'id': 2,
           'name': 'Sina',
-          'status': 'Pending',
+          'status': 0,
           'checked': false,
-          'tempStatus': 'Pending'
+          'tempStatus': 0
         },
         {
           'id': 3,
           'name': 'Amir',
-          'status': 'Pending',
+          'status': 0,
           'checked': false,
-          'tempStatus': 'Pending'
+          'tempStatus': 0
         },
         {
           'id': 4,
           'name': 'Payam',
-          'status': 'Pending',
+          'status': 0,
           'checked': false,
-          'tempStatus': 'Pending'
+          'tempStatus': 0
         },
         {
           'id': 5,
           'name': 'Dhaval',
-          'status': 'Pending',
+          'status': 0,
           'checked': false,
-          'tempStatus': 'Pending'
+          'tempStatus': 0
         },  
         {
           'id': 6,
           'name': 'Very very very very long long name ',
-          'status': 'Pending',
+          'status': 0,
           'checked': false,
-          'tempStatus': 'Pending'
+          'tempStatus': 0
         },
         {
           'id': 9,
           'name': 'John',
-          'status': 'Pending',
+          'status': 0,
           'checked': false,
-          'tempStatus': 'Pending'
+          'tempStatus': 0
         },
         {
           'id': 6,
           'name': 'Hommi ',
-          'status': 'Pending',
+          'status': 0,
           'checked': false,
-          'tempStatus': 'Pending' 
+          'tempStatus': 0 
         }, 
         {
           'id': 11,
           'name': 'hello',
-          'status': 'Pending',
+          'status': 0,
           'checked': false,
-          'tempStatus': 'Pending' 
+          'tempStatus': 0 
         },    
       ]
         return of(data);

@@ -109,8 +109,7 @@
     inputPlaceHolder="First Name"
     label="First Name"
     [status]="firstNameStatus"
-    (focusout)="updateValidations(personData.firstName, 'firstName')"
-    (keydown)="keyPress(personData.firstName, 'firstName')"
+    (keypress)="keyPress(personData.firstName, 'firstName')"
   ></app-nv-input>
 
       <!-- <label class="field-label h50 label label-red">First Name</label>

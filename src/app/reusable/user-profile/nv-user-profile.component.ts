@@ -74,7 +74,14 @@ export class NvUserProfileComponent implements OnInit {
               this._initialize();
     this.applicationService.btnClickData
          .subscribe(res => {
+          
            if (res == 'updateUserData') {
+            
+              this.firstNameStatus = this.personData.firstName?.length > 0 ? 'is-normal' : 'is-invalid';
+              this.lastNameStatus = this.personData.lastName?.length > 0 ? 'is-normal' : 'is-invalid';
+              this.userNameStatus = this.personData.userName?.length > 0 ? 'is-normal' : 'is-invalid';
+              this.emailStatus = this.personData.email?.length > 0 ? 'is-normal' : 'is-invalid';
+
               this.saveuserData();
            }
          })
@@ -154,6 +161,7 @@ export class NvUserProfileComponent implements OnInit {
   }
 
    updateValidations(column: string, columnName: string) {
+     console.log(columnName)
       switch(columnName) {
         case 'firstName':
           this.firstNameStatus = column?.length > 0 ? 'is-normal' : 'is-invalid';
@@ -168,7 +176,6 @@ export class NvUserProfileComponent implements OnInit {
           this.emailStatus = column?.length > 0 ? 'is-normal' : 'is-invalid';
           break;
       }
-      return column?.length > 0 ? 'is-normal' : 'is-invalid';
    
   }
 

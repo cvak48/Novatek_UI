@@ -141,7 +141,7 @@ mat-paginator {
 
 .table-scroll {
   overflow: auto;
-  max-height: 300px;
+  max-height: 56vh;
 }
 
 .drop-container {
@@ -442,3 +442,6 @@ hr {
   padding: 0 10px !important;
 }
 
+.active{
+  background-color: $color-light-blue-10;
+}

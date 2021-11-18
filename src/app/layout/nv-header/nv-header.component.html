@@ -4,7 +4,8 @@
             <app-nv-logo class="icon" [logosize]="logoSize"></app-nv-logo>
         </div>
         <div class="d-flex align-items-center search-container">
-            <app-nv-search class="search" [isAdvance]="isAdvance" [hideMenu]="hideMenu" [list]="list"
+            <app-nv-search class="search" [isAdvance]="isAdvance" 
+            [hideMenu]="hideMenu" [list]="list"
           [searchableRefList]="searchableRefList" (filteredItems)="onItemsFilter($event)"></app-nv-search>
         </div>
         <div class="float-right ml-auto d-flex align-items-center avatar-container">

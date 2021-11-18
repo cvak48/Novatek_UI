@@ -136,7 +136,7 @@
       padding-top: 50px;
       display: flex;
       flex-direction: column;
-      background-color: rgb(255, 255, 255);
+      background-color: rgb(235, 235, 235);
       @include inputLabel;
       .panel-header {
 
@@ -163,15 +163,6 @@
         .body-item {
           padding-left: 100px;
         }
-        .image-container {
-          width: 400px;
-          height: 400px;
-        }
-        .nv-user-profile {
-          // width: 600px;
-          height: 175px;
-        }
-
         .body-item-container {
           width: 15%;
           height: 40px;

@@ -30,7 +30,7 @@ mat-paginator {
 
 .table-scroll {
   overflow: auto;
-  min-height: 47vh;
+  max-height: 300px;
   margin-top: 11px;
 }
 

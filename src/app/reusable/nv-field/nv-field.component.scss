@@ -8,23 +8,19 @@ $icons-distance: 8px;
 
 .field-container {
   position: relative;
-  display: flex;
-  flex-direction: column;
   width: 100%;
-  height: 63px;
+  height: $height;
   border-radius: 4px;
 
   .field-label {
     color: $color-dark-gray-dde;
-    height: 18px;
-    margin-bottom: 4px !important;
   }
 
   .field-input {
     position: relative;
     text-align: left;
     width: 100%;
-    height: $height;
+    height: 100%;
     background: $color-white-20;
     color: $color-dark-gray-12;
     border: 1px solid $color-white-10;
@@ -54,7 +50,7 @@ $icons-distance: 8px;
     width: 16px;
     height: 16px;
     right: 12.7px;
-    top: 36px;
+    top: 37px;
     fill: $color-dark-gray-02;
     z-index: 5px;
   }

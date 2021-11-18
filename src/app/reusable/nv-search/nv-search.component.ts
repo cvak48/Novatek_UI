@@ -25,8 +25,7 @@ export class NvSearchComponent implements OnInit {
     if (list && list?.length > 0) {
       this._list = list;
     } else {
-      this._list = [];
-      this.hideMenu = true;
+      this._list = mockAdvanceSearchInput().list;
     }
   }
   /**
@@ -36,7 +35,7 @@ export class NvSearchComponent implements OnInit {
     if (list && list?.length > 0) {
       this._searchableRefList = list;
     } else {
-      this._searchableRefList = [];
+      this._searchableRefList = mockAdvanceSearchInput().searchableRefList;
     }
   }
   private _list: any;
@@ -67,8 +66,7 @@ export class NvSearchComponent implements OnInit {
     /**
      * The logic is implemented as the user start typing his query
      */
-    this.queryFormControl.valueChanges.subscribe(query => {
-      if (query) {
+    this.queryFormControl.valueChanges.subscribe((selectedValue) => {
       if (this.queryFormControl.value === '') {
         if (this.filteredList) {
           this.filteredList.length = 0;
@@ -83,9 +81,9 @@ export class NvSearchComponent implements OnInit {
           this.inputKeywordLabel = '';
         }
         // modify searchableList; specific filter key
-        if (query.includes(':')) {
+        if (selectedValue.includes(':')) {
           this.searchableList = this.modifySearchableList(
-            query,
+            selectedValue,
             this._searchableRefList
           );
           if (this.searchableList.length > 0) {
@@ -98,9 +96,9 @@ export class NvSearchComponent implements OnInit {
           isQueryKeyword = false;
         }
         // trim keyWord from input; specific area like name:
-        if (this.searchableList && query.includes(':')) {
+        if (this.searchableList && selectedValue.includes(':')) {
           trimmedInput = this.trimInputKeyWord(
-            query,
+            selectedValue,
             this.searchableList
           );
         }
@@ -131,7 +129,7 @@ export class NvSearchComponent implements OnInit {
         this.showMenuToggle = false;
         this.filteredItems.emit(this.list);
       }
-    }});
+    });
   }
 
   onSearchFocus(event: any) {
@@ -165,6 +163,7 @@ export class NvSearchComponent implements OnInit {
     } else {
       this.showMenuToggle = false;
     }
+    // TODO: hide cross-icon by pressing BackSpace.
     this.searchIcon = !search ? true : false;
   }
   onCancelClick(event: any): void {
@@ -178,7 +177,7 @@ export class NvSearchComponent implements OnInit {
   }
   onSettingClick(): void {}
   onKeyDown(event: any): void {
-    if (this.queryFormControl.value?.length) {
+    if (this.queryFormControl.value.length) {
       if (event.key === 'Enter') {
         event.preventDefault();
       }
@@ -198,7 +197,7 @@ export class NvSearchComponent implements OnInit {
   onKeyUp(event: any): void {
     this.searchIcon = false;
     if (event.key === 'Backspace') {
-      if (this.queryFormControl?.value === '') {
+      if (this.queryFormControl.value === '') {
         if (this.filteredList) {
           //  this.filteredList.length = 0;
         }

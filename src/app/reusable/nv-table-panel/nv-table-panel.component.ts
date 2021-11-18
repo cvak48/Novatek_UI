@@ -3,9 +3,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Sort } from '@angular/material/sort';
 import { Subscription } from 'rxjs';
 import { DropdownFieldType } from 'src/app/model/data-model';
-import { ApplicationService } from 'src/app/services/application.service';
 import { DataService } from 'src/app/services/data.service';
-import { SharedService } from 'src/app/services/shared.service';
 import { NvAttachmentListComponent } from '../nv-attachment-list/nv-attachment-list.component';
 import { TableColumn } from '../nv-custom-datatable/table-column.model';
 import { Order } from '../test/order';
@@ -27,7 +25,7 @@ export class NvTablePanelComponent implements OnInit {
   pageSize = 10;
   pageSizes = [5, 10, 20, 50, 100];
   pageNewSizes = ['5', '10', '20', '50', '100'];
-  columns = ['name', 'title', 'position', 'date', 'email', 'status'];
+  columns = ['name', 'date', 'email', 'status', 'attachments'];
   directionLinks: boolean = true;
   autoHide: boolean = false;
   responsive: boolean = true;
@@ -70,12 +68,9 @@ export class NvTablePanelComponent implements OnInit {
   dropDownFieldTypePlus = mockPlusDropdown().dropDownFieldType;
   dropdownItemsPlus = mockPlusDropdown().items;
   textTrimNumberPlus = mockPlusDropdown().textTrimNumber;
-  selectedUser: any  = [];
   sub = new Subscription();
   constructor(private dataService: DataService,
-              private dialog: MatDialog,
-              private applicationService: ApplicationService,
-              private sharedService: SharedService) { }
+              private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.sub = this.dataService.getTableData()
@@ -86,40 +81,10 @@ export class NvTablePanelComponent implements OnInit {
         this.count = this.orders.length;
       });
       this.sub.unsubscribe();
-
-      this.applicationService.updatedUserData
-           .subscribe(res => {
-            let result = this.orders.map(el => el.id == res.id ? {...el, name: res.name} : el);
-            this.orders = [... result];
-      });
-
-      this.applicationService.newUserData
-           .subscribe(res => {
-             console.log('new', res)
-             if (res.name) {
-              this.orders.splice(0,0,res);
-             }
-          //  res.id ? this.orders.unshift(res) : '';
-           
-            this.orders = [... this.orders];
-            console.log('orders', this.orders)
-      })
   }
 
   buttonClick(): void{
     this.panelClick.emit();
-  }
-
-  buttonNewClick(): void{
-    this.panelClick.emit();
-    this.applicationService.setUserBtnAction('new');
-    this.applicationService.setSelectedUserData({});
-  }
-
-  buttonEditClick(): void{
-    this.panelClick.emit();
-    this.applicationService.setUserBtnAction('edit');
-    this.applicationService.setSelectedUserData(this.selectedUser);
   }
 
   closePanel() {
@@ -248,32 +213,18 @@ export class NvTablePanelComponent implements OnInit {
     this.selectedRow = (this.selectedRow == index) ? -1 : index;
   }
 
-  showAttachments(data: any): void{
-    /*const dialogConfig = new MatDialogConfig();
+  showAttachments(attachments: any): void{
+    const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.closeOnNavigation = true;
-    dialogConfig.data = data;
+    dialogConfig.data = attachments;
     const dialogRef = this.dialog.open(NvAttachmentListComponent, dialogConfig);
     dialogRef.afterClosed().subscribe((email: string) => {
-    });*/
-
-    this.sharedService.getGenericDialogRef(NvAttachmentListComponent, data);
+    });
   }
 
   isRowVisibleAllowed(index: number): boolean {
     return this.selectedRow == index;
-  }
-
-  selectUser(event: any, userData: any): void{
-    if (event.target.checked) {
-      this.selectedUser.push(userData);
-    } else {
-      const filteredUser = this.selectedUser.filter((user: any) => {
-        return user.id != userData.id;
-      });
-      this.selectedUser = [...filteredUser];
-    }
-    
   }
 }
 

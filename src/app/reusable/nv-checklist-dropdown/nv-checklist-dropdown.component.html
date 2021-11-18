@@ -1,7 +1,5 @@
 <div class="dropdown checklist-dropdown-container">
-  <label *ngIf="label" for="input" class="field-label h50" nvTextColor [color]="labelStatus">{{label}}</label>
-  <mat-form-field #default class="form-field dropdown-toggle" [class.focus]="isFieldFocused"
-   data-toggle="dropdown" nvStyleColor   [style]="fieldStyle" (click)="onFormClick()">
+  <mat-form-field #default class="form-field dropdown-toggle" data-toggle="dropdown">
     <mat-chip-list #chipList>
       <mat-chip *ngFor="let item of items" [selectable]="selectable" [removable]="removable" (removed)="remove(item)">
         {{item}}
@@ -44,10 +42,8 @@
 
 <ng-template #arrowTemplate let-item="isArrowDown">
   <div class="arrow-icon-container" [ngClass]="{'no-item': !hasItem}">
-    <img *ngIf="isArrowDown" class="arrow-icon" src="{{arrowIcons?.downward}}" alt='Arrow' nvSvgColor
-    [svgElementId]="svgIconIdsDic.arrowDownPath" [color]="fieldStatusColorDic.disable"
-    [isDirectiveEnable]="isFieldDisable">
-    <img *ngIf="!isArrowDown && !isFieldDisable" class="arrow-icon" src="{{arrowIcons?.upward}}" alt='Arrow'>
+    <img *ngIf="isArrowDown" class="arrow-icon" src="{{arrowIcons?.downward}}" alt='Arrow'>
+    <img *ngIf="!isArrowDown" class="arrow-icon" src="{{arrowIcons?.upward}}" alt='Arrow'>
   </div>
 </ng-template>
 

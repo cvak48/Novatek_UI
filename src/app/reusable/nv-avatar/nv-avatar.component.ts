@@ -1,43 +1,29 @@
-import { Person } from './../../model/data-model';
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-nv-avatar',
   templateUrl: './nv-avatar.component.html',
-  styleUrls: ['./nv-avatar.component.scss'],
+  styleUrls: ['./nv-avatar.component.scss']
 })
-export class NvAvatarComponent implements OnInit, OnChanges {
-  private _person!: Person;
-  @Input() set person(value: Person) {
-    this._person.name = value?.name ? value.name : 'NN';
-    this._person.imageUrl = value?.imageUrl ? value.imageUrl : '';
+export class NvAvatarComponent implements OnInit {
+  // TODO: the person object should be received
+  @Input() set avatarUrl(value: string) {
+    this._avatarUrl = value ? value : '';
   }
-  get person(): Person {
-    return this._person;
+  @Input() set name(value: string) {
+    this._name = value ? value : '';
   }
-  // issue: the OnChanges does not fire when the input property 
-  // is an array/object (here props of person) because Angular
-  // uses dirty checking to compare the properties; so here we considered a separate input 
-  // for imgUrl.
-  // TODO: applying ngDoCheck as  Ref: https://www.tektutorialshub.com/angular/angular-ngdocheck-life-cycle-hook/
-  @Input() imgUrl!: string;
-  constructor() {
-    this._initialize();
+
+  get avatarUrl(): string {
+    return this._avatarUrl;
   }
-  ngOnChanges(): void {
-    if (this.imgUrl) {
-      this.person.imageUrl = this.imgUrl;
-    }
+  get name(): string {
+    return this._name;
   }
+  private _avatarUrl!: string;
+  private _name!: string;
+  constructor() { }
 
   ngOnInit(): void {
-    console.log(this.person.imageUrl);
-
-  }
-  private _initialize(): void {
-    this._person = {
-      name: '',
-      imageUrl: '',
-    };
   }
 }

@@ -21,6 +21,7 @@ export class NvHeaderComponent implements OnInit {
   ngOnInit(): void {
   }
   onItemsFilter(list: any): void {
+    console.log(list);
   }
 }
 

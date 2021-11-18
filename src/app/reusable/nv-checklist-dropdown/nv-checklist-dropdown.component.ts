@@ -1,16 +1,11 @@
-import { SVG_ICON_IDS_DIC, FIELD_STATUS_COLOR_DIC } from 'src/assets/constants';
-import { NvTextColorDirective } from './../directives/nv-status-color/nv-text-color.directive';
-import { NvStyleColorDirective } from './../directives/nv-status-color/nv-style-color.directive';
 import { FormControl } from '@angular/forms';
 import {
   TodoItemFlatNode,
   TodoItemNode,
   ArrowIcon,
-  FieldStatusType,
-  FieldStatusStyle,
 } from './../../model/data-model';
 import { TreeViewChecklistService } from '../../services/local-data/tree-view-checklist/tree-view-checklist.service';
-import { Component, OnInit, ViewChild, ElementRef, Input, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import {
   MatTreeFlatDataSource,
   MatTreeFlattener,
@@ -36,8 +31,7 @@ import { NvFilterPipe } from '../pipes/filters/nv-filter/nv-filter.pipe';
   styleUrls: ['./nv-checklist-dropdown.component.scss'],
   providers: [TreeViewChecklistService],
 })
-export class NvChecklistDropdownComponent implements OnInit, AfterViewInit {
-
+export class NvChecklistDropdownComponent implements OnInit {
   /** Map from flat node to nested node. This helps us finding the nested node to be modified */
   flatNodeMap = new Map<TodoItemFlatNode, TodoItemNode>();
 
@@ -71,7 +65,7 @@ export class NvChecklistDropdownComponent implements OnInit, AfterViewInit {
   // menu
   filteredItems!: Observable<string[]>;
   // field
-  items: string[] = [];
+  items: string[] = ['Multiple Select'];
   referenceItems: string[] = ['Apple'];
   @ViewChild('itemInput') itemInput!: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete!: MatAutocomplete;
@@ -81,47 +75,15 @@ export class NvChecklistDropdownComponent implements OnInit, AfterViewInit {
     upward: '../../../assets/icons/ico.arrow.up.svg',
     downward: '../../../assets/icons/ico.arrow.down.svg',
   };
-  hasItem = false;
-  // field
-  isFieldFocused: boolean = false;
+  hasItem = true;
   //
   itemCtrl = new FormControl();
   dataSourceRef!: TodoItemNode[];
-  /**
-   * Input for nvStyleColor directive
-   */
 
-  @Input() label!: string;
-  /**
-   * Sets styles base on the status of the field
-   * The inputs of directives in html
-   */
-  @Input() set fieldStatusType(type: FieldStatusType) {
-    this._fieldStatusType = type;
-    this._setStyles(this.fieldStatusType);
-  }
-  get fieldStatusType(): FieldStatusType {
-    return this._fieldStatusType;
-  }
-  private _fieldStatusType!: FieldStatusType;
-  fieldStyle!: FieldStatusStyle;
-  statusType = FieldStatusType;
-  labelStatus!: FieldStatusType;
-  isFieldDisable!: boolean;
-  svgIconIdsDic!: { [name: string]: string };
-  fieldStatusColorDic!: { [name: string]: string };
-  /**
-   * References to call directives in the component
-   */
-  @ViewChild(NvStyleColorDirective) nvStyleColorDirective: any;
-  @ViewChild(NvTextColorDirective) nvTextColorDirective: any;
-
-  @ViewChild('default') inputFieldRef!: ElementRef<HTMLElement>;
   constructor(
     private _database: TreeViewChecklistService,
     private filter: NvFilterPipe
   ) {
-    this._initialize();
     this.treeFlattener = new MatTreeFlattener(
       this.transformer,
       this.getLevel,
@@ -138,7 +100,7 @@ export class NvChecklistDropdownComponent implements OnInit, AfterViewInit {
     );
     this.counter = 0;
     _database.dataChange.subscribe((data) => {
-      // console.log('data' + JSON.stringify(data));
+      console.log('data' + JSON.stringify(data));
       this.dataSource.data = data;
       // for filter
       this.dataSourceRef = data;
@@ -172,25 +134,8 @@ export class NvChecklistDropdownComponent implements OnInit, AfterViewInit {
     if (!this.isArrowDown) {
       this.isArrowDown = true;
     }
-    this.isFieldFocused = false;
   }
-  onFieldClick(): void {
-    // TODO: the directive in the html does not get updated as we update its input in the component with as an event get triggered
-    // so here we call directive to call its method
-    this.nvStyleColorDirective.ngOnDestroy();
-    this.nvTextColorDirective.ngOnDestroy();
-
-  }
-  onFormClick(): void {
-    // focus
-    this.isFieldFocused = true;
-    // to change the arrow icon direction
-    if (this.isArrowDown && !this.isFieldDisable) {
-      this.isArrowDown = false;
-    } else if (!this.isArrowDown && !this.isFieldDisable) {
-      this.isArrowDown = true;
-    }
-  }
+  onFieldClick(): void {}
   /**
    * triggered after removing chip
    *
@@ -206,65 +151,10 @@ export class NvChecklistDropdownComponent implements OnInit, AfterViewInit {
       this.hasItem = false;
     }
   }
-  ngAfterViewInit(): void {
-    if (this.isFieldDisable) {
-      this._disableDropdownMenu();
-    }
-  }
-  private _disableDropdownMenu(): void {
-    /**
-     * Remove toggle to disable the dropdown menu
-     */
-    this.inputFieldRef?.nativeElement.removeAttribute('data-toggle');
-  }
-  /**
-   * update the style based on the received status color type;
-   * generating scss class name
-   */
-  private _setStyles(type: FieldStatusType): void {
-    let statusType = FieldStatusType.Normal;
-    if (!!type) {
-      statusType = type;
-    } else if (type === 0) {
-      statusType = FieldStatusType.Active;
-    }
-    /**
-     * setting style based on status type; style is input for directive nv-style-color directive
-     * these styles are used to create style class name using enum type; the style classes are located in base.scss
-     */
-    let style: FieldStatusStyle = {
-      border: statusType,
-      background: statusType,
-      // The label is not affected by status and  we use labelStatus for that purpose
-      text: FieldStatusType.Normal,
-    };
-    this.labelStatus = statusType;
-    if (type === FieldStatusType.Disabled) {
-      this.isFieldDisable = true;
-    } else {
-      this.isFieldDisable = false;
-    }
-    if (type === FieldStatusType.Required) {
-      this.labelStatus = FieldStatusType.Error;
-    }
-    this.fieldStyle = style;
-  }
-  private _initialize(): void {
-    this._initializeSvgIconStyles();
-    this.fieldStatusType = FieldStatusType.Normal;
-    this.labelStatus = FieldStatusType.Normal;
-    this.isFieldDisable = false;
-  }
-  /**
-   * Importing svg icon id and status colors to change the color of svg Icon
-   */
-  private _initializeSvgIconStyles(): void {
-    this.svgIconIdsDic = SVG_ICON_IDS_DIC;
-    this.fieldStatusColorDic = FIELD_STATUS_COLOR_DIC;
-  }
+
   // end of chips component
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   getLevel = (node: TodoItemFlatNode) => node.level;
 
@@ -333,7 +223,7 @@ export class NvChecklistDropdownComponent implements OnInit, AfterViewInit {
     this.checkAllParentsSelection(node);
 
     //  save the children items to be used as chips
-    this._toSelectedChips(this.checklistSelection.selected);
+    this.filteredItems = this._toChips(this.checklistSelection.selected);
   }
 
   /* Checks all the parents when a leaf node is selected/unselected */
@@ -344,8 +234,9 @@ export class NvChecklistDropdownComponent implements OnInit, AfterViewInit {
       parent = this.getParentNode(parent);
     }
     //  save the children items to be used as chips
-    this._toSelectedChips(this.checklistSelection.selected);
-
+    //TODO: need to be deleted
+    this.filteredItems = this._toChips(this.checklistSelection.selected);
+    
   }
 
   /** Check root node checked state and change it accordingly */
@@ -388,10 +279,11 @@ export class NvChecklistDropdownComponent implements OnInit, AfterViewInit {
    * convert them into Observable List
    */
 
-  private _toSelectedChips(list: TodoItemFlatNode[]): void {
+  private _toChips(list: TodoItemFlatNode[]): Observable<string[]> {
     let newList: string[] = [];
     list.forEach((value) => newList.push(value.item));
     this.selected(newList);
+    return of(newList);
   }
 
   /**

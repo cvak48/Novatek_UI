@@ -3,17 +3,7 @@
     <input type="file" #fileDropRef id="fileDropRef" multiple (change)="fileBrowseHandler($event)" />
     <img class="align-self-center mt-5" src="../../../assets/icons/ico.file.svg">
     <div class="content-label h30 align-self-center mt-3 mb-3">Drag and drop file here</div>
-    <ng-container [ngTemplateOutlet]="(droppedToUploadItemType === dropItemType.File) ? fileRef : photoRef"></ng-container>
     <label for="fileDropRef h50 d-flex justify-content-center">
       <span class="d-flex align-self-center">Upload</span></label>
   </div>
 </div>
-
-<ng-template #fileRef>
-  <img class="align-self-center mt-5" src="../../../assets/icons/ico.file.svg">
-  <div class="content-label h30 align-self-center mt-3 mb-3">{{label}}</div>
-</ng-template>
-<ng-template #photoRef>
-  <img class="align-self-center mt-5" src="../../../assets/icons/ico.file.svg">
-  <div class="content-label h30 align-self-center mt-3 mb-3">{{label}}</div>
-</ng-template>

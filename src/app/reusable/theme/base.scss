@@ -14,6 +14,7 @@ $color-light-green-10: #FCFFF5;
 $color-red: #DB2828;
 $color-red-20: #973937;
 $color-light-red-10: #FFF6F6;
+$color-light-red-f6: #FFF6F6;
 $color-light-red: #FFD7D7;
 $color-red-97:#973937;
 $color-light-red-f5:#f5c6cb;
@@ -302,7 +303,7 @@ $border-color-500: $color-white;
     background-color:  $color-white-20 !important;
   }
   .background-Error {
-    background-color:  $color-light-red-10 !important;
+    background-color:  $color-light-red-f6 !important;
   }
   .background-Accept {
     background-color:  $color-light-green-10 !important;

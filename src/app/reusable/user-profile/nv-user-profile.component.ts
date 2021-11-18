@@ -12,7 +12,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { ApplicationService } from 'src/app/services/application.service';
 import { Subscription } from 'rxjs';
 import { DataService } from 'src/app/services/data.service';
-import { DropItemType } from '../nv-upload/nv-upload.component';
+
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -27,7 +27,7 @@ export class NvUserProfileComponent implements OnInit {
   sub = new Subscription();
   personData: any = {};
   userAction: string = 'new';
-  dropItemType = DropItemType;
+ 
   label!: string;
   dropdownItems = mockDropdown().items;
   defaultSelectedItem = mockDropdown().selectedItemDefault;

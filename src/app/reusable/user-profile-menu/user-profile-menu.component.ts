@@ -1,6 +1,5 @@
-import { Person } from 'src/app/model/data-model';
 import { Component, Input, OnInit } from '@angular/core';
-
+import { Person } from 'src/app/model/data-model';
 
 @Component({
   selector: 'app-nv-user-profile-menu',

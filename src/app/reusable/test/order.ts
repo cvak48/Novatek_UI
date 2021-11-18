@@ -6,6 +6,4 @@ export interface Order {
   status: string;
   checked: boolean;
   attachments: any;
-  title: string;
-  position: string;
 }

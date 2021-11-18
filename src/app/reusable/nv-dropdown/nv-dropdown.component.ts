@@ -165,7 +165,9 @@ export class NvDropdownComponent implements OnInit, AfterViewInit, OnChanges {
          */
       }
   }
- 
+
+
+
   onFieldClick(): void {
     if (this.isArrowDownIcon && !this.isFieldDisable) {
       this.isArrowDownIcon = false;
@@ -173,7 +175,7 @@ export class NvDropdownComponent implements OnInit, AfterViewInit, OnChanges {
       this.isArrowDownIcon = true;
     }
 
-    if (this.filteredItems?.length === 0) {
+    if (this.filteredItems.length === 0) {
       this.hideMenu = true;
     } else {
       this.hideMenu = false;
@@ -262,7 +264,6 @@ export class NvDropdownComponent implements OnInit, AfterViewInit, OnChanges {
     this.isDefaultStyle = true;
     this.isArrowDownIcon = true;
     this.filteredItems = [];
-    this.items = [];
     // default value
     this.queryFormControl.setValue(null);
     this.arrowIcons = {

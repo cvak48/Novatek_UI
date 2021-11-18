@@ -10,7 +10,6 @@
       'col-md-8': showPanel == '2',
       'col-md-4': showPanel == '3'
     }"
-    *ngIf="showPanel1"
   >
     <app-nv-table-panel
       (close)="closePanel('1')"
@@ -21,39 +20,21 @@
 
   <div
     class="style-right panel-slide col-md-4"
-    *ngIf="showPanel2"
-    [ngClass]="{
-      'col-md-6': (!showPanel1 && !showPanel4) && showPanel2 && showPanel3      
-    }"
+    *ngIf="showPanel == '2' || showPanel == '3'"
   >
     <app-nv-slider-panel
       panelNum="2"
-      [panelTitle]="title"
-      panelSaveBtn="updateUserData"
       (close)="closePanel('2')"
       (panelClick)="panelClicked('2')"
     >
-      <app-nv-user-view></app-nv-user-view>
+      <app-nv-search class="search"></app-nv-search>
     </app-nv-slider-panel>
   </div>
-  <div class="col-md-4 style-left panel-slide" *ngIf="showPanel3" 
-  [ngClass]="{
-    'col-md-6': (!showPanel1 && !showPanel4) && showPanel2 && showPanel3,
-    'col-md-4': (showPanel1 || showPanel4) && showPanel2 && showPanel3
-  }">
+  <div class="col-md-4 style-left panel-slide" *ngIf="showPanel == '3'">
     <app-nv-slider-panel
       panelNum="3"
       (close)="closePanel('3')"
       (panelClick)="panelClicked('3')"
-    >
-  <app-nv-common-table [columns]="columns" [oData]="orders"></app-nv-common-table>
-  </app-nv-slider-panel>
-  </div>
-  <div class="col-md-4 style-left panel-slide" *ngIf="showPanel4">
-    <app-nv-slider-panel
-      panelNum="4"
-      (close)="closePanel('4')"
-      (panelClick)="panelClicked('4')"
     >
   <app-nv-common-table [columns]="columns" [oData]="orders"></app-nv-common-table>
   </app-nv-slider-panel>

@@ -1,90 +1,31 @@
-<div class="profile-container">
-
-  <div class="profile-header">
-    <app-nv-user-profile [person]="person"></app-nv-user-profile>
-  </div>
-  <!--<div class="body">
-    <div id="officePhone" class="field-row">
-      <app-nv-field [label]="fieldLabel" [fieldStatusType]="fieldStatusType" (itemSelect)="onItemSelect($event)">
-      </app-nv-field>
+<app-nv-header ></app-nv-header>
+<app-nv-sub-menu></app-nv-sub-menu>
+<div class="row">
+    <div class="col-md-8 user-list-left">
+        <app-nova-panel>
+            <app-nv-custom-table></app-nv-custom-table>    
+      </app-nova-panel>
     </div>
-    <div id="mobilePhone" class="field-row">
-      <app-nv-field [label]="fieldLabel" [fieldStatusType]="fieldStatusType" (itemSelect)="onItemSelect($event)">
-      </app-nv-field>
-    </div>
-    <div class="multi-select-row">
-      <div id="mobilePhone" class="multi-select-field-row">
-        <app-nv-multiselect-dropdown (filteredItems)="onMultiselectItemsFilter($event)" class="body-item"
-          [label]="multiselectFieldLabel" [fieldStatusType]="multiselectFieldStatusType">
-        </app-nv-multiselect-dropdown>
-      </div>
-      <div class="dropdown-plus-container">
-        <app-nv-dropdown [extensionDirection]="dropdownMenuExtensionDir" [items]="dropdownItems"
-          [selectedItem]="defaultSelectedItem" [isFieldDisable]="isDropdownDisable"
-          [fieldStatusType]="dropdownFieldStatusType" [fieldType]="dropDownFieldType"
-          (itemSelect)="onItemSelect($event)">
-        </app-nv-dropdown>
-      </div>
-    </div>
-    <div class="multi-select-row">
-      <div id="mobilePhone" class="multi-select-field-row">
-        <app-nv-multiselect-dropdown (filteredItems)="onMultiselectItemsFilter($event)" class="body-item"
-          [label]="multiselectFieldLabel" [fieldStatusType]="multiselectFieldStatusType">
-        </app-nv-multiselect-dropdown>
-      </div>
-      <div class="dropdown-plus-container">
-        <app-nv-dropdown [extensionDirection]="dropdownMenuExtensionDir" [items]="dropdownItems"
-          [selectedItem]="defaultSelectedItem" [isFieldDisable]="isDropdownDisable"
-          [fieldStatusType]="dropdownFieldStatusType" [fieldType]="dropDownFieldType"
-          (itemSelect)="onItemSelect($event)">
-        </app-nv-dropdown>
-      </div>
-    </div>
-    <div class="multi-select-row">
-      <div id="mobilePhone" class="multi-select-field-row">
-        <app-nv-multiselect-dropdown (filteredItems)="onMultiselectItemsFilter($event)" class="body-item"
-          [label]="multiselectFieldLabel" [fieldStatusType]="multiselectFieldStatusType">
-        </app-nv-multiselect-dropdown>
-      </div>
-      <div class="dropdown-plus-container">
-        <app-nv-dropdown [extensionDirection]="dropdownMenuExtensionDir" [items]="dropdownItems"
-          [selectedItem]="defaultSelectedItem" [isFieldDisable]="isDropdownDisable"
-          [fieldStatusType]="dropdownFieldStatusType" [fieldType]="dropDownFieldType"
-          (itemSelect)="onItemSelect($event)">
-        </app-nv-dropdown>
-      </div>
-    </div>
-    <div class="multi-select-row">
-      <div id="mobilePhone" class="multi-select-field-row">
-        <app-nv-multiselect-dropdown (filteredItems)="onMultiselectItemsFilter($event)" class="body-item"
-          [label]="multiselectFieldLabel" [fieldStatusType]="multiselectFieldStatusType">
-        </app-nv-multiselect-dropdown>
-      </div>
-      <div class="dropdown-plus-container">
-        <app-nv-dropdown [extensionDirection]="dropdownMenuExtensionDir" [items]="dropdownItems"
-          [selectedItem]="defaultSelectedItem" [isFieldDisable]="isDropdownDisable"
-          [fieldStatusType]="dropdownFieldStatusType" [fieldType]="dropDownFieldType"
-          (itemSelect)="onItemSelect($event)">
-        </app-nv-dropdown>
-      </div>
-    </div>
-    <div class="multi-select-row">
-      <div id="mobilePhone" class="multi-select-field-row">
-        <app-nv-multiselect-dropdown (filteredItems)="onMultiselectItemsFilter($event)" class="body-item"
-          [label]="multiselectFieldLabel" [fieldStatusType]="multiselectFieldStatusType">
-        </app-nv-multiselect-dropdown>
-      </div>
-      <div class="dropdown-plus-container">
-        <app-nv-dropdown [extensionDirection]="dropdownMenuExtensionDir" [items]="dropdownItems"
-          [selectedItem]="defaultSelectedItem" [isFieldDisable]="isDropdownDisable"
-          [fieldStatusType]="dropdownFieldStatusType" [fieldType]="dropDownFieldType"
-          (itemSelect)="onItemSelect($event)">
-        </app-nv-dropdown>
-      </div>
-    </div>
-    <div class="date-row">
-      <label for="input" class="field-label h50"> Account Expiry </label>
-      <app-nv-date-picker [isDateRangePicker]="false"></app-nv-date-picker>
-    </div>
-  </div>-->
+    <div class="col-md-4 user-list-right">
+        <app-nova-panel>
+            <div class="row">
+                <div class="col-md-4">
+                   <img src="https://tse1.mm.bing.net/th?id=OIP.E45HCyveqDL44p8lmvQL9AAAAA&pid=Api&P=0" 
+                   height="150px" width="150px"/>
+                </div>
+                <div class="col-md-8">
+                  <span style="display: block;"><b>Joy Kunze</b></span>
+                  <span>QA Manager</span>
+                  <hr/>
+                  <span style="display: block;">User Name: UKunze</span>
+                  <span style="display: block;">Unique ID: iafraiou</span>
+                  <span style="display: block;">Password Expiry: January 31, 2022</span>
+                  <span style="display: block;">Account Expiry: January 31, 2022</span>
+                  <span style="display: block;">Last Login: July 31, 2022 at 4:56 PM</span>
+                </div>
+            </div>
+        </app-nova-panel>
+       
 </div>
+</div>
+<app-nv-footer></app-nv-footer>

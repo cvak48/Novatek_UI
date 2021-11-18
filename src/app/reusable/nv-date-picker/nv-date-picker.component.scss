@@ -98,13 +98,11 @@
 ::ng-deep .mat-calendar-body-cell-content {
   border-radius: 4px !important;
 }
-// for test
+
 ::ng-deep .mat-datepicker-popup {
- // top: 162.139px !important;
+  top: 162.139px !important;
 }
-::ng-deep .cdk-overlay-pane { 
-  padding-top: 6px !important;
-}
+
 // ripple
 ::ng-deep .mat-ripple {
   display: none !important;

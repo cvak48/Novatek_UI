@@ -1,6 +1,3 @@
-import { NvTextColorDirective } from './../directives/nv-status-color/nv-text-color.directive';
-import { NvStyleColorDirective } from './../directives/nv-status-color/nv-style-color.directive';
-import { FieldStatusType, FieldStatusStyle } from './../../model/data-model';
 import { ArrowIcon } from '../../model/data-model';
 import { Observable } from 'rxjs';
 import {
@@ -20,7 +17,6 @@ import {
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { map, startWith } from 'rxjs/operators';
-import { SVG_ICON_IDS_DIC, FIELD_STATUS_COLOR_DIC } from 'src/assets/constants';
 /**
  * This component is generated based on Angular material
  * https://v6.material.angular.io/components/chips/api
@@ -37,9 +33,6 @@ export class NvMultiSelectDropdownComponent implements OnInit {
   @Output() itemSelect = new EventEmitter<any>();
   // TODO: The arrow need to shift to the right out of the field
 
-  // TODO: The arrow need to shift to the right out of the field
-  @Input()
-  inputData!: string[];
   @Input() referenceItems: string[] = [
     'Apple',
     'Lemon',
@@ -47,33 +40,6 @@ export class NvMultiSelectDropdownComponent implements OnInit {
     'Orange',
     'Strawberry',
   ];
-  @Input() label!: string;
-  /**
-   * Sets styles base on the status of the field
-   * The inputs of directives in html
-   */
-  @Input() set fieldStatusType(type: FieldStatusType) {
-    this._fieldStatusType = type;
-    this._setStyles(this.fieldStatusType);
-  }
-  get fieldStatusType(): FieldStatusType {
-    return this._fieldStatusType;
-  }
-  private _fieldStatusType!: FieldStatusType;
-/**
- * Input for nvStyleColor directive
- */
-  fieldStyle!: FieldStatusStyle;
-  statusType = FieldStatusType;
-  labelStatus!: FieldStatusType;
-  isFieldDisable!: boolean;
-  svgIconIdsDic!: { [name: string]: string };
-  fieldStatusColorDic!: { [name: string]: string };
-  /**
-* References to call directives in the component
-*/
-  @ViewChild(NvStyleColorDirective) nvStyleColorDirective: any;
-  @ViewChild(NvTextColorDirective) nvTextColorDirective: any;
   @ViewChild('itemInput') itemInput!: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete!: MatAutocomplete;
   visible = true;
@@ -85,18 +51,16 @@ export class NvMultiSelectDropdownComponent implements OnInit {
   // menu
   filteredItems!: Observable<string[]>;
   // field
-  isFieldFocused: boolean = false;
   // TODO: What is the default
 
-  items: string[] = [];
+  items: string[] = ['Multiple Select'];
   isArrowDown: boolean = true;
   readonly arrowIcons: ArrowIcon = {
     upward: '../../../assets/icons/ico.arrow.up.svg',
     downward: '../../../assets/icons/ico.arrow.down.svg',
   };
-  hasItem = false;
+  hasItem = true;
   constructor() {
-    this._initialize();
     /**
      * AutoComplete as user make query
      */
@@ -107,11 +71,6 @@ export class NvMultiSelectDropdownComponent implements OnInit {
       )
     );
   }
-  ngOnInit(): void { 
-    if (this.inputData) {
-      this.items = this.inputData;
-    }
-  }
   /**
    * blur and click eventHandler are responsible for changing the triangle icon direction
    */
@@ -119,23 +78,13 @@ export class NvMultiSelectDropdownComponent implements OnInit {
     if (this.matAutocomplete.isOpen) {
       this.isArrowDown = true;
     }
-    this.isFieldFocused = false;
   }
-
   onFieldClick(): void {
     if (this.matAutocomplete.isOpen) {
       this.isArrowDown = false;
     } else {
       this.isArrowDown = true;
     }
-    // TODO: the directive in the html does not get updated as we update its input in the component with as an event get triggered
-    // so here we call directive to call its method
-    this.nvStyleColorDirective.ngOnDestroy();
-    this.nvTextColorDirective.ngOnDestroy();
-  }
-  onFormClick(): void {
-    // focus on form field
-    this.isFieldFocused = true;
   }
 
   add(event: MatChipInputEvent): void {
@@ -216,50 +165,5 @@ export class NvMultiSelectDropdownComponent implements OnInit {
     return filteredItems;
   }
 
-  /**
-   * update the style based on the received status color type;
-   * generating scss class name
-   */
-  private _setStyles(type: FieldStatusType): void {
-    let statusType = FieldStatusType.Normal;
-    if (!!type) {
-      statusType = type;
-    } else if (type === 0) {
-      statusType = FieldStatusType.Active;
-    }
-    /**
-     * setting style based on status type; style is input for directive nv-style-color directive
-     * these styles are used to create style class name using enum type; the style classes are located in base.scss
-     */
-    let style: FieldStatusStyle = {
-      border: statusType,
-      background: statusType,
-      // The label is not affected by status and  we use labelStatus for that purpose
-      text: FieldStatusType.Normal,
-    };
-    this.labelStatus = statusType;
-    if (type === FieldStatusType.Disabled) {
-      this.isFieldDisable = true;
-    } else {
-      this.isFieldDisable = false;
-    }
-    if (type === FieldStatusType.Required) {
-      this.labelStatus = FieldStatusType.Error;
-    }
-    this.fieldStyle = style;
-  }
-
-  private _initialize(): void {
-    this._initializeSvgIconStyles();
-    this.fieldStatusType = FieldStatusType.Normal;
-    this.labelStatus = FieldStatusType.Normal;
-    this.isFieldDisable = false;
-  }
-/**
- * Importing svg icon id and status colors to change the color of svg Icon
- */
-  private _initializeSvgIconStyles(): void {
-    this.svgIconIdsDic = SVG_ICON_IDS_DIC;
-    this.fieldStatusColorDic = FIELD_STATUS_COLOR_DIC;
-  }
+  ngOnInit(): void {}
 }

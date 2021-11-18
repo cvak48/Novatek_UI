@@ -1,87 +1,24 @@
-@import './../../../reusable/theme/base.scss';
+.user-list-left{
+    margin:1% 0 1% 0;
+    padding-right: 0px !important;
+}
+.user-list-right{
+    margin:1% 0 1% 0;
+    padding-left: 0px !important;
+}
+.left0 {
+    padding-left:0px ;
+}
+hr{
+    margin-top: unset !important;
+}
 
+::ng-deep .card-body{
+    overflow-x: hidden !important;
+}
 
-.profile-container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  max-height: 532px;
-  padding-bottom: 16px;
-  margin-bottom: 16px;
-  padding-top: 16px;
-  background-color: white;
-  overflow-y: scroll;
-  overflow-x: none;
-
-  .profile-header {
-    position: relative;
-    width: 100%;
-    padding-bottom: 16px;
-    margin: auto;
-  }
-
-  .body {
-    position: relative;
-    width: 95%;
-    margin: auto;
-    .field-row {
-      width: 100%;
-      padding-bottom: 16px;
-      margin-right: 14px;
-    }
-
-    .multi-select-row {
-      position: relative;
-      display: flex;
-      flex-direction: row;
-      width: 100%;
-      margin-right: 14px;
-
-      .multi-select-field-row {
-        padding-bottom: 16px;
-        width: 100%;
-      }
-
-      .dropdown-plus-container {
-        margin-left: 8px;
-        // 18px (label height) + 4px (margin-top) =  22px
-        margin-top: 22px;
-      }
-
-    }
-
-    .date-row {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      height: 63px;
-      width: 30%;
-
-      .field-label {
-        color: $color-dark-gray-dde;
-        height: 18px;
-      }
-    }
-
-  }
-
-  .footer {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    justify-content: end;
-    margin-left: 26px;
-    margin-top: 16px;
-    margin-bottom: 16px;
-    padding-bottom: 16px;
-    .save-button{
-      margin-right: 4px;
-    }
-    .cancel-button{}
-  }
-
-  ::ng-deep.container{
-    padding-right:0px !important;
-  }
-
+.table-scroll {
+    overflow: auto;
+   height: 300px;
+    margin-top: 11px;
 }

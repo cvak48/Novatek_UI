@@ -39,9 +39,6 @@
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.Search)">
         {{ nvComponentType[nvComponentType.Search] }}
       </div>
-      <div class="menu-item h40" (click)="onItemClick(nvComponentType.FrontendSearch)">
-        {{ nvComponentType[nvComponentType.FrontendSearch] }}
-      </div>
       <div
         class="menu-item h40"
         (click)="onItemClick(nvComponentType.MultiSelectDropdown)"
@@ -66,8 +63,11 @@
       >
         {{ nvComponentType[nvComponentType.Notification] }}
       </div>
-      <div class="menu-item h40" (click)="onItemClick(nvComponentType.NvProfileMenu)">
-        {{nvComponentType[nvComponentType.NvProfileMenu]}}
+      <div
+        class="menu-item h40"
+        (click)="onItemClick(nvComponentType.ProfileMenu)"
+      >
+        {{ nvComponentType[nvComponentType.ProfileMenu] }}
       </div>
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.Header)">
         {{ nvComponentType[nvComponentType.Header] }}
@@ -173,9 +173,6 @@
       <div class="menu-item h40" (click)="onItemClick(nvComponentType.NvField)">
         {{ nvComponentType[nvComponentType.NvField] }}
       </div>
-      <div class="menu-item h40" (click)="onItemClick(nvComponentType.NvProfile)">
-        {{nvComponentType[nvComponentType.NvProfile]}}
-      </div>
     </div>
 
     <div class="preview-panel" [ngSwitch]="selectedItem">
@@ -195,18 +192,6 @@
             class="body-item"
           >
           </app-nv-search>
-        </div>
-        <div
-          class="search-item-container"
-          *ngSwitchCase="nvComponentType.FrontendSearch"
-        >
-          <app-nv-search-frontend
-            [hideMenu]="hideFrontEndSearchMenu"
-            [filteredItems]="frontendFilteredList"
-            (query)="onFrontSearchFieldQuery($event)"
-            class="body-item"
-          >
-          </app-nv-search-frontend>
         </div>
 
         <app-nv-logo
@@ -238,21 +223,18 @@
         <ng-container *ngSwitchCase="nvComponentType.Avatar">
           <app-nv-avatar
             class="body-item"
-            [person]="person"
-            [imgUrl]="person.imageUrl"
+            *ngIf="person?.imageUrl && person?.name"
+            [avatarUrl]="person.imageUrl!"
+            [name]="person.name!"
           ></app-nv-avatar>
         </ng-container>
 
         <app-nv-user-profile-menu
           class="body-item"
           [person]="person"
-          *ngSwitchCase="nvComponentType.NvProfileMenu"
+          *ngSwitchCase="nvComponentType.ProfileMenu"
         >
         </app-nv-user-profile-menu>
-        
-        <div class="nv-user-profile">
-          <app-nv-user-profile class="body-item" [person]="person" *ngSwitchCase="nvComponentType.NvProfile"></app-nv-user-profile>
-        </div>
 
         <div
           class="dropdown-container"
@@ -285,10 +267,8 @@
           *ngSwitchCase="nvComponentType.MultiSelectDropdown"
         >
           <app-nv-multiselect-dropdown
-            (filteredItems)="onMultiselectItemsFilter($event)"
+            (filteredItems)="onItemsFilter($event)"
             class="body-item"
-            [label]="multiselectFieldLabel"
-            [fieldStatusType]="multiselectFieldStatusType"
           >
           </app-nv-multiselect-dropdown>
         </div>
@@ -296,10 +276,7 @@
           class="search-item-container"
           *ngSwitchCase="nvComponentType.TreeViewDropdown"
         >
-          <app-nv-checklist-dropdown (filteredItems)="onTreeViewItemsFilter($event)"
-          class="body-item"
-          [label]="treeViewFieldLabel"
-          [fieldStatusType]="treeViewFieldStatusType">
+          <app-nv-checklist-dropdown class="body-item">
           </app-nv-checklist-dropdown>
         </div>
 

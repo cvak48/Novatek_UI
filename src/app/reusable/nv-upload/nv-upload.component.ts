@@ -1,33 +1,14 @@
-import { Component, Input, OnInit } from '@angular/core';
-export enum DropItemType {
-  File,
-  Image
-}
+import { Component, OnInit } from '@angular/core';
+
 @Component({
   selector: 'app-nv-upload',
   templateUrl: './nv-upload.component.html',
   styleUrls: ['./nv-upload.component.scss'],
 })
 export class NvUploadComponent implements OnInit {
-  @Input() droppedToUploadItemType!: DropItemType;
-  dropItemType = DropItemType;
-  label!: string;
-  constructor() {
-    this._initialize();
-  }
+  constructor() {}
 
-  ngOnInit(): void {
-    this._populatePropsUponInput();
-  }
-  private _initialize(): void {
-    this.droppedToUploadItemType = DropItemType.File;
-    this.label = 'Drag And Drop Your File in This Area';
-  }
-  private _populatePropsUponInput(): void {
-    this.label = (this.droppedToUploadItemType === DropItemType.File) ?
-     'Drag And Drop Your File in This Area' :
-    'Drag And Drop Your Profile Photo Recommended 175 x 175 pixels';
-  }
+  ngOnInit(): void {}
   /**
    * event handler; receive file as the user drop it
    */

@@ -14,7 +14,6 @@ $color-light-green-10: #FCFFF5;
 $color-red: #DB2828;
 $color-red-20: #973937;
 $color-light-red-10: #FFF6F6;
-$color-light-red-f6: #FFF6F6;
 $color-light-red: #FFD7D7;
 $color-red-97:#973937;
 $color-light-red-f5:#f5c6cb;
@@ -34,13 +33,8 @@ $color-black: #1B1C1D;
 $color-black-10: #0000001a;
 $color-black-00: #0000001a;
 
-$color-black-33: #333333E6;
-
 $color-black-12: #00000066;
-$color-black-06: #00000066;
 $color-black-09 : #00000099;
-
-$color-black-29 : #00000029;
 $color-black-14: #0000001A;
 $color-black-18: #131313;
 $color-black-27 : #272626;
@@ -49,15 +43,11 @@ $color-dark-gray: #5D5D5D;
 $color-dark-gray-72:#727272;
 $color-dark-gray-02: #4D4D4D;
 $color-dark-gray-4d: #4D4D4D;
-$color-gray-e9: #E9EAEB;
 
 $color-dark-gray-10: #5D5D5D99;
-$color-gray-d99: #5D5D5D99;
 $color-dark-gray-12: #5D5D5DCC;
-$color-gray-dcc: #5D5D5DCC;
 $color-dark-gray-13: #5D5D5DDE;
 $color-dark-gray-dde: #5D5D5DDE;
-
 $color-dark-gray-20: #999C9E ;
 $color-dark-gray-30: #B5B5B5;
 $color-dark-gray-70:#5D5D5D;
@@ -303,7 +293,7 @@ $border-color-500: $color-white;
     background-color:  $color-white-20 !important;
   }
   .background-Error {
-    background-color:  $color-light-red-f6 !important;
+    background-color:  $color-light-red-10 !important;
   }
   .background-Accept {
     background-color:  $color-light-green-10 !important;

@@ -15,10 +15,10 @@ export class NvAttachmentListComponent implements OnInit {
   sortPreference: string = '';
   constructor(public dialogRef: MatDialogRef<any>,
     
-    @Inject(MAT_DIALOG_DATA) public attachment: any[]) { }
+    @Inject(MAT_DIALOG_DATA) public data: any[]) { }
 
   ngOnInit(): void {
-    this.attachments = this.attachment;
+    this.attachments = this.data;
   }
 
   closePanel() {

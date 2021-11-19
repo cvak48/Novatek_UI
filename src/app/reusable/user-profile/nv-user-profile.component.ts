@@ -46,6 +46,13 @@ export class NvUserProfileComponent implements OnInit {
   lastNameStatus = '';
   userNameStatus = '';
   emailStatus = '';
+  sitesStatus = false;
+  rolesStatus = false;
+  licenseStatus = false;
+  labelRed = true;
+  hasSiteError = false;
+  hasRoleError = false;
+  hasLicenseError = false;
   @ViewChild('fileDropRef') fileDropRef!: ElementRef<HTMLElement>;
   constructor(
     private _dataService: UserProfileService,
@@ -76,12 +83,13 @@ export class NvUserProfileComponent implements OnInit {
          .subscribe(res => {
           
            if (res == 'updateUserData') {
-            
               this.firstNameStatus = this.personData.firstName?.length > 0 ? 'is-normal' : 'is-invalid';
               this.lastNameStatus = this.personData.lastName?.length > 0 ? 'is-normal' : 'is-invalid';
               this.userNameStatus = this.personData.userName?.length > 0 ? 'is-normal' : 'is-invalid';
               this.emailStatus = this.personData.email?.length > 0 ? 'is-normal' : 'is-invalid';
-
+              this.hasSiteError = this.sitesStatus;
+              this.hasRoleError = this.rolesStatus;
+              this.hasLicenseError = this.licenseStatus;
               this.saveuserData();
            }
          })
@@ -95,7 +103,9 @@ export class NvUserProfileComponent implements OnInit {
     this.personData = this.dataService.getUserData(id)[0];
   }
 
-  onMultiselectItemsFilter(item: any): void {}
+  onMultiselectItemsFilter(item: any): void {
+    
+  }
   /**
    * The img element and input is internally linked with onIconClick event handler;
    * because the input style became hidden and we use menu svg icon instead
@@ -177,6 +187,20 @@ export class NvUserProfileComponent implements OnInit {
           break;
       }
    
+  }
+
+  sitesSelected(event: any): void {
+    switch(event.name) {
+      case 'Sites':
+        this.sitesStatus = !event.status;
+        break;
+      case 'Roles':
+        this.rolesStatus = !event.status;
+        break;
+      case 'Module Licenses':
+        this.licenseStatus = !event.status;
+        break;
+    }
   }
 
   // TODO: using imageService we need to send the image to the backend

@@ -541,7 +541,9 @@
             (filteredItems)="onMultiselectItemsFilter($event)"
             class="body-item"
             label="Sites"
-            type="Required"
+            (itemSelect) = "sitesSelected($event)"
+            [labelRed] = "labelRed && multiUser"
+            [hasError] = "hasSiteError && multiUser"
             [fieldStatusType]="multiselectFieldStatusType"
           >
           </app-nv-multiselect-dropdown>
@@ -594,6 +596,9 @@
             (filteredItems)="onMultiselectItemsFilter($event)"
             class="body-item"
             label="Roles"
+            (itemSelect) = "sitesSelected($event)"
+            [labelRed] = "labelRed && multiUser"
+            [hasError] = "hasRoleError && multiUser"
             [fieldStatusType]="multiselectFieldStatusType"
           >
           </app-nv-multiselect-dropdown>
@@ -620,6 +625,9 @@
             (filteredItems)="onMultiselectItemsFilter($event)"
             class="body-item"
             label="Module Licenses"
+            (itemSelect) = "sitesSelected($event)"
+            [labelRed] = "labelRed && multiUser"
+            [hasError] = "hasLicenseError && multiUser"
             [fieldStatusType]="multiselectFieldStatusType"
           >
           </app-nv-multiselect-dropdown>

@@ -119,7 +119,8 @@ $icons-distance: 8px;
 
   .dropdown-menu {
     min-width: 140px;
-    max-width: 184px;
+    left : 0px !important;
+    // max-width: 184px;
     width: 100%;
     padding-top: 0px;
     padding-bottom: 0px;
@@ -129,6 +130,7 @@ $icons-distance: 8px;
     border-radius: 4px;
     overflow-y: auto;
     overflow-x: hidden;
+    margin-left: 0 !important;
 
     &.display-menu {
       display: none;

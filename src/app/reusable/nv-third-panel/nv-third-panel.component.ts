@@ -53,7 +53,7 @@ export class NvThirdPanelComponent implements OnInit {
   hideMenu: boolean = this.mockSearchComponent().hideMenu;
   searchableRefList: any[] = this.mockSearchComponent().searchableRefList;
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
     // setting search data for table
@@ -213,7 +213,12 @@ export class NvThirdPanelComponent implements OnInit {
 
   //when ever user clicks edit button, it will invoke
   edit() {
-    if (this.name && this.id) {
+
+    if (this.name && this.id && this.orders.filter(item => item.name.toLowerCase() == this.name.toLowerCase() && item.id == this.id).length > 0) {
+
+      alert('item is already existed')
+
+    } else if (this.name && this.id) {
       //For updating proper status for multiple edits tweaking this
       let status;
       if (
@@ -286,25 +291,29 @@ export class NvThirdPanelComponent implements OnInit {
     this.showDeleteBtn = true;
     this.disableAddButton = false;
     this.disableEditButton = false;
-    //undo selected single row data
-    if (this.name) {
-      this.orders[this.selectedItemIndex].status =
-        this.orders[this.selectedItemIndex].tempStatus - Status.DELETE;
-      this.orders[this.selectedItemIndex].tempStatus =
-        this.orders[this.selectedItemIndex].status;
+
+
+    if ((this.orders.filter(itm => itm.tempStatus == Status.DELETE && itm.checked)).length > 1) {
+      //undo checked data
+      this.orders.forEach((item, index) => {
+        if (item.checked) {
+          if (this.orders[index].tempStatus >= Status.DELETE) {
+            this.orders[index].status = this.orders[index].tempStatus - Status.DELETE;
+            this.orders[index].tempStatus = this.orders[index].status;
+          } else if(this.orders[index].status == Status.CLICKED) {
+            this.orders[index].status = Status.NO_CHANGE;
+          }
+          this.orders[index].checked = false;
+        }
+      });
+    } else {
+      this.orders[this.selectedItemIndex].status = this.orders[this.selectedItemIndex].tempStatus - Status.DELETE;
+      this.orders[this.selectedItemIndex].tempStatus = this.orders[this.selectedItemIndex].status;
       this.name = '';
       this.id = '';
+      this.orders[this.selectedItemIndex].checked = false;
     }
-    //undo checked data
-    this.orders.forEach((item, index) => {
-      if (item.checked) {
-        this.orders[this.selectedItemIndex].status =
-          this.orders[this.selectedItemIndex].tempStatus - Status.DELETE;
-        this.orders[this.selectedItemIndex].tempStatus =
-          this.orders[this.selectedItemIndex].status;
-        this.orders[index].checked = false;
-      }
-    });
+
   }
 
   //whenever user clicks on check box invoking this
@@ -315,12 +324,23 @@ export class NvThirdPanelComponent implements OnInit {
     this.nameValidation = 'is-normal';
     this.idValidation = 'is-normal';
     //this.showDeleteBtn = this.orders[index].status != Status.DELETE;
-    this.updateShowDeleteButton(index);
-    this.orders.forEach((item) => {
-      if (item.status == Status.CLICKED && item.checked == false) {
-        item.status = Status.NO_CHANGE;
+
+    if ((this.orders.filter(itm => itm.checked)).length > 1) {
+      if ((this.orders.filter(itm => itm.tempStatus == Status.DELETE && itm.checked)).length > 0) {
+        this.showDeleteBtn = false;
+      } else {
+        this.showDeleteBtn = true;
       }
-    });
+    } else {
+      this.updateShowDeleteButton(index);
+    }
+
+    /*  this.orders.forEach((item) => {
+        if (item.status == Status.CLICKED && item.checked == false) {
+          item.status = Status.NO_CHANGE;
+        }
+      }); */
+
     setTimeout(() => {
       this.disableButtons();
       this.updateStatus(data);

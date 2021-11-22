@@ -53,6 +53,7 @@ export class NvUserProfileComponent implements OnInit {
   hasSiteError = false;
   hasRoleError = false;
   hasLicenseError = false;
+  btnDisable:boolean = false;
   @ViewChild('fileDropRef') fileDropRef!: ElementRef<HTMLElement>;
   constructor(
     private _dataService: UserProfileService,
@@ -74,7 +75,7 @@ export class NvUserProfileComponent implements OnInit {
                    }
                   
                  } else {
-                  this.personData = {attachments: [], checked: false, date: "", email: "", id: 0, lastName: "", firstName: "", name: "",status: "", title:"", position: ""};
+                  this.personData = {attachments: [], checked: false, date: "", email: "", id: 0, lastName: "", firstName: "", userName: "",status: "", title:"", position: ""};
                  }
                   
               })
@@ -84,18 +85,24 @@ export class NvUserProfileComponent implements OnInit {
           
            if (res == 'updateUserData') {
               this.firstNameStatus = this.personData.firstName?.length > 0 ? 'is-normal' : 'is-invalid';
-              this.lastNameStatus = this.personData.lastName?.length > 0 ? 'is-normal' : 'is-invalid';
+              this.lastNameStatus = this.personData.LastName?.length > 0 ? 'is-normal' : 'is-invalid';
               this.userNameStatus = this.personData.userName?.length > 0 ? 'is-normal' : 'is-invalid';
               this.emailStatus = this.personData.email?.length > 0 ? 'is-normal' : 'is-invalid';
               this.hasSiteError = this.sitesStatus;
               this.hasRoleError = this.rolesStatus;
               this.hasLicenseError = this.licenseStatus;
               this.saveuserData();
+              if (this.personData.firstName?.length && this.personData.LastName?.length && 
+                this.personData.userName?.length && this.personData.email?.length && 
+                 !this.hasSiteError && !this.hasRoleError && !this.hasLicenseError) {
+                   this.applicationService.setBtnDisabled(true);
+              }
            }
          })
 
     this.applicationService.userBtnAction.subscribe((res) => {
       this.userAction = res;
+      this.btnDisable = false;
     });
   }
 

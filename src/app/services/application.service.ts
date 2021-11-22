@@ -9,6 +9,7 @@ export class ApplicationService {
     updatedUserData: BehaviorSubject<any> = new BehaviorSubject({});
     newUserData: BehaviorSubject<any> = new BehaviorSubject({});
     btnClickData: BehaviorSubject<any> = new BehaviorSubject(null);
+    btnDisabled: BehaviorSubject<any> = new BehaviorSubject(false);
     constructor() {}
 
     setSelectedUserData(data: any): void{
@@ -29,5 +30,9 @@ export class ApplicationService {
 
     setUserBtnAction(btnAction: string): void{
         this.userBtnAction.next(btnAction);
+    }
+
+    setBtnDisabled(status: boolean): void{
+        this.btnDisabled.next(status);
     }
 }

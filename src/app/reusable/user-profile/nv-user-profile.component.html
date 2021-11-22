@@ -126,12 +126,12 @@
     <div class="field-block">
       <app-nv-input
     class="text-color"
-    [(sharedVar)]="personData.lastName"
+    [(sharedVar)]="personData.LastName"
     inputPlaceHolder="Last Name"
     label="Last Name"
     [status]="lastNameStatus"
-    (focusout)="updateValidations(personData.lastName, 'lastName')"
-    (keypress)="keyPress(personData.lastName, 'lastName')"
+    (focusout)="updateValidations(personData.LastName, 'lastName')"
+    (keypress)="keyPress(personData.LastName, 'lastName')"
   ></app-nv-input>
       <!--<label class="field-label h50 label label-red">Last Name</label>
       <input
@@ -147,12 +147,12 @@
     <div class="field-block">
       <app-nv-input
     class="text-color"
-    [(sharedVar)]="personData.name"
+    [(sharedVar)]="personData.userName"
     inputPlaceHolder="User Name"
     label="User Name"
     [status]="userNameStatus"
-    (focusout)="updateValidations(personData.name, 'userName')"
-    (keypress)="keyPress(personData.name, 'userName')"
+    (focusout)="updateValidations(personData.userName, 'userName')"
+    (keypress)="keyPress(personData.userName, 'userName')"
   ></app-nv-input>
       <!--<label class="field-label h50 label label-red">User Name</label>
       <input
@@ -417,8 +417,8 @@
       inputPlaceHolder="User Name"
       label="User Name"
       [status]="userNameStatus"
-      (focusout)="updateValidations(personData.name, 'userName')"
-      (keypress)="keyPress(personData.name, 'userName')"
+      (focusout)="updateValidations(personData.userName, 'userName')"
+      (keypress)="keyPress(personData.userName, 'userName')"
     ></app-nv-input>
     </div>
     <div class="field-block" *ngIf="!multiUser">

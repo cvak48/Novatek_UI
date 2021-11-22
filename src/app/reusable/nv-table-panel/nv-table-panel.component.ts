@@ -72,6 +72,8 @@ export class NvTablePanelComponent implements OnInit {
   textTrimNumberPlus = mockPlusDropdown().textTrimNumber;
   selectedUser: any  = [];
   sub = new Subscription();
+  saveBtnDisable: boolean = false;
+  editBtnDisable: boolean = false;
   constructor(private dataService: DataService,
               private dialog: MatDialog,
               private applicationService: ApplicationService,
@@ -104,6 +106,12 @@ export class NvTablePanelComponent implements OnInit {
             this.orders = [... this.orders];
             console.log('orders', this.orders)
       })
+
+      this.applicationService.btnDisabled
+      .subscribe(res => {
+        this.saveBtnDisable = res ? false: res;
+        this.editBtnDisable = res ? false: res;
+      })
   }
 
   buttonClick(): void{
@@ -114,12 +122,16 @@ export class NvTablePanelComponent implements OnInit {
     this.panelClick.emit();
     this.applicationService.setUserBtnAction('new');
     this.applicationService.setSelectedUserData({});
+    this.saveBtnDisable = true;
+    this.editBtnDisable = true;
   }
 
   buttonEditClick(): void{
     this.panelClick.emit();
     this.applicationService.setUserBtnAction('edit');
     this.applicationService.setSelectedUserData(this.selectedUser);
+    this.saveBtnDisable = true;
+    this.editBtnDisable = true;
   }
 
   closePanel() {

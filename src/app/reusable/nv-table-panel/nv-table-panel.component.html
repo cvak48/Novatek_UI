@@ -48,10 +48,11 @@
               label="New"
               class="mr-rt-1"
               (buttonClick)="buttonNewClick()"
+              [disabled]="saveBtnDisable"
             ></app-nv-button>
             <app-nv-button
               label="Edit"
-              
+              [disabled]="editBtnDisable"
               (buttonClick)="buttonEditClick()"
             ></app-nv-button>
            

@@ -13,13 +13,21 @@ export class NvSliderPanelComponent implements OnInit {
   @Output() panelClick: EventEmitter<boolean> = new EventEmitter();
   @Output() close = new EventEmitter();
   showPanel: boolean = false;
+  btnDisable: boolean = false;
   constructor(private applicationService: ApplicationService) { }
 
   ngOnInit(): void {
+    this.applicationService.userBtnAction.subscribe((res) => {
+      this.btnDisable = false;
+    });
   }
 
   saveButtonClick(): void{
     this.panelSaveBtn ? this.applicationService.setBtnClickedData(this.panelSaveBtn) : null;
+    this.applicationService.btnDisabled
+        .subscribe(res => {
+          this.btnDisable = res;
+        })
   }
 
   buttonClick(): void{

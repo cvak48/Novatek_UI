@@ -7,8 +7,8 @@
       </app-nv-icon-picker-demo>
     </div>
     <div class=" left-footer d-flex">
-      <app-nv-avatar class="footer-avatar" *ngIf="person?.imageUrl && person?.name" [avatarUrl]="person.imageUrl!"
-      [name]="person.name!"></app-nv-avatar>
+      <app-nv-avatar class="footer-avatar" [person]="person"
+      [imgUrl]="person.imageUrl"></app-nv-avatar>
     </div>
   </div>
   <div class="card-right-section ">

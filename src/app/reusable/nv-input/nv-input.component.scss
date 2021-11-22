@@ -37,10 +37,12 @@
   background-color: $color-light-red-f6;
 }
 
-::ng-deep .is-normal {
+/* ::ng-deep .is-normal {
   background-color: #fff;
   border: 1 px solid #ced4da;
-}
+  border-color: $color-red-97 !important;
+  background-color:$color-light-red-f6;s
+} */
 
 .icon {
   position: absolute;

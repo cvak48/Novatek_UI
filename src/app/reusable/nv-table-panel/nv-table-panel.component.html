@@ -47,12 +47,12 @@
             <app-nv-button
               label="New"
               class="mr-rt-1"
-              (buttonClick)="buttonClick()"
+              (buttonClick)="buttonNewClick()"
             ></app-nv-button>
             <app-nv-button
               label="Edit"
               
-              (buttonClick)="buttonClick()"
+              (buttonClick)="buttonEditClick()"
             ></app-nv-button>
            
           </div>
@@ -124,51 +124,36 @@
                 }"
                 (click)="showExtendedRow(i)"
               >
-                <td class="pd-lt-2 checkbox-column">
+                <td class="pd-lt-2 checkbox-column" [ngClass]="{'active': orders[i].checked}">
                   <input
                     class="table-check"
                     type="checkbox"
                     value="{{ order.id }}"
                     [(ngModel)]="orders[i].checked"
+                    (change)="selectUser($event, orders[i])"
                   />
                   <button *ngIf="order.attachments.length > 0" class="attach-btn" (click)="showAttachments(order.attachments)">
                     <mat-icon> attach_file</mat-icon>
             </button>
                 </td>
-                <td>{{ order.name }}</td>
-                <td>{{ order.date }}</td>
-                <td class="mail-link">{{ order.email }}</td>
-                <td>{{ order.status }}</td>
-                <td>
-                  <div>
-                    <mat-chip-list>
-                      <mat-chip *ngFor="let attachment of order.attachments"
-                        >{{ attachment.name }}
-                        <img
-                          src="./assets/images/dots.png"
-                          class="more-opt-icon"
-                          alt="chip icon"
-                      /></mat-chip>
-                    </mat-chip-list>
-                  </div>
-                </td>
+                <td [ngClass]="{'active': orders[i].checked}">{{ order.name }}</td>
+                <td [ngClass]="{'active': orders[i].checked}">{{ order.title }}</td>
+                <td [ngClass]="{'active': orders[i].checked}">{{ order.position }}</td>
+                <td [ngClass]="{'active': orders[i].checked}">{{ order.date }}</td>
+                <td class="mail-link" [ngClass]="{'active': orders[i].checked}">{{ order.email }}</td>
+                <td [ngClass]="{'active': orders[i].checked}">{{ order.status }}</td>
+               
               </tr>
               <ng-container *ngIf="isRowVisibleAllowed(i)">
                 <tr class="mat-row status-yl">
                   <td class="pd-lt-2 checkbox-column">&nbsp;</td>
                   <td>Name</td>
+                  <td>Title</td>
+                  <td>Position</td>
                   <td>Date</td>
                   <td>Email</td>
                   <td>Status</td>
-                  <td>
-                    <div>
-                      <span
-                        style="display: block"
-                        *ngFor="let attachment of order.attachments"
-                        >{{ attachment.name }}
-                      </span>
-                    </div>
-                  </td>
+                  
                 </tr>
               </ng-container>
             </ng-container>

@@ -3,20 +3,11 @@
     <div class="card-header">
       <span class="panel-titleTxt" (click)="buttonClick()">{{ panelNum }}</span>
 
-      <button
-        type="button"
-        (click)="closePanel()"
-        class="close mg-15"
-        aria-label="Close"
-      >
-        <span aria-hidden="true"
-          ><img src="../../../assets/icons/ico.close.svg"
-        /></span>
+      <button type="button" (click)="closePanel()" class="close mg-15" aria-label="Close">
+        <span aria-hidden="true"><img src="../../../assets/icons/ico.close.svg" /></span>
       </button>
       <button type="button" class="close" aria-label="drop">
-        <span aria-hidden="true"
-          ><img src="../../../assets/icons/threeDots.icon.svg"
-        /></span>
+        <span aria-hidden="true"><img src="../../../assets/icons/threeDots.icon.svg" /></span>
       </button>
     </div>
     <div *ngIf="panelNum === 'Users'">
@@ -45,18 +36,9 @@
           <ng-content></ng-content>
         </div>
         <div class="dp-inline btn-right">
-          <app-nv-button
-            label="Save"
-            class="mr-rt-1"
-            (buttonClick)="buttonClick()"
-          ></app-nv-button>
-          <app-nv-button
-            label="Cancel"
-            class="mr-rt-1"
-            (buttonClick)="buttonClick()"
-          ></app-nv-button>
+          <app-nv-button label="Save" class="mr-rt-1" (buttonClick)="saveButtonClick()"></app-nv-button>
+          <app-nv-button label="Cancel" (buttonClick)="buttonClick()"></app-nv-button>
         </div>
+
       </div>
-    </div>
   </div>
-</div>

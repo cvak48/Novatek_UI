@@ -40,18 +40,7 @@ export class DataService {
       }
     
     getTableData(): Observable<any> {
-        const data = [  {
-          'id': 0,
-          'name': 'ame',
-          'date': "12-25-1995",
-          'email': 'john@yahoo.com',
-          'status': 'No',
-          'checked': false,
-          'attachments': [{
-            'id': '1',
-            'name': 'file1'
-          }]
-        },
+        const data = [ 
           {
             'id': 1,
             'name': 'John Liiki',
@@ -59,6 +48,8 @@ export class DataService {
             'email': 'john@yahoo.com',
             'status': 'No',
             'checked': false,
+            'title': 'Lead1',
+            'position': 'Tech Lead1',
             'attachments': [{
               'id': '1',
               'name': 'file1'
@@ -71,6 +62,8 @@ export class DataService {
             'email': 'rock@gmail.com',
             'status': 'Past Due',
             'checked': false,
+            'title': 'Lead2',
+            'position': 'Tech Lead2',
             'attachments': [{
               'id': '1',
               'name': 'file1'
@@ -87,6 +80,8 @@ export class DataService {
             'email': 'tomcruise@yahoo.com',
             'status': 'Pending',
             'checked': false,
+            'title': 'Lead3',
+            'position': 'Tech Lead3',
             'attachments': [{
               'id': '1',
               'name': 'file1'
@@ -100,6 +95,8 @@ export class DataService {
             'email': 'sumit@gmail.com',
             'status': 'Completed',
             'checked': false,
+            'title': 'Lead4',
+            'position': 'Tech Lead4',
             'attachments': [{
               'id': '1',
               'name': 'file1'
@@ -116,6 +113,8 @@ export class DataService {
             'email': 'nicole@redifmail.com',
             'status': 'Yes',
             'checked': false,
+            'title': 'Lead5',
+            'position': 'Tech Lead5',
             'attachments': [{
               'id': '1',
               'name': 'file1'
@@ -132,6 +131,8 @@ export class DataService {
             'email': 'john@yahoo.com',
             'status': 'No',
             'checked': false,
+            'title': 'Lead6',
+            'position': 'Tech Lead6',
             'attachments': [{
               'id': '1',
               'name': 'file1'
@@ -144,6 +145,8 @@ export class DataService {
             'email': 'rock@gmail.com',
             'status': 'Past Due',
             'checked': false,
+            'title': 'Lead7',
+            'position': 'Tech Lead7',
             'attachments': [{
               'id': '1',
               'name': 'file1'
@@ -160,6 +163,8 @@ export class DataService {
             'email': 'tomcruise@yahoo.com',
             'status': 'Pending',
             'checked': false,
+            'title': 'Lead8',
+            'position': 'Tech Lead8',
             'attachments': [{
               'id': '1',
               'name': 'file1'
@@ -173,6 +178,8 @@ export class DataService {
             'email': 'sumit@gmail.com',
             'status': 'Completed',
             'checked': false,
+            'title': 'Lead9',
+            'position': 'Tech Lead9',
             'attachments': [{
               'id': '1',
               'name': 'file1'
@@ -189,6 +196,8 @@ export class DataService {
             'email': 'nicole@redifmail.com',
             'status': 'Yes',
             'checked': false,
+            'title': 'Lead10',
+            'position': 'Tech Lead10',
             'attachments': [{
               'id': '1',
               'name': 'file1'
@@ -205,6 +214,8 @@ export class DataService {
             'email': 'john@yahoo.com',
             'status': 'No',
             'checked': false,
+            'title': 'Lead11',
+            'position': 'Tech Lead11',
             'attachments': [{
               'id': '1',
               'name': 'file1'
@@ -217,6 +228,8 @@ export class DataService {
             'email': 'rock@gmail.com',
             'status': 'Past Due',
             'checked': false,
+            'title': 'Lead12',
+            'position': 'Tech Lead12',
             'attachments': [{
               'id': '1',
               'name': 'file1'
@@ -233,6 +246,8 @@ export class DataService {
             'email': 'tomcruise@yahoo.com',
             'status': 'Pending',
             'checked': false,
+            'title': 'Lead13',
+            'position': 'Tech Lead13',
             'attachments': [{
               'id': '1',
               'name': 'file1'
@@ -246,6 +261,8 @@ export class DataService {
             'email': 'sumit@gmail.com',
             'status': 'Completed',
             'checked': false,
+            'title': 'Lead14',
+            'position': 'Tech Lead14',
             'attachments': [{
               'id': '1',
               'name': 'file1'
@@ -262,6 +279,8 @@ export class DataService {
             'email': 'nicole@redifmail.com',
             'status': 'Yes',
             'checked': false,
+            'title': 'Lead15',
+            'position': 'Tech Lead15',
             'attachments': [{
               'id': '1',
               'name': 'file1'
@@ -278,6 +297,8 @@ export class DataService {
             'email': 'john@yahoo.com',
             'status': 'No',
             'checked': false,
+            'title': 'Lead16',
+            'position': 'Tech Lead16',
             'attachments': [{
               'id': '1',
               'name': 'file1'
@@ -290,6 +311,8 @@ export class DataService {
             'email': 'rock@gmail.com',
             'status': 'Past Due',
             'checked': false,
+            'title': 'Lead17',
+            'position': 'Tech Lead17',
             'attachments': [{
               'id': '1',
               'name': 'file1'
@@ -306,6 +329,8 @@ export class DataService {
             'email': 'tomcruise@yahoo.com',
             'status': 'Pending',
             'checked': false,
+            'title': 'Lead18',
+            'position': 'Tech Lead18',
             'attachments': [{
               'id': '1',
               'name': 'file1'
@@ -319,6 +344,8 @@ export class DataService {
             'email': 'sumit@gmail.com',
             'status': 'Completed',
             'checked': false,
+            'title': 'Lead19',
+            'position': 'Tech Lead19',
             'attachments': [{
               'id': '1',
               'name': 'file1'
@@ -335,443 +362,8 @@ export class DataService {
             'email': 'nicole@redifmail.com',
             'status': 'Yes',
             'checked': false,
-            'attachments': [{
-              'id': '1',
-              'name': 'file1'
-            },
-            {
-              'id': '2',
-              'name': 'file2'
-            }]
-          },
-          {
-            'id': 1,
-            'name': 'John Liiki',
-            'date': "12-25-1995",
-            'email': 'john@yahoo.com',
-            'status': 'No',
-            'checked': false,
-            'attachments': [{
-              'id': '1',
-              'name': 'file1'
-            }]
-          },
-          {
-            'id': 2,
-            'name': 'Rock',
-            'date': "06-13-1999",
-            'email': 'rock@gmail.com',
-            'status': 'Past Due',
-            'checked': false,
-            'attachments': [{
-              'id': '1',
-              'name': 'file1'
-            },
-            {
-              'id': '2',
-              'name': 'file2'
-            }]
-          },
-          {
-            'id': 3,
-            'name': 'Tom Cruise5',
-            'date': "04-27-2001",
-            'email': 'tomcruise@yahoo.com',
-            'status': 'Pending',
-            'checked': false,
-            'attachments': [{
-              'id': '1',
-              'name': 'file1'
-            },
-           ]
-          },
-          {
-            'id': 4,
-            'name': 'Sumit Gupta',
-            'date': "03-30-2005",
-            'email': 'sumit@gmail.com',
-            'status': 'Completed',
-            'checked': false,
-            'attachments': [{
-              'id': '1',
-              'name': 'file1'
-            },
-            {
-              'id': '2',
-              'name': 'file2'
-            }]
-          },
-          {
-            'id': 5,
-            'name': 'Nicole Kidman',
-            'date': "02-22-2007",
-            'email': 'nicole@redifmail.com',
-            'status': 'Yes',
-            'checked': false,
-            'attachments': [{
-              'id': '1',
-              'name': 'file1'
-            },
-            {
-              'id': '2',
-              'name': 'file2'
-            }]
-          },
-          {
-            'id': 1,
-            'name': 'John Liiki',
-            'date': "12-25-1995",
-            'email': 'john@yahoo.com',
-            'status': 'No',
-            'checked': false,
-            'attachments': [{
-              'id': '1',
-              'name': 'file1'
-            }]
-          },
-          {
-            'id': 2,
-            'name': 'Rock',
-            'date': "06-13-1999",
-            'email': 'rock@gmail.com',
-            'status': 'Past Due',
-            'checked': false,
-            'attachments': [{
-              'id': '1',
-              'name': 'file1'
-            },
-            {'id': '2',
-              'name': 'file2'
-            }]
-          },
-          {
-            'id': 3,
-            'name': 'Tom Cruise6',
-            'date': "04-27-2001",
-            'email': 'tomcruise@yahoo.com',
-            'status': 'Pending',
-            'checked': false,
-            'attachments': [{
-              'id': '1',
-              'name': 'file1'
-            },
-           ]
-          },
-          {
-            'id': 4,
-            'name': 'Sumit Gupta',
-            'date': "03-30-2005",
-            'email': 'sumit@gmail.com',
-            'status': 'Completed',
-            'checked': false,
-            'attachments': [{
-              'id': '1',
-              'name': 'file1'
-            },
-            {
-              'id': '2',
-              'name': 'file2'
-            }]
-          },
-          {
-            'id': 5,
-            'name': 'Nicole Kidman',
-            'date': "02-22-2007",
-            'email': 'nicole@redifmail.com',
-            'status': 'Yes',
-            'checked': false,
-            'attachments': [{
-              'id': '1',
-              'name': 'file1'
-            },
-            {
-              'id': '2',
-              'name': 'file2'
-            }]
-          },
-          {
-            'id': 1,
-            'name': 'John Liiki',
-            'date': "12-25-1995",
-            'email': 'john@yahoo.com',
-            'status': 'No',
-            'checked': false,
-            'attachments': [{
-              'id': '1',
-              'name': 'file1'
-            }]
-          },
-          {
-            'id': 2,
-            'name': 'Rock',
-            'date': "06-13-1999",
-            'email': 'rock@gmail.com',
-            'status': 'Past Due',
-            'checked': false,
-            'attachments': [{
-              'id': '1',
-              'name': 'file1'
-            },
-            {
-              'id': '2',
-              'name': 'file2'
-            }]
-          },
-          {
-            'id': 3,
-            'name': 'Tom Cruise7',
-            'date': "04-27-2001",
-            'email': 'tomcruise@yahoo.com',
-            'status': 'Pending',
-            'checked': false,
-            'attachments': [{
-              'id': '1',
-              'name': 'file1'
-            },
-           ]
-          },
-          {
-            'id': 4,
-            'name': 'Sumit Gupta',
-            'date': "03-30-2005",
-            'email': 'sumit@gmail.com',
-            'status': 'Completed',
-            'checked': false,
-            'attachments': [{
-              'id': '1',
-              'name': 'file1'
-            },
-            {
-              'id': '2',
-              'name': 'file2'
-            }]
-          },
-          {
-            'id': 5,
-            'name': 'Nicole Kidman',
-            'date': "02-22-2007",
-            'email': 'nicole@redifmail.com',
-            'status': 'Yes',
-            'checked': false,
-            'attachments': [{
-              'id': '1',
-              'name': 'file1'
-            },
-            {
-              'id': '2',
-              'name': 'file2'
-            }]
-          },
-          {
-            'id': 1,
-            'name': 'John Liiki',
-            'date': "12-25-1995",
-            'email': 'john@yahoo.com',
-            'status': 'No',
-            'checked': false,
-            'attachments': [{
-              'id': '1',
-              'name': 'file1'
-            }]
-          },
-          {
-            'id': 2,
-            'name': 'Rock',
-            'date': "06-13-1999",
-            'email': 'rock@gmail.com',
-            'status': 'Past Due',
-            'checked': false,
-            'attachments': [{
-              'id': '1',
-              'name': 'file1'
-            },
-            {
-              'id': '2',
-              'name': 'file2'
-            }]
-          },
-          {
-            'id': 3,
-            'name': 'Tom Cruise8',
-            'date': "04-27-2001",
-            'email': 'tomcruise@yahoo.com',
-            'status': 'Pending',
-            'checked': false,
-            'attachments': [{
-              'id': '1',
-              'name': 'file1'
-            },
-           ]
-          },
-          {
-            'id': 4,
-            'name': 'Sumit Gupta',
-            'date': "03-30-2005",
-            'email': 'sumit@gmail.com',
-            'status': 'Completed',
-            'checked': false,
-            'attachments': [{
-              'id': '1',
-              'name': 'file1'
-            },
-            {
-              'id': '2',
-              'name': 'file2'
-            }]
-          },
-          {
-            'id': 5,
-            'name': 'Nicole Kidman',
-            'date': "02-22-2007",
-            'email': 'nicole@redifmail.com',
-            'status': 'Yes',
-            'checked': false,
-            'attachments': [{
-              'id': '1',
-              'name': 'file1'
-            },
-            {
-              'id': '2',
-              'name': 'file2'
-            }]
-          },
-          {
-            'id': 1,
-            'name': 'John Liiki',
-            'date': "12-25-1995",
-            'email': 'john@yahoo.com',
-            'status': 'No',
-            'checked': false,
-            'attachments': [{
-              'id': '1',
-              'name': 'file1'
-            }]
-          },
-          {
-            'id': 2,
-            'name': 'Rock',
-            'date': "06-13-1999",
-            'email': 'rock@gmail.com',
-            'status': 'Past Due',
-            'checked': false,
-            'attachments': [{
-              'id': '1',
-              'name': 'file1'
-            },
-            {
-              'id': '2',
-              'name': 'file2'
-            }]
-          },
-          {
-            'id': 3,
-            'name': 'Tom Cruise9',
-            'date': "04-27-2001",
-            'email': 'tomcruise@yahoo.com',
-            'status': 'Pending',
-            'checked': false,
-            'attachments': [{
-              'id': '1',
-              'name': 'file1'
-            },
-           ]
-          },
-          {
-            'id': 4,
-            'name': 'Sumit Gupta',
-            'date': "03-30-2005",
-            'email': 'sumit@gmail.com',
-            'status': 'Completed',
-            'checked': false,
-            'attachments': [{
-              'id': '1',
-              'name': 'file1'
-            },
-            {
-              'id': '2',
-              'name': 'file2'
-            }]
-          },
-          {
-            'id': 5,
-            'name': 'Nicole Kidman',
-            'date': "02-22-2007",
-            'email': 'nicole@redifmail.com',
-            'status': 'Yes',
-            'checked': false,
-            'attachments': [{
-              'id': '1',
-              'name': 'file1'
-            },
-            {
-              'id': '2',
-              'name': 'file2'
-            }]
-          },
-          {
-            'id': 1,
-            'name': 'John Liiki',
-            'date': "12-25-1995",
-            'email': 'john@yahoo.com',
-            'status': 'No',
-            'checked': false,
-            'attachments': [{
-              'id': '1',
-              'name': 'file1'
-            }]
-          },
-          {
-            'id': 2,
-            'name': 'Rock',
-            'date': "06-13-1999",
-            'email': 'rock@gmail.com',
-            'status': 'Past Due',
-            'checked': false,
-            'attachments': [{
-              'id': '1',
-              'name': 'file1'
-            },
-            {
-              'id': '2',
-              'name': 'file2'
-            }]
-          },
-          {
-            'id': 3,
-            'name': 'Tom Cruise10',
-            'date': "04-27-2001",
-            'email': 'tomcruise@yahoo.com',
-            'status': 'Pending',
-            'checked': false,
-            'attachments': [{
-              'id': '1',
-              'name': 'file1'
-            },
-           ]
-          },
-          {
-            'id': 4,
-            'name': 'Sumit Gupta',
-            'date': "03-30-2005",
-            'email': 'sumit@gmail.com',
-            'status': 'Completed',
-            'checked': false,
-            'attachments': [{
-              'id': '1',
-              'name': 'file1'
-            },
-            {
-              'id': '2',
-              'name': 'file2'
-            }]
-          },
-          {
-            'id': 5,
-            'name': 'Nicole Kidman',
-            'date': "02-22-2007",
-            'email': 'nicole@redifmail.com',
-            'status': 'Yes',
-            'checked': false,
+            'title': 'Lead20',
+            'position': 'Tech Lead20',
             'attachments': [{
               'id': '1',
               'name': 'file1'
@@ -784,4 +376,73 @@ export class DataService {
         ];
         return of(data);
      }
+
+     getUserData(id: number): any {
+      const data = [  
+        {
+          'id': 1,
+          'name': 'John Liiki',
+          'firstname': 'John',
+          'LatsName' : 'Likki',
+          'userName': "John-Liiki",
+          'passwordExpiry': '12-25-2025',
+          'accountExpiry': '12-25-2025',
+          'lastLogin': '09-25-2021',
+          'position': 'Team Lead',
+          'title': 'Lead1',
+          'email': 'john@yahoo.com'
+        },
+        {
+          'id': 2,
+          'name': 'Rock',
+          'userName': "Rock",
+          'passwordExpiry': '12-25-2025',
+          'accountExpiry': '12-25-2025',
+          'lastLogin': '09-25-2021',
+          'position': 'QA Lead',
+          'title': 'Lead2',
+          'email': 'rock@gmail.com'
+        },
+      {
+        'id': 3,
+        'name': 'Tom Cruis2',
+        'userName': "Tom-Cruis2",
+        'passwordExpiry': '12-25-2023',
+        'accountExpiry': '12-25-2024',
+        'lastLogin': '09-25-2021',
+        'position': 'Manager',
+        'title': 'Lead3',
+        'email': 'tomcruise@yahoo.com'
+      },
+      {
+        'id': 4,
+        'name': 'Sumit Gupta',
+        'userName': "Sumit-Gupta",
+        'passwordExpiry': '12-25-2022',
+        'accountExpiry': '12-25-2023',
+        'lastLogin': '09-25-2020',
+        'position': 'Developer',
+        'title': 'Lead4',
+        'email': 'sumit@gmail.com',
+      },
+      {
+        'id': 5,
+        'name': 'Nicole Kidman',
+        'userName': "Nicole-Kidman",
+        'passwordExpiry': '12-25-2022',
+        'accountExpiry': '12-25-2023',
+        'lastLogin': '09-25-2020',
+        'position': 'Tester',
+        'title': 'Lead5',
+        'email': 'nicole@redifmail.com'
+      }
+
+      ];
+
+      const user = data.filter(ele => {
+        return ele.id == id;
+      });
+      return user;
+        //return of(data);
+      }
     }

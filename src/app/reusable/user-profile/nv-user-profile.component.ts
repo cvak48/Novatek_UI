@@ -84,7 +84,7 @@ export class NvUserProfileComponent implements OnInit {
           
            if (res == 'updateUserData') {
               this.firstNameStatus = this.personData.firstName?.length > 0 ? 'is-normal' : 'is-invalid';
-              this.lastNameStatus = this.personData.lastName?.length > 0 ? 'is-normal' : 'is-invalid';
+              this.lastNameStatus = this.personData.LastName?.length > 0 ? 'is-normal' : 'is-invalid';
               this.userNameStatus = this.personData.userName?.length > 0 ? 'is-normal' : 'is-invalid';
               this.emailStatus = this.personData.email?.length > 0 ? 'is-normal' : 'is-invalid';
               this.hasSiteError = this.sitesStatus;

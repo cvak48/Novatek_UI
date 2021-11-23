@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Inject } from '@angular/core';
 import { DropdownFieldType } from 'src/app/model/data-model';
 
 @Component({
@@ -8,26 +8,36 @@ import { DropdownFieldType } from 'src/app/model/data-model';
   styleUrls: ['./nv-sub-menu.component.scss']
 })
 export class NvSubMenuComponent implements OnInit {
-    // dropDown Menu
-    dropdownItemsMenu = mockMenuDropdown().items;
-    textTrimNumberMenu = mockMenuDropdown().textTrimNumber;
-    selectedItemDefaultMenu = mockMenuDropdown().selectedItemDefault;
-    dropDownFieldTypeMenu = mockMenuDropdown().dropDownFieldType;
-    // dropDown Site
-    dropdownItemsSite = mockSiteDropdown().items;
-    textTrimNumberSite = mockSiteDropdown().textTrimNumber;
-    selectedItemDefaultSite = mockSiteDropdown().selectedItemDefault;
-    dropDownFieldTypeSite = mockSiteDropdown().dropDownFieldType;
-    // dropDown Plus
-    dropdownItemsPlus = mockPlusDropdown().items;
-    textTrimNumberPlus = mockPlusDropdown().textTrimNumber;
-    selectedItemDefaultPlus = mockPlusDropdown().selectedItemDefault;
-    dropDownFieldTypePlus = mockPlusDropdown().dropDownFieldType;
-    isRightToLeft = mockPlusDropdown().isRightToLeft;
-  constructor() { }
+  // dropDown Menu
+  dropdownItemsMenu = mockMenuDropdown().items;
+  textTrimNumberMenu = mockMenuDropdown().textTrimNumber;
+  selectedItemDefaultMenu = mockMenuDropdown().selectedItemDefault;
+  dropDownFieldTypeMenu = mockMenuDropdown().dropDownFieldType;
+  // dropDown Site
+  dropdownItemsSite = mockSiteDropdown().items;
+  textTrimNumberSite = mockSiteDropdown().textTrimNumber;
+  selectedItemDefaultSite = mockSiteDropdown().selectedItemDefault;
+  dropDownFieldTypeSite = mockSiteDropdown().dropDownFieldType;
+  // dropDown Plus
+  dropdownItemsPlus = mockPlusDropdown().items;
+  textTrimNumberPlus = mockPlusDropdown().textTrimNumber;
+  selectedItemDefaultPlus = mockPlusDropdown().selectedItemDefault;
+  dropDownFieldTypePlus = mockPlusDropdown().dropDownFieldType;
+  isRightToLeft = mockPlusDropdown().isRightToLeft;
+
+  // @ViewChild('middleMenu') middleMenu: ElementRef;
+
+  // @ViewChild('middleMenu', { static: false }) public middleMenu: ElementRef;
+
+
+
+  constructor() {}
+  // element = (<HTMLInputElement>document.getElementById("middleMenu")).clientHeight;
 
   ngOnInit(): void {
+    // console.log("element >> ", this.element)
   }
+
 
   /**
    * DropDowns event handlers

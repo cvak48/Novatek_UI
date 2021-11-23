@@ -143,7 +143,6 @@
         #lastName="ngModel"
         [ngClass]="{'error':!lastName?.valid && (lastName?.dirty || lastName?.touched)}"
       />-->
-<<<<<<< HEAD
     </div>
     <div class="field-block">
       <app-nv-input
@@ -156,20 +155,6 @@
     (keypress)="keyPress(personData.userName, 'userName')"
   ></app-nv-input>
       <!--<label class="field-label h50 label label-red">User Name</label>
-=======
-      </div>
-      <div class="field-block">
-        <app-nv-input
-          class="text-color"
-          [(sharedVar)]="personData.name"
-          inputPlaceHolder="User Name"
-          label="User Name"
-          [status]="userNameStatus"
-          (focusout)="updateValidations(personData.name, 'userName')"
-          (keypress)="keyPress(personData.name, 'userName')"
-        ></app-nv-input>
-        <!--<label class="field-label h50 label label-red">User Name</label>
->>>>>>> b7c736dabaf5d5ddacf7073bd36bcb756a0b9d15
       <input
         class="field-user"
         type="text"
@@ -438,7 +423,6 @@
         #userName="ngModel"
         [ngClass]="{'error':!userName?.valid && (userName?.dirty || userName?.touched)}"
       />-->
-<<<<<<< HEAD
       <app-nv-input
       class="text-color"
       [(sharedVar)]="personData.name"
@@ -451,20 +435,6 @@
     </div>
     <div class="field-block" *ngIf="!multiUser">
      <!-- <label class="field-label h50 label label-red">E-Mail</label>
-=======
-        <app-nv-input
-          class="text-color"
-          [(sharedVar)]="personData.name"
-          inputPlaceHolder="User Name"
-          label="User Name"
-          [status]="userNameStatus"
-          (focusout)="updateValidations(personData.name, 'userName')"
-          (keypress)="keyPress(personData.name, 'userName')"
-        ></app-nv-input>
-      </div>
-      <div class="field-block" *ngIf="!multiUser">
-        <!-- <label class="field-label h50 label label-red">E-Mail</label>
->>>>>>> b7c736dabaf5d5ddacf7073bd36bcb756a0b9d15
       <input
         class="field-user"
         type="email"

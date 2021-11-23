@@ -93,7 +93,7 @@ export class NvUserListViewComponent implements OnInit {
         break;
       case '4':
           this.showPanel='3';
-          this.showPanel1 = false;
+          this.showPanel1 = true;
           this.showPanel2 = true;
           this.showPanel3 = true;
           this.showPanel4 = false;

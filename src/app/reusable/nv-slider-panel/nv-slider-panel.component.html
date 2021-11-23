@@ -1,7 +1,7 @@
 <div class="mr-div-2">
   <div class="card custom-card" *ngIf="!showPanel">
     <div class="card-header">
-      <span class="panel-titleTxt" (click)="buttonClick()">{{ panelNum }}</span>
+      <span class="panel-titleTxt">{{ panelTitle }}</span>
 
       <button type="button" (click)="closePanel()" class="close mg-15" aria-label="Close">
         <span aria-hidden="true"><img src="../../../assets/icons/ico.close.svg" /></span>
@@ -10,28 +10,15 @@
         <span aria-hidden="true"><img src="../../../assets/icons/threeDots.icon.svg" /></span>
       </button>
     </div>
-    <div *ngIf="panelNum === 'Users'">
-      <div class="dp-inline btn-right">
-        <app-nv-button
-          label="New"
-          class="mr-rt-1"
-          (buttonClick)="buttonClick()"
-        ></app-nv-button>
-      </div>
-    </div>
-    <div class="search-container" *ngIf="panelNum === 'Teams'">
       <div class="card-body">
-        <!-- <div class="card-content-box">
-          <div class="shadow-sm-dark dp-inline">
-          </div>
+        <div class="card-content-box" *ngIf="panelNum == 'Users'">
+
+
           <div class="dp-inline btn-right">
-            <app-nv-button
-              label="Add"
-              class="mr-rt-1"
-              (buttonClick)="buttonClick()"
-            ></app-nv-button>
+            <app-nv-button label="Unlock" class="mr-rt-1" (buttonClick)="buttonClick()"></app-nv-button>
+            <app-nv-button label="Disable" (buttonClick)="buttonClick()"></app-nv-button>
           </div>
-        </div> -->
+        </div>
         <div>
           <ng-content></ng-content>
         </div>

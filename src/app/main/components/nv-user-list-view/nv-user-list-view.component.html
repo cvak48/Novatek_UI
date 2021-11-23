@@ -23,7 +23,7 @@
     class="style-right panel-slide col-md-4"
     *ngIf="showPanel2"
     [ngClass]="{
-      'col-md-6': (!showPanel1 && !showPanel4) && showPanel2 && showPanel3      
+      'col-md-8': (!showPanel1 && !showPanel4) && showPanel2 && showPanel3      
     }"
   >
     <app-nv-slider-panel
@@ -37,10 +37,7 @@
     </app-nv-slider-panel>
   </div>
   <div class="col-md-4 style-left panel-slide" *ngIf="showPanel3" 
-  [ngClass]="{
-    'col-md-6': (!showPanel1 && !showPanel4) && showPanel2 && showPanel3,
-    'col-md-4': (showPanel1 || showPanel4) && showPanel2 && showPanel3
-  }">
+  >
     <app-nv-slider-panel
       panelNum="3"
       (close)="closePanel('3')"

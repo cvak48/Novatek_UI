@@ -98,7 +98,7 @@ export class NvTablePanelComponent implements OnInit {
       this.applicationService.newUserData
            .subscribe(res => {
              console.log('new', res)
-             if (res.name) {
+             if (res.userName) {
               this.orders.splice(0,0,res);
              }
           //  res.id ? this.orders.unshift(res) : '';

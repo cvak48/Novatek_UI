@@ -141,7 +141,7 @@ export class NvUserProfileComponent implements OnInit {
   saveuserData(): void {
     if (this.personData.id && this.personData.id > 0) {
       this.applicationService.setUpdatedUserData(this.personData);
-    } else if (this.personData.id && this.personData.id == 0) {
+    } else if (this.personData.id == 0) {
       this.applicationService.setNewUserData(this.personData);
     } else {
       this.multiUserList.map((user: any) => {

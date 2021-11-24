@@ -137,7 +137,7 @@
                     <mat-icon> attach_file</mat-icon>
             </button>
                 </td>
-                <td [ngClass]="{'active': orders[i].checked}">{{ order.name }}</td>
+                <td [ngClass]="{'active': orders[i].checked}"><span *ngIf="order.name && !order.userName">{{ order.name }}</span><span *ngIf="!order.name && order.userName">{{ order.userName }}</span></td>
                 <td [ngClass]="{'active': orders[i].checked}">{{ order.title }}</td>
                 <td [ngClass]="{'active': orders[i].checked}">{{ order.position }}</td>
                 <td [ngClass]="{'active': orders[i].checked}">{{ order.date }}</td>

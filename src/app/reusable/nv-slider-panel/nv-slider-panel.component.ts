@@ -26,6 +26,7 @@ export class NvSliderPanelComponent implements OnInit {
     this.panelSaveBtn ? this.applicationService.setBtnClickedData(this.panelSaveBtn) : null;
     this.applicationService.btnDisabled
         .subscribe(res => {
+          console.log('btn', res)
           this.btnDisable = res;
         })
   }

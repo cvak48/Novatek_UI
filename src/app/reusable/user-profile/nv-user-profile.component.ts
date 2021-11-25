@@ -82,7 +82,7 @@ export class NvUserProfileComponent implements OnInit {
               this._initialize();
     this.applicationService.btnClickData
          .subscribe(res => {
-          
+          console.log('in check', this.personData.firstName?.length, this.personData.LastName?.length)
            if (res == 'updateUserData') {
               this.firstNameStatus = this.personData.firstName?.length > 0 ? 'is-normal' : 'is-invalid';
               this.lastNameStatus = this.personData.LastName?.length > 0 ? 'is-normal' : 'is-invalid';
@@ -95,7 +95,10 @@ export class NvUserProfileComponent implements OnInit {
               if (this.personData.firstName?.length && this.personData.LastName?.length && 
                 this.personData.userName?.length && this.personData.email?.length && 
                  !this.hasSiteError && !this.hasRoleError && !this.hasLicenseError) {
+                  console.log('in check cond', this.personData.firstName?.length, this.personData.LastName?.length)
                    this.applicationService.setBtnDisabled(true);
+              } else {
+                this.applicationService.setBtnDisabled(false);
               }
            }
          })
@@ -178,7 +181,6 @@ export class NvUserProfileComponent implements OnInit {
   }
 
    updateValidations(column: string, columnName: string) {
-     console.log(columnName)
       switch(columnName) {
         case 'firstName':
           this.firstNameStatus = column?.length > 0 ? 'is-normal' : 'is-invalid';

@@ -9,7 +9,7 @@ export class ApplicationService {
     updatedUserData: BehaviorSubject<any> = new BehaviorSubject({});
     newUserData: BehaviorSubject<any> = new BehaviorSubject({});
     btnClickData: BehaviorSubject<any> = new BehaviorSubject(null);
-    btnDisabled: BehaviorSubject<any> = new BehaviorSubject(false);
+    btnDisabled: BehaviorSubject<any> = new BehaviorSubject(true);
     constructor() {}
 
     setSelectedUserData(data: any): void{

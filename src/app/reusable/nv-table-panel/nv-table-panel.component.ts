@@ -109,8 +109,8 @@ export class NvTablePanelComponent implements OnInit {
 
       this.applicationService.btnDisabled
       .subscribe(res => {
-        this.saveBtnDisable = res ? false: res;
-        this.editBtnDisable = res ? false: res;
+        this.saveBtnDisable = !res ;
+        this.editBtnDisable = !res;
       })
   }
 

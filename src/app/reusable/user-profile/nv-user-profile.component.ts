@@ -46,6 +46,14 @@ export class NvUserProfileComponent implements OnInit {
   lastNameStatus = '';
   userNameStatus = '';
   emailStatus = '';
+  sitesStatus = false;
+  rolesStatus = false;
+  licenseStatus = false;
+  labelRed = true;
+  hasSiteError = false;
+  hasRoleError = false;
+  hasLicenseError = false;
+  btnDisable:boolean = false;
   @ViewChild('fileDropRef') fileDropRef!: ElementRef<HTMLElement>;
   constructor(
     private _dataService: UserProfileService,
@@ -67,27 +75,37 @@ export class NvUserProfileComponent implements OnInit {
                    }
                   
                  } else {
-                  this.personData = {attachments: [], checked: false, date: "", email: "", id: 0, lastName: "", firstName: "", name: "",status: "", title:"", position: ""};
+                  this.personData = {attachments: [], checked: false, date: "", email: "", id: 0, lastName: "", firstName: "", userName: "",status: "", title:"", position: ""};
                  }
                   
               })
               this._initialize();
     this.applicationService.btnClickData
          .subscribe(res => {
-          
+          console.log('in check', this.personData.firstName?.length, this.personData.LastName?.length)
            if (res == 'updateUserData') {
-            
               this.firstNameStatus = this.personData.firstName?.length > 0 ? 'is-normal' : 'is-invalid';
               this.lastNameStatus = this.personData.LastName?.length > 0 ? 'is-normal' : 'is-invalid';
               this.userNameStatus = this.personData.userName?.length > 0 ? 'is-normal' : 'is-invalid';
               this.emailStatus = this.personData.email?.length > 0 ? 'is-normal' : 'is-invalid';
-
+              this.hasSiteError = this.sitesStatus;
+              this.hasRoleError = this.rolesStatus;
+              this.hasLicenseError = this.licenseStatus;
               this.saveuserData();
+              if (this.personData.firstName?.length && this.personData.LastName?.length && 
+                this.personData.userName?.length && this.personData.email?.length && 
+                 !this.hasSiteError && !this.hasRoleError && !this.hasLicenseError) {
+                  console.log('in check cond', this.personData.firstName?.length, this.personData.LastName?.length)
+                   this.applicationService.setBtnDisabled(true);
+              } else {
+                this.applicationService.setBtnDisabled(false);
+              }
            }
          })
 
     this.applicationService.userBtnAction.subscribe((res) => {
       this.userAction = res;
+      this.btnDisable = false;
     });
   }
 
@@ -95,7 +113,9 @@ export class NvUserProfileComponent implements OnInit {
     this.personData = this.dataService.getUserData(id)[0];
   }
 
-  onMultiselectItemsFilter(item: any): void {}
+  onMultiselectItemsFilter(item: any): void {
+    
+  }
   /**
    * The img element and input is internally linked with onIconClick event handler;
    * because the input style became hidden and we use menu svg icon instead
@@ -124,7 +144,7 @@ export class NvUserProfileComponent implements OnInit {
   saveuserData(): void {
     if (this.personData.id && this.personData.id > 0) {
       this.applicationService.setUpdatedUserData(this.personData);
-    } else if (this.personData.id && this.personData.id == 0) {
+    } else if (this.personData.id == 0) {
       this.applicationService.setNewUserData(this.personData);
     } else {
       this.multiUserList.map((user: any) => {
@@ -161,7 +181,6 @@ export class NvUserProfileComponent implements OnInit {
   }
 
    updateValidations(column: string, columnName: string) {
-     console.log(columnName)
       switch(columnName) {
         case 'firstName':
           this.firstNameStatus = column?.length > 0 ? 'is-normal' : 'is-invalid';
@@ -177,6 +196,20 @@ export class NvUserProfileComponent implements OnInit {
           break;
       }
    
+  }
+
+  sitesSelected(event: any): void {
+    switch(event.name) {
+      case 'Sites':
+        this.sitesStatus = !event.status;
+        break;
+      case 'Roles':
+        this.rolesStatus = !event.status;
+        break;
+      case 'Module Licenses':
+        this.licenseStatus = !event.status;
+        break;
+    }
   }
 
   // TODO: using imageService we need to send the image to the backend

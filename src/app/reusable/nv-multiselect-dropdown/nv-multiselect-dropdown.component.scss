@@ -216,3 +216,12 @@ $height: 40px;
 ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-wrapper {
   padding-bottom: 0 !important;
 }
+
+.label-red{
+  color: $color-red !important;
+}
+
+::ng-deep .is-invalid {
+  border-color: $color-red-97 !important;
+  background-color:$color-light-red-f6 !important;
+}

@@ -1,41 +1,23 @@
-import { Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
-import { Subscriber, Subscription } from 'rxjs';
-import { Order } from 'src/app/reusable/test/order';
-import { ApplicationService } from 'src/app/services/application.service';
-import { DataService } from 'src/app/services/data.service';
 
 @Component({
-  selector: 'nv-app-user-list-view',
-  templateUrl: './nv-user-list-view.component.html',
-  styleUrls: ['./nv-user-list-view.component.scss']
+  selector: 'app-slider-view',
+  templateUrl: './slider-view.component.html',
+  styleUrls: ['./slider-view.component.scss']
 })
-export class NvUserListViewComponent implements OnInit {
-  isLeftVisible = true;
-  orders: Order[] = [];
-  showPanel: string = '1';
-  columns: string[] = ['name', 'date', 'email'];
-  sub = new Subscription();
+export class SliderViewComponent implements OnInit {
   title: string = '';
+  isLeftVisible = true;
+  showPanel: string = '1';
   showPanel1: boolean = false;
   showPanel2: boolean = false;
   showPanel3: boolean = false;
   showPanel4: boolean = false;
-  constructor(private dataService: DataService,
-              private applicationService: ApplicationService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.sub = this.dataService.getData().subscribe((data) => { 
-      this.orders = data;
-    });
-    this.sub.unsubscribe();
-    this.applicationService.userBtnAction
-           .subscribe(res => {
-              this.title = (res == 'new' ? 'New User' : 'Edit User') ;
-           });
     this.showPanel1 = true;
   }
-
   panelClicked(panel: string): void{
     switch(panel){
       case '1':

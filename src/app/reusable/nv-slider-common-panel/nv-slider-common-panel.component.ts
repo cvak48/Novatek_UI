@@ -2,11 +2,11 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ApplicationService } from 'src/app/services/application.service';
 
 @Component({
-  selector: 'app-nv-slider-panel',
-  templateUrl: './nv-slider-panel.component.html',
-  styleUrls: ['./nv-slider-panel.component.scss']
+  selector: 'app-nv-slider-common-panel',
+  templateUrl: './nv-slider-common-panel.component.html',
+  styleUrls: ['./nv-slider-common-panel.component.scss']
 })
-export class NvSliderPanelComponent implements OnInit {
+export class NvSliderCommonPanelComponent implements OnInit {
   @Input() panelNum!: string;
   @Input() panelTitle!: string;
   @Input() panelSaveBtn!: string;

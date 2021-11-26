@@ -8,11 +8,13 @@
    
     *ngIf="showPanel1"
   >
-    <app-nv-table-panel
-      (close)="closePanel('1')"
-      panelNum="1"
-      (panelClick)="panelClicked('1')"
-    ></app-nv-table-panel>
+  <app-nv-slider-common-panel
+  panelNum="1"
+  panelTitle="Panel1"
+  (close)="closePanel('1')"
+  (panelClick)="panelClicked('1')">
+  Panel1
+</app-nv-slider-common-panel>
   </div>
 
   <div
@@ -20,34 +22,33 @@
     *ngIf="showPanel2"
     
   >
-    <app-nv-slider-panel
+    <app-nv-slider-common-panel
       panelNum="2"
-      [panelTitle]="title"
+      panelTitle="Panel2"
       panelSaveBtn="updateUserData"
       (close)="closePanel('2')"
-      (panelClick)="panelClicked('2')"
-    >
-      <app-nv-user-view></app-nv-user-view>
-    </app-nv-slider-panel>
+      (panelClick)="panelClicked('2')">
+      Panel2
+    </app-nv-slider-common-panel>
   </div>
   <div class="col-md-4 style-left panel-slide" *ngIf="showPanel3" 
   >
-    <app-nv-slider-panel
+    <app-nv-slider-common-panel
       panelNum="3"
+      panelTitle="Panel3"
       (close)="closePanel('3')"
-      (panelClick)="panelClicked('3')"
-    >
-  <app-nv-common-table [columns]="columns" [oData]="orders"></app-nv-common-table>
-  </app-nv-slider-panel>
+      (panelClick)="panelClicked('3')">
+      Panel3
+  </app-nv-slider-common-panel>
   </div>
   <div class="col-md-4 style-left panel-slide" *ngIf="showPanel4">
-    <app-nv-slider-panel
+    <app-nv-slider-common-panel
       panelNum="4"
+      panelTitle="Panel4"
       (close)="closePanel('4')"
-      (panelClick)="panelClicked('4')"
-    >
-  <app-nv-common-table [columns]="columns" [oData]="orders"></app-nv-common-table>
-  </app-nv-slider-panel>
+      (panelClick)="panelClicked('4')">
+      Panel4
+  </app-nv-slider-common-panel>
   </div>
 </div>
 <br />

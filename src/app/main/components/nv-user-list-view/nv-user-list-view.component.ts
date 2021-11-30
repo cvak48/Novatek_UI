@@ -1,5 +1,5 @@
 import { Breakpoints } from '@angular/cdk/layout';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Subscriber, Subscription } from 'rxjs';
 import { Order } from 'src/app/reusable/test/order';
 import { ApplicationService } from 'src/app/services/application.service';
@@ -10,7 +10,7 @@ import { DataService } from 'src/app/services/data.service';
   templateUrl: './nv-user-list-view.component.html',
   styleUrls: ['./nv-user-list-view.component.scss']
 })
-export class NvUserListViewComponent implements OnInit {
+export class NvUserListViewComponent implements OnInit, AfterViewInit {
   isLeftVisible = true;
   orders: Order[] = [];
   showPanel: string = '1';
@@ -24,6 +24,10 @@ export class NvUserListViewComponent implements OnInit {
   constructor(private dataService: DataService,
               private applicationService: ApplicationService) { }
 
+ @ViewChild('panelDivHeight', {static: false, read: ElementRef}) public panelDivHeight!: ElementRef<any>;
+//  @ViewChild('headerTop', {static: false, read: ElementRef}) public headerTop!: ElementRef<any>;
+
+
   ngOnInit(): void {
     this.sub = this.dataService.getData().subscribe((data) => { 
       this.orders = data;
@@ -34,6 +38,24 @@ export class NvUserListViewComponent implements OnInit {
               this.title = (res == 'new' ? 'New User' : 'Edit User') ;
            });
     this.showPanel1 = true;
+  }
+
+  
+  ngAfterViewInit() {
+    var width = this.panelDivHeight.nativeElement.offsetWidth;
+    var height = this.panelDivHeight.nativeElement.offsetHeight;
+
+    
+    // var widthDiv = this.headerTop.nativeElement.offsetWidth;
+    // var heightDiv = this.headerTop.nativeElement.offsetHeight;
+
+    console.log('panelDivHeight Width:' + width);
+    console.log('panelDivHeight Height: ' + height);
+
+    
+
+    // console.log('Width:' + widthDiv);
+    // console.log('Height: ' + heightDiv);
   }
 
   panelClicked(panel: string): void{

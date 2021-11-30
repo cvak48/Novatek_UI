@@ -39,7 +39,7 @@
         
             <div class="dp-flex dp-inline btn-right expand-btn">
               <app-nv-dropdown class="dropdown-plus-container"  [items]="dropdownItemsPlus" [textTrimNumber]="textTrimNumberPlus" 
-              [fieldType]="dropDownFieldTypePlus" 
+              [fieldType]="dropDownFieldTypePlus" (itemSelect) ="selectedItemClick($event)"
             ></app-nv-dropdown>
      
           </div>

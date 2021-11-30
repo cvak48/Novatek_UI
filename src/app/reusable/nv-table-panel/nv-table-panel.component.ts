@@ -287,6 +287,11 @@ export class NvTablePanelComponent implements OnInit {
     }
     
   }
+
+  selectedItemClick(event: any): void {
+    event === 'New' ? this.buttonNewClick() : null;
+    event === 'Edit' ? this.buttonEditClick() : null;
+ }
 }
 
 /**
@@ -325,7 +330,7 @@ function mockSiteDropdown(): any {
 
 function mockPlusDropdown(): any {
   const dropdownInputs = {
-    items: ['Print', 'Copy', 'Disable', 'Import', 'View Audit Trail'],
+    items: ['New', 'Edit', 'Print', 'Copy', 'Disable', 'Import', 'View Audit Trail'],
     textTrimNumber: 3,
     selectedItemDefault: 'Page',
     dropDownFieldType: DropdownFieldType.Button

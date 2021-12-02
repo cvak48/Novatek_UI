@@ -2,7 +2,7 @@
 <app-nv-sub-menu></app-nv-sub-menu>
 <br />
 
-<div class="row mg-0 userListHeight" #panelDivHeight [style.height.px]="panelTableHeight">
+<div class="row mg-0 userListHeight" #panelDivHeight>
   <div
     class="panel-slide col-md-4"
    
@@ -12,7 +12,7 @@
       (close)="closePanel('1')"
       panelNum="1"
       (panelClick)="panelClicked('1')"
-      panelTableHeight="panelTableHeight"
+      [panelTableHeight]="panelTableHeight"
     ></app-nv-table-panel>
   </div>
 
@@ -28,7 +28,7 @@
       (close)="closePanel('2')"
       (panelClick)="panelClicked('2')"
     >
-      <app-nv-user-view></app-nv-user-view>
+      <app-nv-user-view [panelTableHeight]="panelTableHeight"></app-nv-user-view>
     </app-nv-slider-panel>
   </div>
   <div class="col-md-4 style-left panel-slide" *ngIf="showPanel3" 

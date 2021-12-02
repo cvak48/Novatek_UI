@@ -50,7 +50,7 @@ export class NvUserListViewComponent implements OnInit, AfterViewInit {
     this.headerTop = sessionStorage.getItem('headerTop');
     this.middleMenu = sessionStorage.getItem('middleMenu');
     this.navBarFooter = 56;
-    this.extraHeight = (+this.headerTop) + (+this.middleMenu) + (+this.navBarFooter) + 30;
+    this.extraHeight = (+this.headerTop) + (+this.middleMenu) + (+this.navBarFooter) + 225;
 
 
     // this.screenWidth = window.innerWidth;
@@ -60,17 +60,18 @@ export class NvUserListViewComponent implements OnInit, AfterViewInit {
     console.log('middleMenu >> ',sessionStorage.getItem('middleMenu'));
     console.log('navBarFooter >> ',56);
     console.log('extraHeight >> ', this.extraHeight);
-    
+    this.panelTableHeight = this.screenHeight - this.extraHeight;
     // console.log('panelTableHeight >>> ', this.panelTableHeight)
     // this.panelDivHeight = this.panelTableHeight;
-
+    
+    console.log('panelTableHeight >>', this.panelTableHeight);
 
   }
 
   
   ngAfterViewInit() {
-    this.panelTableHeight = this.screenHeight - this.extraHeight;
-    console.log('panelTableHeight >>', this.panelTableHeight);
+    // this.panelTableHeight = this.screenHeight - this.extraHeight;
+    // console.log('panelTableHeight >>', this.panelTableHeight);
   }
 
   panelClicked(panel: string): void{

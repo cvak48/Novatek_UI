@@ -1,34 +1,36 @@
 <div class="">
-  <div class="row" style="margin-left: -3px">
-    <div class="cpl-sm-6">
+  <div class="row" style="margin-left: -3px; margin-bottom: 15px;">
+    <div class="col-sm-6 pl-0" id="search-panel">
       <div class="search-container">
         <app-nv-search class="search" [isAdvance]="isAdvance" [hideMenu]="hideMenu" [list]="tableSearchData"
           [searchableRefList]="searchableRefList" (filteredItems)="onItemsFilter($event)"></app-nv-search>
       </div>
     </div>
-    <div class="cpl-sm-2">
-      <app-nv-button label="Add" class="mr-rt-1" (buttonClick)="add()" [disableButton]="disableAddButton">
+    <div class="col-sm-2 pl-0" id="addButton">
+      <app-nv-button label="Add" (buttonClick)="add()" [disableButton]="disableAddButton">
       </app-nv-button>
     </div>
-    <div class="cpl-sm-2">
+    <div class="col-sm-2 pl-0" id="editButton">
       <app-nv-button label="Edit" class="mr-rt-1" (buttonClick)="edit()" [disableButton]="disableEditButton">
       </app-nv-button>
     </div>
-    <div class="cpl-sm-2" *ngIf="showDeleteBtn">
+    <div class="col-sm-2 pl-0" *ngIf="showDeleteBtn">
       <app-nv-button label="Delete" class="mr-rt-1" (buttonClick)="delete()"></app-nv-button>
     </div>
-    <div class="cpl-sm-2" *ngIf="!showDeleteBtn">
+    <div class="col-sm-2 pl-0" *ngIf="!showDeleteBtn">
       <app-nv-button label="Undo" class="mr-rt-1" (buttonClick)="undo()"></app-nv-button>
     </div>
   </div>
 </div>
 
-<div class="header">
-  <app-nv-input class="text-color" [(sharedVar)]="name" [inputPlaceHolder]="placeholder" [label]="nameLabel"
+<div class="row" id="input-container">
+  <div class="col-sm-12" >
+    <app-nv-input class="text-color" [(sharedVar)]="name" [inputPlaceHolder]="placeholder" [label]="nameLabel"
     [status]="nameValidation" [disableInput]="disableInput" (keypress)="keyPress('name')"></app-nv-input>
 
   <app-nv-input class="text-color" [(sharedVar)]="id" [inputPlaceHolder]="placeholder" [label]="idLabel"
     [status]="idValidation" [disableInput]="disableInput" (keypress)="keyPress('id')"></app-nv-input>
+  </div>
 </div>
 
 <div>

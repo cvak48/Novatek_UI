@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Sort } from '@angular/material/sort';
 import { Team } from 'src/app/model/teams-model';
+import { SharedService } from 'src/app/services/shared.service';
+import { NvDialogComponent } from '../nv-dialog/nv-dialog.component';
 
 const Status = {
   NO_CHANGE: 0,
@@ -53,7 +55,7 @@ export class NvThirdPanelComponent implements OnInit {
   hideMenu: boolean = this.mockSearchComponent().hideMenu;
   searchableRefList: any[] = this.mockSearchComponent().searchableRefList;
 
-  constructor() { }
+  constructor(private sharedService  : SharedService) { }
 
   ngOnInit(): void {
     // setting search data for table
@@ -216,7 +218,12 @@ export class NvThirdPanelComponent implements OnInit {
 
     if (this.name && this.id && this.orders.filter(item => item.name.toLowerCase() == this.name.toLowerCase() && item.id == this.id).length > 0) {
 
-      alert('item is already existed')
+      // alert('item is already existed')
+      const data = {
+        title : 'Alert!',
+        message : 'Item is already existed'
+      }
+      this.sharedService.getGenericDialogRef(NvDialogComponent, data);
 
     } else if (this.name && this.id) {
       //For updating proper status for multiple edits tweaking this

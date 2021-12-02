@@ -1,0 +1,76 @@
+@import "./../../reusable/theme/base.scss";
+
+.form-control:focus {
+  border-color: $color-dark-gray-72;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.label-weight {
+  font-weight: 600;
+  font-family: Lato;
+}
+
+::placeholder {
+  /* Most modern browsers support this now. */
+  color: $color-dark-gray-30;
+}
+
+.forgot-user {
+  float: right;
+  text-decoration: underline;
+  color: $color-dark-blue-12;
+  cursor: pointer;
+}
+
+::ng-deep .is-valid {
+  border-color: $color-green-a8;
+  background-color: $color-white-fc;
+}
+
+.is-notValid {
+  color: $color-red;
+}
+
+::ng-deep .is-invalid {
+  border-color: $color-red-97 !important;
+  background-color: $color-light-red-f6;
+}
+
+/* ::ng-deep .is-normal {
+  background-color: #fff;
+  border: 1 px solid #ced4da;
+  border-color: $color-red-97 !important;
+  background-color:$color-light-red-f6;s
+} */
+
+.icon {
+  position: absolute;
+  top: 205px;
+  left: 332px;
+}
+
+#input_container {
+  position: relative;
+}
+#input {
+  height: 20px;
+  margin: 0;
+  padding-right: 30px;
+  width: 100%;
+}
+#input_img {
+  position: absolute;
+  bottom: 4px;
+  right: 0px;
+  width: 24px;
+  height: 24px;
+}
+
+.sucess-check {
+  color: $color-green;
+}
+
+.danger-check {
+  color: $color-red;
+}

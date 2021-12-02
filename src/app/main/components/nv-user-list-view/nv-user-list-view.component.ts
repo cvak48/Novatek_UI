@@ -1,5 +1,5 @@
 import { Breakpoints } from '@angular/cdk/layout';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Subscriber, Subscription } from 'rxjs';
 import { Order } from 'src/app/reusable/test/order';
 import { ApplicationService } from 'src/app/services/application.service';
@@ -10,7 +10,7 @@ import { DataService } from 'src/app/services/data.service';
   templateUrl: './nv-user-list-view.component.html',
   styleUrls: ['./nv-user-list-view.component.scss']
 })
-export class NvUserListViewComponent implements OnInit {
+export class NvUserListViewComponent implements OnInit, AfterViewInit {
   isLeftVisible = true;
   orders: Order[] = [];
   showPanel: string = '1';
@@ -21,8 +21,20 @@ export class NvUserListViewComponent implements OnInit {
   showPanel2: boolean = false;
   showPanel3: boolean = false;
   showPanel4: boolean = false;
+  public screenWidth: any;
+  public screenHeight: any;
+  panelHeight: any;
+  headerTop: any;
+  middleMenu: any;
+  navBarFooter: any;
+  extraHeight: any;
+  panelTableHeight: any;
+
   constructor(private dataService: DataService,
               private applicationService: ApplicationService) { }
+
+ @ViewChild('panelDivHeight', {static: false, read: ElementRef}) public panelDivHeight!: ElementRef<any>;
+
 
   ngOnInit(): void {
     this.sub = this.dataService.getData().subscribe((data) => { 
@@ -34,6 +46,32 @@ export class NvUserListViewComponent implements OnInit {
               this.title = (res == 'new' ? 'New User' : 'Edit User') ;
            });
     this.showPanel1 = true;
+
+    this.headerTop = sessionStorage.getItem('headerTop');
+    this.middleMenu = sessionStorage.getItem('middleMenu');
+    this.navBarFooter = 56;
+    this.extraHeight = (+this.headerTop) + (+this.middleMenu) + (+this.navBarFooter) + 225;
+
+
+    // this.screenWidth = window.innerWidth;
+    this.screenHeight = +window.innerHeight;
+    console.log('screenHeight', this.screenHeight)
+    console.log('headerTop >> ',sessionStorage.getItem('headerTop'));
+    console.log('middleMenu >> ',sessionStorage.getItem('middleMenu'));
+    console.log('navBarFooter >> ',56);
+    console.log('extraHeight >> ', this.extraHeight);
+    this.panelTableHeight = this.screenHeight - this.extraHeight;
+    // console.log('panelTableHeight >>> ', this.panelTableHeight)
+    // this.panelDivHeight = this.panelTableHeight;
+    
+    console.log('panelTableHeight >>', this.panelTableHeight);
+
+  }
+
+  
+  ngAfterViewInit() {
+    // this.panelTableHeight = this.screenHeight - this.extraHeight;
+    // console.log('panelTableHeight >>', this.panelTableHeight);
   }
 
   panelClicked(panel: string): void{

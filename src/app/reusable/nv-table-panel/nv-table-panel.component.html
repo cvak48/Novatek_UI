@@ -39,7 +39,7 @@
         
             <div class="dp-flex dp-inline btn-right expand-btn">
               <app-nv-dropdown class="dropdown-plus-container"  [items]="dropdownItemsPlus" [textTrimNumber]="textTrimNumberPlus" 
-              [fieldType]="dropDownFieldTypePlus" 
+              [fieldType]="dropDownFieldTypePlus" (itemSelect) ="selectedItemClick($event)"
             ></app-nv-dropdown>
      
           </div>
@@ -61,7 +61,7 @@
         
         </div>
         <div>
-          <div class="table-scroll">
+          <div class="table-scroll" [style.height.px]="panelTableHeight2">
             <table class="data-table" mdbTable>
               <tr class="mat-header-row">
                 <th class="mat-header-cell">

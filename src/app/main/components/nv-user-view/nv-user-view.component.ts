@@ -7,7 +7,7 @@ import {
   Notification,
   FieldStatusType,
 } from './../../../model/data-model';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ApplicationService } from 'src/app/services/application.service';
 import { subscribeOn } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
@@ -21,6 +21,7 @@ export class NvUserViewComponent implements OnInit {
   // TODO: We need to receive data with observable type here as user clicks on a specific row of table
   // Avatar
   person: Person = mockProfileMenu();
+  @Input() panelTableHeight: any;
   // field
   fieldStatusType = FieldStatusType.Normal;
   fieldLabel = 'Label';

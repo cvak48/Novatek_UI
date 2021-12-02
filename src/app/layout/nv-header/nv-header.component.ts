@@ -32,11 +32,12 @@ export class NvHeaderComponent implements OnInit, AfterViewInit {
   onItemsFilter(list: any): void {}
 
   ngAfterViewInit() {
-    var width = this.headerTop.nativeElement.offsetWidth;
+    // var width = this.headerTop.nativeElement.offsetWidth;
     var height = this.headerTop.nativeElement.offsetHeight;
+    sessionStorage.setItem('headerTop', height);
 
-    console.log('Width:' + width);
-    console.log('Height: ' + height);
+    // console.log('Width:' + width);
+    // console.log('Height: ' + height);
   }
 }
 

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Sort } from '@angular/material/sort';
 import { Subscription } from 'rxjs';
@@ -15,10 +15,12 @@ import { Order } from '../test/order';
   templateUrl: './nv-table-panel.component.html',
   styleUrls: ['./nv-table-panel.component.scss']
 })
-export class NvTablePanelComponent implements OnInit {
+export class NvTablePanelComponent implements OnInit, AfterViewInit {
   @Input() panelNum!: string;
   @Output() panelClick: EventEmitter<boolean> = new EventEmitter();
   @Output() close = new EventEmitter();
+  @Input() panelTableHeight: any;
+  panelTableHeight2: any;
   showPanel: boolean = false;
   orders: Order[] = [];
   ordersData: Order[] = [];
@@ -43,7 +45,6 @@ export class NvTablePanelComponent implements OnInit {
   };
   selectedRow: number = -1;
   attachmentList: any = [];
-
 
   @Input() isPageable = false;
   @Input() isSortable = false;
@@ -112,6 +113,13 @@ export class NvTablePanelComponent implements OnInit {
         this.saveBtnDisable = !res ;
         this.editBtnDisable = !res;
       })
+
+      console.log("panelTableHeight div table >>", this.panelTableHeight)
+  }
+
+  ngAfterViewInit() {
+        this.panelTableHeight2 = this.panelTableHeight;
+        console.log("panelTableHeight div table 2 >>", this.panelTableHeight)
   }
 
   buttonClick(): void{

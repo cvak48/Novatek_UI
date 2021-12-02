@@ -2,7 +2,7 @@
 <app-nv-sub-menu></app-nv-sub-menu>
 <br />
 
-<div class="row mg-0 userListHeight" #panelDivHeight>
+<div class="row mg-0 userListHeight" #panelDivHeight [style.height.px]="panelTableHeight">
   <div
     class="panel-slide col-md-4"
    
@@ -12,6 +12,7 @@
       (close)="closePanel('1')"
       panelNum="1"
       (panelClick)="panelClicked('1')"
+      panelTableHeight="panelTableHeight"
     ></app-nv-table-panel>
   </div>
 

@@ -21,11 +21,19 @@ export class NvUserListViewComponent implements OnInit, AfterViewInit {
   showPanel2: boolean = false;
   showPanel3: boolean = false;
   showPanel4: boolean = false;
+  public screenWidth: any;
+  public screenHeight: any;
+  panelHeight: any;
+  headerTop: any;
+  middleMenu: any;
+  navBarFooter: any;
+  extraHeight: any;
+  panelTableHeight: any;
+
   constructor(private dataService: DataService,
               private applicationService: ApplicationService) { }
 
  @ViewChild('panelDivHeight', {static: false, read: ElementRef}) public panelDivHeight!: ElementRef<any>;
-//  @ViewChild('headerTop', {static: false, read: ElementRef}) public headerTop!: ElementRef<any>;
 
 
   ngOnInit(): void {
@@ -38,24 +46,31 @@ export class NvUserListViewComponent implements OnInit, AfterViewInit {
               this.title = (res == 'new' ? 'New User' : 'Edit User') ;
            });
     this.showPanel1 = true;
+
+    this.headerTop = sessionStorage.getItem('headerTop');
+    this.middleMenu = sessionStorage.getItem('middleMenu');
+    this.navBarFooter = 56;
+    this.extraHeight = (+this.headerTop) + (+this.middleMenu) + (+this.navBarFooter) + 30;
+
+
+    // this.screenWidth = window.innerWidth;
+    this.screenHeight = +window.innerHeight;
+    console.log('screenHeight', this.screenHeight)
+    console.log('headerTop >> ',sessionStorage.getItem('headerTop'));
+    console.log('middleMenu >> ',sessionStorage.getItem('middleMenu'));
+    console.log('navBarFooter >> ',56);
+    console.log('extraHeight >> ', this.extraHeight);
+    
+    // console.log('panelTableHeight >>> ', this.panelTableHeight)
+    // this.panelDivHeight = this.panelTableHeight;
+
+
   }
 
   
   ngAfterViewInit() {
-    var width = this.panelDivHeight.nativeElement.offsetWidth;
-    var height = this.panelDivHeight.nativeElement.offsetHeight;
-
-    
-    // var widthDiv = this.headerTop.nativeElement.offsetWidth;
-    // var heightDiv = this.headerTop.nativeElement.offsetHeight;
-
-    console.log('panelDivHeight Width:' + width);
-    console.log('panelDivHeight Height: ' + height);
-
-    
-
-    // console.log('Width:' + widthDiv);
-    // console.log('Height: ' + heightDiv);
+    this.panelTableHeight = this.screenHeight - this.extraHeight;
+    console.log('panelTableHeight >>', this.panelTableHeight);
   }
 
   panelClicked(panel: string): void{

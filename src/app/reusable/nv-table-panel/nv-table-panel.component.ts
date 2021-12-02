@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Sort } from '@angular/material/sort';
 import { Subscription } from 'rxjs';
@@ -15,10 +15,12 @@ import { Order } from '../test/order';
   templateUrl: './nv-table-panel.component.html',
   styleUrls: ['./nv-table-panel.component.scss']
 })
-export class NvTablePanelComponent implements OnInit {
+export class NvTablePanelComponent implements OnInit, AfterViewInit {
   @Input() panelNum!: string;
   @Output() panelClick: EventEmitter<boolean> = new EventEmitter();
   @Output() close = new EventEmitter();
+  @Input() panelTableHeight: any;
+  panelTableHeight2: any;
   showPanel: boolean = false;
   orders: Order[] = [];
   ordersData: Order[] = [];
@@ -43,7 +45,6 @@ export class NvTablePanelComponent implements OnInit {
   };
   selectedRow: number = -1;
   attachmentList: any = [];
-
 
   @Input() isPageable = false;
   @Input() isSortable = false;
@@ -72,6 +73,8 @@ export class NvTablePanelComponent implements OnInit {
   textTrimNumberPlus = mockPlusDropdown().textTrimNumber;
   selectedUser: any  = [];
   sub = new Subscription();
+  saveBtnDisable: boolean = false;
+  editBtnDisable: boolean = false;
   constructor(private dataService: DataService,
               private dialog: MatDialog,
               private applicationService: ApplicationService,
@@ -96,7 +99,7 @@ export class NvTablePanelComponent implements OnInit {
       this.applicationService.newUserData
            .subscribe(res => {
              console.log('new', res)
-             if (res.name) {
+             if (res.userName) {
               this.orders.splice(0,0,res);
              }
           //  res.id ? this.orders.unshift(res) : '';
@@ -104,6 +107,19 @@ export class NvTablePanelComponent implements OnInit {
             this.orders = [... this.orders];
             console.log('orders', this.orders)
       })
+
+      this.applicationService.btnDisabled
+      .subscribe(res => {
+        this.saveBtnDisable = !res ;
+        this.editBtnDisable = !res;
+      })
+
+      console.log("panelTableHeight div table >>", this.panelTableHeight)
+  }
+
+  ngAfterViewInit() {
+        this.panelTableHeight2 = this.panelTableHeight;
+        console.log("panelTableHeight div table 2 >>", this.panelTableHeight)
   }
 
   buttonClick(): void{
@@ -114,12 +130,16 @@ export class NvTablePanelComponent implements OnInit {
     this.panelClick.emit();
     this.applicationService.setUserBtnAction('new');
     this.applicationService.setSelectedUserData({});
+    this.saveBtnDisable = true;
+    this.editBtnDisable = true;
   }
 
   buttonEditClick(): void{
     this.panelClick.emit();
     this.applicationService.setUserBtnAction('edit');
     this.applicationService.setSelectedUserData(this.selectedUser);
+    this.saveBtnDisable = true;
+    this.editBtnDisable = true;
   }
 
   closePanel() {
@@ -275,6 +295,11 @@ export class NvTablePanelComponent implements OnInit {
     }
     
   }
+
+  selectedItemClick(event: any): void {
+    event === 'New' ? this.buttonNewClick() : null;
+    event === 'Edit' ? this.buttonEditClick() : null;
+ }
 }
 
 /**
@@ -313,7 +338,7 @@ function mockSiteDropdown(): any {
 
 function mockPlusDropdown(): any {
   const dropdownInputs = {
-    items: ['Print', 'Copy', 'Disable', 'Import', 'View Audit Trail'],
+    items: ['New', 'Edit', 'Print', 'Copy', 'Disable', 'Import', 'View Audit Trail'],
     textTrimNumber: 3,
     selectedItemDefault: 'Page',
     dropDownFieldType: DropdownFieldType.Button

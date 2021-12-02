@@ -24,12 +24,6 @@
     border-bottom-left-radius: 8px !important;
     border-bottom-right-radius: 8px !important;
   }
-  .shadow-sm-dark-40{
-    width: 30%;
-    min-height: 50px;
-    border-bottom-left-radius: 8px !important;
-    border-bottom-right-radius: 8px !important;
-  }
   .panel-titleTxt {
     display: block;
     color: $color-light-gray-60;
@@ -75,8 +69,8 @@
   }
 
   .card-content-box {
-    background-color: $color-light-gray;
-    padding: 10px 0 0;
+   // background-color: $color-white-20;
+    padding: 10px;
     min-height: 60px;
   }
 
@@ -121,7 +115,7 @@ mat-paginator {
   margin: 1%;
   border-radius: 4px;
   height: 40px;
-  background: #fff;
+  // background: #fff;
   color: #9a9a9a;
 }
 
@@ -141,7 +135,8 @@ mat-paginator {
 
 .table-scroll {
   overflow: auto;
-  // max-height: 56vh;
+  max-height: 300px;
+  margin-top: 11px;
 }
 
 .drop-container {
@@ -208,10 +203,6 @@ tr.mat-header-row {
   height: 40px !important;
   background-color: #fff !important;
   height: 50px !important;
-  & .mat-header-cell > .table-check{
-    position: relative;
-    top: 10px !important;
-  }
 }
 .mat-header-cell {
   text-transform: capitalize !important;
@@ -358,18 +349,18 @@ tr.mat-row.cdk-row:nth-child(odd) {
   width: 16px;
   flex-shrink: 0;
   position: relative;
-  top: -5px;
+  top: 4px;
 }
 
-// .table th,
+.table th,
 .table td {
-  vertical-align: text-bottom !important;
+  vertical-align: top !important;
   padding-top: 0.5% !important;
 }
 
-/*table.table th {
+table.table th {
   padding: 0rem 16px 0.55rem !important;
-}*/
+}
 
 table.table td {
   padding: 0rem 16px 0rem;
@@ -397,13 +388,13 @@ table.table td {
   margin-left: 5px;
 }
 
-//  .rotateimg180 {
-//    -webkit-transform: rotate(180deg);
-//    -moz-transform: rotate(180deg);
-//    -ms-transform: rotate(180deg);
-//    -o-transform: rotate(180deg);
-//    transform: rotate(180deg);
-//  }
+// .rotateimg180 {
+//   -webkit-transform: rotate(180deg);
+//   -moz-transform: rotate(180deg);
+//   -ms-transform: rotate(180deg);
+//   -o-transform: rotate(180deg);
+//   transform: rotate(180deg);
+// }
 
 table td {
   display: table-cell;
@@ -417,31 +408,4 @@ hr {
 
 .attachment-link {
   cursor: pointer;
-}
-
-.attach-btn{
-  border: unset;
-  background: transparent;
-}
-
-.mat-icon {
-  top: 2px;
-  position: relative;
-}
-
-.expand-btn{
-  margin-left: -0.75%;
-}
-
-.btn-bg-clr{
-  background-color: $color-light-gray-22;
-}
-
-::ng-deep .btn-bg-clr.mat-button, .mat-icon-button, .mat-stroked-button, .mat-flat-button{
-  min-width:unset !important;
-  padding: 0 10px !important;
-}
-
-.active{
-  background-color: $color-light-blue-10;
 }

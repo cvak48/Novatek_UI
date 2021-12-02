@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Inject, AfterViewInit } from '@angular/core';
 import { DropdownFieldType } from 'src/app/model/data-model';
 
 @Component({
@@ -7,27 +7,38 @@ import { DropdownFieldType } from 'src/app/model/data-model';
   templateUrl: './nv-sub-menu.component.html',
   styleUrls: ['./nv-sub-menu.component.scss']
 })
-export class NvSubMenuComponent implements OnInit {
-    // dropDown Menu
-    dropdownItemsMenu = mockMenuDropdown().items;
-    textTrimNumberMenu = mockMenuDropdown().textTrimNumber;
-    selectedItemDefaultMenu = mockMenuDropdown().selectedItemDefault;
-    dropDownFieldTypeMenu = mockMenuDropdown().dropDownFieldType;
-    // dropDown Site
-    dropdownItemsSite = mockSiteDropdown().items;
-    textTrimNumberSite = mockSiteDropdown().textTrimNumber;
-    selectedItemDefaultSite = mockSiteDropdown().selectedItemDefault;
-    dropDownFieldTypeSite = mockSiteDropdown().dropDownFieldType;
-    // dropDown Plus
-    dropdownItemsPlus = mockPlusDropdown().items;
-    textTrimNumberPlus = mockPlusDropdown().textTrimNumber;
-    selectedItemDefaultPlus = mockPlusDropdown().selectedItemDefault;
-    dropDownFieldTypePlus = mockPlusDropdown().dropDownFieldType;
-    isRightToLeft = mockPlusDropdown().isRightToLeft;
-  constructor() { }
+export class NvSubMenuComponent implements OnInit, AfterViewInit {
+  // dropDown Menu
+  dropdownItemsMenu = mockMenuDropdown().items;
+  textTrimNumberMenu = mockMenuDropdown().textTrimNumber;
+  selectedItemDefaultMenu = mockMenuDropdown().selectedItemDefault;
+  dropDownFieldTypeMenu = mockMenuDropdown().dropDownFieldType;
+  // dropDown Site
+  dropdownItemsSite = mockSiteDropdown().items;
+  textTrimNumberSite = mockSiteDropdown().textTrimNumber;
+  selectedItemDefaultSite = mockSiteDropdown().selectedItemDefault;
+  dropDownFieldTypeSite = mockSiteDropdown().dropDownFieldType;
+  // dropDown Plus
+  dropdownItemsPlus = mockPlusDropdown().items;
+  textTrimNumberPlus = mockPlusDropdown().textTrimNumber;
+  selectedItemDefaultPlus = mockPlusDropdown().selectedItemDefault;
+  dropDownFieldTypePlus = mockPlusDropdown().dropDownFieldType;
+  isRightToLeft = mockPlusDropdown().isRightToLeft;
+
+  @ViewChild('middleMenu', {static: false, read: ElementRef}) public middleMenu!: ElementRef<any>;
+
+  constructor() {}
+  // element = (<HTMLInputElement>document.getElementById("middleMenu")).clientHeight;
 
   ngOnInit(): void {
+    // console.log("element >> ", this.element)
   }
+
+  ngAfterViewInit() {
+    var middleMenuheight = this.middleMenu.nativeElement.offsetHeight;
+    sessionStorage.setItem('middleMenu', middleMenuheight);
+  }
+
 
   /**
    * DropDowns event handlers

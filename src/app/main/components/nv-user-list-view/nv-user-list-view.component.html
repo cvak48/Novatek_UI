@@ -2,29 +2,24 @@
 <app-nv-sub-menu></app-nv-sub-menu>
 <br />
 
-<div class="row mg-0">
+<div class="row mg-0 userListHeight" #panelDivHeight>
   <div
-    class="panel-slide"
-    [ngClass]="{
-      'col-md-12': showPanel == '1',
-      'col-md-8': showPanel == '2',
-      'col-md-4': showPanel == '3'
-    }"
+    class="panel-slide col-md-4"
+   
     *ngIf="showPanel1"
   >
     <app-nv-table-panel
       (close)="closePanel('1')"
       panelNum="1"
       (panelClick)="panelClicked('1')"
+      [panelTableHeight]="panelTableHeight"
     ></app-nv-table-panel>
   </div>
 
   <div
     class="style-right panel-slide col-md-4"
     *ngIf="showPanel2"
-    [ngClass]="{
-      'col-md-6': (!showPanel1 && !showPanel4) && showPanel2 && showPanel3      
-    }"
+    
   >
     <app-nv-slider-panel
       panelNum="Users"
@@ -33,14 +28,11 @@
       (close)="closePanel('2')"
       (panelClick)="panelClicked('2')"
     >
-      <app-nv-user-view></app-nv-user-view>
+      <app-nv-user-view [panelTableHeight]="panelTableHeight"></app-nv-user-view>
     </app-nv-slider-panel>
   </div>
   <div class="col-md-4 style-left panel-slide" *ngIf="showPanel3" 
-  [ngClass]="{
-    'col-md-6': (!showPanel1 && !showPanel4) && showPanel2 && showPanel3,
-    'col-md-4': (showPanel1 || showPanel4) && showPanel2 && showPanel3
-  }">
+  >
     <app-nv-slider-panel
       panelNum="Teams"
       panelTitle="Teams Panel"

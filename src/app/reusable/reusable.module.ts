@@ -84,6 +84,8 @@ import { NvCommonTableComponent } from './nv-common-table/nv-common-table.compon
 import { NvThirdPanelComponent } from './nv-third-panel/nv-third-panel.component';
 import { NvDialogComponent } from './nv-dialog/nv-dialog.component';
 import { NvSaveThirdPanelComponent } from './nv-save-third-panel/nv-save-third-panel.component';
+import { NvSliderCommonPanelComponent } from './nv-slider-common-panel/nv-slider-common-panel.component';
+
 
 const sharedComponents = [
   NvInitialsPipe,
@@ -158,7 +160,8 @@ const sharedComponents = [
   NvCommonTableComponent,
   NvThirdPanelComponent,
   NvDialogComponent,
-  NvSaveThirdPanelComponent
+  NvSaveThirdPanelComponent,
+  NvSliderCommonPanelComponent
 ];
 
 @NgModule({

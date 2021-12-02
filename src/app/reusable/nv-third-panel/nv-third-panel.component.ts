@@ -45,6 +45,7 @@ export class NvThirdPanelComponent implements OnInit {
   orders: any[] = [];
   ordersData: any[] = [];
   count = 0;
+  @Input() panelTableHeight = "200px";
   @Input() columns: string[] = [];
   @Input() oData: any;
   @Output() sort: EventEmitter<Sort> = new EventEmitter();

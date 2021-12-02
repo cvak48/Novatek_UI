@@ -13,7 +13,6 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        height: 175px;
         width: 100%;
         border: 1px solid #DFDFDF;
         border-radius: 4px;
@@ -99,7 +98,7 @@
 }
 .field-block{
     padding: 14px 10px 8px 14px;
-    
+    clear: both;
 }
 .field-block-50{
     padding: 14px 10px 8px 14px;
@@ -189,4 +188,15 @@
 
 .text-color{
     color: red;
+}
+
+.right-multi-select {
+    width: 10%;
+    float: right;
+    padding-top: 21px;
+}
+
+.left-multi-select {
+    float: left;
+    width: 90%;
 }

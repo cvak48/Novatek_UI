@@ -31,6 +31,7 @@ import { SVG_ICON_IDS_DIC, FIELD_STATUS_COLOR_DIC } from 'src/assets/constants';
   styleUrls: ['./nv-multiselect-dropdown.component.scss'],
 })
 export class NvMultiSelectDropdownComponent implements OnInit {
+ 
   /**
    * the selected item as an output
    */
@@ -47,6 +48,10 @@ export class NvMultiSelectDropdownComponent implements OnInit {
     'Orange',
     'Strawberry',
   ];
+  @Input() labelRed!: boolean;
+  @Input() hasError!: boolean;
+
+
   @Input() label!: string;
   /**
    * Sets styles base on the status of the field
@@ -180,6 +185,9 @@ export class NvMultiSelectDropdownComponent implements OnInit {
     if (this.items.length === 0) {
       this.isArrowDown = false;
       this.hasItem = false;
+      this.itemSelect.emit({'status':false, 'name':this.label });
+    } else {
+      this.itemSelect.emit({'status':true, 'name':this.label });
     }
   }
   /**
@@ -188,10 +196,7 @@ export class NvMultiSelectDropdownComponent implements OnInit {
   selected(event: MatAutocompleteSelectedEvent): void {
     const selectedItem = event.option?.viewValue;
     this.items.push(selectedItem);
-    /**
-     * sends selectedItem as an output
-     */
-    this.itemSelect.emit(selectedItem);
+  
     /**
      * removing the selected chip from filteredList
      */
@@ -205,6 +210,9 @@ export class NvMultiSelectDropdownComponent implements OnInit {
     }
     if (this.items.length > 0) {
       this.hasItem = true;
+    this.itemSelect.emit({'status':true, 'name':this.label });
+    } else {
+      this.itemSelect.emit({'status':false, 'name':this.label });
     }
   }
 

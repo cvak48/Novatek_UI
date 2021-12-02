@@ -11,22 +11,18 @@
       </button>
     </div>
       <div class="card-body">
-        <div class="card-content-box" *ngIf="panelNum == 'Users'">
+        <div class="card-content-box">
 
 
           <div class="dp-inline btn-right">
-            <app-nv-button label="Unlock" class="mr-rt-1" (buttonClick)="buttonClick()"></app-nv-button>
-            <app-nv-button label="Disable" (buttonClick)="buttonClick()"></app-nv-button>
+            <app-nv-button label="Button1" class="mr-rt-1" (buttonClick)="buttonClick()"></app-nv-button>
+            <app-nv-button label="Button2" (buttonClick)="buttonClick()"></app-nv-button>
           </div>
         </div>
         <div>
           <ng-content></ng-content>
         </div>
-       
-        <div class="dp-inline btn-right" style="margin-top: 8px;">
-          <app-nv-button [disabled]="btnDisable" label="Save" class="mr-2" (buttonClick)="saveButtonClick()"></app-nv-button>
-          <app-nv-button label="Cancel" (buttonClick)="buttonClick()"></app-nv-button>
-        </div>
+      
 
       </div>
   </div>

@@ -13,6 +13,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NvUserViewComponent } from './components/nv-user-view/nv-user-view.component';
 //import { NvThirdPanelComponent } from './components/nv-third-panel/nv-third-panel.component';
+import { SliderViewComponent } from './components/slider-view/slider-view.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { NvUserViewComponent } from './components/nv-user-view/nv-user-view.comp
     NvUserListViewComponent,
     NvUserViewComponent,
    // NvThirdPanelComponent
+    SliderViewComponent
   ],
   imports: [
     CommonModule,

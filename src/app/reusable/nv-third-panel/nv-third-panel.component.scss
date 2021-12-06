@@ -22,7 +22,7 @@ thead.my-table.headers tr th {
 }
 
 tbody.my-table.body tr td {
-  border: black solid 1px;
+  border: red solid 1px;
   border-left: none;
   height: 25px;
 }
@@ -162,7 +162,6 @@ thead {
 tr.mat-header-row {
   height: 40px !important;
   background-color: #fff !important;
-  height: 50px !important;
 }
 .mat-header-cell {
   text-transform: capitalize !important;
@@ -386,7 +385,19 @@ table.table td {
 }
 
 th {
-  border-right: 2px solid #E3E6E3;
+  //border-right: 1px solid #E3E6E3;
+  position: relative;
+}
+
+th:after {
+  content: " ";
+  position: absolute;
+  border-left: 2px #E3E6E3 solid;
+  top: 25%;
+  right: 0;
+  height: 60%;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .col-sm-6, .col-sm-2 {

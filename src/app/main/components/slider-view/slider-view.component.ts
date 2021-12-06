@@ -1,3 +1,5 @@
+import { ElementRef } from '@angular/core';
+import { ViewChild } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./slider-view.component.scss']
 })
 export class SliderViewComponent implements OnInit {
+  @ViewChild('panelDivHeight', {static: false, read: ElementRef}) public panelDivHeight!: ElementRef<any>;
   title: string = '';
   isLeftVisible = true;
   showPanel: string = '1';
@@ -13,10 +16,31 @@ export class SliderViewComponent implements OnInit {
   showPanel2: boolean = false;
   showPanel3: boolean = false;
   showPanel4: boolean = false;
+  public screenHeight: any;
+  headerTop: any;
+  middleMenu: any;
+  navBarFooter: any;
+  extraHeight: any;
+  panelTableHeight: any;
   constructor() { }
 
   ngOnInit(): void {
     this.showPanel1 = true;
+
+    this.headerTop = sessionStorage.getItem('headerTop');
+    this.middleMenu = sessionStorage.getItem('middleMenu');
+    this.navBarFooter = 56;
+    this.extraHeight = (+this.headerTop) + (+this.middleMenu) + (+this.navBarFooter) + 225;
+
+    this.screenHeight = +window.innerHeight;
+    console.log('screenHeight', this.screenHeight)
+    console.log('headerTop >> ',sessionStorage.getItem('headerTop'));
+    console.log('middleMenu >> ',sessionStorage.getItem('middleMenu'));
+    console.log('navBarFooter >> ',56);
+    console.log('extraHeight >> ', this.extraHeight);
+    this.panelTableHeight = this.screenHeight - this.extraHeight;
+    // console.log('panelTableHeight >>> ', this.panelTableHeight)
+    // this.panelDivHeight = this.panelTableHeight;
   }
   panelClicked(panel: string): void{
     switch(panel){

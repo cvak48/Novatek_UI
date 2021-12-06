@@ -1,4 +1,10 @@
-<div class="form-group">
-    <label >{{textareaLabel}}</label>
-    <textarea class="form-control" rows="5"></textarea>
+<div class="form-group" id="input_container">
+    <label class="control-label label-weight">{{textareaLabel}}</label>
+    <textarea class="form-control" rows="5" [disabled]='disableInput' [ngClass]="status" class="form-control"
+        [placeholder]='inputPlaceHolder' autocomplete="off" required [ngModel]="sharedVar"
+        (ngModelChange)="change($event)"></textarea>
+    <span id="input_img">
+        <i *ngIf="status == 'is-valid'" class="fa fa-check-circle sucess-check"></i>
+        <i *ngIf="status == 'is-invalid'" class="fa fa-exclamation-circle danger-check" aria-hidden="true"></i>
+    </span>
 </div>

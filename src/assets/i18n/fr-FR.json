@@ -23,5 +23,8 @@
     "submit": "nous",
     "resend": "Renvoyer",
     "confirmationText":"Confirmation-fr",
-    "comments": "Comments FR"
+    "comments": "Comments FR",
+    "doctor": "Médecin",
+    "pharma": "Pharmacie",
+    "nurse": "Infirmière"
 }

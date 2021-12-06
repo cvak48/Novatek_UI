@@ -16,6 +16,7 @@
       (close)="closePanel('1')"
       panelNum="1"
       (panelClick)="panelClicked('1')"
+      [panelTableHeight]="panelTableHeight"
     ></app-nv-table-panel>
   </div>
 
@@ -27,23 +28,23 @@
     }"
   >
     <app-nv-slider-panel
-      panelNum="2"
+      panelNum="Users"
       [panelTitle]="title"
       panelSaveBtn="updateUserData"
       (close)="closePanel('2')"
       (panelClick)="panelClicked('2')"
     >
-      <app-nv-user-view></app-nv-user-view>
+      <app-nv-user-view [panelTableHeight]="panelTableHeight"></app-nv-user-view>
     </app-nv-slider-panel>
   </div>
   <div class="col-md-4 style-left panel-slide" *ngIf="showPanel3" 
   >
     <app-nv-slider-panel
-      panelNum="3"
+      panelNum="Teams"
+      panelTitle="Teams Panel"
       (close)="closePanel('3')"
       (panelClick)="panelClicked('3')"
-    >
-  <app-nv-common-table [columns]="columns" [oData]="orders"></app-nv-common-table>
+    ><app-nv-third-panel [columns]="columns" [oData]="orders"></app-nv-third-panel>
   </app-nv-slider-panel>
   </div>
   <div class="col-md-4 style-left panel-slide" *ngIf="showPanel4">

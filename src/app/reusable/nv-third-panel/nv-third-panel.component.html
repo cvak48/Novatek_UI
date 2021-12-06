@@ -1,0 +1,94 @@
+<div class="">
+  <div class="row" style="margin-left: -3px; margin-bottom: 15px;">
+    <div class="col-sm-6 pl-0" id="search-panel">
+      <div class="search-container">
+        <app-nv-search class="search" [isAdvance]="isAdvance" [hideMenu]="hideMenu" [list]="tableSearchData"
+          [searchableRefList]="searchableRefList" (filteredItems)="onItemsFilter($event)"></app-nv-search>
+      </div>
+    </div>
+    <div class="col-sm-2 pl-0" id="addButton">
+      <app-nv-button label="Add" (buttonClick)="add()" [disableButton]="disableAddButton">
+      </app-nv-button>
+    </div>
+    <div class="col-sm-2 pl-0" id="editButton">
+      <app-nv-button label="Edit" class="mr-rt-1" (buttonClick)="edit()" [disableButton]="disableEditButton">
+      </app-nv-button>
+    </div>
+    <div class="col-sm-2 pl-0" *ngIf="showDeleteBtn">
+      <app-nv-button label="Delete" class="mr-rt-1" (buttonClick)="delete()"></app-nv-button>
+    </div>
+    <div class="col-sm-2 pl-0" *ngIf="!showDeleteBtn">
+      <app-nv-button label="Undo" class="mr-rt-1" (buttonClick)="undo()"></app-nv-button>
+    </div>
+  </div>
+</div>
+
+<div class="row" id="input-container">
+  <div class="col-sm-12" >
+    <app-nv-input class="text-color" [(sharedVar)]="name" [inputPlaceHolder]="placeholder" [label]="nameLabel"
+    [status]="nameValidation" [disableInput]="disableInput" (keypress)="keyPress('name')"></app-nv-input>
+
+  <app-nv-input class="text-color" [(sharedVar)]="id" [inputPlaceHolder]="placeholder" [label]="idLabel"
+    [status]="idValidation" [disableInput]="disableInput" (keypress)="keyPress('id')"></app-nv-input>
+  </div>
+</div>
+
+<div>
+  <div class="table-scroll">
+    <table class="data-table" mdbTable>
+      <tr class="mat-header-row">
+        <th class="mat-header-cell">
+          <input class="table-check" type="checkbox" [checked]="isAllCheckBoxChecked()"
+            (change)="checkAllCheckBox($event)" />
+        </th>
+        <th (click)="rowClicked($event)" scope="col" class="mat-header-cell" class="table-header"
+          [ngClass]="{ 'sorted-text': isNameSorted }">
+          {{ columns[0] }}
+          <span>
+            <mat-icon class="img" *ngIf="sortPreference == 'ascending'"><img
+                src="../../../assets/icons/ico.table.sort.up.svg" class="sort-icon-width"
+                (click)="sortImgClicked('ascending', 'name')" alt="asc" /></mat-icon>
+            <mat-icon class="img" *ngIf="sortPreference == 'descending'"><img
+                src="../../../assets/icons/ico.table.sort.down.svg" class="sort-icon-width"
+                (click)="sortImgClicked('descending', 'name')" alt="dec" /></mat-icon>
+          </span>
+        </th>
+        <th (click)="rowClicked($event)" scope="col" class="mat-header-cell" class="table-header"
+          [ngClass]="{ 'sorted-text': isIdSorted }">
+          {{ columns[1] }}
+          <span>
+            <mat-icon class="img" *ngIf="sortPreference == 'ascending'"><img
+                src="../../../assets/icons/ico.table.sort.up.svg" class="sort-icon-width"
+                (click)="sortImgClicked('ascending', 'id')" alt="asc" /></mat-icon>
+            <mat-icon class="img" *ngIf="sortPreference == 'descending'"><img
+                src="../../../assets/icons/ico.table.sort.down.svg" class="sort-icon-width"
+                (click)="sortImgClicked('descending', 'id')" alt="dec" /></mat-icon>
+          </span>
+        </th>
+      </tr>
+      <tr class="mat-row" [ngClass]="{
+          'status-gr': order.status == 2,
+          'status-rd': order.status == 4 || order.status == 5 || order.status == 6 ||  order.status == 7,
+          'status-white': order.status == 0,
+          'status-ed': order.status == 1 || order.status == 3,
+          'status-clicked': order.status == 8
+        }" *ngFor="
+          let order of orders;
+          let i = index
+        " [id]="'team' + i">
+
+        <td class="pd-lt-2 checkbox-column">
+          <input class="table-check" type="checkbox" value="{{ order.id }}" [(ngModel)]="orders[i].checked"
+            (change)="checkBoxClicked(order, i)" />
+        </td>
+        <td (click)="clickedRow(order, i)" [matTooltip]="order.tooltipText" matTooltipPosition="below"
+          matTooltipClass="custom-tooltip">
+          {{ order.name }}
+        </td>
+        <td (click)="clickedRow(order, i)">
+          {{ order.id }}
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

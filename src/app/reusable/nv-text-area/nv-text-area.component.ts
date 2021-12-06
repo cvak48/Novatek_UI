@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, SimpleChange } from '@angular/core';
 
 @Component({
   selector: 'app-nv-text-area',
@@ -7,11 +7,35 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class NVTextAreaComponent implements OnInit {
 
-  @Input() textareaLabel: string = '';
-  
+  @Input() public inputPlaceHolder: string = 'Enter Input';
+  @Input() public disableInput: boolean = false;
+  @Input() public textareaLabel: string = 'Username';
+  @Input() public secondaryLabel: string = '';
+  @Input() public status: string = '';
+  @Input() public sharedVar: string = '';
+
+  @Output() public eventName = new EventEmitter<string>();
+  @Output() public sharedVarChange = new EventEmitter();
+
+  public errorLabel: string = 'is-notValid';
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  ngOnChanges(change: SimpleChange) {
+    if (this.status == 'is-valid') {
+      this.errorLabel = '';
+    }
+  }
+
+  emitEvent(value: string) {
+    this.eventName.emit(value);
+  }
+
+  change(value: string) {
+    this.sharedVarChange.emit(value);
   }
 
 }

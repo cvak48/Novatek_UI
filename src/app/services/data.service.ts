@@ -11,31 +11,67 @@ export class DataService {
         {
           'id': 1,
           'name': 'Veera',
-          'date': "12-25-1995",
-          'email': 'john@yahoo.com',
-          'status': 'No',
+          'status': 0,
           'checked': false,
-          'attachments': [{
-            'id': '1',
-            'name': 'file1'
-          }]
+          'tempStatus': 0
         },
         {
           'id': 2,
           'name': 'Sina',
-          'date': "06-13-1999",
-          'email': 'rock@gmail.com',
-          'status': 'Past Due',
+          'status': 0,
           'checked': false,
-          'attachments': [{
-            'id': '1',
-            'name': 'file1'
-          },
-          {
-            'id': '2',
-            'name': 'file2'
-          }]
-        }]
+          'tempStatus': 0
+        },
+        {
+          'id': 3,
+          'name': 'Amir',
+          'status': 0,
+          'checked': false,
+          'tempStatus': 0
+        },
+        {
+          'id': 4,
+          'name': 'Payam',
+          'status': 0,
+          'checked': false,
+          'tempStatus': 0
+        },
+        {
+          'id': 5,
+          'name': 'Dhaval',
+          'status': 0,
+          'checked': false,
+          'tempStatus': 0
+        },  
+        {
+          'id': 6,
+          'name': 'Very very very very long long name ',
+          'status': 0,
+          'checked': false,
+          'tempStatus': 0
+        },
+        {
+          'id': 9,
+          'name': 'John',
+          'status': 0,
+          'checked': false,
+          'tempStatus': 0
+        },
+        {
+          'id': 6,
+          'name': 'Hommi ',
+          'status': 0,
+          'checked': false,
+          'tempStatus': 0 
+        }, 
+        {
+          'id': 11,
+          'name': 'hello',
+          'status': 0,
+          'checked': false,
+          'tempStatus': 0 
+        },    
+      ]
         return of(data);
       }
     

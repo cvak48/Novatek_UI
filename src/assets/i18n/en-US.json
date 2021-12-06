@@ -23,5 +23,8 @@
     "submit": "Submit",
     "resend": "Resend",
     "confirmationText":"Confirmation",
-    "comments": "Comments"
+    "comments": "Comments",
+    "doctor": "Doctor",
+    "pharma": "Pharma",
+    "nurse": "Nurse"
 }

@@ -1,5 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ApplicationService } from 'src/app/services/application.service';
+import { SharedService } from 'src/app/services/shared.service';
+import { NvDialogComponent } from '../nv-dialog/nv-dialog.component';
+import { NvSaveThirdPanelComponent } from '../nv-save-third-panel/nv-save-third-panel.component';
 
 @Component({
   selector: 'app-nv-slider-panel',
@@ -14,7 +17,9 @@ export class NvSliderPanelComponent implements OnInit {
   @Output() close = new EventEmitter();
   showPanel: boolean = false;
   btnDisable: boolean = false;
-  constructor(private applicationService: ApplicationService) { }
+  constructor(private applicationService: ApplicationService, private sharedService: SharedService) { }
+  
+  
 
   ngOnInit(): void {
     this.applicationService.userBtnAction.subscribe((res) => {
@@ -23,25 +28,37 @@ export class NvSliderPanelComponent implements OnInit {
   }
 
   saveButtonClick(): void{
-    this.panelSaveBtn ? this.applicationService.setBtnClickedData(this.panelSaveBtn) : null;
+    const dialogRef = this.sharedService.getGenericDialogRef(NvSaveThirdPanelComponent, null, false, 'saveTeamsPanel');
+   /*  this.panelSaveBtn ? this.applicationService.setBtnClickedData(this.panelSaveBtn) : null;
     this.applicationService.btnDisabled
         .subscribe(res => {
           console.log('btn', res)
           this.btnDisable = res;
-        })
+        }) */
   }
 
-  buttonClick(): void{
+  buttonClick(): void {
     this.panelClick.emit();
   }
 
   closePanel() {
-    this.showPanel = !this.showPanel;
-    this.close.emit();
-  } 
+    const data = {
+      title: 'You will use your changes',
+      message: 'You are closing the window without saving. You will loose your changes. Click Ok to discard your changes or Cancel to return the session'
+    }
+    const dialogRef = this.sharedService.getGenericDialogRef(NvDialogComponent, data);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      if (result) {
+        this.showPanel = !this.showPanel;
+        this.close.emit();
+      }
+    });
+
+  }
 
   onItemsFilter(data: any): any {
-   
+
   }
 
 }

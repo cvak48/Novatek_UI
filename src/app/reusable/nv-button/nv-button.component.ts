@@ -11,6 +11,7 @@ export class NvButtonComponent implements OnInit {
   // TODO: There should be an object for button props like Button
   @Input() public label: string = 'Default';
   @Input() public color: ButtonThemeColor = ButtonThemeColor.Basic;
+  @Input()  public disableButton:boolean = false;
   @Input()
   disabled: boolean = false;
   public themeColors = ButtonThemeColor;

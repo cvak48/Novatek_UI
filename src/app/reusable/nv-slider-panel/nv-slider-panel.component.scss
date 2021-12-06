@@ -12,14 +12,14 @@
     height: 40px;
   }
   .card-body {
-    min-height: 25%;
+    // min-height: 25%;
     padding: 0px;
     padding: 10px;
     background: $color-light-gray;
   }
 
   .shadow-sm-dark {
-    width: 25%;
+    width: 35%;
     min-height: 50px;
     border-bottom-left-radius: 8px !important;
     border-bottom-right-radius: 8px !important;
@@ -69,6 +69,7 @@
   }
 
   .card-content-box {
+    //background-color: $color-white-20;
    // background-color: $color-white-20;
     padding: 10px;
     min-height: 60px;

@@ -9,12 +9,14 @@ import { NvPlaceholderListComponent } from '../reusable/placeholder/nv-placehold
 import { NvMenuComponent } from './components/nv-menu/nv-menu.component';
 import { NvUserListViewComponent } from './components/nv-user-list-view/nv-user-list-view.component';
 import { NvUserViewComponent } from './components/nv-user-view/nv-user-view.component';
+import { SliderViewComponent } from './components/slider-view/slider-view.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'demo', pathMatch: 'full' },
     { path: 'dashboard', component: DashboardComponent },
     { path: 'user-list', component: NvUserListViewComponent},
     { path: 'user-view', component: NvUserViewComponent},
+    { path: 'slider-view', component: SliderViewComponent},
     { path: 'demo', component: DemoPageComponent },
     { path: 'PlaceholderBigCard', component: NvPlaceholderBigCardComponent },
     { path: 'placeholderCard', component: NvPlaceholderCardComponent },

@@ -58,6 +58,9 @@ export class NVLoginComponent implements OnInit {
       width: '200',
       height: '50',
     },
+    doctor:'Doctor',
+    pharma: 'Pharma',
+    nurse: 'Nurse'
   };
 
   // dropDown Menu
@@ -255,15 +258,24 @@ export class NVLoginComponent implements OnInit {
     if (event == 'French') {
       this.translate.use('fr-FR');
       this.transilateVar();
-      this.selectedItemDefaultMenu = this.mockMenuDropdown().selectedItemDefault;
+      setTimeout(() => {
+        this.selectedItemDefaultMenu = this.mockMenuDropdown().selectedItemDefault;
+        this.dropdownItemsMenu = this.mockMenuDropdown().items;
+      }, 80);
     } else if (event == 'Chinese') {
       this.translate.use('zh-CN');
       this.transilateVar();
-      this.selectedItemDefaultMenu = this.mockMenuDropdown().selectedItemDefault;
+      setTimeout(() => {
+        this.selectedItemDefaultMenu = this.mockMenuDropdown().selectedItemDefault;
+        this.dropdownItemsMenu = this.mockMenuDropdown().items;
+      }, 80);
     } else {
       this.translate.use('en-US');
       this.transilateVar();
-      this.selectedItemDefaultMenu = this.mockMenuDropdown().selectedItemDefault;
+      setTimeout(() => {
+        this.selectedItemDefaultMenu = this.mockMenuDropdown().selectedItemDefault;
+        this.dropdownItemsMenu = this.mockMenuDropdown().items;
+      }, 80);
     }
   }
 
@@ -288,7 +300,8 @@ export class NVLoginComponent implements OnInit {
 
   mockMenuDropdown(): any {
     const dropdownInputs = {
-      items: ['Doctor', 'Pharma', 'Nurse'],
+      //items: ['Doctor', 'Pharma', 'Nurse'],
+      items: [this.variableList.doctor, this.variableList.pharma, this.variableList.nurse],
       textTrimNumber: 2,
       selectedItemDefault: this.variableList.domainTxt, //'Select Domain',
       dropDownFieldType: DropdownFieldType.Input,

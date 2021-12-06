@@ -23,5 +23,8 @@
     "submit": "提交",
     "resend": "重发",
     "confirmationText":"确认",
-    "comments": "Comments CN"
+    "comments": "Comments CN",
+    "doctor": "医生",
+    "pharma": "制药业",
+    "nurse": "护士"
 }

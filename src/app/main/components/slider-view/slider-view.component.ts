@@ -30,7 +30,7 @@ export class SliderViewComponent implements OnInit {
     this.headerTop = sessionStorage.getItem('headerTop');
     this.middleMenu = sessionStorage.getItem('middleMenu');
     this.navBarFooter = 56;
-    this.extraHeight = (+this.headerTop) + (+this.middleMenu) + (+this.navBarFooter) + 225;
+    this.extraHeight = (+this.headerTop) + (+this.middleMenu) + (+this.navBarFooter) + 77;
 
     this.screenHeight = +window.innerHeight;
     console.log('screenHeight', this.screenHeight)
@@ -39,7 +39,7 @@ export class SliderViewComponent implements OnInit {
     console.log('navBarFooter >> ',56);
     console.log('extraHeight >> ', this.extraHeight);
     this.panelTableHeight = this.screenHeight - this.extraHeight;
-    // console.log('panelTableHeight >>> ', this.panelTableHeight)
+    console.log('panelTableHeight >>> ', this.panelTableHeight)
     // this.panelDivHeight = this.panelTableHeight;
   }
   panelClicked(panel: string): void{

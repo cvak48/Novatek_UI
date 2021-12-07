@@ -44,6 +44,7 @@
       panelTitle="Teams Panel"
       (close)="closePanel('3')"
       (panelClick)="panelClicked('3')"
+      [panelTableHeight]="panelTableHeight"
     ><app-nv-third-panel [columns]="columns" [oData]="orders"></app-nv-third-panel>
   </app-nv-slider-panel>
   </div>

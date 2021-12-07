@@ -83,7 +83,7 @@ mat-paginator {
 
 .table-scroll {
   overflow: auto;
-  max-height: 300px;
+  max-height: 191px;
   margin-top: 11px;
 }
 
@@ -392,12 +392,18 @@ th {
 th:after {
   content: " ";
   position: absolute;
-  border-left: 2px #E3E6E3 solid;
+  border-right: 2px #E3E6E3 solid;
   top: 25%;
   right: 0;
   height: 60%;
   margin-top: auto;
   margin-bottom: auto;
+}
+
+.table td {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 0.1px solid #eee;
 }
 
 .col-sm-6, .col-sm-2 {

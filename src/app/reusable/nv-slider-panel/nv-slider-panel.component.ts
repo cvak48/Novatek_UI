@@ -13,6 +13,7 @@ export class NvSliderPanelComponent implements OnInit {
   @Input() panelNum!: string;
   @Input() panelTitle!: string;
   @Input() panelSaveBtn!: string;
+  @Input() panelTableHeight!: any;
   @Output() panelClick: EventEmitter<boolean> = new EventEmitter();
   @Output() close = new EventEmitter();
   showPanel: boolean = false;

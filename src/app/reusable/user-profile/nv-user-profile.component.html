@@ -249,79 +249,20 @@
           name="name"
         />
       </div>
+     
+     
       <div class="field-block">
         <div class="multi-select-row">
           <div id="mobilePhone" class="multi-select-field-row">
-            <div class="left-multi-select">
-              <app-nv-multiselect-dropdown
-                (filteredItems)="onMultiselectItemsFilter($event)"
-                class="body-item"
-                label="Sites"
-                [fieldStatusType]="multiselectFieldStatusType"
-              >
-              </app-nv-multiselect-dropdown>
-            </div>
-            <div class="right-multi-select">
-              <div class="dropdown-plus-container">
-                <app-nv-dropdown
-                  [extensionDirection]="dropdownMenuExtensionDir"
-                  [items]="dropdownItems"
-                  [selectedItem]="defaultSelectedItem"
-                  [isFieldDisable]="isDropdownDisable"
-                  [fieldStatusType]="dropdownFieldStatusType"
-                  [fieldType]="dropDownFieldType"
-                  (itemSelect)="onItemSelect($event)"
-                >
-                </app-nv-dropdown>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="field-block">
-        <div class="multi-select-row">
-          <div id="mobilePhone" class="multi-select-field-row">
-            <div class="left-multi-select">
-              <app-nv-multiselect-dropdown
-                (filteredItems)="onMultiselectItemsFilter($event)"
-                class="body-item"
-                label="Teams"
-                [fieldStatusType]="multiselectFieldStatusType"
-              >
-              </app-nv-multiselect-dropdown>
-            </div>
-
-            <div class="right-multi-select">
-              <div class="dropdown-plus-container">
-                <app-nv-dropdown
-                  [extensionDirection]="dropdownMenuExtensionDir"
-                  [items]="dropdownItems"
-                  [selectedItem]="defaultSelectedItem"
-                  [isFieldDisable]="isDropdownDisable"
-                  [fieldStatusType]="dropdownFieldStatusType"
-                  [fieldType]="dropDownFieldType"
-                  (itemSelect)="onItemSelect($event)"
-                >
-                </app-nv-dropdown>
-                
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="field-block">
-        <div class="multi-select-row">
-          <div id="mobilePhone" class="multi-select-field-row">
-            <div class="left-multi-select">
             <app-nv-multiselect-dropdown
               (filteredItems)="onMultiselectItemsFilter($event)"
               class="body-item"
-              label="Roles"
+              label="Sites"
               [fieldStatusType]="multiselectFieldStatusType"
             >
             </app-nv-multiselect-dropdown>
           </div>
-          <div class="dropdown-plus-container">
+          <div class="dropdown-plus-container pd-tp-21">
             <app-nv-dropdown
               [extensionDirection]="dropdownMenuExtensionDir"
               [items]="dropdownItems"
@@ -335,7 +276,63 @@
           </div>
         </div>
       </div>
+
+      <div class="field-block">
+        <div class="multi-select-row">
+          <div id="mobilePhone" class="multi-select-field-row">
+            <app-nv-multiselect-dropdown
+              (filteredItems)="onMultiselectItemsFilter($event)"
+              class="body-item"
+              label="Teams"
+              [fieldStatusType]="multiselectFieldStatusType"
+            >
+            </app-nv-multiselect-dropdown>
+          </div>
+          <div class="dropdown-plus-container pd-tp-21">
+            <app-nv-dropdown
+              [extensionDirection]="dropdownMenuExtensionDir"
+              [items]="dropdownItems"
+              [selectedItem]="defaultSelectedItem"
+              [isFieldDisable]="isDropdownDisable"
+              [fieldStatusType]="dropdownFieldStatusType"
+              [fieldType]="dropDownFieldType"
+              (itemSelect)="onItemSelect($event)"
+            >
+            </app-nv-dropdown>
+          </div>
+        </div>
       </div>
+
+
+      
+
+      <div class="field-block">
+        <div class="multi-select-row">
+          <div id="mobilePhone" class="multi-select-field-row">
+            <app-nv-multiselect-dropdown
+              (filteredItems)="onMultiselectItemsFilter($event)"
+              class="body-item"
+              label="Roles"
+              [fieldStatusType]="multiselectFieldStatusType"
+            >
+            </app-nv-multiselect-dropdown>
+          </div>
+          <div class="dropdown-plus-container pd-tp-21">
+            <app-nv-dropdown
+              [extensionDirection]="dropdownMenuExtensionDir"
+              [items]="dropdownItems"
+              [selectedItem]="defaultSelectedItem"
+              [isFieldDisable]="isDropdownDisable"
+              [fieldStatusType]="dropdownFieldStatusType"
+              [fieldType]="dropDownFieldType"
+              (itemSelect)="onItemSelect($event)"
+            >
+            </app-nv-dropdown>
+          </div>
+        </div>
+      </div>
+
+
       <div class="field-block">
         <div class="multi-select-row">
           <div id="mobilePhone" class="multi-select-field-row">
@@ -347,7 +344,7 @@
             >
             </app-nv-multiselect-dropdown>
           </div>
-          <div class="dropdown-plus-container">
+          <div class="dropdown-plus-container pd-tp-21">
             <app-nv-dropdown
               [extensionDirection]="dropdownMenuExtensionDir"
               [items]="dropdownItems"
@@ -560,7 +557,7 @@
             >
             </app-nv-multiselect-dropdown>
           </div>
-          <div class="dropdown-plus-container">
+          <div class="dropdown-plus-container pd-tp-21">
             <app-nv-dropdown
               [extensionDirection]="dropdownMenuExtensionDir"
               [items]="dropdownItems"
@@ -586,7 +583,7 @@
             >
             </app-nv-multiselect-dropdown>
           </div>
-          <div class="dropdown-plus-container">
+          <div class="dropdown-plus-container pd-tp-21">
             <app-nv-dropdown
               [extensionDirection]="dropdownMenuExtensionDir"
               [items]="dropdownItems"
@@ -615,7 +612,7 @@
             >
             </app-nv-multiselect-dropdown>
           </div>
-          <div class="dropdown-plus-container">
+          <div class="dropdown-plus-container pd-tp-21">
             <app-nv-dropdown
               [extensionDirection]="dropdownMenuExtensionDir"
               [items]="dropdownItems"
@@ -644,7 +641,7 @@
             >
             </app-nv-multiselect-dropdown>
           </div>
-          <div class="dropdown-plus-container">
+          <div class="dropdown-plus-container pd-tp-21">
             <app-nv-dropdown
               [extensionDirection]="dropdownMenuExtensionDir"
               [items]="dropdownItems"

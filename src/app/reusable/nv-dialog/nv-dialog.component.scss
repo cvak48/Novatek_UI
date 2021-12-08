@@ -51,12 +51,24 @@ th{
 
   .title-bar{
     margin-left: -4%;
-    margin-top: -4%;
+    margin-top: -6%;
     width: 108%;
+    height: 40px;
+    background-color: #F9F9F9;
+    box-shadow: 0px 8px 6px #0000001A;
   }
 
   .card-title {
-      font-size: 18px;
-      font-weight: 500;
-  
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Lato' !important;
+  }
+
+  .panel-titleTxt{
+    font-family: 'Lato' !important;
+    font-weight: bold !important;
+  }
+
+  .card-text{
+    font-family: 'Lato' !important;
   }

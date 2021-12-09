@@ -85,7 +85,7 @@ function mockDropdown(): any {
     ],
     // itemsNumber: ['1', '2', '3', '4', '5', '11', '22', '33', '44', '55'],
     textTrimNumber: 100000,
-    selectedItemDefault: 'Select reason for change',
+    selectedItemDefault: 'Select a Reason',
     menuExtensionDir: MenuExtensionDirection.ToLeft,
     dropDownFieldType: DropdownFieldType.Input,
     fieldStatusType: FieldStatusType.Normal,

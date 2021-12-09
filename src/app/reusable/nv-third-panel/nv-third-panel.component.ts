@@ -35,6 +35,8 @@ export class NvThirdPanelComponent implements OnInit {
   sortDir = 1; //1= 'ASE' -1= DSC
   isNameSorted: boolean = false;
   isIdSorted: boolean = false;
+  @Input() extraHeightwithTable: any;
+
   //collator used for number sorting
   private collator = new Intl.Collator(undefined, {
     numeric: true,

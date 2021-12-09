@@ -29,13 +29,13 @@ export class NvSliderPanelComponent implements OnInit {
   }
 
   saveButtonClick(): void{
-    const dialogRef = this.sharedService.getGenericDialogRef(NvSaveThirdPanelComponent, null, false, 'saveTeamsPanel');
-   /*  this.panelSaveBtn ? this.applicationService.setBtnClickedData(this.panelSaveBtn) : null;
+   // const dialogRef = this.sharedService.getGenericDialogRef(NvSaveThirdPanelComponent, null, false, 'saveTeamsPanel');
+     this.panelSaveBtn ? this.applicationService.setBtnClickedData(this.panelSaveBtn) : null;
     this.applicationService.btnDisabled
         .subscribe(res => {
           console.log('btn', res)
           this.btnDisable = res;
-        }) */
+        }) 
   }
 
   buttonClick(): void {

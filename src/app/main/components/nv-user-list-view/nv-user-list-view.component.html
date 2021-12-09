@@ -17,6 +17,7 @@
       panelNum="1"
       (panelClick)="panelClicked('1')"
       [panelTableHeight]="panelTableHeight"
+      [onlyFirstPanel] = "showPanel1 && !showPanel4 && !showPanel2 && !showPanel3"
     ></app-nv-table-panel>
   </div>
 

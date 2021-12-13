@@ -18,6 +18,7 @@ const Status = {
   styleUrls: ['./nv-third-panel.component.scss'],
 })
 export class NvThirdPanelComponent implements OnInit {
+  
   name = '';
   placeholder = '';
   nameLabel = 'Name';
@@ -36,6 +37,9 @@ export class NvThirdPanelComponent implements OnInit {
   isNameSorted: boolean = false;
   isIdSorted: boolean = false;
   @Input() extraHeightwithTable: any;
+  @Input() panelTableHeight: any;
+  scrollTableHeight: any;
+  panelHeightTable: any;
 
   //collator used for number sorting
   private collator = new Intl.Collator(undefined, {
@@ -47,7 +51,7 @@ export class NvThirdPanelComponent implements OnInit {
   orders: any[] = [];
   ordersData: any[] = [];
   count = 0;
-  @Input() panelTableHeight = "200px";
+  // @Input() panelTableHeight = "200px";
   @Input() columns: string[] = [];
   @Input() oData: any;
   @Output() sort: EventEmitter<Sort> = new EventEmitter();
@@ -61,6 +65,13 @@ export class NvThirdPanelComponent implements OnInit {
   constructor(private sharedService  : SharedService) { }
 
   ngOnInit(): void {
+
+    this.panelHeightTable = this.panelTableHeight + 20;
+     this.scrollTableHeight = this.panelTableHeight -200;
+    console.log("panel parent >>", this.panelHeightTable);
+
+    console.log("panel Height user >>", this.panelHeightTable);
+
     // setting search data for table
     this.tableSearchData = this.oData;
     this.ordersData = this.oData;

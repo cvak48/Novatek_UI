@@ -83,7 +83,7 @@ mat-paginator {
 
 .table-scroll {
   overflow: auto;
-  height: 300px;
+  // height: 300px;
   margin-top: 11px;
 }
 
@@ -409,4 +409,7 @@ th {
   background-color: #fff;
   margin : 0;
   padding-top:10px
+}
+.dynamincTeamPanelHeight {
+  overflow: hidden;
 }

@@ -23,6 +23,7 @@
   </div>
 </div>
 
+<div class="dynamincTeamPanelHeight" [style.height.px]="panelHeightTable">
 <div class="row" id="input-container">
   <div class="col-sm-12" >
     <app-nv-input class="text-color" [(sharedVar)]="name" [inputPlaceHolder]="placeholder" [label]="nameLabel"
@@ -34,7 +35,7 @@
 </div>
 
 <div>
-  <div class="table-scroll" [style.height.px]="extraHeightwithTable">
+  <div class="table-scroll" [style.height.px]="scrollTableHeight">
     <table class="data-table" mdbTable>
       <tr class="mat-header-row">
         <th class="mat-header-cell">
@@ -91,4 +92,6 @@
       </tr>
     </table>
   </div>
+</div>
+
 </div>

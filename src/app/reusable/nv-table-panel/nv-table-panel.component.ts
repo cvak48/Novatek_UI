@@ -130,7 +130,7 @@ export class NvTablePanelComponent implements OnInit, AfterViewInit, OnChanges {
   }
 
   ngAfterViewInit() {
-        this.panelTableHeight2 = this.panelTableHeight;
+        this.panelTableHeight2 = this.panelTableHeight + 3;
         console.log("panelTableHeight div table 2 >>", this.panelTableHeight)
   }
 

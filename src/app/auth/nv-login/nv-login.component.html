@@ -48,8 +48,8 @@
               </div>
               <!-- Password 
                    Password is only visible when showpassword value is true -->
-              <div class="form-group passwordField" *ngIf='variableList.showPassword' [@fadeInAndOut]>
-                <app-nv-input [inputPlaceHolder]="variableList.passwordPlaceholder"
+              <div class="form-group passwordField"  *ngIf='variableList.showPassword' [@fadeInAndOut]>
+                <app-nv-input [(sharedVar)]="emptyVariableList.userPasswordInput" [inputPlaceHolder]="variableList.passwordPlaceholder"
                   [secondaryLabel]="variableList.forgotPassword" [label]='variableList.passwordLabel'
                   (eventName)="forgotDetails($event)"></app-nv-input>
               </div>

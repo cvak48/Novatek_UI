@@ -364,7 +364,7 @@ tr.mat-row.cdk-row:nth-child(odd) {
 // .table th,
 .table td {
   vertical-align: text-bottom !important;
-  padding-top: 0.5% !important;
+  padding-top: 0.25% !important;
 }
 
 /*table.table th {
@@ -397,13 +397,13 @@ table.table td {
   margin-left: 5px;
 }
 
-//  .rotateimg180 {
-//    -webkit-transform: rotate(180deg);
-//    -moz-transform: rotate(180deg);
-//    -ms-transform: rotate(180deg);
-//    -o-transform: rotate(180deg);
-//    transform: rotate(180deg);
-//  }
+  .rotateimg180 {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
 
 table td {
   display: table-cell;
@@ -448,4 +448,13 @@ hr {
 
 .col-min-wdh-95{
   min-width: 95px !important;
+}
+
+::ng-deep.mat-icon {
+  width:12px !important;
+  height:35px !important;
+}
+
+table.table th {
+  padding: 5px 16px !important;
 }

@@ -274,6 +274,7 @@ export class NvTablePanelComponent implements OnInit, AfterViewInit, OnChanges {
 
   rowImgClicked(event: any): void{
     event.stopPropagation();
+    this.rowClicked(event);
   }
 
   showExtendedRow(index: number): void{

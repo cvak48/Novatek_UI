@@ -1,10 +1,8 @@
 <app-nv-header></app-nv-header>
 <app-nv-sub-menu></app-nv-sub-menu>
-<br />
-
-<div class="row mg-0" #panelDivHeight>
+<div class="row mg-0 main-slider-body" #panelDivHeight>
   <div
-    class="panel-slide col-md-4"
+    class="panel-slide col-md-4 panel-wdh-1"
    
     *ngIf="showPanel1"
   >
@@ -19,7 +17,7 @@
   </div>
 
   <div
-    class="style-right panel-slide col-md-4"
+    class="style-right panel-slide col-md-4 panel-wdh-2"
     *ngIf="showPanel2"
     
   >
@@ -33,7 +31,7 @@
       Panel2
     </app-nv-slider-common-panel>
   </div>
-  <div class="col-md-4 style-left panel-slide" *ngIf="showPanel3" 
+  <div class="col-md-4 style-left panel-slide panel-wdh-3" *ngIf="showPanel3" 
   >
     <app-nv-slider-common-panel
       panelNum="3"
@@ -44,7 +42,7 @@
       Panel3
   </app-nv-slider-common-panel>
   </div>
-  <div class="col-md-4 style-left panel-slide" *ngIf="showPanel4">
+  <div class="col-md-4 style-left panel-slide panel-wdh-4" *ngIf="showPanel4">
     <app-nv-slider-common-panel
       panelNum="4"
       panelTitle="Panel4"
@@ -55,5 +53,4 @@
   </app-nv-slider-common-panel>
   </div>
 </div>
-<br />
 <app-nv-footer class="footer"></app-nv-footer>

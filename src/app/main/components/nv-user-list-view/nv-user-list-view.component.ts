@@ -52,7 +52,7 @@ export class NvUserListViewComponent implements OnInit, AfterViewInit {
     this.headerTop = sessionStorage.getItem('headerTop');
     this.middleMenu = sessionStorage.getItem('middleMenu');
     this.navBarFooter = 56;
-    this.extraHeight = (+this.headerTop) + (+this.middleMenu) + (+this.navBarFooter) + 225;
+    this.extraHeight = (+this.headerTop) + (+this.middleMenu) + (+this.navBarFooter) + 205;
     this.extraHeightwithTable = (+this.headerTop) + (+this.middleMenu) + (+this.navBarFooter) - 90;
 
 

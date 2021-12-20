@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Sort } from '@angular/material/sort';
 import { Subscription } from 'rxjs';
@@ -15,7 +15,8 @@ import { Order } from '../test/order';
   templateUrl: './nv-table-panel.component.html',
   styleUrls: ['./nv-table-panel.component.scss']
 })
-export class NvTablePanelComponent implements OnInit, AfterViewInit {
+export class NvTablePanelComponent implements OnInit, AfterViewInit, OnChanges {
+  @Input() onlyFirstPanel: boolean | undefined;
   @Input() panelNum!: string;
   @Output() panelClick: EventEmitter<boolean> = new EventEmitter();
   @Output() close = new EventEmitter();
@@ -81,6 +82,7 @@ export class NvTablePanelComponent implements OnInit, AfterViewInit {
               private sharedService: SharedService) { }
 
   ngOnInit(): void {
+    console.log("first", this.onlyFirstPanel)
     this.sub = this.dataService.getTableData()
       .subscribe(data => {
         this.tableTestData = data;
@@ -117,8 +119,18 @@ export class NvTablePanelComponent implements OnInit, AfterViewInit {
       console.log("panelTableHeight div table >>", this.panelTableHeight)
   }
 
+  ngOnChanges(): void {
+    console.log("first1", this.onlyFirstPanel)
+    if (this.onlyFirstPanel) {
+      const arr = mockPlusDropdown().items.splice(0, 2);
+      this.dropdownItemsPlus = mockPlusDropdown().items.slice(2);
+    } else {
+      this.dropdownItemsPlus = mockPlusDropdown().items;
+    }
+  }
+
   ngAfterViewInit() {
-        this.panelTableHeight2 = this.panelTableHeight;
+        this.panelTableHeight2 = this.panelTableHeight + 3;
         console.log("panelTableHeight div table 2 >>", this.panelTableHeight)
   }
 
@@ -262,6 +274,7 @@ export class NvTablePanelComponent implements OnInit, AfterViewInit {
 
   rowImgClicked(event: any): void{
     event.stopPropagation();
+    this.rowClicked(event);
   }
 
   showExtendedRow(index: number): void{

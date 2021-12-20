@@ -29,6 +29,8 @@ export class NvUserListViewComponent implements OnInit, AfterViewInit {
   navBarFooter: any;
   extraHeight: any;
   panelTableHeight: any;
+  extraHeightwithTable: any;
+  panelTableHeightTeamPanel: any;
 
   constructor(private dataService: DataService,
               private applicationService: ApplicationService) { }
@@ -51,20 +53,25 @@ export class NvUserListViewComponent implements OnInit, AfterViewInit {
     this.middleMenu = sessionStorage.getItem('middleMenu');
     this.navBarFooter = 56;
     this.extraHeight = (+this.headerTop) + (+this.middleMenu) + (+this.navBarFooter) + 225;
+    this.extraHeightwithTable = (+this.headerTop) + (+this.middleMenu) + (+this.navBarFooter) - 90;
+
 
 
     // this.screenWidth = window.innerWidth;
     this.screenHeight = +window.innerHeight;
-    console.log('screenHeight', this.screenHeight)
-    console.log('headerTop >> ',sessionStorage.getItem('headerTop'));
-    console.log('middleMenu >> ',sessionStorage.getItem('middleMenu'));
-    console.log('navBarFooter >> ',56);
-    console.log('extraHeight >> ', this.extraHeight);
+    // console.log('screenHeight', this.screenHeight)
+    // console.log('headerTop >> ',sessionStorage.getItem('headerTop'));
+    // console.log('middleMenu >> ',sessionStorage.getItem('middleMenu'));
+    // console.log('navBarFooter >> ',56);
+    // console.log('extraHeight >> ', this.extraHeightwithTable);
     this.panelTableHeight = this.screenHeight - this.extraHeight;
+    this.panelTableHeightTeamPanel = this.screenHeight - this.extraHeightwithTable;
     // console.log('panelTableHeight >>> ', this.panelTableHeight)
     // this.panelDivHeight = this.panelTableHeight;
     
-    console.log('panelTableHeight >>', this.panelTableHeight);
+    // console.log('panelTableHeight >>', this.panelTableHeight);
+    console.log('extraHeightwithTable >>', this.extraHeightwithTable);
+
 
   }
 

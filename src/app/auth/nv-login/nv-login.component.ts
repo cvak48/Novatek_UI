@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { DropdownFieldType } from 'src/app/model/data-model';
 import { fadeInAndOut } from '../../../assets/trigger';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './nv-login.component.html',
@@ -76,9 +77,11 @@ export class NVLoginComponent implements OnInit {
     noValidation: '',
     confirmEmailValidation: '',
     emailValidation: '',
+    userPasswordInput: ''
   };
 
-  constructor(public translate: TranslateService) {
+  constructor(public translate: TranslateService,
+              private router: Router) {
     translate.addLangs(['en-US', 'fr-FR', 'zh-CN']);
     translate.setDefaultLang('en-US');
   }
@@ -313,5 +316,8 @@ export class NVLoginComponent implements OnInit {
   }
 
   login() {
+    if (this.emptyVariableList.userNameInput === 'admin' && this.emptyVariableList.userPasswordInput === 'admin') {
+      this.router.navigate(['/user-list']);
+    }    
   }
 }

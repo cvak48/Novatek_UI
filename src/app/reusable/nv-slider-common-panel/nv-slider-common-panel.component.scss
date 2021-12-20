@@ -12,7 +12,7 @@
     height: 40px;
   }
   .card-body {
-    min-height: 25%;
+    // min-height: 25%;
     padding: 0px;
     padding: 10px;
     background: $color-light-gray;
@@ -135,7 +135,7 @@ mat-paginator {
 
 .table-scroll {
   overflow: auto;
-  max-height: 300px;
+  //max-height: 300px;
   margin-top: 11px;
 }
 

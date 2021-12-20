@@ -2,7 +2,7 @@
 <app-nv-sub-menu></app-nv-sub-menu>
 <br />
 
-<div class="row mg-0">
+<div class="row mg-0" #panelDivHeight>
   <div
     class="panel-slide col-md-4"
    
@@ -12,7 +12,8 @@
   panelNum="1"
   panelTitle="Panel1"
   (close)="closePanel('1')"
-  (panelClick)="panelClicked('1')">
+  (panelClick)="panelClicked('1')"
+  [panelTableHeight]="panelTableHeight">
   Panel1
 </app-nv-slider-common-panel>
   </div>
@@ -27,7 +28,8 @@
       panelTitle="Panel2"
       panelSaveBtn="updateUserData"
       (close)="closePanel('2')"
-      (panelClick)="panelClicked('2')">
+      (panelClick)="panelClicked('2')"
+      [panelTableHeight]="panelTableHeight">
       Panel2
     </app-nv-slider-common-panel>
   </div>
@@ -37,7 +39,8 @@
       panelNum="3"
       panelTitle="Panel3"
       (close)="closePanel('3')"
-      (panelClick)="panelClicked('3')">
+      (panelClick)="panelClicked('3')"
+      [panelTableHeight]="panelTableHeight">
       Panel3
   </app-nv-slider-common-panel>
   </div>
@@ -46,7 +49,8 @@
       panelNum="4"
       panelTitle="Panel4"
       (close)="closePanel('4')"
-      (panelClick)="panelClicked('4')">
+      (panelClick)="panelClicked('4')"
+      [panelTableHeight]="panelTableHeight">
       Panel4
   </app-nv-slider-common-panel>
   </div>

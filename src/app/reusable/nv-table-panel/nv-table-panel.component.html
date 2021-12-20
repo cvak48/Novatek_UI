@@ -44,13 +44,13 @@
      
           </div>
           <div class="dp-inline btn-right mr-rt-1">
-            <app-nv-button
+            <app-nv-button *ngIf="onlyFirstPanel"
               label="New"
               class="mr-rt-1"
               (buttonClick)="buttonNewClick()"
               [disabled]="saveBtnDisable"
             ></app-nv-button>
-            <app-nv-button
+            <app-nv-button *ngIf="onlyFirstPanel"
               label="Edit"
               [disabled]="editBtnDisable"
               (buttonClick)="buttonEditClick()"
@@ -64,7 +64,7 @@
           <div class="table-scroll" [style.height.px]="panelTableHeight2">
             <table class="data-table" mdbTable>
               <tr class="mat-header-row">
-                <th class="mat-header-cell">
+                <th class="mat-header-cell col-min-wdh-95">
                   <!-- <input
                     class="table-check"
                     type="checkbox"
@@ -78,7 +78,7 @@
                   scope="col"
                   [mdbTableSort]="orders"
                   [sortBy]="columns[i]"
-                  class="mat-header-cell">
+                  class="mat-header-cell col-min-wdh-95">
                   {{ column }}
                   <span
                     >

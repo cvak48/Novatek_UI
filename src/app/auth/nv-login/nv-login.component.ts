@@ -1,4 +1,7 @@
-import { FieldStatusType, MenuExtensionDirection } from './../../model/data-model';
+import {
+  FieldStatusType,
+  MenuExtensionDirection,
+} from './../../model/data-model';
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { DropdownFieldType } from 'src/app/model/data-model';
@@ -58,9 +61,9 @@ export class NVLoginComponent implements OnInit {
       width: '200',
       height: '50',
     },
-    doctor:'Doctor',
+    doctor: 'Doctor',
     pharma: 'Pharma',
-    nurse: 'Nurse'
+    nurse: 'Nurse',
   };
 
   // dropDown Menu
@@ -118,6 +121,7 @@ export class NVLoginComponent implements OnInit {
         }
         break;
       case 'Submit':
+
       case 'nous':
       case '提交':
         this.emailValidation();
@@ -254,26 +258,28 @@ export class NVLoginComponent implements OnInit {
   }
 
   public changeLang(event: string) {
-    
     if (event == 'French') {
       this.translate.use('fr-FR');
       this.transilateVar();
       setTimeout(() => {
-        this.selectedItemDefaultMenu = this.mockMenuDropdown().selectedItemDefault;
+        this.selectedItemDefaultMenu =
+          this.mockMenuDropdown().selectedItemDefault;
         this.dropdownItemsMenu = this.mockMenuDropdown().items;
       }, 80);
     } else if (event == 'Chinese') {
       this.translate.use('zh-CN');
       this.transilateVar();
       setTimeout(() => {
-        this.selectedItemDefaultMenu = this.mockMenuDropdown().selectedItemDefault;
+        this.selectedItemDefaultMenu =
+          this.mockMenuDropdown().selectedItemDefault;
         this.dropdownItemsMenu = this.mockMenuDropdown().items;
       }, 80);
     } else {
       this.translate.use('en-US');
       this.transilateVar();
       setTimeout(() => {
-        this.selectedItemDefaultMenu = this.mockMenuDropdown().selectedItemDefault;
+        this.selectedItemDefaultMenu =
+          this.mockMenuDropdown().selectedItemDefault;
         this.dropdownItemsMenu = this.mockMenuDropdown().items;
       }, 80);
     }
@@ -295,13 +301,16 @@ export class NVLoginComponent implements OnInit {
     });
   }
 
-  onDomainChange(item: string): void {
-  }
+  onDomainChange(item: string): void {}
 
   mockMenuDropdown(): any {
     const dropdownInputs = {
       //items: ['Doctor', 'Pharma', 'Nurse'],
-      items: [this.variableList.doctor, this.variableList.pharma, this.variableList.nurse],
+      items: [
+        this.variableList.doctor,
+        this.variableList.pharma,
+        this.variableList.nurse,
+      ],
       textTrimNumber: 2,
       selectedItemDefault: this.variableList.domainTxt, //'Select Domain',
       dropDownFieldType: DropdownFieldType.Input,
@@ -312,6 +321,5 @@ export class NVLoginComponent implements OnInit {
     return dropdownInputs;
   }
 
-  login() {
-  }
+  login() {}
 }

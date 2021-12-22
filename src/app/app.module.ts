@@ -8,21 +8,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-      /**
-      * In Material Module we will include every module of the angular material
-      */
+    HttpClientModule,
+    /**
+     * In Material Module we will include every module of the angular material
+     */
     MaterialModule,
     HttpClientModule,
-    MainModule
+    MainModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

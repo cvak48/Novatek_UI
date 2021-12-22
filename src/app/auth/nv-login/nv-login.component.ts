@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { DropdownFieldType } from 'src/app/model/data-model';
 import { fadeInAndOut } from '../../../assets/trigger';
+import { VerifyUserService } from 'src/app/services/rest-services/verify-user.service';
 @Component({
   selector: 'app-login',
   templateUrl: './nv-login.component.html',
@@ -81,7 +82,10 @@ export class NVLoginComponent implements OnInit {
     emailValidation: '',
   };
 
-  constructor(public translate: TranslateService) {
+  constructor(
+    public translate: TranslateService,
+    private verifyUserServices: VerifyUserService
+  ) {
     translate.addLangs(['en-US', 'fr-FR', 'zh-CN']);
     translate.setDefaultLang('en-US');
   }
@@ -102,23 +106,36 @@ export class NVLoginComponent implements OnInit {
       case 'Prochaine':
       case '下一个':
         if (this.emptyVariableList.userNameInput.length > 0) {
-          this.variableList.noValidation = this.variableList.isValid;
-          this.variableList.showPassword = true;
-          this.variableList.confirmation = false;
-          this.variableList.passwordDetails = true;
-          this.showSubmitBtn = false;
-          this.showResendBtn = false;
-          this.showNextBtn = false;
-          this.showLoginBtn = true;
-          this.showLoginTxt = false;
-          this.showPasswordTxt = true;
-          this.showForgotUsrnameTxt = false;
-          this.showForgotPasswordTxt = false;
-          this.showConfirmationTxt = false;
-          //this.variableList.cardHeading = this.variableList.passwordPlaceholder; -- don't delete
+          this.verifyUserServices
+            .verifyUser(this.emptyVariableList.userNameInput)
+            .subscribe(
+              (data: any) => {
+                console.log('Response from Service is ' + data.username);
+
+                this.variableList.noValidation = this.variableList.isValid;
+                this.variableList.showPassword = true;
+                this.variableList.confirmation = false;
+                this.variableList.passwordDetails = true;
+                this.showSubmitBtn = false;
+                this.showResendBtn = false;
+                this.showNextBtn = false;
+                this.showLoginBtn = true;
+                this.showLoginTxt = false;
+                this.showPasswordTxt = true;
+                this.showForgotUsrnameTxt = false;
+                this.showForgotPasswordTxt = false;
+                this.showConfirmationTxt = false;
+                //this.variableList.cardHeading = this.variableList.passwordPlaceholder; -- don't delete
+              },
+              (error) => {
+                console.log('error is : ' + error.error.message);
+                this.variableList.noValidation = this.variableList.isInValid;
+              }
+            );
         } else {
           this.variableList.noValidation = this.variableList.isInValid;
         }
+
         break;
       case 'Submit':
 

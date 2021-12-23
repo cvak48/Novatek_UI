@@ -9,11 +9,8 @@ export class VerifyUserService {
   private loginUrl: string = 'http://10.100.40.52:8080/api/User/Login';
   constructor(private http: HttpClient) {}
 
-  verifyUser(uName: string, domain: string) {
-    return this.http.post(this.url, {
-      username: uName,
-      domain,
-    });
+  verifyUser(data:any) {
+    return this.http.post(this.url, data);
   }
 
   loginUser(data: any) {

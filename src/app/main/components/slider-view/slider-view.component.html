@@ -17,9 +17,9 @@
   </div>
 
   <div
-    class="style-right panel-slide col-md-4 panel-wdh-2"
+    class="style-right panel-slide col-md-4 "
     *ngIf="showPanel2"
-    
+    [ngClass]="{'panel-wdh-2': showPanel1}"
   >
     <app-nv-slider-common-panel
       panelNum="2"

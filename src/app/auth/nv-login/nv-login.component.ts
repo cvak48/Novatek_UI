@@ -119,8 +119,6 @@ export class NVLoginComponent implements OnInit {
             )
             .subscribe(
               (data: any) => {
-                console.log('Response from Service is ' + data.username);
-
                 this.variableList.noValidation = this.variableList.isValid;
                 this.variableList.showPassword = true;
                 this.variableList.confirmation = false;
@@ -137,7 +135,6 @@ export class NVLoginComponent implements OnInit {
                 //this.variableList.cardHeading = this.variableList.passwordPlaceholder; -- don't delete
               },
               (error) => {
-                console.log('error is : ' + error.error.message);
                 this.variableList.noValidation = this.variableList.isInValid;
                 this.variableList.dropdownValidation = this.emptyVariableList
                   .domainNameInput
@@ -343,11 +340,6 @@ export class NVLoginComponent implements OnInit {
   }
 
   onDomainChange(item: string): void {
-    console.log('Selected domain is : ' + item);
-    console.log(
-      'selectedItemDefaultMenu variable value is ' +
-        this.selectedItemDefaultMenu
-    );
   }
 
   mockMenuDropdown(): any {
@@ -380,8 +372,8 @@ export class NVLoginComponent implements OnInit {
         })
         .subscribe(
           (res: any) => {
-            console.log(res);
             if (res.token) {
+              console.log('Token Received for login is : '+res.token);
               this.router.navigate(['menu']);
             } else {
               this.variableList.passwordValidation =

@@ -78,8 +78,6 @@ export class NvDropdownComponent implements OnInit, AfterViewInit, OnChanges {
    * If isFieldDisable is true, the styles will be updated upon it
    */
   @Input() set fieldStatusType(type: FieldStatusType) {
-    console.log(type);
-    console.log(this.isFieldDisable);
     this._fieldStatusType = type;
     this._setStyles(this.fieldStatusType, this.isFieldDisable);
     if (type == this.statusType.Error) {

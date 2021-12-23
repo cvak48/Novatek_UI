@@ -7,6 +7,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { DropdownFieldType } from 'src/app/model/data-model';
 import { fadeInAndOut } from '../../../assets/trigger';
 import { VerifyUserService } from 'src/app/services/rest-services/verify-user.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './nv-login.component.html',
@@ -80,11 +81,15 @@ export class NVLoginComponent implements OnInit {
     noValidation: '',
     confirmEmailValidation: '',
     emailValidation: '',
+    domainNameInput: '',
+    passwordInput: '',
+    passwordValidation: '',
   };
 
   constructor(
     public translate: TranslateService,
-    private verifyUserServices: VerifyUserService
+    private verifyUserServices: VerifyUserService,
+    private router: Router
   ) {
     translate.addLangs(['en-US', 'fr-FR', 'zh-CN']);
     translate.setDefaultLang('en-US');
@@ -107,7 +112,10 @@ export class NVLoginComponent implements OnInit {
       case '下一个':
         if (this.emptyVariableList.userNameInput.length > 0) {
           this.verifyUserServices
-            .verifyUser(this.emptyVariableList.userNameInput)
+            .verifyUser(
+              this.emptyVariableList.userNameInput,
+              this.emptyVariableList.domainNameInput
+            )
             .subscribe(
               (data: any) => {
                 console.log('Response from Service is ' + data.username);
@@ -130,10 +138,20 @@ export class NVLoginComponent implements OnInit {
               (error) => {
                 console.log('error is : ' + error.error.message);
                 this.variableList.noValidation = this.variableList.isInValid;
+                this.variableList.dropdownValidation = this.emptyVariableList
+                  .domainNameInput
+                  ? this.variableList.isValid
+                  : FieldStatusType.Error;
               }
             );
         } else {
-          this.variableList.noValidation = this.variableList.isInValid;
+          this.variableList.noValidation = this.emptyVariableList.userNameInput
+            ? this.variableList.isValid
+            : this.variableList.isInValid;
+          this.variableList.dropdownValidation = this.emptyVariableList
+            .domainNameInput
+            ? this.variableList.isValid
+            : FieldStatusType.Error;
         }
 
         break;
@@ -166,6 +184,8 @@ export class NVLoginComponent implements OnInit {
         this.showForgotUsrnameTxt = false;
         this.showForgotPasswordTxt = false;
         this.showConfirmationTxt = false;
+        // this.emptyVariableList.emailInput = '';
+        // this.emptyVariableList.userNameInput = '';
         break;
     }
   }
@@ -210,6 +230,8 @@ export class NVLoginComponent implements OnInit {
         this.showForgotUsrnameTxt = false;
         this.showForgotPasswordTxt = true;
         this.showConfirmationTxt = false;
+        this.emptyVariableList.emailInput = '';
+        this.emptyVariableList.userNameInput = '';
         break;
       // using Forgot Username as default case
       default:
@@ -272,6 +294,7 @@ export class NVLoginComponent implements OnInit {
     this.variableList.count = 1;
     this.emptyVariableList.userNameInput = '';
     this.variableList.noValidation = '';
+    this.emptyVariableList.emailInput = '';
   }
 
   public changeLang(event: string) {
@@ -318,7 +341,13 @@ export class NVLoginComponent implements OnInit {
     });
   }
 
-  onDomainChange(item: string): void {}
+  onDomainChange(item: string): void {
+    console.log('Selected domain is : ' + item);
+    console.log(
+      'selectedItemDefaultMenu variable value is ' +
+        this.selectedItemDefaultMenu
+    );
+  }
 
   mockMenuDropdown(): any {
     const dropdownInputs = {
@@ -338,5 +367,39 @@ export class NVLoginComponent implements OnInit {
     return dropdownInputs;
   }
 
-  login() {}
+  login() {
+    if (
+      this.emptyVariableList.userNameInput &&
+      this.emptyVariableList.passwordInput
+    ) {
+      this.verifyUserServices
+        .loginUser({
+          username: this.emptyVariableList.userNameInput,
+          password: this.emptyVariableList.passwordInput,
+        })
+        .subscribe(
+          (res: any) => {
+            console.log(res);
+            if (res.token) {
+              this.router.navigate(['menu']);
+            } else {
+              this.variableList.passwordValidation =
+                this.variableList.isInValid;
+            }
+          },
+          (error) => {
+            console.log(error);
+            this.variableList.passwordValidation = this.variableList.isInValid;
+          }
+        );
+    } else {
+      this.variableList.noValidation = this.emptyVariableList.userNameInput
+        ? this.variableList.isValid
+        : this.variableList.isInValid;
+      this.variableList.passwordValidation = this.emptyVariableList
+        .passwordInput
+        ? this.variableList.isValid
+        : this.variableList.isInValid;
+    }
+  }
 }

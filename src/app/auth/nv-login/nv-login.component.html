@@ -158,6 +158,13 @@
               (buttonClick)="btnClick(variableList.resend)"
               [label]="variableList.resend"
             ></app-nv-button>
+            <!-- backtologin button-->
+            <app-nv-button
+              *ngIf="showResendBtn"
+              class="nxt-btn"
+              (buttonClick)="btnClick('')"
+              [label]="variableList.back_to_login"
+            ></app-nv-button>
             <!-- Cancel button -->
             <app-nv-button
               *ngIf="variableList.showPassword"

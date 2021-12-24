@@ -8,6 +8,8 @@ import { DropdownFieldType } from 'src/app/model/data-model';
 import { fadeInAndOut } from '../../../assets/trigger';
 import { VerifyUserService } from 'src/app/services/rest-services/verify-user.service';
 import { Router } from '@angular/router';
+import { BaseHttpService } from 'src/app/services/common-http/base-http.service';
+import { RestUrlsService } from 'src/app/services/rest-urls/rest-urls.service';
 @Component({
   selector: 'app-login',
   templateUrl: './nv-login.component.html',
@@ -54,6 +56,7 @@ export class NVLoginComponent implements OnInit {
     emailPlaceholder: 'Enter Your E-mail',
     confirmEmailLabel: 'Confirm-Email',
     confirmEmailPlaceholder: 'Confirm-Email',
+    back_to_login: 'Login',
     showPassword: false,
     confirmation: false,
     passwordDetails: false,
@@ -89,7 +92,9 @@ export class NVLoginComponent implements OnInit {
   constructor(
     public translate: TranslateService,
     private verifyUserServices: VerifyUserService,
-    private router: Router
+    private router: Router,
+    private http: BaseHttpService,
+    private urls: RestUrlsService
   ) {
     translate.addLangs(['en-US', 'fr-FR', 'zh-CN']);
     translate.setDefaultLang('en-US');
@@ -113,10 +118,9 @@ export class NVLoginComponent implements OnInit {
         if (this.emptyVariableList.userNameInput.length > 0) {
           this.verifyUserServices
             .verifyUser({
-              username:this.emptyVariableList.userNameInput,
-              domain : this.emptyVariableList.domainNameInput
-            }
-            )
+              username: this.emptyVariableList.userNameInput,
+              domain: this.emptyVariableList.domainNameInput,
+            })
             .subscribe(
               (data: any) => {
                 this.variableList.noValidation = this.variableList.isValid;
@@ -198,10 +202,27 @@ export class NVLoginComponent implements OnInit {
       this.emptyVariableList.emailInput.length > 0 &&
       this.emptyVariableList.emailInput.includes('@')
     ) {
-      this.variableList.emailValidation = '';
-      this.variableList.confirmEmailValidation = '';
-      this.isEmailInvalid = false;
-      this.recoveryConfirmation();
+      this.http
+        .basePost(
+          this.showForgotUsrnameTxt
+            ? this.urls.forgotUsernameUrl
+            : this.urls.forgotPasswordUrl,
+          {
+            EmailAddress: this.emptyVariableList.emailInput,
+          }
+        )
+        .subscribe(
+          (res) => {
+            this.variableList.emailValidation = '';
+            this.variableList.confirmEmailValidation = '';
+            this.isEmailInvalid = false;
+            this.recoveryConfirmation();
+          },
+          (error) => {
+            this.variableList.emailValidation = this.variableList.isInValid;
+            this.isEmailInvalid = true;
+          }
+        );
     } else {
       this.variableList.emailValidation = this.variableList.isInValid;
       this.isEmailInvalid = true;
@@ -339,8 +360,7 @@ export class NVLoginComponent implements OnInit {
     });
   }
 
-  onDomainChange(item: string): void {
-  }
+  onDomainChange(item: string): void {}
 
   mockMenuDropdown(): any {
     const dropdownInputs = {
@@ -373,7 +393,7 @@ export class NVLoginComponent implements OnInit {
         .subscribe(
           (res: any) => {
             if (res.token) {
-              console.log('Token Received for login is : '+res.token);
+              console.log('Token Received for login is : ' + res.token);
               this.router.navigate(['menu']);
             } else {
               this.variableList.passwordValidation =

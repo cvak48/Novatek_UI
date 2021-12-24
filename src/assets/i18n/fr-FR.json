@@ -26,5 +26,6 @@
     "comments": "Comments FR",
     "doctor": "Médecin",
     "pharma": "Pharmacie",
-    "nurse": "Infirmière"
+    "nurse": "Infirmière",
+    "back_to_login": "Connexion"
 }

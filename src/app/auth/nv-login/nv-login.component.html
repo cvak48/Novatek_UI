@@ -155,7 +155,10 @@
             <app-nv-button
               *ngIf="showResendBtn"
               class="nxt-btn"
-              (buttonClick)="btnClick(variableList.resend)"
+              (buttonClick)="
+                emailValidation(variableList.confirmationType);
+                btnClick(variableList.resend)
+              "
               [label]="variableList.resend"
             ></app-nv-button>
             <!-- backtologin button-->

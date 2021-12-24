@@ -31,7 +31,7 @@ export class NVLoginComponent implements OnInit {
   showForgotUsrnameTxt = false;
   showForgotPasswordTxt = false;
   showConfirmationTxt = false;
-
+  activeTab: string = '';
   public variableList: any = {
     selectedNumber: 2,
     count: 1,
@@ -197,14 +197,18 @@ export class NVLoginComponent implements OnInit {
    *
    * If user gave the valid email then it will check if email and email confirmation are same
    */
-  public emailValidation() {
+  public emailValidation(resendType?: string) {
     if (
       this.emptyVariableList.emailInput.length > 0 &&
       this.emptyVariableList.emailInput.includes('@')
     ) {
       this.http
         .basePost(
-          this.showForgotUsrnameTxt
+          resendType
+            ? resendType == 'forgotusername'
+              ? this.urls.forgotUsernameUrl
+              : this.urls.forgotPasswordUrl
+            : this.showForgotUsrnameTxt
             ? this.urls.forgotUsernameUrl
             : this.urls.forgotPasswordUrl,
           {
@@ -273,6 +277,9 @@ export class NVLoginComponent implements OnInit {
    */
 
   public recoveryConfirmation() {
+    this.variableList.confirmationType = this.showForgotUsrnameTxt
+      ? 'forgotusername'
+      : 'forgotpassword';
     this.showLoginTxt = false;
     this.showPasswordTxt = false;
     this.showForgotUsrnameTxt = false;
@@ -314,6 +321,7 @@ export class NVLoginComponent implements OnInit {
     this.emptyVariableList.userNameInput = '';
     this.variableList.noValidation = '';
     this.emptyVariableList.emailInput = '';
+    this.variableList.passwordValidation = '';
   }
 
   public changeLang(event: string) {

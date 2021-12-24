@@ -139,10 +139,10 @@
                 </td>
                 <td [ngClass]="{'active': orders[i].checked}"><span *ngIf="order.name && !order.userName">{{ order.name }}</span><span *ngIf="!order.name && order.userName">{{ order.userName }}</span></td>
                 <td [ngClass]="{'active': orders[i].checked}">{{ order.title }}</td>
-                <td [ngClass]="{'active': orders[i].checked}">{{ order.position }} <span *ngIf="order.multiPosition?.length">({{order.multiPosition?.length}})</span></td>
+                <td [ngClass]="{'active': orders[i].checked}">{{ order.position }} <span class="mail-link" *ngIf="order.multiPosition?.length">({{order.multiPosition?.length}})</span></td>
                 <td [ngClass]="{'active': orders[i].checked}">{{ order.date }}</td>
                 <td class="mail-link" [ngClass]="{'active': orders[i].checked}">{{ order.email }}</td>
-                <td [ngClass]="{'active': orders[i].checked}">{{ order.status }} <span *ngIf="order.multiStatus?.length">({{order.multiStatus?.length}})</span></td>
+                <td [ngClass]="{'active': orders[i].checked}">{{ order.status }} <span class="mail-link" *ngIf="order.multiStatus?.length">({{order.multiStatus?.length}})</span></td>
                
               </tr>
               <ng-container *ngIf="isRowVisibleAllowed(i)">

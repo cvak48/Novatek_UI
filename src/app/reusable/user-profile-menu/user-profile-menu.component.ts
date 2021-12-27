@@ -3,6 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BaseHttpService } from 'src/app/services/common-http/base-http.service';
 import { RestUrlsService } from 'src/app/services/rest-urls/rest-urls.service';
+import { SharedAuthService } from 'src/app/services/auth-data/shared-auth.service';
 
 @Component({
   selector: 'app-nv-user-profile-menu',
@@ -22,7 +23,8 @@ export class UserProfileMenuComponent implements OnInit {
   constructor(
     public router: Router,
     private http: BaseHttpService,
-    private urls: RestUrlsService
+    private urls: RestUrlsService,
+    private authData: SharedAuthService
   ) {}
 
   ngOnInit(): void {}
@@ -33,6 +35,9 @@ export class UserProfileMenuComponent implements OnInit {
       .basePost(this.urls.logoutUrl, {
         UserId: 1,
       })
-      .subscribe();
+      .subscribe((res) => {
+        this.authData.access_token.next('');
+        this.authData.login_response.next(null);
+      });
   }
 }

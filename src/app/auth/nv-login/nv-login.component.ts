@@ -117,7 +117,10 @@ export class NVLoginComponent implements OnInit {
       case 'Next':
       case 'Prochaine':
       case '下一个':
-        if (this.emptyVariableList.userNameInput.length > 0) {
+        if (
+          this.emptyVariableList.userNameInput.length > 0 &&
+          this.emptyVariableList.domainNameInput
+        ) {
           this.verifyUserServices
             .verifyUser({
               username: this.emptyVariableList.userNameInput,

@@ -10,6 +10,7 @@ import { VerifyUserService } from 'src/app/services/rest-services/verify-user.se
 import { Router } from '@angular/router';
 import { BaseHttpService } from 'src/app/services/common-http/base-http.service';
 import { RestUrlsService } from 'src/app/services/rest-urls/rest-urls.service';
+import { SharedAuthService } from 'src/app/services/auth-data/shared-auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './nv-login.component.html',
@@ -94,7 +95,8 @@ export class NVLoginComponent implements OnInit {
     private verifyUserServices: VerifyUserService,
     private router: Router,
     private http: BaseHttpService,
-    private urls: RestUrlsService
+    private urls: RestUrlsService,
+    public sharedAuth: SharedAuthService
   ) {
     translate.addLangs(['en-US', 'fr-FR', 'zh-CN']);
     translate.setDefaultLang('en-US');
@@ -399,15 +401,7 @@ export class NVLoginComponent implements OnInit {
           password: this.emptyVariableList.passwordInput,
         })
         .subscribe(
-          (res: any) => {
-            if (res.token) {
-              console.log('Token Received for login is : ' + res.token);
-              this.router.navigate(['menu']);
-            } else {
-              this.variableList.passwordValidation =
-                this.variableList.isInValid;
-            }
-          },
+          (res: any) => this.handleLoginResponse(res),
           (error) => {
             console.log(error);
             this.variableList.passwordValidation = this.variableList.isInValid;
@@ -421,6 +415,18 @@ export class NVLoginComponent implements OnInit {
         .passwordInput
         ? this.variableList.isValid
         : this.variableList.isInValid;
+    }
+  }
+
+  handleLoginResponse(res: any) {
+    console.log(res);
+    const { token } = res;
+    this.sharedAuth.login_response.next(res);
+    if (token) {
+      this.sharedAuth.access_token.next(token);
+      this.router.navigate(['menu']);
+    } else {
+      this.variableList.passwordValidation = this.variableList.isInValid;
     }
   }
 }

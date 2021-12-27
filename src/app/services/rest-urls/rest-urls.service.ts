@@ -6,4 +6,5 @@ import { Injectable } from '@angular/core';
 export class RestUrlsService {
   forgotPasswordUrl: string = 'api/User/ForgotPassword';
   forgotUsernameUrl: string = 'api/User/ForgotUsername';
+  logoutUrl: string = 'api/User/Logout';
 }

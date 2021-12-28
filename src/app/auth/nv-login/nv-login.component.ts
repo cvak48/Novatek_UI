@@ -77,7 +77,7 @@ export class NVLoginComponent implements OnInit {
   textTrimNumberMenu = this.mockMenuDropdown().textTrimNumber;
   selectedItemDefaultMenu = this.mockMenuDropdown().selectedItemDefault;
   dropDownFieldTypeMenu = this.mockMenuDropdown().dropDownFieldType;
-
+  statusType = FieldStatusType;
   public emptyVariableList = {
     confirmEmailInput: '',
     emailInput: '',
@@ -105,7 +105,9 @@ export class NVLoginComponent implements OnInit {
   /**
    * Life cycle hook of Angular
    */
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.variableList.dropdownValidation = FieldStatusType.Normal;
+  }
 
   /**
    * @param text receives the button name in string formate
@@ -129,6 +131,7 @@ export class NVLoginComponent implements OnInit {
             .subscribe(
               (data: any) => {
                 this.variableList.noValidation = this.variableList.isValid;
+                this.variableList.dropdownValidation = this.statusType.Accept;
                 this.variableList.showPassword = true;
                 this.variableList.confirmation = false;
                 this.variableList.passwordDetails = true;
@@ -147,7 +150,7 @@ export class NVLoginComponent implements OnInit {
                 this.variableList.noValidation = this.variableList.isInValid;
                 this.variableList.dropdownValidation = this.emptyVariableList
                   .domainNameInput
-                  ? this.variableList.isValid
+                  ? FieldStatusType.Accept
                   : FieldStatusType.Error;
               }
             );
@@ -329,7 +332,14 @@ export class NVLoginComponent implements OnInit {
     this.variableList.passwordValidation = '';
     this.emptyVariableList.passwordInput = '';
     this.emptyVariableList.domainNameInput = '';
-    this.selectedItemDefaultMenu = this.mockMenuDropdown().selectedItemDefault;
+    this.selectedItemDefaultMenu = '';
+    setTimeout(() => {
+      this.selectedItemDefaultMenu =
+        this.mockMenuDropdown().selectedItemDefault;
+      this.dropdownItemsMenu = this.mockMenuDropdown().items;
+    }, 80);
+    // this.variableList.dropdownValidation = '';
+    this.variableList.dropdownValidation = FieldStatusType.Normal;
   }
 
   public changeLang(event: string) {

@@ -7,7 +7,8 @@
     data-toggle="dropdown"
     [ngClass]="{
       default: isDefaultStyle,
-      'is-invalid': fieldStatusType === statusType.Error
+      'is-invalid': fieldStatusType === statusType.Error,
+      'is-valid': fieldStatusType === statusType.Accept
     }"
     [ngStyle]="{
       'background-color': fieldStatusType === statusType.Error ? 'FFF6F6' : ''

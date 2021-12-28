@@ -81,7 +81,9 @@ export class NvDropdownComponent implements OnInit, AfterViewInit, OnChanges {
     this._fieldStatusType = type;
     this._setStyles(this.fieldStatusType, this.isFieldDisable);
     if (type == this.statusType.Error) {
-      this.fieldStatusColorDic.error = 'red';
+      this.fieldStatusColorDic.error = '#db2828';
+    } else if (type == this.statusType.Accept) {
+      this.fieldStatusColorDic.accept = '#198515';
     }
   }
   get fieldStatusType(): FieldStatusType {

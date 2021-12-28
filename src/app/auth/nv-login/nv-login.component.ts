@@ -327,6 +327,9 @@ export class NVLoginComponent implements OnInit {
     this.variableList.noValidation = '';
     this.emptyVariableList.emailInput = '';
     this.variableList.passwordValidation = '';
+    this.emptyVariableList.passwordInput = '';
+    this.emptyVariableList.domainNameInput = '';
+    this.selectedItemDefaultMenu = this.mockMenuDropdown().selectedItemDefault;
   }
 
   public changeLang(event: string) {

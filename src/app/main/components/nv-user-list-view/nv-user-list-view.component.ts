@@ -72,8 +72,11 @@ export class NvUserListViewComponent implements OnInit, AfterViewInit {
     // console.log('panelTableHeight >>', this.panelTableHeight);
     console.log('extraHeightwithTable >>', this.extraHeightwithTable);
 
+    
 
   }
+
+  
 
   
   ngAfterViewInit() {

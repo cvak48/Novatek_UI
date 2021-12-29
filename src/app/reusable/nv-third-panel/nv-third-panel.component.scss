@@ -22,7 +22,7 @@ thead.my-table.headers tr th {
 }
 
 tbody.my-table.body tr td {
-  border: black solid 1px;
+  border: red solid 1px;
   border-left: none;
   height: 25px;
 }
@@ -83,7 +83,7 @@ mat-paginator {
 
 .table-scroll {
   overflow: auto;
-  // height: 300px;
+  max-height: 191px;
   margin-top: 11px;
 }
 
@@ -162,7 +162,6 @@ thead {
 tr.mat-header-row {
   height: 40px !important;
   background-color: #fff !important;
-  height: 50px !important;
 }
 .mat-header-cell {
   text-transform: capitalize !important;
@@ -386,7 +385,25 @@ table.table td {
 }
 
 th {
-  border-right: 2px solid #E3E6E3;
+  //border-right: 1px solid #E3E6E3;
+  position: relative;
+}
+
+th:after {
+  content: " ";
+  position: absolute;
+  border-right: 2px #E3E6E3 solid;
+  top: 25%;
+  right: 0;
+  height: 60%;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.table td {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 0.1px solid #eee;
 }
 
 .col-sm-6, .col-sm-2 {

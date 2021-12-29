@@ -1,7 +1,7 @@
 <div class="card-header title-bar" mat-dialog-title>
     <span class="panel-titleTxt">Message</span>
     <button type="button" (click)="closePanel()" class="close mg-15" aria-label="Close">
-        <span aria-hidden="true"><img src="../../../assets/icons/ico.close.svg" /></span>
+        <span aria-hidden="true"><img src="../../../assets/icons/ico.close.svg" class="close-icon" /></span>
     </button>
 </div>
 <div class="mr-div-2 card-wd">
@@ -18,7 +18,7 @@
     <div class="shadow-sm-dark dp-inline mr-tp-2">
         <div class="dp-inline btn-right">
             <app-nv-button label="Ok" class="mr-rt-1" (buttonClick)="buttonClick()"></app-nv-button>
-            <app-nv-button label="Cancel" (buttonClick)="closePanel()"></app-nv-button>
+            <app-nv-button label="Cancel" class="cancel-btn" (buttonClick)="closePanel()"></app-nv-button>
         </div>
     </div>
 </div>

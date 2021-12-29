@@ -1,9 +1,16 @@
-import { FieldStatusType, MenuExtensionDirection } from './../../model/data-model';
+import {
+  FieldStatusType,
+  MenuExtensionDirection,
+} from './../../model/data-model';
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { DropdownFieldType } from 'src/app/model/data-model';
 import { fadeInAndOut } from '../../../assets/trigger';
 import { Router } from '@angular/router';
+import { VerifyUserService } from 'src/app/services/rest-services/verify-user.service';
+import { BaseHttpService } from 'src/app/services/common-http/base-http.service';
+import { RestUrlsService } from 'src/app/services/rest-urls/rest-urls.service';
+import { SharedAuthService } from 'src/app/services/auth-data/shared-auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './nv-login.component.html',
@@ -25,7 +32,7 @@ export class NVLoginComponent implements OnInit {
   showForgotUsrnameTxt = false;
   showForgotPasswordTxt = false;
   showConfirmationTxt = false;
-
+  activeTab: string = '';
   public variableList: any = {
     selectedNumber: 2,
     count: 1,
@@ -50,6 +57,7 @@ export class NVLoginComponent implements OnInit {
     emailPlaceholder: 'Enter Your E-mail',
     confirmEmailLabel: 'Confirm-Email',
     confirmEmailPlaceholder: 'Confirm-Email',
+    back_to_login: 'Login',
     showPassword: false,
     confirmation: false,
     passwordDetails: false,
@@ -59,9 +67,9 @@ export class NVLoginComponent implements OnInit {
       width: '200',
       height: '50',
     },
-    doctor:'Doctor',
+    doctor: 'Doctor',
     pharma: 'Pharma',
-    nurse: 'Nurse'
+    nurse: 'Nurse',
   };
 
   // dropDown Menu
@@ -69,7 +77,7 @@ export class NVLoginComponent implements OnInit {
   textTrimNumberMenu = this.mockMenuDropdown().textTrimNumber;
   selectedItemDefaultMenu = this.mockMenuDropdown().selectedItemDefault;
   dropDownFieldTypeMenu = this.mockMenuDropdown().dropDownFieldType;
-
+  statusType = FieldStatusType;
   public emptyVariableList = {
     confirmEmailInput: '',
     emailInput: '',
@@ -77,11 +85,20 @@ export class NVLoginComponent implements OnInit {
     noValidation: '',
     confirmEmailValidation: '',
     emailValidation: '',
+    domainNameInput: '',
+    passwordInput: '',
+    passwordValidation: '',
     userPasswordInput: ''
   };
 
-  constructor(public translate: TranslateService,
-              private router: Router) {
+  constructor(
+    public translate: TranslateService,
+    private verifyUserServices: VerifyUserService,
+    private router: Router,
+    private http: BaseHttpService,
+    private urls: RestUrlsService,
+    public sharedAuth: SharedAuthService
+  ) {
     translate.addLangs(['en-US', 'fr-FR', 'zh-CN']);
     translate.setDefaultLang('en-US');
   }
@@ -89,7 +106,9 @@ export class NVLoginComponent implements OnInit {
   /**
    * Life cycle hook of Angular
    */
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.variableList.dropdownValidation = FieldStatusType.Normal;
+  }
 
   /**
    * @param text receives the button name in string formate
@@ -101,26 +120,54 @@ export class NVLoginComponent implements OnInit {
       case 'Next':
       case 'Prochaine':
       case '下一个':
-        if (this.emptyVariableList.userNameInput.length > 0) {
-          this.variableList.noValidation = this.variableList.isValid;
-          this.variableList.showPassword = true;
-          this.variableList.confirmation = false;
-          this.variableList.passwordDetails = true;
-          this.showSubmitBtn = false;
-          this.showResendBtn = false;
-          this.showNextBtn = false;
-          this.showLoginBtn = true;
-          this.showLoginTxt = false;
-          this.showPasswordTxt = true;
-          this.showForgotUsrnameTxt = false;
-          this.showForgotPasswordTxt = false;
-          this.showConfirmationTxt = false;
-          //this.variableList.cardHeading = this.variableList.passwordPlaceholder; -- don't delete
+        if (
+          this.emptyVariableList.userNameInput.length > 0 &&
+          this.emptyVariableList.domainNameInput
+        ) {
+          this.verifyUserServices
+            .verifyUser({
+              username: this.emptyVariableList.userNameInput,
+              domain: this.emptyVariableList.domainNameInput,
+            })
+            .subscribe(
+              (data: any) => {
+                this.variableList.noValidation = this.variableList.isValid;
+                this.variableList.dropdownValidation = this.statusType.Accept;
+                this.variableList.showPassword = true;
+                this.variableList.confirmation = false;
+                this.variableList.passwordDetails = true;
+                this.showSubmitBtn = false;
+                this.showResendBtn = false;
+                this.showNextBtn = false;
+                this.showLoginBtn = true;
+                this.showLoginTxt = false;
+                this.showPasswordTxt = true;
+                this.showForgotUsrnameTxt = false;
+                this.showForgotPasswordTxt = false;
+                this.showConfirmationTxt = false;
+                //this.variableList.cardHeading = this.variableList.passwordPlaceholder; -- don't delete
+              },
+              (error) => {
+                this.variableList.noValidation = this.variableList.isInValid;
+                this.variableList.dropdownValidation = this.emptyVariableList
+                  .domainNameInput
+                  ? FieldStatusType.Accept
+                  : FieldStatusType.Error;
+              }
+            );
         } else {
-          this.variableList.noValidation = this.variableList.isInValid;
+          this.variableList.noValidation = this.emptyVariableList.userNameInput
+            ? this.variableList.isValid
+            : this.variableList.isInValid;
+          this.variableList.dropdownValidation = this.emptyVariableList
+            .domainNameInput
+            ? this.variableList.isValid
+            : FieldStatusType.Error;
         }
+
         break;
       case 'Submit':
+
       case 'nous':
       case '提交':
         this.emailValidation();
@@ -148,6 +195,8 @@ export class NVLoginComponent implements OnInit {
         this.showForgotUsrnameTxt = false;
         this.showForgotPasswordTxt = false;
         this.showConfirmationTxt = false;
+        // this.emptyVariableList.emailInput = '';
+        // this.emptyVariableList.userNameInput = '';
         break;
     }
   }
@@ -157,15 +206,36 @@ export class NVLoginComponent implements OnInit {
    *
    * If user gave the valid email then it will check if email and email confirmation are same
    */
-  public emailValidation() {
+  public emailValidation(resendType?: string) {
     if (
       this.emptyVariableList.emailInput.length > 0 &&
       this.emptyVariableList.emailInput.includes('@')
     ) {
-      this.variableList.emailValidation = '';
-      this.variableList.confirmEmailValidation = '';
-      this.isEmailInvalid = false;
-      this.recoveryConfirmation();
+      this.http
+        .basePost(
+          resendType
+            ? resendType == 'forgotusername'
+              ? this.urls.forgotUsernameUrl
+              : this.urls.forgotPasswordUrl
+            : this.showForgotUsrnameTxt
+            ? this.urls.forgotUsernameUrl
+            : this.urls.forgotPasswordUrl,
+          {
+            EmailAddress: this.emptyVariableList.emailInput,
+          }
+        )
+        .subscribe(
+          (res) => {
+            this.variableList.emailValidation = '';
+            this.variableList.confirmEmailValidation = '';
+            this.isEmailInvalid = false;
+            this.recoveryConfirmation();
+          },
+          (error) => {
+            this.variableList.emailValidation = this.variableList.isInValid;
+            this.isEmailInvalid = true;
+          }
+        );
     } else {
       this.variableList.emailValidation = this.variableList.isInValid;
       this.isEmailInvalid = true;
@@ -192,6 +262,8 @@ export class NVLoginComponent implements OnInit {
         this.showForgotUsrnameTxt = false;
         this.showForgotPasswordTxt = true;
         this.showConfirmationTxt = false;
+        this.emptyVariableList.emailInput = '';
+        this.emptyVariableList.userNameInput = '';
         break;
       // using Forgot Username as default case
       default:
@@ -214,6 +286,9 @@ export class NVLoginComponent implements OnInit {
    */
 
   public recoveryConfirmation() {
+    this.variableList.confirmationType = this.showForgotUsrnameTxt
+      ? 'forgotusername'
+      : 'forgotpassword';
     this.showLoginTxt = false;
     this.showPasswordTxt = false;
     this.showForgotUsrnameTxt = false;
@@ -254,29 +329,43 @@ export class NVLoginComponent implements OnInit {
     this.variableList.count = 1;
     this.emptyVariableList.userNameInput = '';
     this.variableList.noValidation = '';
+    this.emptyVariableList.emailInput = '';
+    this.variableList.passwordValidation = '';
+    this.emptyVariableList.passwordInput = '';
+    this.emptyVariableList.domainNameInput = '';
+    this.selectedItemDefaultMenu = '';
+    setTimeout(() => {
+      this.selectedItemDefaultMenu =
+        this.mockMenuDropdown().selectedItemDefault;
+      this.dropdownItemsMenu = this.mockMenuDropdown().items;
+    }, 80);
+    // this.variableList.dropdownValidation = '';
+    this.variableList.dropdownValidation = FieldStatusType.Normal;
   }
 
   public changeLang(event: string) {
-    
     if (event == 'French') {
       this.translate.use('fr-FR');
       this.transilateVar();
       setTimeout(() => {
-        this.selectedItemDefaultMenu = this.mockMenuDropdown().selectedItemDefault;
+        this.selectedItemDefaultMenu =
+          this.mockMenuDropdown().selectedItemDefault;
         this.dropdownItemsMenu = this.mockMenuDropdown().items;
       }, 80);
     } else if (event == 'Chinese') {
       this.translate.use('zh-CN');
       this.transilateVar();
       setTimeout(() => {
-        this.selectedItemDefaultMenu = this.mockMenuDropdown().selectedItemDefault;
+        this.selectedItemDefaultMenu =
+          this.mockMenuDropdown().selectedItemDefault;
         this.dropdownItemsMenu = this.mockMenuDropdown().items;
       }, 80);
     } else {
       this.translate.use('en-US');
       this.transilateVar();
       setTimeout(() => {
-        this.selectedItemDefaultMenu = this.mockMenuDropdown().selectedItemDefault;
+        this.selectedItemDefaultMenu =
+          this.mockMenuDropdown().selectedItemDefault;
         this.dropdownItemsMenu = this.mockMenuDropdown().items;
       }, 80);
     }
@@ -298,13 +387,16 @@ export class NVLoginComponent implements OnInit {
     });
   }
 
-  onDomainChange(item: string): void {
-  }
+  onDomainChange(item: string): void {}
 
   mockMenuDropdown(): any {
     const dropdownInputs = {
       //items: ['Doctor', 'Pharma', 'Nurse'],
-      items: [this.variableList.doctor, this.variableList.pharma, this.variableList.nurse],
+      items: [
+        this.variableList.doctor,
+        this.variableList.pharma,
+        this.variableList.nurse,
+      ],
       textTrimNumber: 2,
       selectedItemDefault: this.variableList.domainTxt, //'Select Domain',
       dropDownFieldType: DropdownFieldType.Input,
@@ -316,8 +408,42 @@ export class NVLoginComponent implements OnInit {
   }
 
   login() {
-    if (this.emptyVariableList.userNameInput === 'admin' && this.emptyVariableList.userPasswordInput === 'admin') {
-      this.router.navigate(['/user-list']);
-    }    
+    if (
+      this.emptyVariableList.userNameInput &&
+      this.emptyVariableList.passwordInput
+    ) {
+      this.verifyUserServices
+        .loginUser({
+          username: this.emptyVariableList.userNameInput,
+          password: this.emptyVariableList.passwordInput,
+        })
+        .subscribe(
+          (res: any) => this.handleLoginResponse(res),
+          (error) => {
+            console.log(error);
+            this.variableList.passwordValidation = this.variableList.isInValid;
+          }
+        );
+    } else {
+      this.variableList.noValidation = this.emptyVariableList.userNameInput
+        ? this.variableList.isValid
+        : this.variableList.isInValid;
+      this.variableList.passwordValidation = this.emptyVariableList
+        .passwordInput
+        ? this.variableList.isValid
+        : this.variableList.isInValid;
+    }
+  }
+
+  handleLoginResponse(res: any) {
+    console.log(res);
+    const { token } = res;
+    this.sharedAuth.login_response.next(res);
+    if (token) {
+      this.sharedAuth.access_token.next(token);
+      this.router.navigate(['menu']);
+    } else {
+      this.variableList.passwordValidation = this.variableList.isInValid;
+    }
   }
 }

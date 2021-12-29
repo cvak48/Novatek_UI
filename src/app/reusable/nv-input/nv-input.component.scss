@@ -24,7 +24,7 @@
 }
 
 ::ng-deep .is-valid {
-  border-color: $color-green-a8;
+  border-color: $color-green-a8 !important;
   background-color: $color-white-fc;
 }
 
@@ -34,7 +34,7 @@
 
 ::ng-deep .is-invalid {
   border-color: $color-red-97 !important;
-  background-color: $color-light-red-f6;
+  background-color: $color-light-red-f6 !important;
 }
 
 /* ::ng-deep .is-normal {

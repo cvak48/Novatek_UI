@@ -1,7 +1,7 @@
 <div class="card-header title-bar" mat-dialog-title>
     <span class="panel-titleTxt">Security Check - User Name</span>
     <button type="button" (click)="closePanel()" class="close mg-15" aria-label="Close">
-        <span aria-hidden="true"><img src="../../../assets/icons/ico.close.svg" /></span>
+        <span aria-hidden="true"><img src="../../../assets/icons/ico.close.svg"  class="close-icon" /></span>
     </button>
 </div>
 <div class="mr-div-2 card-wd">
@@ -13,15 +13,17 @@
                     [fieldStatusType]="dropdownFieldStatusType" [fieldType]="dropDownFieldType" [textTrimNumber]="textTrimNumber"
                     (itemSelect)="onItemSelect($event)">
                 </app-nv-dropdown>
-                <app-nv-text-area class="text-color" [(sharedVar)]="reason" inputPlaceHolder="Reason for change"
-                    textareaLabel="Enter Reason for change" [status]="reasonValidation" (keyup)="keyPress('reason')">
-                </app-nv-text-area>
+                <div class="text-area">
+                    <app-nv-text-area [(sharedVar)]="reason" inputPlaceHolder=""
+                        textareaLabel="Enter Reason for change" [status]="reasonValidation" (keyup)="keyPress('reason')">
+                    </app-nv-text-area>
+                </div>
                 <app-nv-input class="text-color" [(sharedVar)]="password" inputPlaceHolder="Password" label="Password"
                     [status]="passwordValidation" (keyup)="keyPress('password')"></app-nv-input>
             </div>
         </div>
     </div>
-    <div class="shadow-sm-dark dp-inline mr-tp-2">
+    <div class="shadow-sm-dark dp-inline mr-tp-2 mb-4">
         <div class="dp-inline btn-right">
             <app-nv-button label="Save" class="mr-rt-1" (buttonClick)="buttonClick()"></app-nv-button>
             <app-nv-button label="Cancel" (buttonClick)="closePanel()"></app-nv-button>     

@@ -26,5 +26,7 @@
     "comments": "Comments",
     "doctor": "Doctor",
     "pharma": "Pharma",
-    "nurse": "Nurse"
+    "nurse": "Nurse",
+    "back_to_login": "Login"
+
 }

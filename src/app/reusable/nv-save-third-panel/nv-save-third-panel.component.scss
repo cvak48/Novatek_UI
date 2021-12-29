@@ -1,75 +1,123 @@
 @import "../../reusable/theme/base.scss";
-.card-wd{
-    width:600px;
+.card-wd {
+  width: 600px;
 }
-::ng-deep  .saveTeamsPanel .mat-dialog-container {
-    padding: 4px!important;
-    overflow-x: hidden;
+.card {
+  border: none;
 }
-th{
-    text-transform: uppercase;
-    font-weight: bold;
+::ng-deep .saveTeamsPanel .mat-dialog-container {
+  padding: 4px !important;
+  overflow-x: hidden;
+}
+th {
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 ::ng-deep label {
   font-weight: 600;
   font-family: Lato;
-  color: #DB2828;
-
+  color: #db2828;
+  margin-bottom: 4px;
 }
 
 .card-body {
-    min-height: 25%;
-    // padding: 30px 10px;
-    padding: 0.25rem;
-    background: #e8e8e8;
-    // color: #973937;
-    font-family: Lato;
-    // border: 1px solid #973937;
+  min-height: 25%;
+  // padding: 30px 10px;
+  padding: 0.25rem;
+  background: #f0f0f0;
+  // color: #973937;
+  font-family: Lato;
+  // border: 1px solid #973937;
 }
 
 .shadow-sm-dark {
-    width: 25%;
-    min-height: 50px;
-    border-bottom-left-radius: 8px !important;
-    border-bottom-right-radius: 8px !important;
+  width: 25%;
+  min-height: 50px;
+  border-bottom-left-radius: 8px !important;
+  border-bottom-right-radius: 8px !important;
 }
 
-  .dp-inline {
-    float: right;
-  }
+.dp-inline {
+  float: right;
+}
 
-  .btn-right {
-    float: right;
-    display: flex;
-  }
+.btn-right {
+  float: right;
+  display: flex;
+  margin-right: 3px;
+}
 
-  .mr-rt-1 {
-    margin-right: 1%;
-  }
+.mr-rt-1 {
+  margin-right: 5px;
+}
 
-  .mr-tp-2{
-      margin-top: 2%;
-  }
+.mr-tp-2 {
+  margin-top: 2px;
+}
 
-  // .rotateimg180 {
-  //   -webkit-transform: rotate(180deg);
-  //   -moz-transform: rotate(180deg);
-  //   -ms-transform: rotate(180deg);
-  //   -o-transform: rotate(180deg);
-  //   transform: rotate(180deg);
-  // }
+.mb-4{
+  margin-bottom: -4px !important;
+}
 
-  .title-bar{
-    margin-left: -3%;
-    margin-top: -2%;
-    width: 104%;
-  }
+// .rotateimg180 {
+//   -webkit-transform: rotate(180deg);
+//   -moz-transform: rotate(180deg);
+//   -ms-transform: rotate(180deg);
+//   -o-transform: rotate(180deg);
+//   transform: rotate(180deg);
+// }
 
-  .card-title {
-      font-size: 18px;
-      font-weight: 500;
-  
-  }
+.title-bar {
+  margin-left: -3%;
+  //@error: -2%;
+  width: 104%;
+  height: 40px;
+  background-color: #f9f9f9;
+  margin-top:-1%
+}
 
- 
+.card-header {
+  //padding: 0px 0px;
+  padding-left: 21px;
+  padding-right: 11px;
+  padding-top: 4px;
+  padding-bottom: 0px;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.close-icon {
+  height: 24px;
+}
+
+.panel-titleTxt {
+  font-family: "Lato" !important;
+  font-weight: bold !important;
+  font-size: 16px;
+}
+
+.mg-15{
+  margin-top: 4px;
+}
+
+.mat-dialog-title{
+  margin-bottom: 10px;
+}
+
+.text-area{
+  margin-top: 5px !important;
+}
+
+::ng-deep .form-group {
+  margin-bottom: 5px !important;
+}
+
+::ng-deep .form-control {
+  font-size: 14px;
+  font-family: 'Lato';
+  font-weight: 500;
+}

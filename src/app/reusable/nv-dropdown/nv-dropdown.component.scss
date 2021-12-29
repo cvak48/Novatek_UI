@@ -1,4 +1,4 @@
-@import './../theme/base.scss';
+@import "./../theme/base.scss";
 
 $height: 40px;
 $border-thickness: 1px;
@@ -7,7 +7,6 @@ $padding: 12px;
 $icons-distance: 8px;
 
 @mixin dropdownFieldSharedStyles {
-
   &.label {
     color: $color-dark-gray-12;
   }
@@ -51,7 +50,9 @@ $icons-distance: 8px;
   width: 100%;
   height: $height;
   border-radius: 4px;
-
+  .is-invalid {
+    background-color: #fff6f6;
+  }
   .dropdown-input {
     position: relative;
     width: 100%;
@@ -71,11 +72,9 @@ $icons-distance: 8px;
     }
 
     &.status-icon {
-      width: 16px;
-      height: 16px;
-      fill: yellow !important;
+      width: 12px;
+      height: 14px;
     }
-
   }
 
   .dropdown-button {
@@ -119,7 +118,7 @@ $icons-distance: 8px;
 
   .dropdown-menu {
     min-width: 140px;
-    left : 0px !important;
+    left: 0px !important;
     // max-width: 184px;
     width: 100%;
     padding-top: 0px;

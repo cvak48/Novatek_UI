@@ -90,6 +90,14 @@
                   (eventName)="forgotDetails($event)"
                 ></app-nv-input>
               </div>
+              <div
+                [@fadeInAndOut]
+                *ngIf="variableList.loginError"
+                class="alert alert-dismissible alert-danger"
+              >
+                <p class="error-Txt mb3">{{ "error" | translate }}</p>
+                <span class="secondary-txt">{{ variableList.loginError }}</span>
+              </div>
             </div>
             <div
               *ngIf="variableList.hideLogin && !variableList.confirmation"
@@ -113,6 +121,9 @@
                 <span class="secondary-txt">{{
                   "emailNotMatched" | translate
                 }}</span>
+                <!-- <span class="secondary-txt">{{
+                  variableList.forgotUserNameError
+                }}</span> -->
               </div>
             </div>
             <div

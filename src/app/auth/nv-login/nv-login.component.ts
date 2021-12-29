@@ -144,6 +144,7 @@ export class NVLoginComponent implements OnInit {
                 this.showForgotUsrnameTxt = false;
                 this.showForgotPasswordTxt = false;
                 this.showConfirmationTxt = false;
+                this.variableList.forgotUserName = ''; // forgotUserName: 'Forgot Username'
                 //this.variableList.cardHeading = this.variableList.passwordPlaceholder; -- don't delete
               },
               (error) => {
@@ -160,7 +161,7 @@ export class NVLoginComponent implements OnInit {
             : this.variableList.isInValid;
           this.variableList.dropdownValidation = this.emptyVariableList
             .domainNameInput
-            ? this.variableList.isValid
+            ? FieldStatusType.Accept
             : FieldStatusType.Error;
         }
 
@@ -225,13 +226,16 @@ export class NVLoginComponent implements OnInit {
         )
         .subscribe(
           (res) => {
+            this.variableList.forgotUserNameError = '';
             this.variableList.emailValidation = '';
             this.variableList.confirmEmailValidation = '';
             this.isEmailInvalid = false;
             this.recoveryConfirmation();
           },
           (error) => {
+            console.log(error);
             this.variableList.emailValidation = this.variableList.isInValid;
+            this.variableList.forgotUserNameError = error.message.message;
             this.isEmailInvalid = true;
           }
         );
@@ -333,6 +337,9 @@ export class NVLoginComponent implements OnInit {
     this.emptyVariableList.passwordInput = '';
     this.emptyVariableList.domainNameInput = '';
     this.selectedItemDefaultMenu = '';
+    this.variableList.loginError = '';
+    this.variableList.forgotUserNameError = '';
+    this.variableList.forgotUserName = 'Forgot Username'; // forgotUserName: 'Forgot Username'
     setTimeout(() => {
       this.selectedItemDefaultMenu =
         this.mockMenuDropdown().selectedItemDefault;
@@ -440,9 +447,11 @@ export class NVLoginComponent implements OnInit {
     this.sharedAuth.login_response.next(res);
     if (token) {
       this.sharedAuth.access_token.next(token);
+      this.variableList.loginError = '';
       this.router.navigate(['menu']);
     } else {
       this.variableList.passwordValidation = this.variableList.isInValid;
+      this.variableList.loginError = res.error;
     }
   }
 }

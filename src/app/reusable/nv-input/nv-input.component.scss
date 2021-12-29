@@ -25,7 +25,7 @@
 
 ::ng-deep .is-valid {
   border-color: $color-green-a8 !important;
-  background-color: $color-white-fc;
+  background-color: $color-white-fc !important;
 }
 
 .is-notValid {

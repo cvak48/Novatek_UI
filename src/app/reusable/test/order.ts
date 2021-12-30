@@ -8,5 +8,7 @@ export interface Order {
   attachments: any;
   title: string;
   position: string;
+  multiPosition?: string[];
+  multiStatus?: string[];
   userName? : string;
 }

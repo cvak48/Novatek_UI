@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { DropdownFieldType } from 'src/app/model/data-model';
 import { fadeInAndOut } from '../../../assets/trigger';
-import { VerifyUserService } from 'src/app/services/rest-services/verify-user.service';
 import { Router } from '@angular/router';
+import { VerifyUserService } from 'src/app/services/rest-services/verify-user.service';
 import { BaseHttpService } from 'src/app/services/common-http/base-http.service';
 import { RestUrlsService } from 'src/app/services/rest-urls/rest-urls.service';
 import { SharedAuthService } from 'src/app/services/auth-data/shared-auth.service';
@@ -88,6 +88,7 @@ export class NVLoginComponent implements OnInit {
     domainNameInput: '',
     passwordInput: '',
     passwordValidation: '',
+    userPasswordInput: ''
   };
 
   constructor(

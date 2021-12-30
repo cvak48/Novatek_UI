@@ -44,13 +44,13 @@
      
           </div>
           <div class="dp-inline btn-right mr-rt-1">
-            <app-nv-button
+            <app-nv-button *ngIf="onlyFirstPanel"
               label="New"
               class="mr-rt-1"
               (buttonClick)="buttonNewClick()"
               [disabled]="saveBtnDisable"
             ></app-nv-button>
-            <app-nv-button
+            <app-nv-button *ngIf="onlyFirstPanel"
               label="Edit"
               [disabled]="editBtnDisable"
               (buttonClick)="buttonEditClick()"
@@ -64,7 +64,7 @@
           <div class="table-scroll" [style.height.px]="panelTableHeight2">
             <table class="data-table" mdbTable>
               <tr class="mat-header-row">
-                <th class="mat-header-cell">
+                <th class="mat-header-cell col-min-wdh-95">
                   <!-- <input
                     class="table-check"
                     type="checkbox"
@@ -78,7 +78,7 @@
                   scope="col"
                   [mdbTableSort]="orders"
                   [sortBy]="columns[i]"
-                  class="mat-header-cell">
+                  class="mat-header-cell col-min-wdh-95">
                   {{ column }}
                   <span
                     >
@@ -139,10 +139,10 @@
                 </td>
                 <td [ngClass]="{'active': orders[i].checked}"><span *ngIf="order.name && !order.userName">{{ order.name }}</span><span *ngIf="!order.name && order.userName">{{ order.userName }}</span></td>
                 <td [ngClass]="{'active': orders[i].checked}">{{ order.title }}</td>
-                <td [ngClass]="{'active': orders[i].checked}">{{ order.position }}</td>
+                <td [ngClass]="{'active': orders[i].checked}">{{ order.position }} <span class="mail-link" *ngIf="order.multiPosition?.length">({{order.multiPosition?.length}})</span></td>
                 <td [ngClass]="{'active': orders[i].checked}">{{ order.date }}</td>
                 <td class="mail-link" [ngClass]="{'active': orders[i].checked}">{{ order.email }}</td>
-                <td [ngClass]="{'active': orders[i].checked}">{{ order.status }}</td>
+                <td [ngClass]="{'active': orders[i].checked}">{{ order.status }} <span class="mail-link" *ngIf="order.multiStatus?.length">({{order.multiStatus?.length}})</span></td>
                
               </tr>
               <ng-container *ngIf="isRowVisibleAllowed(i)">
@@ -150,10 +150,18 @@
                   <td class="pd-lt-2 checkbox-column">&nbsp;</td>
                   <td>Name</td>
                   <td>Title</td>
-                  <td>Position</td>
+                  <td><span *ngIf="order.multiPosition?.length">
+                    <p *ngFor="let position of order.multiPosition">
+                      {{position}}
+                    </p>
+                  </span></td>
                   <td>Date</td>
                   <td>Email</td>
-                  <td>Status</td>
+                  <td><span *ngIf="order.multiStatus?.length">
+                    <p *ngFor="let status of order.multiStatus">
+                      {{status}}
+                    </p>
+                  </span></td>
                   
                 </tr>
               </ng-container>

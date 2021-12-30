@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ElementRef } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { ApplicationService } from 'src/app/services/application.service';
 
 @Component({
@@ -7,6 +8,7 @@ import { ApplicationService } from 'src/app/services/application.service';
   styleUrls: ['./nv-slider-common-panel.component.scss']
 })
 export class NvSliderCommonPanelComponent implements OnInit {
+  @Input() panelTableHeight: any;
   @Input() panelNum!: string;
   @Input() panelTitle!: string;
   @Input() panelSaveBtn!: string;
@@ -14,12 +16,15 @@ export class NvSliderCommonPanelComponent implements OnInit {
   @Output() close = new EventEmitter();
   showPanel: boolean = false;
   btnDisable: boolean = false;
+  
+
   constructor(private applicationService: ApplicationService) { }
 
   ngOnInit(): void {
     this.applicationService.userBtnAction.subscribe((res) => {
       this.btnDisable = false;
     });
+  
   }
 
   saveButtonClick(): void{

@@ -83,6 +83,7 @@ export class DataService {
             'date': "12-25-1995",
             'email': 'john@yahoo.com',
             'status': 'No',
+            'multiStatus': ['Test Status 1', 'Test Status2'],
             'checked': false,
             'title': 'Lead1',
             'position': 'Tech Lead1',
@@ -100,6 +101,7 @@ export class DataService {
             'checked': false,
             'title': 'Lead2',
             'position': 'Tech Lead2',
+            'multiPosition':['Test Position 1', 'Test Position 2'],
             'attachments': [{
               'id': '1',
               'name': 'file1'
@@ -118,6 +120,8 @@ export class DataService {
             'checked': false,
             'title': 'Lead3',
             'position': 'Tech Lead3',
+            'multiStatus': ['Test Status 1', 'Test Status2'],
+            'multiPosition':['Test Position 1', 'Test Position 2'],
             'attachments': [{
               'id': '1',
               'name': 'file1'
@@ -151,6 +155,8 @@ export class DataService {
             'checked': false,
             'title': 'Lead5',
             'position': 'Tech Lead5',
+            'multiStatus': ['Test Status 1', 'Test Status2'],
+            'multiPosition':['Test Position 1', 'Test Position 2'],
             'attachments': [{
               'id': '1',
               'name': 'file1'
@@ -169,6 +175,7 @@ export class DataService {
             'checked': false,
             'title': 'Lead6',
             'position': 'Tech Lead6',
+            'multiStatus': ['Test Status 1', 'Test Status2'],
             'attachments': [{
               'id': '1',
               'name': 'file1'
@@ -183,6 +190,7 @@ export class DataService {
             'checked': false,
             'title': 'Lead7',
             'position': 'Tech Lead7',
+            'multiPosition':['Test Position 1', 'Test Position 2'],
             'attachments': [{
               'id': '1',
               'name': 'file1'
@@ -201,6 +209,8 @@ export class DataService {
             'checked': false,
             'title': 'Lead8',
             'position': 'Tech Lead8',
+            'multiStatus': ['Test Status 1', 'Test Status2'],
+            'multiPosition':['Test Position 1', 'Test Position 2'],
             'attachments': [{
               'id': '1',
               'name': 'file1'

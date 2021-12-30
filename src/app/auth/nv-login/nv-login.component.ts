@@ -40,7 +40,7 @@ export class NVLoginComponent implements OnInit {
     usernameLabel: 'Username',
     next: 'Next',
     login: 'Login',
-    resend: 'Resend',
+    resend: 'Retry',
     submit: 'Submit',
     stateTxt: 'Select Site',
     domainTxt: 'Select Domain',
@@ -179,6 +179,9 @@ export class NVLoginComponent implements OnInit {
       case 'Resend':
       case 'Renvoyer':
       case '重发':
+      case 'Retry':
+      case 'Retry':
+      case 'Retry':
         this.showResendBtn = true;
         this.variableList.count = this.variableList.count + 1;
         if (this.variableList.count > 1) {
@@ -294,9 +297,9 @@ export class NVLoginComponent implements OnInit {
       : 'forgotpassword';
     this.showLoginTxt = false;
     this.showPasswordTxt = false;
-    this.showForgotUsrnameTxt = false;
-    this.showForgotPasswordTxt = false;
-    this.showConfirmationTxt = true;
+    // this.showForgotUsrnameTxt = false;
+    // this.showForgotPasswordTxt = false;
+    // this.showConfirmationTxt = true;
     this.variableList.confirmation = true;
     this.showSubmitBtn = false;
     this.showResendBtn = true;

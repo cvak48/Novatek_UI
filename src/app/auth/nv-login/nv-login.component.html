@@ -93,9 +93,11 @@
               <div
                 [@fadeInAndOut]
                 *ngIf="variableList.loginError"
-                class="alert alert-dismissible alert-danger"
+                class="alert alert-dismissible customAlert alert-danger"
               >
-                <p class="error-Txt mb3">{{ "error" | translate }}</p>
+                <p class="error-Txt mb3 mb-1">
+                  {{ "Validation Error" | translate }}
+                </p>
                 <span class="secondary-txt">{{ variableList.loginError }}</span>
               </div>
             </div>
@@ -115,9 +117,9 @@
               <div
                 [@fadeInAndOut]
                 *ngIf="isEmailInvalid"
-                class="alert alert-dismissible alert-danger"
+                class="alert alert-dismissible customAlert alert-danger"
               >
-                <p class="error-Txt mb3">{{ "error" | translate }}</p>
+                <p class="error-Txt mb3 mb-1">{{ "error!" | translate }}</p>
                 <span class="secondary-txt">{{
                   "emailNotMatched" | translate
                 }}</span>
@@ -130,8 +132,8 @@
               *ngIf="variableList.hideLogin && variableList.confirmation"
               class="forgotPassword-items"
             >
-              <div class="alert alert-dismissible alert-success">
-                <p class="sucess-Txt">{{ "success" | translate }}</p>
+              <div class="alert alert-dismissible customAlert alert-success">
+                <p class="sucess-Txt mb-1">{{ "success!" | translate }}</p>
                 <p class="secondary-txt">
                   {{ "loginInformation" | translate }}
                 </p>

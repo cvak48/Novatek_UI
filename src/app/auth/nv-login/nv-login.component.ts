@@ -88,7 +88,7 @@ export class NVLoginComponent implements OnInit {
     domainNameInput: '',
     passwordInput: '',
     passwordValidation: '',
-    userPasswordInput: ''
+    userPasswordInput: '',
   };
 
   constructor(
@@ -226,6 +226,7 @@ export class NVLoginComponent implements OnInit {
             : this.urls.forgotPasswordUrl,
           {
             EmailAddress: this.emptyVariableList.emailInput,
+            UserName: this.emptyVariableList.userNameInput,
           }
         )
         .subscribe(
@@ -270,7 +271,7 @@ export class NVLoginComponent implements OnInit {
         this.showForgotPasswordTxt = true;
         this.showConfirmationTxt = false;
         this.emptyVariableList.emailInput = '';
-        this.emptyVariableList.userNameInput = '';
+        // this.emptyVariableList.userNameInput = '';
         break;
       // using Forgot Username as default case
       default:
@@ -379,6 +380,7 @@ export class NVLoginComponent implements OnInit {
         this.dropdownItemsMenu = this.mockMenuDropdown().items;
       }, 80);
     }
+    this.cancelClick();
   }
 
   private transilateVar() {

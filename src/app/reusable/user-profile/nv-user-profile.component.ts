@@ -64,6 +64,7 @@ export class NvUserProfileComponent implements OnInit {
   ngOnInit(): void {
     this.sub = this.applicationService.selectedUserData
               .subscribe(res => {
+                console.log('selected user', res)
                 //  this.personData = res;
                  if (res.length) {
                    if (res.length == 1) {
@@ -82,7 +83,6 @@ export class NvUserProfileComponent implements OnInit {
               this._initialize();
     this.applicationService.btnClickData
          .subscribe(res => {
-          console.log('in check', this.personData.firstName?.length, this.personData.LastName?.length)
            if (res == 'updateUserData') {
               this.firstNameStatus = this.personData.firstName?.length > 0 ? 'is-normal' : 'is-invalid';
               this.lastNameStatus = this.personData.LastName?.length > 0 ? 'is-normal' : 'is-invalid';
@@ -99,7 +99,9 @@ export class NvUserProfileComponent implements OnInit {
                    this.applicationService.setBtnDisabled(true);
               } else {
                 this.applicationService.setBtnDisabled(false);
-              }
+              
+             }
+              
            }
          })
 
@@ -142,7 +144,7 @@ export class NvUserProfileComponent implements OnInit {
   }
 
   saveuserData(): void {
-    if (this.personData.id && this.personData.id > 0) {
+    if (!this.multiUser && this.personData.id && this.personData.id > 0) {
       this.applicationService.setUpdatedUserData(this.personData);
     } else if (this.personData.id == 0) {
       this.applicationService.setNewUserData(this.personData);
@@ -151,6 +153,7 @@ export class NvUserProfileComponent implements OnInit {
         user.title = this.personData.title;
         user.position = this.personData.position;
       });
+      console.log('multi', this.multiUserList)
       this.applicationService.setNewUserData(this.multiUserList);
     }
   }

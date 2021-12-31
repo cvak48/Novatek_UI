@@ -300,6 +300,9 @@ export class NvTablePanelComponent implements OnInit, AfterViewInit, OnChanges {
   selectUser(event: any, userData: any): void{
     if (event.target.checked) {
       this.selectedUser.push(userData);
+      this.saveBtnDisable = false;
+    this.editBtnDisable = false;
+    this.applicationService.setBtnDisabled(false);
     } else {
       const filteredUser = this.selectedUser.filter((user: any) => {
         return user.id != userData.id;
